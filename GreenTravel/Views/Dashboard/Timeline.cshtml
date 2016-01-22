@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.PageTitle = "Dashboard";
+    
+}
+<link href="/assets/css/daterangepicker.css" rel="stylesheet" />
+
+<link href="/assets/plugins/vertical-timeline/css/style.css" rel="stylesheet" type="text/css">
+<style>
+    .date-picker-line {
+        margin-bottom: 15px;
+    }
+
+    .date-range {
+        width: 235px;
+    }
+
+        .date-range span {
+            font-size: 10px;
+        }
+
+    .btn {
+        text-transform: uppercase;
+    }
+
+    .dashboard-tab .nav-tabs > li > a {
+        border-bottom-width: 0;
+    }
+
+    .date-picker-line {
+        display: none;
+    }
+
+    .dashboard-tab .tab-content {
+        border-top-width: 0;
+    }
+
+    .nav-tabs {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .dashboard-tab .nav-tabs > li > a {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+</style>
+
+<div class="col-md-12">
+    <div role="tabpanel" class="dashboard-tab">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs form-basic-tab " role="tablist" style="border-width: 0; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
+            <li role="presentation"><a href="@Url.Action("Index", "Dashboard")" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-dashboard"></span>&nbsp;&nbsp;General</a></li>
+            <li role="presentation"><a href="@Url.Action("Sales", "Dashboard")" data-section="tab2" class="hosting-accord"><span class="menu-icon fa fa-tree"></span>&nbsp;&nbsp;Sales </a></li>
+            <li role="presentation"><a href="@Url.Action("Accounts", "Dashboard")" data-section="tab3" class="sub-accord"><span class="menu-icon fa fa-tags"></span>&nbsp;&nbsp;Accounts </a></li>
+            <li role="presentation"><a href="@Url.Action("WebPortal", "Dashboard")" data-section="tab4" class="billing-accord"><span class="menu-icon fa fa-globe"></span>&nbsp;&nbsp;Web Portal </a></li>
+            <li role="presentation"><a href="@Url.Action("Calender", "Dashboard")" data-section="tab5" class="maintance-accord"><span class="menu-icon fa fa-calendar-o"></span>&nbsp;&nbsp;Calender </a></li>
+            <li role="presentation" class="active"><a href="javascript:void(0);" data-section="tab6" class="maintance-accord"><span class="menu-icon fa fa-sliders"></span>&nbsp;&nbsp;Timeline </a></li>
+            <li role="presentation"><a href="@Url.Action("ToDo", "Dashboard")" data-section="tab7" class="maintance-accord"><span class="menu-icon fa fa-check-square"></span>&nbsp;&nbsp;To Do </a></li>
+            <li role="presentation"><a href="@Url.Action("SearchResult", "Dashboard")" data-section="tab8" class="maintance-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;Search Result</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section id="cd-timeline" class="cd-container">
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-success">
+                                    <i class="fa fa-tag"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 1</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                                    <span class="cd-date">Jan 14</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-danger">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 2</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
+                                    <span class="cd-date">Jan 18</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-info">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 3</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                                    <span class="cd-date">Jan 24</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-info">
+                                    <i class="fa fa-comments"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 4</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                                    <span class="cd-date">Feb 14</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-warning">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 5</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+                                    <img src="assets/images/crop.jpg" alt="">
+                                    <span class="cd-date">Feb 18</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-primary">
+                                    <i class="fa fa-paperclip"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Final Section</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                                    <span class="cd-date">Feb 26</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+                        </section>
+                        <!-- cd-timeline -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/daterangepicker.js"></script>
+    <script src="/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <script src="/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="/assets/plugins/metrojs/MetroJs.min.js"></script>
+   
+    @*For Timeline*@
+    <script src="/assets/plugins/vertical-timeline/js/main.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
+    <script src="/assets/js/pages/timeline.js"></script>
+
+    <script>
+        $(function () {
+
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+            cb(moment().subtract(29, 'days'), moment());
+
+            $('#reportrange').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+        });
+        $(document).ready(function () {
+            $('li a.delete').click(function () {
+                $(this).parent().parent().remove();
+            });
+        });
+    </script>
+}

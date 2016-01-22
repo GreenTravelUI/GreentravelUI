@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.PageTitle = "Dashboard";
+    
+}
+<link href="/assets/css/daterangepicker.css" rel="stylesheet" />
+<link href="/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .date-picker-line {
+        margin-bottom: 15px;
+    }
+
+    .date-range {
+        width: 235px;
+    }
+
+        .date-range span {
+            font-size: 10px;
+        }
+
+    .btn {
+        text-transform: uppercase;
+    }
+
+    .dashboard-tab .nav-tabs > li > a {
+        border-bottom-width: 0;
+    }
+
+    .date-picker-line {
+        display: none;
+    }
+
+    .dashboard-tab .tab-content {
+        border-top-width: 0;
+    }
+
+    .nav-tabs {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .dashboard-tab .nav-tabs > li > a {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+</style>
+
+<div class="col-md-12">
+    <div role="tabpanel" class="dashboard-tab">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs form-basic-tab " role="tablist" style="border-width: 0; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
+            <li role="presentation"><a href="@Url.Action("Index", "Dashboard")" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-dashboard"></span>&nbsp;&nbsp;General</a></li>
+            <li role="presentation"><a href="@Url.Action("Sales", "Dashboard")" data-section="tab2" class="hosting-accord"><span class="menu-icon fa fa-tree"></span>&nbsp;&nbsp;Sales </a></li>
+            <li role="presentation"><a href="@Url.Action("Accounts", "Dashboard")" data-section="tab3" class="sub-accord"><span class="menu-icon fa fa-tags"></span>&nbsp;&nbsp;Accounts </a></li>
+            <li role="presentation"><a href="@Url.Action("WebPortal", "Dashboard")" data-section="tab4" class="billing-accord"><span class="menu-icon fa fa-globe"></span>&nbsp;&nbsp;Web Portal </a></li>
+            <li role="presentation"><a href="@Url.Action("Calender", "Dashboard")" data-section="tab5" class="maintance-accord"><span class="menu-icon fa fa-calendar-o"></span>&nbsp;&nbsp;Calender </a></li>
+            <li role="presentation"><a href="@Url.Action("Timeline", "Dashboard")" data-section="tab6" class="maintance-accord"><span class="menu-icon fa fa-sliders"></span>&nbsp;&nbsp;Timeline </a></li>
+            <li role="presentation" class="active"><a href="javascript:void(0);" data-section="tab7" class="maintance-accord"><span class="menu-icon fa fa-check-square"></span>&nbsp;&nbsp;To Do </a></li>
+            <li role="presentation"><a href="@Url.Action("SearchResult", "Dashboard")" data-section="tab8" class="maintance-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;Search Result</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white todo">
+                            <div class="panel-body">
+                                <form action="javascript:void(0);">
+                                    <input type="text" class="form-control add-task" placeholder="New Task...">
+                                </form>
+                                <ul class="nav nav-pills todo-nav">
+                                    <li role="presentation" class="active all-task"><a href="javascript:void(0);">All</a></li>
+                                    <li role="presentation" class="active-task"><a href="javascript:void(0);">Active</a></li>
+                                    <li role="presentation" class="completed-task"><a href="javascript:void(0);">Completed</a></li>
+                                </ul>
+                                <div class="todo-list">
+                                    <div class="todo-item">
+                                        <input type="checkbox">
+                                        <span>Go Shopping</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item">
+                                        <input type="checkbox">
+                                        <span>Create new Wordpress Theme</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item complete">
+                                        <input type="checkbox" checked>
+                                        <span>Change slider style</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item complete">
+                                        <input type="checkbox" checked>
+                                        <span>Fronted Theme</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item">
+                                        <input type="checkbox">
+                                        <span>Learn C# programming language</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <input type="checkbox" id="all-complete">
+                                <span>Mark all as complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/daterangepicker.js"></script>
+    <script src="/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <script src="/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="/assets/plugins/metrojs/MetroJs.min.js"></script>
+   
+    @*For TODO*@
+    <script src="/assets/js/pages/todo.js"></script>
+
+    <script>
+        $(function () {
+
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+            cb(moment().subtract(29, 'days'), moment());
+
+            $('#reportrange').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+        });
+        $(document).ready(function () {
+            $('li a.delete').click(function () {
+                $(this).parent().parent().remove();
+            });
+        });
+    </script>
+}
