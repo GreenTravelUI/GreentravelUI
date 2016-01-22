@@ -3,50 +3,61 @@
     ViewBag.PageTitle = "Dashboard";
     
 }
-<link href="/assets/css/daterangepicker.css" rel="stylesheet" />
-<style>
-    .date-picker-line {
-        margin-bottom: 15px;
-    }
-    .date-range {
-        width: 235px;
-    }
-    .date-range span {
-        font-size: 10px;
-    }
-    .btn {
-        text-transform: uppercase;
-    }
-    .dashboard-tab .nav-tabs > li > a {
-        border-bottom-width:0;
-    }
-    .date-picker-line {
-        display:none;
-    }
-    .dashboard-tab .tab-content {
-        border-top-width:0;
-    }
-    .nav-tabs {
-        border-bottom: 1px solid #ddd;
-    }
-    .dashboard-tab .nav-tabs > li > a {
-        font-size: 12px;
-        padding: 10px 20px;
-    }
-</style>
-<div class="col-md-12">
+@section Styles{
 
+    <link href="/assets/css/daterangepicker.css" rel="stylesheet" />
+    <style>
+        .date-picker-line {
+            margin-bottom: 15px;
+        }
+
+        .date-range {
+            width: 235px;
+        }
+
+            .date-range span {
+                font-size: 10px;
+            }
+
+        .btn {
+            text-transform: uppercase;
+        }
+
+        .dashboard-tab .nav-tabs > li > a {
+            border-bottom-width: 0;
+        }
+
+        .date-picker-line {
+            display: none;
+        }
+
+        .dashboard-tab .tab-content {
+            border-top-width: 0;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dashboard-tab .nav-tabs > li > a {
+            font-size: 12px;
+            padding: 10px 20px;
+        }
+    </style>
+
+}
+<div class="col-md-12">
     <div role="tabpanel" class="dashboard-tab">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs form-basic-tab " role="tablist" style="border-width:0;border-right: 1px solid #ccc;border-left: 1px solid #ccc;">
-            <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;General</a></li>
-            <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Sales </a></li>
-            <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="sub-accord"><span class="menu-icon glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;Accounts </a></li>
-            <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="billing-accord"><span class="menu-icon glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;Web Portal </a></li>
-            <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="maintance-accord"><span class="menu-icon glyphicon glyphicon-headphones"></span>&nbsp;&nbsp;Calender </a></li>
-            <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="maintance-accord"><span class="menu-icon glyphicon glyphicon-headphones"></span>&nbsp;&nbsp;Timeline </a></li>
-            <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="maintance-accord"><span class="menu-icon glyphicon glyphicon-headphones"></span>&nbsp;&nbsp;To Do </a></li>
-            <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="maintance-accord"><span class="menu-icon glyphicon glyphicon-headphones"></span>&nbsp;&nbsp;Search Result</a></li>
+        <ul class="nav nav-tabs form-basic-tab " role="tablist" style="border-width: 0; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
+            <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-dashboard"></span>&nbsp;&nbsp;General</a></li>
+            <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon fa fa-tree"></span>&nbsp;&nbsp;Sales </a></li>
+            <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="sub-accord"><span class="menu-icon fa fa-tags"></span>&nbsp;&nbsp;Accounts </a></li>
+            <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="billing-accord"><span class="menu-icon fa fa-globe"></span>&nbsp;&nbsp;Web Portal </a></li>
+            <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="maintance-accord"><span class="menu-icon fa fa-calendar-o"></span>&nbsp;&nbsp;Calender </a></li>
+            <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="maintance-accord"><span class="menu-icon fa fa-sliders"></span>&nbsp;&nbsp;Timeline </a></li>
+            <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="maintance-accord"><span class="menu-icon fa fa-check-square"></span>&nbsp;&nbsp;To Do </a></li>
+            <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="maintance-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;Search Result</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
@@ -1153,10 +1164,10 @@
                         </div>
                     </div>
                     <div class="dropdown table-custome-drop dashbord-date-drop">
-                        <a class="btn btn-success" data-target="#myModal2" data-toggle="modal" href="javascript:void(0);" style="font-size: 10px; padding: 10px 12px;">Customize</a>
+                        <a class="btn btn-success" data-target="#myModal3" data-toggle="modal" href="javascript:void(0);" style="font-size: 10px; padding: 10px 12px;">Customize</a>
                     </div>
                 </div>
-                <div class="modal fade modify-colum-model" id="myModal2" role="dialog">
+                <div class="modal fade modify-colum-model" id="myModal3" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -1490,10 +1501,10 @@
                         </div>
                     </div>
                     <div class="dropdown table-custome-drop dashbord-date-drop">
-                        <a class="btn btn-success" data-target="#myModal2" data-toggle="modal" href="javascript:void(0);" style="font-size: 10px; padding: 10px 12px;">Customize</a>
+                        <a class="btn btn-success" data-target="#myModal4" data-toggle="modal" href="javascript:void(0);" style="font-size: 10px; padding: 10px 12px;">Customize</a>
                     </div>
                 </div>
-                <div class="modal fade modify-colum-model" id="myModal2" role="dialog">
+                <div class="modal fade modify-colum-model" id="myModal4" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -1573,18 +1584,476 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Line Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <canvas id="chart1" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Bar Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <canvas id="chart2" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Pie Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <canvas id="chart3" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Doughnut Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <canvas id="chart4" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Polar Area Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <canvas id="chart5" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Radar Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <canvas id="chart6" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
             </div>
             <div role="tabpanel" class="tab-pane" id="tab5">
-                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Events</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="events">
+                                    <div class="calendar-event">
+                                        <p>Meeting with Ann.</p>
+                                        <a href="javascript:void(0);" class="remove-calendar-event"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <div class="calendar-event">
+                                        <p>Go Shopping.</p>
+                                        <a href="javascript:void(0);" class="remove-calendar-event"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <div class="calendar-event">
+                                        <p>finish #7 project.</p>
+                                        <a href="javascript:void(0);" class="remove-calendar-event"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <div class="calendar-event">
+                                        <p>Meeting With Mike.</p>
+                                        <a href="javascript:void(0);" class="remove-calendar-event"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <div class="calendar-event">
+                                        <p>Meeting with Joe.</p>
+                                        <a href="javascript:void(0);" class="remove-calendar-event"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                </div>
+                                <input class="form-control add-event" type="text" placeholder="Add Event">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel panel-white">
+                            <div class="panel-body">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="tab6">
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <section id="cd-timeline" class="cd-container">
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-success">
+                                    <i class="fa fa-tag"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 1</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                                    <span class="cd-date">Jan 14</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-danger">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 2</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
+                                    <span class="cd-date">Jan 18</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-info">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 3</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                                    <span class="cd-date">Jan 24</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-info">
+                                    <i class="fa fa-comments"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 4</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                                    <span class="cd-date">Feb 14</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-warning">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Title of section 5</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+                                    <img src="assets/images/crop.jpg" alt="">
+                                    <span class="cd-date">Feb 18</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-primary">
+                                    <i class="fa fa-paperclip"></i>
+                                </div>
+                                <!-- cd-timeline-img -->
+
+                                <div class="cd-timeline-content">
+                                    <h2>Final Section</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                                    <span class="cd-date">Feb 26</span>
+                                </div>
+                                <!-- cd-timeline-content -->
+                            </div>
+                            <!-- cd-timeline-block -->
+                        </section>
+                        <!-- cd-timeline -->
+                    </div>
+                </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="tab7">
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white todo">
+                            <div class="panel-body">
+                                <form action="javascript:void(0);">
+                                    <input type="text" class="form-control add-task" placeholder="New Task...">
+                                </form>
+                                <ul class="nav nav-pills todo-nav">
+                                    <li role="presentation" class="active all-task"><a href="#">All</a></li>
+                                    <li role="presentation" class="active-task"><a href="#">Active</a></li>
+                                    <li role="presentation" class="completed-task"><a href="#">Completed</a></li>
+                                </ul>
+                                <div class="todo-list">
+                                    <div class="todo-item">
+                                        <input type="checkbox">
+                                        <span>Go Shopping</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item">
+                                        <input type="checkbox">
+                                        <span>Create new Wordpress Theme</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item complete">
+                                        <input type="checkbox" checked>
+                                        <span>Change slider style</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item complete">
+                                        <input type="checkbox" checked>
+                                        <span>Fronted Theme</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="todo-item">
+                                        <input type="checkbox">
+                                        <span>Learn C# programming language</span>
+                                        <a href="javascript:void(0);" class="pull-right remove-todo-item"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <input type="checkbox" id="all-complete">
+                                <span>Mark all as complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="tab8">
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white">
+                            <div class="panel-body">
+                                <div class="search p bg-light m-b-sm">
+                                    <form action="#" method="GET" data-default="150">
+                                        <div class="input-group">
+                                            <input type="text" name="search" class="form-control input-search" placeholder="Search...">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+                                        <!-- Input Group -->
+                                    </form>
+                                    <!-- Search Form -->
+                                </div>
+                                <div role="tabpanel">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab" aria-expanded="false">All<span class="badge badge-success pull-right m-l-xs">18</span></a></li>
+                                        <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab" aria-expanded="true">Users<span class="badge badge-danger pull-right m-l-xs">7</span></a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in p-v-lg" id="all">
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Lorem ipsum dolor sit amet</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Consectetur adipiscing elit</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Integer molestie lorem at massa</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Facilisis in pretium nisl aliquet</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Nulla volutpat aliquam velit</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Faucibus porta lacus fringilla vel</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <div class="search-item">
+                                                <h3 class="no-m"><a href="javascript:void(0);">Aenean sit amet erat nunc</a></h3>
+                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                            </div>
+                                            <nav>
+                                                <ul class="pagination">
+                                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li class="active"><a href="#">3</a></li>
+                                                    <li><a href="#">4</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li><a href="#">6</a></li>
+                                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade p-v-lg" id="users">
+                                            <div class="search-item clearfix">
+                                                <div class="pull-left m-r-md">
+                                                    <img src="assets/images/avatar1.png" class="img-circle" width="80" alt="">
+                                                </div>
+                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">David Smith</a></h3>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                                            </div>
+                                            <div class="search-item clearfix">
+                                                <div class="pull-left m-r-md">
+                                                    <img src="assets/images/avatar2.png" class="img-circle" width="80" alt="">
+                                                </div>
+                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Sandra Smith</a></h3>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                                            </div>
+                                            <div class="search-item clearfix">
+                                                <div class="pull-left m-r-md">
+                                                    <img src="assets/images/avatar3.png" class="img-circle" width="80" alt="">
+                                                </div>
+                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Christoper Palmer</a></h3>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                                            </div>
+                                            <div class="search-item clearfix">
+                                                <div class="pull-left m-r-md">
+                                                    <img src="assets/images/avatar4.png" class="img-circle" width="80" alt="">
+                                                </div>
+                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Emily Lee</a></h3>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                                            </div>
+                                            <div class="search-item clearfix">
+                                                <div class="pull-left m-r-md">
+                                                    <img src="assets/images/avatar5.png" class="img-circle" width="80" alt="">
+                                                </div>
+                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Nick Doe</a></h3>
+                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                                            </div>
+                                            <nav>
+                                                <ul class="pagination">
+                                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li class="active"><a href="#">4</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1605,12 +2074,13 @@
     <script src="/assets/plugins/metrojs/MetroJs.min.js"></script>
     @*For General Tab*@
     <script src="/assets/js/pages/dashboard.js"></script>
+    @*For Sales Tab*@
+    <script src="/assets/plugins/morris/raphael.min.js"></script>
+    <script src="/assets/plugins/morris/morris.min.js"></script>
+    <script src="/assets/js/pages/charts-morris.js"></script>
     @*For Account Tab*@
     <script src="/assets/js/pages/charts-flot.js"></script>
-    @*For Sales Tab*@
-    @* <script src="/assets/plugins/morris/raphael.min.js"></script>
-    <script src="/assets/plugins/morris/morris.min.js"></script>
-    <script src="/assets/js/pages/charts-morris.js"></script>*@
+
 
     <script>
         $(function () {
