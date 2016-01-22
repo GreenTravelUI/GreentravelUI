@@ -7,10 +7,6 @@
 <link href="/assets/plugins/morris/morris.css" rel="stylesheet" />
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
 <style>
-    .date-picker-line {
-        margin-bottom: 15px;
-    }
-
     .date-range {
         width: 235px;
     }
@@ -28,7 +24,16 @@
     }
 
     .date-picker-line {
-        display: none;
+        position: fixed;
+        margin-bottom: 15px;
+        right: -350px;
+        top: 138px;
+        z-index: 999;
+        background: #fff none repeat scroll 0 0;
+        padding: 10px;
+        width: auto;
+        float: right;
+        border: 1px solid #ccc;
     }
 
     .dashboard-tab .tab-content {
@@ -220,10 +225,13 @@
                         </div>
                     </div>
                     <div class="dropdown table-custome-drop dashbord-date-drop">
-                        <a class="btn btn-success" data-target="#myModal3" data-toggle="modal" href="javascript:void(0);" style="font-size: 10px; padding: 10px 12px;">Customize</a>
+                        <a class="btn btn-success" data-target="#myModal" data-toggle="modal" href="javascript:void(0);" style="font-size: 10px; padding: 10px 12px;">Customize</a>
+                    </div>
+                    <div style="padding: 6px 10px; margin-right: 20px;" class="btn btn-success dashboard-filter">
+                        <i class="fa fa-cogs"></i>
                     </div>
                 </div>
-                <div class="modal fade modify-colum-model" id="myModal3" role="dialog">
+                <div class="modal fade modify-colum-model" id="myModal" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -441,6 +449,20 @@
         $(document).ready(function () {
             $('li a.delete').click(function () {
                 $(this).parent().parent().remove();
+            });
+            $('.dashboard-filter').click(function () {
+                if ($(this).hasClass('expanded')) {
+                    $(this).removeClass('expanded');
+                    $(this).parent().animate({
+                        right: "-350px"
+                    }, "slow");
+                } else {
+                    $(this).addClass('expanded');
+                    $(this).parent().animate({
+                        right: "-1px"
+                    }, "slow");
+                }
+
             });
         });
     </script>
