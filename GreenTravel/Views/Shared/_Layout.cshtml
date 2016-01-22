@@ -1,0 +1,1063 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Title -->
+    @if (string.IsNullOrEmpty(ViewBag.Title))
+    {
+        <title>Green Travel</title>
+    }
+    else
+    {
+        <title>@ViewBag.Title</title>
+    }
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+
+    @if (Session["Favicon"] == null)
+    {
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    }
+    else
+    {
+        if (Session["Favicon"].ToString() == "")
+        {
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+        }
+        else
+        {
+        <link rel="icon" href="@Session["Favicon"]" type="image/x-icon" />
+        }
+    }
+
+    <!-- Styles -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <!-- theme css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/cs-skin-boxes.css" />
+
+    <link href="/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
+    <link href="/assets/plugins/tipso/tipso.min.css" rel="stylesheet" />
+    <!-- Theme Styles -->
+    <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/nestable/nestable.css" rel="stylesheet" type="text/css"/>
+    @{
+        ViewBag.ThemeColor = "Green";
+    }
+    @if (ViewBag.ThemeColor == "Green")
+    {
+        <link href="/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    }
+    else if (ViewBag.ThemeColor == "Red")
+    {
+        <link href="/assets/css/themes/red.css" class="theme-color" rel="stylesheet" type="text/css" />
+    }
+
+    <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/pricing-tables/css/style.css" rel="stylesheet" />
+
+    <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">
+    <div class="overlay"></div>
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
+        <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
+        <div class="slimscroll">
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
+            <a href="javascript:void(0);" class="showRight2">
+                <img src="/assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
+        </div>
+    </nav>
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <h3><span class="pull-left">Sandra Smith</span> <a href="javascript:void(0);" class="pull-right" id="closeRight2"><i class="fa fa-angle-right"></i></a></h3>
+        <div class="slimscroll chat">
+            <div class="chat-item chat-item-left">
+                <div class="chat-image">
+                    <img src="/assets/images/avatar2.png" alt="">
+                </div>
+                <div class="chat-message">
+                    Hi There!
+                </div>
+            </div>
+            <div class="chat-item chat-item-right">
+                <div class="chat-message">
+                    Hi! How are you?
+                </div>
+            </div>
+            <div class="chat-item chat-item-left">
+                <div class="chat-image">
+                    <img src="/assets/images/avatar2.png" alt="">
+                </div>
+                <div class="chat-message">
+                    Fine! do you like my project?
+                </div>
+            </div>
+            <div class="chat-item chat-item-right">
+                <div class="chat-message">
+                    Yes, It's clean and creative, good job!
+                </div>
+            </div>
+            <div class="chat-item chat-item-left">
+                <div class="chat-image">
+                    <img src="/assets/images/avatar2.png" alt="">
+                </div>
+                <div class="chat-message">
+                    Thanks, I tried!
+                </div>
+            </div>
+            <div class="chat-item chat-item-right">
+                <div class="chat-message">
+                    Good luck with your sales!
+                </div>
+            </div>
+        </div>
+        <div class="chat-write">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <input type="text" class="form-control" placeholder="Say something">
+            </form>
+        </div>
+    </nav>
+    <div class="menu-wrap">
+        <nav class="profile-menu">
+            <div class="profile">
+                <img src="/assets/images/profile-menu-image.png" width="60" alt="David Green" /><span>David Green</span>
+            </div>
+            <div class="profile-menu-list">
+                <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
+                <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
+                <a href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
+                <a href="#"><i class="fa fa-comment"></i><span>Comments</span></a>
+            </div>
+        </nav>
+        <button class="close-button" id="close-button">Close Menu</button>
+    </div>
+    <form class="search-form" action="#" method="GET">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control search-input" placeholder="Search...">
+            <span class="input-group-btn">
+                <button class="btn btn-default close-search waves-effect waves-button waves-classic" type="button"><i class="fa fa-times"></i></button>
+            </span>
+        </div>
+        <!-- Input Group -->
+    </form>
+    <main class="page-content content-wrap">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="sidebar-pusher">
+                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="logo-box">
+                    <a href="index.html" class="logo-text"><img src="/assets/images/logo.png" class="main-logo" height="60" width="200" />
+                    <img src="/assets/images/logo-small.png" height="60" width="200" class="res-logo" /></a>
+                </div><!-- Logo Box -->
+                <div class="search-button">
+                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+                </div>
+                <div class="topmenu-outer">
+                    <div class="top-menu">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>		
+                                <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
+                            </li>
+                            <li>
+                                <a href="#cd-nav" class="waves-effect waves-button waves-classic cd-nav-trigger"><i class="fa fa-diamond"></i></a>
+                            </li>
+                            <li>		
+                                <a href="javascript:void(0);" class="waves-effect waves-button waves-classic toggle-fullscreen"><i class="fa fa-expand"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                    <i class="fa fa-cogs"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Fixed Header 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right fixed-header-check" checked>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Fixed Sidebar 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right fixed-sidebar-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Horizontal bar 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right horizontal-bar-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Toggle Sidebar 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right toggle-sidebar-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Compact Menu 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right compact-menu-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Hover Menu 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right hover-menu-check">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Boxed Layout 
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right boxed-layout-check">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Choose Theme Color
+                                                <div class="color-switcher">
+                                                    <a class="colorbox color-blue" href="form-elementsca00.html?theme=blue" title="Blue Theme" data-css="blue"></a>
+                                                    <a class="colorbox color-green" href="form-elementsaf91.html?theme=green" title="Green Theme" data-css="green"></a>
+                                                    <a class="colorbox color-red" href="form-elements0e99.html?theme=red" title="Red Theme" data-css="red"></a>
+                                                    <a class="colorbox color-white" href="form-elements13d4.html?theme=white" title="White Theme" data-css="white"></a>
+                                                    <a class="colorbox color-purple" href="form-elements938c.html?theme=purple" title="purple Theme" data-css="purple"></a>
+                                                    <a class="colorbox color-dark" href="form-elements4965.html?theme=dark" title="Dark Theme" data-css="dark"></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="no-link"><button class="btn btn-default reset-options">Reset Options</button></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                                <li>	
+                                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
+                                    <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
+                                        <li><p class="drop-title">You have 4 new  messages !</p></li>
+                                        <li class="dropdown-menu-list slimscroll messages">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/assets/images/avatar2.png" alt=""></div>
+                                                        <p class="msg-name">Sandra Smith</p>
+                                                        <p class="msg-text">Hey ! I'm working on your project</p>
+                                                        <p class="msg-time">3 minutes ago</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/assets/images/avatar4.png" alt=""></div>
+                                                        <p class="msg-name">Amily Lee</p>
+                                                        <p class="msg-text">Hi David !</p>
+                                                        <p class="msg-time">8 minutes ago</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/assets/images/avatar3.png" alt=""></div>
+                                                        <p class="msg-name">Christopher Palmer</p>
+                                                        <p class="msg-text">See you soon !</p>
+                                                        <p class="msg-time">56 minutes ago</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/assets/images/avatar5.png" alt=""></div>
+                                                        <p class="msg-name">Nick Doe</p>
+                                                        <p class="msg-text">Nice to meet you</p>
+                                                        <p class="msg-time">2 hours ago</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/assets/images/avatar2.png" alt=""></div>
+                                                        <p class="msg-name">Sandra Smith</p>
+                                                        <p class="msg-text">Hey ! I'm working on your project</p>
+                                                        <p class="msg-time">5 hours ago</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/assets/images/avatar4.png" alt=""></div>
+                                                        <p class="msg-name">Amily Lee</p>
+                                                        <p class="msg-text">Hi David !</p>
+                                                        <p class="msg-time">9 hours ago</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="drop-all"><a href="#" class="text-center">All Messages</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge badge-success pull-right">3</span></a>
+                                    <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
+                                        <li><p class="drop-title">You have 3 pending tasks !</p></li>
+                                        <li class="dropdown-menu-list slimscroll tasks">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                                                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                                                        <p class="task-details">New user registered.</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                                                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                                                        <p class="task-details">Database error.</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                                                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                                                        <p class="task-details">Reached 24k likes</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="drop-all"><a href="#" class="text-center">All Tasks</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <span class="user-name">David<i class="fa fa-angle-down"></i></span>
+                                        <img class="img-circle avatar" src="/assets/images/avatar1.png" width="40" height="40" alt="">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-list" role="menu">
+                                        <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
+                                        <li role="presentation"><a href="calendar.html"><i class="fa fa-calendar"></i>Calendar</a></li>
+                                         <li role="presentation"><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox <span class="badge badge-success"> 4</span></a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
+                                        <li role="presentation"><a href="login.html"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="login.html" class="log-out waves-effect waves-button waves-classic">
+                                        <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
+                                        <i class="fa fa-comments"></i>
+                                    </a>
+                                </li>
+                            </ul><!-- Nav -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- Navbar -->
+        <div class="horizontal-bar sidebar">
+            <div class="page-sidebar-inner slimscroll">
+                <div class="sidebar-header">
+                    <div class="sidebar-profile">
+                        <a href="javascript:void(0);" id="profile-menu-link">
+                            <div class="sidebar-profile-image">
+                                <img src="/assets/images/profile-menu-image.png" class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span>David Green<br><small>Art Director</small></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div role="tabpanel" class="menu-tab">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs form-basic-tab" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab11" role="tab" data-toggle="tab" class="basic-accord"><i class="fa fa-ellipsis-h"></i></a></li>
+                        <li role="presentation"><a href="#tab12" role="tab" data-toggle="tab" class="hosting-accord"><i class="fa fa-envelope"></i></a></li>
+                        <li role="presentation"><a href="#tab13" role="tab" data-toggle="tab" class="sub-accord"><i class="fa fa-user"></i></a></li>
+                        <li role="presentation"><a href="#tab14" role="tab" data-toggle="tab" class="billing-accord"><i class="fa fa-cog"></i></a></li>
+                        <li role="presentation"><a href="login-alt.html" class="billing-accord"><i class="fa fa-sign-in"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="tab11">
+                            <ul class="menu accordion-menu">
+                                <li><a href="@Url.Action("Index", "Dashboard")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span>
+                                    <p>Dashboard</p>
+                                </a></li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-desktop"></span>
+                                    <p>Whitelabel</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Whitelabel Step-1","Index","WhitelabelStep1")</li>
+                                        <li>@Html.ActionLink("Whitelabel Step-2","Index","WhitelabelStep2")</li>
+                                        <li>@Html.ActionLink("User / Access Rights","Index","WhitelabelAccessRights")</li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-gears "></span>
+                                    <p>Settings</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Form Setup","Index","FormSetup")</li>
+                                        <li>@Html.ActionLink("Form Control Setup","Index","FormControlSetup")</li>
+                                        <li>@Html.ActionLink("View Setup","Index","ViewsSetup")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Masters")" class="waves-effect waves-button"><span class="menu-icon fa fa-cube"></span>
+                                    <p>Masters</p>
+                                </a></li>
+                                <li>
+                                    <a href="@Url.Action("Index", "User")" class="waves-effect waves-button"><span class="menu-icon fa fa-users"></span>
+                                    <p>User</p>
+                                </a></li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Agent")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span>
+                                    <p>Agent</p>
+                                </a></li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-newspaper-o"></span>
+                                    <p>Suppliers</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Hotel","Index","Hotels")</li>
+                                        <li>@Html.ActionLink("Restaurant","Index","Restaurant")</li>
+                                        <li>@Html.ActionLink("Sightseeing","Index","Sightseeing")</li>
+                                        <li>@Html.ActionLink("Transportation","Index","Transportation")</li>
+                                        <li>@Html.ActionLink("Guide","Index","Guide")</li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa  fa-database "></span>
+                                    <p>Price List</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Hotel Room","Index","RoomPriceList")</li>
+                                        <li>@Html.ActionLink("Hotel Function Room","Index","FunctionRoomPriceList")</li>
+                                        <li>@Html.ActionLink("Hotel Gala Dinner","Index","GalaDinnerPriceList")</li>
+                                        <li>@Html.ActionLink("Restaurant","Index","RestaurantPriceList")</li>
+                                        <li>@Html.ActionLink("Sightseening","Index","SightSeeningPriceList")</li>
+                                        <li>@Html.ActionLink("Transportation FIT","Index","TransportationFITPriceList")</li>
+                                        <li>@Html.ActionLink("Transportation GIT","Index","TransportationGITPriceList")</li>
+                                        <li>@Html.ActionLink("Guide FIT","Index","GuideFITPriceList")</li>
+                                        <li>@Html.ActionLink("Guide GIT","Index","GuideGITPriceList")</li>
+                                        
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                                    <p>Tour Quotation</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("FIT Quotation","Index","TourQuotation")</li>
+                                        <li>@Html.ActionLink("GIT Quotation","Index","TourGITQuotation")</li>
+                                        
+                                    </ul>
+                                </li>
+                               @* <li>
+                                    <a href="@Url.Action("Index", "TourQuotation")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span>
+                                    <p>Tour Quotation</p>
+                                </a></li>*@
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-tasks "></span>
+                                    <p>Invoice</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("FIT Invoice","Index","DirectInvoice")</li>
+                                        <li>@Html.ActionLink("View FIT Invoice","Index","FITInvoice")</li>
+                                        <li>@Html.ActionLink("GIT Invoice","Index","GITDirectInvoice")</li>
+                                        <li>@Html.ActionLink("View GIT Invoice","Index","GITInvoice")</li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-money"></span>
+                                    <p>Financial Accounts</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Receipt","Index","Accounts")</li>
+                                        <li>@Html.ActionLink("Payment","Index","Payment")</li>
+                                        <li>@Html.ActionLink("Make Direct Payment","Index","MakeDirectPayment")</li>
+                                        <li>@Html.ActionLink("Write Off Receipt","Index","WriteOffReceipt")</li>
+                                        <li>@Html.ActionLink("Write Off Payment","Index","WriteOffPayment")</li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-wrench"></span>
+                                    <p>Operations</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Travel Vouchers","Index","TravelVouchers")</li>
+                                        <li>@Html.ActionLink("Operation Chart","Index","OperationChart")</li>
+                                        <li>@Html.ActionLink("Service Allocation","Index","ServiceAllocation")</li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-line-chart"></span>
+                                    <p>Reports</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li>@Html.ActionLink("Report Writer","Index","ReportWriter")</li>
+                                    </ul>
+                                </li>
+                                @*<li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span>
+                                    <p>UI Kits</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="ui-alerts.html">Alerts</a></li>
+                                        <li><a href="ui-buttons.html">Buttons</a></li>
+                                        <li><a href="ui-icons.html">Icons</a></li>
+                                        <li><a href="ui-typography.html">Typography</a></li>
+                                        <li><a href="ui-notifications.html">Notifications</a></li>
+                                        <li><a href="ui-grid.html">Grid</a></li>
+                                        <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a></li>
+                                        <li><a href="ui-modals.html">Modals</a></li>
+                                        <li><a href="ui-panels.html">Panels</a></li>
+                                        <li><a href="ui-progress.html">Progress Bars</a></li>
+                                        <li><a href="ui-sliders.html">Sliders</a></li>
+                                        <li><a href="ui-nestable.html">Nestable</a></li>
+                                        <li><a href="ui-tree-view.html">Tree View</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-th"></span>
+                                    <p>Layouts</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="layout-blank.html">Blank Page</a></li>
+                                        <li><a href="layout-boxed.html">Boxed Page</a></li>
+                                        <li><a href="layout-horizontal-menu.html">Horizontal Menu</a></li>
+                                        <li><a href="layout-horizontal-menu-boxed.html">Boxed &amp; Horizontal Menu</a></li>
+                                        <li><a href="layout-horizontal-menu-minimal.html">Horizontal Menu Minimal</a></li>
+                                        <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
+                                        <li><a href="layout-static-header.html">Static Header</a></li>
+                                        <li><a href="layout-collapsed-sidebar.html">Collapsed Sidebar</a></li>
+                                        <li><a href="layout-compact-menu.html">Compact Menu</a></li>
+                                        <li><a href="layout-hover-menu.html">Hover Menu</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-list"></span>
+                                    <p>Tables</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="table-static.html">Static Tables</a></li>
+                                        <li><a href="table-responsive.html">Responsive Tables</a></li>
+                                        <li><a href="table-data.html">Data Tables</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-edit"></span>
+                                    <p>Forms</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li class="active"><a href="form-elements.html">Form Elements</a></li>
+                                        <li><a href="form-wizard.html">Form Wizard</a></li>
+                                        <li><a href="form-upload.html">File Upload</a></li>
+                                        <li><a href="form-image-crop.html">Image Crop</a></li>
+                                        <li><a href="form-image-zoom.html">Image Zoom</a></li>
+                                        <li><a href="form-select2.html">Select2</a></li>
+                                        <li><a href="form-x-editable.html">X-editable</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span>
+                                    <p>Charts</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="charts-sparkline.html">Sparkline</a></li>
+                                        <li><a href="charts-rickshaw.html">Rickshaw</a></li>
+                                        <li><a href="charts-morris.html">Morris</a></li>
+                                        <li><a href="charts-flotchart.html">Flotchart</a></li>
+                                        <li><a href="charts-chartjs.html">Chart.js</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span>
+                                    <p>Login</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="login.html">Login Form</a></li>
+                                        <li><a href="login-alt.html">Login Alt</a></li>
+                                        <li><a href="register.html">Register Form</a></li>
+                                        <li><a href="register-alt.html">Register Alt</a></li>
+                                        <li><a href="forgot.html">Forgot Password</a></li>
+                                        <li><a href="lock-screen.html">Lock Screen</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span>
+                                    <p>Maps</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="maps-google.html">Google Maps</a></li>
+                                        <li><a href="maps-vector.html">Vector Maps</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-gift"></span>
+                                    <p>Extra</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="404.html">404 Page</a></li>
+                                        <li><a href="500.html">500 Page</a></li>
+                                        <li><a href="invoice.html">Invoice</a></li>
+                                        <li><a href="calendar.html">Calendar</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="todo.html">Todo</a></li>
+                                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="gallery.html">Gallery</a></li>
+                                        <li><a href="timeline.html">Timeline</a></li>
+                                        <li><a href="search.html">Search Results</a></li>
+                                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </li>
+                                <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-flash"></span>
+                                    <p>Levels</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li class="droplink"><a href="#">
+                                            <p>Level 1.1</p>
+                                            <span class="arrow"></span></a>
+                                            <ul class="sub-menu">
+                                                <li class="droplink"><a href="#">
+                                                    <p>Level 2.1</p>
+                                                    <span class="arrow"></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="#">Level 3.1</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Level 2.2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Level 1.2</a></li>
+                                    </ul>
+                                </li>*@
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab12">
+                            <div id="emailmenu" class="tab-pane active">
+                                <div class="sidebar-btn-wrapper">
+                                    <a class="btn btn-success" href="compose.html">Compose</a>
+                                </div>
+
+                                <h5 class="sidebar-title">Mailboxes</h5>
+                                <ul class="nav nav-pills nav-stacked nav-quirk nav-mail">
+                                    <li><a href="email.html"><i class="fa fa-inbox"></i><span>Inbox (3)</span></a></li>
+                                    <li><a href="email.html"><i class="fa fa-pencil"></i><span>Draft (2)</span></a></li>
+                                    <li><a href="email.html"><i class="fa fa-paper-plane"></i><span>Sent</span></a></li>
+                                </ul>
+
+                                <h5 class="sidebar-title">Tags</h5>
+                                <ul class="nav nav-pills nav-stacked nav-quirk nav-label">
+                                    <li><a href="#"><i class="fa fa-tags primary"></i><span>Communication</span></a></li>
+                                    <li><a href="#"><i class="fa fa-tags success"></i><span>Updates</span></a></li>
+                                    <li><a href="#"><i class="fa fa-tags warning"></i><span>Promotions</span></a></li>
+                                    <li><a href="#"><i class="fa fa-tags danger"></i><span>Social</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab13">
+                            <div id="contactmenu" class="tab-pane active">
+                                <div class="input-group input-search-contact">
+                                    <input type="text" placeholder="Search contact" class="form-control">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                                <h5 class="sidebar-title">My Contacts</h5>
+                                <ul class="media-list media-list-contacts">
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar1.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Christina R. Hill</h4>
+                                                <span><i class="fa fa-phone"></i>386-752-1860</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar2.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Floyd M. Romero</h4>
+                                                <span><i class="fa fa-mobile"></i>+1614-650-8281</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar1.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Jennie S. Gray</h4>
+                                                <span><i class="fa fa-phone"></i>310-757-8444</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar2.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Alia J. Locher</h4>
+                                                <span><i class="fa fa-mobile"></i>+1517-386-0059</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar1.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Nicholas T. Hinkle</h4>
+                                                <span><i class="fa fa-skype"></i>nicholas.hinkle</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar2.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Jamie W. Bradford</h4>
+                                                <span><i class="fa fa-phone"></i>225-270-2425</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar1.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Pamela J. Stump</h4>
+                                                <span><i class="fa fa-mobile"></i>+1773-879-2491</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar2.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Refugio C. Burgess</h4>
+                                                <span><i class="fa fa-mobile"></i>+1660-627-7184</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar1.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Ashley T. Brewington</h4>
+                                                <span><i class="fa fa-skype"></i>ashley.brewington</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#">
+                                            <div class="media-left">
+                                                <img alt="" src="/assets/images/avatar1.png" class="media-object img-circle">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Roberta F. Horn</h4>
+                                                <span><i class="fa fa-phone"></i>716-630-0132</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab14">
+                            <div id="settings" class="tab-pane active">
+                                <h5 class="sidebar-title">General Settings</h5>
+                                <ul class="list-group list-group-settings">
+                                    <li class="list-group-item">
+                                        <h5>Daily Newsletter</h5>
+                                        <small>Get notified when someone else is trying to access your account.</small>
+
+                                    </li>
+                                    <li class="list-group-item">
+                                        <h5>Call Phones</h5>
+                                        <small>Make calls to friends and family right from your account.</small>
+
+                                    </li>
+                                </ul>
+                                <h5 class="sidebar-title">Security Settings</h5>
+                                <ul class="list-group list-group-settings">
+                                    <li class="list-group-item">
+                                        <h5>Login Notifications</h5>
+                                        <small>Get notified when someone else is trying to access your account.</small>
+
+                                    </li>
+                                    <li class="list-group-item">
+                                        <h5>Phone Approvals</h5>
+                                        <small>Use your phone when login as an extra layer of security.</small>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Page Sidebar Inner -->
+        </div><!-- Page Sidebar -->
+        <div class="page-inner">
+            <div class="page-title">
+                <h3>@ViewBag.PageTitle</h3>
+                <div class="page-breadcrumb">
+                    @Html.Raw(@ViewBag.Breadcurmb)
+                </div>
+            </div>
+            <div id="main-wrapper">
+                <div class="row">
+                    @RenderBody()
+                </div>
+                <!-- Row -->
+            </div>
+            <div class="page-footer">
+                @{
+                    ViewBag.FooterCopyRight = DateTime.Now.Year + " &copy; TechPure Ltd. (UK)";
+                }
+                
+                @if (string.IsNullOrEmpty(ViewBag.FooterCopyRight))
+                {
+                    <p class="no-s">@DateTime.Now.Year &copy; Modern by Steelcoders.</p>
+                }
+                else
+                {
+                    <p class="no-s">@Html.Raw(ViewBag.FooterCopyRight)</p>
+                }
+            </div>
+        </div>
+    </main>
+    <div class="cd-overlay"></div>
+
+    @RenderSection("floatingsection", required: false)
+
+    <!-- Javascripts -->
+    <script src="/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+    <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/assets/plugins/pace-master/pace.min.js"></script>
+
+    <script src="/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="/assets/plugins/waves/waves.min.js"></script>
+    <script src="/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="/assets/plugins/summernote-master/summernote.min.js"></script>
+    <script src="/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
+    <script src="/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="/assets/plugins/datatables/js/jquery.datatables.min.js"></script>
+    <script src="/assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
+    <script src="/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="/assets/plugins/nestable/jquery.nestable.js"></script>
+    <script src="/assets/js/modern.min.js"></script>
+    <script src="/assets/js/pages/form-elements.js"></script>
+    @*<script src="/assets/js/pages/nestable.js"></script>*@
+    <script src="/assets/js/pages/form-select2.js"></script>
+    <script src="/assets/js/pages/table-data.js"></script>
+    <script src="/assets/js/jquery.sortable.js"></script>
+    <!-- theme js-->
+    <script src="/assets/js/classie.js"></script>
+    <script src="/assets/js/selectFx.js"></script>
+    <script src="/assets/plugins/tipso/tipso.min.js"></script>
+    <script>
+        (function () {
+            [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+                new SelectFx(el, {
+                    stickyPlaceholder: false,
+                    onChange: function (val) {
+                        document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+                    }
+                });
+            });
+        })();
+        $(function () {
+            $('.sortable').sortable();
+            $('.handles').sortable({
+                handle: 'span'
+            });
+            $('.connected').sortable({
+                connectWith: '.connected'
+            });
+            $('.exclude').sortable({
+                items: ':not(.disabled)'
+            });
+        });
+        $(document).ready(function () {
+            $('.nav-tabs a').click(function () {
+                $('.floating-section-buttons').hide();
+                $('.' + $(this).data('section')).show();
+            });
+            $('.floating-section-buttons a').hover(function () {
+                $(this).animate({marginRight: "0" },500);
+            },
+            function () {
+                $(this).animate({ marginRight: "-160px" }, 500);
+            });
+            $('.floating-section-buttons a').click(function () {
+                var $section = $('.' + $(this).data('section'));
+                var top = $section.offset().top;
+                if ($('body').hasClass('page-horizontal-bar')) {
+                    if ($('body').hasClass('page-sidebar-fixed')) {
+                        top = top - 140;
+                    } else if ($('body').hasClass('page-header-fixed')) {
+                        top = top - 70;
+                    } else {
+                        top = top - 10;
+                    }
+                } else {
+                    if ($('body').hasClass('page-header-fixed')) {
+                        top = top - 70;
+                    } else {
+                        top = top - 10;
+                    }
+                }
+                $('html, body').animate({
+                    scrollTop: top
+                }, 1000);
+            })
+            ;
+            //$(document).tooltip();
+            $('[rel=tooltip]').tooltip({});
+        });
+        $(window).scroll(function () {
+            var $tabsummery = $('.summery' + $('.form-tabs').find('li[class=active]').children().data('section'))
+
+            if ($tabsummery.length > 0) {
+                //set_prev = $('.summery-detail').css('top');
+                set_prev = $tabsummery.css('top');
+                if ($('body').hasClass('page-horizontal-bar')) {
+                    if ($('body').hasClass('page-sidebar-fixed')) {
+                        if ($(document).scrollTop() >= 161) {
+                            set = ($(document).scrollTop() - (160)) + "px";
+                            $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                            if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
+                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                                $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                            }
+                        } else {
+                            $tabsummery.css('top', '');
+                        }
+                    } else if ($('body').hasClass('page-header-fixed')) {
+                        if ($(document).scrollTop() >= 228) {
+                            set = ($(document).scrollTop() - 225) + "px";
+                            $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+
+                            if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height() + 70) < ($(document).scrollTop() + 100)) {
+                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height()))
+                                $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                            }
+                        } else {
+                            $tabsummery.css('top', '');
+                        }
+                    } else {
+                        if ($(document).scrollTop() >= 286) {
+                            set = ($(document).scrollTop() - 288) + "px";
+                            $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                            if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height() + 135) < ($(document).scrollTop() + 100)) {
+                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                                $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                            }
+                        } else {
+                            $tabsummery.css('top', '');
+                        }
+                    }
+                } else {
+                    if ($('body').hasClass('page-header-fixed')) {
+                        if ($(document).scrollTop() >= 156) {
+                            set = ($(document).scrollTop() - 155) + "px";
+                            $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                            if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height() + 70) < ($(document).scrollTop() + 100)) {
+                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                                $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                            }
+                        } else {
+                            $tabsummery.css('top', '');
+                        }
+                    } else {
+                        if ($(document).scrollTop() >= 218) {
+                            set = ($(document).scrollTop() - 216) + "px";
+                            $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                            if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height() + 130) < ($(document).scrollTop() + 100)) {
+                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                                $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                            }
+                        } else {
+                            $tabsummery.css('top', '');
+                        }
+                    }
+                }
+            }
+        });
+        
+    </script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

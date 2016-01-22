@@ -1,0 +1,1492 @@
+﻿@{
+    ViewBag.Title = "Hotels";
+    ViewBag.PageTitle = "Hotel Master";
+    ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
+}
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Hotel </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Hotel</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User / Billing / Bank</a></li>
+                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room / Function Room / Restaurant</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Hotel Name</th>
+                                            <th>Type of Hotel</th>
+                                            <th>City</th>
+                                            <th>Star Rating</th>
+                                            <th>Total Rooms</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Hotel Name</th>
+                                            <th>Type of Hotel</th>
+                                            <th>City</th>
+                                            <th>Star Rating</th>
+                                            <th>Total Rooms</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span>Amari Ocean Pattaya </span></td>
+                                            <td><span>Hotel</span></td>
+                                            <td><span>Pattaya</span></td>
+                                            <td><span>4.2</span></td>
+                                            <td><span>52</span></td>
+                                            <td><span class="label label-success hotelstatus" data-value="Active" data-source="[{value:'1',text:'Active'},{value:'2',text:'Inactive'}]" data-type="select">Active</span></td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span>Rezt Bangkok </span></td>
+                                            <td><span>Hostels</span></td>
+                                            <td><span>Khlong Toei</span></td>
+                                            <td><span>3</span></td>
+                                            <td><span>12</span></td>
+                                            <td><span class="label label-danger hotelstatus">Inactive</span></td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Basic Details</h3>
+                                <div class="form-group">
+                                    <label for="txtHotelName">Hotel Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtHotelName" placeholder="Hotel Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="drpTypeOfHotel">Type Of Hotel <span>*</span></label>
+                                            <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="drpStarRating">Star Rating </label>
+                                            <select id="drpStarRating" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="drpOperatingCurrency">Operating Currency </label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Official Email(s)">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code<span>*</span></label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label for="txtOfficialPhone">Official Phone <span>*</span></label>
+                                            <input type="text" class="form-control col-sm-5" id="txtOfficialPhone" placeholder="Official Phone">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label for="txtFax">Fax</label>
+                                            <input type="text" class="form-control" id="txtFax" placeholder="Fax">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtWebsite">Website </label>
+                                    <input type="text" class="form-control" id="txtWebsite" placeholder="Website">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPrimaryContactPerson">Primary Contact Person </label>
+                                    <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAccountingGroup">Accounting Group </label>
+                                    <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtTaxRegistrationNumber">Tax Registration Number </label>
+                                            <input type="text" class="form-control col-sm-5" id="txtTaxRegistrationNumber" placeholder="Tax Registration Number">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtEffectiveDate">Effective Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" placeholder="Effective Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
+                                    <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
+                                </div>
+
+                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Hotel Address</h3>
+                                <div class="form-group">
+                                    <label for="txtHotelLocation">Hotel Location (Landmark) </label>
+                                    <input type="text" class="form-control" id="txtHotelLocation" placeholder="Hotel Location (Landmark)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Address Line 1 </label>
+                                    <input type="text" class="form-control" id="txtAddressLine1" placeholder="Address Line 1 ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine2">Address Line 2 </label>
+                                    <input type="text" class="form-control" id="txtAddressLine2" placeholder="Address Line 2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtCity">City </label>
+                                            <input type="text" class="form-control" id="txtCity" placeholder="City">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtState">State</label>
+                                            <input type="text" class="form-control" id="txtState" placeholder="State">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtCountry">Country</label>
+                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtZipCode">Zip/Postal Code</label>
+                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Cancellation  Policies</h3>
+                                <div class="form-group">
+                                    <input type="checkbox">Cancellation Fees Applicable?
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtFormHours">From Hours </label>
+                                            <input type="text" class="form-control" id="txtFormHours" placeholder="From Hours">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToHours">To Hours </label>
+                                            <input type="text" class="form-control" id="txtToHours" placeholder="To Hours">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtPercentage">Percentage (%)</label>
+                                            <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtFormDays">From Days </label>
+                                            <input type="text" class="form-control" id="txtFormDays" placeholder="From Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays">To Days</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="To Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtPercentage">Percentage (%)</label>
+                                            <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtFormDays">From Days </label>
+                                            <input type="text" class="form-control" id="txtFormDays" placeholder="From Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays">To Days</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="To Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtPercentage">Percentage (%)</label>
+                                            <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtFormDays">From Days </label>
+                                            <input type="text" class="form-control" id="txtFormDays" placeholder="From Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays">To Days</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="To Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtPercentage">Percentage (%)</label>
+                                            <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="section-headers tab2section4"><span class="section-index">4</span>&nbsp;Facilities</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Conference
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Gala Dinner
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Airport Shuttle
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Boutique
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Casino
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Family Room
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Fitness Center
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Indoor Corridors
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Kitchen Facility
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">No-Smokking
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Outdoor Corridors
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Outdoor Pool
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Parking
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Pet Friendly
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Pool
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Restaurant
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Spa
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Wheelchair Accessible
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Wifi
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab2section5"><span class="section-index">5</span>&nbsp;Nearest Airports</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="drpNearestAirport">Nearest Airoprt 1</label>
+                                            <select id="drpNearestAirport" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDistance">Distance</label>
+                                            <input type="text" class="form-control" id="txtDistance" placeholder="Distance">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpDistanceUnit">Distance Unit</label>
+                                            <select id="drpDistanceUnit" class="js-states form-control" style="display: none; width: 100%">
+                                                <option value="Miles">Miles</option>
+                                                <option value="Kilometer">Kilometer</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDistanceInTime">Distance in Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="timepicker1">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="drpNearestAirport">Nearest Airoprt 2</label>
+                                            <select id="drpNearestAirport" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDistance">Distance</label>
+                                            <input type="text" class="form-control" id="txtDistance" placeholder="Distance">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpDistanceUnit">Distance Unit</label>
+                                            <select id="drpDistanceUnit" class="js-states form-control" style="display: none; width: 100%">
+                                                <option value="Miles">Miles</option>
+                                                <option value="Kilometer">Kilometer</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDistanceInTime">Distance in Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="timepicker1">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab2">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Hotel Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Type Of Hotel :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Star Rating :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Operating Currency :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Website  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblWebsite" for="txtWebsite"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Official Email(s)  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Official Phone  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Address Line 1 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>City :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>State :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblState" for="txtState"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Country :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCountry" for="txtCountry"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Zip/Postal Code :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblZipCode" for="txtZipCode"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Hotel User</h3>
+                                <div class="form-group">
+                                    <label for="txtFirstName">Name <span>*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtHotelUserEmail">Email (User Name) <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtHotelUserEmail" placeholder="Email(User Name)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtHotelUserPassword">Password <span>*</span></label>
+                                    <input type="Password" class="form-control " id="txtHotelUserPassword" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtConfirmHotelUserPassword">Confirm Password</label>
+                                    <input type="Password" class="form-control" id="txtConfirmHotelUserPassword" placeholder="Confirm Password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label for="txtTelephone">Telephone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtTelephone" placeholder="Telephone">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtExtn">Extn.</label>
+                                            <input type="text" class="form-control" id="txtExtn" placeholder="Extn">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label for="txtCellPhone">Cell Phone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCellPhone" placeholder="Cell Phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpDesignation">Designation <span>*</span></label>
+                                    <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPicture">Picture </label>
+                                    <input type="text" class="form-control" id="txtPicture" placeholder="Picture">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpStatus">Status </label>
+                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+
+                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Billing</h3>
+                                <div class="form-group">
+                                    <label for="txtBillingName">Billing Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtBillingName" placeholder="Billing Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Billing Address Line 1 </label>
+                                    <input type="text" class="form-control" id="txtBillingAddressLine1" placeholder="Billing Address Line 1 ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine2">Billing Address Line 2 </label>
+                                    <input type="text" class="form-control" id="txtBillingAddressLine2" placeholder="Billing Address Line 2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtBillingCity">Billing City </label>
+                                            <input type="text" class="form-control" id="txtBillingCity" placeholder="Billing City">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingState">Billing State</label>
+                                            <input type="text" class="form-control" id="txtBillingState" placeholder="Billing State">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingCountry">Billing Country</label>
+                                            <input type="text" class="form-control" id="txtBillingCountry" placeholder="Billing Country">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
+                                            <input type="text" class="form-control" id="txtBillingZipCode" placeholder="Billing Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Billing Email </label>
+                                    <input type="text" class="form-control" id="txtBillingEmail" placeholder="Billing Email">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label for="txtTelephone">Billing Telephone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingTelephone" placeholder="Billing Telephone">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtExtn">Billing Extn.</label>
+                                            <input type="text" class="form-control" id="txtBillingExtn" placeholder="Billing Extn">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label for="txtCellPhone">Billing Cell Phone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab3section3"><span class="section-index">3</span>&nbsp;Bank</h3>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Number </label>
+                                    <input type="text" class="form-control" id="txtAccountNumber" placeholder="Account Number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Name </label>
+                                    <input type="text" class="form-control" id="txtAccountName" placeholder="Account Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Bank Name </label>
+                                            <input type="text" class="form-control" id="txtBankName" placeholder="Bank Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Bank Branch </label>
+                                            <input type="text" class="form-control" id="txtBankBranch" placeholder="Bank Branch">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Bank Address </label>
+                                    <textarea class="form-control" cols="5" id="txtBankAddress"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Swift Code / Sort Code </label>
+                                    <input type="text" class="form-control" id="txtSwiftCode" placeholder="Swift Code / Sort Code">
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab3">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>First Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Last Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Email (User Name) :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Designation :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Billing Name 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Contact Person  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Address Line 1 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing City :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing State :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblState" for="txtState"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+
+                                                    <li>Billing Country :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCountry" for="txtCountry"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Zip/Postal Code :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblZipCode" for="txtZipCode"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Email :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Hotel Room</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtRoomType">Room Type <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtRoomType" placeholder="Room Type ">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtMaxPax">Max Pax <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMaxPax" placeholder="Max Pax ">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtNumberofRooms">Number of Rooms <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtNumberofRooms" placeholder="Number of Rooms ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDescription">Description </label>
+                                    <textarea id="txtDescription" class="form-control" placeholder="Description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Air Conditioning
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Bathtub
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Flat-screen TV
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Kitchen/Kitchenette
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Patio
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Private Pool
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Soundproof
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Spa Tub
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Terrace
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">View
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Wasing Machine
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Room service 24 hours?
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab4section2"><span class="section-index">2</span>&nbsp;Function Room</h3>
+                                <div class="form-group">
+                                    <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtConferenceRoomName" placeholder="Conference Room Name">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="drpSetupStyle">Function Type <span>*</span></label>
+                                            <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="drpSetupStyle">Setup Style  <span>*</span></label>
+                                            <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTotalSeats">Total Seats <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtTotalSeats" placeholder="Total Seats">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTotalTables">Total Tables  </label>
+                                            <input type="text" class="form-control" id="txtTotalTables" placeholder="Total Tables">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtConferenceRoomDescription">Conference Room Description </label>
+                                            <textarea id="txtConferenceRoomDescription" class="form-control" placeholder="Conference Room Description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtRestrictions">Restrictions  </label>
+                                            <textarea id="txtRestrictions" class="form-control" placeholder="Restrictions"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Projector
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Screens
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Microphones
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Sink
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Easels
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Telephone Support
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Ethernet
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Wifi
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Coffee Maker
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Centrally A/C
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab4section3"><span class="section-index">3</span>&nbsp;Restaurent</h3>
+                                <div class="form-group">
+                                    <label for="txtRestaturantName">Restaturant Name</label>
+                                    <input type="text" class="form-control" id="txtRestaturantName" placeholder="Restaturant Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 form-marings">
+                                            <input type="checkbox">Veg.
+                                        </div>
+                                        <div class="col-md-3 form-marings">
+                                            <input type="checkbox">Non Veg.
+                                        </div>
+                                        <div class="col-md-3 form-marings">
+                                            <input type="checkbox">Vegan
+                                        </div>
+                                        <div class="col-md-3 form-marings">
+                                            <input type="checkbox">Jain
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="checkbox">Break Fast
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox">Lunch
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox">Dinner
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBreakFastFromTime">Break Fast From Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtBreakFastFromTime">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBreakFastToTime">Break Fast To Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtBreakFastToTime">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtLunchFromTime">Lunch From Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtLunchFromTime">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtLunchToTime">Lunch To Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtLunchToTime">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtDinnerFromTime">Dinner From Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtDinnerFromTime">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtDinnerToTime">Dinner To Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtDinnerToTime">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">French
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Chinese
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Thai
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Mexican
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Italian
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Spanish
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Japanese
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Greek
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Indian
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab4">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Room Type :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Max Pax :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Number of Rooms :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Function Room Name  
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Function Type  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Setup Style
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Total Seats
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <h4 class="panel-title-summery">Utilities </h4>
+        <div class="panel-body utility-panel">
+            <ul class="utility-list">
+                <li>
+                    <a href="#">
+                        <i class="task">&nbsp;</i><br />
+                        Task
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="noti">&nbsp;</i><br />
+                        Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="cal">&nbsp;</i><br />
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="e-mail">&nbsp;</i><br />
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="sms">&nbsp;</i><br />
+                        SMS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="notes">&nbsp;</i><br />
+                        Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="tages">&nbsp;</i><br />
+                        Tags
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="help-video">&nbsp;</i><br />
+                        Help Video
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="guided-tour">&nbsp;</i><br />
+                        Guided Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="copy">&nbsp;</i><br />
+                        Copy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="print">&nbsp;</i><br />
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="updates">&nbsp;</i><br />
+                        Updates
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#">
+                        <i class="screns">&nbsp;</i><br />
+                        Screenshot
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+
+            $('.hotelstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+        });
+    </script>
+}
+
+
+@section floatingsection{
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Basic Details">1</a>
+        @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Hotel Address">2</a>
+        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Cancellation Policies">3</a>
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Facilities">4</a>
+        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Nearest Airports">5</a>
+    </div>
+    <div class="floating-section-buttons tab3" style="display: none">
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Hotel User">1</a>
+        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Billing">2</a>
+        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Bank">3</a>
+    </div>
+    <div class="floating-section-buttons tab4" style="display: none">
+        <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Hotel Room">1</a>
+        <a class="btn btn-default" data-section="tab4section2" rel="tooltip" title="Function Room">2</a>
+        <a class="btn btn-default" data-section="tab4section3" rel="tooltip" title="Restaurent">3</a>
+    </div>
+}

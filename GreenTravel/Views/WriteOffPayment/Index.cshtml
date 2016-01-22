@@ -1,0 +1,335 @@
+﻿@{
+    ViewBag.Title = "Index";
+    ViewBag.PageTitle = "Write Off Payment";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+}
+
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Write Off Payment</a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Write Off Payment</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Supplier / Party</th>
+                                            <th>Write Off Date</th>
+                                            <th>Write Off Account</th>
+                                            <th>Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Supplier / Party</th>
+                                            <th>Write Off Date</th>
+                                            <th>Write Off Account</th>
+                                            <th>Action
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+
+                                            <th>
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtSrNo">Sr No</label>
+                                    <input type="text" class="form-control" id="txtSrNo" placeholder="Sr No" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAgent/Party">Supplier / Party</label>
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <input type="text" class="form-control" id="txtAgentParty" placeholder="Supplier / Party">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="javascript:void(0);" class="btn btn-success" style="padding: 7px 12px; float: right;" title="Show Invoice" rel="tooltip" >
+                                                <i class="fa fa-list"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtWriteOffDate">Write Off Date</label>
+                                    <input type="text" class="form-control date-picker" id="txtWriteOffDate" placeholder="Write Off Date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpWriteOffAccount">Write Off Account</label>
+                                    <select id="drpWriteOffAccount" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div>
+                                    <div class="form-group">
+                                        <label for="txtRemarks">Remarks</label>
+                                        <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table style="width: 100%; cellspacing: 0;" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Invoice</th>
+                                            <th>Client Name</th>
+                                            <th>Invoice Amt</th>
+                                            <th>Balance</th>
+                                            <th>Inv Exch Rate</th>
+                                            <th style="width: 12%">Write Off Amt</th>
+                                            <th style="width: 12%">Balance Amt</th>
+                                            <th style="width: 12%">A/C Amt Loss</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><h4 style="border-bottom-width: 0; margin-top: 0; margin-bottom: 0;"><span class="label label-primary">Inv 1</span></h4></td>
+                                            <td>Bhavin Vora</td>
+                                            <td><span class="label label-info">7000 USD</span></td>
+                                            <td><span class="label label-info">5000 USD</span></td>
+                                            <td>31</td>
+                                            <td><input type="text" class="form-control" value="3000"></td>
+                                            <td><span class="label label-info">93000 THB</span></td>
+                                            <td><span class="label label-info">93000 THB</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><h4 style="border-bottom-width: 0; margin-top: 0; margin-bottom: 0;"><span class="label label-primary">Inv 2</span></h4></td>
+                                            <td>Vipul Shah</td>
+                                            <td><span class="label label-info">50000 THB</span></td>
+                                            <td><span class="label label-info">45000 THB</span>
+                                            </td>
+                                            <td>1                                               
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" value="45000">
+                                            </td>
+                                            <td><span class="label label-info">45000 THB</span></td>
+                                            <td><span class="label label-info">45000 THB</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><h4><span class="label label-primary">On Account</span></h4></td>
+                                            <td></td>
+                                            <td><span class="label label-info">50000 THB</span></td>
+                                            <td><span class="label label-info">45000 THB</span>
+                                            </td>
+                                            <td>1                                               
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control"  value="45000">
+                                            </td>
+                                            <td><span class="label label-info">45000 THB</span> </td>                                           
+                                            <td><span class="label label-info">45000 THB</span> </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th><h4 style="border-bottom-width: 0;margin-top: 0;margin-bottom: 0;"><span class="label label-skyblue">Total</span></h4></th>
+                                            <th><h4 style="border-bottom-width: 0;margin-top: 0;margin-bottom: 0;"><span class="label label-skyblue">138000 THB</span>&nbsp<span class="label label-skyblue label-danger"><i class="fa fa-close "></i></span></h4></th>
+                                            <th><h4 style="border-bottom-width: 0;margin-top: 0;margin-bottom: 0;"><span class="label label-skyblue">138000 THB</span></h4></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <br />
+                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                SAVE</button>
+                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                UPDATE</button>
+                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                DELETE</button>
+                            <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                CLEAR</button>
+                            <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                QUIT FORM</button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <h4 class="panel-title-summery">Utilities </h4>
+        <div class="panel-body utility-panel">
+            <ul class="utility-list">
+                <li>
+                    <a href="#">
+                        <i class="task">&nbsp;</i><br />
+                        Task
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="noti">&nbsp;</i><br />
+                        Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="cal">&nbsp;</i><br />
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="e-mail">&nbsp;</i><br />
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="sms">&nbsp;</i><br />
+                        SMS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="notes">&nbsp;</i><br />
+                        Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="tages">&nbsp;</i><br />
+                        Tags
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="help-video">&nbsp;</i><br />
+                        Help Video
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="guided-tour">&nbsp;</i><br />
+                        Guided Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="copy">&nbsp;</i><br />
+                        Copy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="print">&nbsp;</i><br />
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="updates">&nbsp;</i><br />
+                        Updates
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#">
+                        <i class="screns">&nbsp;</i><br />
+                        Screenshot
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+
+            $('.hotelstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+        });
+    </script>
+}
+
+
+@section floatingsection{
+
+
+}

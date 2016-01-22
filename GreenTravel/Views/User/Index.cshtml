@@ -1,0 +1,1377 @@
+﻿@{
+    ViewBag.Title = "User";
+    ViewBag.PageTitle = "User Master";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+}
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name
+                                            </th>
+                                            <th>Email
+                                            </th>
+                                            <th>Action
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name
+                                            </th>
+                                            <th>Email
+                                            </th>
+                                            <th>Action
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                        @*@{
+                                            for (int i = 0; i < Model.StoreAllData.Tables[0].Rows.Count; i++)
+                                            {
+                                            <tr>
+                                                <td>
+                                                    @i
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0);">@Model.StoreAllData.Tables[0].Rows[i]["FirstName"].ToString()  @Model.StoreAllData.Tables[0].Rows[i]["LastName"].ToString()</a>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0);">@Model.StoreAllData.Tables[0].Rows[i]["Email"].ToString()</a>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0);" class="grid-edit"><i class="fa fa-pencil-square-o"></i></a>
+                                                    &nbsp;&nbsp;
+                                                        <a href="javascript:void(0);" class="grid-delete"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                            </tr>
+                                            }
+                                        }*@
+                                        <tr>
+                                            <td>1</td>
+                                            <td><a href="javascript:void(0);">User1</a>
+                                            </td>
+                                            <td><a href="javascript:void(0);">user1@gmail.com</a>
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span>User2</span>
+                                            </td>
+                                            <td><span>user2@gmail.com</span>
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>User3
+                                            </td>
+                                            <td>user3@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>User4
+                                            </td>
+                                            <td>user4@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>User5
+                                            </td>
+                                            <td>user5@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>User6
+                                            </td>
+                                            <td>user6@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>User7
+                                            </td>
+                                            <td>user7@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>User8
+                                            </td>
+                                            <td>user8@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>User9
+                                            </td>
+                                            <td>user9@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>User10
+                                            </td>
+                                            <td>user10@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>User11
+                                            </td>
+                                            <td>user11@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>User12
+                                            </td>
+                                            <td>user12@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>User13
+                                            </td>
+                                            <td>user13@gmail.com
+                                            </td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <div class="form-group">
+                                    <label for="txtFirstName">Name <span>*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEmail">Email <span>*</span></label>
+                                    <input type="text" class="form-control textbox-control" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtConfirmEmail" placeholder="Confirm Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPassword">Password <span>*</span></label>
+                                    <input type="Password" class="form-control " id="txtPassword" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtConfirmPassword">Confirm Password</label>
+                                    <input type="Password" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list">
+                                            <div class="summ-list-left">
+                                                <li>First Name:<br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblFirstName" for="txtFirstName"></label>
+                                                        @*        <i>&nbsp;</i>*@
+                                                    </a>
+                                                </li>
+                                                <li>Last Name:
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblLastName" for="txtLastName"></label>
+                                                        @*<i>&nbsp;</i>*@
+                                                    </a>
+                                                </li>
+
+
+                                            </div>
+                                            <div class="summ-list-right">
+                                                <li>Email :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblEmail" for="txtEmail"></label>
+                                                        @*<i>&nbsp;</i>*@
+                                                    </a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab3">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label>Unit Company</label>
+                                            <select id="drpUnitCompany" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Location</label>
+                                            <select id="drpLocation" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Role</label>
+                                            <select id="drpRole" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>User</label>
+                                            <select id="drpUser" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="" class="display table dataTable" role="grid" style="">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Module</th>
+                                        <th>Screen</th>
+                                        <th>View
+                                                <input type="checkbox" /></th>
+                                        <th>Add
+                                                <input type="checkbox" /></th>
+                                        <th>Update
+                                                <input type="checkbox" /></th>
+                                        <th>Delete
+                                                <input type="checkbox" /></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Module</th>
+                                        <th>Screen</th>
+                                        <th>View
+                                                <input type="checkbox" /></th>
+                                        <th>Add
+                                                <input type="checkbox" /></th>
+                                        <th>Update
+                                                <input type="checkbox" /></th>
+                                        <th>Delete
+                                                <input type="checkbox" /></th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <input type="text" />
+                                        </th>
+                                        <th>
+                                            <input type="text" />
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>
+                                            <a href="#">
+                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                        </th>
+                                    </tr>
+
+                                    @*<tr>
+                                        <td>1</td>
+                                        <td>Masters</td>
+                                        <td>Country</td>
+                                        <td>
+                                            <input type="checkbox" class="chkView" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkAdd" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkUpdate" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkDelete" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Masters</td>
+                                        <td>State</td>
+                                        <td>
+                                            <input type="checkbox" class="chkView" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkAdd" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkUpdate" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkDelete" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Masters</td>
+                                        <td>City</td>
+                                        <td>
+                                            <input type="checkbox" class="chkView" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkAdd" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkUpdate" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkDelete" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Masters</td>
+                                        <td>State</td>
+                                        <td>
+                                            <input type="checkbox" class="chkView" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkAdd" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkUpdate" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkDelete" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Masters</td>
+                                        <td>City</td>
+                                        <td>
+                                            <input type="checkbox" class="chkView" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkAdd" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkUpdate" /></td>
+                                        <td>
+                                            <input type="checkbox" class="chkDelete" /></td>
+                                    </tr>*@
+                                </tbody>
+                            </table>
+                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                SAVE</button>
+                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                CANCEL</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <h4 class="panel-title-summery">Utilities </h4>
+        <div class="panel-body utility-panel">
+            <ul class="utility-list">
+                <li>
+                    @*<a href="#" ><i class="fa fa-cloud-upload"></i></a>*@
+                    <a href="#" data-toggle="modal" data-target="#TaskModel">
+                        <i class="task">&nbsp;</i><br />
+                        Task
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#NOtificationModel">
+                        <i class="noti">&nbsp;</i><br />
+                        Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="cal">&nbsp;</i><br />
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#EmailModel">
+                        <i class="e-mail">&nbsp;</i><br />
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#SMSModel">
+                        <i class="sms">&nbsp;</i><br />
+                        SMS
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#NotesModel">
+                        <i class="notes">&nbsp;</i><br />
+                        Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#TagsModel">
+                        <i class="tages">&nbsp;</i><br />
+                        Tags
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#HelpsVideoModel">
+                        <i class="help-video">&nbsp;</i><br />
+                        Help Video
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="guided-tour">&nbsp;</i><br />
+                        Guided Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="copy">&nbsp;</i><br />
+                        Copy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="print">&nbsp;</i><br />
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#UPdatesModel">
+                        <i class="updates">&nbsp;</i><br />
+                        Updates
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#" data-toggle="modal" data-target="#ScreenshotModel">
+                        <i class="screns">&nbsp;</i><br />
+                        Screenshot
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        @*Task *@
+        <div class="modal fade modify-colum-model" id="TaskModel" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Task</h4>
+                    </div>
+                    <div class="modal-body  custom-model-body">
+                        <form>
+                            <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Task Details</h3>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task Subject <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtTaskSubject" placeholder="Task Subject">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Task Start Date <span>*</span></label>
+                                            <input type="text" class="form-control date-picker" id="txttaskstartdate" placeholder="Task Start Date">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Task End Date <span>*</span></label>
+                                            <input type="text" class="form-control date-picker" id="txtTaskEndDate" placeholder="Task End Date">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Task Start Time <span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input id="time1" type="text" class="form-control">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Task End Time <span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input id="time2" type="text" class="form-control">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task Description <span></span></label>
+                                    <input type="text" class="form-control" id="txtTaskDescription1" placeholder="Task Description">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Percentage Complete  <span>*</span></label>
+                                            <select id="drpTypeOfRepeat" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Hours Spent  <span></span></label>
+                                            <input type="text" class="form-control" id="txtTaskHoursSpent" placeholder="Hours Spent ">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Status  <span>*</span></label>
+                                            <select id="drpTypeOfStatus" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Priority  <span>*</span></label>
+                                            <select id="drpTypeOfPriority" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Category  <span>*</span></label>
+                                            <select id="drpTypeOfCategory" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Recurring Task ? <span></span></label>
+                                    <div class="row">
+                                        <div class="col-md-12 form-marings">
+                                            <input type="checkbox">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <h3 class="tab2section2"><span class="section-index ">2</span>&nbsp;Recurring Parameter </h3>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Repeat <span>*</span></label>
+                                    <select id="drpTypeOfRepeat" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Repeat on <span>*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-12 form-marings">
+                                            <input type="checkbox">Sun &nbsp &nbsp 
+                                           <input type="checkbox">Mon &nbsp &nbsp 
+                                           <input type="checkbox">Tue &nbsp &nbsp 
+                                           <input type="checkbox">Wed &nbsp &nbsp 
+                                           <input type="checkbox">Thu &nbsp &nbsp 
+                                           <input type="checkbox">Fri &nbsp &nbsp 
+                                           <input type="checkbox">Set &nbsp &nbsp 
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Start On <span>*</span></label>
+                                            <input type="text" class="form-control date-picker" id="txtStarton" placeholder="Start On">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">End On <span>*</span></label>
+                                            <input type="text" class="form-control date-picker" id="txtEndon" placeholder="End On">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Start Time <span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input id="time3" type="text" class="form-control">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">End Time <span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input id="time4" type="text" class="form-control">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-success">SAVE</button>
+                                    <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                        UPDATE</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @*NOtification *@
+        <div class="modal fade modify-colum-model" id="NOtificationModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Notification</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Task  <span>*</span></label>
+                                <select id="drpDRptesk" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Mode <span>*</span></label>
+                                <select id="drpDRpMode" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification Title <span>*</span></label>
+                                <input type="text" class="form-control" id="txtNotificationTitle" placeholder="Notification Title">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Start Date <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txttaskstartdate" placeholder="Start Date">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">End Date <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtTaskEndDate" placeholder="End Date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Fire Time <span>*</span></label>
+                                <div class="input-group input-append bootstrap-timepicker">
+                                    <input id="time1" type="text" class="form-control">
+                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification Description <span></span></label>
+                                <input type="text" class="form-control" id="txtNotificationDescription1" placeholder="Notification Description">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Task Related ? <span></span></label>
+                                <div class="row">
+                                    <div class="col-md-12 form-marings">
+                                        <input type="checkbox">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="tab2section2"><span class="section-index ">2</span>&nbsp;Recurring Parameter </h3>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Repeat <span>*</span></label>
+                                <select id="drpTypeOfRepeat" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Repeat on <span>*</span></label>
+                                <div class="row">
+                                    <div class="col-md-12 form-marings">
+                                        <input type="checkbox">Sun &nbsp &nbsp 
+                                           <input type="checkbox">Mon &nbsp &nbsp 
+                                           <input type="checkbox">Tue &nbsp &nbsp 
+                                           <input type="checkbox">Wed &nbsp &nbsp 
+                                           <input type="checkbox">Thu &nbsp &nbsp 
+                                           <input type="checkbox">Fri &nbsp &nbsp 
+                                           <input type="checkbox">Set &nbsp &nbsp 
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Start On <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtStarton" placeholder="Start On">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">End On <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtEndon" placeholder="End On">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Fire Time <span>*</span></label>
+                                        <div class="input-group input-append bootstrap-timepicker">
+                                            <input id="time3" type="text" class="form-control">
+                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        @*Email *@
+        <div class="modal fade modify-colum-model" id="EmailModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Email</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">From  <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtEmailfrom" placeholder="From">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">To <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtEmailto" placeholder="To">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Subject  <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtEmailSubject" placeholder="To">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">CC <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtEmailCC" placeholder="CC">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">BCC <span>*</span></label>
+                                <input type="text" class="form-control" id="txtBCC" placeholder="BCC">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Message <span></span></label>
+                                <textarea id="txtAddressLine2" cols="5" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @*SMS *@
+        <div class="modal fade modify-colum-model" id="SMSModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">SMS</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">To <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtSMSto" placeholder="To">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Subject  <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtSMSSubject" placeholder="To">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">CC <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtSMSMCC" placeholder="CC">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Message <span></span></label>
+                                <textarea id="txtMessage2" cols="5" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @*NOtes *@
+        <div class="modal fade modify-colum-model" id="NotesModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Notes</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Remarks <span></span></label>
+                                <textarea id="txtMessage2" cols="5" class="form-control" placeholder="Remarks"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @*Tags *@
+        <div class="modal fade modify-colum-model" id="TagsModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tags</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Tags <span></span></label>
+                                <textarea id="txtMessage3" cols="5" class="form-control" placeholder="Tags"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @*Helps Video *@
+        <div class="modal fade modify-colum-model" id="HelpsVideoModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Helps Video</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Help Video <span></span></label>
+                                <input type="text" class="form-control" id="txtHelpVideo" placeholder="Help Video">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @*Updates *@
+        <div class="modal fade modify-colum-model" id="UPdatesModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Updates</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Name <span></span></label>
+                                <input type="text" class="form-control" id="txtName" placeholder="Tags">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Desc. <span></span></label>
+                                <textarea id="txtMessage4" cols="5" class="form-control" placeholder="Desc"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @* Screenshot *@
+        <div class="modal fade modify-colum-model" id="ScreenshotModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Screenshot</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">From  <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtEmailfrom" placeholder="From">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">To <span>*</span></label>
+                                        <input type="text" class="form-control date-picker" id="txtEmailto" placeholder="To">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Repeat">Subject  <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtEmailSubject" placeholder="To">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">CC <span>*</span></label>
+                                <input type="text" class="form-control date-picker" id="txtEmailCC" placeholder="CC">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">BCC <span>*</span></label>
+                                <input type="text" class="form-control" id="txtBCC" placeholder="BCC">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Message <span></span></label>
+                                <input type="text" class="form-control" id="txtMessage" placeholder="Message">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">URL <span></span></label>
+                                <input type="text" class="form-control" id="txtURL" placeholder="URL">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts{
+    <script>
+
+    $(document).ready(function () {
+        //$('#gridDataTable').DataTable({
+        //    "bJQueryUI": true,
+        //    "bProcessing": true,
+        //    "bServerSide": true,
+        //    "sAjaxSource": "/User/FillGrid",
+        //    "aoColumns": [
+        //                { "sName": "FirstName" },
+        //                { "sName": "LastName" },
+        //                { "sName": "Email" }
+        //    ]
+        //    //"sAjaxSource": "/User/FillGrid",
+
+        //});
+
+        $('#btnsaveuser').click(function (e) {
+            e.preventDefault();
+            var srno = "5";
+            var UserCode = "5";
+            var FirstName = $('#txtFirstName').val();
+            var LastName = $('#txtLastName').val();
+            var Email = $('#txtEmail').val();
+            var Password = $('#txtPassword').val();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/User/Create",
+                    data: { srno: srno, UserCode: UserCode, FirstName: FirstName, LastName: LastName, Email: Email, Password: Password },
+                    success: function (result) {
+                        alert(result);
+                        //$('#insert').html(result);
+                        //            $("#dialog").dialog("open");
+                        alert("Data Save Succefully");
+                    }
+                });
+        });
+
+        $('#btnSaveSummery').click(function (e) {
+            e.preventDefault();
+            var srno = "4";
+            var UserCode = "4";
+            var FirstName = $('#txtFirstName').val();
+            var LastName = $('#txtLastName').val();
+            var Email = $('#txtEmail').val();
+            var Password = $('#txtPassword').val();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/User/Create",
+                    data: { srno: srno, UserCode: UserCode, FirstName: FirstName, LastName: LastName, Email: Email, Password: Password },
+                    success: function (result) {
+                        //$('#insert').html(result);
+                        //            $("#dialog").dialog("open");
+                        alert("Data Save Succefully")
+                    }
+                });
+        });
+        $('#btnCancelUser').click(function (e) {
+            e.preventDefault();
+            $('#txtFirstName').val('');
+            $('#txtLastName').val('');
+            $('#txtEmail').val('');
+            $('#txtPassword').val('');
+            $('#txtConfirmEmail').val('');
+            $('#txtConfirmPassword').val('');
+            $('#lblFirstName').val('');
+            $('#lblLastName').val('');
+            $('#lblEmail').val('');
+            $('#txtFirstName').focus();
+        });
+
+        $('.textbox-control').on('blur', function () {
+            var $lbl = $('#' + $(this).data('label'));
+            $lbl.text($(this).val());
+        });
+
+        $('.dropdown-control').on('change', function () {
+            validateData($(this));
+        });
+
+        $('.checkbox-control').on('change', function () {
+            validateData($(this));
+        });
+        $('.textarea-control').on('blur', function () {
+            validateData($(this));
+        });
+
+
+
+        $('#txtConfirmEmail').on('change', function () {
+            var result = CompareValidation($('#txtEmail').val(), $('#txtConfirmEmail').val());
+            // alert(result);
+            if (result == true) {
+            }
+            else {
+                $('#txtConfirmEmail').focus();
+                alert('Email Not a Same')
+
+            }
+        });
+
+
+        $('#txtConfirmPassword').on('change', function () {
+            // alert('ConFirm Password');
+            var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
+            // alert(result);
+            if (result == true) {
+            }
+            else {
+                $('#txtConfirmPassword').focus();
+                alert('PassWord Not a Same')
+            }
+        });
+
+
+        //Comapare validation  
+        function CompareValidation($attr1, $attr2) {
+            // alert($attr1);
+            //alert($attr2);
+            if ($attr1 != $attr2) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        //email  validation
+        function isEmail(email) {
+            var regex = '/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
+            return regex.test(email);
+        }
+        @* (function ($) {
+            $.extend($.fn.dataTableExt.oStdClasses, {
+                "sWrapper": "dataTables_wrapper form-inline"
+            });
+
+            $("#example-editable").dataTable({
+                "bServerSide": true,
+                "sAjaxSource": '@Url.Action("CustomerPage")',
+            "fnServerData": function (sSource, aoData, fnCallback) {
+                $.ajax({
+                    "dataType": 'json',
+                    "type": "POST",
+                    "url": sSource,
+                    "data": aoData,
+                    "success": fnCallback
+                });
+            },
+            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+            "sPaginationType": "bootstrap",
+            "aoColumns": [
+						{ "sName": "Id", "sType": 'numeric' },
+						{ "sName": "Last" },
+						{ "sName": "First" },
+						{ "sName": "Street" },
+						{ "sName": "City" },
+						{ "sName": "State" },
+						{ "sName": "Zip" },
+						{ "sName": "Phone" },
+						{ "sName": "Email" }
+            ]
+        }).fnSetFilteringDelay(500);
+
+        })(jQuery);*@
+    });
+
+</script>
+}

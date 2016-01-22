@@ -1,0 +1,806 @@
+﻿@{
+    ViewBag.Title = "FIT Invoice";
+    ViewBag.PageTitle = "FIT Invoice";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+}
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach FIT Invoice </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create FIT Invoice</a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Invoice #</th>
+                                            <th>Party Name</th>
+                                            <th>Nationality </th>
+                                            <th>Tour Name </th>
+                                            <th>Travel From Date </th>
+                                            <th>Travel To Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Invoice #</th>
+                                            <th>Party Name</th>
+                                            <th>Nationality </th>
+                                            <th>Tour Name </th>
+                                            <th>Travel From Date </th>
+                                            <th>Travel To Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>0000000012365</td>
+                                            <td>Flamingo</td>
+                                            <td>Indian</td>
+                                            <td>Thailand Tour</td>
+                                            <td>01/01/2015</td>
+                                            <td>31/01/2015</td>
+                                            <td><a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa fa-print"></i></a></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td>0000000012366</td>
+                                            <td>Flamingo</td>
+                                            <td>Indian</td>
+                                            <td>Thailand-Mal-Sig.
+                                            </td>
+                                            <td>01/01/2015</td>
+                                            <td>31/01/2015</td>
+                                            <td><a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa fa-print"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Party Details</h3>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpInvoicePartyName ">Party Name </label>
+                                            <input type="text" class="form-control " id="txtTaxRegistrationNumber" placeholder="Party Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpNationality ">Nationality  </label>
+                                            <select id="drpNationality" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtClientName ">Client Name </label>
+                                            <input type="text" class="form-control " id="txtClientName" placeholder="Client Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtClientCellPhone ">Client Cell Phone   </label>
+                                            <input type="text" class="form-control " id="txtClientCellPhone " placeholder="Client Cell Phone ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpInvoicePartyName ">Tour Name </label>
+                                            <input type="text" class="form-control " id="txtTourName " placeholder="Tour Name ">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTaxRegistrationNumber">Travel From Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtTravelFromDate" placeholder="dd/MM/yyyy">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTravelToDate">Travel To Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtTravelToDate" placeholder="dd/MM/yyyy">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtNight">Night</label>
+                                            <input type="text" class="form-control " id="txtNights" placeholder="Night">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDays">Days</label>
+                                            <input type="text" class="form-control " id="txtDays" placeholder="Days">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpStatus ">Status  </label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtInvoicePartyAddress">Party Address</label>
+                                    <textarea class="form-control" cols="5" id="txtInvoicePartyAddress"></textarea>
+                                </div>
+
+                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp; Booking Details</h3>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtBookedBy">Booked By</label>
+                                            <select id="drpBookedBy" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtBookedOn">Booked On</label>
+                                            <input type="text" class="form-control date-picker" id="txtBookedOn" placeholder="dd/MM/yyyy">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtQuotationRef.#">Quotation Ref. #</label>
+                                            <input type="text" class="form-control" id="txtQuotationRef.#" placeholder="Quotation Ref. #" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtReconfirmedBy">Reconfirmed By</label>
+                                            <select id="drpReconfirmedBy" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtReconfirmedOn">Reconfirmed On</label>
+                                            <input type="text" class="form-control date-picker" id="txtReconfirmedOn" placeholder="dd/MM/yyyy">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Invoice Item Details</h3>
+                                @*<div class="form-group">
+                                    <button id="btnADD" type="submit" class="btn btn-success btnSave">
+                                        ADD</button>
+                                </div>*@
+                                <div class="form-group">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#
+                                                    </th>
+                                                    <th>Items
+                                                    </th>
+                                                    <th>Description
+                                                    </th>
+                                                    <th>Quantity
+                                                    </th>
+                                                    <th>Price
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>
+                                                        <a href="#" data-toggle="modal" data-target="#AddDataModel" class="btn btn-success">ADD</a>
+                                                    </th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>Total</th>
+                                                    <th><span class="label label-danger">$870</span></th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1
+                                                    </td>
+                                                    <td>Amari Atrium
+                                                    </td>
+                                                    <td>Type: Deluxe Room  
+                                                        <br />
+                                                        2 Double Rooms    
+                                                        <br />
+                                                        1 Extra Adults
+                                                        <br />
+                                                        1 CWB 
+                                                        <br />
+                                                        1 CNB
+                                                        <br />
+                                                        1 Infant
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">2 Nights</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">$650  </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2
+                                                    </td>
+                                                    <td>Alcazar Show
+                                                    </td>
+                                                    <td>3 Adults<br />
+                                                        2 Childs
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">5 Pax</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">$120 </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3
+                                                    </td>
+                                                    <td>PVT Transfer
+                                                    </td>
+                                                    <td>For Alcazar Show - SUV Merc
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">5 Pax</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">$100 </span>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                                <a href="#" data-toggle="modal" data-target="#myCancellationModel" class="btn btn-danger">CANCEL INVOICE</a>
+                                <button class="btn btn-default" type="button">Print</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab2">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Party Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblInvoicePartyName" for="drpInvoicePartyName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Nationality :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblNationality" for="drpNationality"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Client Name :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblClientName" for="txtClientName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Tour Name :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTourName" for="txtTourName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Travel From Date  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTravelFromDate" for="txtTravelFromDate"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+
+                                                    <li>Travel To Date  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTravelToDate" for="txtTravelToDate"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Night  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblNights" for="txtNights"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Days  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblDays" for="txtDays"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Status  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStatus" for="drpStatus"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Party Address  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblInvoicePartyAddress" for="txtInvoicePartyAddress"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+
+                                            </div>
+                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Booked By 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblBookedBy" for="txtBookedBy"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+
+
+
+                                                </div>
+                                                <div class="summ-list-right">
+
+                                                    <li>Booked On :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblBookedOn" for="txtBookedOn"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <a href="#" data-toggle="modal" data-target="#myCancellationModel" class="btn btn-danger">CANCEL INVOICE</a>
+                                        <button class="btn btn-default" type="button">Print</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <h4 class="panel-title-summery">Utilities </h4>
+        <div class="panel-body utility-panel">
+            <ul class="utility-list">
+                <li>
+                    <a href="#">
+                        <i class="task">&nbsp;</i><br />
+                        Task
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="noti">&nbsp;</i><br />
+                        Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="cal">&nbsp;</i><br />
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="e-mail">&nbsp;</i><br />
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="sms">&nbsp;</i><br />
+                        SMS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="notes">&nbsp;</i><br />
+                        Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="tages">&nbsp;</i><br />
+                        Tags
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="help-video">&nbsp;</i><br />
+                        Help Video
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="guided-tour">&nbsp;</i><br />
+                        Guided Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="copy">&nbsp;</i><br />
+                        Copy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="print">&nbsp;</i><br />
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="updates">&nbsp;</i><br />
+                        Updates
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#">
+                        <i class="screns">&nbsp;</i><br />
+                        Screenshot
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+@*Add Invoice Item Details Popup*@
+<div class="modal fade modify-colum-model" id="AddDataModel" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+            <div class="modal-header">
+                <h4 class="modal-title">Invoice Item Details</h4>
+            </div>
+            <div class="modal-body custom-model-body">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="txtItems">Items   <span>*</span></label>
+                        <input type="text" class="form-control" id="txtItems " placeholder="Items ">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDescription">Description <span>*</span></label>
+                        <input type="text" class="form-control" id="txtDescription" placeholder="Description">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="txtTaxRegistrationNumber">Quantity</label>
+                                <input type="text" class="form-control " id="txtQuantity" placeholder="Night">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtTravelToDate">Price</label>
+                                <input type="text" class="form-control " id="txtPrice" placeholder="Days">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="drpInvoiceCurrency">Currency</label>
+                                <select id="drpInvoiceCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-success">ADD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Cancellation Popup*@
+<div class="modal fade modify-colum-model" id="myCancellationModel" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+            <div class="modal-header">
+                <h4 class="modal-title">Cancellation Fees</h4>
+            </div>
+            <div class="modal-body custom-model-body">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tab2-7-1" role="tab" data-toggle="tab" data-section="tab1-1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Full Cancellation</a></li>
+                            <li role="presentation"><a href="#tab2-7-2" role="tab" data-toggle="tab" data-section="tab1-3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Partial Cancellation</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="tab2-7-1">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpCancellationAgent">Agent</label>
+                                            <input type="text" class="form-control" id="txtItems" placeholder="Agent " readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtCancellationAgentFees">Cancellation Fee</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="table" class="display table table-striped model-table dataTable" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>Supplier</th>
+                                                <th>Cancellation Fee</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr role="row">
+                                                <td>
+                                                    Amari Atrium
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row">
+                                                <td>
+                                                    Nong Nooch Tropical Botanical Garden
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-success">CANCEL INVOICE</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="tab2-7-2">
+
+                                <div class="table-responsive">
+                                    <table id="table" class="display table table-striped model-table dataTable" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>Supplier</th>
+                                                <th>Supplier Cancellation Fee</th>
+                                                <th>Agent Cancellation Fee</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr role="row">
+                                                <td>
+                                                    <span>Amari Atrium</span>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row">
+                                                <td>
+                                                    <span>Nong Nooch Tropical Botanical Garden</span>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtPVTVehicleRate" id="txtPVTVehicleRate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-success">CANCEL INVOICE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+
+            $('.hotelstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+
+
+        });
+    </script>
+}
+
+@section floatingsection{
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Party Details">1</a>
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Booking Details">2</a>
+        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Invoice Item Details">3</a>
+    </div>
+}

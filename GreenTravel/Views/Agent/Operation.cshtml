@@ -1,0 +1,232 @@
+﻿@{
+    ViewBag.Title = "Operation Details";
+    ViewBag.PageTitle = "Agent Master";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+}
+
+<div role="tabpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs form-basic-tab" role="tablist">
+        <li role="presentation"><a href="/Agent" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span> Basic Details</a></li>
+        <li role="presentation" class="active"><a href="javascript:void(0);" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span> Operation Details </a></li>
+        <li role="presentation"><a href="/Agent/Address"  class="sub-accord"><span class="menu-icon glyphicon glyphicon-envelope"></span> Address Details</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab1">
+            <form>
+                <h3>Bank Charges</h3>
+                <div class="form-group">
+                    <input type="checkbox" id="chkApplication" />Bank Charges Application? (Y/N)
+                </div>
+                <div class="form-group">
+                    <label for="drpBankChargeCurrency">
+                        Bank Charge Currency <span>*</span>
+                    </label>
+                    <select id="drpBankChargeCurrency" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="txtBankCharge">
+                        Bank Charge<span>*</span>
+                    </label>
+                    <input type="text" class="form-control" id="txtBankCharge" placeholder="Enter email">
+                </div>
+
+                <h3>Currency & Credit Limit</h3>
+                <div class="form-group">
+                    <label for="txtCreditLimit">
+                        Credit Limit<span>*</span>
+                    </label>
+                    <input type="text" class="form-control" id="txtCreditLimit" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="txtEffective">
+                        Effective From<span>*</span>
+                    </label>
+                    <input type="text" class="form-control date-picker" id="txtEffective" >
+                </div>
+                <div class="form-group">
+                    <label for="drpSource">
+                        Credit Limit Currency <span>*</span>
+                    </label>
+                    <select id="drpCreditLimitCurrency" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drpSource">
+                        Invoice Generation Currency <span>*</span>
+                    </label>
+                    <select id="drpInvoiceGenerationCurrency" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drpSource">
+                         Quotation Generation Currency <span>*</span>
+                    </label>
+                    <select id="drpQuotationGenerationCurrency" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+
+                <h3>Whitelable Criterias</h3>
+                <div class="form-group">
+                    <input type="checkbox" id="chkSemiFull" />Semi/Full
+                    <input type="checkbox" id="chkQuotation" />Quotation
+                    <input type="checkbox" id="chkVouchers" />Vouchers
+                    <input type="checkbox" id="chkTourItenaries" />Tour Itenaries
+                </div>
+
+                <h3>Agent Overview</h3>
+                <div class="form-group">
+                    <label for="txtNumberOFLocations">
+                        Number Of Locations<span>*</span>
+                    </label>
+                    <input type="text" class="form-control" id="txtNumberOFLocations" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="txtNumberOFLocations">
+                        Company Size<span>*</span>
+                    </label>
+                    <select id="drpCompanySize" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="txtCompanyName">
+                        Company Description
+                    </label>
+                    <div class="summernote" id="edtCompanyDescription"></div>
+                </div>
+                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                    SAVE</button>
+                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                    CANCEL</button>
+            </form>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab2">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab3">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab4">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab5">
+        </div>
+    </div>
+</div>
+
+@section summery{
+    <div class="summ-lis-height">
+        <ul class="summery-list slimscroll">
+            <div class="summ-list-left">
+                <li><h4>Bank Charges</h4></li>
+                <li>Bank Charges Application?:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAgentUniqueCode" for="txtAgentUniqueCode"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Bank Charge Currency:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblCompanyName" for="txtCompanyName"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Bank Charge:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblSource" for="drpSource"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+
+                <li><h4>Currency & Credit Limit</h4></li>
+                <li>Credit Limit:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAgentType" for="drpAgentType"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Effective From:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblActive" for="chkActive"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Credit Limit Currency:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblActive" for="chkActive"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Invoice Generation Currency:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblActive" for="chkActive"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+            </div>
+            <div class="summ-list-right">
+                <li><h4>Whitelable Criterias</h4></li>
+                <li>Semi/Full :
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Quotation :
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Vouchers :
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Tour Itenaries:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li><h4>Agent Overview</h4></li>
+                <li>Number Of Locations:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Company Size:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Company Description:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAccountingGroup" for="txtAccountingGroup"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <button id="btnSaveSummery" class="btn btn-success btnSave" type="submit">
+        SAVE</button>
+    <p>
+        Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+    </p>
+}

@@ -1,0 +1,171 @@
+﻿@{
+    ViewBag.Title = "Login";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from lambdathemes.in/admin1/login-alt.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Nov 2015 15:23:07 GMT -->
+<head>
+
+    <!-- Title -->
+    <title>Green Travel</title>
+    @*<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />*@
+    <link rel="icon" href="@Session["Favicon"]" type="image/x-icon" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+    <!-- Styles -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    @*<link href="/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>*@
+    <link href="/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Theme <style></style>s -->
+    <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+
+    <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+
+    <script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            //Load_data();
+            $('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');
+
+
+
+            $('#btnLogin').click(function () {
+                var Type = 'Password';
+                var Email = $('#txtUserName').val();
+                var url = 'http://localhost:9359/Home ';
+                var PassWord = $('#txtPassword').val();
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/LoginUser",
+                    data: { Type: Type, Email: Email, url: url, Pword: PassWord },
+                    success: function (result) {
+                        if (result == "1") {
+                            var urls = "/Masters/Index";
+                            window.location.href = urls;
+                        } else {
+                            alert("Invalid user id and password.");
+                        }
+
+                    }
+                });
+            });
+        });
+        //function Load_data() {
+        //    var Type = 'PageLoad';
+        //    var Email = '';
+        //    var url = 'https://agent.travelzunlimited.com/crm';
+        //    var PassWord = '';
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "/Home/PageLoad",
+        //        data: { Type: Type, Email: Email, url: url, Pword: PassWord },
+        //        success: function (result) {
+        //            console.log(result[0]['backgroundImage']);
+        //            $('.page-content.login-body').css('background', '#000 url("' + result[0]['backgroundImage'] + '") no-repeat scroll center top');
+        //            var img = '<img height="45" width="200" src="' + result[0]['logo'] + '">';
+        //            $('.logo-name').html(img);
+        //        }
+        //    });
+        //}
+    </script>
+
+</head>
+<body class="page-login login-alt ">
+    <main class="page-content login-body">
+           <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-6 center">
+                            <div class="login-box panel panel-white">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="" class="logo-name text-lg"><img src="@Session["logo"]" height="45" width="200" /></a>
+                                            <p class="login-info">
+                                                @*The Modern UI Framework is a premium Web Application Admin Dashboard built on top of Twitter Bootstrap 3.3.4 Framework.*@
+                                                @ViewBag.LoginFrmCaption
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <form >
+                                                <div class="form-group">
+                                                    <input  id="txtUserName" type="email" class="form-control" placeholder="Email" required >
+                                                </div>
+                                                <div class="form-group">
+                                                    <input  id="txtPassword" type="password" class="form-control" placeholder="Password" required>
+                                                </div>
+                                                @*<button type="submit" class="btn btn-success btn-block">Login</button>*@
+                                                <input type="button" id="btnLogin" name="btnLogin" value="Login" class="btn btn-success btn-block" />
+                                                <a href="#" class="display-block text-center m-t-md text-sm">Forgot Password?</a>
+                                            </form>
+                                        </div>
+                                        <div class="login-social">
+                                         <div class="btn-group btn-group-justified m-t-sm" role="group" aria-label="Justified button group">
+                                             @if (ViewBag.Facebook != "")
+                                             {
+                                                <a href="@ViewBag.Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i>&nbsp;Facebook</a>
+                                             }
+                                             @if (ViewBag.Twitter != "")
+                                             {
+                                                <a href="@ViewBag.Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>
+                                             }
+                                             @if (ViewBag.GooglePlus != "")
+                                             {
+                                                <a href="@ViewBag.GooglePlus" target="_blank" class="btn btn-google"><i class="fa fa-google-plus"></i>&nbsp;Google+</a>
+                                             }
+                                             @if (ViewBag.WebPortal != "")
+                                             {
+                                                <a href="@ViewBag.WebPortal" target="_blank" class="btn btn-success"><i class="icon-globe"></i>&nbsp;Web Portal</a>
+                                             }
+                                            </div>
+                                          </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row -->
+                </div>
+        </main>
+    <!-- Page Content -->
+
+
+    <!-- Javascripts -->
+    @*        <script src="/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+        <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/assets/plugins/pace-master/pace.min.js"></script>
+        <script src="/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="/assets/plugins/switchery/switchery.min.js"></script>
+        <script src="/assets/plugins/uniform/jquery.uniform.min.js"></script>
+        <script src="/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+        <script src="/assets/plugins/waves/waves.min.js"></script>
+        <script src="/assets/js/modern.min.js"></script>*@
+
+</body>
+
+<!-- Mirrored from lambdathemes.in/admin1/login-alt.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Nov 2015 15:23:07 GMT -->
+</html>
+
+
+@section summery{
+
+}

@@ -1,0 +1,225 @@
+﻿@{
+    ViewBag.Title = "Address Details";
+    ViewBag.PageTitle = "Agent Master";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+}
+
+<div role="tabpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs form-basic-tab" role="tablist">
+        <li role="presentation"><a href="/Agent" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span> Basic Details</a></li>
+        <li role="presentation"><a href="/Agent/Operation" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span> Operation Details </a></li>
+        <li role="presentation" class="active"><a href="javascript:void(0);" class="sub-accord"><span class="menu-icon glyphicon glyphicon-envelope"></span> Address Details</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab1">
+            <form>
+                <h3>Address Details</h3>
+                <div class="form-group">
+                    <label for="txtLocationName">Location Name <span>*</span></label>
+                    <input type="text" class="form-control" id="txtLocationName" placeholder="Location Name">
+                </div>
+                <div class="form-group">
+                    <label for="drpPrimaryContactPerson">Primary Contact Person<span>*</span></label>
+                    <select id="drpPrimaryContactPerson" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="txtAddressLine1">
+                        Address Line 1 <span>*</span>
+                    </label>
+                    <textarea cols="5" class="form-control" id="txtAddressLine1" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="txtAddressLine2">
+                        Address Line 2 
+                    </label>
+                    <textarea cols="5" class="form-control" id="txtAddressLine2"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="drpSource">
+                        City <span>*</span>
+                    </label>
+                    <select id="drpCity" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drpSource">
+                        State <span>*</span>
+                    </label>
+                    <select id="drpState" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drpCountry">
+                        Country <span>*</span>
+                    </label>
+                    <select id="drpCountry" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="txtZipCode">Zip/Postal Code <span>*</span></label>
+                    <input type="text" class="form-control" id="txtZipCode" placeholder="Zip/Postal Code">
+                </div>
+                <div class="form-group">
+                    <label for="txtOfficialEmail">Official Email <span>*</span></label>
+                    <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Official Email">
+                </div>
+                <div class="form-group">
+                    <label for="txtAgentUniqueCode">Official Phone <span>*</span></label>
+                    <input type="text" class="form-control" id="txtOfficialPhone" placeholder="Official Phone">
+                </div>
+                <div class="form-group">
+                    <label for="txtAgentUniqueCode">Website</label>
+                    <input type="text" class="form-control" id="txtWebsite" placeholder="Website">
+                </div>
+                <h3>Social Media </h3>
+                <div class="form-group">
+                    <label for="txtTwitter">Twitter</label>
+                    <input type="text" class="form-control" id="txtTwitter" placeholder="Twitter">
+                </div>
+                <div class="form-group">
+                    <label for="txtLinkedIn">Linked In</label>
+                    <input type="text" class="form-control" id="txtLinkedIn" placeholder="Linked In">
+                </div>
+                <div class="form-group">
+                    <label for="txtGplus">G+</label>
+                    <input type="text" class="form-control" id="txtGplus" placeholder="G+">
+                </div>
+                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                    SAVE</button>
+                <button id="btnCancel" type="button" class="btn btn-green btnCancel">
+                    CANCEL</button>
+            </form>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab2">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab3">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab4">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab5">
+        </div>
+    </div>
+</div>
+
+@section summery{
+    <div class="summ-lis-height">
+        <ul class="summery-list slimscroll">
+            <div class="summ-list-left">
+                <li>
+                    <h4>Bank Charges</h4>
+                </li>
+                <li>Location Name:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblLocationName" for="txtLocationName"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Primary Contact Person:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblPrimaryContactPerson" for="drpPrimaryContactPerson"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Address Line 1:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Address Line 2:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblAddressLine2" for="txtAddressLine2"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>City:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblCity" for="drpCity"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>State:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblState" for="drpState"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Country:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblCountry" for="drpCountry"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Zip/Postal Code:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblZipCode" for="txtZipCode"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+
+            </div>
+            <div class="summ-list-right">
+                <li>Official Email:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Official Phone:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Website:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblCountry" for="drpCountry"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>
+                    <h4>Social Media</h4>
+                </li>
+                <li>Twitter:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblTwitter" for="txtTwitter"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>Linked In:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblLinkedIn" for="txtLinkedIn"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+                <li>G+:
+                    <br />
+                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                        <label id="lblGplus" for="txtGplus"></label>
+                        <i>&nbsp;</i>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <button id="btnSaveSummery" class="btn btn-success btnSave" type="submit">
+        SAVE</button>
+    <p>
+        Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+    </p>
+}

@@ -1,0 +1,423 @@
+﻿@{
+    ViewBag.Title = "Transportation GIT Price List";
+    ViewBag.Title = "Transportation GIT Price List";
+    ViewBag.PageTitle = "Transportation GIT Price List";
+}
+
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transportation GIT Price List </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation GIT Price List</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Company Name</th>
+                                            <th>Nationality Set</th>
+                                            <th>From Validity Date</th>
+                                            <th>To Validity Date</th>
+                                            <th>Transfer Package Type</th>
+                                            <th>Vehicle Type</th>
+                                            <th>Vehicle </th>
+                                            <th>Currency</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Company Name</th>
+                                            <th>Nationality Set</th>
+                                            <th>From Validity Date</th>
+                                            <th>To Validity Date</th>
+                                            <th>Transfer Package Type</th>
+                                            <th>Vehicle Type</th>
+                                            <th>Vehicle</th>
+                                            <th>Currency</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <div class="form-group">
+                                    <label for="drpSICNationalitySet">Nationality Set </label>
+                                    <select id="drpSICNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtSICFromTravelDate">From Validity Date</label>
+                                    <input type="text" class="form-control date-picker" id="txtSICFromTravelDate" placeholder="From Travel Date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtSICToTravelDate">To Validity Date</label>
+                                    <input type="text" class="form-control date-picker" id="txtSICToTravelDate" placeholder="To Travel Date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtTransferPackageType">Transfer Package Type</label>
+                                    <input type="text" class="form-control" id="txtTransferPackageType" placeholder="Transfer Package Type">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpPVTVehicleType">Vehicle Type</label>
+                                    <select id="drpPVTVehicleType" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPVTVehicleName">Vehicle Name</label>
+                                    <input type="text" class="form-control" id="txtPVTVehicleName" placeholder="Vehicle Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtSICCurrency">Currency</label>
+                                    <input type="text" class="form-control" id="txtSICCurrency" placeholder="Currency">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtSICFromTravelDate">Rate</label>
+                                    <input type="text" class="form-control" id="txtSICAdultSICRate" placeholder="Rate">
+                                </div>
+
+                                <br />
+                                <button id="btnSICSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSICUpdate" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSICDelete" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSICClear" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSICQuitForm" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab2">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-left">
+                                                <li>Nationality Set :<br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblNationalitySet" for="drpNationalitySet"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>From Validity Date
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblVehicalName" for="drpVehicalName"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>To Validity Date
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblSeatCapacity" for="txtSeatCapacity"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div class="summ-list-right">
+                                                <li>Currency
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblLuggageCapicity" for="txtLuggageCapicity"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Rate
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblLuggageCapicity" for="txtLuggageCapicity"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <h4 class="panel-title-summery">Utilities </h4>
+        <div class="panel-body utility-panel">
+            <ul class="utility-list">
+                <li>
+                    <a href="#">
+                        <i class="task">&nbsp;</i><br />
+                        Task
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="noti">&nbsp;</i><br />
+                        Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="cal">&nbsp;</i><br />
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="e-mail">&nbsp;</i><br />
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="sms">&nbsp;</i><br />
+                        SMS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="notes">&nbsp;</i><br />
+                        Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="tages">&nbsp;</i><br />
+                        Tags
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="help-video">&nbsp;</i><br />
+                        Help Video
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="guided-tour">&nbsp;</i><br />
+                        Guided Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="copy">&nbsp;</i><br />
+                        Copy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="print">&nbsp;</i><br />
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="updates">&nbsp;</i><br />
+                        Updates
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#">
+                        <i class="screns">&nbsp;</i><br />
+                        Screenshot
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        $(window).scroll(function () {
+            var $tabsummery = $('.summery' + $('.form-tabs').find('li[class=active]').children().data('section'))
+            //set_prev = $('.summery-detail').css('top');
+            set_prev = $tabsummery.css('top');
+            if ($('body').hasClass('page-horizontal-bar')) {
+                if ($('body').hasClass('page-sidebar-fixed')) {
+                    if ($(document).scrollTop() >= 161) {
+                        set = ($(document).scrollTop() - (160)) + "px";
+                        $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                        if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
+                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                            $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                        }
+                    } else {
+                        $tabsummery.css('top', '');
+                    }
+                } else if ($('body').hasClass('page-header-fixed')) {
+                    if ($(document).scrollTop() >= 228) {
+                        set = ($(document).scrollTop() - 225) + "px";
+                        $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                        if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
+                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height()))
+                            $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                        }
+                    } else {
+                        $tabsummery.css('top', '');
+                    }
+                } else {
+                    if ($(document).scrollTop() >= 286) {
+                        set = ($(document).scrollTop() - 288) + "px";
+                        $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                        if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
+                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                            $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                        }
+                    } else {
+                        $tabsummery.css('top', '');
+                    }
+                }
+            } else {
+                if ($('body').hasClass('page-header-fixed')) {
+                    if ($(document).scrollTop() >= 156) {
+                        set = ($(document).scrollTop() - 155) + "px";
+                        $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                        if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
+                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                            $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                        }
+                    } else {
+                        $tabsummery.css('top', '');
+                    }
+                } else {
+                    if ($(document).scrollTop() >= 218) {
+                        set = ($(document).scrollTop() - 216) + "px";
+                        $tabsummery.animate({ top: set }, { duration: 0, queue: false });
+                        if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
+                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                            $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
+                        }
+                    } else {
+                        $tabsummery.css('top', '');
+                    }
+                }
+            }
+        });
+        $(document).ready(function () {
+
+            $('.hotelstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+        });
+    </script>
+}
