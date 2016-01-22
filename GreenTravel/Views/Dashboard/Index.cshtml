@@ -3,49 +3,48 @@
     ViewBag.PageTitle = "Dashboard";
     
 }
-@section Styles{
+<link href="/assets/css/daterangepicker.css" rel="stylesheet" />
+<link href="/assets/plugins/morris/morris.css" rel="stylesheet" />
+<link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<style>
+    .date-picker-line {
+        margin-bottom: 15px;
+    }
 
-    <link href="/assets/css/daterangepicker.css" rel="stylesheet" />
-    <style>
-        .date-picker-line {
-            margin-bottom: 15px;
+    .date-range {
+        width: 235px;
+    }
+
+        .date-range span {
+            font-size: 10px;
         }
 
-        .date-range {
-            width: 235px;
-        }
+    .btn {
+        text-transform: uppercase;
+    }
 
-            .date-range span {
-                font-size: 10px;
-            }
+    .dashboard-tab .nav-tabs > li > a {
+        border-bottom-width: 0;
+    }
 
-        .btn {
-            text-transform: uppercase;
-        }
+    .date-picker-line {
+        display: none;
+    }
 
-        .dashboard-tab .nav-tabs > li > a {
-            border-bottom-width: 0;
-        }
+    .dashboard-tab .tab-content {
+        border-top-width: 0;
+    }
 
-        .date-picker-line {
-            display: none;
-        }
+    .nav-tabs {
+        border-bottom: 1px solid #ddd;
+    }
 
-        .dashboard-tab .tab-content {
-            border-top-width: 0;
-        }
+    .dashboard-tab .nav-tabs > li > a {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+</style>
 
-        .nav-tabs {
-            border-bottom: 1px solid #ddd;
-        }
-
-        .dashboard-tab .nav-tabs > li > a {
-            font-size: 12px;
-            padding: 10px 20px;
-        }
-    </style>
-
-}
 <div class="col-md-12">
     <div role="tabpanel" class="dashboard-tab">
         <!-- Nav tabs -->
@@ -999,6 +998,52 @@
                             </div>
                             <div class="panel-body">
                                 <div id="morris2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Line Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-white">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Donut Chart</h3>
+                                <div class="dropdown chart-drop dashbord-date-drop">
+                                    <button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <img src="assets/images/chart-img.png" height="14" width="14" />All
+                                    </button>
+                                    <ul class="dropdown-menu cate-drop-menu">
+
+                                        <li><a href="#" style="color: #000">Custome</a></li>
+
+                                        <li><a href="#" style="color: #000">Conversation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris4"></div>
                             </div>
                         </div>
                     </div>
@@ -2080,7 +2125,13 @@
     <script src="/assets/js/pages/charts-morris.js"></script>
     @*For Account Tab*@
     <script src="/assets/js/pages/charts-flot.js"></script>
-
+    @*Web Portal*@
+    <script src="/assets/plugins/chartsjs/Chart.min.js"></script>
+    <script src="/assets/js/pages/charts-chartjs.js"></script>
+    @*Calender*@
+    <script src="assets/plugins/fullcalendar/lib/moment.min.js"></script>
+    <script src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="assets/js/pages/calendar.js"></script>
 
     <script>
         $(function () {
