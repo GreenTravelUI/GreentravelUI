@@ -6,6 +6,7 @@
 <link href="/assets/css/daterangepicker.css" rel="stylesheet" />
 <link href="/assets/plugins/morris/morris.css" rel="stylesheet" />
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/gridgallery/css/component.css" rel="stylesheet" type="text/css" />
 <style>
     .date-picker-line {
         margin-bottom: 15px;
@@ -43,6 +44,153 @@
         font-size: 12px;
         padding: 10px 20px;
     }
+
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4 {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5 {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span,
+        .tab-itenaries .col-md-2 > h5 > span,
+        .tab-itenaries .col-md-3 > h5 > span,
+        .tab-itenaries .col-md-4 > h5 > span,
+        .tab-itenaries .col-md-5 > h5 > span,
+        .tab-itenaries .col-md-6 > h5 > span,
+        .tab-itenaries .col-md-7 > h5 > span,
+        .tab-itenaries .col-md-8 > h5 > span,
+        .tab-itenaries .col-md-9 > h5 > span,
+        .m-b-lg > h5 > span {
+            float: right;
+        }
+
+    .tab-itenaries a > span {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        /*margin-bottom: 15px;*/
+    }
+
+        .tab-itenaries .form-control {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label {
+                width: 100%;
+            }
+
+            .tab-itenaries .form-control h2 {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 25px;
+        }
+
+        .tab-itenaries .form-control .btn {
+            padding: 8px 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .tab-itenaries span.total-cost {
+            font-size: 11px;
+        }
+
+        .tab-itenaries .table > tbody > tr:first-child > td {
+            border-width: 0;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:first-child {
+            width: 60%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:last-child {
+            text-align: right;
+            width: 40%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td {
+            font-size: 11px;
+            padding: 7px !important;
+        }
+
+    .grid figcaption {
+        background: #fff none repeat scroll 0 0;
+        padding: 25px;
+    }
+
+    .grid li:hover figure {
+        opacity: 1;
+    }
+
+    .grid li {
+        cursor: default;
+    }
+
+    figcaption > h3 {
+        border-bottom: 1px dashed #3c3c3c !important;
+    }
+
+        figcaption > h3 > .badge {
+            float: right;
+        }
+
+    .grid li {
+        float: left;
+        width: 33.3%;
+    }
+    .tab-itenaries .table a:hover {
+        color: red;
+        text-decoration:underline;
+    }
 </style>
 
 <div class="col-md-12">
@@ -60,128 +208,139 @@
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-            
             <div role="tabpanel" class="tab-pane active" id="tab8">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-white">
                             <div class="panel-body">
-                                <div class="search p bg-light m-b-sm">
-                                    <form action="#" method="GET" data-default="150">
-                                        <div class="input-group">
-                                            <input type="text" name="search" class="form-control input-search" placeholder="Search...">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>
-                                            </span>
-                                        </div>
-                                        <!-- Input Group -->
-                                    </form>
-                                    <!-- Search Form -->
-                                </div>
-                                <div role="tabpanel">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab" aria-expanded="false">All<span class="badge badge-success pull-right m-l-xs">18</span></a></li>
-                                        <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab" aria-expanded="true">Users<span class="badge badge-danger pull-right m-l-xs">7</span></a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane fade active in p-v-lg" id="all">
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Lorem ipsum dolor sit amet</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Consectetur adipiscing elit</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Integer molestie lorem at massa</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Facilisis in pretium nisl aliquet</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Nulla volutpat aliquam velit</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Faucibus porta lacus fringilla vel</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <div class="search-item">
-                                                <h3 class="no-m"><a href="javascript:void(0);">Aenean sit amet erat nunc</a></h3>
-                                                <a href="javascript:void(0);" class="search-link">www.google.com</a>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div>
-                                            <nav>
-                                                <ul class="pagination">
-                                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                                    <li><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li class="active"><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                    <li><a href="#">6</a></li>
-                                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                        <div role="tabpanel" class="tab-pane fade p-v-lg" id="users">
-                                            <div class="search-item clearfix">
-                                                <div class="pull-left m-r-md">
-                                                    <img src="assets/images/avatar1.png" class="img-circle" width="80" alt="">
-                                                </div>
-                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">David Smith</a></h3>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                                            </div>
-                                            <div class="search-item clearfix">
-                                                <div class="pull-left m-r-md">
-                                                    <img src="assets/images/avatar2.png" class="img-circle" width="80" alt="">
-                                                </div>
-                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Sandra Smith</a></h3>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                                            </div>
-                                            <div class="search-item clearfix">
-                                                <div class="pull-left m-r-md">
-                                                    <img src="assets/images/avatar3.png" class="img-circle" width="80" alt="">
-                                                </div>
-                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Christoper Palmer</a></h3>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                                            </div>
-                                            <div class="search-item clearfix">
-                                                <div class="pull-left m-r-md">
-                                                    <img src="assets/images/avatar4.png" class="img-circle" width="80" alt="">
-                                                </div>
-                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Emily Lee</a></h3>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                                            </div>
-                                            <div class="search-item clearfix">
-                                                <div class="pull-left m-r-md">
-                                                    <img src="assets/images/avatar5.png" class="img-circle" width="80" alt="">
-                                                </div>
-                                                <h3 class="no-m m-t-xs"><a href="javascript:void(0);">Nick Doe</a></h3>
-                                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                                            </div>
-                                            <nav>
-                                                <ul class="pagination">
-                                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                                    <li><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li class="active"><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
+                                <div id="grid-gallery" class="grid-gallery">
+                                    <section class="grid-wrap">
+                                        <ul class="grid">
+                                            <li class="grid-sizer"></li>
+                                            <li>
+                                                <figure>
+                                                    <figcaption class="panel-body tab-itenaries search-item">
+                                                        <h3 style="margin-top: 0;"><a href="javascript:void(0);" class="search-link">Hotels</a> <span class="badge badge-danger">13</span></h3>
+                                                        <table class="table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="width: 8%;">1</td>
+                                                                    <td><a href="#">Hilton Pattaya</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">2</td>
+                                                                    <td><a href="#">Royal Cliff Beach Hotel</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">3</td>
+                                                                    <td><a href="#">Siam Bayshore</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">4</td>
+                                                                    <td><a href="#">LK The Empress Pattaya</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">5</td>
+                                                                    <td><a href="#">Holiday Inn Pattaya</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">6</td>
+                                                                    <td><a href="#">Hard Rock Hotel Pattaya</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">7</td>
+                                                                    <td><a href="#">Amari Ocean Pattaya</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">8</td>
+                                                                    <td><a href="#">Cape Dara Resort</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">9</td>
+                                                                    <td><a href="#">Bella Villa Cabana</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">10</td>
+                                                                    <td><a href="#">Dor-Shada Resort by The Sea</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">11</td>
+                                                                    <td><a href="#">Eastiny Resort & Spa</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">12</td>
+                                                                    <td><a href="#">Horseshoe Point Resort</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 8%;">13</td>
+                                                                    <td><a href="#">Lareena Resort By The Sea Koh Lan</a></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-danger" rel="tooltip" title="Created Date: 23-01-2016 5:50 PM"></i></td>
+                                                                    <td style="width: 5%;"><i class="fa fa-question-circle text-info" rel="tooltip" title="Last Modified Date: 23-01-2016 5:50 PM"></i></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure>
+                                                    <figcaption class="panel-body tab-itenaries search-item">
+                                                        <h3 style="margin-top: 0;"><a href="javascript:void(0);" class="search-link">Hotel Room Price-List</a> <span class="badge badge-danger">15</span></h3>
+                                                        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure>
+                                                    <figcaption class="panel-body tab-itenaries search-item">
+                                                        <h3 style="margin-top: 0;"><a href="javascript:void(0);" class="search-link">Hotel Function Room Price-List</a><span class="badge badge-danger">3</span></h3>
+                                                        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure>
+                                                    <figcaption class="panel-body tab-itenaries search-item">
+                                                        <h3 style="margin-top: 0;"><a href="javascript:void(0);" class="search-link">Facilisis in pretium nisl aliquet</a><span class="badge badge-danger">30</span></h3>
+                                                        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                        <p><a></a></p>
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure>
+                                                    <figcaption class="panel-body tab-itenaries search-item">
+                                                        <h3 style="margin-top: 0;"><a href="javascript:void(0);" class="search-link">Nulla volutpat aliquam velit</a><span class="badge badge-danger">1</span></h3>
+                                                        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                        </ul>
+                                    </section>
                                 </div>
                             </div>
                         </div>
@@ -191,35 +350,13 @@
         </div>
     </div>
 </div>
+</div>
 
 @section Scripts{
     <script src="/assets/js/moment.min.js"></script>
     <script src="/assets/js/daterangepicker.js"></script>
-    <script src="/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
-    <script src="/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
     <script src="/assets/plugins/toastr/toastr.min.js"></script>
-    <script src="/assets/plugins/flot/jquery.flot.min.js"></script>
-    <script src="/assets/plugins/flot/jquery.flot.time.min.js"></script>
-    <script src="/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
-    <script src="/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-    <script src="/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="/assets/plugins/curvedlines/curvedLines.js"></script>
-    <script src="/assets/plugins/metrojs/MetroJs.min.js"></script>
-    @*For General Tab*@
-    <script src="/assets/js/pages/dashboard.js"></script>
-    @*For Sales Tab*@
-    <script src="/assets/plugins/morris/raphael.min.js"></script>
-    <script src="/assets/plugins/morris/morris.min.js"></script>
-    <script src="/assets/js/pages/charts-morris.js"></script>
-    @*For Account Tab*@
-    <script src="/assets/js/pages/charts-flot.js"></script>
-    @*Web Portal*@
-    <script src="/assets/plugins/chartsjs/Chart.min.js"></script>
-    <script src="/assets/js/pages/charts-chartjs.js"></script>
-    @*Calender*@
-    <script src="assets/plugins/fullcalendar/lib/moment.min.js"></script>
-    <script src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
-    <script src="assets/js/pages/calendar.js"></script>
+
 
     <script>
         $(function () {
