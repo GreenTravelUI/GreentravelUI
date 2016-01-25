@@ -80,7 +80,7 @@ $(document).ready(function() {
     //editables 
     $('#example-editable td span.spaneditable').editable({
            url: '/post',
-           type: 'text',
+           type: 'select',
            pk: 1,
            name: 'username',
            title: 'Enter username'

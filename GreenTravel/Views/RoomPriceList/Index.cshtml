@@ -12,6 +12,7 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Room Price List </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Room Price List</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -128,9 +129,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="drpRoomType">Room Type </label>
-                                    <select id="drpRoomType" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtRoomType">Accommodation Type<span>*</span></label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Single Room</option>
+                                                <option>Double Room</option>
+                                                <option>Triple Room</option>
+                                                <option>Appartment</option>
+                                                <option>Bunglows</option>
+                                                <option>Suite</option>
+                                                <option>Junior Suite</option>
+                                                <option>Family Room</option>
+                                                <option>Four Beded Room</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="drpRoomType">Room Type </label>
+                                            <select id="drpRoomType" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtMaxPax">Max Pax</label>
+                                            <input type="text" class="form-control" id="txtMaxPax" placeholder="Max Pax">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group" style="display: none;">
                                     <label for="drpMealPlan">Meal Plan </label>
@@ -138,32 +161,65 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtCurrency">Currency </label>
-                                    <input type="text" class="form-control" id="txtCurrency" placeholder="Currency">
+                                    <label for="drpMealPlan">Additional Services</label>
+                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>With Breakfast</option>
+                                        <option>Without Breakfast</option>
+                                        <option>With Lunch</option>
+                                        <option>Without Lunch</option>
+                                        <option>Airport Transfer</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSingleRoomRate">Single Room Rate</label>
-                                    <input type="text" class="form-control" id="txtSingleRoomRate" placeholder="Single Room Rate">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtSingleRoomRate">Single Room Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtSingleRoomRate" placeholder="Single Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtDoubleTwinRoomRate">Double / Twin Room Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtDoubleTwinRoomRate" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="txtDoubleTwinRoomRate">Double / Twin Room Rate </label>
-                                    <input type="text" class="form-control" id="txtDoubleTwinRoomRate" placeholder="Double / Twin Room Rate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtExtraAdultRate">Extra Adult Rate </label>
-                                    <input type="text" class="form-control" id="txtExtraAdultRate" placeholder="Extra Adult Rate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtExtraCWBRate">Extra CWB Rate </label>
-                                    <input type="text" class="form-control" id="txtExtraCWBRate" placeholder="Extra CWB Rate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtExtraCNBRate">Extra CNB Rate </label>
-                                    <input type="text" class="form-control" id="txtExtraCNBRate" placeholder="Extra CNB Rate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtInfantRate">Infant Rate </label>
-                                    <input type="text" class="form-control" id="txtInfantRate" placeholder="Infant Rate">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtExtraAdultRate">Extra Adult Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtExtraAdultRate" placeholder="Extra Adult Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtExtraCWBRate">Extra CWB Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtExtraCWBRate" placeholder="Extra CWB Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtExtraCNBRate">Extra CNB Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtExtraCNBRate" placeholder="Extra CNB Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtInfantRate">Infant Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtInfantRate" placeholder="Infant Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <br />
@@ -323,7 +379,44 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="tabl-pane" id="tab3">
+                        <form>
+                            <div class="table-responsive">
+                                <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Agent Type</th>
+                                            <th>Margin(%)</th>
+                                            <th>Margin Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Agent Type</th>
+                                            <th>Margin(%)</th>
+                                            <th>Margin Amount</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Gold</td>
+                                            <td><span class="spaneditable">12</span></td>
+                                            <td><span class="spaneditable"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Silver</td>
+                                            <td><span class="spaneditable"></span></td>
+                                            <td><span class="spaneditable">120</span> THB</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

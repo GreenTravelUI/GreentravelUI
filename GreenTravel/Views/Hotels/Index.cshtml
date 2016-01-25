@@ -4,6 +4,12 @@
     ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
 }
 
+<style>
+    .nav-tabs > li > a {
+        font-size: 13px;
+    }
+</style>
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -13,7 +19,12 @@
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Hotel </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Hotel</a></li>
                     <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User / Billing / Bank</a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room / Function Room / Restaurant</a></li>
+                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Room / Function Room / Restaurant</a></li>
+                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room </a></li>
+                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Function Room</a></li>
+                    <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Restaurant</a></li>
+                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Rules</a></li>
+
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -131,6 +142,12 @@
                                         <div class="col-md-4">
                                             <label for="drpTypeOfHotel">Type Of Hotel <span>*</span></label>
                                             <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Hotel</option>
+                                                <option>Hostel</option>
+                                                <option>Appartment</option>
+                                                <option>Boat</option>
+                                                <option>Resort</option>
+                                                <option>Villas</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
@@ -138,11 +155,12 @@
                                             <select id="drpStarRating" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="drpOperatingCurrency">Operating Currency </label>
+                                         <div class="col-md-4">
+                                           <label for="drpOperatingCurrency">Operating Currency </label>
                                             <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -957,9 +975,121 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab4">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Display Data For</label>
+                                    <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option>Hotel Room</option>
+                                        <option>Function Room</option>
+                                        <option>Restaurent</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="table-responsive">
+                            <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Accommodation Type</th>
+                                        <th>Room Type </th>
+                                        <th>Max Pax </th>
+                                        <th>Number of Rooms </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Accommodation Type</th>
+                                        <th>Room Type </th>
+                                        <th>Max Pax </th>
+                                        <th>Number of Rooms </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <input type="text" />
+                                        </th>
+                                        <th>
+                                            <input type="text" />
+                                        </th>
+                                        <th>
+                                            <input type="text" />
+                                        </th>
+                                        <th>
+                                            <input type="text" />
+                                        </th>
+                                        <th>
+                                            <a href="#">
+                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span>Single Room </span></td>
+                                        <td><span>Single Room</span></td>
+                                        <td><span>12</span></td>
+                                        <td><span>3</span></td>
+                                        <td>
+                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span>Family Room </span></td>
+                                        <td><span>Family Room</span></td>
+                                        <td><span>4</span></td>
+                                        <td><span>2</span></td>
+                                        <td>
+                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab5">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Hotel Room</h3>
+                                <div class="form-group">
+                                    <label for="txtRoomType">Accommodation Type<span>*</span></label>
+                                    <select id="drpDisplayFor" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                        <option>Single Room</option>
+                                        <option>Double Room</option>
+                                        <option>Triple Room</option>
+                                        <option>Appartment</option>
+                                        <option>Bunglows</option>
+                                        <option>Suite</option>
+                                        <option>Junior Suite</option>
+                                        <option>Family Room</option>
+                                        <option>Four Beded Room</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -1021,7 +1151,105 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab4section2"><span class="section-index">2</span>&nbsp;Function Room</h3>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab5">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Room Type :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Max Pax :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Number of Rooms :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab6">
+                        <div class="col-md-7">
+                            <form>
                                 <div class="form-group">
                                     <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
                                     <input type="text" class="form-control" id="txtConferenceRoomName" placeholder="Conference Room Name">
@@ -1105,7 +1333,114 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab4section3"><span class="section-index">3</span>&nbsp;Restaurent</h3>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab6">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Function Room Name  
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Function Type  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Setup Style
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Total Seats
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab7">
+                        <div class="col-md-7">
+                            <form>
                                 <div class="form-group">
                                     <label for="txtRestaturantName">Restaturant Name</label>
                                     <input type="text" class="form-control" id="txtRestaturantName" placeholder="Restaturant Name">
@@ -1238,124 +1573,108 @@
                                     QUIT FORM</button>
                             </form>
                         </div>
-                        <div class="col-md-5 summery-detail summerytab4">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-                                        <ul class="summery-list slimscroll">
-                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>Room Type :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Max Pax :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Number of Rooms :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>Function Room Name  
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Function Type  :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Setup Style
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Total Seats
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                        <ul class="summery-list slimscroll">
-                                        </ul>
-                                    </div>
-                                    <div class="summery-buttons">
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
-                                    </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab8">
+                        <div class="table-responsive">
+                            <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
                                 </div>
                             </div>
+                            <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Accommodation Type</th>
+                                        <th>Persons Per Accommodation</th>
+                                        <th>No Pax From</th>
+                                        <th>No Pax To</th>
+                                        <th>FOC Pax</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    @*<tr>
+                                        <th></th>
+                                        <th>
+                                            <input type="text" class="form-control" id="timepicker1">
+                                        </th>
+                                        <th>
+                                            <select id="drpDistanceUnit" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Sigle Use</option>
+                                                <option>Double Use</option>
+                                            </select>
+                                        </th>
+                                        <th>
+                                            <input type="text" class="form-control" id="timepicker1"></th>
+                                        <th>
+                                            <input type="text" class="form-control" id="timepicker1"></th>
+                                        <th>
+                                            <input type="text" class="form-control" id="timepicker1"></th>
+                                        <th>
+                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                ADD</button></th>
+                                    </tr>*@
+                                    <tr>
+                                        <th>
+                                            @*<button id="btnSave" type="submit" class="btn btn-success btnSave"  data-toggle="modal" data-target="#MyDownloadPDF">
+                                                ADD</button>*@
+                                            <a href="javascript:void(0);" class="btn btn-success btnSave" data-toggle="modal" data-target="#MyModalFOCRules">ADD</a>
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="spaneditable">Single Room</span></td>
+                                        <td><span class="spaneditable">Single Use</span></td>
+                                        <td><span class="spaneditable">2</span></td>
+                                        <td><span class="spaneditable">10</span></td>
+                                        <td><span class="spaneditable">1</span></td>
+                                        <td>
+                                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="spaneditable">Double Room</span></td>
+                                        <td><span class="spaneditable">Double Use</span></td>
+                                        <td><span class="spaneditable">2</span></td>
+                                        <td><span class="spaneditable">10</span></td>
+                                        <td><span class="spaneditable">1</span></td>
+                                        <td>
+                                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
                         </div>
+                        <br />
+                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                            SAVE</button>
+                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                            UPDATE</button>
+                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                            DELETE</button>
+                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                            CLEAR</button>
+                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                            QUIT FORM</button>
                     </div>
                 </div>
             </div>
@@ -1451,6 +1770,45 @@
         </div>
     </div>
 
+</div>
+
+<div class="modal fade" id="MyModalFOCRules" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">FOC Rules</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Room Type</label>
+                    <select id="drpModalAgent" class="js-states form-control" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Persons Per Accommodations</label>
+                    <select id="drpModalAgent" class="js-states form-control" style="display: none; width: 100%">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>No Pax From</label>
+                    <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Users">
+                </div>
+                <div class="form-group">
+                    <label>No Pax To</label>
+                    <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Users">
+                </div>
+                <div class="form-group">
+                    <label>FOC Pax</label>
+                    <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Any Other">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section scripts{

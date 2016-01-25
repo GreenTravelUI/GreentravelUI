@@ -6,6 +6,7 @@
 <link href="/assets/css/daterangepicker.css" rel="stylesheet" />
 
 <link href="/assets/plugins/vertical-timeline/css/style.css" rel="stylesheet" type="text/css">
+<link href="~/assets/plugins/jstree/themes/default/style.min.css" rel="stylesheet" />
 <style>
     .date-picker-line {
         margin-bottom: 15px;
@@ -63,6 +64,56 @@
             <div role="tabpanel" class="tab-pane active" id="tab6">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Tracking</label>
+                                    <select id="drpTracking" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Record</option>
+                                        <option>Tour</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Record Tracking</label>
+                            <div id="basicTree">
+                                <ul>
+                                    <li data-jstree='{"opened":true,"icon":"fa fa-plus-square icon-state-danger icon-md"}'>Suppliers   
+                                        <ul>
+                                            <li data-jstree='{"icon":"fa fa-square icon-state-danger icon-md"}'>Hotels</li>
+                                            <li data-jstree='{"icon":"fa fa-square icon-state-info icon-md"}'>Restaurent</li>
+                                            <li data-jstree='{"icon":"fa fa-square icon-state-info icon-md"}'>Sightseeing</li>
+                                            <li data-jstree='{"icon":"fa fa-square icon-state-info icon-md"}'>Transaction</li>
+                                            <li data-jstree='{"icon":"fa fa-square icon-state-info icon-md"}'>Guide</li>
+                                        </ul>
+                                    </li>
+                                    <li>Root node
+                                        <ul>
+                                            <li data-jstree='{"opened":true}'>Root node
+                                                <ul>
+                                                    <li data-jstree='{"type":"file"}'>Child node</li>
+                                                    <li data-jstree='{"opened":true}'>Opened
+                                                        <ul>
+                                                            <li data-jstree='{"selected":true,"type":"file"}'>Selected</li>
+                                                            <li data-jstree='{"type":"file"}'>Child node</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li data-jstree='{"opened":true}'>Opened
+                                                <ul>
+                                                    <li data-jstree='{"type":"file"}'>File type</li>
+                                                    <li data-jstree='{"type":"file"}'>File type</li>
+                                                </ul>
+                                            </li>
+                                            <li data-jstree='{"icon":"fa fa-tags icon-state-primary icon-md"}'>Custom icon</li>
+                                        </ul>
+                                    </li>
+                                    <li data-jstree='{"type":"file"}'>File type</li>
+                                </ul>
+                            </div>
+                        </div>
                         <section id="cd-timeline" class="cd-container">
                             <div class="cd-timeline-block">
                                 <div class="cd-timeline-img cd-success">
@@ -177,12 +228,13 @@
     <script src="/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
     <script src="/assets/plugins/curvedlines/curvedLines.js"></script>
     <script src="/assets/plugins/metrojs/MetroJs.min.js"></script>
-   
+
     @*For Timeline*@
     <script src="/assets/plugins/vertical-timeline/js/main.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
     <script src="/assets/js/pages/timeline.js"></script>
-
+    <script src="~/assets/plugins/jstree/jstree.min.js"></script>
+    <script src="~/assets/js/pages/jstree.js"></script>
     <script>
         $(function () {
 
