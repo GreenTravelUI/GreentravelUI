@@ -44,30 +44,30 @@
     <script>
         $(document).ready(function () {
             //Load_data();
-            $('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');
+            @*$('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');*@
 
 
 
-            $('#btnLogin').click(function () {
-                var Type = 'Password';
-                var Email = $('#txtUserName').val();
-                var url = 'http://localhost:9359/Home ';
-                var PassWord = $('#txtPassword').val();
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/LoginUser",
-                    data: { Type: Type, Email: Email, url: url, Pword: PassWord },
-                    success: function (result) {
-                        if (result == "1") {
-                            var urls = "/Masters/Index";
-                            window.location.href = urls;
-                        } else {
-                            alert("Invalid user id and password.");
-                        }
+            //$('#btnLogin').click(function () {
+            //    var Type = 'Password';
+            //    var Email = $('#txtUserName').val();
+            //    var url = 'http://localhost:9359/Home ';
+            //    var PassWord = $('#txtPassword').val();
+            //    $.ajax({
+            //        type: "POST",
+            //        url: "/Home/LoginUser",
+            //        data: { Type: Type, Email: Email, url: url, Pword: PassWord },
+            //        success: function (result) {
+            //            if (result == "1") {
+            //                var urls = "/Masters/Index";
+            //                window.location.href = urls;
+            //            } else {
+            //                alert("Invalid user id and password.");
+            //            }
 
-                    }
-                });
-            });
+            //        }
+            //    });
+            //});
         });
         //function Load_data() {
         //    var Type = 'PageLoad';

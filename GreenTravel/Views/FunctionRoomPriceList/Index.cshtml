@@ -10,109 +10,111 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Function Room Price List </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Function Room Price List</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Function Room Price List </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bookmark"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Function Room Price List</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hotel</label>
+                                    <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Hotel">
                                 </div>
-                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
-                                    <thead>
-                                        <tr>
-                                           <th>#</th>
-                                            <th>Nationality</th>
-                                            <th>From Validity Date </th>
-                                            <th>To Validity Date</th>
-                                            <th>Function Type  </th>
-                                            <th>Currency </th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                             <th>#</th>
-                                            <th>Nationality</th>
-                                            <th>From Validity Date </th>
-                                            <th>To Validity Date</th>
-                                            <th>Function Type  </th>
-                                            <th>Currency </th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            
-                                            <th>
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                           <td>1</td>
-                                            <td><span>Asian </span></td>
-                                            <td><span>01-01-2016</span></td>
-                                            <td><span>31-12-2016</span></td>
-                                            <td><span>Dulax</span></td>
-                                            <td><span>Rs</span></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Function Room Name </label>
+                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <div class="dropdown table-custome-drop">
+                                        <div class="btn-group">
+                                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-download-alt"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Excel</a></li>
+                                                <li><a href="#">PDF</a></li>
+                                                <li><a href="#">Email</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nationality</th>
+                                                <th>Function Date</th>
+                                                <th>Function Type  </th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nationality</th>
+                                                <th>Function Date</th>
+                                                <th>Function Type  </th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <th></th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+
+                                                <th>
+                                                    <a href="#">
+                                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td><span>Asian </span></td>
+                                                <td><span>01/01/2016</span> - <span>31/12/2016</span></td>
+                                                <td><span>Half Day AM</span></td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                    &nbsp;&nbsp;
                                                 <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><span>Asian </span></td>
-                                            <td><span>01-01-2016</span></td>
-                                            <td><span>31-12-2016</span></td>
-                                            <td><span>Dulax</span></td>
-                                            <td><span>Rs</span></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td><span>Asian </span></td>
+                                                <td><span>01/01/2016</span> - <span>31/12/2016</span></td>
+                                                <td><span>Full Day</span></td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                    &nbsp;&nbsp;
                                                 <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
 
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-7">
                             <form>
+                                <h3 class="tab9section1">Create Function Room Price List - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="drpNationalitySet">Nationality Set </label>
                                     <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
@@ -121,12 +123,12 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtFromValidityDate">From Validity Date </label>
-                                            <input type="text" class="form-control" id="txtFromValidityDate" placeholder="From Validity Date">
+                                            <label for="txtFromValidityDate">From Function Date </label>
+                                            <input type="text" class="form-control" id="txtFromValidityDate" placeholder="From Function Date">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txtToValidityDate">To Validity Date </label>
-                                            <input type="text" class="form-control" id="txtToValidityDate" placeholder="To Validity Date">
+                                            <label for="txtToValidityDate">To Function Date </label>
+                                            <input type="text" class="form-control" id="txtToValidityDate" placeholder="To Function Date">
                                         </div>
                                     </div>
                                 </div>
@@ -136,19 +138,18 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" id="chkLCDProjectorIncluded">LCD Projector Included?
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtNumberofStarter">Number of Lunch</label>
-                                            <input type="text" class="form-control" id="txtNumberofStarter" placeholder="Number of Lunch">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtNumberofTeaCoffeeBreak">Number of Tea / Coffee Break </label>
-                                            <input type="text" class="form-control" id="txtNumberofTeaCoffeeBreak" placeholder="Number of Tea / Coffee Break">
-                                        </div>
-                                    </div>
+                                    <label for="drpMealPlan">Additional Services</label>
+                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>LCD Projector</option>
+                                        <option>1 Lunch</option>
+                                        <option>2 Lunch</option>
+                                        <option>3 Lunch</option>
+                                        <option>4 Lunch</option>
+                                        <option>1 Tea / Coffee Break</option>
+                                        <option>2 Tea / Coffee Break</option>
+                                        <option>3 Tea / Coffee Break</option>
+                                        <option>4 Tea / Coffee Break</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
@@ -163,12 +164,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtCurrency">Currency </label>
-                                    <input type="text" class="form-control" id="txtCurrency" placeholder="Currency">
-                                </div>
-                                <div class="form-group">
                                     <label for="txtPerPersonRate">Per Person Rate </label>
-                                    <input type="text" class="form-control" id="txtPerPersonRate" placeholder="Per Person Rate">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtPerPersonRate" placeholder="Per Person Rate">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+
                                 </div>
 
                                 <br />
@@ -224,89 +225,35 @@
                                     <div class="summ-lis-height">
                                         <ul class="summery-list slimscroll">
                                             <div class="summ-list-left">
-                                                <li>Hotel Name :<br />
+                                                <li>Nationality Set
+                                                    <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                         <label id="lblHotelName" for="txtHotelName"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
-                                                <li>Type Of Hotel :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Star Rating :
+                                                <li>From Function Date
                                                     <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                         <label id="lblStarRating" for="drpStarRating"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
-                                                <li>Operating Currency :
+
+
+                                            </div>
+                                            <div class="summ-list-right">
+                                                <li>To Function Date 
                                                     <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                         <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
-                                                <li>Official Email(s)  :
+                                                <li>Function Type
                                                     <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Official Phone  :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-
-                                            </div>
-                                            <div class="summ-list-right">
-                                                <li>Website  :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblWebsite" for="txtWebsite"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Address Line 1 
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>City :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblCity" for="txtCity"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>State :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblState" for="txtState"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Country :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblCountry" for="txtCountry"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Zip/Postal Code :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblZipCode" for="txtZipCode"></label>
+                                                        <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>

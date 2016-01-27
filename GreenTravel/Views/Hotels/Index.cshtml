@@ -8,6 +8,16 @@
     .nav-tabs > li > a {
         font-size: 13px;
     }
+
+    .modal-lg {
+        width: 95%;
+    }
+
+    .modal-header h4 {
+        border-bottom: 1px dashed #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
 </style>
 
 <div class="col-md-12 form-detail">
@@ -16,17 +26,17 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Hotel </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Hotel</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User / Billing / Bank</a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Room / Function Room / Restaurant</a></li>
-                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room </a></li>
-                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Function Room</a></li>
-                    <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Restaurant</a></li>
-                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Rules</a></li>
-
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Hotel </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Hotel</a></li>
+                    <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank / Tax</a></li>
+                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room </a></li>
+                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-bookmark"></span>&nbsp;&nbsp;&nbsp;&nbsp;Function Room</a></li>
+                    <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-spoon"></span>&nbsp;&nbsp;&nbsp;&nbsp;Restaurant</a></li>
+                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-file-text-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Rules</a></li>
                 </ul>
                 <div class="tab-content">
+                    @*Search Hotel*@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
                             <div class="table-responsive">
@@ -50,9 +60,9 @@
                                             <th>Type of Hotel</th>
                                             <th>City</th>
                                             <th>Star Rating</th>
-                                            <th>Total Rooms</th>
                                             <th>Status</th>
                                             <th>Action</th>
+                                            <th>Price List</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -62,9 +72,9 @@
                                             <th>Type of Hotel</th>
                                             <th>City</th>
                                             <th>Star Rating</th>
-                                            <th>Total Rooms</th>
                                             <th>Status</th>
                                             <th>Action</th>
+                                            <th>Price List</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -95,31 +105,67 @@
                                             </th>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td><span>Amari Ocean Pattaya </span></td>
-                                            <td><span>Hotel</span></td>
-                                            <td><span>Pattaya</span></td>
-                                            <td><span>4.2</span></td>
-                                            <td><span>52</span></td>
-                                            <td><span class="label label-success hotelstatus" data-value="Active" data-source="[{value:'1',text:'Active'},{value:'2',text:'Inactive'}]" data-type="select">Active</span></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                            <td style="width: 4%">1</td>
+                                            <td style="width: 20%"><span>Amari Ocean Pattaya </span></td>
+                                            <td style="width: 15%"><span>Hotel</span></td>
+                                            <td style="width: 10%"><span>Pattaya</span></td>
+                                            <td style="width: 10%"><span>4.2</span></td>
+                                            <td style="width: 10%"><span class="label label-success hotelstatus" data-value="Active" data-source="[{value:'1',text:'Active'},{value:'2',text:'Inactive'}]" data-type="select">Active</span></td>
+                                            <td style="width: 21%;">
+                                                <a href="#" rel="tooltip" title="Hotel"><i class="fa fa-hospital-o text-success"></i></a>
                                                 &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                <a href="#" rel="tooltip" title="User"><i class="fa fa-user-plus text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Bank"><i class="fa fa-university text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Room"><i class="fa fa-bed text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                 <a href="#" rel="tooltip" title="Function Room"><i class="fa fa-bookmark text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                 <a href="#" rel="tooltip" title="Restaurant"><i class="fa fa-spoon text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="FOC Rules"><i class="fa fa-file-text-o text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <a href="#" rel="tooltip" title="Room Price List"><i class="fa fa-bed text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Function Room Price List"><i class="fa fa-bookmark text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Gala Dinner Price List"><i class="fa fa-spoon text-success"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
+                                            <td>2</td>
                                             <td><span>Rezt Bangkok </span></td>
                                             <td><span>Hostels</span></td>
                                             <td><span>Khlong Toei</span></td>
                                             <td><span>3</span></td>
-                                            <td><span>12</span></td>
                                             <td><span class="label label-danger hotelstatus">Inactive</span></td>
                                             <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                <a href="#" rel="tooltip" title="Hotel"><i class="fa fa-hospital-o text-success"></i></a>
                                                 &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                <a href="#" rel="tooltip" title="User"><i class="fa fa-user-plus text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Bank"><i class="fa fa-university text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Room"><i class="fa fa-bed text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                 <a href="#" rel="tooltip" title="Function Room"><i class="fa fa-bookmark text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                 <a href="#" rel="tooltip" title="Restaurant"><i class="fa fa-spoon text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="FOC Rules"><i class="fa fa-file-text-o text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                            <td style="width: 21%;">
+                                                <a href="#" rel="tooltip" title="Room Price List"><i class="fa fa-bed text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Function Room Price List"><i class="fa fa-bookmark text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Gala Dinner Price List"><i class="fa fa-spoon text-success"></i></a>
                                             </td>
                                         </tr>
 
@@ -129,10 +175,11 @@
                             </div>
                         </form>
                     </div>
+                    @*Create Hotel*@
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Basic Details</h3>
+                                <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Basic Details - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtHotelName">Hotel Name <span>*</span></label>
                                     <input type="text" class="form-control" id="txtHotelName" placeholder="Hotel Name">
@@ -155,8 +202,8 @@
                                             <select id="drpStarRating" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
-                                         <div class="col-md-4">
-                                           <label for="drpOperatingCurrency">Operating Currency </label>
+                                        <div class="col-md-4">
+                                            <label for="drpOperatingCurrency">Operating Currency </label>
                                             <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
@@ -192,6 +239,26 @@
                                     <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
                                 </div>
                                 <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtRoomType">Supported Accommodation Type<span>*</span></label>
+                                            <select id="drpDisplayFor" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Single Room</option>
+                                                <option>Double / Twin Room</option>
+                                                <option>Triple Room</option>
+                                                <option>Quad Room</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpOperatingCurrency">FOC Rule By </label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Room</option>
+                                                <option>Pax</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="txtAccountingGroup">Accounting Group </label>
                                     <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
                                 </div>
@@ -212,7 +279,7 @@
                                     <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
                                 </div>
 
-                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Hotel Address</h3>
+                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Hotel Address - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtHotelLocation">Hotel Location (Landmark) </label>
                                     <input type="text" class="form-control" id="txtHotelLocation" placeholder="Hotel Location (Landmark)">
@@ -246,77 +313,76 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Cancellation  Policies</h3>
+                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Cancellation  Policies - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <input type="checkbox">Cancellation Fees Applicable?
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="txtFormHours">From Hours </label>
+                                            <label for="txtFormHours">Before Hours </label>
                                             <input type="text" class="form-control" id="txtFormHours" placeholder="From Hours">
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="txtToHours">To Hours </label>
-                                            <input type="text" class="form-control" id="txtToHours" placeholder="To Hours">
-                                        </div>
-                                        <div class="col-md-4">
                                             <label for="txtPercentage">Percentage (%)</label>
                                             <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays"># of Nights</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="# of Nights">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="txtFormDays">From Days </label>
+                                            <label for="txtFormDays">Before Hours </label>
                                             <input type="text" class="form-control" id="txtFormDays" placeholder="From Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtToDays">To Days</label>
-                                            <input type="text" class="form-control" id="txtToDays" placeholder="To Days">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="txtPercentage">Percentage (%)</label>
                                             <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays"># of Nights</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="# of Nights">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="txtFormDays">From Days </label>
+                                            <label for="txtFormDays">Before Days </label>
                                             <input type="text" class="form-control" id="txtFormDays" placeholder="From Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtToDays">To Days</label>
-                                            <input type="text" class="form-control" id="txtToDays" placeholder="To Days">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="txtPercentage">Percentage (%)</label>
                                             <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays"># of Nights</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="# of Nights">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="txtFormDays">From Days </label>
+                                            <label for="txtFormDays">Before Days </label>
                                             <input type="text" class="form-control" id="txtFormDays" placeholder="From Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtToDays">To Days</label>
-                                            <input type="text" class="form-control" id="txtToDays" placeholder="To Days">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="txtPercentage">Percentage (%)</label>
                                             <input type="text" class="form-control" id="txtPercentage" placeholder="Percentage (%)">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtToDays"># of Nights</label>
+                                            <input type="text" class="form-control" id="txtToDays" placeholder="# of Nights">
                                         </div>
                                     </div>
                                 </div>
 
-
-                                <h3 class="section-headers tab2section4"><span class="section-index">4</span>&nbsp;Facilities</h3>
+                                <h3 class="section-headers tab2section4"><span class="section-index">4</span>&nbsp;Facilities - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4 form-marings">
@@ -379,7 +445,25 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab2section5"><span class="section-index">5</span>&nbsp;Nearest Airports</h3>
+                                <h3 class="section-headers tab2section5"><span class="section-index">5</span>&nbsp;Additinal Services - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label>Room Additinal Services</label>
+                                    <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Room Additinal Services">
+                                </div>
+                                <div class="form-group">
+                                    <label>Function Room Additinal Services</label>
+                                    <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Function Room Additinal Services">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gala Dinner Additinal Services</label>
+                                    <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Gala Dinner Additinal Services">
+                                </div>
+                                <div class="form-group">
+                                    <label>Other Additinal Services</label>
+                                    <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Other Additinal Services">
+                                </div>
+
+                                <h3 class="section-headers tab2section6"><span class="section-index">6</span>&nbsp;Nearest Airports - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -588,8 +672,6 @@
                                             </div>
                                         </ul>
 
-                                        <ul class="summery-list slimscroll">
-                                        </ul>
                                     </div>
                                     <div class="summery-buttons">
                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -606,10 +688,11 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="tab3">
+                    @*User*@
+                    <div role="tabpanel" class="tab-pane" id="tab9">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Hotel User</h3>
+                                <h3 class="tab9section1">User - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtFirstName">Name <span>*</span></label>
                                     <div class="row">
@@ -676,7 +759,126 @@
                                     </select>
                                 </div>
 
-                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Billing</h3>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab9">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>First Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Last Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Email (User Name) :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Designation :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Billing / Bank*@
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Billing - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtBillingName">Billing Name <span>*</span></label>
                                     <input type="text" class="form-control" id="txtBillingName" placeholder="Billing Name">
@@ -749,7 +951,7 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab3section3"><span class="section-index">3</span>&nbsp;Bank</h3>
+                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Bank - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtBillingEmail">Account Number </label>
                                     <input type="text" class="form-control" id="txtAccountNumber" placeholder="Account Number">
@@ -778,6 +980,39 @@
                                     <label for="txtBillingEmail">Swift Code / Sort Code </label>
                                     <input type="text" class="form-control" id="txtSwiftCode" placeholder="Swift Code / Sort Code">
                                 </div>
+
+                                <h3 class="section-headers tab3section3"><span class="section-index">3</span>&nbsp;Tax - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">VAT in Net Rate </label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Included</option>
+                                                <option>Excluded</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Rate </label>
+                                            <input type="text" class="form-control" id="txtBankBranch" placeholder="Rate in Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Withholding in Net Rate </label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Included</option>
+                                                <option>Excluded</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Rate </label>
+                                            <input type="text" class="form-control" id="txtBankBranch" placeholder="Rate in Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -831,53 +1066,6 @@
                                     <div class="summ-lis-height">
                                         <ul class="summery-list slimscroll">
                                             <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>First Name :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Last Name :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Email (User Name) :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Telephone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblStarRating" for="drpStarRating"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Cell Phone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Designation :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
                                             <div class="summ-list-div">
                                                 <div class="summ-list-left">
                                                     <li>Billing Name 
@@ -974,135 +1162,41 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane " id="tab4">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Display Data For</label>
-                                    <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option>Hotel Room</option>
-                                        <option>Function Room</option>
-                                        <option>Restaurent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="table-responsive">
-                            <div class="dropdown table-custome-drop">
-                                <div class="btn-group">
-                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Excel</a></li>
-                                        <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Accommodation Type</th>
-                                        <th>Room Type </th>
-                                        <th>Max Pax </th>
-                                        <th>Number of Rooms </th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Accommodation Type</th>
-                                        <th>Room Type </th>
-                                        <th>Max Pax </th>
-                                        <th>Number of Rooms </th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <th></th>
-                                        <th>
-                                            <input type="text" />
-                                        </th>
-                                        <th>
-                                            <input type="text" />
-                                        </th>
-                                        <th>
-                                            <input type="text" />
-                                        </th>
-                                        <th>
-                                            <input type="text" />
-                                        </th>
-                                        <th>
-                                            <a href="#">
-                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span>Single Room </span></td>
-                                        <td><span>Single Room</span></td>
-                                        <td><span>12</span></td>
-                                        <td><span>3</span></td>
-                                        <td>
-                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                            &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span>Family Room </span></td>
-                                        <td><span>Family Room</span></td>
-                                        <td><span>4</span></td>
-                                        <td><span>2</span></td>
-                                        <td>
-                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                            &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    @*Room*@
                     <div role="tabpanel" class="tab-pane " id="tab5">
                         <div class="col-md-7">
                             <form>
+                                <h3 class="tab5section1">Hotel Room - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtRoomType">Accommodation Type<span>*</span></label>
-                                    <select id="drpDisplayFor" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
-                                        <option>Single Room</option>
-                                        <option>Double Room</option>
-                                        <option>Triple Room</option>
-                                        <option>Appartment</option>
-                                        <option>Bunglows</option>
-                                        <option>Suite</option>
-                                        <option>Junior Suite</option>
-                                        <option>Family Room</option>
-                                        <option>Four Beded Room</option>
-                                    </select>
+                                    <label for="txtRoomType">Room Type <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtRoomType" placeholder="Room Type ">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtRoomType">Room Type <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtRoomType" placeholder="Room Type ">
+
+                                        <div class="col-md-2">
+                                            <label for="txtNumberofRooms"># of Rooms <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtNumberofRooms" placeholder="# of Rooms ">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <label for="txtMaxPax">Max Pax <span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" placeholder="Max Pax ">
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="txtNumberofRooms">Number of Rooms <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtNumberofRooms" placeholder="Number of Rooms ">
+                                        <div class="col-md-2">
+                                            <label for="txtMaxPax">Max Adult<span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMaxPax" placeholder="Max Adult ">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtMaxPax">Max CWB<span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMaxPax" placeholder="Max CWB ">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtMaxPax">Max CNB<span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMaxPax" placeholder="Max CNB ">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtMaxPax">Max Infant<span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMaxPax" placeholder="Max Infant ">
                                         </div>
                                     </div>
                                 </div>
@@ -1160,8 +1254,7 @@
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                    QUIT FORM</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRoomGrid">SEARCH</a>
                             </form>
                         </div>
                         <div class="col-md-5 summery-detail summerytab5">
@@ -1205,21 +1298,28 @@
                                         <ul class="summery-list slimscroll">
                                             <div class="summ-list-div">
                                                 <div class="summ-list-left">
+                                                    <li>Accommodation Type :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
                                                     <li>Room Type :<br />
                                                         <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                             <label id="lblHotelName" for="txtHotelName"></label>
                                                             <i>&nbsp;</i>
                                                         </a>
                                                     </li>
+
+                                                </div>
+                                                <div class="summ-list-right">
                                                     <li>Max Pax :<br />
                                                         <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                             <label id="lblHotelName" for="txtHotelName"></label>
                                                             <i>&nbsp;</i>
                                                         </a>
                                                     </li>
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Number of Rooms :
+                                                    <li># of Rooms :
                                                     <br />
                                                         <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                             <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
@@ -1229,8 +1329,6 @@
                                                 </div>
                                             </div>
                                         </ul>
-                                        <ul class="summery-list slimscroll">
-                                        </ul>
                                     </div>
                                     <div class="summery-buttons">
                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1239,6 +1337,7 @@
                                             UPDATE</button>
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
+                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRoomGrid">SEARCH</a>
                                         <p>
                                             Inputs with <i class="cross">&nbsp;</i> mark are incorrect
                                         </p>
@@ -1247,54 +1346,100 @@
                             </div>
                         </div>
                     </div>
+                    @*Function Room*@
                     <div role="tabpanel" class="tab-pane " id="tab6">
                         <div class="col-md-7">
                             <form>
+                                <h3 class="tab6section1">Function Room - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtConferenceRoomName" placeholder="Conference Room Name">
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="drpSetupStyle">Function Type <span>*</span></label>
-                                            <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
-                                            </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtConferenceRoomName" placeholder="Conference Room Name">
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="drpSetupStyle">Setup Style  <span>*</span></label>
-                                            <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
-                                            </select>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="drpSetupStyle">Function Type <span>*</span></label>
+                                                <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtTotalSeats">Total Seats <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtTotalSeats" placeholder="Total Seats">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtTotalTables">Total Tables  </label>
-                                            <input type="text" class="form-control" id="txtTotalTables" placeholder="Total Tables">
-                                        </div>
+                                <div class="form-group">
+                                    <div class="table-responsive">
+                                        <table id="" class="display table" style="width: 100%; cellspacing: 0;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Setup Style</th>
+                                                    <th>Capacity</th>
+                                                    <th>Total Tables</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="4">
+                                                        <a href="javascript:void(0);" class="btn btn-success btnSave" data-toggle="modal" data-target="#MyModalFOCRules">ADD</a>
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="width: 5%;">1</td>
+                                                    <td class="width: 31.67%;">
+                                                        <div class="form-group">
+                                                            <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width: 31.67%;">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="txtTotalSeats" placeholder="Capacity">
+                                                        </div>
+                                                    </td>
+                                                    <td class="width: 31.67%;">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="txtTotalTables" placeholder="Total Tables">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="txtTotalSeats" placeholder="Capacity">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="txtTotalTables" placeholder="Total Tables">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtConferenceRoomDescription">Conference Room Description </label>
-                                            <textarea id="txtConferenceRoomDescription" class="form-control" placeholder="Conference Room Description"></textarea>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtConferenceRoomDescription">Conference Room Description </label>
+                                                <textarea id="txtConferenceRoomDescription" class="form-control" placeholder="Conference Room Description"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtRestrictions">Restrictions  </label>
-                                            <textarea id="txtRestrictions" class="form-control" placeholder="Restrictions"></textarea>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtRestrictions">Restrictions  </label>
+                                                <textarea id="txtRestrictions" class="form-control" placeholder="Restrictions"></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1332,7 +1477,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -1342,8 +1486,7 @@
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                    QUIT FORM</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyFunctionRoomGrid">SEARCH</a>
                             </form>
                         </div>
                         <div class="col-md-5 summery-detail summerytab6">
@@ -1420,8 +1563,6 @@
                                                 </div>
                                             </div>
                                         </ul>
-                                        <ul class="summery-list slimscroll">
-                                        </ul>
                                     </div>
                                     <div class="summery-buttons">
                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1430,6 +1571,7 @@
                                             UPDATE</button>
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
+                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyFunctionRoomGrid">SEARCH</a>
                                         <p>
                                             Inputs with <i class="cross">&nbsp;</i> mark are incorrect
                                         </p>
@@ -1438,14 +1580,17 @@
                             </div>
                         </div>
                     </div>
+                    @*Restaurant*@
                     <div role="tabpanel" class="tab-pane " id="tab7">
                         <div class="col-md-7">
                             <form>
+                                <h3 class="tab7section1">Restaurant - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtRestaturantName">Restaturant Name</label>
                                     <input type="text" class="form-control" id="txtRestaturantName" placeholder="Restaturant Name">
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtRestaturantName">Meal Type</label>
                                     <div class="row">
                                         <div class="col-md-3 form-marings">
                                             <input type="checkbox">Veg.
@@ -1462,6 +1607,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtRestaturantName">Services</label>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <input type="checkbox">Break Fast
@@ -1569,100 +1715,156 @@
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                    QUIT FORM</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRestaurantGrid">SEARCH</a>
                             </form>
                         </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane " id="tab8">
-                        <div class="table-responsive">
-                            <div class="dropdown table-custome-drop">
-                                <div class="btn-group">
-                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Excel</a></li>
-                                        <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
-                                    </ul>
+                        <div class="col-md-5 summery-detail summerytab7">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Restaturant Name
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Meal Type 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Services
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRestaurantGrid">SEARCH</a>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Accommodation Type</th>
-                                        <th>Persons Per Accommodation</th>
-                                        <th>No Pax From</th>
-                                        <th>No Pax To</th>
-                                        <th>FOC Pax</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    @*<tr>
-                                        <th></th>
-                                        <th>
-                                            <input type="text" class="form-control" id="timepicker1">
-                                        </th>
-                                        <th>
-                                            <select id="drpDistanceUnit" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Sigle Use</option>
-                                                <option>Double Use</option>
-                                            </select>
-                                        </th>
-                                        <th>
-                                            <input type="text" class="form-control" id="timepicker1"></th>
-                                        <th>
-                                            <input type="text" class="form-control" id="timepicker1"></th>
-                                        <th>
-                                            <input type="text" class="form-control" id="timepicker1"></th>
-                                        <th>
-                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                ADD</button></th>
-                                    </tr>*@
-                                    <tr>
-                                        <th>
-                                            @*<button id="btnSave" type="submit" class="btn btn-success btnSave"  data-toggle="modal" data-target="#MyDownloadPDF">
-                                                ADD</button>*@
-                                            <a href="javascript:void(0);" class="btn btn-success btnSave" data-toggle="modal" data-target="#MyModalFOCRules">ADD</a>
-                                        </th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span class="spaneditable">Single Room</span></td>
-                                        <td><span class="spaneditable">Single Use</span></td>
-                                        <td><span class="spaneditable">2</span></td>
-                                        <td><span class="spaneditable">10</span></td>
-                                        <td><span class="spaneditable">1</span></td>
-                                        <td>
-                                            <a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><span class="spaneditable">Double Room</span></td>
-                                        <td><span class="spaneditable">Double Use</span></td>
-                                        <td><span class="spaneditable">2</span></td>
-                                        <td><span class="spaneditable">10</span></td>
-                                        <td><span class="spaneditable">1</span></td>
-                                        <td>
-                                            <a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
+                        </div>
+                    </div>
+                    @*FOC Rules*@
+                    <div role="tabpanel" class="tab-pane " id="tab8">
+                        <div class="col-md-12">
+                            <h3 class="tab7section1">FOC Rules - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th># of Pax From</th>
+                                            <th># of Pax To</th>
+                                            <th># of FOC Pax</th>
+                                            <th>Breakfast Charges Applicable?</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6">
+                                                <a href="javascript:void(0);" class="btn btn-success btnSave" data-toggle="modal" data-target="#MyModalFOCRules">ADD</a>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 5%;">1</td>
+                                            <td><span class="spaneditable">2</span></td>
+                                            <td><span class="spaneditable">10</span></td>
+                                            <td><span class="spaneditable">1</span></td>
+                                            <td><span class="spaneditable">Yes</span></td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span class="spaneditable">2</span></td>
+                                            <td><span class="spaneditable">10</span></td>
+                                            <td><span class="spaneditable">1</span></td>
+                                            <td><span class="spaneditable">No</span></td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
 
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <br />
                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1772,6 +1974,7 @@
 
 </div>
 
+@*Add FOC Rules*@
 <div class="modal fade" id="MyModalFOCRules" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content">
@@ -1780,32 +1983,383 @@
                 <h4 class="modal-title" id="myModalLabel">FOC Rules</h4>
             </div>
             <div class="modal-body">
+
                 <div class="form-group">
-                    <label>Room Type</label>
-                    <select id="drpModalAgent" class="js-states form-control" style="display: none; width: 100%">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Persons Per Accommodations</label>
-                    <select id="drpModalAgent" class="js-states form-control" style="display: none; width: 100%">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>No Pax From</label>
+                    <label># of Pax From</label>
                     <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Users">
                 </div>
                 <div class="form-group">
-                    <label>No Pax To</label>
+                    <label># of Pax To</label>
                     <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Users">
                 </div>
                 <div class="form-group">
-                    <label>FOC Pax</label>
+                    <label># of FOC Pax</label>
                     <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Any Other">
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="chkDifferentAddress">Breakfast Charges Applicable?
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save</button>
+                <button type="button" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*User Grid*@
+<div class="modal fade" id="MyUserGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email (Username)</th>
+                                <th>Designation </th>
+                                <th>Status </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email (Username)</th>
+                                <th>Designation </th>
+                                <th>Status </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>User1</td>
+                                <td>user1@gmail.com</td>
+                                <td>Admin</td>
+                                <td><span class="label label-success hotelstatus">Active</span></td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>User2</td>
+                                <td>user2@gmail.com</td>
+                                <td>Manager</td>
+                                <td><span class="label label-danger hotelstatus">inactive</span></td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Room Grid*@
+<div class="modal fade" id="MyRoomGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Room</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Accommodation Type</th>
+                                <th>Room Type</th>
+                                <th>Max Pax</th>
+                                <th># of Rooms</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Accommodation Type</th>
+                                <th>Room Type</th>
+                                <th>Max Pax</th>
+                                <th># of Rooms</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Single Room</td>
+                                <td>Single Room</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Double Room</td>
+                                <td>Double Room</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Function Room Grid*@
+<div class="modal fade" id="MyFunctionRoomGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Function Room</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Function Room Name </th>
+                                <th>Function Type </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Function Room Name </th>
+                                <th>Function Type </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Clarendon Function Room</td>
+                                <td>Bussiness Meeting</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Restaurant Grid*@
+<div class="modal fade" id="MyRestaurantGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Restaurant</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Restaturant Name</th>
+                                <th>Meal Types</th>
+                                <th>Break Fast Time</th>
+                                <th>Lunch Time </th>
+                                <th>Dinner Time </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Restaturant Name</th>
+                                <th>Meal Types</th>
+                                <th>Break Fast Time</th>
+                                <th>Lunch Time </th>
+                                <th>Dinner Time </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>FineFood Restaurant</td>
+                                <td>Veg., Vegan, Jain</td>
+                                <td>08:00 AM - 10:00 AM</td>
+                                <td>11:45 AM - 02:30 PM</td>
+                                <td>07:30 PM - 10:00 PM</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -1835,12 +2389,13 @@
         <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Hotel Address">2</a>
         <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Cancellation Policies">3</a>
         <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Facilities">4</a>
-        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Nearest Airports">5</a>
+        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Additinal Services">5</a>
+        <a class="btn btn-default" data-section="tab2section6" rel="tooltip" title="Nearest Airports">6</a>
     </div>
     <div class="floating-section-buttons tab3" style="display: none">
-        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Hotel User">1</a>
-        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Billing">2</a>
-        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Bank">3</a>
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Bank">2</a>
+        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Tax">3</a>
     </div>
     <div class="floating-section-buttons tab4" style="display: none">
         <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Hotel Room">1</a>
