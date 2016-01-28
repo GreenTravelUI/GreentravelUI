@@ -1,0 +1,514 @@
+﻿@{
+    ViewBag.Title = "All Masters";
+    ViewBag.PageTitle = "All Masters";
+    
+}
+@*<script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>*@
+
+<style>
+    .field-name {
+        float: left;
+        width: 50%;
+    }
+
+    .modify-colum-model .dropdown.table-custome-drop {
+        float: left;
+        width: 50%;
+    }
+
+    .field-name {
+        padding-right: 15px;
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" id="MastersRecord"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Master Record</a></li>
+                    <li role="presentation" id="MasterDataViews"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Master Record</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab3">
+                        <div class="col-md-7">
+                            <form>
+                                <div class="form-group" style="display: none" id="divSrno">
+                                    <label data-toggle="tooltip" data-placement="left" id="lbSrNo">Sr. No.  &nbsp <i class="fa fa-question-circle text-info" id="field1"></i></label>
+                                    <input type="text" class="form-control" id="txtSrNoTab3" placeholder=" Unique Code" readonly>
+                                </div>
+                                <div class="form-group" style="display: none" id="divCode">
+                                    <label>Code&nbsp <i class="fa fa-question-circle text-info" id="field2"></i></label>
+                                    <input type="text" class="form-control" id="txtCode" placeholder="First Name" readonly>
+                                </div>
+
+                                <div class="form-group" id="divSegment">
+                                    <label data-toggle="tooltip" data-placement="right" title="Industry">Industry &nbsp <i class="fa fa-question-circle text-info" id="field3"></i></label>
+                                    <select id="drpSegmenttab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="0">--Select Industry--</option>
+                                        <option value="1">Travels </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="divCorporate">
+                                    <label data-toggle="tooltip" data-placement="right" title="Corporate">Corporate &nbsp <i class="fa fa-question-circle text-info" id="field4"></i></label>
+                                    <select id="drpCorporateTab" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="0">--Select Corporate--</option>
+                                        <option value="1">Flamingo </option>
+                                        <option value="2">Travels Unlimited </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="divMaster">
+                                    <label>Master &nbsp <i class="fa fa-question-circle text-info" id="field5"></i></label>
+                                    <select id="drpMasterTab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="0">--Select Master--</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="divName">
+                                    <label id="LbName" data-toggle="tooltip" data-placement="right">
+                                        Name &nbsp <i class="fa fa-question-circle text-info" id="field6"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="txtnameTab3" placeholder="Name">
+                                </div>
+                                <div class="form-group" id="divActive">
+                                    <label id="LbActive" data-toggle="tooltip" data-placement="right">Active &nbsp <i class="fa fa-question-circle text-info" id="field7"></i></label>
+                                    <select id="drpActiveTab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="1">Active</option>
+                                        <option value="0">InActive</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divRemark">
+                                    <label id="LbRemarks">
+                                        Remarks/Description &nbsp <i class="fa fa-question-circle text-info" id="field8"></i>
+                                    </label>
+                                    <textarea cols="5" class="form-control" id="txtRemarsTab3"></textarea>
+                                </div>
+
+                                <div class="form-group" id="divDropdown1">
+                                    <label id="LbDropdown1">Dropdown 1 &nbsp <i class="fa fa-question-circle text-info" id="field9"></i></label>
+                                    <select id="Dropdown1Tab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divDropdown2">
+                                    <label id="LbDropdown2">Dropdown 2 &nbsp <i class="fa fa-question-circle text-info" id="field10"></i></label>
+                                    <select id="Dropdown2Tab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divDropdown3">
+                                    <label id="LbDropdown3">Dropdown 3  &nbsp <i class="fa fa-question-circle text-info" id="field11"></i></label>
+                                    <select id="Dropdown3Tab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divDropdown4">
+                                    <label id="LbDropdown4">Dropdown 4 &nbsp <i class="fa fa-question-circle text-info" id="field12"></i></label>
+                                    <select id="Dropdown4Tab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divDropdown5">
+                                    <label id="LbDropdown5">Dropdown 5 &nbsp <i class="fa fa-question-circle text-info" id="field13"></i></label>
+                                    <select id="Dropdown5Tab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divDropdown6">
+                                    <label id="LbDropdown6">Dropdown 6 &nbsp <i class="fa fa-question-circle text-info" id="field14"></i></label>
+                                    <select id="Dropdown6Tab3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+
+                                </div>
+
+
+
+                                <div class="form-group" id="divTextbox1">
+                                    <label id="LbTextbox1">Textbox 1 &nbsp <i class="fa fa-question-circle text-info" id="field15"></i></label>
+                                    <input type="text" class="form-control" id="Textbox1Tab3" placeholder="User Unique Code">
+                                </div>
+                                <div class="form-group" id="divTextbox2">
+                                    <label id="LbTextbox2">Textbox 2 &nbsp <i class="fa fa-question-circle text-info" id="field16"></i></label>
+                                    <input type="text" class="form-control" id="Textbox2Tab3" placeholder="User Unique Code">
+                                </div>
+                                <div class="form-group" id="divTextbox3">
+                                    <label id="LbTextbox3">Textbox 3 &nbsp <i class="fa fa-question-circle text-info" id="field17"></i></label>
+                                    <input type="text" class="form-control" id="Textbox3Tab3" placeholder="User Unique Code">
+                                </div>
+                                <div class="form-group" id="divTextbox4">
+                                    <label id="LbTextbox4">Textbox 4 &nbsp <i class="fa fa-question-circle text-info" id="field18"></i></label>
+                                    <input type="text" class="form-control" id="Textbox4Tab3" placeholder="User Unique Code">
+                                </div>
+                                <div class="form-group" id="divTextbox5">
+                                    <label id="LbTextbox5">Textbox 5 &nbsp <i class="fa fa-question-circle text-info" id="field19"></i></label>
+                                    <input type="text" class="form-control" id="Textbox5Tab3" placeholder="User Unique Code">
+                                </div>
+                                <div class="form-group" id="divTextbox6">
+                                    <label id="LbTextbox6">Textbox 6 &nbsp <i class="fa fa-question-circle text-info" id="field20"></i></label>
+                                    <input type="text" class="form-control" id="Textbox6Tab3" placeholder="User Unique Code">
+                                </div>
+
+
+
+                                <div class="form-group" id="divRating1">
+                                    <label for="txtLastName" id="LbRating1">Rating 1 &nbsp <i class="fa fa-question-circle text-info" id="field21"></i></label>
+                                    <select id="Rating1" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divRating2">
+                                    <label for="txtLastName" id="LbRating2">Rating 2 &nbsp <i class="fa fa-question-circle text-info" id="field22"></i></label>
+                                    <select id="Rating2" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divRating3">
+                                    <label for="txtLastName" id="LbRating3">Rating 3 &nbsp <i class="fa fa-question-circle text-info" id="field23"></i></label>
+                                    <select id="Rating3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divDate1">
+                                    <label for="Date1" id="LbDate1">Date 1 &nbsp <i class="fa fa-question-circle text-info" id="field24"></i></label>
+                                    <input type="text" id="Date1" class="form-control date-picker">
+                                </div>
+                                <div class="form-group" id="divDate2">
+                                    <label for="Date2" id="LbDate2">Date 2 &nbsp <i class="fa fa-question-circle text-info" id="field25"></i></label>
+                                    <input type="text" id="Date2" class="form-control date-picker">
+                                </div>
+                                <div class="form-group" id="divDate3">
+                                    <label for="Date3" id="LbDate3">Date 3 &nbsp <i class="fa fa-question-circle text-info" id="field26"></i></label>
+                                    <input type="text" id="Date3" class="form-control date-picker">
+                                </div>
+                                <div class="form-group" id="divTime1">
+                                    <label class="control-label" id="LbTime1">Time 1 &nbsp <i class="fa fa-question-circle text-info" id="field27"></i></label>
+                                    <div class="input-group input-append bootstrap-timepicker">
+                                        <input id="time1" type="text" class="form-control">
+                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="divTime2">
+                                    <label class="control-label" id="LbTime2">Time 2 &nbsp <i class="fa fa-question-circle text-info" id="field28"></i></label>
+                                    <div class="input-group input-append bootstrap-timepicker">
+                                        <input id="time2" type="text" class="form-control">
+                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="divEmail1">
+                                    <label for="exampleInputEmail1" id="LbEmail1">Email 1 &nbsp <i class="fa fa-question-circle text-info" id="field29"></i></label>
+                                    <input type="email" class="form-control" id="Email1" placeholder="Enter email">
+                                </div>
+                                <div class="form-group" id="divEmail2">
+                                    <label for="exampleInputEmail1" id="LbEmail2">Email 2 &nbsp <i class="fa fa-question-circle text-info" id="field30"></i></label>
+                                    <input type="email" class="form-control" id="Email2" placeholder="Enter email">
+                                </div>
+                                <div class="form-group" id="divEmail3">
+                                    <label for="exampleInputEmail1" id="LbEmail3">Email 3 &nbsp <i class="fa fa-question-circle text-info" id="field31"></i></label>
+                                    <input type="email" class="form-control" id="Email3" placeholder="Enter email">
+                                </div>
+                                <div class="form-group" id="divAmount1">
+                                    <label for="Amount1" id="LbAmount1">Amount 1 &nbsp <i class="fa fa-question-circle text-info" id="field32"></i></label>
+                                    <input type="email" class="form-control" id="Amount1" placeholder="Amount 1">
+                                </div>
+                                <div class="form-group" id="divAmount2">
+                                    <label for="Amount2" id="LbAmount2">Amount 2 &nbsp <i class="fa fa-question-circle text-info" id="field33"></i></label>
+                                    <input type="email" class="form-control" id="Amount2" placeholder="Amount 2">
+                                </div>
+                                <div class="form-group" id="divAmount3">
+                                    <label for="Amount3" id="LbAmount3">Amount 3 &nbsp <i class="fa fa-question-circle text-info" id="field34"></i></label>
+                                    <input type="email" class="form-control" id="Amount3Tab3" placeholder="Amount 3">
+                                </div>
+                                <div class="form-group" id="divTextarea1">
+                                    <label for="Textarea1" id="LbTextarea">
+                                        Textarea &nbsp <i class="fa fa-question-circle text-info" id="field35"></i>
+                                    </label>
+                                    <textarea cols="5" class="form-control" id="Textarea1"></textarea>
+                                </div>
+
+                                <div class="form-group" id="divHtmleditor1">
+                                    <label for="HTMlEditor1" id="LbHTML">
+                                        HTML Editor &nbsp <i class="fa fa-question-circle text-info" id="field36"></i>
+                                    </label>
+                                    <div class="summernote" id="HTMlEditor1"></div>
+                                </div>
+
+                                <div class="form-group" id="divphotoUpload1">
+                                    <label id="LbPHOTOUPLOAD">Photo Upload &nbsp <i class="fa fa-question-circle text-info" id="field37"></i></label>
+                                    <input type="email" class="form-control" id="photoUpload" placeholder="Photo Upload">
+                                </div>
+
+
+
+                                <div class="form-group" id="divMultiselect1">
+                                    <label id="LbMultiselect1">Multiselect 1 &nbsp <i class="fa fa-question-circle text-info" id="field38"></i></label>
+                                    <select id="Multiselect1" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divMultiselect2">
+                                    <label id="LbMultiselect2">Multiselect 2 &nbsp <i class="fa fa-question-circle text-info" id="field39"></i></label>
+                                    <select id="Multiselect2" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divMultiselect3">
+                                    <label id="LbMultiselect3">Multiselect 3 &nbsp <i class="fa fa-question-circle text-info" id="field40"></i></label>
+                                    <select id="Multiselect3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divMultiselect4">
+                                    <label id="LbMultiselect4">Multiselect 4 &nbsp <i class="fa fa-question-circle text-info" id="field41"></i></label>
+                                    <select id="Multiselect4" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divMultiselect5">
+                                    <label id="LbMultiselect5">Multiselect 5 &nbsp <i class="fa fa-question-circle text-info" id="field42"></i></label>
+                                    <select id="Multiselect5" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+
+
+
+                                <br />
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    CREATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green  btnCancel">
+                                    CLEAR</button>
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    @*<div class="btn-group dropdown table-custome-drop">*@
+                                    <div class="btn-group">
+                                        @*<button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
+                                            Category<span class="caret"></span>
+                                        </button>*@
+                                        <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" aria-expanded="false">
+                                            <span class="icon-grid"></span>
+                                        </a>
+                                        <ul class="dropdown-menu cate-drop-menu">
+                                            @*<li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header" data-toggle="modal" data-target="#myModal"><a href="#">Modify Heder</a> </li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">your saved columns</li>
+                                            <li><a href="#" style="color: #000">Custome</a></li>*@
+                                            <li><a href="#" style="color: #000">Default View</a></li>
+                                            <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header" data-toggle="modal" data-target="#myModal"><a href="#">Change View</a> </li>
+                                            @* <li><a href="#" style="color: #000">Change View</a></li>*@
+                                        </ul>
+                                        <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Change View</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="model-left-columns">
+                                                            <div class="field-name">
+                                                                <h3>View <a href="#"></a></h3>
+                                                                <ul class="field-list slimscroll">
+                                                                    <li><a href="#">View 1</a></li>
+                                                                    <li><a href="#">View 2</a></li>
+                                                                    <li><a href="#">View 3</a></li>
+                                                                    <li><a href="#">View 4</a></li>
+                                                                    <li><a href="#">View 5</a></li>
+                                                                    <li><a href="#">View 6</a></li>
+                                                                    <li><a href="#">View 7</a></li>
+                                                                    <li><a href="#">View 8</a></li>
+                                                                    <li><a href="#">View 9</a></li>
+                                                                    <li><a href="#">View 10</a></li>
+                                                                    <li><a href="#">View 11</a></li>
+                                                                    <li><a href="#">View 12</a></li>
+                                                                    <li><a href="#">View 13</a></li>
+                                                                    <li><a href="#">View 14</a></li>
+                                                                    <li><a href="#">View 15</a></li>
+                                                                    <li><a href="#">View 16</a></li>
+                                                                    <li><a href="#">View 17</a></li>
+                                                                    <li><a href="#">View 18</a></li>
+                                                                    <li><a href="#">View 19</a></li>
+                                                                    <li><a href="#">View 20</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="field-name">
+                                                                <h3>Field Name <a href="#">Add all</a></h3>
+                                                                <div class="field-list slimscroll">
+                                                                    <ul>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="drag-drop-right">
+                                                            <section>
+                                                                <h2>Drag and drop reorder</h2>
+                                                                <div class="cf nestable-lists">
+                                                                    <ol class="sortable">
+                                                                        <li id="list_1">
+                                                                            <div><span class="disclose"><span></span></span>Item 1</div>
+                                                                        </li>
+                                                                        <li id="list_4">
+                                                                            <div><span class="disclose"><span></span></span>Item 2</div>
+                                                                        </li>
+                                                                        <li id="list_5">
+                                                                            <div><span class="disclose"><span></span></span>Item 3</div>
+                                                                        </li>
+                                                                        <li id="list_9">
+                                                                            <div><span class="disclose"><span></span></span>Item 4</div>
+                                                                        </li>
+                                                                        <li id="list_10">
+                                                                            <div><span class="disclose"><span></span></span>Item 5</div>
+                                                                        </li>
+                                                                        <li id="list_11">
+                                                                            <div><span class="disclose"><span></span></span>Item 6</div>
+                                                                        </li>
+                                                                        <li id="list_12">
+                                                                            <div><span class="disclose"><span></span></span>Item 7</div>
+                                                                        </li>
+                                                                        <li id="list_13">
+                                                                            <div><span class="disclose"><span></span></span>Item 8</div>
+                                                                        </li>
+                                                                    </ol>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        <div class="button-part-columns">
+                                                            <p>
+                                                                <input type="checkbox" name="set" />
+                                                                Save this set of column
+                                                            </p>
+                                                            <p>
+                                                                <input type="text" placeholder="Set Name" />
+                                                            </p>
+                                                            <button type="button" class="btn-success">Apply</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table id="example1" class="display" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th >SrNo 
+                                            </th>
+                                            <th>xmaster
+                                            </th>
+                                            <th>xname
+                                            </th>
+                                            <th>Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>SrNo
+                                            </th>
+                                            <th>xmaster
+                                            </th>
+                                            <th>xname
+                                            </th>
+                                            <th>Action
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/JS/Page/AllMasters.js"></script>
+    <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('ol.sortable').length) {
+                $('ol.sortable').nestedSortable({
+                    forcePlaceholderSize: true,
+                    handle: 'div',
+                    helper: 'clone',
+                    items: 'li',
+                    opacity: .6,
+                    placeholder: 'placeholder',
+                    revert: 250,
+                    tabSize: 25,
+                    tolerance: 'pointer',
+                    toleranceElement: '> div',
+                    maxLevels: 3,
+
+                    //isTree: true,
+                    expandOnHover: 700,
+                    startCollapsed: true
+                });
+
+                $('.disclose').on('click', function () {
+                    $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
+                })
+
+                $('#serialize').click(function () {
+                    serialized = $('ol.sortable').nestedSortable('serialize');
+                    $('#serializeOutput').text(serialized + '\n\n');
+                })
+
+                $('#toHierarchy').click(function (e) {
+                    hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
+                    hiered = dump(hiered);
+                    (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
+                    $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
+                })
+
+                $('#toArray').click(function (e) {
+                    arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
+                    arraied = dump(arraied);
+                    (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
+                    $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
+                })
+            }
+        });
+    </script>
+}

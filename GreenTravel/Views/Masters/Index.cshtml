@@ -1,9 +1,9 @@
 ﻿@{
-    ViewBag.Title = "Create Masters";
-    ViewBag.PageTitle = "Create Masters";
-    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+    ViewBag.Title = "Configure Master";
+    ViewBag.PageTitle = "Configure Master";
+    
 }
-
+@*<script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>*@
 
 <style>
     .field-name {
@@ -27,10 +27,8 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Master List </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Master Setup</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Masters Records</a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Masters data </a></li>
+                    <li role="presentation" class="active" id="SearchMaster"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Master </a></li>
+                    <li role="presentation" id="CreateMaster"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Master</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -48,7 +46,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                <table id="example1" class="display" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -85,8 +83,8 @@
                                             </th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
+                                    @*<tbody>
+                                       <tr>
                                             <th></th>
                                             <th>
                                                 <input type="text" />
@@ -106,7 +104,6 @@
                                                         <img src="assets/images/close.png" height="15" width="15" /></a>
                                             </th>
                                         </tr>
-
                                         <tr>
                                             <td>1</td>
                                             <td><span>Country</span></td>
@@ -124,179 +121,10 @@
                                                 <a href="#"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><span>State Master</span></td>
-                                            <td>STATEMASTER
-                                            </td>
-                                            <td><span>General</span>
-                                            </td>
-
-                                            <td><span>General Master</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td><span>City Master</span></td>
-                                            <td>CITYMASTER
-                                            </td>
-                                            <td><span>General</span>
-                                            </td>
-
-                                            <td><span>General Master</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td><span>Date Master</span></td>
-                                            <td>DATETYPEMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>General Master</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td><span>Nationality</span></td>
-                                            <td>NATMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>General Master</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td><span>Module</span></td>
-                                            <td>MODULEMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>Menu</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td><span>Screen</span></td>
-                                            <td>MODULESCREENMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>Menu</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td><span>Room Type</span></td>
-                                            <td>ROOMTYPE
-                                            </td>
-                                            <td><span>General</span>
-                                            </td>
-
-                                            <td><span>Hotel</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td><span>Gender</span></td>
-                                            <td>GENDERMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>General Master</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td><span>Payment Type</span></td>
-                                            <td>PAYMENTMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>Billling</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td><span>Nationality</span></td>
-                                            <td>NATMASTER
-                                            </td>
-                                            <td><span>Admin</span>
-                                            </td>
-
-                                            <td><span>General Master</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
+                                    </tbody>*@
                                 </table>
+
+
                             </div>
                         </form>
                     </div>
@@ -304,70 +132,79 @@
                         <div class="col-md-12">
                             <form>
                                 <h3><span class="section-index">1</span>&nbsp;Create Master</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Master Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Master Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="drpEntrylevel">Entry Level<span>*</span></label>
-                                                <select id="drpEntrylevel" class="js-states form-control" style="display: none; width: 100%">
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtHotelCode">Master Code <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtHotelCode" placeholder="Master Code">
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Master Name <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMasterName" placeholder="Master Name">
                                         </div>
-                                        <div class="col-md-6">
-                                            
-                                            <div class="form-group">
-                                                <label for="lbSegment">Segment </label>
-                                                <select id="drpSegment" class="js-states form-control" style="display: none; width: 100%">
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="lbCorporate">Corporate </label>
-                                                <select id="drpCorporate" class="js-states form-control" style="display: none; width: 100%">
-                                                </select>
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="drpEntrylevel">Entry Level<span>*</span></label>
+                                            <select id="drpEntrylevel" class="js-states form-control drpdown " style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="1">Admin </option>
+                                                <option value="2">General </option>
+                                            </select>
                                         </div>
-
+                                        <div class="form-group">
+                                            <label for="txtHotelCode">Master Code <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMasterCode" placeholder="Master Code">
+                                        </div>
                                     </div>
-                                
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label for="lbSegment">Industry </label>
+                                            <select id="drpSegment" class="js-states form-control drpdown" style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="1">Travels </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lbCorporate">Corporate </label>
+                                            <select id="drpCorporate" class="js-states form-control drpdown" style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="1">Flamingo </option>
+                                                <option value="2">Travels Unlimited </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtHotelCode">DRP Caption <span></span></label>
+                                            <input type="text" class="form-control" id="txtdrpCaption" placeholder="DRP Caption">
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                                 <h3 class="section-headers"><span class="section-index">2</span>&nbsp;Controls</h3>
 
                                 <div class="form-group">
-
+                                    @*Name*@
                                     <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Name</label>
-                                            @*<select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
-                                                <option value="--None--">--None-- </option>
-                                                <option value="COUNTRYMASTER">Country Master </option>
-                                                <option value="STATEMASTER">State Master </option>
-                                                <option value="DATETYPEMASTER">Date Type Master</option>
-                                            </select>*@
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode" data-toggle="tooltip" data-placement="left" title=" R - Required , V(50) -  AlphaNumeric 50 Charcters, N - Numeric">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">1.Textbox</label>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px"></label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtcaption1">Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtcaption1" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtPlaceHolder1">Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder1" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtValidationCode1" data-toggle="tooltip" data-placement="left" title=" R - Required , V(50) -  AlphaNumeric 50 Charcters, N - Numeric">Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode1" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="txtHelp1">Help</label>
+                                            <input type="text" class="form-control" id="txtHelp1" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -376,32 +213,35 @@
 
                                 <div class="form-group">
 
+                                    @*Active*@
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">2.DropDown</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState">Active</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpDropdown1" class="js-states form-control drpdown" style="display: none; width: 100%">
                                                 <option value="--None--">Active</option>
                                                 <option value="COUNTRYMASTER">Inactive</option>
-
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtcaption2" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceholder2" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode2" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp2" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -411,45 +251,43 @@
                                 <div class="form-group">
 
                                     <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Remarks</label>
-
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">3.Textbox</label>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label style="padding-top: 30px">Remarks</label>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption3" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder3" placeholder="Place Holder">
                                         </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode3" placeholder="Validation Comma Separated">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp3" placeholder="Help">
                                         </div>
 
                                     </div>
                                 </div>
 
-
-
-
-
-
-
+                                @*Dropdown1*@
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">4.DropDown</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState">Dropdown 1</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpDropdownMastersetup1" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
@@ -457,34 +295,36 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption4" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder4" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode4" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp4" placeholder="Help">
                                         </div>
 
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">5.DropDown</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState">Dropdown 2</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMastersetup2" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
@@ -492,34 +332,36 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption5" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder </label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder </label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder5" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode5" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp5" placeholder="Help">
                                         </div>
 
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">6.DropDown</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState">Dropdown 3</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMastersetup3" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
@@ -527,21 +369,21 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption6" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder6" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode6" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp6" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -550,10 +392,13 @@
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">7.DropDown</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState">Dropdown 4</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMastersetup4" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
@@ -561,21 +406,21 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption7" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder7" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode7" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp7" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -584,10 +429,13 @@
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">8.DropDown</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState">Dropdown 5</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMastersetup5" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
@@ -595,21 +443,21 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption8" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder8" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode8" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp8" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -618,10 +466,12 @@
                                 <div class="form-group">
 
                                     <div class="row">
-
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">9.DropDown</label>
+                                        </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Dropdown 6</label>
-                                            <select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMastersetup6" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
@@ -629,21 +479,85 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption9" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder9" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode9" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp9" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*Dropdown6*@
+
+                                @*TextBox1*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">10.TextBox</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">TextBox 1</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption10" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder10" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode10" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp10" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">11.TextBox</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">TextBox 2</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption11" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder11" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode11" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp11" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -652,27 +566,62 @@
                                 <div class="form-group">
 
                                     <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">TextBox 1</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">12.TextBox</label>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">TextBox 3</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption12" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder12" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode12" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp12" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">13.TextBox</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">TextBox 4</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption13" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder13" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode13" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp13" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -680,61 +629,652 @@
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">14.TextBox</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">TextBox 2</label>
-                                            @*<select id="drpDropdown1" class="js-states form-control" style="display: none; width: 100%">
+                                            <label style="padding-top: 30px">TextBox 5</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption14" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder14" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode14" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp14" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">15.TextBox</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">TextBox 6</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption15" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder15" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode15" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp15" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                @*TextBox6*@
+
+                                @*Rating*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">16.Rating</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Rating 1</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption16" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder16" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode16" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp16" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">17.Rating</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Rating 2</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption17" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder17" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode17" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp17" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">18.Rating</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Rating 3</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption18" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder18" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode18" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp18" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*Rating*@
+
+
+                                @*Date Picker*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">19.Date </label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Date Picker 1</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption19" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder19" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode19" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp19" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">20.Date </label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Date Picker 2</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption20" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder20" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode20" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp20" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">21.Date </label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Date Picker 3</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption21" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder21" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode21" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp21" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*Date Picker*@
+
+                                @*Time Picker*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">22.Time </label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Time Picker 1</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption22" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder22" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode22" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp22" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">23.Time </label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Time Picker 2</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption23" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder23" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode23" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp23" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*Time Picker*@
+
+                                @*Email*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">24.Email</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Email 1</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption24" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder24" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode24" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp24" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">25.Email</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Email 2</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption25" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder25" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode25" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp25" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">26.Email</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Email 3</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption26" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder26" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode26" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp26" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*Email*@
+
+                                @*Amount*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">27.Amount</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Amount 1</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption27" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder27" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode27" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp27" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">28.Amount</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Amount 2</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption28" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder28" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode28" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp28" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">29.Amount</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Amount 3</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption29" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder29" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode29" placeholder="Validation Comma Separated">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp29" placeholder="Help">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*Amount*@
+
+
+                                @*TextArea*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">30.Text Area</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Text Area</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption30" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder30" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode30" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp30" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*TextArea*@
+
+                                @*HTML Editor*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">31.Editor</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">HTML Editor</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption31" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder31" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode31" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp31" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*HTML Editor*@
+
+                                @*Fileupload*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">32.Upload</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="padding-top: 30px">Photo Upload</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption32" placeholder="Control Label / Caption">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder32" placeholder="Place Holder">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode32" placeholder="Validation Comma Separated">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp32" placeholder="Help">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*Fileupload*@
+
+                                @*Multiselect*@
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">33.Multi Select</label>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMultiselectsetup1" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option value="--None--">--None-- </option>
                                                 <option value="COUNTRYMASTER">Country Master </option>
                                                 <option value="STATEMASTER">State Master </option>
                                                 <option value="DATETYPEMASTER">Date Type Master</option>
-                                            </select>*@
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption33" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder33" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode33" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">TextBox 3</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp33" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -743,55 +1283,35 @@
                                 <div class="form-group">
 
                                     <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">TextBox 4</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">34.Multi Select</label>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
                                         <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">TextBox 5</label>
-
+                                            <label>&nbsp;</label>
+                                            <select id="drpMultiselectsetup2" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="COUNTRYMASTER">Country Master </option>
+                                                <option value="STATEMASTER">State Master </option>
+                                                <option value="DATETYPEMASTER">Date Type Master</option>
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption34" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder </label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder34" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode34" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp34" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -800,112 +1320,35 @@
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">35.Multi Select</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">TextBox 6</label>
-
+                                            <label>&nbsp;</label>
+                                            <select id="drpMultiselectsetup3" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="COUNTRYMASTER">Country Master </option>
+                                                <option value="STATEMASTER">State Master </option>
+                                                <option value="DATETYPEMASTER">Date Type Master</option>
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption35" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder35" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode35" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Rating 1</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Rating 2</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Rating 3</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp35" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -914,111 +1357,34 @@
                                 <div class="form-group">
 
                                     <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Date Picker 1</label>
-
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">36.Multi Select</label>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>&nbsp;</label>
+                                            <select id="drpMultiselectsetup4" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="COUNTRYMASTER">Country Master </option>
+                                                <option value="STATEMASTER">State Master </option>
+                                                <option value="DATETYPEMASTER">Date Type Master</option>
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption36" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Date Picker 2</label>
-
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder36" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode36" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Date Picker 3</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Time Picker 1</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp36" placeholder="Help">
                                         </div>
 
                                     </div>
@@ -1027,885 +1393,57 @@
                                 <div class="form-group">
 
                                     <div class="row">
+                                        <div class="col-md-1">
+                                            <label style="padding-top: 30px">37.Multi Select</label>
+                                        </div>
 
                                         <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Time Picker 2</label>
-
+                                            <label>&nbsp;</label>
+                                            <select id="drpMultiselectsetup5" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="--None--">--None-- </option>
+                                                <option value="COUNTRYMASTER">Country Master </option>
+                                                <option value="STATEMASTER">State Master </option>
+                                                <option value="DATETYPEMASTER">Date Type Master</option>
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
+                                            <label>Control Label / Caption</label>
+                                            <input type="text" class="form-control" id="txtCaption37" placeholder="Control Label / Caption">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
+                                            <label>Place Holder</label>
+                                            <input type="text" class="form-control" id="txtPlaceHolder37" placeholder="Place Holder">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                            <label>Validation Code</label>
+                                            <input type="text" class="form-control" id="txtValidationCode37" placeholder="Validation Comma Separated">
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Email 1</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Email 2</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Email 3</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Amount 1</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Amount 2</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Amount 3</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Text Area</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">HTML Editor</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
+                                        <div class="col-md-3">
+                                            <label>Help</label>
+                                            <input type="text" class="form-control" id="txtHelp37" placeholder="Help">
                                         </div>
 
                                     </div>
                                 </div>
 
 
-                                <div class="form-group">
-
-                                    <div class="row">
-
-                                        <div class="col-md-2">
-                                            <label for="txtState" style="padding-top: 30px">Photo Upload</label>
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtState">Control Label / Caption</label>
-                                            <input type="text" class="form-control" id="txtState" placeholder="Control Label / Caption">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtCountry">Place Holder</label>
-                                            <input type="text" class="form-control" id="txtCountry" placeholder="Country">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtZipCode">Validation Code</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode">Help</label>
-                                            <input type="text" class="form-control" id="txtZipCode" placeholder="Country">
-                                        </div>
-
-                                    </div>
-                                </div>
-
+                                @*Multiselect*@
 
                                 <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                    CANCEL</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane " id="tab3">
-                        <div class="col-md-7">
-                            <form>
-                                <div class="form-group">
-                                    <label for="txtLastName">Corporate  </label>
-                                    <select id="drpTitle" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="0">--Select Corporate--</option>
-                                        <option value="1">Flamingo</option>
-                                        <option value="2">Travels Unlimited</option>
-                                        <option value="3">Summer Vactions</option>
-
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Segment </label>
-                                    <select id="drpTitle" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="0">--Select Segment--</option>
-                                        <option value="5">Hotel</option>
-                                        <option value="1">Menu</option>
-                                        <option value="2">General</option>
-                                        <option value="3">Billing</option>
-                                        <option value="4">Accounts</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Master  </label>
-                                    <select id="drpTitle" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="0">--Select Master--</option>
-                                        <option value="4">Hotel Type Master</option>
-                                        <option value="1">Menu Master</option>
-                                        <option value="2">Country</option>
-                                        <option value="3">City</option>
-                                        <option value="6">State</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" style="display: none">
-                                    <label for="txtSrNo">Sr. No.</label>
-                                    <input type="text" class="form-control" id="txtSrNo" placeholder="User Unique Code" readonly>
-                                </div>
-                                <div class="form-group" style="display: none">
-                                    <label for="txtCode">Code </label>
-                                    <input type="text" class="form-control" id="txtCode" placeholder="First Name" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtDescription">
-                                        Name 
-                                    </label>
-                                    <input type="text" class="form-control" id="txtSrNo" placeholder="Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Active </label>
-                                    <select id="drpTitle" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="1">Active</option>
-                                        <option value="0">InActive</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtDescription">
-                                        Remarks/Description 
-                                    </label>
-                                    <textarea cols="5" class="form-control" id="txtRemarsk"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Dropdown 1</label>
-                                    <select id="Dropdown1" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Dropdown 2</label>
-                                    <select id="Dropdown2" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Dropdown 3</label>
-                                    <select id="Dropdown3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Dropdown 4</label>
-                                    <select id="Dropdown4" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Dropdown 5</label>
-                                    <select id="Dropdown5" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Dropdown 6</label>
-                                    <select id="Dropdown5" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-
-
-
-                                <div class="form-group">
-                                    <label for="txtSrNo">Textbox 1 </label>
-                                    <input type="text" class="form-control" id="Textbox1" placeholder="User Unique Code">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSrNo">Textbox 2</label>
-                                    <input type="text" class="form-control" id="Textbox2" placeholder="User Unique Code">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSrNo">Textbox 3</label>
-                                    <input type="text" class="form-control" id="Textbox3" placeholder="User Unique Code">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSrNo">Textbox 4</label>
-                                    <input type="text" class="form-control" id="Textbox4" placeholder="User Unique Code">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSrNo">Textbox 5</label>
-                                    <input type="text" class="form-control" id="Textbox5" placeholder="User Unique Code">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSrNo">Textbox 6</label>
-                                    <input type="text" class="form-control" id="Textbox5" placeholder="User Unique Code">
-                                </div>
-
-
-
-                                <div class="form-group">
-                                    <label for="txtLastName">Rating 1</label>
-                                    <select id="Rating1" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Rating 2</label>
-                                    <select id="Rating2" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtLastName">Rating 3</label>
-                                    <select id="Rating3" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Date1">Date 1</label>
-                                    <input type="text" id="Date1" class="form-control date-picker">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Date2">Date 2</label>
-                                    <input type="text" id="Date2" class="form-control date-picker">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Date3">Date 3</label>
-                                    <input type="text" id="Date3" class="form-control date-picker">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Time 1</label>
-                                    <div class="input-group input-append bootstrap-timepicker">
-                                        <input id="time1" type="text" class="form-control">
-                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Time 2</label>
-                                    <div class="input-group input-append bootstrap-timepicker">
-                                        <input id="time2" type="text" class="form-control">
-                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email 1</label>
-                                    <input type="email" class="form-control" id="Email1" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email 2</label>
-                                    <input type="email" class="form-control" id="Email2" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email 3</label>
-                                    <input type="email" class="form-control" id="Email3" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Amount1">Amount 1</label>
-                                    <input type="email" class="form-control" id="Amount1" placeholder="Amount 1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Amount2">Amount 2</label>
-                                    <input type="email" class="form-control" id="Amount2" placeholder="Amount 2">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Amount3">Amount 3</label>
-                                    <input type="email" class="form-control" id="Amount3" placeholder="Amount 3">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Textarea1">
-                                        Textarea 
-                                    </label>
-                                    <textarea cols="5" class="form-control" id="Textarea1"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="HTMlEditor1">
-                                        HTML Editor
-                                    </label>
-                                    <div class="summernote" id="HTMlEditor1"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Amount3">Photo Upload</label>
-                                    <input type="email" class="form-control" id="Amount3" placeholder="Photo Upload">
-                                </div>
-
-                                <br />
-                                <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-default btnCancel">
-                                    CLEAR</button>
-                                <button id="btnDelete" type="submit" class="btn btn-green btnDelete">
+                                <button id="btnSaveMastersetup" type="submit" class="btn btn-success btnSave">
+                                    CREATE MASTER</button>
+                                <button id="btnsUpdate" type="submit" class="btn btn-primary btnSave" style="display:none">
+                                    UPDATE</button>
+                                <button id="btnDelete" type="submit" class="btn btn-green" style="display:none">
                                     DELETE</button>
-
+                                <button id="btnCancelMastersetup" type="submit" class="btn btn-warning ">
+                                    CLEAR</button>
+                                <button id="btnQuitform" type="submit" class="btn btn-info ">
+                                    QUIT FORM</button>
                             </form>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="tab4">
-                        <form>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
-                                    </div>
-                                    &nbsp;&nbsp;
-                                    @*<div class="btn-group dropdown table-custome-drop">*@
-                                    <div class="btn-group">
-                                        @*<button class="btn btn-default dropdown-toggle cate-drop" type="button" data-toggle="dropdown">
-                                            Category<span class="caret"></span>
-                                        </button>*@
-                                        <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" aria-expanded="false">
-                                            <span class="icon-grid"></span>
-                                        </a>
-                                        <ul class="dropdown-menu cate-drop-menu">
-                                            @*<li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header" data-toggle="modal" data-target="#myModal"><a href="#">Modify Heder</a> </li>
-                                            <li class="divider"></li>
-                                            <li class="dropdown-header">your saved columns</li>
-                                            <li><a href="#" style="color: #000">Custome</a></li>*@
-                                            <li><a href="#" style="color: #000">Default View</a></li>
-                                            <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header" data-toggle="modal" data-target="#myModal"><a href="#">Change View</a> </li>
-                                            @* <li><a href="#" style="color: #000">Change View</a></li>*@
-                                        </ul>
-                                        <div class="modal fade modify-colum-model" id="myModal" role="dialog">
-                                            <div class="modal-dialog">
-
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Change View</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="model-left-columns">
-                                                            <div class="field-name">
-                                                                <h3>View <a href="#"></a></h3>
-                                                                <ul class="field-list slimscroll">
-                                                                    <li><a href="#">View 1</a></li>
-                                                                    <li><a href="#">View 2</a></li>
-                                                                    <li><a href="#">View 3</a></li>
-                                                                    <li><a href="#">View 4</a></li>
-                                                                    <li><a href="#">View 5</a></li>
-                                                                    <li><a href="#">View 6</a></li>
-                                                                    <li><a href="#">View 7</a></li>
-                                                                    <li><a href="#">View 8</a></li>
-                                                                    <li><a href="#">View 9</a></li>
-                                                                    <li><a href="#">View 10</a></li>
-                                                                    <li><a href="#">View 11</a></li>
-                                                                    <li><a href="#">View 12</a></li>
-                                                                    <li><a href="#">View 13</a></li>
-                                                                    <li><a href="#">View 14</a></li>
-                                                                    <li><a href="#">View 15</a></li>
-                                                                    <li><a href="#">View 16</a></li>
-                                                                    <li><a href="#">View 17</a></li>
-                                                                    <li><a href="#">View 18</a></li>
-                                                                    <li><a href="#">View 19</a></li>
-                                                                    <li><a href="#">View 20</a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="field-name">
-                                                                <h3>Field Name <a href="#">Add all</a></h3>
-                                                                <div class="field-list slimscroll">
-                                                                    <ul>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                        <li><a href="#">Field 1</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="drag-drop-right">
-                                                            <section>
-                                                                <h2>Drag and drop reorder</h2>
-                                                                <div class="cf nestable-lists">
-                                                                    <ol class="sortable">
-                                                                        <li id="list_1">
-                                                                            <div><span class="disclose"><span></span></span>Item 1</div>
-                                                                        </li>
-                                                                        <li id="list_4">
-                                                                            <div><span class="disclose"><span></span></span>Item 2</div>
-                                                                        </li>
-                                                                        <li id="list_5">
-                                                                            <div><span class="disclose"><span></span></span>Item 3</div>
-                                                                        </li>
-                                                                        <li id="list_9">
-                                                                            <div><span class="disclose"><span></span></span>Item 4</div>
-                                                                        </li>
-                                                                        <li id="list_10">
-                                                                            <div><span class="disclose"><span></span></span>Item 5</div>
-                                                                        </li>
-                                                                        <li id="list_11">
-                                                                            <div><span class="disclose"><span></span></span>Item 6</div>
-                                                                        </li>
-                                                                        <li id="list_12">
-                                                                            <div><span class="disclose"><span></span></span>Item 7</div>
-                                                                        </li>
-                                                                        <li id="list_13">
-                                                                            <div><span class="disclose"><span></span></span>Item 8</div>
-                                                                        </li>
-                                                                    </ol>
-                                                                </div>
-                                                            </section>
-                                                        </div>
-                                                        <div class="button-part-columns">
-                                                            <p>
-                                                                <input type="checkbox" name="set" />
-                                                                Save this set of column
-                                                            </p>
-                                                            <p>
-                                                                <input type="text" placeholder="Set Name" />
-                                                            </p>
-                                                            <button type="button" class="btn-success">Apply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Area 
-                                            </th>
-                                            <th>City
-                                            </th>
-
-                                            <th>State
-                                            </th>
-
-                                            <th>Country
-                                            </th>
-
-                                            <th>Action
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Area
-                                            </th>
-                                            <th>City
-                                            </th>
-
-                                            <th>State
-                                            </th>
-
-                                            <th>Country
-                                            </th>
-
-                                            <th>Action
-                                            </th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td><span>Thaltej</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><span>Area 2</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td><span>Area 3</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td><span>Area 4</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td><span>Area 5</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td><span>Area 6</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td><span>Area 7</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td><span>Area 8</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td><span>Area 9</span></td>
-                                            <td><span>Ahmedabad</span>
-                                            </td>
-                                            <td><span>Gujarat</span>
-                                            </td>
-
-                                            <td><span>India</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </form>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -1915,6 +1453,7 @@
 
 
 @section scripts{
+    <script src="~/Scripts/JS/Page/Masters.js"></script>
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
     <script>
         $(document).ready(function () {

@@ -8,7 +8,310 @@
         width: 1075px;
     }
 </style>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+       
+        //var Module = '';
+        //var screen = '';
+        //var FormCode = '';
+        //var TabCode = '';
+        //var Corporate = $('#drpCorporate1 option:selected').val();
+        //var unit = '';
+        //var Branch = '';
+        //var userid = '';
+        //var Ip = '';
+        //var Type = 'DropDown';
+        //$.ajax({
+        //    url: "/FormSetup/BindDropDown",
+        //    type: "POST",
+        //    data: {
+        //        "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "Corporate": Corporate, "unit": unit, "Branch": Branch, "userid": userid, "Ip": Ip, "Type": Type
+        //    },
+        //    success: function (data) {
+        //        $('#drpCorporate1').html('');
+        //        for (var i = 0; i < data.length; i++) {
+        //            var opt = new Option(data[i]['Text'], data[i]['Value']);
+        //            $('#drpCorporate1').append(opt);
+        //        }
+        //    }
+        //});
 
+        $('#btnSavefs').click(function (e) {
+            e.preventDefault();          
+            var Attribute1 = '';
+            var Attribute2 = '';
+            var Attribute3 = '';
+            var Attribute4 = '';
+            var Attribute5 = '';
+            var Attribute6 = '';
+            var Attribute7 = '';
+            var Attribute8 = '';
+            var Attribute9 = '';
+            var Attribute10 = '';
+            var SrNo = $('#txtSrNo1').val();
+            var FormName = $('#txtFormName').val();
+          
+            
+            var FormPrefixCode=$('#txtFormPreFix').val();
+            var Corporate=$('#drpCorporate1 option:selected').text();
+            var Module = $('#drpModule option:selected').text();
+            var Screen = $('#drpScreen option:selected').text();
+            var FeatureGroup = $('#drpFeatures option:selected').text();
+            var Header=$('#txtHeader').val();
+            var SubHeader = $('#txtSubHeader').val();
+            var CreatedBy = '';
+            var EntryDatetime = '';
+            var EditedBy = '';
+            var EditDatetime = '';
+            var CorpcentreBy = '';
+            var UnitCorpBy = '';
+            var TerminalBy = '';
+            var BranchId = '';                    
+            $.ajax(
+               {
+                   type: "POST",
+                   url: "/FormSetup/InsertData",
+                   data: {
+                       "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen, "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2":Attribute2,"Attribute3":Attribute3,"Attribute3":Attribute4,"Attribute5":Attribute5,"Attribute6":Attribute6,"Attribute7":Attribute7,"Attribute8":Attribute8,"Attribute9":Attribute9,"Attribute10":Attribute10,"CreatedBy":CreatedBy,"EntryDatetime":EntryDatetime,"EditedBy":EditedBy,"EditDatetime":EditDatetime,"CorpcentreBy":CorpcentreBy,"UnitCorpBy":UnitCorpBy,"TerminalBy":TerminalBy,"BranchId":BranchId
+                     
+                      
+                   },
+                   dataType: 'json',
+                   success: function (response) {
+                       alert("Record Save Sucessfully");
+                      // $('#lblmsg').html("Record Save Sucessfully");
+                       //if (response != null && response.success) {
+                       //    alert("Record Save Sucessfully!");
+                       //} 
+
+                   }
+               });          
+                   
+        });
+
+
+        //var Module = '';
+        //var screen = '';
+        //var FormCode = '';
+        //var TabCode = '';
+        //var Corporate = $('#drpCorporate option:selected').val();
+        //var unit = '';
+        //var Branch = '';
+        //var userid = '';
+        //var Ip = '';
+        //var Type = 'DropDown';
+        //$.ajax({
+        //    url: "/FormSetup/BindDropDown_Formtab",
+        //    type: "GET",
+        //    data: {
+        //        "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "Corporate": Corporate, "unit": unit, "Branch": Branch, "userid": userid, "Ip": Ip, "Type": Type
+        //    },
+        //    success: function (data) {
+        //        $('#drpCorporate').html('');
+        //        for (var i = 0; i < data.length; i++) {
+        //            var opt = new Option(data[i]['Text'], data[i]['Value']);
+        //            $('#drpCorporate').append(opt);
+        //        }
+        //    }
+        //});
+
+
+        $('#btnSaveformtab').click(function (e) {
+            e.preventDefault();
+          
+            var Attribute1 = '';
+            var Attribute2 = '';
+            var Attribute3 = '';
+            var Attribute4 = '';
+            var Attribute5 = '';
+            var Attribute6 = '';
+            var Attribute7 = '';
+            var Attribute8 = '';
+            var Attribute9 = '';
+            var Attribute10 = '';
+            var TrxTable1 = $('#txtTrxTable1').val();
+            var TrxTable2 = $('#txtTrxTable2').val();
+            var TrxTable3 = $('#txtTrxTable3').val();
+            var TrxTable4 = $('#txtTrxTable4').val();
+            var TrxTable5 = $('#txtTrxTable5').val();
+            var TrxTable6 = $('#txtTrxTable6').val();
+            var TrxTable7 = $('#txtTrxTable7').val();
+            var TrxTable8 = $('#txtTrxTable8').val();
+            var TrxTable9 = $('#txtTrxTable9').val();
+            var TrxTable10 = $('#txtTrxTable10').val();
+            var SummeryLabel = '';
+            var SrNo = $('#txtSrNo').val();
+            var Corporate = $('#drpCorporate option:selected').text();
+            var FormCode = $('#drpFormCode option:selected').text();
+            var TabNumber = $('#txtTabNumber').val();
+           
+            var TabHeader = $('#txtTabHeader').val();
+            var TabClass = $('#txtTabClass').val();
+            var TooltipHelpText = $('#txtTooltipHelpText').val();
+            var MasterTable = $('#txtTabMainTable').val();
+            var MasterTablePrefix = $('#txtTabMainTablePrefix').val();
+
+          
+            var CreatedBy = '';
+            var EntryDatetime = '';
+            var EditedBy = '';
+            var EditDatetime = '';
+            var CorpcentreBy = '';
+            var UnitCorpBy = '';
+            var TerminalBy = '';
+            var BranchBy = '';
+            $.ajax(
+               {
+                   type: "POST",
+                   url: "/FormSetup/InsertData_Formtab",
+                   data: {
+                       "SrNo": SrNo, "Corporate": Corporate, "FormCode": FormCode, "TabNumber": TabNumber, "TabHeader": TabHeader,
+                       "TabClass": TabClass, "TooltipHelpText": TooltipHelpText, "MasterTable": MasterTable, "MasterTablePrefix": MasterTablePrefix,
+                       "TrxTable1": TrxTable1, "TrxTable2": TrxTable2, "TrxTable3": TrxTable3, "TrxTable4": TrxTable4, "TrxTable5": TrxTable5,
+                       "TrxTable6": TrxTable6, "TrxTable7": TrxTable7, "TrxTable8": TrxTable8, "TrxTable9": TrxTable9, "TrxTable10": TrxTable10,
+                       "SummeryLabel": SummeryLabel, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4,
+                       "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9,
+                       "Attribute10": Attribute10, "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime,
+                       "CorpcentreBy": CorpcentreBy, "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+
+                   },
+                   dataType: 'json',
+                   success: function (response) {
+                       alert("Record Save Sucessfully");
+                       // $('#lblmsg').html("Record Save Sucessfully");
+                       //if (response != null && response.success) {
+                       //    alert("Record Save Sucessfully!");
+                       //} 
+
+                   }
+               });
+
+        });
+
+    //    $("#drpCorporate1").change(function () {
+    //    var Module = '';
+    //    var screen = '';
+    //    var FormCode = '';
+    //    var TabCode = '';
+    //    var Corporate = $('#drpCorporate1 option:selected').val();
+    //    var unit = '';
+    //    var Branch = '';
+    //    var userid = '';
+    //    var Ip = '';
+    //    var Type = 'ConditionalDropdown';
+    //    var field1 = $('#drpFeatures option:selected').val();
+    //    var field2 = $('#drpModule option:selected').val();
+    //    var field3 = '';
+    //    var field4 = '';
+    //    var field5 = '';
+    //    var Control = 'DrpFeaturegroup';
+    //    var Srno = '';
+
+    //    $.ajax({
+    //        url: "/FormSetup/BindDropDownfeature",
+    //        type: "POST",
+    //        data: {
+    //           "Module":Module,"screen":screen,"FormCode":FormCode,"TabCode":TabCode,"Corporate":Corporate,"unit":unit,"Branch":Branch,
+    //            "userid":userid,"Ip":Ip,"Type":Type,"field1":field1,"field2":field2,"field3":field3,"field4":field4,"field5":field5,"Control":Control,"Srno":Srno
+
+        
+    //        },
+    //        success: function (data) {
+    //            $('#drpFeatures').html('');
+    //            for (var i = 0; i < data.length; i++) {
+    //                var opt = new Option(data[i]['Text'], data[i]['Value']);
+    //                $('#drpFeatures').append(opt);
+    //            }
+    //        }
+    //    });
+
+    //});
+
+        //$("#drpFeatures").change(function () {
+        //    var Module = '';
+        //    var screen = '';
+        //    var FormCode = '';
+        //    var TabCode = '';
+        //    var Corporate = $('#drpCorporate1 option:selected').val();
+        //    var unit = '';
+        //    var Branch = '';
+        //    var userid = '';
+        //    var Ip = '';
+        //    var Type = 'ConditionalDropdown';
+        //    var field1 = $('#drpFeatures option:selected').val();
+        //    var field2 = $('#drpModule option:selected').val();
+        //    var field3 = '';
+        //    var field4 = '';
+        //    var field5 = '';
+        //    var Control = 'DrpModule';
+        //    var Srno = '';
+
+        //    $.ajax({
+        //        url: "/FormSetup/BindDropDownfeature",
+        //        type: "POST",
+        //        data: {
+        //            "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "Corporate": Corporate, "unit": unit, "Branch": Branch,
+        //            "userid": userid, "Ip": Ip, "Type": Type, "field1": field1, "field2": field2, "field3": field3, "field4": field4, "field5": field5, "Control": Control, "Srno": Srno
+
+
+        //        },
+        //        success: function (data) {
+        //            $('#drpModule').html('');
+        //            for (var i = 0; i < data.length; i++) {
+        //                var opt = new Option(data[i]['Text'], data[i]['Value']);
+        //                $('#drpModule').append(opt);
+        //            }
+        //        }
+        //    });
+
+        //});
+        //$("#drpModule").change(function () {
+        //    var Module = '';
+        //    var screen = '';
+        //    var FormCode = '';
+        //    var TabCode = '';
+        //    var Corporate = $('#drpCorporate1 option:selected').val();
+        //    var unit = '';
+        //    var Branch = '';
+        //    var userid = '';
+        //    var Ip = '';
+        //    var Type = 'ConditionalDropdown';
+        //    var field1 = $('#drpFeatures option:selected').val();
+        //    var field2 = $('#drpModule option:selected').val();
+        //    var field3 = '';
+        //    var field4 = '';
+        //    var field5 = '';
+        //    var Control = 'DrpScreen';
+        //    var Srno = '';
+
+        //    $.ajax({
+        //        url: "/FormSetup/BindDropDownfeature",
+        //        type: "POST",
+        //        data: {
+        //            "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "Corporate": Corporate, "unit": unit, "Branch": Branch,
+        //            "userid": userid, "Ip": Ip, "Type": Type, "field1": field1, "field2": field2, "field3": field3, "field4": field4, "field5": field5, "Control": Control, "Srno": Srno
+
+
+        //        },
+        //        success: function (data) {
+        //            $('#drpScreen').html('');
+        //            for (var i = 0; i < data.length; i++) {
+        //                var opt = new Option(data[i]['Text'], data[i]['Value']);
+        //                $('#drpScreen').append(opt);
+        //            }
+        //        }
+        //    });
+
+        //});
+    });
+
+  
+</script>
+
+
+
+@*<div id="lblmsg"></div>*@
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -239,13 +542,13 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane " id="tab3">
-                        <form>
+                        <form method="post">
                             <div class="col-md-12">
                                 <div class="row" style="display: none">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtSrNo">Sr No</label>
-                                            <input type="text" class="form-control" id="txtSrNo" placeholder="Sr No" readonly style="display: none">
+                                            <label for="txtSrNo1">Sr No</label>
+                                            <input type="text" class="form-control" id="txtSrNo1" placeholder="Sr No" readonly style="display: none">
                                         </div>
                                     </div>
                                 </div>
@@ -253,9 +556,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="drpCorporate">Corporate <span>*</span></label>
-                                            <select id="drpCorporate" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
+                                            <label for="drpCorporate1">Corporate <span>*</span></label>
+                                            <select id="drpCorporate1" class="js-states form-control" style="display: none; width: 100%">
+                                          <option value="1">Corporate 1 </option>
+                                                <option value="2">Corporate 2 </option>
+                                                  </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -271,7 +576,9 @@
                                         <div class="form-group">
                                             <label for="drpFeatures">Features <span>*</span></label>
                                             <select id="drpFeatures" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
+                                         <option value="1">Features 1 </option>
+                                                <option value="2">Features 2 </option>
+                                                  </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -287,6 +594,8 @@
                                         <div class="form-group">
                                             <label for="drpModule">Module <span>*</span></label>
                                             <select id="drpModule" class="js-states form-control" style="display: none; width: 100%">
+                                               <option value="1">Module 1 </option>
+                                                <option value="2">Module 2 </option>
                                             </select>
                                         </div>
                                     </div>
@@ -304,7 +613,9 @@
                                         <div class="form-group">
                                             <label for="drpScreen">Screen <span>*</span></label>
                                         <select id="drpScreen" class="js-states form-control" style="display: none; width: 100%">
-                                        </select>
+                                         <option value="1">Screen 1 </option>
+                                                <option value="2">Screen 2 </option>
+                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -325,15 +636,15 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                <button id="btnSavefs" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                <button id="btnSave1" type="submit" class="btn btn-primary btnSave">
                                     UPDATE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                <button id="btnCance2" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                <button id="btnSave3" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                <button id="btnSave4" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </div>
                         </form>
@@ -361,14 +672,16 @@
                                     <div class="form-group">
                                         <label for="drpCorporate">Corporate</label>
                                         <select id="drpCorporate" class="js-states form-control" style="display: none; width: 100%">
+                                         <option value="1">Corporate 1 </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="drpFormCode">Form Code</label>
+                                        <label for="drpFormCode">Form Name</label>
                                         <select id="drpFormCode" class="js-states form-control" style="display: none; width: 100%">
-                                        </select>
+                                        <option value="1">Form Name 1 </option>
+                                             </select>
                                     </div>
                                 </div>
                             </div>
@@ -509,15 +822,15 @@
 
                         <div class="col-md-12">
                             <br />
-                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                            <button id="btnSaveformtab" type="submit" class="btn btn-success btnSave">
                                 SAVE</button>
-                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                            <button id="btnSave8" type="submit" class="btn btn-primary btnSave">
                                 UPDATE</button>
-                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                            <button id="btnCancel9" type="submit" class="btn btn-green btnCancel">
                                 DELETE</button>
-                            <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                            <button id="btnSave10" type="submit" class="btn btn-warning btnSave">
                                 CLEAR</button>
-                            <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                            <button id="btnSave11" type="submit" class="btn btn-info btnSave">
                                 QUIT FORM</button>
                         </div>
                     </form>
@@ -624,15 +937,15 @@
 
                         <div class="col-md-12">
                             <br />
-                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                            <button id="btnSavehh" type="submit" class="btn btn-success btnSave">
                                 SAVE</button>
-                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                            <button id="btnSavej" type="submit" class="btn btn-primary btnSave">
                                 UPDATE</button>
-                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                            <button id="btnCancelu" type="submit" class="btn btn-green btnCancel">
                                 DELETE</button>
-                            <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                            <button id="btnSavei" type="submit" class="btn btn-warning btnSave">
                                 CLEAR</button>
-                            <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                            <button id="btnSavee" type="submit" class="btn btn-info btnSave">
                                 QUIT FORM</button>
                         </div>
                     </form>
@@ -667,23 +980,23 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Save Name">
+                                                <input type="text" class="form-control" id="txtMasterName1" placeholder="Save Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Update Name">
+                                                <input type="text" class="form-control" id="txtMasterName2" placeholder="Update Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Name  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Delete Name">
+                                                <input type="text" class="form-control" id="txtMasterName3" placeholder="Delete Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Clear Name">
+                                                <input type="text" class="form-control" id="txtMasterName4" placeholder="Clear Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Name<span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Form Quit Name">
+                                                <input type="text" class="form-control" id="txtMasterName5" placeholder="Form Quit Name">
                                             </div>
 
 
@@ -691,23 +1004,23 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Class  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Save">
+                                                <input type="text" class="form-control" id="txtMasterName6" placeholder="Save">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Class <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Update">
+                                                <input type="text" class="form-control" id="txtMasterName7" placeholder="Update">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Class   <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Delete">
+                                                <input type="text" class="form-control" id="txtMasterName8" placeholder="Delete">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Class <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Clear">
+                                                <input type="text" class="form-control" id="txtMasterName9" placeholder="Clear">
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Class<span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Form Quit">
+                                                <input type="text" class="form-control" id="txtMasterName10" placeholder="Form Quit">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -784,7 +1097,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <button type="button" class="btn btn-success">SAVE</button>
-                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            <button id="btnSave22" type="submit" class="btn btn-primary btnSave">
                                                 UPDATE</button>
                                         </div>
                                     </div>
@@ -796,7 +1109,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Custom Name">
+                                                <input type="text" class="form-control" id="txtMasterName77" placeholder="Custom Name">
                                             </div>
                                         </div>
 
