@@ -894,6 +894,7 @@
             </div>
         </div>
     </main>
+    <a href="#" class="scrollToTop" title="Top"><i class="fa fa-angle-double-up" style="padding: 5px 12px;"></i></a>
     <div class="cd-overlay"></div>
 
     @RenderSection("floatingsection", required: false)
@@ -987,12 +988,21 @@
                 $('html, body').animate({
                     scrollTop: top
                 }, 1000);
-            })
-            ;
+            });
+            $('.scrollToTop').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 300);
+                return false;
+            });
             //$(document).tooltip();
             $('[rel=tooltip]').tooltip({});
         });
         $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollToTop').fadeIn();
+            } else {
+                $('.scrollToTop').fadeOut();
+            }
+
             var $tabsummery = $('.summery' + $('.form-tabs').find('li[class=active]').children().data('section'))
 
             if ($tabsummery.length > 0) {

@@ -12,6 +12,7 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Function Room Price List </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bookmark"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Function Room Price List</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule For FIT</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -19,13 +20,16 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Hotel</label>
-                                    <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Hotel">
+                                    <input type="text" class="form-control" id="txtOfficialEmail" value="Amari Ocean Pattaya" placeholder="Hotel">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Function Room Name </label>
-                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                    <select id="drpTypeOfHotel" class="js-states form-control"  style="display: none; width: 100%">
+                                        <option selected="selected">Meetings & Events</option>
+                                        <option>Meetings</option>
+                                        <option>Events</option>
                                     </select>
                                 </div>
                             </div>
@@ -83,7 +87,7 @@
                                             </tr>
                                             <tr>
                                                 <td>1</td>
-                                                <td><span>Asian </span></td>
+                                                <td><span>Asian - Indian</span></td>
                                                 <td><span>01/01/2016</span> - <span>31/12/2016</span></td>
                                                 <td><span>Half Day AM</span></td>
                                                 <td>
@@ -118,55 +122,67 @@
                                 <div class="form-group">
                                     <label for="drpNationalitySet">Nationality Set </label>
                                     <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Asian - Indian</option>
+                                        <option>Affrican</option>
+                                        <option>Europen</option>
+                                        <option>Austrailian</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="txtFromValidityDate">From Function Date </label>
-                                            <input type="text" class="form-control" id="txtFromValidityDate" placeholder="From Function Date">
+                                            <input type="text" class="form-control" id="txtFromValidityDate" value="01/07/2016" placeholder="From Function Date">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="txtToValidityDate">To Function Date </label>
-                                            <input type="text" class="form-control" id="txtToValidityDate" placeholder="To Function Date">
+                                            <input type="text" class="form-control" id="txtToValidityDate" value="01/07/2016" placeholder="To Function Date">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="drpFunctionType">Function Type </label>
                                     <select id="drpFunctionType" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Half Day AM</option>
+                                        <option>Half Day PM</option>
+                                        <option>Full Day</option>
+                                        <option>Half Day AM-Only Coffee No Lunch</option>
+                                        <option>Half Day PM-Only Coffee No Lunch</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="drpMealPlan">Additional Services</label>
                                     <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
-                                        <option>LCD Projector</option>
-                                        <option>1 Lunch</option>
+                                        <option selected="selected">LCD Projector</option>
+                                        <option selected="selected">1 Lunch</option>
                                         <option>2 Lunch</option>
                                         <option>3 Lunch</option>
                                         <option>4 Lunch</option>
-                                        <option>1 Tea / Coffee Break</option>
+                                        <option selected="selected">1 Tea / Coffee Break</option>
                                         <option>2 Tea / Coffee Break</option>
                                         <option>3 Tea / Coffee Break</option>
                                         <option>4 Tea / Coffee Break</option>
+                                        <option>Airport Shuttle</option>
+                                        <option>ATM on site</option>
+                                        <option>VIP Room Facilities</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="txtFromTime">From Time </label>
-                                            <input type="text" class="form-control" id="txtFromTime" placeholder="From Time">
+                                            <input type="text" class="form-control" id="txtFromTime" value="8:00 AM" placeholder="From Time">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="txtToTime">To Time </label>
-                                            <input type="text" class="form-control" id="txtToTime" placeholder="To Time">
+                                            <input type="text" class="form-control" id="txtToTime" value="02:00 PM" placeholder="To Time">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtPerPersonRate">Per Person Rate </label>
                                     <div class="input-group input-append">
-                                        <input type="text" class="form-control" id="txtPerPersonRate" placeholder="Per Person Rate">
+                                        <input type="text" class="form-control" id="txtPerPersonRate" value="5000" placeholder="Per Person Rate">
                                         <span class="input-group-addon add-on"><span>THB</span></span>
                                     </div>
 
@@ -275,7 +291,49 @@
                             </div>
                         </div>
                     </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <form>
+                            <div class="col-md-12">
 
+
+                                <h3 class="tab9section1">Override Standard Margin Rule For FIT - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="table-responsive">
+                                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Gold</td>
+                                                <td><span class="spaneditable">12</span></td>
+                                                <td><span class="spaneditable"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Silver</td>
+                                                <td><span class="spaneditable"></span></td>
+                                                <td><span class="spaneditable">120</span> THB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

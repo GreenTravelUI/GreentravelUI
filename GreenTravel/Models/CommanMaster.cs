@@ -438,12 +438,6 @@ namespace GreenTravel.Models
         public string Language { get; set; }
     }
 
-    public class CommanDropdown
-    {
-        public string Text { get; set; }
-        public string Value { get; set; }
-    }
-
     public class GridAdminparamater
     {
         public string name { get; set; } //xname
@@ -462,6 +456,25 @@ namespace GreenTravel.Models
         public string Formtabcode { get; set; }
         public string Xmaster { get; set; }
         public string Type { get; set; }
+    }
+
+    public class GridUserMasterparamater
+    {
+        public string SrNo { get; set; } //xname
+        public string xmaster { get; set; } //xmaster
+        public string xname { get; set; }
+        public string RowNumber { get; set; }
+    }
+    public class Edit_UserMaster
+    {
+        public string tablename { get; set; }
+        public string Corporate { get; set; }
+        public string unit { get; set; }
+        public string Formcode { get; set; }
+        public string Formtabcode { get; set; }
+        public string Xmaster { get; set; }
+        public string Type { get; set; }
+        public string SrNo { get; set; }
     }
 
    

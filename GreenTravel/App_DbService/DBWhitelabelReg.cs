@@ -1,4 +1,5 @@
 ﻿using GreenTravel.Models;
+using GreenTravel.Models.Comman;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,9 +9,9 @@ using System.Web;
 
 namespace GreenTravel.App_DbService
 {
-    public class DBWhitelabelReg:Base
+    public class DBWhitelabelReg : Base
     {
-        public int insert_data(WhitelabelReg WR)
+        public DataSet insert_data(WhitelabelReg WR)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@OtherReference1", WR.OtherReference1);
                 _cmd.Parameters.AddWithValue("@OtherReference2", WR.OtherReference2);
                 _cmd.Parameters.AddWithValue("@Commision", WR.Commision);
-              
+
                 _cmd.Parameters.AddWithValue("@Attribute1", WR.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", WR.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", WR.Attribute3);
@@ -57,7 +58,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", WR.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", WR.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", WR.Attribute10);
-               
+
                 if (WR.EntryDatetime == null)
                 {
                     _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
@@ -81,9 +82,13 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", WR.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", WR.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", WR.BranchBy);
-                int i = _cmd.ExecuteNonQuery();
-                //  string i = _cmd.ExecuteScalar().ToString();
-                return i;
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+
             }
             catch
             {
@@ -95,6 +100,80 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
 
+        }
+
+        public DataSet BindDropDown(CommanFieldPara CFP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_White_Register_Basic", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CFP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CFP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CFP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CFP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CFP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CFP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CFP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CFP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CFP.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet BindGrid(GridParamater GP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_White_Register_Basic", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", GP.unit);
+                _cmd.Parameters.AddWithValue("@userid", GP.userid);
+                _cmd.Parameters.AddWithValue("@WhereClause", GP.WhereClause);
+                _cmd.Parameters.AddWithValue("@Branch", GP.Branch);
+                _cmd.Parameters.AddWithValue("@PageNo", GP.PageNo);
+                _cmd.Parameters.AddWithValue("@RecordsPerPage", GP.RecordsPerPage);
+                _cmd.Parameters.AddWithValue("@Formcode", GP.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
+                _cmd.Parameters.AddWithValue("@type", GP.type);
+                _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
         }
 
     }

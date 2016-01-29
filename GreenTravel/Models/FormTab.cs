@@ -46,4 +46,14 @@ namespace GreenTravel.Models
         public string TerminalBy { get; set; }
         public string BranchBy { get; set; }
     }
+
+    public class GridFormTabparamater
+    {
+        public string FormCode { get; set; }
+        public string TabHeader { get; set; }
+        public string TabClass { get; set; }
+        public string SummeryLabel { get; set; }
+        public string RowNumber { get; set; }
+
+    }
 }
