@@ -12,8 +12,9 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Restaurant Price</a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Restaurant Price</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Restaurant Price</a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-spoon"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Restaurant Price</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule For FIT</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -79,7 +80,7 @@
                                             <th>
                                                 <input type="text" />
                                             </th>
-                                            
+
                                             <th>
                                                 <input type="text" />
                                             </th>
@@ -142,38 +143,87 @@
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-7">
                             <form>
+                                <h3 class="tab9section1">Restaurant Price - <span class="text-danger">Mantra Restaurant & Bar - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="drpSICNationalitySet">Nationality Set </label>
-                                    <select id="drpSICNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                    <label for="drpNationalitySet">Nationality Set </label>
+                                    <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Asian - Indian</option>
+                                        <option>Affrican</option>
+                                        <option>Europen</option>
+                                        <option>Austrailian</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSICFromTravelDate">From Validity Date</label>
-                                    <input type="text" class="form-control date-picker" id="txtSICFromTravelDate" placeholder="From Travel Date">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSICToTravelDate">To Validity Date</label>
-                                    <input type="text" class="form-control date-picker" id="txtSICToTravelDate" placeholder="To Travel Date">
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpRestaurantName">Restaurant Name</label>
-                                    <select id="drpRestaurantName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtFromValidityDate">From Visited Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtFromValidityDate" value="01/07/2016" placeholder="From Visited Date">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtToValidityDate">To Visited Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtToValidityDate" value="01/07/2016" placeholder="To Visited Date">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="drpMealType">Meal Type</label>
-                                    <select id="drpMealType" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                    <select id="drpMealType" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Veg.</option>
+                                        <option>Non Veg.</option>
+                                        <option>Vegan</option>
+                                        <option>Jain</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSICCurrency">Currency</label>
-                                    <input type="text" class="form-control" id="txtSICCurrency" placeholder="Currency">
+                                    <label for="drpMealPlan">Additional Services</label>
+                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>LCD Projector</option>
+                                        <option selected="selected">Soda Included For 1 Hr</option>
+                                        <option>Soda Included For 2 Hr</option>
+                                        <option>Soda Included For 3 Hr</option>
+                                        <option>Soda Included For 4 Hr</option>
+                                        <option>Soda Included For 5 Hr</option>
+                                        <option>Soda Included For 6 Hr</option>
+                                        <option>Soft Drink Included For 1 Hr</option>
+                                        <option selected="selected">Soft Drink Included For 2 Hr</option>
+                                        <option>Soft Drink Included For 3 Hr</option>
+                                        <option>Soft Drink Included For 4 Hr</option>
+                                        <option>Soft Drink Included For 5 Hr</option>
+                                        <option>Soft Drink Included For 6 Hr</option>
+                                        <option selected="selected">Juice Included For 1 Hr</option>
+                                        <option>Juice Included For 2 Hr</option>
+                                        <option>Juice Included For 3 Hr</option>
+                                        <option>Juice Included For 4 Hr</option>
+                                        <option>Juice Included For 5 Hr</option>
+                                        <option>Juice Included For 6 Hr</option>
+                                        <option selected="selected">1 Starter</option>
+                                        <option>2 Starter</option>
+                                        <option>3 Starter</option>
+                                        <option>4 Starter</option>
+                                        <option>5 Starter</option>
+                                        <option>6 Starter</option>
+                                        <option>7 Starter</option>
+                                        <option>8 Starter</option>
+                                        <option>9 Starter</option>
+                                        <option>10 Starter</option>
+                                        <option>Airport Shuttle</option>
+                                        <option>ATM on site</option>
+                                        <option>VIP Room Facilities</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtRate">Rate</label>
-                                    <input type="text" class="form-control" id="txtRate" placeholder="Rate">
-                                </div>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtRate" value="2300" placeholder="Rate">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpStatus">Status</label>
+                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
                                 <br />
                                 <button id="btnSICSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -280,6 +330,47 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <form>
+                            <div class="col-md-12">
+                                <h3 class="tab9section1">Override Standard Margin Rule For FIT - <span class="text-danger">Mantra Restaurant & Bar - Pattaya</span></h3>
+                                <div class="table-responsive">
+                                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Gold</td>
+                                                <td><span class="spaneditable">12</span></td>
+                                                <td><span class="spaneditable"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Silver</td>
+                                                <td><span class="spaneditable"></span></td>
+                                                <td><span class="spaneditable">120</span> THB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -400,7 +491,7 @@
                         set = ($(document).scrollTop() - 225) + "px";
                         $tabsummery.animate({ top: set }, { duration: 0, queue: false });
                         if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
-                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() ))
+                            var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height()))
                             $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
                         }
                     } else {

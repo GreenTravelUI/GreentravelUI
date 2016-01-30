@@ -4,15 +4,15 @@
     ViewBag.PageTitle = "Transportation GIT Price List";
 }
 
-
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transportation GIT Price List </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation GIT Price List</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transportation GIT Price List </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation GIT Price List</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule For FIT</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -116,27 +116,57 @@
                                     <label for="txtSICToTravelDate">To Validity Date</label>
                                     <input type="text" class="form-control date-picker" id="txtSICToTravelDate" placeholder="To Travel Date">
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtTransferPackageType">Transfer Package Type</label>
-                                    <input type="text" class="form-control" id="txtTransferPackageType" placeholder="Transfer Package Type">
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpPVTVehicleType">Vehicle Type</label>
-                                    <select id="drpPVTVehicleType" class="js-states form-control" style="display: none; width: 100%">
+
+
+                                @*<div class="form-group">
+                                    <label for="drpMealPlan">Additional Services</label>
+                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
+                                </div>*@
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="" class="display table" style="width: 100%; cellspacing: 0;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Transfer Package Type</th>
+                                                    <th>Vehicle Type</th>
+                                                    <th>Vehicle Name</th>
+                                                    <th>Rate</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="5"><a href="javascript:void(0);" class="btn btn-info btnSave">ADD</a></th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" id="txtTransferPackageType" placeholder="Transfer Package Type">
+                                                    </td>
+                                                    <td>
+                                                        <select id="drpPVTVehicleType" class="js-states form-control" style="display: none; width: 100%">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select id="drpPVTVehicleType" class="js-states form-control" style="display: none; width: 100%">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" id="txtSICAdultSICRate" placeholder="Rate">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtPVTVehicleName">Vehicle Name</label>
-                                    <input type="text" class="form-control" id="txtPVTVehicleName" placeholder="Vehicle Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSICCurrency">Currency</label>
-                                    <input type="text" class="form-control" id="txtSICCurrency" placeholder="Currency">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSICFromTravelDate">Rate</label>
-                                    <input type="text" class="form-control" id="txtSICAdultSICRate" placeholder="Rate">
-                                </div>
+
 
                                 <br />
                                 <button id="btnSICSave" type="submit" class="btn btn-success btnSave">
@@ -245,7 +275,47 @@
                             </div>
                         </div>
                     </div>
-
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <form>
+                            <div class="col-md-12">
+                                <h3 class="tab9section1">Override Standard Margin Rule For FIT - <span class="text-danger">Mantra Restaurant & Bar - Pattaya</span></h3>
+                                <div class="table-responsive">
+                                    <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Gold</td>
+                                                <td><span class="spaneditable">12</span></td>
+                                                <td><span class="spaneditable"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Silver</td>
+                                                <td><span class="spaneditable"></span></td>
+                                                <td><span class="spaneditable">120</span> THB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

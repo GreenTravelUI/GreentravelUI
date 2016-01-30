@@ -484,18 +484,18 @@
                 }
 
 
-                if (data[0].field12 != "--None--" && data[0].field12 != "" && data[0].field12 != null) {
-                    $('#Textbox1Tab3').attr('placeholder', data[0].field12);
+                if (data[0].Field12 != "--None--" && data[0].Field12 != "" && data[0].Field12 != null) {
+                    $('#Textbox1Tab3').attr('placeholder', data[0].Field12);
                     $('field15').show();
                 }
-                if (data[0].field13 != "--None--" && data[0].field13 != "" && data[0].field13 != null) {
-                    $('#Textbox2Tab3').attr('placeholder', data[0].field13);
+                if (data[0].Field13 != "--None--" && data[0].Field13 != "" && data[0].Field13 != null) {
+                    $('#Textbox2Tab3').attr('placeholder', data[0].Field13);
                     $('field16').show();
                 }
 
 
-                if (data[0].field14 != "--None--" && data[0].field14 != "" && data[0].field14 != null) {
-                    $('#Textbox3Tab3').attr('placeholder', data[0].field14);
+                if (data[0].Field14 != "--None--" && data[0].Field14 != "" && data[0].Field14 != null) {
+                    $('#Textbox3Tab3').attr('placeholder', data[0].Field14);
                     $('field17').show();
                 }
                 if (data[0].field15 != "--None--" && data[0].field15 != "" && data[0].field15 != null) {
@@ -922,8 +922,7 @@
              },
              dataType: 'json',
              success: function (response) {
-                 console.log(response);
-                 console.log(response['AMaster'][0]['Xmaster']);
+                 
                  //Master
                  if (response['AMaster'].length > 0) {
 
@@ -989,8 +988,8 @@
     });
 
     $("table").delegate(".editor_Delte", "click", function () {
-        console.log($(this).parent().parent().children(':eq(1)').text());
-        console.log($(this).parent().parent().children(':eq(2)').text());
+        //console.log($(this).parent().parent().children(':eq(1)').text());
+        //console.log($(this).parent().parent().children(':eq(2)').text());
     });
 
     function PageLoad_FilledAll() {
@@ -1004,11 +1003,11 @@
             type: "POST",
             dataType: "json",
             success: function (response) {
-                console.log(response);
-                console.log(response['ACaption'].length)
+                //console.log(response);
+                //console.log(response['ACaption'].length)
                 //Caption
                 if (response['ACaption'].length > 0) {
-                    console.log(response['ACaption'][0]['xmastercaption']);
+                    //console.log(response['ACaption'][0]['xmastercaption']);
 
                     if (response['ACaption'][0]['Field3caption'] != "--None--" && response['ACaption'][0]['Field3caption'] != "" && response['ACaption'][0]['Field3caption'] != null) {
                        
@@ -1041,141 +1040,141 @@
                         $('#divDropdown4').show();
                     }
                     if (response['ACaption'][0]['Field10caption'] != "--None--" && response['ACaption'][0]['Field10caption'] != "" && response['ACaption'][0]['Field10caption'] != null) {
-                        $('#LbDropdown5').val(response['ACaption'][0]['Field10caption']);
+                        $('#LbDropdown5').text(response['ACaption'][0]['Field10caption']);
                         $('#divDropdown5').show();
                     }
                     if (response['ACaption'][0]['Field11caption'] != "--None--" && response['ACaption'][0]['Field11caption'] != "" && response['ACaption'][0]['Field11caption'] != null) {
-                        $('#LbDropdown6').val(response['ACaption'][0]['Field11caption']);
+                        $('#LbDropdown6').text(response['ACaption'][0]['Field11caption']);
                         $('#divDropdown6').show();
                     }
                     if (response['ACaption'][0]['Field12caption'] != "--None--" && response['ACaption'][0]['Field12caption'] != "" && response['ACaption'][0]['Field12caption'] != null) {
-                        $('#LbTextbox1').val(response['ACaption'][0]['Field12caption']);
+                        $('#LbTextbox1').text(response['ACaption'][0]['Field12caption']);
                         $('#divTextbox1').show();
                     }
                     if (response['ACaption'][0]['Field13caption'] != "--None--" && response['ACaption'][0]['Field13caption'] != "" && response['ACaption'][0]['Field13caption'] != null) {
-                        $('#LbTextbox2').val(response['ACaption'][0]['Field13caption']);
+                        $('#LbTextbox2').text(response['ACaption'][0]['Field13caption']);
                         $('#divTextbox2').show();
                     }
                     if (response['ACaption'][0]['Field14caption'] != "--None--" && response['ACaption'][0]['Field14caption'] != "" && response['ACaption'][0]['Field14caption'] != null) {
-                        $('#LbTextbox3').val(response['ACaption'][0]['Field14caption']);
+                        $('#LbTextbox3').text(response['ACaption'][0]['Field14caption']);
                         $('#divTextbox3').show();
                     }
                     if (response['ACaption'][0]['Field15caption'] != "--None--" && response['ACaption'][0]['Field15caption'] != "" && response['ACaption'][0]['Field15caption'] != null) {
-                        $('#LbTextbox4').val(response['ACaption'][0]['Field15caption']);
+                        $('#LbTextbox4').text(response['ACaption'][0]['Field15caption']);
                         $('#divTextbox4').show();
                     }
                     if (response['ACaption'][0]['Field16caption'] != "--None--" && response['ACaption'][0]['Field16caption'] != "" && response['ACaption'][0]['Field16caption'] != null) {
-                        $('#LbTextbox5').val(response['ACaption'][0]['Field16caption']);
+                        $('#LbTextbox5').text(response['ACaption'][0]['Field16caption']);
                         $('#divTextbox5').show();
                     }
                     if (response['ACaption'][0]['Field17caption'] != "--None--" && response['ACaption'][0]['Field17caption'] != "" && response['ACaption'][0]['Field17caption'] != null) {
 
-                        $('#LbTextbox6').val(response['ACaption'][0]['Field17caption']);
+                        $('#LbTextbox6').text(response['ACaption'][0]['Field17caption']);
                         $('#divTextbox6').show();
                     }
                     if (response['ACaption'][0]['Rating1caption'] != "--None--" && response['ACaption'][0]['Rating1caption'] != "" && response['ACaption'][0]['Rating1caption'] != null) {
 
-                        $('#LbRating1').val(response['ACaption'][0]['Rating1caption']);
+                        $('#LbRating1').text(response['ACaption'][0]['Rating1caption']);
                         $('#divRating1').show();
                     }
                     if (response['ACaption'][0]['Rating2caption'] != "--None--" && response['ACaption'][0]['Rating2caption'] != "" && response['ACaption'][0]['Rating2caption'] != null) {
 
-                        $('#LbRating2').val(response['ACaption'][0]['Rating2caption']);
+                        $('#LbRating2').text(response['ACaption'][0]['Rating2caption']);
                         $('#divRating2').show();
                     }
                     if (response['ACaption'][0]['Rating3caption'] != "--None--" && response['ACaption'][0]['Rating3caption'] != "" && response['ACaption'][0]['Rating3caption'] != null) {
 
-                        $('#LbRating3').val(response['ACaption'][0]['Rating3caption']);
+                        $('#LbRating3').text(response['ACaption'][0]['Rating3caption']);
                         $('#divRating3').show();
                     }
                     if (response['ACaption'][0]['Date1caption'] != "--None--" && response['ACaption'][0]['Date1caption'] != "" && response['ACaption'][0]['Date1caption'] != null) {
 
-                        $('#LbDate1').val(response['ACaption'][0]['Date1caption']);
+                        $('#LbDate1').text(response['ACaption'][0]['Date1caption']);
                         $('#divDate1').show();
                     }
                     if (response['ACaption'][0]['Date2caption'] != "--None--" && response['ACaption'][0]['Date2caption'] != "" && response['ACaption'][0]['Date2caption'] != null) {
 
-                        $('#LbDate2').val(response['ACaption'][0]['Date2caption']);
+                        $('#LbDate2').text(response['ACaption'][0]['Date2caption']);
                         $('#divDate2').show();
                     }
                     if (response['ACaption'][0]['Date2caption'] != "--None--" && response['ACaption'][0]['Date2caption'] != "" && response['ACaption'][0]['Date2caption'] != null) {
 
-                        $('#LbDate3').val(response['ACaption'][0]['Date3caption']);
+                        $('#LbDate3').text(response['ACaption'][0]['Date3caption']);
                         $('#divDate3').show();
                     }
                     if (response['ACaption'][0]['Email1caption'] != "--None--" && response['ACaption'][0]['Email1caption'] != "" && response['ACaption'][0]['Email1caption'] != null) {
 
-                        $('#LbEmail1').val(response['ACaption'][0]['Email1caption']);
+                        $('#LbEmail1').text(response['ACaption'][0]['Email1caption']);
                         $('#divEmail1').show();
                     }
                     if (response['ACaption'][0]['Email2caption'] != "--None--" && response['ACaption'][0]['Email2caption'] != "" && response['ACaption'][0]['Email2caption'] != null) {
 
-                        $('#LbEmail2').val(response['ACaption'][0]['Email2caption']);
+                        $('#LbEmail2').text(response['ACaption'][0]['Email2caption']);
                         $('#divEmail2').show();
                     }
                     if (response['ACaption'][0]['Email3caption'] != "--None--" && response['ACaption'][0]['Email3caption'] != "" && response['ACaption'][0]['Email3caption'] != null) {
 
-                        $('#LbEmail3').val(response['ACaption'][0]['Email3caption']);
+                        $('#LbEmail3').text(response['ACaption'][0]['Email3caption']);
                         $('#divEmail3').show();
                     }
                     if (response['ACaption'][0]['Amountcaption'] != "--None--" && response['ACaption'][0]['Amountcaption'] != "" && response['ACaption'][0]['Amountcaption'] != null) {
 
-                        $('#LbAmount1').val(response['ACaption'][0]['Amountcaption']);
+                        $('#LbAmount1').text(response['ACaption'][0]['Amountcaption']);
                         $('#divAmount1').show();
                     }
                     if (response['ACaption'][0]['Amount2caption'] != "--None--" && response['ACaption'][0]['Amount2caption'] != "" && response['ACaption'][0]['Amount2caption'] != null) {
 
-                        $('#LbAmount2').val(response['ACaption'][0]['Amount2caption']);
+                        $('#LbAmount2').text(response['ACaption'][0]['Amount2caption']);
                         $('#divAmount2').show();
                     }
                     if (response['ACaption'][0]['Amount3caption'] != "--None--" && response['ACaption'][0]['Amount3caption'] != "" && response['ACaption'][0]['Amount3caption'] != null) {
 
-                        $('#LbAmount3').val(response['ACaption'][0]['Amount3caption']);
+                        $('#LbAmount3').text(response['ACaption'][0]['Amount3caption']);
                         $('#divAmount3').show();
                     }
                     if (response['ACaption'][0]['Time1caption'] != "--None--" && response['ACaption'][0]['Time1caption'] != "" && response['ACaption'][0]['Time1caption'] != null) {
 
-                        $('#LbTime1').val(response['ACaption'][0]['Time1caption']);
+                        $('#LbTime1').text(response['ACaption'][0]['Time1caption']);
                         $('#divTime1').show();
                     }
                     if (response['ACaption'][0]['Time2caption'] != "--None--" && response['ACaption'][0]['Time2caption'] != "" && response['ACaption'][0]['Time2caption'] != null) {
 
-                        $('#LbTime2').val(response['ACaption'][0]['Time2caption']);
+                        $('#LbTime2').text(response['ACaption'][0]['Time2caption']);
                         $('#divTime2').show();
                     }
                     if (response['ACaption'][0]['Htmlcaption'] != "--None--" && response['ACaption'][0]['Htmlcaption'] != "" && response['ACaption'][0]['Htmlcaption'] != null) {
 
-                        $('#HTMlEditor1').val(response['ACaption'][0]['Htmlcaption']);
+                        $('#HTMlEditor1').text(response['ACaption'][0]['Htmlcaption']);
                         $('#divHtmleditor1').show();
                     }
                     if (response['ACaption'][0]['Uploadcaption'] != "--None--" && response['ACaption'][0]['Uploadcaption'] != "" && response['ACaption'][0]['Uploadcaption'] != null) {
 
-                        $('#LbHTML').val(response['ACaption'][0]['Uploadcaption']);
+                        $('#LbHTML').text(response['ACaption'][0]['Uploadcaption']);
                         $('#divphotoUpload1').show();
                     }
                     if (response['ACaption'][0]['TextAreacaption'] != "--None--" && response['ACaption'][0]['TextAreacaption'] != "" && response['ACaption'][0]['TextAreacaption'] != null) {
 
-                        $('#LbTextarea').val(response['ACaption'][0]['TextAreacaption']);
+                        $('#LbTextarea').text(response['ACaption'][0]['TextAreacaption']);
                         $('#divTextarea1').show();
                     }
                     if (response['ACaption'][0]['MultiSelect1caption'] != "--None--" && response['ACaption'][0]['MultiSelect1caption'] != "" && response['ACaption'][0]['MultiSelect1caption'] != null) {
 
-                        $('#LbMultiselect1').val(response['ACaption'][0]['MultiSelect1caption']);
+                        $('#LbMultiselect1').text(response['ACaption'][0]['MultiSelect1caption']);
                         $('#divMultiselect1').show();
                     }
                     if (response['ACaption'][0]['MultiSelect2caption'] != "--None--" && response['ACaption'][0]['MultiSelect2caption'] != "" && response['ACaption'][0]['MultiSelect2caption'] != null) {
 
-                        $('#LbMultiselect2').val(response['ACaption'][0]['MultiSelect2caption']);
+                        $('#LbMultiselect2').text(response['ACaption'][0]['MultiSelect2caption']);
                         $('#divMultiselect2').show();
                     }
                     if (response['ACaption'][0]['MultiSelect3caption'] != "--None--" && response['ACaption'][0]['MultiSelect3caption'] != "" && response['ACaption'][0]['MultiSelect3caption'] != null) {
 
-                        $('#LbMultiselect3').val(response['ACaption'][0]['MultiSelect3caption']);
+                        $('#LbMultiselect3').text(response['ACaption'][0]['MultiSelect3caption']);
                         $('#divMultiselect3').show();
                     }
                     if (response['ACaption'][0]['MultiSelect4caption'] != "--None--" && response['ACaption'][0]['MultiSelect4caption'] != "" && response['ACaption'][0]['MultiSelect4caption'] != null) {
 
-                        $('#LbMultiselect4').val(response['ACaption'][0]['MultiSelect4caption']);
+                        $('#LbMultiselect4').text(response['ACaption'][0]['MultiSelect4caption']);
                         $('#divMultiselect4').show();
                     }
                     if (response['ACaption'][0]['MultiSelect5caption'] != "--None--" && response['ACaption'][0]['MultiSelect5caption'] != "" && response['ACaption'][0]['MultiSelect5caption'] != null) {
@@ -1186,7 +1185,7 @@
                 }
                 //Placeholder
                 if (response['Aplaceholder'].length > 0) {
-                    console.log(response['Aplaceholder'][0]['xmaster']);
+                    //console.log(response['Aplaceholder'][0]['xmaster']);
                   //  alert(response['Aplaceholder'][0]['field12']);
                     if (response['Aplaceholder'][0]['Field3'] != "--None--" && response['Aplaceholder'][0]['Field3'] != "" && response['Aplaceholder'][0]['Field3'] != null) {
                         $('#txtnameTab3').attr("placeholder", (response['Aplaceholder'][0]['Field3']));
@@ -1195,16 +1194,16 @@
                     {
                         $('#txtRemarsTab3').attr("placeholder", (response['Aplaceholder'][0]['Field5']));
                     }
-                    if (response['Aplaceholder'][0]['field12'] != "--None--" && response['Aplaceholder'][0]['field12'] != "" && response['Aplaceholder'][0]['field12'] != null)
+                    if (response['Aplaceholder'][0]['Field12'] != "--None--" && response['Aplaceholder'][0]['Field12'] != "" && response['Aplaceholder'][0]['Field12'] != null)
                     {
                         
-                        $('#Textbox1Tab3').attr("placeholder", (response['Aplaceholder'][0]['field12']));
+                        $('#Textbox1Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field12']));
                     }
-                    if (response['Aplaceholder'][0]['field13'] != "--None--" && response['Aplaceholder'][0]['field13'] != "" && response['Aplaceholder'][0]['field13'] != null) {
-                        $('#Textbox2Tab3').attr("placeholder", (response['Aplaceholder'][0]['field13']));
+                    if (response['Aplaceholder'][0]['Field13'] != "--None--" && response['Aplaceholder'][0]['Field13'] != "" && response['Aplaceholder'][0]['Field13'] != null) {
+                        $('#Textbox2Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field13']));
                     }
-                    if (response['Aplaceholder'][0]['field14'] != "--None--" && response['Aplaceholder'][0]['field14'] != "" && response['Aplaceholder'][0]['field14'] != null) {
-                        $('#Textbox3Tab3').attr("placeholder", (response['Aplaceholder'][0]['field14']));
+                    if (response['Aplaceholder'][0]['Field14'] != "--None--" && response['Aplaceholder'][0]['Field14'] != "" && response['Aplaceholder'][0]['Field14'] != null) {
+                        $('#Textbox3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field14']));
                     }
                     if (response['Aplaceholder'][0]['field15'] != "--None--" && response['Aplaceholder'][0]['field15'] != "" && response['Aplaceholder'][0]['field15'] != null) {
                         $('#Textbox4Tab3').attr("placeholder", (response['Aplaceholder'][0]['field15']));
@@ -1261,8 +1260,33 @@
                 }
                 //validation
                 if (response['AValidation'].length > 0) {
+                    if (response['AValidation'][0]['Field3'] != '') {
+                        CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
+                    }
+
+                    if (response['AValidation'][0]['Field12'] != '') {
+                        CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
+                    }
+
+                    if (response['AValidation'][0]['Field13'] != '') {
+                        CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
+                    }
+
+                    if (response['AValidation'][0]['Field14'] != '') {
+                        CheckFormValidations(response['AValidation'][0]['Field14'], $('#Textbox3Tab3'));
+                    }
+
+                    if (response['AValidation'][0]['Field15'] != '') {
+                        CheckFormValidations(response['AValidation'][0]['Field15'], $('#Textbox4Tab3'));
+                    }
+
+                    if (response['AValidation'][0]['Email2'] != '') {
+                        CheckFormValidations(response['AValidation'][0]['Email2'], $('#Email2'));
+                    }
+
+                    
                     //console.log(response['AMaster'][0]['xmaster']);
-                    //$('#txtValidationCode1').val(response['AValidation'][0]['Field3']);
+                    
                     //$('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
                     //$('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
                     //$('#txtValidationCode4').val(response['AValidation'][0]['Field6']);
@@ -1303,7 +1327,7 @@
 
                 //tooltip
                 if (response['Atooltip'].length > 0) {
-                    console.log(response['Atooltip'][0]['xmaster']);
+                    //console.log(response['Atooltip'][0]['xmaster']);
                     //$('#txtHelp1').val(response['Atooltip'][0]['Field3']);
                     if (response['Atooltip'][0]['Field3'] != "--None--" && response['Atooltip'][0]['Field3'] != "" && response['Atooltip'][0]['Field3'] != null) {
                         

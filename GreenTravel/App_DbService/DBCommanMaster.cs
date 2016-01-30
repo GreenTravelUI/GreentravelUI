@@ -980,7 +980,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Edit_DataUser(Edit_UserMaster EA)
         {
             try
