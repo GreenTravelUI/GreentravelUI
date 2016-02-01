@@ -313,6 +313,182 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
+
+        public DataSet BindGrid(Gridformsetup GP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_Form_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", GP.unit);
+                _cmd.Parameters.AddWithValue("@userid", GP.userid);
+                _cmd.Parameters.AddWithValue("@WhereClause", GP.WhereClause);
+                _cmd.Parameters.AddWithValue("@Branch", GP.Branch);
+                _cmd.Parameters.AddWithValue("@PageNo", GP.PageNo);
+                _cmd.Parameters.AddWithValue("@RecordsPerPage", GP.RecordsPerPage);
+                _cmd.Parameters.AddWithValue("@Formcode", GP.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
+                _cmd.Parameters.AddWithValue("@type", GP.type);
+              
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet BindGridFormTab(GridFormTab GFT)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_Form_Tab_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", GFT.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", GFT.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", GFT.unit);
+                _cmd.Parameters.AddWithValue("@userid", GFT.userid);
+                _cmd.Parameters.AddWithValue("@WhereClause", GFT.WhereClause);
+                _cmd.Parameters.AddWithValue("@Branch", GFT.Branch);
+                _cmd.Parameters.AddWithValue("@PageNo", GFT.PageNo);
+                _cmd.Parameters.AddWithValue("@RecordsPerPage", GFT.RecordsPerPage);
+                _cmd.Parameters.AddWithValue("@Formcode", GFT.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", GFT.Formtabcode);
+                _cmd.Parameters.AddWithValue("@type", GFT.type);
+                _cmd.Parameters.AddWithValue("@Segment", GFT.Segment);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+
+
+        public int insertdata_Standardbutton(StandardButton STB)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_Form_ButtonClass_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+
+                _cmd.Parameters.AddWithValue("@srno", STB.srno);
+                _cmd.Parameters.AddWithValue("@CorporateId", STB.CorporateId);
+                _cmd.Parameters.AddWithValue("@TabCode", STB.TabCode);
+                _cmd.Parameters.AddWithValue("@FormCode", STB.FormCode);
+                _cmd.Parameters.AddWithValue("@SaveName", STB.SaveName);
+                _cmd.Parameters.AddWithValue("@SaveClass", STB.SaveClass);
+                _cmd.Parameters.AddWithValue("@SaveVisibility", STB.SaveVisibility);
+                _cmd.Parameters.AddWithValue("@SaveNotification", STB.SaveNotification);
+                _cmd.Parameters.AddWithValue("@SaveTask", STB.SaveTask);
+                 _cmd.Parameters.AddWithValue("@UpdateName", STB.UpdateName);
+                 _cmd.Parameters.AddWithValue("@UpdateClass", STB.UpdateClass);
+                 _cmd.Parameters.AddWithValue("@UpdateVisibility", STB.UpdateVisibility);
+                 _cmd.Parameters.AddWithValue("@UpdateNotification", STB.UpdateNotification);
+                 _cmd.Parameters.AddWithValue("@UpdateTask", STB.UpdateTask);
+                 _cmd.Parameters.AddWithValue("@DeleteName", STB.DeleteName);
+                 _cmd.Parameters.AddWithValue("@DeleteClass", STB.DeleteClass);
+                 _cmd.Parameters.AddWithValue("@DeleteVisibility", STB.DeleteVisibility);
+                 _cmd.Parameters.AddWithValue("@DeleteNotification", STB.DeleteNotification);
+                 _cmd.Parameters.AddWithValue("@DeleteTask", STB.DeleteTask);
+                   _cmd.Parameters.AddWithValue("@ClearName", STB.ClearName);
+                   _cmd.Parameters.AddWithValue("@ClearClass", STB.ClearClass);
+                   _cmd.Parameters.AddWithValue("@ClearVisibility", STB.ClearVisibility);
+                   _cmd.Parameters.AddWithValue("@ClearNotification", STB.ClearNotification);
+                   _cmd.Parameters.AddWithValue("@ClearTask", STB.ClearTask);
+                   _cmd.Parameters.AddWithValue("@FormQuitClass", STB.FormQuitClass);
+                   _cmd.Parameters.AddWithValue("@FormQuitVisibility", STB.FormQuitVisibility);
+                   _cmd.Parameters.AddWithValue("@FormQuitNotification", STB.FormQuitNotification);
+                   _cmd.Parameters.AddWithValue("@FormQuitTask", STB.FormQuitTask);
+                _cmd.Parameters.AddWithValue("@Attribute1", STB.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", STB.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", STB.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", STB.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", STB.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", STB.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", STB.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", STB.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", STB.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", STB.Attribute10);
+                _cmd.Parameters.AddWithValue("@CreatedBy", STB.CreatedBy);
+                _cmd.Parameters.AddWithValue("@EntryDatetime", STB.EntryDatetime);
+                _cmd.Parameters.AddWithValue("@EditedBy", STB.EditedBy);
+                _cmd.Parameters.AddWithValue("@EditDatetime", STB.EditDatetime);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", STB.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", STB.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", STB.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", STB.BranchBy);
+
+
+                //if (CM.EntryDatetime == null)
+                //{
+                //    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
+                //}
+                //else
+                //{
+                //    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(CM.EntryDatetime, "dd/MM/yyyy", null));
+                //}
+                //_cmd.Parameters.AddWithValue("@EditedBy", CM.EditedBy);
+
+                //if (CM.EditDatetime == null)
+                //{
+                //    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
+                //}
+                //else
+                //{
+                //    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(CM.EditDatetime, "dd/MM/yyyy", null));
+                //}
+                //_cmd.Parameters.AddWithValue("@CorpcentreBy", CM.CorpcentreBy);
+                //_cmd.Parameters.AddWithValue("@UnitCorpBy", CM.UnitCorpBy);
+                //_cmd.Parameters.AddWithValue("@TerminalBy", CM.TerminalBy);
+
+                //_cmd.Parameters.AddWithValue("@Corporate", CM.Corporate);
+                int i = _cmd.ExecuteNonQuery();
+                return i;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+
+        }
+
+
+
     }
     
 }

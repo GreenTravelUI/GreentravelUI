@@ -71,4 +71,14 @@ namespace GreenTravel.Models
         public string Control { get; set; }
         public string Srno { get; set; }
     }
+
+    public class GridFormparamater
+    {
+        public string Corporate { get; set; }
+        public string FeatureGroup { get; set; }
+        public string Module { get; set; }
+        public string FormName { get; set; }
+        public string RowNumber { get; set; }
+       
+    }
 }

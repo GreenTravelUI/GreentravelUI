@@ -11,7 +11,8 @@
 <script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script>
     $(document).ready(function () {
-       
+        getdata();
+        getdatatab();
         //var Module = '';
         //var screen = '';
         //var FormCode = '';
@@ -36,7 +37,7 @@
         //        }
         //    }
         //});
-
+    
         $('#btnSavefs').click(function (e) {
             e.preventDefault();          
             var Attribute1 = '';
@@ -304,9 +305,206 @@
         //    });
 
         //});
+
+        $('#btnstandardbutton').click(function (e) {
+            e.preventDefault();
+            var Attribute1 = '';
+            var Attribute2 = '';
+            var Attribute3 = '';
+            var Attribute4 = '';
+            var Attribute5 = '';
+            var Attribute6 = '';
+            var Attribute7 = '';
+            var Attribute8 = '';
+            var Attribute9 = '';
+            var Attribute10 = '';
+            var CreatedBy = '';
+            var EntryDatetime = '';
+            var EditedBy = '';
+            var EditDatetime = '';
+            var CorpcentreBy = '';
+            var UnitCorpBy = '';
+            var TerminalBy = '';
+            var BranchBy = '';
+
+
+            var srno = '1';
+            var CorporateId = '1';
+            var TabCode ='1';
+            var FormCode ='1';
+            var SaveName = $('#txtSaveName').val();
+            var SaveClass = $('#txtSaveClass').val();
+            var SaveVisibility = $("#chkCopyrightNote").is(":checked");
+            var SaveNotification ='';
+            var SaveTask='';
+            var UpdateName = $('#txtUpdateName').val();
+            var UpdateClass = $('#txtUpdateClass').val();
+            var UpdateVisibility ='';
+            var  UpdateNotification  = '';
+            var UpdateTask='';
+            var DeleteName = $('#txtDeleteName').val();
+            var DeleteClass = $('#txtDeleteClass').val();
+            var DeleteVisibility ='';
+            var DeleteNotification='';
+            var DeleteTask='';
+            var ClearName = $('#txtClearName').val();
+            var ClearClass = $('#txtClearClass').val();
+            var ClearVisibility ='';
+            var ClearNotification ='';
+            var ClearTask='';
+            var  FormQuitClass = $('#txtFormQuitClass').val();
+            var FormQuitVisibility ='';
+            var FormQuitNotification = '';
+            var FormQuitTask = '';
+
+            $.ajax(
+               {
+                   type: "POST",
+                   url: "/FormSetup/InsertData_StandardButton",
+                   data: {
+                       "srno": srno, "CorporateId": CorporateId, "TabCode": TabCode, "FormCode": FormCode, "SaveName": SaveName, "SaveClass": SaveClass,
+                       "SaveVisibility": SaveVisibility, "SaveNotification": SaveNotification, "SaveTask": SaveTask, "UpdateName": UpdateName,
+                       "UpdateClass": UpdateClass, "UpdateVisibility": UpdateVisibility, "UpdateNotification": UpdateNotification, "UpdateTask": UpdateTask,
+                       "DeleteName": DeleteName, "DeleteClass": DeleteClass, "DeleteVisibility": DeleteVisibility, "DeleteNotification": DeleteNotification,
+                       "DeleteTask": DeleteTask, "ClearName": ClearName, "ClearClass": ClearClass, "ClearVisibility": ClearVisibility, "ClearNotification": ClearNotification,
+                       "FormQuitClass": FormQuitClass, "FormQuitVisibility": FormQuitVisibility, "FormQuitNotification": FormQuitNotification, "FormQuitTask": FormQuitTask,
+                       "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                       "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10,
+                       "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
+                       "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+
+
+                   },
+                   dataType: 'json',
+                   success: function (response) {
+                       alert("Record Save Sucessfully");
+                       // $('#lblmsg').html("Record Save Sucessfully");
+                       //if (response != null && response.success) {
+                       //    alert("Record Save Sucessfully!");
+                       //} 
+
+                   }
+               });
+
+        });
+
+        function getdata() {
+            var tablename = 'dbo._Form_Master';
+            var Corporate = '1';
+            var unit = '';
+            var userid = '';
+            var WhereClause = '';
+            var Branch = '';
+            var PageNo = '1';
+            var RecordsPerPage = '10';
+            var Formcode = '0';
+            var Formtabcode = '0';
+            var type = 'Grid';
+            $('#example1').dataTable({
+                "ServerSide": true,
+                "ajax": {
+                    "url": "/FormSetup/BindGridView",
+                    "Type": "GET",
+                    "dataType": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": function (json) {
+                        return json;
+                    },
+                    "data": {
+                        "tablename": tablename,
+                        "Corporate": Corporate,
+                        "unit": unit,
+                        "userid": userid,
+                        "WhereClause": WhereClause,
+                        "Branch": Branch,
+                        "PageNo": PageNo,
+                        "RecordsPerPage": RecordsPerPage,
+                        "Formcode": Formcode,
+                        "Formtabcode": Formtabcode,
+                        "type": type
+
+
+
+                    }
+                },
+                "columns": [
+                      { "data": "RowNumber" },
+                    { "data": "Corporate" },
+                    { "data": "FeatureGroup" },
+                    { "data": "Module" },
+                    { "data": "FormName" },
+
+                    {
+                        data: null,
+                        className: "center",
+                        defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="" class="editor_Delte"><i class="fa fa-trash-o"></i></a>'
+                    }
+
+
+                ]
+            });
+        }
+
+        function getdatatab() {
+            var tablename = 'dbo._Form_Tab_Master';
+            var Corporate = '0';
+            var unit = '';
+            var userid = '';
+            var WhereClause = '';
+            var Branch = '';
+            var PageNo = '1';
+            var RecordsPerPage = '10';
+            var Formcode = '0';
+            var Formtabcode = '0';
+            var type = 'Grid';
+            var Segment = '';
+            $('#example3').dataTable({
+                "ServerSide": true,
+                "ajax": {
+                    "url": "/FormSetup/BindGridViewFormsetup",
+                    "Type": "GET",
+                    "dataType": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": function (json) {
+                        return json;
+                    },
+                    "data": {
+                        "tablename": tablename,
+                        "Corporate": Corporate,
+                        "unit": unit,
+                        "userid": userid,
+                        "WhereClause": WhereClause,
+                        "Branch": Branch,
+                        "PageNo": PageNo,
+                        "RecordsPerPage": RecordsPerPage,
+                        "Formcode": Formcode,
+                        "Formtabcode": Formtabcode,
+                        "type": type,
+                        "Segment":Segment
+
+
+                    }
+                },
+                "columns": [
+                      { "data": "RowNumber" },
+                    { "data": "FormCode" },
+                    { "data": "TabHeader" },
+                    { "data": "TabClass" },
+                    { "data": "SummeryLabel" },
+
+                    {
+                        data: null,
+                        className: "center",
+                        defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection"><i class="fa fa-list-alt"></i></a>'
+                    }
+
+
+                ]
+            });
+        }
     });
 
-  
+   
 </script>
 
 
@@ -340,7 +538,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                <table id="example1" class="display table" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
                                             <th style="width: 5%;">#</th>
@@ -348,7 +546,7 @@
                                             <th style="width: 20%;">Features</th>
                                             <th style="width: 20%;">Module</th>
 
-                                            <th style="width: 15%;">Form </th>
+                                            <th style="width: 15%;">FormName </th>
 
                                             <th style="width: 15%; text-align: center;">Action</th>
                                         </tr>
@@ -360,182 +558,15 @@
                                             <th>Features</th>
                                             <th>Module </th>
 
-                                            <th>Form </th>
+                                            <th>FormName </th>
 
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
+                                   @* <tbody>
+                                       
 
-                                            <th></th>
-                                            <th>
-                                                <input type="text" /></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-
-                                            <th class="action-buttons">
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>12</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>13</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Add Controls"><i class="text-success fa fa-plus-square"></i></a>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
+                                    </tbody>*@
                                 </table>
                             </div>
                         </form>
@@ -838,117 +869,80 @@
 
                 <div role="tabpanel" class="tab-pane " id="tab5">
                     <form>
-                        <div class="col-md-12">
-
-
-
                             <div class="table-responsive">
-                                <table id="exampleeditable" class="table table-striped" style="width: 100%; cellspacing: 0;">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example3" class="display table" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Form Name
-                                            </th>
-                                            <th>Tab Name
-                                            </th>
-                                            <th>Tab Class 
-                                            </th>
-                                            <th>Summery Label
-                                            </th>
-                                            <th>Icon Class
-                                            </th>
+                                            <th style="width: 5%;">#</th>
+                                            <th style="width: 20%;">Form Name</th>
+                                            <th style="width: 20%;">Tab Name</th>
+                                            <th style="width: 20%;">Tab Class </th>
 
-                                            <th>Section </th>
+                                            <th style="width: 15%;">Summery Label </th>
+                                            <th style="width: 15%;">Icon Class </th>
+                                            @*  <th style="width: 15%;">Section</th>*@
+                                         
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th>
-                                                <button id="btnadd" class="btn btn-success btnSave" type="submit">
-                                                    Add</button>
-                                            </th>
+                                            <th>Form Name</th>
+                                            <th>Tab Name</th>
+                                            <th>Tab Class  </th>
 
+                                            <th>Summery Label </th>
 
+                                            <th>Icon Class</th>
+                                          @*  <th>Section </th>*@
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    @*<tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <input type="text" />
-                                            </td>
-                                            <td>
-                                                <input type="text" />
-                                            </td>
-                                            <td>
-                                                <input type="text" />
-                                            </td>
-                                            <td>
-                                                <input type="text" />
-                                            </td>
 
+                                            <th></th>
+                                            <th>
+                                                <input type="text" /></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+
+                                          
                                             <td>
-                                                @* <a href="#"><i class="fa fa-cloud-upload"></i></a>*@
+                                               
                                                 <a href="#" data-toggle="modal" data-target="#myModalIcon"><i class="fa fa-cloud-upload"></i></a>
                                             </td>
                                             <td>
 
                                                 <a href="#" data-toggle="modal" data-target="#myModalSection"><i class="fa fa-list-alt"></i></a>
-                                                @* <a href="#"><i class="fa fa-list-alt"></i></a>*@
+                                               
                                             </td>
-
-
                                         </tr>
-                                        @*<tr>
-                                            <td>2</td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                                <a href="#" data-toggle="modal" data-target="#myModalIcon"><i class="fa fa-cloud-upload"></i></a>
-                                            </td>
-                                            <td>
+                                        
+                       
 
-                                                <a href="#" data-toggle="modal" data-target="#myModalSection"><i class="fa fa-list-alt"></i></a>
-                                               
-                                            </td>
-
-                                        </tr>*@
-                                    </tbody>
+                                    </tbody>*@
                                 </table>
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <br />
-                            <button id="btnSavehh" type="submit" class="btn btn-success btnSave">
-                                SAVE</button>
-                            <button id="btnSavej" type="submit" class="btn btn-primary btnSave">
-                                UPDATE</button>
-                            <button id="btnCancelu" type="submit" class="btn btn-green btnCancel">
-                                DELETE</button>
-                            <button id="btnSavei" type="submit" class="btn btn-warning btnSave">
-                                CLEAR</button>
-                            <button id="btnSavee" type="submit" class="btn btn-info btnSave">
-                                QUIT FORM</button>
-                        </div>
-                    </form>
+                        </form>
                 </div>
             </div>
         </div>
@@ -979,124 +973,124 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName1" placeholder="Save Name">
+                                                <label for="txtSaveName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Name <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtSaveName" placeholder="Save Name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName2" placeholder="Update Name">
+                                                <label for="txtUpdateName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Name <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtUpdateName" placeholder="Update Name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Name  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName3" placeholder="Delete Name">
+                                                <label for="txtDeleteName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Name  <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtDeleteName" placeholder="Delete Name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName4" placeholder="Clear Name">
+                                                <label for="txtClearName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Name <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtClearName" placeholder="Clear Name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Name<span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName5" placeholder="Form Quit Name">
+                                                <label for="txtFormQuitName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Name<span>*</span></label>
+                                                <input type="text" class="form-control" id="txtFormQuitName" placeholder="Form Quit Name">
                                             </div>
 
 
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Class  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName6" placeholder="Save">
+                                                <label for="txtSaveClass" data-toggle="tooltip" data-placement="right" title="Master Name">Save Class  <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtSaveClass" placeholder="Save">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Class <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName7" placeholder="Update">
+                                                <label for="txtUpdateClass" data-toggle="tooltip" data-placement="right" title="Master Name">Update Class <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtUpdateClass" placeholder="Update">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Class   <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName8" placeholder="Delete">
+                                                <label for="txtDeleteClass" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Class   <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtDeleteClass" placeholder="Delete">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Class <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName9" placeholder="Clear">
+                                                <label for="txtClearClass" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Class <span>*</span></label>
+                                                <input type="text" class="form-control" id="txtClearClass" placeholder="Clear">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Class<span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName10" placeholder="Form Quit">
+                                                <label for="txtFormQuitClass" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Class<span>*</span></label>
+                                                <input type="text" class="form-control" id="txtFormQuitClass" placeholder="Form Quit">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Visibility  <span>*</span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkSaveVisibility">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Visibility <span>*</span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkUpdateVisibility">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Visibility   <span>*</span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkDeleteVisibility">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Visibility <span>*</span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkClearVisibility">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Visibility<span>*</span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkFormQuitVisibility">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkNotification">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkNotification1">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkNotification2">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkTask">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkTask1">
                                             </div>
                                             <div class="form-group">
                                                 <br />
                                                 <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
                                                 <br />
-                                                <input type="Checkbox" class="form-control">
+                                                <input type="Checkbox" class="form-control" id="chkTask2">
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button type="button" class="btn btn-success">SAVE</button>
+                                            <button type="submit" class="btn btn-success" id="btnstandardbutton">SAVE</button>
                                             <button id="btnSave22" type="submit" class="btn btn-primary btnSave">
                                                 UPDATE</button>
                                         </div>

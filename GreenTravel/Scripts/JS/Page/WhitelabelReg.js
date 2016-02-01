@@ -1,8 +1,15 @@
 ﻿$(document).ready(function () {
+    BindGrid();
     $('.btnSave').click(function (e) {
         e.preventDefault();
 
-        var srno = '';
+        if ($('#txtsrno').val() != "") {
+            var srno = $('#txtsrno').val();
+        }
+        else {
+            var srno = '';
+        }
+
         var Corporate = '0';
         var CorpCoOfficialName = $('#txtCmpOfficeName').val();
         var CorpCompanyIndust = $('#drpcompanyIndustry option:selected').val();
@@ -32,7 +39,7 @@
         }
         var CopyrightNote = $('#txtCopyRights').val();
         var CopyrightNoteFlag = $("#chkCopyrightNote").is(":checked");
-       
+
         var LoginFrmCaption = '';
         var DefaultLogo = '';
 
@@ -51,22 +58,19 @@
         var Attribute9 = '';
         var Attribute10 = '';
         var EntryDatetime = '';
-        var CretedBy = '';
-        var EditedBy = '';
+        var CretedBy = '0';
+        var EditedBy = '0';
         var EditDatetime = '';
-        var CorpcentreBy = '';
-        var UnitCorpBy = '';
-        var TerminalBy = '';
-        var BranchBy = '';
-
-
+        var CorpcentreBy = '0';
+        var UnitCorpBy = '0';
+        var TerminalBy = '0';
+        var BranchBy = '0';
 
         $.ajax(
            {
                type: "POST",
                url: "/WhitelabelStep1/insert_Data",
                data: {
-
                    srno: srno, Corporate: Corporate, CorpCoOfficialName: CorpCoOfficialName, CorpCompanyIndust: CorpCompanyIndust, CompanyType: CompanyType,
                    Services: Services, BusinessMode: BusinessMode, AdminUserName: AdminUserName, Password: Password, ApplicationTheme: ApplicationTheme, ApplicationUrl: ApplicationUrl,
                    WebTheme: WebTheme, WebUrl: WebUrl, BaseCurrency: BaseCurrency, BaseLanguage: BaseLanguage, OtherLanguage: OtherLanguage, Logo: Logo, Favicon: Favicon, OfficialEmail: OfficialEmail,
@@ -75,15 +79,434 @@
                    Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
                    Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CretedBy: CretedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
                    UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
-
                },
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
                        alert("Record Save Sucessfully!");
+                       $("#tab1").addClass("active");
+                       $("#tab2").removeClass("active");
                    }
                }
            });
 
     });
+    $('#Search').click(function (e) {
+        // BindGrid();
+    });
+    $('#CreateCorporate').click(function (e) {
+        Dropdown_Bind_Tab1();
+    });
+
+    $('#btnclearbasic').click(function (e) {
+        $('input[type="text"]').val('');
+    });
+
+    $('#btnQuitbasic').click(function (e) {
+        $('input[type="text"]').val('');
+    });
+
+    function Dropdown_Bind_Tab1() {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Type = 'DropDown';
+        $.ajax({
+            url: "/WhitelabelStep1/BindDropDown",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+            },
+            success: function (response) {
+                if (response['GTIndutry'].length > 0) {
+                    $('.Industry').html('');
+                    for (var i = 0; i < response['GTIndutry'].length; i++) {
+                        var opt = new Option(response['GTIndutry'][i]['Text'], response['GTIndutry'][i]['Value']);
+                        $('.Industry').append(opt);
+                    }
+                    $('#drpcompanyIndustry option:first').attr('selected', 'selected').change();
+                    $('#drpcompanyType option:first').attr('selected', 'selected').change();
+                }
+                if (response['GTservice'].length > 0) {
+                    $('#drpServices').html('');
+                    for (var i = 0; i < response['GTservice'].length; i++) {
+                        var opt = new Option(response['GTservice'][i]['Text'], response['GTservice'][i]['Value']);
+                        $('#drpServices').append(opt);
+                    }
+                    $('#drpServices option:first').attr('selected', 'selected').change();
+                }
+                if (response['GTBmode'].length > 0) {
+                    $('#drpBusinessMode').html('');
+                    for (var i = 0; i < response['GTBmode'].length; i++) {
+                        var opt = new Option(response['GTBmode'][i]['Text'], response['GTBmode'][i]['Value']);
+                        $('#drpBusinessMode').append(opt);
+                    }
+                    $('#drpBusinessMode option:first').attr('selected', 'selected').change();
+                }
+                if (response['GTcurrency'].length > 0) {
+                    $('#drpBaseCurrency').html('');
+                    for (var i = 0; i < response['GTcurrency'].length; i++) {
+                        var opt = new Option(response['GTcurrency'][i]['Text'], response['GTcurrency'][i]['Value']);
+                        $('#drpBaseCurrency').append(opt);
+                    }
+                    $('#drpBaseCurrency option:first').attr('selected', 'selected').change();
+                }
+                if (response['GTlanguage'].length > 0) {
+                    $('.Language').html('');
+                    for (var i = 0; i < response['GTlanguage'].length; i++) {
+                        var opt = new Option(response['GTlanguage'][i]['Text'], response['GTlanguage'][i]['Value']);
+                        $('.Language').append(opt);
+                    }
+                    $('#drpBaseLanguage option:first').attr('selected', 'selected').change();
+                    $('#drpOtherLanguage option:first').attr('selected', 'selected').change();
+                }
+                if (response['GTCorporate'].length > 0) {
+                    $('#drpRefferenceCorporateCompany').html('');
+                    for (var i = 0; i < response['GTCorporate'].length; i++) {
+                        var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
+                        $('#drpRefferenceCorporateCompany').append(opt);
+                    }
+                    $('#drpRefferenceCorporateCompany option:first').attr('selected', 'selected').change();
+                }
+
+                //console.log(response['GTIndutry'][0]);
+                //console.log(response['GTservice'][0]);
+                //console.log(response['GTBmode'][0]);
+
+            }
+        });
+    }
+    function BindGrid() {
+        var tablename = 'dbo._White_Register_Basic';
+        var Corporate = '0';
+        var Segment = '';
+        var PageNo = '1';
+        var type = 'Grid';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        $('#example1').dataTable({
+            "ServerSide": true,
+            "ajax": {
+                "url": "/WhitelabelStep1/BindGridView",
+                "Type": "GET",
+                "dataType": 'json',
+                "contentType": "application/json; charset=utf-8",
+                "dataSrc": function (json) {
+                    return json;
+                },
+                "data": {
+                    "tablename": tablename,
+                    "Corporate": Corporate,
+                    "Segment": Segment,
+                    "PageNo": PageNo,
+                    "type": type,
+                    "Formcode": Formcode,
+                    "Formtabcode": Formtabcode
+                }
+            },
+            "columns": [
+                { "data": "RowNumber" },
+                 { "data": "Srno", className: "hide_cell" },
+                { "data": "CompanyName" },
+                { "data": "CompanyIndustry" },
+                { "data": "ApplicationURL" },
+                { "data": "RefferenceCompany" },
+                {
+                    data: null,
+                    className: "center",
+                    defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-cubes"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
+                }
+            ]
+        });
+    }
+
+    $("table").delegate(".editor_Step", "click", function () {
+        console.log($(this).parent().parent().children(':eq(0)').text());
+        console.log($(this).parent().parent().children(':eq(1)').text());
+        //console.log($(this).parent().parent().children(':eq(2)').text());
+
+        $("#SearchMaster").removeClass("active");
+        $("#CreateMaster").addClass("active");
+        $("#tab1").removeClass("active");
+        $("#tab2").addClass("active");
+        $('#btnupdatebasic').show();
+        $('#btndeltebasic').show();
+        $('#btnsavebasic').hide();
+
+        var tablename = 'dbo._White_Register_Basic';
+        var Corporate = '0';
+        var unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var srno = $(this).parent().parent().children(':eq(1)').text();
+        var Type = 'EditMode';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/WhitelabelStep1/Edit_data",
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 console.log(response);
+                 console.log(response['Whiteregjs'].length)
+                 //Master
+
+                 if (response['Whiteregjs'].length > 0) {
+                     $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
+                     $('#txtCmpOfficeName').val(response['Whiteregjs'][0]['CorpCoOfficialName']);
+                     $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
+                     $('#drpcompanyType').find('option[value="' + response['Whiteregjs'][0]['CompanyType'] + '"]').attr('selected', true).change();
+                     $('#drpServices').find('option[value="' + response['Whiteregjs'][0]['Services'] + '"]').attr('selected', true).change();
+                     $('#drpBusinessMode').find('option[value="' + response['Whiteregjs'][0]['BusinessMode'] + '"]').attr('selected', true).change();
+                     $('#txtUsername').val(response['Whiteregjs'][0]['AdminUserName']);
+                     $('#txtPassword').val(response['Whiteregjs'][0]['Password']);
+                     $('#txtConfirmPassword').val(response['Whiteregjs'][0]['Password']);
+                     $('#txtOfficialEmail').val(response['Whiteregjs'][0]['OfficialEmail']);
+                     $('#txtOfficialPhone').val(response['Whiteregjs'][0]['OfficialPhone']);
+                     $('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
+                     $('#txtApplicationURL').val(response['Whiteregjs'][0]['ApplicationUrl']);
+                     $('#drpBaseCurrency').find('option[value="' + response['Whiteregjs'][0]['BaseCurrency'] + '"]').attr('selected', true).change();
+                     $('#drpBaseLanguage').find('option[value="' + response['Whiteregjs'][0]['BaseLanguage'] + '"]').attr('selected', true).change();
+                     $('#txtLogo').val(response['Whiteregjs'][0]['Logo']);
+                     $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
+                     $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
+                     $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();
+                     $('#txtFavicon').val(response['Whiteregjs'][0]['Favicon']);
+                     var fulllabelwhite = response['Whiteregjs'][0]['FullSemiWhiteLbl'];
+
+                     if (fulllabelwhite == "monthly") {
+                         $('#rdoFullWhiteLabel').prop('checked', true);
+                     }
+                     else {
+                         $('#rdoSemiWhiteLabel').prop('checked', true);
+                     }
+
+                     var chkCopyrightNotecheck = response['Whiteregjs'][0]['CopyrightNoteFlag'];
+
+                     if (chkCopyrightNotecheck == "True") {
+
+                         //$('#chkCopyrightNote').click();
+                         document.getElementById("chkCopyrightNote").checked = true;
+
+                     }
+                     else {
+
+                         //  $('#chkCopyrightNote').click();
+                         document.getElementById("chkCopyrightNote").checked = false;
+                     }
+                     $('#txtCopyRights').val(response['Whiteregjs'][0]['CopyrightNote']);
+                     $('#drpRefferenceCorporateCompany').find('option[value="' + response['Whiteregjs'][0]['RefCorpCompany'] + '"]').attr('selected', true).change();
+                     $('#txtOtherRefference1').val(response['Whiteregjs'][0]['OtherReference1']);
+                     $('#txtOtherRefference2').val(response['Whiteregjs'][0]['OtherReference2']);
+                     $('#txtCommision').val(response['Whiteregjs'][0]['Commision']);
+
+
+
+
+
+                 }
+             }
+         });
+    });
+
+    $("table").delegate(".editor_feature", "click", function () {
+        alert('Feature');
+    });
+
+    $("table").delegate(".editor_accessright", "click", function () {
+        alert('AccessRight');
+    });
+
+    $('.btnSavemain').click(function (e) {
+        e.preventDefault();
+        alert("check");
+        if ($('#txtsrnotab4').val() != "") {
+            var srno = $('#txtsrnotab4').val();
+        }
+        else {
+            var srno = '';
+        }
+
+        var Corporate = '0';
+        var BillingName = $('#txtBillingName').val();
+        var BillingContactPerson = $('#txtBillingContactPerson').val();
+        var BillingAddress1 = $('#txtBillingAddressLine1').val();
+        var BillingAddress2 = $('#txtBillingAddressLine2').val();
+        var BillingCity = $('#txtBillingCity').val();
+        var BillingState = $('#txtBillingState').val();
+        var BillingCountry = $('#txtBillingCountry').val();
+        var BillingArea = "0";
+        var BillingZipCode = $('#txtBillingZipCode').val();
+        var BillingEmail = $('#txtBillingEmail').val();
+        var BillingPhone = $('#txtBillingTelephone').val();
+        var BillingContactMobile = $('#txtBillingCellPhone').val();
+        var Currency = $('#drpmaINCurrency option:selected').val();
+        var SupportMode = $('#drpSupportMode').val();
+        var FreeSupportPeriod = $('#txtFreeSupportPeriod').val();
+        var SupportCostPM = $('#txtSupportCostPerMonth').val();
+
+        var Attribute1 = '';
+        var Attribute2 = '';
+        var Attribute3 = '';
+        var Attribute4 = '';
+        var Attribute5 = '';
+        var Attribute6 = '';
+        var Attribute7 = '';
+        var Attribute8 = '';
+        var Attribute9 = '';
+        var Attribute10 = '';
+        var EntryDatetime = '';
+        var CreatedBy = '';
+        var EditedBy = '';
+        var EditDatetime = '';
+        var CorpcentreBy = '';
+        var UnitCorpBy = '';
+        var TerminalBy = '';
+        var BranchBy = '';
+
+        $.ajax(
+           {
+               type: "POST",
+               url: "/WhitelabelStep1/insert_data_main",
+               data: {
+                   srno: srno, Corporate: Corporate, BillingName: BillingName, BillingContactPerson: BillingContactPerson, BillingAddress1: BillingAddress1, BillingAddress2: BillingAddress2, BillingCity: BillingCity,
+                   BillingState: BillingState, BillingCountry: BillingCountry, BillingArea: BillingArea, BillingZipCode: BillingZipCode, BillingEmail: BillingEmail, BillingPhone: BillingPhone,
+                   BillingContactMobile: BillingContactMobile, Currency: Currency, SupportMode: SupportMode, FreeSupportPeriod: FreeSupportPeriod, SupportCostPM: SupportCostPM, Attribute1: Attribute1,
+                   Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+                   Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
+                   UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
+               },
+               dataType: 'json',
+               success: function (response) {
+                   if (response != null && response.success) {
+                       alert("Record Save Sucessfully!");
+                       $("#tab1").addClass("active");
+                       $("#tab4").removeClass("active");
+                   }
+               }
+           });
+
+    });
+
+
+
+    $('#tabuserpreferance').click(function (e) {
+
+       
+        Dropdown_Bind_Userpreferance_Checkbox();
+
+    });
+
+
+    function Dropdown_Bind_Userpreferance_Checkbox() {
+       
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Type = 'ChkBox';
+        var html="";
+        $.ajax({
+            url: "/WhitelabelStep1/BindDropDownUserpreferanceCheckbox",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+            },
+            success: function (response) {
+               
+                if (response['WRcheckbox'].length > 0) {
+                    for (var i = 0; i < response['WRcheckbox'].length; i++) {
+                        html = html+'<div class="col-md-6 form-marings">' +
+                                '<input type="checkbox" value="' + response['WRcheckbox'][i]['Value'] + '"/>' + response['WRcheckbox'][i]['Text'] +
+                               '</div>'
+                    }
+                    $(html).appendTo($("#userperferancechk"))
+                }
+               
+                
+            }
+        });
+    }
+
+
+
+    $('.btnSaveuserpref').click(function (e) {
+        e.preventDefault();
+
+        if ($('#txtsrnouserpref').val() != "") {
+            var srno = $('#txtsrnouserpref').val();
+        }
+        else {
+            var srno = '';
+        }
+
+        var Corporate = '0';
+        var UserId = '0';
+        var GadgetPosition = $('#drpDashboardGadgetPosition option:selected').val();
+       // var OtherPreferences = '';
+        var pagerow = '10';
+       
+
+        $("#userperferancechk div").each(function () {
+            var OtherPreferences = '';
+            var OtherPreferences = $(this).children(':eq(1)').find('checkbox').val()
+         //   console.log($(this).children(':eq(1)').find('input').val());
+            alert(OtherPreferences);
+
+            var Attribute1 = '';
+            var Attribute2 = '';
+            var Attribute3 = '';
+            var Attribute4 = '';
+            var Attribute5 = '';
+            var Attribute6 = '';
+            var Attribute7 = '';
+            var Attribute8 = '';
+            var Attribute9 = '';
+            var Attribute10 = '';
+            var EntryDatetime = '';
+            var CreatedBy = '0';
+            var EditedBy = '0';
+            var EditDatetime = '';
+            var CorpcentreBy = '0';
+            var UnitCorpBy = '0';
+            var TerminalBy = '0';
+            var BranchBy = '0';
+
+            $.ajax(
+               {
+                   type: "POST",
+                   url: "/WhitelabelStep1/insert_Data_user_preferance",
+                   data: {
+                       srno: srno, Corporate: Corporate, UserId: UserId, GadgetPosition: GadgetPosition, OtherPreferences: OtherPreferences,
+                       pagerow: pagerow, Attribute1: Attribute1, Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+                       Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
+                       UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
+                   },
+                   dataType: 'json',
+                   success: function (response) {
+                       if (response != null && response.success) {
+                           alert("Record Save Sucessfully!");
+                         
+                       }
+                   }
+               });
+        });
+
+    });
+
 });

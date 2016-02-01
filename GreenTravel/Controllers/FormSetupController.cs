@@ -7,6 +7,7 @@ using GreenTravel.Models;
 using GreenTravel.App_DbService;
 using Newtonsoft.Json;
 using System.Data;
+using GreenTravel.Models.Comman;
 namespace GreenTravel.Controllers
 {
     public class FormSetupController : Controller
@@ -185,6 +186,99 @@ namespace GreenTravel.Controllers
 
 
         }
+
+
+
+        public ActionResult BindGridView(Gridformsetup GP)
+        {
+            try
+            {
+                DataSet ds = _objfs.BindGrid(GP);
+                List<GridFormparamater> items = new List<GridFormparamater>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new GridFormparamater
+                        {
+                            RowNumber = @dr["RowNumber"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                            FeatureGroup = @dr["FeatureGroup"].ToString(),
+                            Module = @dr["Module"].ToString(),
+                            FormName = @dr["FormName"].ToString(),
+                           
+
+                        });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+        public ActionResult BindGridViewFormsetup(GridFormTab GP)
+        {
+            try
+            {
+                DataSet ds = _objfs.BindGridFormTab(GP);
+                List<GridFormTabparamater> items = new List<GridFormTabparamater>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new GridFormTabparamater
+                        {
+                            RowNumber = @dr["RowNumber"].ToString(),
+                            FormCode = @dr["FormCode"].ToString(),
+                            TabHeader = @dr["TabHeader"].ToString(),
+                            TabClass = @dr["TabClass"].ToString(),
+                            SummeryLabel = @dr["SummeryLabel"].ToString(),
+
+
+                        });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
+
+
+
+        [HttpPost]
+        public ActionResult InsertData_StandardButton(StandardButton SB)
+        {
+            try
+            {
+                int result = _objfs.insertdata_Standardbutton(SB);
+                if (result == 1)
+                {
+                    ViewBag.Message = "Record Save Sucessfully !";
+                }
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
 
     }
 }

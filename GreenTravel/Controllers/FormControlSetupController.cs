@@ -1,5 +1,9 @@
-﻿using System;
+﻿using GreenTravel.App_DbService;
+using GreenTravel.Models;
+using GreenTravel.Models.Comman;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +12,7 @@ namespace GreenTravel.Controllers
 {
     public class FormControlSetupController : Controller
     {
+        DBFromControlSetup _objDCFS = new DBFromControlSetup();
         //
         // GET: /FormControlSetup/
 
@@ -15,6 +20,46 @@ namespace GreenTravel.Controllers
         {
             return View();
         }
+        public ActionResult Insert_Data(FrmControlSetup FCS)
+        {
+            try
+            {
+                int result = _objDCFS.insert_data(FCS);
+                if (result == 1)
+                {
 
+                }
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        //public ActionResult BindDropDown(commanbaseParamater CBP)
+        //{
+        //    try
+        //    {
+        //        DataSet ds = _objCM.BindDropDown(CBP);
+        //        List<CommanDropdown> items = new List<CommanDropdown>();
+        //        if (ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            ViewBag.fname = ds.Tables[0];
+        //            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+        //            {
+        //                items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+        //            }
+        //        }
+        //        var result = items;
+        //        return Json(result, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 }
