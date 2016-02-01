@@ -7,6 +7,8 @@ namespace GreenTravel.Models
 {
     public class WhitelabelReg
     {
+
+        #region basic
         public string srno { get; set; }
         public string Corporate { get; set; }
         public string CorpCoOfficialName { get; set; }
@@ -36,7 +38,10 @@ namespace GreenTravel.Models
         public string OtherReference1 { get; set; }
         public string OtherReference2 { get; set; }
         public string Commision { get; set; }
+        #endregion
 
+
+        #region common
         public string Attribute1 { get; set; }
         public string Attribute2 { get; set; }
         public string Attribute3 { get; set; }
@@ -55,6 +60,47 @@ namespace GreenTravel.Models
         public string UnitCorpBy { get; set; }
         public string TerminalBy { get; set; }
         public string BranchBy { get; set; }
+
+        public string CreatedBy { get; set; }
+        public string Module { get; set; }
+        public string screen { get; set; }
+        public string FormCode { get; set; }
+        public string TabCode { get; set; }
+        public string unit { get; set; }
+        public string Branch { get; set; }
+        public string userid { get; set; }
+        public string Ip { get; set; }
+        public string Type { get; set; }
+        #endregion
+
+        #region billing
+        public string BillingName { get; set; }
+        public string BillingContactPerson { get; set; }
+        public string BillingAddress1 { get; set; }
+        public string BillingAddress2 { get; set; }
+        public string BillingCity { get; set; }
+        public string BillingState { get; set; }
+        public string BillingCountry { get; set; }
+        public string BillingArea { get; set; }
+        public string BillingZipCode { get; set; }
+        public string BillingEmail { get; set; }
+        public string BillingPhone { get; set; }
+        public string BillingContactMobile { get; set; }
+        public string Currency { get; set; }
+        public string SupportMode { get; set; }
+        public string FreeSupportPeriod { get; set; }
+        public string SupportCostPM { get; set; }
+
+        #endregion
+
+        
+        #region user prefferance
+       
+        public string GadgetPosition { get; set; }
+        public string OtherPreferences { get; set; }
+        public string pagerow { get; set; }
+
+        #endregion
     }
 
     public class GridFrmControlDisplay

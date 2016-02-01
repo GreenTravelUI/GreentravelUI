@@ -47,7 +47,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@OtherReference1", WR.OtherReference1);
                 _cmd.Parameters.AddWithValue("@OtherReference2", WR.OtherReference2);
                 _cmd.Parameters.AddWithValue("@Commision", WR.Commision);
-
+              
                 _cmd.Parameters.AddWithValue("@Attribute1", WR.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", WR.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", WR.Attribute3);
@@ -58,7 +58,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", WR.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", WR.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", WR.Attribute10);
-
+               
                 if (WR.EntryDatetime == null)
                 {
                     _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
@@ -82,13 +82,9 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", WR.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", WR.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", WR.BranchBy);
-                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
-                DataSet ds = new DataSet();
-                adp.Fill(ds);
-                adp.Dispose();
-                _cmd.Dispose();
-                return ds;
-
+                int i = _cmd.ExecuteNonQuery();
+                //  string i = _cmd.ExecuteScalar().ToString();
+                return i;
             }
             catch
             {
@@ -175,9 +171,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
-
-
 
     }
 }
