@@ -16,5 +16,9 @@ namespace GreenTravel.Controllers
             return View();
         }
 
+        public ActionResult Supplier()
+        {
+            return View();
+        }
     }
 }

@@ -1,7 +1,12 @@
 ﻿$(document).ready(function () {
     /*Tab 1*/
+    var deletesrno;
     getdata();
     $("#drpCorporate").change(function () {
+        bind_dropdown();
+    });
+
+    function bind_dropdown() {
         var Module = '';
         var screen = '';
         var FormCode = '';
@@ -34,7 +39,8 @@
                 }
             }
         });
-    });
+    }
+
     $('.btnSave').click(function (e) {
         e.preventDefault();
         var xmaster = $('#txtMasterCode').val();
@@ -366,7 +372,7 @@
                }
            });
     });
-    
+
 
     $('#btnQuitform').click(function (e) {
         e.preventDefault();
@@ -374,6 +380,7 @@
         $("#CreateMaster").removeClass("active");
         $("#tab2").removeClass("active");
         $("#tab1").addClass("active");
+        $('#txtMasterCode').attr("disabled", false)
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -385,7 +392,10 @@
 
     $('#btnCancelMastersetup').click(function (e) {
         e.preventDefault();
-
+        $('#btnsUpdate').hide();
+        $('#btnDelete').hide();
+        $('#btnSaveMastersetup').show();
+        $('#txtMasterCode').attr("disabled", false)
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -411,7 +421,8 @@
         var unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
-        var Xmaster = $(this).parent().parent().children(':eq(1)').text();
+        var Xmaster = $(this).parent().parent().children(':eq(2)').text();
+        console.log(Xmaster);
         var Type = 'EditMode';
         $.ajax(
          {
@@ -426,12 +437,14 @@
                  console.log(response['AMaster'].length)
                  //Master
                  if (response['AMaster'].length > 0) {
+                     $('#txtMasterCode').attr("disabled", true)
                      $('#txtMasterCode').val(response['AMaster'][0]['xmaster']);
                      $('#txtMasterName').val(response['AMaster'][0]['xname']);
                      $('#txtdrpCaption').val(response['AMaster'][0]['drpCaption']);
                      $('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
                      $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      $('#drpCorporate').find('option[value="' + response['AMaster'][0]['Corporate'] + '"]').attr('selected', true).change();
+                     //alert(response['AMaster'][0]['xlink']);
                      $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
                      $('#drpMastersetup2').find('option[value="' + response['AMaster'][0]['xcross'] + '"]').attr('selected', true).change();
                      $('#drpMastersetup3').find('option[value="' + response['AMaster'][0]['xcross1'] + '"]').attr('selected', true).change();
@@ -592,9 +605,9 @@
                      $('#txtHelp19').val(response['Atooltip'][0]['Date1']);
                      $('#txtHelp20').val(response['Atooltip'][0]['Date2']);
                      $('#txtHelp21').val(response['Atooltip'][0]['Date3']);
-                     $('##txtHelp24').val(response['Atooltip'][0]['Email1']);
-                     $('##txtHelp25').val(response['Atooltip'][0]['Email2']);
-                     $('##txtHelp26').val(response['Atooltip'][0]['Email3']);
+                     $('#txtHelp24').val(response['Atooltip'][0]['Email1']);
+                     $('#txtHelp25').val(response['Atooltip'][0]['Email2']);
+                     $('#txtHelp26').val(response['Atooltip'][0]['Email3']);
                      $('#txtHelp27').val(response['Atooltip'][0]['Amount']);
                      $('#txtHelp28').val(response['Atooltip'][0]['Amount2']);
                      $('#txtHelp29').val(response['Atooltip'][0]['Amount3']);
@@ -617,9 +630,46 @@
     });
 
     $("table").delegate(".editor_Delte", "click", function () {
-        console.log($(this).parent().parent().children(':eq(1)').text());
-        console.log($(this).parent().parent().children(':eq(2)').text());
+        //alert($(this).parent().parent().children(':eq(2)').text());
+        deletesrno = '';
+        deletesrno = $(this).parent().parent().children(':eq(2)').text()
+        $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
+
+    $('#modeldelete').click(function (e) {
+        console.log(deletesrno);
+        var Module = 0;
+        var screen = 0;
+        var FormCode = 0;
+        var TabCode = 0;
+        var Corporate =0;
+        var unit = '';
+        var Branch = '';
+        var userid = 0;
+        var Ip = '';
+        var Type = 'Delete';
+        var field1 = deletesrno;
+        var field2 = '';
+        var field3 = '';
+        var field4 = '';
+        var field5 = '';
+        var Control = '';
+        var Language = '';
+        $.ajax({
+            url: "/Masters/Delete_Data",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+                Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
+            },
+            success: function (data) {
+                if (data.length > 0) {
+                    alert("Record Delete Sucessfully!");
+                }
+            }
+        });
+    });
+
 
     function getdata() {
         var tablename = 'dbo.ADMINMASTER';
@@ -658,7 +708,7 @@
                 {
                     data: null,
                     className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="" class="editor_Delte"><i class="fa fa-trash-o"></i></a>'
+                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a>'
                 }
 
 

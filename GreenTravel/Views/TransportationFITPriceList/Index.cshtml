@@ -12,9 +12,10 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transportation Price</a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation SIC</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation PVT</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transportation Price</a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation SIC</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-car"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation PVT</a></li>
+                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule For FIT</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -151,12 +152,16 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSICFromTravelDate">From Validity Date</label>
-                                    <input type="text" class="form-control date-picker" id="txtSICFromTravelDate" placeholder="From Travel Date">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSICToTravelDate">To Validity Date</label>
-                                    <input type="text" class="form-control date-picker" id="txtSICToTravelDate" placeholder="To Travel Date">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtFromValidityDate">From Visited Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtFromValidityDate" value="01/07/2016" placeholder="From Visited Date">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtToValidityDate">To Visited Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtToValidityDate" value="01/07/2016" placeholder="To Visited Date">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtSICFromPlace">From Place</label>
@@ -165,12 +170,6 @@
                                 <div class="form-group">
                                     <label for="txtSICToPlace">To Place</label>
                                     <input type="text" class="form-control" id="txtSICToPlace" placeholder="To Place">
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="txtSICCurrency">Currency</label>
-                                    <input type="text" class="form-control" id="txtSICCurrency" placeholder="Currency">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtSICFromTravelDate">Adult SIC Rate</label>
@@ -326,16 +325,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txtPVTVehicleName">Vehicle Name</label>
-                                    <input type="text" class="form-control" id="txtPVTVehicleName" placeholder="Vehicle Name">
+                                    <select id="drpPVTVehicleType" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
                                 </div>
-
                                 <div class="form-group">
-                                    <label for="txtPVTCurrency">Currency</label>
-                                    <input type="text" class="form-control" id="txtPVTCurrency" placeholder="Currency">
+                                    <label for="drpMealPlan">Additional Services</label>
+                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtPVTVehicleRate">PVT Vehicle Rate</label>
-                                    <input type="text" class="form-control" id="txtPVTVehicleRate" placeholder="PVT Vehicle Rate">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtPVTVehicleRate" placeholder="PVT Vehicle Rate">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
                                 </div>
 
                                 <br />
@@ -445,6 +448,47 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <form>
+                            <div class="col-md-12">
+                                <h3 class="tab9section1">Override Standard Margin Rule For FIT - <span class="text-danger">Mantra Restaurant & Bar - Pattaya</span></h3>
+                                <div class="table-responsive">
+                                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Agent Type</th>
+                                                <th>Margin(%)</th>
+                                                <th>Margin Amount</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Gold</td>
+                                                <td><span class="spaneditable">12</span></td>
+                                                <td><span class="spaneditable"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Silver</td>
+                                                <td><span class="spaneditable"></span></td>
+                                                <td><span class="spaneditable">120</span> THB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

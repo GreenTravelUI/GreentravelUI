@@ -11,8 +11,8 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Sightseeing Price List </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Sightseeing Price List</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Sightseeing Price List </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-map-signs"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Sightseeing Price List</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -36,8 +36,8 @@
                                             <th>#</th>
                                             <th>Nationality Set</th>
                                             <th>Company Name</th>
-                                            <th>From Validity Date</th>
-                                            <th>To Validity Date</th>
+                                            <th>From Visiting Date</th>
+                                            <th>To Visiting Date</th>
                                             <th>Sightseeing</th>
                                             <th>Currency</th>
                                             <th>Action</th>
@@ -48,8 +48,8 @@
                                             <th>#</th>
                                             <th>Nationality Set</th>
                                             <th>Company Name</th>
-                                            <th>From Validity Date</th>
-                                            <th>To Validity Date</th>
+                                            <th>From Visiting Date</th>
+                                            <th>To Visiting Date</th>
                                             <th>Sightseeing</th>
                                             <th>Currency</th>
                                             <th>Action</th>
@@ -82,7 +82,7 @@
                                                         <img src="assets/images/close.png" height="15" width="15" /></a>
                                             </th>
                                         </tr>
-                                    
+
 
 
                                     </tbody>
@@ -111,45 +111,51 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtFromValidityDate">From Validity Date </label>
-                                            <input type="text" class="form-control" id="txtFromValidityDate" placeholder="From Validity Date">
+                                            <label for="txtFromVisitingDate">From Visiting Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtFromVisitingDate" placeholder="From Visiting Date">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txtToValidityDate">To Validity Date </label>
-                                            <input type="text" class="form-control" id="txtToValidityDate" placeholder="To Validity Date">
+                                            <label for="txtToVisitingDate">To Visiting Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtToVisitingDate" placeholder="To Visiting Date">
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <label for="drpAvailableAddons">Available Addons</label>
-                                    <select id="drpAvailableAddons" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
+
                                 <div class="form-group">
                                     <label for="drpEntranceName">Entrance Name</label>
                                     <select id="drpEntranceName" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                                 <div class="form-group">
-                                            <label for="txtAdultTicketRate">Adult Ticket Rate </label>
-                                            <input type="text" class="form-control" id="txtAdultTicketRate" placeholder="Adult Ticket Rate">
-                                 </div>
+
                                 <div class="form-group">
-                                            <label for="txtChildTicketRate">Child Ticket Rate</label>
-                                            <input type="text" class="form-control" id="txtChildTicketRate" placeholder="Child Ticket Rate">
-                                 </div>
-                                <div class="form-group">
-                                    <label for="drpCurrency">Currency</label>
-                                    <select id="drpCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                    <label for="drpAvailableAddons">Additional Services</label>
+                                    <select id="drpAvailableAddons" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtAdultTicketRate">Adult Ticket Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtAdultTicketRate" placeholder="Adult Ticket Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtChildTicketRate">Child Ticket Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtChildTicketRate" placeholder="Child Ticket Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="drpStatus">Status</label>
                                     <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                               
+
 
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
