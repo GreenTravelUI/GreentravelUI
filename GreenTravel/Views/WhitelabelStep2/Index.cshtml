@@ -1,4 +1,5 @@
-﻿@{
+﻿@model GreenTravel.Models.WhitelabelStep2
+@{
    
     ViewBag.Title = "Comapany Application Features";
     ViewBag.PageTitle = "Comapany Application Features";
@@ -142,6 +143,7 @@
 </style>
 
 
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -156,6 +158,9 @@
                                         <label>Feature Category </label>
                                         <select id="drpFeatureCategory" class="js-states form-control" style="display: none; width: 100%">
                                         </select>
+                                        @*  // @Html.DropDownList( "PropertyTypePropertyTypeId",ViewData["Categories"],  null,new { onchange = "document.location.href = '/Controller/MyAction?country=' + this.options[this.selectedIndex].value;" })*@
+
+
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +169,11 @@
                                     <section class="grid-wrap">
                                         <ul class="grid">
                                             <li class="grid-sizer"></li>
-                                            <li>
+
+                                           
+
+
+@*                                            <li>
                                                 <figure>
                                                     <figcaption class="panel-body tab-itenaries">
                                                         <h3 style="margin-top: 0; text-align: center;">Common</h3>
@@ -562,7 +571,7 @@
                                                     </figcaption>
                                                 </figure>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <figure>
                                                     <figcaption class="panel-body tab-itenaries">
                                                         <h3 style="margin-top: 0; text-align: center;">Tax Engine</h3>
@@ -577,7 +586,7 @@
                                                         </table>
                                                     </figcaption>
                                                 </figure>
-                                            </li>
+                                            </li>*@
                                         </ul>
                                     </section>
                                     <section class="slideshow">
@@ -587,19 +596,19 @@
                                     </section>
                                 </div>
 
-                                
+
                             </div>
                             <div class="col-md-12">
-                            <form>
-                                <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                    UPDATE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
-                            </form>
-                        </div>
+                                <form>
+                                    <br />
+                                    <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                        SAVE</button>
+                                    <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                        UPDATE</button>
+                                    <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                        CLEAR</button>
+                                </form>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -615,4 +624,9 @@
     <script src="/assets/plugins/gridgallery/js/classie.js"></script>
     <script src="/assets/plugins/gridgallery/js/cbpgridgallery.js"></script>
     <script src="/assets/js/pages/gallery.js"></script>
+
+    <script src="~/Scripts/JS/Page/WhitelabelStep2.js"></script>
+   
+
+
 }

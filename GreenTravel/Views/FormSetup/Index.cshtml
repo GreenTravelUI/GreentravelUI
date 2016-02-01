@@ -1,26 +1,21 @@
 ﻿@{
     ViewBag.Title = "Form Set-Up";
     ViewBag.PageTitle = "Form Set-Up";
-    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
 }
 <style>
     .modal-lg {
         width: 1075px;
     }
 </style>
-
-@*<div id="lblmsg"></div>*@
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div role="tabpanel">
-                <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Form </a></li>
-                    @* <li role="presentation"><a href="#tab2" role="tab" data-section="tab2" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Form </a></li>*@
-                    <li role="presentation"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Set Up </a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Tab </a></li>
-                    <li role="presentation"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Tab List </a></li>
+                    <li role="presentation" class="active" id="serachfrom"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Form </a></li>
+                    <li role="presentation" id="Frmcreate"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Set Up </a></li>
+                    <li role="presentation" id="frmtab"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Tab </a></li>
+                    <li role="presentation" id="frmsection"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Tab List </a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -38,35 +33,41 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table id="grdFormSet" class="display table" style="width: 100%; cellspacing: 0;">
+                                <table id="example1" class="display" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
-                                            <th style="width: 5%;">#</th>
-                                            <th style="width: 20%;">Corporate</th>
-                                            <th style="width: 20%;">Features</th>
-                                            <th style="width: 20%;">Module</th>
-
-                                            <th style="width: 15%;">FormName </th>
-
-                                            <th style="width: 15%; text-align: center;">Action</th>
+                                            <th>#</th>
+                                            <th>Srno
+                                            </th>
+                                            <th>Corporate
+                                            </th>
+                                            <th>Features
+                                            </th>
+                                            <th>Module
+                                            </th>
+                                            <th>FormName 
+                                            </th>
+                                            <th>Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>Corporate</th>
-                                            <th>Features</th>
-                                            <th>Module </th>
-
-                                            <th>FormName </th>
-
-                                            <th>Action</th>
+                                            <th>Srno
+                                            </th>
+                                            <th>Corporate
+                                            </th>
+                                            <th>Features
+                                            </th>
+                                            <th>Module 
+                                            </th>
+                                            <th>FormName
+                                            </th>
+                                            <th>Action
+                                            </th>
                                         </tr>
                                     </tfoot>
-                                   @* <tbody>
-                                       
-
-                                    </tbody>*@
                                 </table>
                             </div>
                         </form>
@@ -75,11 +76,11 @@
                     <div role="tabpanel" class="tab-pane " id="tab3">
                         <form method="post">
                             <div class="col-md-12">
-                                <div class="row" style="display: none">
-                                    <div class="col-md-3">
+                                <div class="row" style="display: block">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="txtSrNo1">Sr No</label>
-                                            <input type="text" class="form-control" id="txtSrNo1" placeholder="Sr No" readonly style="display: none">
+                                            <input type="text" class="form-control" id="txtSrNo1" placeholder="Sr No" readonly="true">
                                         </div>
                                     </div>
                                 </div>
@@ -88,10 +89,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="drpCorporate1">Corporate <span>*</span></label>
-                                            <select id="drpCorporate1" class="js-states form-control" style="display: none; width: 100%">
-                                          <option value="1">Corporate 1 </option>
-                                                <option value="2">Corporate 2 </option>
-                                                  </select>
+                                            <select id="drpCorporate1" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="1">Flamingo </option>
+                                                <option value="2">Travels Unlimited </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -106,10 +107,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="drpFeatures">Features <span>*</span></label>
-                                            <select id="drpFeatures" class="js-states form-control" style="display: none; width: 100%">
-                                         <option value="1">Features 1 </option>
-                                                <option value="2">Features 2 </option>
-                                                  </select>
+                                            <select id="drpFeatures" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="1">BE </option>
+                                                <option value="2">CRM </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -124,9 +125,9 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="drpModule">Module <span>*</span></label>
-                                            <select id="drpModule" class="js-states form-control" style="display: none; width: 100%">
-                                               <option value="1">Module 1 </option>
-                                                <option value="2">Module 2 </option>
+                                            <select id="drpModule" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="1">Customer  </option>
+                                                <option value="2">Marketing </option>
                                             </select>
                                         </div>
                                     </div>
@@ -143,232 +144,206 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="drpScreen">Screen <span>*</span></label>
-                                        <select id="drpScreen" class="js-states form-control" style="display: none; width: 100%">
-                                         <option value="1">Screen 1 </option>
-                                                <option value="2">Screen 2 </option>
-                                             </select>
+                                            <select id="drpScreen" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option value="1">Search Customer </option>
+                                                <option value="2">Customer Add</option>
+                                                <option value="3">Lead</option>
+                                                <option value="4">Raw</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                          <label for="txtSubHeader">Sub Header</label>
-                                        <input type="text" class="form-control" id="txtSubHeader" placeholder="Sub Header">
+                                            <label for="txtSubHeader">Sub Header</label>
+                                            <input type="text" class="form-control" id="txtSubHeader" placeholder="Sub Header">
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
-                            
-                            
-
-
                             <div class="col-md-12">
                                 <br />
                                 <button id="btnSavefs" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
-                                <button id="btnSave1" type="submit" class="btn btn-primary btnSave">
+                                <button id="btnUpdateFS" type="submit" class="btn btn-primary btnSave" style="display: none">
                                     UPDATE</button>
-                                <button id="btnCance2" type="submit" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnSave3" type="submit" class="btn btn-warning btnSave">
+                                <button id="btnClearFS" type="submit" class="btn btn-warning ">
                                     CLEAR</button>
-                                <button id="btnSave4" type="submit" class="btn btn-info btnSave">
+                                <button id="btnQuitFROmFS" type="submit" class="btn btn-info ">
                                     QUIT FORM</button>
                             </div>
                         </form>
                     </div>
-                <div role="tabpanel" class="tab-pane " id="tab4">
-                    <form>
-                        <div class="col-md-12">
-                            <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Tab / Section </h3>
 
-
-
-                             <div class="row" style="display: none">
-                                    <div class="col-md-3">
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        <form>
+                            <div class="col-md-12">
+                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Tab / Section </h3>
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="txtSrNo">Sr No</label>
-                                            <input type="text" class="form-control" id="txtSrNo" placeholder="Sr No" readonly style="display: none">
+                                            <input type="text" class="form-control" id="txtSrNo" placeholder="Sr No" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="drpCorporate">Corporate</label>
+                                            <select id="drpCorporate" class="js-states form-control" style="display: none; width: 100%">
+                                                <option value="1">Corporate 1 </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="drpFormCode">Form Name</label>
+                                            <select id="drpFormCode" class="js-states form-control" style="display: none; width: 100%">
+                                                <option value="1">Form Name 1 </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTabNumber">Tab Number</label>
+                                            <input type="text" class="form-control" id="txtTabNumber" placeholder="Tab Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTabHeader">Tab Header</label>
+                                            <input type="text" class="form-control" id="txtTabHeader" placeholder="Tab Header">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTabClass">Tab Class</label>
+                                            <input type="text" class="form-control" id="txtTabClass" placeholder="Tab Class">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <label for="txtTooltipHelpText">Tooltip Help Text</label>
+                                            <input type="text" class="form-control" id="txtTooltipHelpText" placeholder="Tooltip Help Text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTabMainTable">Tab Main Table</label>
+                                            <input type="text" class="form-control" id="txtTabMainTable" placeholder="Tab Main Table">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <label for="txtTabMainTablePrefix">Tab Main Table Pre-fix</label>
+                                            <input type="text" class="form-control" id="txtTabMainTablePrefix" placeholder="Tab Main Table Pre-fix">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-ms-12">
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable1">Trx Table 1</label>
+                                                <input type="text" class="form-control" id="txtTrxTable1" placeholder="Trx Table 1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable2">Trx Table 2</label>
+                                                <input type="text" class="form-control" id="txtTrxTable2" placeholder="Trx Table 2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable3">Trx Table 3</label>
+                                                <input type="text" class="form-control" id="txtTrxTable3" placeholder="Trx Table 3">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable4">Trx Table 4</label>
+                                                <input type="text" class="form-control" id="txtTrxTable4" placeholder="Trx Table 4">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="drpCorporate">Corporate</label>
-                                        <select id="drpCorporate" class="js-states form-control" style="display: none; width: 100%">
-                                         <option value="1">Corporate 1 </option>
-                                        </select>
+                                <div class="col-ms-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable5">Trx Table 5</label>
+                                                <input type="text" class="form-control" id="txtTrxTable5" placeholder="Trx Table 5">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable6">Trx Table 6</label>
+                                                <input type="text" class="form-control" id="txtTrxTable6" placeholder="Trx Table 6">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable7">Trx Table 7</label>
+                                                <input type="text" class="form-control" id="txtTrxTable7" placeholder="Trx Table 7">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtTrxTable8">Trx Table 8</label>
+                                                <input type="text" class="form-control" id="txtTrxTable8" placeholder="Trx Table 8">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="drpFormCode">Form Name</label>
-                                        <select id="drpFormCode" class="js-states form-control" style="display: none; width: 100%">
-                                        <option value="1">Form Name 1 </option>
-                                             </select>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTrxTable9">Trx Table 9</label>
+                                            <input type="text" class="form-control" id="txtTrxTable9" placeholder="Trx Table 9">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtTrxTable10">Trx Table 10</label>
+                                            <input type="text" class="form-control" id="txtTrxTable10" placeholder="Trx Table 10">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="txtTabNumber">Tab Number</label>
-                                        <input type="text" class="form-control" id="txtTabNumber" placeholder="Tab Number">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="txtTabHeader">Tab Header</label>
-                                        <input type="text" class="form-control" id="txtTabHeader" placeholder="Tab Header">
-                                    </div>
-                                </div>
+                            <div class="col-md-12">
+                                <br />
+                                <button id="btnSaveformtab" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnUpdatetab" type="submit" class="btn btn-primary btnSave" style="display: none">
+                                    UPDATE</button>
+                                <button id="btncleartab" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnquittab" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
                             </div>
+                        </form>
+                    </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="txtTabClass">Tab Class</label>
-                                        <input type="text" class="form-control" id="txtTabClass" placeholder="Tab Class">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-
-                                        <label for="txtTooltipHelpText">Tooltip Help Text</label>
-                                        <input type="text" class="form-control" id="txtTooltipHelpText" placeholder="Tooltip Help Text">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="txtTabMainTable">Tab Main Table</label>
-                                        <input type="text" class="form-control" id="txtTabMainTable" placeholder="Tab Main Table">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-
-                                        <label for="txtTabMainTablePrefix">Tab Main Table Pre-fix</label>
-                                        <input type="text" class="form-control" id="txtTabMainTablePrefix" placeholder="Tab Main Table Pre-fix">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-ms-12">
-                            <div class="row">
-                                
-                                    
-                               
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable1">Trx Table 1</label>
-                                        <input type="text" class="form-control" id="txtTrxTable1" placeholder="Trx Table 1">
-                                    </div>
-                                </div>
-                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable2">Trx Table 2</label>
-                                        <input type="text" class="form-control" id="txtTrxTable2" placeholder="Trx Table 2">
-                                    </div>
-                                </div>
-                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable3">Trx Table 3</label>
-                                        <input type="text" class="form-control" id="txtTrxTable3" placeholder="Trx Table 3">
-                                    </div>
-                                </div>
-                                   <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable4">Trx Table 4</label>
-                                        <input type="text" class="form-control" id="txtTrxTable4" placeholder="Trx Table 4">
-                                    </div>
-                                </div>
-                            </div>
-                                </div>
-
-                            
-                            <div class="col-ms-12">
-                            <div class="row">                                                                             
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable5">Trx Table 5</label>
-                                        <input type="text" class="form-control" id="txtTrxTable5" placeholder="Trx Table 5">
-                                    </div>
-                                </div>
-                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable6">Trx Table 6</label>
-                                        <input type="text" class="form-control" id="txtTrxTable6" placeholder="Trx Table 6">
-                                    </div>
-                                </div>
-                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable7">Trx Table 7</label>
-                                        <input type="text" class="form-control" id="txtTrxTable7" placeholder="Trx Table 7">
-                                    </div>
-                                </div>
-                                   <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable8">Trx Table 8</label>
-                                        <input type="text" class="form-control" id="txtTrxTable8" placeholder="Trx Table 8">
-                                    </div>
-                                </div>
-                            </div>
-                                </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable9">Trx Table 9</label>
-                                        <input type="text" class="form-control" id="txtTrxTable9" placeholder="Trx Table 9">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="txtTrxTable10">Trx Table 10</label>
-                                        <input type="text" class="form-control" id="txtTrxTable10" placeholder="Trx Table 10">
-                                    </div>
-                                </div>
-                            </div>
-                            
-
-
-                            
-
-
-
-
-
-                            
-                        </div>
-
-                        <div class="col-md-12">
-                            <br />
-                            <button id="btnSaveformtab" type="submit" class="btn btn-success btnSave">
-                                SAVE</button>
-                            <button id="btnSave8" type="submit" class="btn btn-primary btnSave">
-                                UPDATE</button>
-                            <button id="btnCancel9" type="submit" class="btn btn-green btnCancel">
-                                DELETE</button>
-                            <button id="btnSave10" type="submit" class="btn btn-warning btnSave">
-                                CLEAR</button>
-                            <button id="btnSave11" type="submit" class="btn btn-info btnSave">
-                                QUIT FORM</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div role="tabpanel" class="tab-pane " id="tab5">
-                    <form>
+                    <div role="tabpanel" class="tab-pane " id="tab5">
+                        <form>
                             <div class="table-responsive">
                                 <div class="dropdown table-custome-drop">
                                     <div class="btn-group">
@@ -382,463 +357,461 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table id="grdFormTab" class="display table" style="width: 100%; cellspacing: 0;">
+                                <table id="Gridsectab" class="display " style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
-                                            <th style="width: 5%;">#</th>
-                                            <th style="width: 20%;">Form Name</th>
-                                            <th style="width: 20%;">Tab Name</th>
-                                            <th style="width: 20%;">Tab Class </th>
-
-                                            <th style="width: 15%;">Summery Label </th>
-                                            <th style="width: 15%;">Icon Class </th>
-                                            @*  <th style="width: 15%;">Section</th>*@
-                                         
+                                            <th>#
+                                            </th>
+                                             <th>FormCode
+                                            </th>
+                                             <th>TabSrNo
+                                            </th>
+                                            <th>Form Name
+                                            </th>
+                                            <th>Tab Name
+                                            </th>
+                                            <th>Tab Class 
+                                            </th>
+                                            <th>Summery Label 
+                                            </th>
+                                            <th>Icon Class 
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
+                                             <th>FormCode
+                                            </th>
+                                             <th>TabSrNo
+                                            </th>
                                             <th>Form Name</th>
                                             <th>Tab Name</th>
                                             <th>Tab Class  </th>
-
                                             <th>Summery Label </th>
-
                                             <th>Icon Class</th>
-                                          @*  <th>Section </th>*@
                                         </tr>
                                     </tfoot>
-                                    @*<tbody>
-                                        <tr>
-
-                                            <th></th>
-                                            <th>
-                                                <input type="text" /></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-
-                                          
-                                            <td>
-                                               
-                                                <a href="#" data-toggle="modal" data-target="#myModalIcon"><i class="fa fa-cloud-upload"></i></a>
-                                            </td>
-                                            <td>
-
-                                                <a href="#" data-toggle="modal" data-target="#myModalSection"><i class="fa fa-list-alt"></i></a>
-                                               
-                                            </td>
-                                        </tr>
-                                        
-                       
-
-                                    </tbody>*@
                                 </table>
                             </div>
                         </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="modal fade bs-example-modal-lg in" id="myModalIcon" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Button Class</h4>
+                    </div>
+                    <div class="modal-body  custom-model-body">
+                        <div role="tabpanel">
+                            <ul class="nav nav-tabs form-basic-tab" role="tablist">
+                                <li role="presentation" class="active"><a href="#tabs1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Standard Button </a></li>
+                                <li role="presentation"><a href="#tabs2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Custom Button </a></li>
+                                <li role="presentation"><a href="#tabs3" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Utilities </a></li>
+
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="tabs1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtSaveName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Name <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtSaveName" placeholder="Save Name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtUpdateName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Name <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtUpdateName" placeholder="Update Name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtDeleteName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Name  <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtDeleteName" placeholder="Delete Name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtClearName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Name <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtClearName" placeholder="Clear Name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtFormQuitName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Name<span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtFormQuitName" placeholder="Form Quit Name">
+                                                </div>
 
 
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtSaveClass" data-toggle="tooltip" data-placement="right" title="Master Name">Save Class  <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtSaveClass" placeholder="Save">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtUpdateClass" data-toggle="tooltip" data-placement="right" title="Master Name">Update Class <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtUpdateClass" placeholder="Update">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtDeleteClass" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Class   <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtDeleteClass" placeholder="Delete">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtClearClass" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Class <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtClearClass" placeholder="Clear">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtFormQuitClass" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Class<span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtFormQuitClass" placeholder="Form Quit">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Visibility  <span>*</span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkSaveVisibility">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Visibility <span>*</span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkUpdateVisibility">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Visibility   <span>*</span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkDeleteVisibility">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Visibility <span>*</span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkClearVisibility">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Visibility<span>*</span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkFormQuitVisibility">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkNotification">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkNotification1">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkNotification2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkTask">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkTask1">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
+                                                    <br />
+                                                    <input type="Checkbox" class="form-control" id="chkTask2">
+                                                </div>
+                                            </div>
 
-    <div class="modal fade bs-example-modal-lg in" id="myModalIcon" role="dialog">
-        <div class="modal-dialog modal-lg">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <button type="button" class="close-btn" data-dismiss="modal">Close</button>
-                <div class="modal-header">
-                    <h4 class="modal-title">Button Class</h4>
-                </div>
-                <div class="modal-body  custom-model-body">
-                    <div role="tabpanel">
-                        <ul class="nav nav-tabs form-basic-tab" role="tablist">
-                            <li role="presentation" class="active"><a href="#tabs1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Standard Button </a></li>
-                            <li role="presentation"><a href="#tabs2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Custom Button </a></li>
-                            <li role="presentation"><a href="#tabs3" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Utilities </a></li>
-
-                        </ul>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="tabs1">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="txtSaveName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtSaveName" placeholder="Save Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtUpdateName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtUpdateName" placeholder="Update Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtDeleteName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Name  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtDeleteName" placeholder="Delete Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtClearName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtClearName" placeholder="Clear Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtFormQuitName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Name<span>*</span></label>
-                                                <input type="text" class="form-control" id="txtFormQuitName" placeholder="Form Quit Name">
-                                            </div>
-
-
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="txtSaveClass" data-toggle="tooltip" data-placement="right" title="Master Name">Save Class  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtSaveClass" placeholder="Save">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtUpdateClass" data-toggle="tooltip" data-placement="right" title="Master Name">Update Class <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtUpdateClass" placeholder="Update">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtDeleteClass" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Class   <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtDeleteClass" placeholder="Delete">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtClearClass" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Class <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtClearClass" placeholder="Clear">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtFormQuitClass" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Class<span>*</span></label>
-                                                <input type="text" class="form-control" id="txtFormQuitClass" placeholder="Form Quit">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Save Visibility  <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkSaveVisibility">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Update Visibility <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkUpdateVisibility">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Delete Visibility   <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkDeleteVisibility">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Clear Visibility <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkClearVisibility">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Form Quit Visibility<span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkFormQuitVisibility">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkNotification">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkNotification1">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span></span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkNotification2">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkTask">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkTask1">
-                                            </div>
-                                            <div class="form-group">
-                                                <br />
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task <span></span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control" id="chkTask2">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-success" id="btnstandardbutton">SAVE</button>
-                                            <button id="btnSave22" type="submit" class="btn btn-primary btnSave">
-                                                UPDATE</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div role="tabpanel" class="tab-pane " id="tabs2">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName77" placeholder="Custom Name">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Class  <span>*</span></label>
-                                                <input type="text" class="form-control" id="txtMasterName" placeholder="Custom">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Visibility  <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task  <span>*</span></label>
-                                                <br />
-                                                <input type="Checkbox" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-success btnCancel">ADD</button>
-                                            <br />
-                                            <br />
-                                            <button type="button" class="btn btn-success btnSave">SAVE</button>
-                                            <button id="btnSave" type="submit" class="btn btn-primary btnUpdate">
-                                                UPDATE</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div role="tabpanel" class="tab-pane" id="tabs3">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-4">
-
-
+                                        <div class="row">
                                             <div class="col-md-12">
+                                                <button type="submit" class="btn btn-success" id="btnstandardbutton">SAVE</button>
+                                                <button id="btnSave22" type="submit" class="btn btn-primary btnSave">
+                                                    UPDATE</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane " id="tabs2">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task   <span></span></label>
-
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Name <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtMasterName77" placeholder="Custom Name">
                                                 </div>
+                                            </div>
+
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notifications  <span></span></label>
-
-
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Class  <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtMasterName" placeholder="Custom">
                                                 </div>
-
+                                            </div>
+                                            <div class="col-md-2">
                                                 <div class="form-group">
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Custom Visibility  <span>*</span></label>
+                                                    <br />
                                                     <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Email   <span></span></label>
-
                                                 </div>
-
+                                            </div>
+                                            <div class="col-md-2">
                                                 <div class="form-group">
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notification <span>*</span></label>
+                                                    <br />
                                                     <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Calendar   <span></span></label>
-
                                                 </div>
+                                            </div>
+                                            <div class="col-md-2">
                                                 <div class="form-group">
+                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task  <span>*</span></label>
+                                                    <br />
                                                     <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Screenshot    <span></span></label>
-
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-
-
+                                        <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">SMS   <span></span></label>
-
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notes   <span></span></label>
-
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Tags    <span></span></label>
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Help Video    <span></span></label>
-
-                                                </div>
-
+                                                <button type="button" class="btn btn-success btnCancel">ADD</button>
+                                                <br />
+                                                <br />
+                                                <button type="button" class="btn btn-success btnSave">SAVE</button>
+                                                <button id="btnSave" type="submit" class="btn btn-primary btnUpdate">
+                                                    UPDATE</button>
                                             </div>
                                         </div>
+                                    </form>
+                                </div>
 
-                                        <div class="col-md-4">
+                                <div role="tabpanel" class="tab-pane" id="tabs3">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-4">
 
 
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Task   <span></span></label>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notifications  <span></span></label>
+
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Email   <span></span></label>
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Calendar   <span></span></label>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Screenshot    <span></span></label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">SMS   <span></span></label>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Notes   <span></span></label>
+
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Tags    <span></span></label>
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Help Video    <span></span></label>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Guided Tour   <span></span></label>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Copy   <span></span></label>
+
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Print   <span></span></label>
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="Checkbox" class="form-control">
+                                                        <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Updates    <span></span></label>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Guided Tour   <span></span></label>
-
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Copy   <span></span></label>
-
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Print   <span></span></label>
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input type="Checkbox" class="form-control">
-                                                    <label for="txtMasterName" data-toggle="tooltip" data-placement="right" title="Master Name">Updates    <span></span></label>
-
-                                                </div>
-
+                                                <button type="button" class="btn btn-success">SAVE</button>
+                                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                    UPDATE</button>
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-success">SAVE</button>
-                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                UPDATE</button>
-                                        </div>
-                                    </div>
 
 
+                                    </form>
+                                </div>
 
-                                </form>
+
                             </div>
-
-
                         </div>
+
                     </div>
 
                 </div>
 
             </div>
-
         </div>
-    </div>
-
-
-
-    <div class="modal fade modify-colum-model" id="myModalSection" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <button type="button" class="close-btn" data-dismiss="modal">Close</button>
-                <div class="modal-header">
-                    <h4 class="modal-title">Section</h4>
-                </div>
-                <div class="modal-body custom-model-body">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Section Name
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>
-                                            <button id="btnadd" class="btn btn-success btnSave" type="submit">
-                                                Add</button>
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <div class="modal fade modify-colum-model" id="myModalSection" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Section</h4>
                     </div>
-                    <div class="row">
+                    <div class="modal-body custom-model-body">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-success">SAVE</button>
-                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                UPDATE</button>
+                            <div class="table-responsive">
+                                <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Section Name
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>
+                                                <button id="btnaddSection" class="btn btn-success" type="submit">
+                                                    Add</button>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" />
+                                            </td>
+                                        </tr>
+                                      @*  <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <input type="text" />
+                                            </td>
+                                        </tr>*@
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success">SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade modify-colum-model" id="DeleteModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">System Message</h4>
+                    </div>
+
+                    <div class="modal-body  custom-model-body">
+                        <form>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label id="lbldelete"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
             </div>
-
         </div>
     </div>
-
 </div>
-
-</div>
-
-
 
 @section scripts{
-    <script src="~/Scripts/JS/Page/FormSetup.js"></script>
+    <script src="~/Scripts/JS/Page/Frmsetup.js"></script>
 }
+
+
+
