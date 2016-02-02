@@ -16,10 +16,12 @@
         $('#txtConfirmPassword').on('change', function () {
             var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
             if (result == true) {
+                $('#btnsavebasic').attr("disabled", false);
             }
             else {
                 $('#txtConfirmPassword').focus();
                 alert('PassWord Not a Same')
+                $('#btnsavebasic').attr("disabled", true);
             }
         });
 
@@ -37,8 +39,11 @@
             var regex = '/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
             return regex.test(txtOfficialEmail);
         }
+
+       
     });
 </script>
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -49,7 +54,7 @@
                     <li role="presentation" id="CreateCorporate"><a href="#tab2" role="tab" data-section="tab2" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Basic / Reference</a></li>
                     <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hosting / Subscription </a></li>
                     <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Maintanence</a></li>
-                    <li role="presentation" id="Tab5"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Preferance</a></li>
+                    <li role="presentation" id="tabuserpreferance"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Preferance</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -150,6 +155,9 @@
                         <form>
                             <div class="col-md-12">
                                 <h3 class="tab2section1"><span class="section-index">1</span>&nbsp;Basic Details</h3>
+                                 <div class="form-group">
+                                         <input type="text" class="form-control" id="txtsrno" placeholder="srno">
+                                    </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="txtCmpOfficeName">Corporate Company Official Name <span>*</span></label>
@@ -184,11 +192,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txtPassword">Password <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtPassword" placeholder="Password">
+                                        <input type="password" class="form-control" id="txtPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtConfirmPassword">Confirm Password </label>
-                                        <input type="text" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
+                                        <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtOfficialEmail">Official Email <span>*</span></label>
@@ -196,7 +204,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txtOfficialPhone">Official Phone <span>*</span> </label>
-                                        <input type="text" class="form-control" id="txtOfficialPhone " placeholder="Official Phone ">
+                                        <input type="text" class="form-control" id="txtOfficialPhone" placeholder="Official Phone">
                                     </div>
                                     <div class="form-group no-select">
                                         <label for="exampleInputEmail1">Application Theme <span>*</span> </label>
@@ -273,7 +281,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="checkbox" id="chkCopyrightNote" class="form-marings">Copyright Note
+                                        <input type="checkbox" id="chkCopyrightNote" class="form-marings chkCopyrightNotecs">Copyright Note
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="txtCopyRights" placeholder="Copyright Note">
@@ -329,11 +337,17 @@
                                     <div class="form-group">
                                         <label for="drpCloudProvider">Cloud Provider <span>*</span></label>
                                         <select id="drpCloudProvider" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpCloudServerIP">Cloud Server IP <span>*</span></label>
                                         <select id="drpCloudServerIP" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -346,7 +360,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txtConfirmHotelUserPassword">IP Ristricted Access</label>
-                                        <textarea rows="6" cols="50" placeholder="IP Ristricted Access" style="display: block; width: 100%">
+                                        <textarea rows="6" cols="50" placeholder="IP Ristricted Access" style="display: block; width: 100%" id="txtipristrictedaccess">
                                             </textarea>
                                         @*<input type="text" class="form-control" id="txtIPRistrictedAccess" placeholder="IP Ristricted Access" aria-multiline="true">*@
                                     </div>
@@ -356,6 +370,9 @@
                                     <div class="form-group">
                                         <label for="txtCDNProvider">CDN Provider </label>
                                         <select id="drpCDNSpace" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -372,7 +389,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group form-marings">
-                                        <input type="checkbox">Hosting Cost Not Included
+                                        <input type="checkbox" id="chkhostingcostnotincluded">Hosting Cost Not Included
                                     </div>
                                     <div class="form-group">
                                         <label for="txtHostingCostPerMonth">Hosting Cost Per Month </label>
@@ -381,6 +398,9 @@
                                     <div class="form-group">
                                         <label for="drpCurrency">Currency </label>
                                         <select id="drpCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                 </div>
@@ -407,11 +427,17 @@
                                     <div class="form-group">
                                         <label for="drpBillingCycle">Billing Cycle <span>*</span></label>
                                         <select id="drpBillingCycle" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpBillingFromCompany">Billing From Company <span>*</span></label>
                                         <select id="drpBillingFromCompany" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
 
@@ -423,6 +449,9 @@
                                     <div class="form-group">
                                         <label for="drpPaymentCurrency">Payment Currency </label>
                                         <select id="drpPaymentCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -436,6 +465,9 @@
                                     <div class="form-group">
                                         <label for="drpPaymentMode">Payment Mode </label>
                                         <select id="drpPaymentMode" class="js-states form-control" style="display: none; width: 100%">
+                                            <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -469,6 +501,7 @@
                             <form>
                                 <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing</h3>
                                 <div class="col-md-6">
+                                    <input type="text" class="form-control" id="txtsrnotab4" placeholder="Billing Name">
                                     <div class="form-group">
                                         <label for="txtBillingName">Billing Name <span>*</span></label>
                                         <input type="text" class="form-control" id="txtBillingName" placeholder="Billing Name">
@@ -529,6 +562,9 @@
                                     <div class="form-group">
                                         <label for="drpSupportMode">Support Mode  <span>*</span></label>
                                         <select id="drpSupportMode " class="js-states form-control" style="display: none; width: 100%">
+                                             <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -542,6 +578,9 @@
                                     <div class="form-group">
                                         <label for="drpBillingCycle">Currency <span>*</span></label>
                                         <select id="drpmaINCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                             <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                         </select>
                                     </div>
 
@@ -551,15 +590,15 @@
                         <div class="col-md-12">
                             <form>
                                 <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                <button id="btnSave" type="submit" class="btn btn-success btnSavemain">
                                     SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSavemain">
                                     UPDATE</button>
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                <button id="btnSave" type="submit" class="btn btn-warning btnClear">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                <button id="btnSave" type="submit" class="btn btn-info btnQuit">
                                     QUIT FORM</button>
                             </form>
                         </div>
@@ -567,14 +606,18 @@
                     <div role="tabpanel" class="tab-pane " id="tab5">
                         <form>
                             <div class="col-md-7">
+                                <input type="text" class="form-control" id="txtsrnouserpref" placeholder="SR">
                                 <div class="form-group">
                                     <label for="drpDashboardGadgetPosition ">Dashboard Gadget Position <span>*</span></label>
                                     <select id="drpDashboardGadgetPosition " class="js-states form-control" style="display: none; width: 100%">
+                                    <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 2">Static 2</option>
+                                            <option value="Static 3">Static 3</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6 form-marings">
+                                    <div class="row" id ="userperferancechk">
+                                       @*<div class="col-md-6 form-marings">
                                             <input type="checkbox" />Grid Column Rearrange
                                         </div>
                                         <div class="col-md-6 form-marings">
@@ -609,7 +652,7 @@
                                         </div>
                                         <div class="col-md-6 form-marings">
                                             <input type="checkbox" />Utilities
-                                        </div>
+                                        </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -617,15 +660,15 @@
                             </div>
                             <div class="col-md-12">
                                 <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                <button id="btnSaveuserpref" type="submit" class="btn btn-success btnSaveuserpref">
                                     SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                <button id="btnUpdateuserpref" type="submit" class="btn btn-primary btnSaveuserpref">
                                     UPDATE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                <button id="btnCanceluserpref" type="button" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                <button id="btnclearuserpref" type="button" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                <button id="btnquituserpref" type="button" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </div>
                         </form>
