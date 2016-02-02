@@ -5,7 +5,7 @@
 }
 
 <style>
-    .input-group-addon:last-child,.input-group-addon:hover {
+    .input-group-addon:last-child, .input-group-addon:hover {
         background-color: #22baa0;
         border-color: #22baa0;
         border-left: 0 none #22baa0;
@@ -102,16 +102,24 @@
                                 <h3 class="tab2section1"><span class="section-index">1</span>&nbsp;Sightseeing - <span class="text-danger">Grand Palace - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtSightseeingName">Sightseeing Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtSightseeingName" placeholder="Sightseeing Name ">
+
+                                    <input type="text" class="form-control" id="txtHotelName" placeholder="Sightseeing Company Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEntranceName">Entrance Name</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" id="txtEntranceName" placeholder="Entrance Name">
+                                    <div class="input-group input-append">
+                                        <input type="text" data-role="tagsinput" class="form-control" id="txtEntranceName" placeholder="Entrance Name">
+                                        <a href="javascript:void(0);" class="input-group-addon add-on" data-toggle="modal" data-target="#MySelectSightseeing" rel="tooltip" title="Add Sightseeing"><span class="fa fa-plus"></span></a>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEntranceDescription">Sightseeing Description </label>
                                     <textarea id="txtEntranceDescription" rows="4" style="display: block; width: 100%">
                                     </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Included Services</label>
+                                    <input type="text" data-role="tagsinput" class="form-control" value="" id="txtTags" placeholder="Included Services">
                                 </div>
                                 <div class="form-group">
                                     <label>Additional Services</label>
@@ -123,12 +131,43 @@
                                     </textarea>
                                 </div>
 
-                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Show Time - <span class="text-danger">Grand Palace - Pattaya</span></h3>
+                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Sightseeing Address - <span class="text-danger">Grand Palace - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="drpSightseeingName">Sightseeing Name</label>
-                                    <select id="drpSightseeingName" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
+                                    <label for="txtHotelLocation">Location (Landmark) </label>
+                                    <input type="text" class="form-control" id="txtHotelLocation" value="Pattaya Beach Road" placeholder="Hotel Location (Landmark)">
                                 </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Address Line 1 </label>
+                                    <input type="text" class="form-control" id="txtAddressLine1" value="240 Moo 5" placeholder="Address Line 1 ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine2">Address Line 2 </label>
+                                    <input type="text" class="form-control" id="txtAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Address Line 2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtCity">City </label>
+                                            <input type="text" class="form-control" value="Chonburi" id="txtCity" placeholder="City">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtState">State</label>
+                                            <input type="text" class="form-control" value="Pattaya Central" id="txtState" placeholder="State">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtCountry">Country</label>
+                                            <input type="text" class="form-control" value="Thailand" id="txtCountry" placeholder="Country">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtZipCode">Zip/Postal Code</label>
+                                            <input type="text" class="form-control" id="txtZipCode" value="20150" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Show Time - <span class="text-danger">Grand Palace - Pattaya</span></h3>
+                                
                                 <div class="table-responsive">
                                     <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
                                         <thead>
@@ -370,10 +409,10 @@
 </div>
 
 @section floatingsection{
-    <div class="floating-section-buttons tab3" style="display: none">
-        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Sightseeing User">1</a>
-        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Billing">2</a>
-        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Bank">3</a>
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Sightseeing">1</a>
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Sightseeing Address">2</a>
+        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Show Time ">3</a>
     </div>
     <div class="floating-section-buttons tab6" style="display: none">
         <a class="btn btn-default" data-section="tab6section1" rel="tooltip" title="Show Time">1</a>

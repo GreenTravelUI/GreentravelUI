@@ -505,7 +505,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        
+
         public int insert_data_UserMaster(CommanUserMaster CUH)
         {
             try
@@ -523,19 +523,71 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@IsActive", CUH.UIsActive);
                 _cmd.Parameters.AddWithValue("@Remark", CUH.URemark);
 
-                _cmd.Parameters.AddWithValue("@xlink", CUH.Uxlink);
-                _cmd.Parameters.AddWithValue("@xcross", CUH.Uxcross);
-                _cmd.Parameters.AddWithValue("@xcross1", CUH.Uxcross1);
-                _cmd.Parameters.AddWithValue("@xcross2", CUH.Uxcross2);
-                _cmd.Parameters.AddWithValue("@xcross3 ", CUH.Uxcross3);
-                _cmd.Parameters.AddWithValue("@xcross4", CUH.Uxcross4);
+                if (CUH.Uxlink != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xlink", CUH.Uxlink);
+                }
+                else { _cmd.Parameters.AddWithValue("@xlink", "0"); }
 
-                _cmd.Parameters.AddWithValue("@xreference1 ", CUH.Uxreference1);
-                _cmd.Parameters.AddWithValue("@xreference2 ", CUH.Uxreference2);
-                _cmd.Parameters.AddWithValue("@xreference3 ", CUH.Uxreference3);
-                _cmd.Parameters.AddWithValue("@xreference4 ", CUH.Uxreference4);
-                _cmd.Parameters.AddWithValue("@xreference5 ", CUH.Uxreference5);
-                _cmd.Parameters.AddWithValue("@xreference6 ", CUH.Uxreference6);
+                if (CUH.Uxcross != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross", CUH.Uxcross);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross", "0"); }
+                if (CUH.Uxcross1 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross1", CUH.Uxcross1);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross1", "0"); }
+
+                if (CUH.Uxcross2 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross2", CUH.Uxcross2);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross2", "0"); }
+
+                if (CUH.Uxcross3 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross3 ", CUH.Uxcross3);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross3", "0"); }
+                if (CUH.Uxcross4 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross4", CUH.Uxcross4);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross4", "0"); }
+
+                if (CUH.Uxreference1 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference1 ", CUH.Uxreference1);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference1", "0"); }
+                if (CUH.Uxreference2 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference2 ", CUH.Uxreference2);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference2", "0"); }
+                if (CUH.Uxreference3 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference3 ", CUH.Uxreference3);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference3", "0"); }
+                if (CUH.Uxreference4 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference4 ", CUH.Uxreference4);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference4", "0"); }
+                if (CUH.Uxreference5 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference5 ", CUH.Uxreference5);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference5", "0"); }
+                if (CUH.Uxreference6 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference6 ", CUH.Uxreference6);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference6", "0"); }
+
 
                 _cmd.Parameters.AddWithValue("@xdetail ", CUH.Uxdetail);
 
@@ -613,13 +665,13 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Html", CUH.UHtml);
                 _cmd.Parameters.AddWithValue("@Upload", CUH.UUpload);
                 _cmd.Parameters.AddWithValue("@TextArea", CUH.UTextArea);
-                
+
                 _cmd.Parameters.AddWithValue("@MultiSelect1", CUH.UMultiSelect1);
                 _cmd.Parameters.AddWithValue("@MultiSelect2", CUH.UMultiSelect2);
                 _cmd.Parameters.AddWithValue("@MultiSelect3", CUH.UMultiSelect3);
                 _cmd.Parameters.AddWithValue("@MultiSelect4", CUH.UMultiSelect4);
                 _cmd.Parameters.AddWithValue("@MultiSelect5", CUH.UMultiSelect5);
-                
+
                 _cmd.Parameters.AddWithValue("@CreatedBy", CUH.UCreatedBy);
                 if (CUH.UEntryDatetime == null)
                 {
@@ -659,7 +711,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        
+
         public DataSet BindDropDown(commanbaseParamater CBP)
         {
             try
@@ -794,207 +846,6 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Formtabcode", EA.Formtabcode);
                 _cmd.Parameters.AddWithValue("@Xmaster", EA.Xmaster);
                 _cmd.Parameters.AddWithValue("@Type", EA.Type);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-                DataSet _ds = new DataSet();
-                _adp.Fill(_ds);
-                _adp.Dispose();
-                _cmd.Dispose();
-                return _ds;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                _cn.Close();
-                _cn.Dispose();
-            }
-        }
-
-        public DataSet FormLoad(commanbaseParamater CBP)
-        {
-            try
-            {
-                _cn.Open();
-                SqlCommand _cmd = new SqlCommand("sp_Base_UserMaster", _cn);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
-                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
-                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
-                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
-                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
-                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
-                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
-                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
-                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
-                _cmd.Parameters.AddWithValue("@Type", CBP.Type);
-                _cmd.Parameters.AddWithValue("@field1", CBP.field1);
-                _cmd.Parameters.AddWithValue("@field2", CBP.field2);
-                _cmd.Parameters.AddWithValue("@field3", CBP.field3);
-                _cmd.Parameters.AddWithValue("@field4", CBP.field4);
-                _cmd.Parameters.AddWithValue("@field5", CBP.field5);
-                _cmd.Parameters.AddWithValue("@Control", CBP.Control);
-                _cmd.Parameters.AddWithValue("@Language", CBP.Language);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-                DataSet _ds = new DataSet();
-                _adp.Fill(_ds);
-                _adp.Dispose();
-                _cmd.Dispose();
-                return _ds;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                _cn.Close();
-                _cn.Dispose();
-            }
-        }
-
-        public DataSet FormLoadPlaceholder(commanbaseParamater CBP)
-        {
-            try
-            {
-                _cn.Open();
-                SqlCommand _cmd = new SqlCommand("sp_Base_UserMaster", _cn);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
-                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
-                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
-                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
-                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
-                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
-                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
-                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
-                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
-                _cmd.Parameters.AddWithValue("@Type", CBP.Type);
-                _cmd.Parameters.AddWithValue("@field1", CBP.field1);
-                _cmd.Parameters.AddWithValue("@field2", CBP.field2);
-                _cmd.Parameters.AddWithValue("@field3", CBP.field3);
-                _cmd.Parameters.AddWithValue("@field4", CBP.field4);
-                _cmd.Parameters.AddWithValue("@field5", CBP.field5);
-                _cmd.Parameters.AddWithValue("@Control", CBP.Control);
-                _cmd.Parameters.AddWithValue("@Language", CBP.Language);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-                DataSet _ds = new DataSet();
-                _adp.Fill(_ds);
-                _adp.Dispose();
-                _cmd.Dispose();
-                return _ds;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                _cn.Close();
-                _cn.Dispose();
-            }
-        }
-
-        public DataSet FormLoadHelp(commanbaseParamater CBP)
-        {
-            try
-            {
-                _cn.Open();
-                SqlCommand _cmd = new SqlCommand("sp_Base_UserMaster", _cn);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
-                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
-                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
-                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
-                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
-                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
-                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
-                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
-                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
-                _cmd.Parameters.AddWithValue("@Type", CBP.Type);
-                _cmd.Parameters.AddWithValue("@field1", CBP.field1);
-                _cmd.Parameters.AddWithValue("@field2", CBP.field2);
-                _cmd.Parameters.AddWithValue("@field3", CBP.field3);
-                _cmd.Parameters.AddWithValue("@field4", CBP.field4);
-                _cmd.Parameters.AddWithValue("@field5", CBP.field5);
-                _cmd.Parameters.AddWithValue("@Control", CBP.Control);
-                _cmd.Parameters.AddWithValue("@Language", CBP.Language);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-                DataSet _ds = new DataSet();
-                _adp.Fill(_ds);
-                _adp.Dispose();
-                _cmd.Dispose();
-                return _ds;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                _cn.Close();
-                _cn.Dispose();
-            }
-        }
-
-        public DataSet BindGridUser(GridParamater GP)
-        {
-            try
-            {
-                _cn.Open();
-                SqlCommand _cmd = new SqlCommand("Sp_Grid_Usermaster", _cn);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
-                _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
-                _cmd.Parameters.AddWithValue("@unit", GP.unit);
-                _cmd.Parameters.AddWithValue("@userid", GP.userid);
-                _cmd.Parameters.AddWithValue("@WhereClause", GP.WhereClause);
-                _cmd.Parameters.AddWithValue("@Branch", GP.Branch);
-                _cmd.Parameters.AddWithValue("@PageNo", GP.PageNo);
-                _cmd.Parameters.AddWithValue("@RecordsPerPage", GP.RecordsPerPage);
-                _cmd.Parameters.AddWithValue("@Formcode", GP.Formcode);
-                _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
-                _cmd.Parameters.AddWithValue("@type", GP.type);
-                _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-                DataSet _ds = new DataSet();
-                _adp.Fill(_ds);
-                _adp.Dispose();
-                _cmd.Dispose();
-                return _ds;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                _cn.Close();
-                _cn.Dispose();
-            }
-        }
-        public DataSet Edit_DataUser(Edit_UserMaster EA)
-        {
-            try
-            {
-                _cn.Open();
-                SqlCommand _cmd = new SqlCommand("sp_Edit_Usermaster", _cn);
-                _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@tablename", EA.tablename);
-                _cmd.Parameters.AddWithValue("@Corporate", EA.Corporate);
-                _cmd.Parameters.AddWithValue("@unit", EA.unit);
-                _cmd.Parameters.AddWithValue("@Formcode", EA.Formcode);
-                _cmd.Parameters.AddWithValue("@Formtabcode", EA.Formtabcode);
-                _cmd.Parameters.AddWithValue("@Xmaster", EA.Xmaster);
-                _cmd.Parameters.AddWithValue("@Type", EA.Type);
-                _cmd.Parameters.AddWithValue("@SrNo", EA.SrNo);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();

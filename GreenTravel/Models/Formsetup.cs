@@ -245,4 +245,14 @@ namespace GreenTravel.Models
         public string BranchBy { get; set; }
         public string rownumber { get; set; }
     }
+
+    public class GridFormparamater
+    {
+        public string Corporate { get; set; }
+        public string FeatureGroup { get; set; }
+        public string Module { get; set; }
+        public string FormName { get; set; }
+        public string RowNumber { get; set; }
+       
+    }
 }

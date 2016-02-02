@@ -447,22 +447,5 @@ namespace GreenTravel.Controllers
             }
         }
 
-        public ActionResult Delete_Data(commanbaseParamater CBP)
-        {
-            try
-            {
-                DataSet ds = _objCM.BindDropDown(CBP);
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    ViewBag.fname = ds.Tables[0].Rows[0][0].ToString();
-                }
-                var result = ViewBag.fname;
-                return Json(result, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

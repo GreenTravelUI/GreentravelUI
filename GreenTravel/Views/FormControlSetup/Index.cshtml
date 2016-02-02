@@ -1,14 +1,20 @@
 ﻿@{
     ViewBag.Title = "Form Control Set-Up";
     ViewBag.PageTitle = "Form Control Set-Up";
+    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
 }
+
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div role="tabpanel">
+                <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
-                    <li role="presentation" class="active" id="searchcontrol"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Controls</a></li>
-                    <li role="presentation" id="Fromcontrol"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp; Form Controls  </a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Controls</a></li>
+
+                    <li role="presentation"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp; Form Controls  </a></li>
+
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -26,36 +32,37 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table id="example1" class="display" style="width: 100%; cellspacing: 0;">
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Srno</th>
-                                            <th>Corporate</th>
-                                            <th>Features</th>
-                                            <th>Module</th>
-                                            <th>Form </th>
-                                            <th>Tab </th>
-                                            <th>Section </th>
-                                            <th>Controls </th>
-                                            <th>Action</th>
+                                            <th style="width: 5%;">#</th>
+                                            <th style="width: 20%;">Corporate</th>
+                                            <th style="width: 20%;">Features</th>
+                                            <th style="width: 20%;">Module</th>
+
+                                            <th style="width: 15%;">Form </th>
+                                            <th style="width: 15%;">Tab </th>
+                                            <th style="width: 15%;">Section </th>
+                                            <th style="width: 15%;">Controls </th>
+                                            <th style="width: 15%; text-align: center;">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>Srno</th>
                                             <th>Corporate</th>
                                             <th>Features</th>
                                             <th>Module </th>
+
                                             <th>Form </th>
                                             <th>Tab </th>
                                             <th>Section </th>
                                             <th>Control</th>
+
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
-                                    @*<tbody>
+                                    <tbody>
                                         <tr>
 
                                             <th></th>
@@ -103,7 +110,7 @@
 
                                             </td>
                                         </tr>
-                                    </tbody>*@
+                                    </tbody>
                                 </table>
                             </div>
                         </form>
@@ -113,33 +120,19 @@
                         <form>
                             <div class="col-md-12">
                                 <h3 class="tab3section1"><span class="section-index">1</span>&nbsp; Form Controls </h3>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group" style="display: block">
-                                            <label>Tabsrno <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtTabsrno" placeholder="Tab Srno" readonly="true">
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tab <span>*</span></label>
-                                            <select id="drpTab" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                                <option value="--None--">--None-- </option>
-                                                <option value="1">Create Agent</option>
+                                            <select id="drpTab" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Section <span>*</span></label>
-                                            <select id="drpSection" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                                <option value="--None--">--None-- </option>
-                                                <option value="1">Basic Details </option>
-                                                <option value="2">Agent Address </option>
-                                                <option value="3">Agent Overview </option>
-                                                <option value="4">Invoice Currency & Credit Limit </option>
+                                            <select id="drpSection" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
@@ -163,12 +156,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Control Type <span></span></label>
-                                            <select id="drpcontroltype" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                                <option value="--None--">--None-- </option>
-                                                <option value="1">Texobox</option>
-                                                <option value="2">DropDown</option>
-                                                <option value="3">Checkbox</option>
-                                                <option value="4">Radio button</option>
+                                            <select id="drpcontroltype" class="js-states form-control" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
@@ -222,11 +210,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label data-toggle="tooltip" data-placement="right">Validation Message <span></span></label>
+                                            <label  data-toggle="tooltip" data-placement="right">Validation Message <span></span></label>
                                             <input type="text" class="form-control" id="txtRegvalidationmessage" placeholder="Validation Message">
                                         </div>
                                         <div class="form-group">
-                                            <label data-toggle="tooltip" data-placement="right">Guided Tour Text <span></span></label>
+                                            <label  data-toggle="tooltip" data-placement="right">Guided Tour Text <span></span></label>
                                             <input type="text" class="form-control" id="txtGuidedTour" placeholder="Guided Tour">
                                         </div>
 
@@ -235,14 +223,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label data-toggle="tooltip" data-placement="right">Guided Tour Step No <span></span></label>
+                                            <label  data-toggle="tooltip" data-placement="right">Guided Tour Step No <span></span></label>
                                             <input type="text" class="form-control" id="txtGuidedtourStep" placeholder="Guided Tour Step No">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label data-toggle="tooltip" data-placement="right">Order <span></span></label>
+                                            <label  data-toggle="tooltip" data-placement="right">Order <span></span></label>
                                             <input type="text" class="form-control" id="txtorder" placeholder="Control Order">
                                         </div>
                                     </div>
@@ -254,53 +242,22 @@
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
-                                <button id="btnUpdate" type="submit" class="btn btn-primary btnSave" style="display: none">
+                                <button id="btnUpdate" type="submit" class="btn btn-primary btnSave">
                                     UPDATE</button>
-
-                                <button id="btnclear" type="submit" class="btn btn-warning">
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclear" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnquitfrom" type="submit" class="btn btn-info">
+                                <button id="btnquitfrom" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </div>
                         </form>
                     </div>
+
                 </div>
-            </div>
-
-
-        </div>
-
-        <div class="modal fade modify-colum-model" id="DeleteModel" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">System Message</h4>
-                    </div>
-
-                    <div class="modal-body  custom-model-body">
-                        <form>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label id="lbldelete"></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
-                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
+
 </div>
-@section scripts{
-    <script src="~/Scripts/JS/Page/FrmControlSetup.js"></script>
-}
 
