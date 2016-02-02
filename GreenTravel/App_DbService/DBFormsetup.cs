@@ -311,8 +311,7 @@ namespace GreenTravel.App_DbService
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("sp_save_Form_ButtonClass_Master", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
-
-                _cmd.Parameters.AddWithValue("@srno", STB.srno);
+                _cmd.Parameters.AddWithValue("@srno", STB.TabCode);
                 _cmd.Parameters.AddWithValue("@CorporateId", STB.CorporateId);
                 _cmd.Parameters.AddWithValue("@TabCode", STB.TabCode);
                 _cmd.Parameters.AddWithValue("@FormCode", STB.FormCode);
@@ -335,7 +334,8 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@ClearClass", STB.ClearClass);
                 _cmd.Parameters.AddWithValue("@ClearVisibility", STB.ClearVisibility);
                 _cmd.Parameters.AddWithValue("@ClearNotification", STB.ClearNotification);
-                _cmd.Parameters.AddWithValue("@ClearTask", STB.ClearTask);
+                // _cmd.Parameters.AddWithValue("@ClearTask", STB.ClearTask);
+                _cmd.Parameters.AddWithValue("@FormQuitName", STB.FormQuitName);
                 _cmd.Parameters.AddWithValue("@FormQuitClass", STB.FormQuitClass);
                 _cmd.Parameters.AddWithValue("@FormQuitVisibility", STB.FormQuitVisibility);
                 _cmd.Parameters.AddWithValue("@FormQuitNotification", STB.FormQuitNotification);
@@ -351,38 +351,27 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", STB.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", STB.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", STB.CreatedBy);
-                _cmd.Parameters.AddWithValue("@EntryDatetime", STB.EntryDatetime);
+                if (STB.EntryDatetime == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(STB.EntryDatetime, "dd/MM/yyyy", null));
+                }
+                if (STB.EditDatetime == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(STB.EditDatetime, "dd/MM/yyyy", null));
+                }
                 _cmd.Parameters.AddWithValue("@EditedBy", STB.EditedBy);
-                _cmd.Parameters.AddWithValue("@EditDatetime", STB.EditDatetime);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", STB.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", STB.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", STB.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", STB.BranchBy);
-
-
-                //if (CM.EntryDatetime == null)
-                //{
-                //    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                //}
-                //else
-                //{
-                //    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(CM.EntryDatetime, "dd/MM/yyyy", null));
-                //}
-                //_cmd.Parameters.AddWithValue("@EditedBy", CM.EditedBy);
-
-                //if (CM.EditDatetime == null)
-                //{
-                //    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                //}
-                //else
-                //{
-                //    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(CM.EditDatetime, "dd/MM/yyyy", null));
-                //}
-                //_cmd.Parameters.AddWithValue("@CorpcentreBy", CM.CorpcentreBy);
-                //_cmd.Parameters.AddWithValue("@UnitCorpBy", CM.UnitCorpBy);
-                //_cmd.Parameters.AddWithValue("@TerminalBy", CM.TerminalBy);
-
-                //_cmd.Parameters.AddWithValue("@Corporate", CM.Corporate);
                 int i = _cmd.ExecuteNonQuery();
                 return i;
             }
@@ -477,6 +466,65 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
+        public int insertdata_SectionMaster(Section_Master SM)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_Form_Section_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@srno", SM.srno);
+                _cmd.Parameters.AddWithValue("@CorporateId", SM.CorporateId);
+                _cmd.Parameters.AddWithValue("@TabCode", SM.TabCode);
+                _cmd.Parameters.AddWithValue("@FormCode", SM.FormCode);
+                _cmd.Parameters.AddWithValue("@SectionName", SM.SectionName);
+                _cmd.Parameters.AddWithValue("@Attribute1", SM.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", SM.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", SM.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", SM.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", SM.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", SM.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", SM.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", SM.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", SM.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", SM.Attribute10);
+                _cmd.Parameters.AddWithValue("@CreatedBy", SM.CreatedBy);
+                if (SM.EntryDatetime == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(SM.EntryDatetime, "dd/MM/yyyy", null));
+                }
+                if (SM.EditDatetime == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(SM.EditDatetime, "dd/MM/yyyy", null));
+                }
+                _cmd.Parameters.AddWithValue("@EditedBy", SM.EditedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", SM.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", SM.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", SM.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", SM.BranchBy);
+                int i = _cmd.ExecuteNonQuery();
+                return i;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+
+        }
     }
-    
+
 }
