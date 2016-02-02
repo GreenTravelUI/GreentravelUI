@@ -75,6 +75,7 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objfs.Edit_data(EA);
                 List<Formsetup> frmset = new List<Formsetup>();
+                List<StandardButton> frmStandardbtn = new List<StandardButton>();
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -91,11 +92,50 @@ namespace GreenTravel.Controllers
                             FeatureGroup = @dr["FeatureGroup"].ToString(),
                             Header = @dr["Header"].ToString(),
                             SubHeader = @dr["SubHeader"].ToString(),
-                          
+
                         });
                     }
                 }
                 var result = frmset;
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.Standardbtn = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.Standardbtn.Rows)
+                    {
+                        frmStandardbtn.Add(new StandardButton
+                        {
+                            SaveName = @dr["SaveName"].ToString(),
+                            SaveClass = @dr["SaveClass"].ToString(),
+                            SaveVisibility = @dr["SaveVisibility"].ToString(),
+                            SaveNotification = @dr["SaveNotification"].ToString(),
+                            SaveTask = @dr["SaveTask"].ToString(),
+                            UpdateName = @dr["UpdateName"].ToString(),
+                            UpdateClass = @dr["UpdateClass"].ToString(),
+                            UpdateVisibility = @dr["UpdateVisibility"].ToString(),
+                            UpdateNotification = @dr["UpdateNotification"].ToString(),
+                            UpdateTask = @dr["UpdateTask"].ToString(),
+                            DeleteName = @dr["DeleteName"].ToString(),
+                            DeleteClass = @dr["DeleteClass"].ToString(),
+                            DeleteVisibility = @dr["DeleteVisibility"].ToString(),
+                            DeleteNotification = @dr["DeleteNotification"].ToString(),
+                            DeleteTask = @dr["DeleteTask"].ToString(),
+                            ClearName = @dr["ClearName"].ToString(),
+                            ClearClass = @dr["ClearClass"].ToString(),
+                            ClearVisibility = @dr["ClearVisibility"].ToString(),
+                            ClearNotification = @dr["ClearNotification"].ToString(),
+                            ClearTask = @dr["ClearTask"].ToString(),
+                            FormQuitName = @dr["FormQuitName"].ToString(),
+                            FormQuitClass = @dr["FormQuitClass"].ToString(),
+                            FormQuitVisibility = @dr["FormQuitVisibility"].ToString(),
+                            FormQuitNotification = @dr["FormQuitNotification"].ToString(),
+                            FormQuitTask = @dr["FormQuitTask"].ToString(),
+
+                        });
+                    }
+                }
+                var FrmStandardbtn = frmStandardbtn;
+                // return Json(new { AMaster = result, AFrmStandardbtn = FrmStandardbtn }, JsonRequestBehavior.AllowGet);
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -132,7 +172,7 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var Form = Forms;
-                    //, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate
+                //, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate
 
                 return Json(new { GTCorporate = Corporate, GTFrom = Form }, JsonRequestBehavior.AllowGet);
             }
@@ -213,10 +253,131 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult Edit_Data_icon(Edit_AdminMaster EA)
+        {
+            try
+            {
+                DataSet ds = _objfs.Edit_data(EA);
+                List<StandardButton> frmStandardbtn = new List<StandardButton>();
+                List<Section_Master> Section_Master = new List<Section_Master>();
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.Standardbtn = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.Standardbtn.Rows)
+                    {
+                        frmStandardbtn.Add(new StandardButton
+                        {
+                            SaveName = @dr["SaveName"].ToString(),
+                            SaveClass = @dr["SaveClass"].ToString(),
+                            SaveVisibility = @dr["SaveVisibility"].ToString(),
+                            SaveNotification = @dr["SaveNotification"].ToString(),
+                            SaveTask = @dr["SaveTask"].ToString(),
+                            UpdateName = @dr["UpdateName"].ToString(),
+                            UpdateClass = @dr["UpdateClass"].ToString(),
+                            UpdateVisibility = @dr["UpdateVisibility"].ToString(),
+                            UpdateNotification = @dr["UpdateNotification"].ToString(),
+                            UpdateTask = @dr["UpdateTask"].ToString(),
+                            DeleteName = @dr["DeleteName"].ToString(),
+                            DeleteClass = @dr["DeleteClass"].ToString(),
+                            DeleteVisibility = @dr["DeleteVisibility"].ToString(),
+                            DeleteNotification = @dr["DeleteNotification"].ToString(),
+                            DeleteTask = @dr["DeleteTask"].ToString(),
+                            ClearName = @dr["ClearName"].ToString(),
+                            ClearClass = @dr["ClearClass"].ToString(),
+                            ClearVisibility = @dr["ClearVisibility"].ToString(),
+                            ClearNotification = @dr["ClearNotification"].ToString(),
+                            ClearTask = @dr["ClearTask"].ToString(),
+                            FormQuitName = @dr["FormQuitName"].ToString(),
+                            FormQuitClass = @dr["FormQuitClass"].ToString(),
+                            FormQuitVisibility = @dr["FormQuitVisibility"].ToString(),
+                            FormQuitNotification = @dr["FormQuitNotification"].ToString(),
+                            FormQuitTask = @dr["FormQuitTask"].ToString(),
+
+                        });
+                    }
+                }
+                var FrmStandardbtn = frmStandardbtn;
+
+
+                if (ds.Tables[4].Rows.Count > 0)
+                {
+                    ViewBag.Section = ds.Tables[4];
+                    foreach (System.Data.DataRow dr in ViewBag.Section.Rows)
+                    {
+                        Section_Master.Add(new Section_Master
+                        {
+                            srno = @dr["Srno"].ToString(),
+                            SectionName = @dr["SectionName"].ToString(),
+                            rownumber = @dr["RowNumber"].ToString(),
+                        });
+                    }
+                }
+                var SectionMaster = Section_Master;
+
+                return Json(new { AFrmStandardbtn = FrmStandardbtn, ASectionMaster = SectionMaster }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public ActionResult Edit_Data_Section(Edit_AdminMaster EA)
+        {
+            try
+            {
+                DataSet ds = _objfs.Edit_data(EA);
+                List<Section_Master> Section_Master = new List<Section_Master>();
+                if (ds.Tables[4].Rows.Count > 0)
+                {
+                    ViewBag.Section = ds.Tables[4];
+                    foreach (System.Data.DataRow dr in ViewBag.Section.Rows)
+                    {
+                        Section_Master.Add(new Section_Master
+                        {
+                            srno = @dr["Srno"].ToString(),
+                            SectionName = @dr["SectionName"].ToString(),
+                            rownumber = @dr["RowNumber"].ToString(),
+                        });
+                    }
+                }
+                var SectionMaster = Section_Master;
+
+                return Json(new { ASectionMaster = SectionMaster }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult InsertData_SectionMaster(Section_Master SM)
+        {
+            try
+            {
+                int result = _objfs.insertdata_SectionMaster(SM);
+                if (result == 1)
+                {
+                    ViewBag.Message = "Record Save Sucessfully !";
+                }
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         #endregion
 
 
-        
+
 
         //public ActionResult BindDropDown(Formlode FL)
         //{
