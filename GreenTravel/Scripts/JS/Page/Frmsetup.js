@@ -1,8 +1,11 @@
 ﻿$(document).ready(function () {
     var deletesrno;
+    var Frmcode;
+    var FrmtabCode
     var ID = 2;
+    var customID = 2;
     getdata();
-//    getdatatab();
+    //    getdatatab();
 
 
     function Dropdown_Bind_Tab1() {
@@ -179,8 +182,6 @@
 
     });
 
-
-
     $('#btnstandardbutton').click(function (e) {
         e.preventDefault();
         var Attribute1 = '';
@@ -193,44 +194,43 @@
         var Attribute8 = '';
         var Attribute9 = '';
         var Attribute10 = '';
-        var CreatedBy = '';
+        var CreatedBy = '0';
         var EntryDatetime = '';
-        var EditedBy = '';
+        var EditedBy = '0';
         var EditDatetime = '';
-        var CorpcentreBy = '';
-        var UnitCorpBy = '';
-        var TerminalBy = '';
-        var BranchBy = '';
-
-
-        var srno = '1';
+        var CorpcentreBy = '0';
+        var UnitCorpBy = '0';
+        var TerminalBy = '0';
+        var BranchBy = '0';
+        var srno = '';
         var CorporateId = '1';
-        var TabCode = '1';
-        var FormCode = '1';
+        var FormCode = Frmcode;
+        var TabCode = FrmtabCode;
         var SaveName = $('#txtSaveName').val();
         var SaveClass = $('#txtSaveClass').val();
         var SaveVisibility = $("#chkCopyrightNote").is(":checked");
-        var SaveNotification = '';
-        var SaveTask = '';
+        var SaveNotification = $("#chkNotification").is(":checked");
+        var SaveTask = $("#chkTask").is(":checked");
         var UpdateName = $('#txtUpdateName').val();
         var UpdateClass = $('#txtUpdateClass').val();
-        var UpdateVisibility = '';
-        var UpdateNotification = '';
-        var UpdateTask = '';
+        var UpdateVisibility = $("#chkUpdateVisibility").is(":checked");
+        var UpdateNotification = $("#chkUpdateVisibility").is(":checked");
+        var UpdateTask = $("#chkNotification1").is(":checked");
         var DeleteName = $('#txtDeleteName').val();
         var DeleteClass = $('#txtDeleteClass').val();
-        var DeleteVisibility = '';
-        var DeleteNotification = '';
-        var DeleteTask = '';
+        var DeleteVisibility = $("#chkDeleteVisibility").is(":checked");
+        var DeleteNotification = $("#chkNotification2").is(":checked");
+        var DeleteTask = $("#chkTask2").is(":checked");
         var ClearName = $('#txtClearName').val();
         var ClearClass = $('#txtClearClass').val();
-        var ClearVisibility = '';
-        var ClearNotification = '';
-        var ClearTask = '';
+        var ClearVisibility = $("#chkClearVisibility").is(":checked");;
+        var ClearNotification = false;
+        var ClearTask = false;
+        var FormQuitName = $('#txtFormQuitName').val();
         var FormQuitClass = $('#txtFormQuitClass').val();
-        var FormQuitVisibility = '';
-        var FormQuitNotification = '';
-        var FormQuitTask = '';
+        var FormQuitVisibility = $('#chkFormQuitVisibility').is(":checked");
+        var FormQuitNotification = false;
+        var FormQuitTask = false;
 
         $.ajax(
            {
@@ -242,22 +242,16 @@
                    "UpdateClass": UpdateClass, "UpdateVisibility": UpdateVisibility, "UpdateNotification": UpdateNotification, "UpdateTask": UpdateTask,
                    "DeleteName": DeleteName, "DeleteClass": DeleteClass, "DeleteVisibility": DeleteVisibility, "DeleteNotification": DeleteNotification,
                    "DeleteTask": DeleteTask, "ClearName": ClearName, "ClearClass": ClearClass, "ClearVisibility": ClearVisibility, "ClearNotification": ClearNotification,
+                   "FormQuitName": FormQuitName,
                    "FormQuitClass": FormQuitClass, "FormQuitVisibility": FormQuitVisibility, "FormQuitNotification": FormQuitNotification, "FormQuitTask": FormQuitTask,
                    "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
                    "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10,
                    "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
                    "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
-
-
                },
                dataType: 'json',
                success: function (response) {
                    alert("Record Save Sucessfully");
-                   // $('#lblmsg').html("Record Save Sucessfully");
-                   //if (response != null && response.success) {
-                   //    alert("Record Save Sucessfully!");
-                   //} 
-
                }
            });
 
@@ -362,18 +356,113 @@
     });
 
     $("table").delegate(".SectiontabButtonclass", "click", function () {
-        alert('button class');
         console.log(($(this).parent().parent().children(':eq(1)').text()));
-        deletesrno = '';
-        deletesrno = $(this).parent().parent().children(':eq(1)').text()
-     
+        console.log(($(this).parent().parent().children(':eq(2)').text()));
+        Frmcode = '';
+        Frmcode = $(this).parent().parent().children(':eq(1)').text()
+        FrmtabCode = '';
+        FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
+        var tablename = 'dbo._Form_Master';
+        var Corporate = '2';
+        var unit = '0';
+        var Formcode = Frmcode;
+        var Formtabcode = FrmtabCode;
+        var Xmaster = '';
+        var Type = 'EditMode';
+        var html = '';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/FormSetup/Edit_Data_icon",
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 console.log(response)
+                 if (response['AFrmStandardbtn'].length > 0) {
+                     //   $('#txtMasterCode').val(response['AFrmStandardbtn'][0]['xmaster']);
+                     $('#txtSaveName').val(response['AFrmStandardbtn'][0]['SaveName']);
+                     $('#txtSaveClass').val(response['AFrmStandardbtn'][0]['SaveClass']);
+                     //  $("#chkCopyrightNote").is(":checked");
+                     // $("#chkNotification").is(":checked");
+                     // $("#chkTask").is(":checked");
+                     $('#txtUpdateName').val(response['AFrmStandardbtn'][0]['UpdateName']);
+                     $('#txtUpdateClass').val(response['AFrmStandardbtn'][0]['UpdateClass']);
+                     //$("#chkUpdateVisibility").is(":checked");
+                     // $("#chkUpdateVisibility").is(":checked");
+                     // $("#chkNotification1").is(":checked");
+                     $('#txtDeleteName').val(response['AFrmStandardbtn'][0]['DeleteName']);
+                     $('#txtDeleteClass').val(response['AFrmStandardbtn'][0]['DeleteClass']);
+                     //$("#chkDeleteVisibility").is(":checked");
+                     //$("#chkNotification2").is(":checked");
+                     //$("#chkTask2").is(":checked");
+                     $('#txtClearName').val(response['AFrmStandardbtn'][0]['ClearName']);
+                     $('#txtClearClass').val(response['AFrmStandardbtn'][0]['ClearClass']);
+                     //$("#chkClearVisibility").is(":checked");;
+                     //var ClearNotification = false;
+                     //var ClearTask = false;
+                     $('#txtFormQuitName').val(response['AFrmStandardbtn'][0]['FormQuitName']);
+                     $('#txtFormQuitClass').val(response['AFrmStandardbtn'][0]['FormQuitClass']);
+                     // $('#chkFormQuitVisibility').is(":checked");
+                 }
+             }
+         });
+
     });
     $("table").delegate(".TabSection", "click", function () {
-        alert('Section');
-        console.log(($(this).parent().parent().children(':eq(1)').text()));
-        deletesrno = '';
-        deletesrno = $(this).parent().parent().children(':eq(1)').text()
+        //alert('Section');
+        Frmcode = '';
+        Frmcode = $(this).parent().parent().children(':eq(1)').text()
+        FrmtabCode = '';
+        FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
+        var tablename = 'dbo._Form_Master';
+        var Corporate = '2';
+        var unit = '0';
+        var Formcode = Frmcode;
+        var Formtabcode = FrmtabCode;
+        var Xmaster = '';
+        var Type = 'EditMode';
+        var html = '';
+      
+       // $(html).remove($("#tblModalSection"))
+        $.ajax(
+         {
+             type: "POST",
+             url: "/FormSetup/Edit_Data_Section",
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 console.log(response['ASectionMaster'])
+                 if (response['ASectionMaster'].length > 0) {
+                     // $("#tblModalSection").remove();
+                     ID = response['ASectionMaster'].length;
+                     alert(ID);
+                     $("#btnModalSectionSave").hide();
+                     for (var i = 0; i < response['ASectionMaster'].length; i++) {
 
+                         if (html == '') {
+                             html = '<tr>' +
+                                    '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
+                                    '<td> <input type="text"  value="' + response['ASectionMaster'][i]['SectionName'] + '" /></td>' +
+                                    '<td> <input type="text"  value="' + response['ASectionMaster'][i]['srno'] + '" /></td>' +
+                                    '</tr>'
+                         }
+                         else {
+                             html += '<tr>' +
+                                 '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
+                                 '<td> <input type="text"  value="' + response['ASectionMaster'][i]['SectionName'] + '" /></td>' +
+                                 '<td> <input type="text"  value="' + response['ASectionMaster'][i]['srno'] + '" /></td>' +
+                                 '</tr>'
+                         }
+                     }
+                     alert(html);
+                     $(html).appendTo($("#tblModalSection"))
+                 }
+             }
+         });
     });
 
     $('#modeldelete').click(function (e) {
@@ -412,14 +501,14 @@
 
     function getdatatab() {
         var tablename = 'dbo._Form_Tab_Master';
-        var Corporate = '1';
+        var Corporate = '2';
         var unit = '';
         var userid = '';
         var WhereClause = '';
         var Branch = '';
         var PageNo = '1';
         var RecordsPerPage = '10';
-        var Formcode = '0';
+        var Formcode = $('#txtSrNo1').val();
         var Formtabcode = '0';
         var type = 'Grid';
         var Segment = '';
@@ -456,7 +545,6 @@
                 { "data": "Formname" },
                 { "data": "TabHeader" },
                 { "data": "TabClass" },
-                { "data": "SummeryLabel" },
                 {
                     data: null,
                     className: "center",
@@ -479,14 +567,96 @@
     $('#btnaddSection').click(function (e) {
         addRow();
     });
-
     function addRow() {
         var html = '<tr>' +
-                    '<td>'+ ID +'</td>'+
-                    '<td> <input type="text" id="txtsection' + ID + '"></td>' +
+                    '<td>' + ID + '</td>' +
+                    '<td> <input type="text" id="txtsection' + ID + '"/></td>' +
+                    '<td> <input type="text" /></td>' +
                     '</tr>'
-        $(html).appendTo($("#exampleeditable"))
+        $(html).appendTo($("#tblModalSection"))
         ID++;
-      //  alert(ID);
+        //  alert(ID);
     };
+    $('#btnModalSectionSave').on('click', function () {
+        var flag = false;
+        var CorporateId = 2
+        var TabCode = FrmtabCode;
+        var FormCode = Frmcode
+        var Attribute1 = '';
+        var Attribute2 = '';
+        var Attribute3 = '';
+        var Attribute4 = '';
+        var Attribute5 = '';
+        var Attribute6 = '';
+        var Attribute7 = '';
+        var Attribute8 = '';
+        var Attribute9 = '';
+        var Attribute10 = '';
+        var CreatedBy = 0;
+        var EntryDatetime = '';
+        var EditedBy = 0;
+        var EditDatetime = '';
+        var CorpcentreBy = 0;
+        var UnitCorpBy = 0;
+        var TerminalBy = 0;
+        var BranchBy = 0;
+        $("#tblModalSection tbody tr").each(function () {
+            var SectionName = '';
+            var SectionName = $(this).children(':eq(1)').find('input').val();
+            var srno;
+            if ($(this).children(':eq(1)').find('input').val() == '') {
+                srno = $(this).children(':eq(1)').find('input').val();
+            }
+            else {
+                srno = 0;
+            }
+
+            
+            console.log($(this).children(':eq(1)').find('input').val());
+            $.ajax(
+               {
+                   type: "POST",
+                   url: "/FormSetup/InsertData_SectionMaster",
+                   data: {
+                       "srno": srno, "CorporateId": CorporateId, "TabCode": TabCode, "FormCode": FormCode, "SectionName": SectionName,
+                       "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                       "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10,
+                       "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
+                       "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+                   },
+                   dataType: 'json',
+                   success: function (response) {
+                       // console.log(response[0])
+                       if (response.length > 0) {
+                           var flag = true
+                       }
+                       //  
+                   }
+               });
+            //console.log($(this).children(':eq(1)').find('input').val());
+        });
+        //   alert(flag)
+        if (flag == true) {
+            alert("Record Save Sucessfully");
+        }
+    });
+
+    $('#btnCustomsection').on('click', function () {
+        //alert('Custom Button');
+        addRowCustom();
+    });
+    function addRowCustom() {
+        var html = '<tr>' +
+                    '<td>' + customID + '</td>' +
+                    '<td> <input type="text" placeholder="Custom Name"  class="form-control" /></td>' +
+                    '<td> <input type="text" placeholder="Custom Class"  class="form-control" /></td>' +
+                    '<td> <input type="Checkbox"  class="form-control" /></td>' +
+                    '<td> <input type="Checkbox"  class="form-control" /></td>' +
+                    '<td> <input type="Checkbox"  class="form-control" /></td>' +
+                    '</tr>'
+        $(html).appendTo($("#tblModalIconCustom"))
+        customID++;
+    };
+
+
 });

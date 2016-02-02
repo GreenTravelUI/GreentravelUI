@@ -13,10 +13,12 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Agent </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Agent</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User / Billing / Bank</a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Agent Contact Details</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
+                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank / Tax</a></li>
+                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Agent Contact Details</a></li>
                 </ul>
                 <div class="tab-content">
+                    @*Search Agent*@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
                             <div class="table-responsive">
@@ -172,6 +174,7 @@
                             </div>
                         </form>
                     </div>
+                    @*Create Agent*@
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-7">
                             <form>
@@ -508,42 +511,43 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane " id="tab3">
+                    @*User*@
+                    <div role="tabpanel" class="tab-pane" id="tab3">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Agent User</h3>
+                                <h3 class="tab3section1">User - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtFirstName">Name <span>*</span></label>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Sarawut" placeholder="First Name" data-label="lblFirstName">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Engchawadechasilp" placeholder="Last Name" data-label="lblLastName">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtHotelUserEmail">Email (User Name) <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtHotelUserEmail" placeholder="Email(User Name)">
+                                    <input type="text" class="form-control" id="txtHotelUserEmail" value="sarawut.engchawadechasilp@gmail.com" placeholder="Email(User Name)">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtHotelUserPassword">Password <span>*</span></label>
-                                    <input type="Password" class="form-control " id="txtHotelUserPassword" placeholder="Password">
+                                    <input type="Password" class="form-control " value="test@123" id="txtHotelUserPassword" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtConfirmHotelUserPassword">Confirm Password</label>
-                                    <input type="Password" class="form-control" id="txtConfirmHotelUserPassword" placeholder="Confirm Password">
+                                    <input type="Password" class="form-control" value="test@123" id="txtConfirmHotelUserPassword" placeholder="Confirm Password">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <label for="drpCountry">Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
+                                            <input type="text" class="form-control col-sm-5" id="txtCountry" value="+66" placeholder="Code">
                                         </div>
                                         <div class="col-md-8">
                                             <label for="txtTelephone">Telephone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtTelephone" placeholder="Telephone">
+                                            <input type="text" class="form-control col-sm-5" id="txtTelephone" value="38645465" placeholder="Telephone">
                                         </div>
                                         <div class="col-md-2">
                                             <label for="txtExtn">Extn.</label>
@@ -566,6 +570,10 @@
                                 <div class="form-group">
                                     <label for="drpDesignation">Designation <span>*</span></label>
                                     <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Admin</option>
+                                        <option>Receptionist</option>
+                                        <option selected="selected">Manager</option>
+                                        <option>Chef</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -575,111 +583,11 @@
                                 <div class="form-group">
                                     <label for="drpStatus">Status </label>
                                     <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Active</option>
+                                        <option>Inactive</option>
                                     </select>
                                 </div>
 
-                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Billing</h3>
-                                <div class="form-group">
-                                    <label for="txtBillingName">Billing Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtBillingName" placeholder="Billing Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAddressLine1">Billing Address Line 1 </label>
-                                    <input type="text" class="form-control" id="txtBillingAddressLine1" placeholder="Billing Address Line 1 ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAddressLine2">Billing Address Line 2 </label>
-                                    <input type="text" class="form-control" id="txtBillingAddressLine2" placeholder="Billing Address Line 2">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label for="txtBillingCity">Billing City </label>
-                                            <input type="text" class="form-control" id="txtBillingCity" placeholder="Billing City">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtBillingState">Billing State</label>
-                                            <input type="text" class="form-control" id="txtBillingState" placeholder="Billing State">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtBillingCountry">Billing Country</label>
-                                            <input type="text" class="form-control" id="txtBillingCountry" placeholder="Billing Country">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
-                                            <input type="text" class="form-control" id="txtBillingZipCode" placeholder="Billing Country">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Billing Email </label>
-                                    <input type="text" class="form-control" id="txtBillingEmail" placeholder="Billing Email">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="drpCountry">Billing Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <label for="txtTelephone">Billing Telephone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingTelephone" placeholder="Billing Telephone">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtExtn">Billing Extn.</label>
-                                            <input type="text" class="form-control" id="txtBillingExtn" placeholder="Billing Extn">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="drpCountry">Billing Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
-                                        </div>
-                                        <div class="col-md-10">
-                                            <label for="txtCellPhone">Billing Cell Phone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h3 class="section-headers tab3section3"><span class="section-index">3</span>&nbsp;Bank</h3>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Account Number </label>
-                                    <input type="text" class="form-control" id="txtAccountNumber" placeholder="Account Number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Account Name </label>
-                                    <input type="text" class="form-control" id="txtAccountName" placeholder="Account Name">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Bank Name </label>
-                                            <input type="text" class="form-control" id="txtBankName" placeholder="Bank Name">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Bank Branch </label>
-                                            <input type="text" class="form-control" id="txtBankBranch" placeholder="Bank Branch">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Bank Address </label>
-                                    <textarea class="form-control" cols="5" id="txtBankAddress"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Swift Code / Sort Code </label>
-                                    <input type="text" class="form-control" id="txtSwiftCode" placeholder="Swift Code / Sort Code">
-                                </div>
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -689,8 +597,7 @@
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                    QUIT FORM</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
                             </form>
                         </div>
                         <div class="col-md-5 summery-detail summerytab3">
@@ -732,7 +639,6 @@
                                 <div class="panel-body" style="border: 1px solid #22BAA0;">
                                     <div class="summ-lis-height">
                                         <ul class="summery-list slimscroll">
-                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
                                             <div class="summ-list-div">
                                                 <div class="summ-list-left">
                                                     <li>First Name :<br />
@@ -779,7 +685,217 @@
                                                     </li>
                                                 </div>
                                             </div>
-                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Billing / Bank*@
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtBillingName">Billing Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtBillingName" value="Amari Pattaya" placeholder="Billing Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Billing Address Line 1 </label>
+                                    <input type="text" class="form-control" id="txtBillingAddressLine1" value="240 Moo 5" placeholder="Billing Address Line 1 ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine2">Billing Address Line 2 </label>
+                                    <input type="text" class="form-control" id="txtBillingAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Billing Address Line 2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtBillingCity">Billing City </label>
+                                            <input type="text" class="form-control" id="txtBillingCity" value="Chonburi" placeholder="Billing City">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingState">Billing State</label>
+                                            <input type="text" class="form-control" id="txtBillingState" value="Pattaya Central" placeholder="Billing State">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingCountry">Billing Country</label>
+                                            <input type="text" class="form-control" id="txtBillingCountry" value="Thailand" placeholder="Billing Country">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
+                                            <input type="text" class="form-control" id="txtBillingZipCode" value="20150" placeholder="Billing Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Billing Email </label>
+                                    <input type="text" class="form-control" id="txtBillingEmail" value="billing@amarioceanpattaya.com" placeholder="Billing Email">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" value="+66" placeholder="Billing Code">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label for="txtTelephone">Billing Telephone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingTelephone" value="38418418" placeholder="Billing Telephone">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtExtn">Billing Extn.</label>
+                                            <input type="text" class="form-control" id="txtBillingExtn" placeholder="Billing Extn">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label for="txtCellPhone">Billing Cell Phone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab4section2"><span class="section-index">2</span>&nbsp;Bank - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Number </label>
+                                    <input type="text" class="form-control" id="txtAccountNumber" placeholder="Account Number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Name </label>
+                                    <input type="text" class="form-control" id="txtAccountName" placeholder="Account Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Bank Name </label>
+                                            <input type="text" class="form-control" value="Bangkok Bank" id="txtBankName" placeholder="Bank Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Bank Branch </label>
+                                            <input type="text" class="form-control" value="Banglamung Branch" id="txtBankBranch" placeholder="Bank Branch">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Bank Address </label>
+                                    <textarea class="form-control" cols="5" id="txtBankAddress">44, Naklua Road 44 Moo 5 North Pattaya</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Swift Code / Sort Code </label>
+                                    <input type="text" class="form-control" id="txtSwiftCode" value="BKKBTHBKTRD" placeholder="Swift Code / Sort Code">
+                                </div>
+
+                                <h3 class="section-headers tab4section3"><span class="section-index">3</span>&nbsp;Tax - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">VAT in Net Rate </label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Included</option>
+                                                <option selected="selected">Excluded</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Rate </label>
+                                            <input type="text" class="form-control" id="txtBankBranch" value="7" placeholder="Rate in Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Withholding in Net Rate </label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>-None-</option>
+                                                <option>Included</option>
+                                                <option>Excluded</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Rate </label>
+                                            <input type="text" class="form-control" id="txtBankBranch" placeholder="Rate in Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab4">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
                                             <div class="summ-list-div">
                                                 <div class="summ-list-left">
                                                     <li>Billing Name 
@@ -868,7 +984,6 @@
                                             UPDATE</button>
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
-                                        
                                         <p>
                                             Inputs with <i class="cross">&nbsp;</i> mark are incorrect
                                         </p>
@@ -877,7 +992,8 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane " id="tab4">
+                    @*Agent Contact Details*@
+                    <div role="tabpanel" class="tab-pane " id="tab5">
                         <div class="col-md-7">
                             <form>
                                 <div class="form-group">
@@ -972,8 +1088,7 @@
 
                             </form>
                         </div>
-
-                        <div class="col-md-5 summery-detail summerytab4">
+                        <div class="col-md-5 summery-detail summerytab5">
                             <div class="panel panel-white">
                                 <h4 class="panel-title-summery">Summary </h4>
                                 <ul class="utilitis-drop ">
@@ -1095,7 +1210,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -1200,11 +1314,11 @@
         <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Agent Overview">3</a>
         <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Invoice Currency & Credit Limit">4</a>
         <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Bank Charges">5</a>
-        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Whitelable Criterias">6</a>
+        <a class="btn btn-default" data-section="tab2section6" rel="tooltip" title="Whitelable Criterias">6</a>
     </div>
-    <div class="floating-section-buttons tab3" style="display: none">
-        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Agent User">1</a>
-        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Billing">2</a>
-        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Bank">3</a>
+    <div class="floating-section-buttons tab4" style="display: none">
+        <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab4section2" rel="tooltip" title="Bank">2</a>
+        <a class="btn btn-default" data-section="tab4section3" rel="tooltip" title="Tax">3</a>
     </div>
 }

@@ -105,11 +105,18 @@ namespace GreenTravel.Models
 
     public class GridFrmControlDisplay
     {
+
         public string CompanyName { get; set; } //xname
+
         public string CompanyIndustry { get; set; } //xmaster
+
         public string ApplicationURL { get; set; }
+
         public string RefferenceCompany { get; set; }
+
         public string Srno { get; set; }
+
         public string RowNumber { get; set; }
+
     }
 }
