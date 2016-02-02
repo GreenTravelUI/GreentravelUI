@@ -2,7 +2,6 @@
     getdata();
     hide_div();
 
-
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
     });
@@ -257,12 +256,12 @@
         $('#divMultiselect4').hide();
         $('#divMultiselect5').hide();
         $('#divDate3').hide();
-        
+
     }
     /*Drop   Down  Fill*/
-  
-   
-   
+
+
+
     function hide_Tooltip() {
 
         $('#field6').show();
@@ -573,7 +572,7 @@
                         $('#LbDate2').text(response['ACaption'][0]['Date2caption']);
                         $('#divDate2').show();
                     }
-                    if (response['ACaption'][0]['Date2caption'] != "--None--" && response['ACaption'][0]['Date2caption'] != "" && response['ACaption'][0]['Date2caption'] != null) {
+                    if (response['ACaption'][0]['Date3caption'] != "--None--" && response['ACaption'][0]['Date3caption'] != "" && response['ACaption'][0]['Date3caption'] != null) {
 
                         $('#LbDate3').text(response['ACaption'][0]['Date3caption']);
                         $('#divDate3').show();
@@ -754,22 +753,18 @@
                     if (response['AValidation'][0]['Field12'] != '' && response['AValidation'][0]['Field12'] != '--None--' && response['Aplaceholder'][0]['Field12'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
                     }
-                    if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['Aplaceholder'][0]['Field13'] != null)
-                    {
+                    if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['Aplaceholder'][0]['Field13'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
                     }
 
-                    if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['Aplaceholder'][0]['Field14'] != null)
-                    {
+                    if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['Aplaceholder'][0]['Field14'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field14'], $('#Textbox3Tab3'));
                     }
 
-                    if (response['AValidation'][0]['Field15'] != '' && response['AValidation'][0]['Field15'] != '--None--' && response['Aplaceholder'][0]['Field15'] != null)
-                    {
+                    if (response['AValidation'][0]['Field15'] != '' && response['AValidation'][0]['Field15'] != '--None--' && response['Aplaceholder'][0]['Field15'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field15'], $('#Textbox4Tab3'));
                     }
-                    if (response['AValidation'][0]['Field16'] != '' && response['AValidation'][0]['Field16'] != '--None--' && response['Aplaceholder'][0]['Field16'] != null)
-                    {
+                    if (response['AValidation'][0]['Field16'] != '' && response['AValidation'][0]['Field16'] != '--None--' && response['Aplaceholder'][0]['Field16'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox5Tab3'));
                     }
                     if (response['AValidation'][0]['Field17'] != '' && response['AValidation'][0]['Field17'] != '--None--' && response['Aplaceholder'][0]['Field17'] != null) {
@@ -1007,7 +1002,7 @@
                         $('#field25').attr("data-original-title", (response['Atooltip'][0]['Date2']));
                         $('#field25').show();
                     }
-                    if (response['Atooltip'][0]['Date2'] != "--None--" && response['Atooltip'][0]['Date2'] != "" && response['Atooltip'][0]['Date2'] != null) {
+                    if (response['Atooltip'][0]['Date3'] != "--None--" && response['Atooltip'][0]['Date3'] != "" && response['Atooltip'][0]['Date3'] != null) {
 
                         $('#field26').attr("data-original-title", (response['Atooltip'][0]['Date3']));
                         $('#field26').show();
@@ -1019,7 +1014,7 @@
                     }
                     if (response['Atooltip'][0]['Email2'] != "--None--" && response['Atooltip'][0]['Email2'] != "" && response['Atooltip'][0]['Email2'] != null) {
 
-                        $('#field31').attr("data-original-title", (response['Atooltip'][0]['Email2']));
+                        $('#field30').attr("data-original-title", (response['Atooltip'][0]['Email2']));
                         $('#field30').show();
                     }
                     if (response['Atooltip'][0]['Email3'] != "--None--" && response['Atooltip'][0]['Email3'] != "" && response['Atooltip'][0]['Email3'] != null) {
