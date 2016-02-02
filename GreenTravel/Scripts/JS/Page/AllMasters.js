@@ -1,12 +1,15 @@
 ﻿$(document).ready(function () {
     getdata();
     hide_div();
+
+
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
     });
 
     $("#drpMasterTab3").change(function () {
-        
+
+
         FillDropdown('Dropdown1Tab3', 'xlink');
         FillDropdown('Dropdown2Tab3', 'xcross');
         FillDropdown('Dropdown3Tab3', 'xcross1');
@@ -20,15 +23,17 @@
         FillDropdown('MultiSelect5', 'MultiSelect5');
         hide_Tooltip();
         PageLoad_FilledAll();
-       
+        $('#btnSave').text('CREATE');
+        $('#btnSave').attr("class", "btn btn-success btnSave");
+        //$('#btnDelete').hide();
 
     });
 
     $('#btnSave').click(function (e) {
         e.preventDefault();
         var USrno = '0';
-      //  alert($('#btnSave').text());
-        if ($('#btnSave').text() != "create") {
+        //  alert($('#btnSave').text());
+        if ($('#btnSave').text() != "Create") {
             var USrno = $('#txtSrNoTab3').val();
         }
         var Uxmaster = $('#drpMasterTab3 option:selected').val();
@@ -122,7 +127,9 @@
                success: function (response) {
                    if (response != null && response.success) {
                        alert("Record Save Sucessfully!");
-                   } 
+                       $('#btnCancel').click();
+                       // getdata();
+                   }
                }
            });
 
@@ -193,7 +200,7 @@
                 Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
             },
             success: function (data) {
-                //$('#drpMasterTab3').html('');
+                //alert(data[0]['Text']);
                 $('#' + controlId + '').html('');
                 for (var i = 0; i < data.length; i++) {
                     var opt = new Option(data[i]['Text'], data[i]['Value']);
@@ -201,7 +208,7 @@
                     $('#' + controlId + '').append(opt);
                 }
                 $("#" + controlId + " option:first").attr('selected', 'selected').change();
-              
+
             }
         });
     }
@@ -242,572 +249,20 @@
         $('#divphotoUpload1').hide();
         $('#divTextarea1').hide();
         //$('#divActive').hide();
-        $('#divRemark').hide();
+        $('#divRemarks').hide();
 
         $('#divMultiselect1').hide();
         $('#divMultiselect2').hide();
         $('#divMultiselect3').hide();
         $('#divMultiselect4').hide();
         $('#divMultiselect5').hide();
+        $('#divDate3').hide();
+        
     }
     /*Drop   Down  Fill*/
-    function PageLoad_Visibity_Caption() {
-        hide_div();
-        var field1 = $('#drpSegmenttab3 option:selected').val();
-        var field2 = $('#drpMasterTab3 option:selected').val();
-        $.ajax({
-            url: "/AllMaster/FormLoad",
-            data: { Type: 'Caption', field1: field1, field2: field2 },
-            type: "POST",
-            dataType: "json",
-            success: function (data) {
-                if (data[0].Field1caption != "--None--" && data[0].Field1caption != "" && data[0].Field1caption != null) {
-                    $('#LbSrNo').text(data[0].Field1caption);
-                }
-                if (data[0].Field2caption != "--None--" && data[0].Field2caption != "" && data[0].Field2caption != null) {
-                    $('#LbCode').text(data[0].Field2caption);
-                }
-
-                if (data[0].Field3caption != "--None--" && data[0].Field3caption != "" && data[0].Field3caption != null) {
-                    $('#LbName').text(data[0].Field3caption);
-                    $('#divName').show();
-                }
-                if (data[0].Field4caption != "--None--" && data[0].Field4caption != "" && data[0].Field4caption != null) {
-                    $('#LbActive').text(data[0].Field4caption);
-
-                    $('#divActive').show();
-                }
-
-                if (data[0].Field5caption != "--None--" && data[0].Field5caption != "" && data[0].Field5caption != null) {
-                    $('#LbRemarks').text(data[0].Field5caption);
-                    $('#divRemarks').show();
-                }
-
-                if (data[0].Field6caption != "--None--" && data[0].Field6caption != "" && data[0].Field6caption != null) {
-
-                    $('#LbDropdown1').attr('title', data[0].Field6caption);
-                    $('#divDropdown1').show();
-                }
-                if (data[0].Field7caption != "--None--" && data[0].Field7caption != "" && data[0].Field7caption != null) {
-                    $('#LbDropdown2').text(data[0].Field7caption);
-                    $('#divDropdown2').show();
-                }
-                if (data[0].Field8caption != "--None--" && data[0].Field8caption != "" && data[0].Field8caption != null) {
-                    $('#LbDropdown3').text(data[0].Field8caption);
-                    $('#divDropdown3').show();
-                }
-                if (data[0].Field9caption != "--None--" && data[0].Field9caption != "" && data[0].Field9caption != null) {
-                    $('#LbDropdown4').text(data[0].Field9caption);
-                    $('#divDropdown4').show();
-                }
-                if (data[0].Field10caption != "--None--" && data[0].Field10caption != "" && data[0].Field10caption != null) {
-                    $('#LbDropdown5').text(data[0].Field10caption);
-                    $('#divDropdown5').show();
-                }
-                if (data[0].Field11caption != "--None--" && data[0].Field11caption != "" && data[0].Field11caption != null) {
-                    $('#LbDropdown6').text(data[0].Field11caption);
-                    $('#divDropdown6').show();
-                }
-
-                if (data[0].Field12caption != "--None--" && data[0].Field12caption != "" && data[0].Field12caption != null) {
-                    $('#LbTextbox1').text(data[0].Field12caption);
-                    $('#divTextbox1').show();
-                }
-                if (data[0].Field13caption != "--None--" && data[0].Field13caption != "" && data[0].Field13caption != null) {
-                    $('#LbTextbox2').text(data[0].Field13caption);
-                    $('#divTextbox2').show();
-                }
-                if (data[0].Field14caption != "--None--" && data[0].Field14caption != "" && data[0].Field14caption != null) {
-                    $('#LbTextbox3').text(data[0].Field14caption);
-                    $('#divTextbox3').show();
-                }
-                if (data[0].Field15caption != "--None--" && data[0].Field15caption != "" && data[0].Field15caption != null) {
-                    $('#LbTextbox4').text(data[0].Field15caption);
-                    $('#divTextbox4').show();
-                }
-                if (data[0].Field16caption != "--None--" && data[0].Field16caption != "" && data[0].Field16caption != null) {
-                    $('#LbTextbox5').text(data[0].Field16caption);
-                    $('#divTextbox5').show();
-                }
-
-                if (data[0].Field17caption != "--None--" && data[0].Field17caption != "" && data[0].Field17caption != null) {
-                    $('#LbTextbox6').text(data[0].Field17caption);
-                    $('#divTextbox6').show();
-                }
-                if (data[0].Rating1caption != "--None--" && data[0].Rating1caption != "" && data[0].Rating1caption != null) {
-                    $('#LbRating1').text(data[0].Rating1caption);
-                    $('#divRating1').show();
-                }
-                if (data[0].Rating2caption != "--None--" && data[0].Rating2caption != "" && data[0].Rating2caption != null) {
-                    $('#LbRating2').text(data[0].Rating2caption);
-                    $('#divRating2').show();
-                }
-                if (data[0].Rating3caption != "--None--" && data[0].Rating3caption != "" && data[0].Rating3caption != null) {
-                    $('#LbRating3').text(data[0].Rating3caption);
-                    $('#divRating3').show();
-                }
-
-                if (data[0].Date1caption != "--None--" && data[0].Date1caption != "" && data[0].Date1caption != null) {
-
-                    $('#LbDate1').text(data[0].Date1caption);
-                    $('#divDate1').show();
-                }
-                if (data[0].Date2caption != "--None--" && data[0].Date2caption != "" && data[0].Date2caption != null) {
-                    $('#LbDate2').text(data[0].Date2caption);
-                    $('#divDate2').show();
-                }
-                if (data[0].Date3caption != "--None--" && data[0].Date3caption != "" && data[0].Date3caption != null) {
-                    $('#LbDate3').text(data[0].Date3caption);
-                    $('#divDate3').show();
-                }
-                if (data[0].Time1caption != "--None--" && data[0].Time1caption != "" && data[0].Time1caption != null) {
-                    $('#LbTime1').text(data[0].Time1caption);
-                    $('#divTime1').show();
-                }
-                if (data[0].Time2caption != "--None--" && data[0].Time2caption != "" && data[0].Time2caption != null) {
-                    $('#LbTime2').text(data[0].Time2caption);
-                    $('#divTime2').show();
-                }
-                if (data[0].Email1caption != "--None--" && data[0].Email1caption != "" && data[0].Email1caption != null) {
-                    $('#LbEmail1').text(data[0].Email1caption);
-                    $('#divEmail1').show();
-                }
-
-                if (data[0].Email2caption != "--None--" && data[0].Email2caption != "" && data[0].Email2caption != null) {
-                    $('#LbEmail2').text(data[0].Email2caption);
-                    $('#divEmail2').show();
-                }
-
-                if (data[0].Email3caption != "--None--" && data[0].Email3caption != "" && data[0].Email3caption != null) {
-                    $('#LbEmail3').text(data[0].Email3caption);
-                    $('#divEmail3').show();
-                }
-                if (data[0].Amountcaption != "--None--" && data[0].Amountcaption != "" && data[0].Amountcaption != null) {
-                    $('#LbAmount1').text(data[0].Amountcaption);
-                    $('#divAmount1').show();
-                }
-
-                if (data[0].Amount2caption != "--None--" && data[0].Amount2caption != "" && data[0].Amount2caption != null) {
-                    $('#LbAmount2').text(data[0].Amount2caption);
-                    $('#divAmount2').show();
-                }
-
-                if (data[0].Amount3caption != "--None--" && data[0].Amount3caption != "" && data[0].Amount3caption != null) {
-                    $('#LbAmount3').text(data[0].Amount3caption);
-                    $('#divAmount3').show();
-                }
-                if (data[0].TextAreacaption != "--None--" && data[0].TextAreacaption != "" && data[0].TextAreacaption != null) {
-                    $('#LbTextarea').text(data[0].Textarea);
-                    $('#divTextarea1').show();
-                }
-                if (data[0].Htmlcaption != "--None--" && data[0].Htmlcaption != "" && data[0].Htmlcaption != null) {
-                    $('#HTMlEditor1').text(data[0].Textarea);
-                    $('#divHtmleditor1').show();
-                }
-
-                if (data[0].Uploadcaption != "--None--" && data[0].Uploadcaption != "" && data[0].Uploadcaption != null) {
-                    $('#LbHTML').text(data[0].Htmlcaption);
-                    $('#divphotoUpload1').show();
-                }
-
-                if (data[0].MultiSelect1caption != "--None--" && data[0].MultiSelect1caption != "" && data[0].MultiSelect1caption != null) {
-                    $('#LbMultiselect1').text(data[0].MultiSelect1caption);
-                    $('#divMultiselect1').show();
-                }
-
-                if (data[0].MultiSelect2caption != "--None--" && data[0].MultiSelect2caption != "" && data[0].MultiSelect2caption != null) {
-                    $('#LbMultiselect2').text(data[0].MultiSelect1caption);
-                    $('#divMultiselect2').show();
-                }
-                if (data[0].MultiSelect3caption != "--None--" && data[0].MultiSelect3caption != "" && data[0].MultiSelect3caption != null) {
-                    $('#LbMultiselect3').text(data[0].MultiSelect1caption);
-                    $('#divMultiselect3').show();
-                }
-                if (data[0].MultiSelect4caption != "--None--" && data[0].MultiSelect4caption != "" && data[0].MultiSelect4caption != null) {
-                    $('#LbMultiselect4').text(data[0].MultiSelect4caption);
-                    $('#divMultiselect4').show();
-                }
-                if (data[0].MultiSelect5caption != "--None--" && data[0].MultiSelect5caption != "" && data[0].MultiSelect5caption != null) {
-                    $('#LbMultiselect5').text(data[0].MultiSelect5caption);
-                    $('#divMultiselect5').show();
-                }
-            },
-            error: function (data) {
-                alert("error found");
-            }
-        });
-
-    }
-
-    function PageLoad_HelpTip() {
-        var field1 = $('#drpSegmenttab3 option:selected').val();
-        var field2 = $('#drpMasterTab3 option:selected').val();
-        $.ajax({
-            url: "/AllMaster/FormLoadHelp",
-            data: { Type: 'Caption', field1: field1, field2: field2 },
-            type: "POST",
-            dataType: "json",
-            success: function (data) {
-                if (data[0].Field3 != "--None--" && data[0].Field3 != "" && data[0].Field3 != null) {
-                    $('#txtnameTab3').attr("placeholder", data[0].Field3);
-                    $('field6').show();
-                }
-
-                if (data[0].Field5 != "--None--" && data[0].Field5 != "" && data[0].Field5 != null) {
-                    $('#txtRemarsTab3').attr("placeholder", data[0].Field5);
-                    $('field8').show();
-                }
-
-                if (data[0].Field6 != "--None--" && data[0].Field6 != "" && data[0].Field6 != null) {
-                    $('#LbDropdown1').attr("placeholder", data[0].Field6);
-                    $('field9').show();
-                }
-                if (data[0].Field7 != "--None--" && data[0].Field7 != "" && data[0].Field7 != null) {
-                    $('#LbDropdown2').attr("placeholder", data[0].Field7);
-                    $('field10').show();
-                }
-                if (data[0].Field8 != "--None--" && data[0].Field8 != "" && data[0].Field8 != null) {
-                    $('#LbDropdown3').attr("placeholder", data[0].Field8);
-                    $('field11').show();
-                }
-                if (data[0].Field9 != "--None--" && data[0].Field9 != "" && data[0].Field9 != null) {
-                    $('#LbDropdown4').attr("placeholder", data[0].Field9);
-                    $('field12').show();
-                }
-                if (data[0].Field10 != "--None--" && data[0].Field10 != "" && data[0].Field10 != null) {
-                    $('#LbDropdown5').attr("placeholder", data[0].Field10);
-                    $('field13').show();
-                }
-                if (data[0].Field11 != "--None--" && data[0].Field11 != "" && data[0].Field11 != null) {
-                    $('#LbDropdown6').attr("placeholder", data[0].Field11);
-                    $('field14').show();
-                }
-
-
-                if (data[0].Field12 != "--None--" && data[0].Field12 != "" && data[0].Field12 != null) {
-                    $('#Textbox1Tab3').attr('placeholder', data[0].Field12);
-                    $('field15').show();
-                }
-                if (data[0].Field13 != "--None--" && data[0].Field13 != "" && data[0].Field13 != null) {
-                    $('#Textbox2Tab3').attr('placeholder', data[0].Field13);
-                    $('field16').show();
-                }
-
-
-                if (data[0].Field14 != "--None--" && data[0].Field14 != "" && data[0].Field14 != null) {
-                    $('#Textbox3Tab3').attr('placeholder', data[0].Field14);
-                    $('field17').show();
-                }
-                if (data[0].field15 != "--None--" && data[0].field15 != "" && data[0].field15 != null) {
-                    $('#Textbox4Tab3').attr('placeholder', data[0].field15);
-                    $('field18').show();
-                }
-                if (data[0].field16 != "--None--" && data[0].field16 != "" && data[0].field16 != null) {
-                    $('#Textbox5Tab3').attr('placeholder', data[0].field16);
-                    $('field19').show();
-                }
-
-                if (data[0].field17 != "--None--" && data[0].field17 != "" && data[0].field17 != null) {
-                    $('#Textbox6Tab3').attr('placeholder', data[0].field17);
-                    $('field20').show();
-                }
-                if (data[0].Rating1 != "--None--" && data[0].Rating1 != "" && data[0].Rating1 != null) {
-
-                    $('#LbRating1').attr('placeholder', data[0].Rating1);
-                    $('field21').show();
-                }
-                if (data[0].Rating2 != "--None--" && data[0].Rating2 != "" && data[0].Rating2 != null) {
-
-                    $('#LbRating2').attr('placeholder', data[0].Rating2);
-                    $('field22').show();
-                }
-                if (data[0].Rating3 != "--None--" && data[0].Rating3 != "" && data[0].Rating3 != null) {
-
-                    $('#LbRating3').attr('placeholder', data[0].Rating3);
-                    $('field23').show();
-                }
-                if (data[0].Date1 != "--None--" && data[0].Date1 != "" && data[0].Date1 != null) {
-
-                    $('#Date1').attr('placeholder', data[0].Date1);
-                    $('field24').show();
-                }
-
-                if (data[0].Date2 != "--None--" && data[0].Date2 != "" && data[0].Date2 != null) {
-                    $('#Date2').attr('placeholder', data[0].Date2);
-                    $('field25').show();
-                }
-                if (data[0].Date3 != "--None--" && data[0].Date3 != "" && data[0].Date3 != null) {
-                    $('#Date3').attr('placeholder', data[0].Date3);
-                    $('field26').show();
-                }
-                if (data[0].Time1 != "--None--" && data[0].Time1 != "" && data[0].Time1 != null) {
-                    $('#time1').attr('placeholder', data[0].Time1);
-                    $('field27').show();
-                }
-                if (data[0].Time2 != "--None--" && data[0].Time2 != "" && data[0].Time2 != null) {
-                    $('#time2').attr('placeholder', data[0].Time2);
-                    $('field28').show();
-                }
-                if (data[0].Email1 != "--None--" && data[0].Email1 != "" && data[0].Email1 != null) {
-                    $('#Email1').attr('placeholder', data[0].Email1);
-                    $('field29').show();
-                }
-
-                if (data[0].Email2 != "--None--" && data[0].Email2 != "" && data[0].Email2 != null) {
-                    $('#Email2').attr('placeholder', data[0].Email2);
-                    $('field30').show();
-                }
-
-                if (data[0].Email3 != "--None--" && data[0].Email3 != "" && data[0].Email3 != null) {
-                    $('#Email3').attr('placeholder', data[0].Email3);
-                    $('field31').show();
-
-                }
-                if (data[0].Amount != "--None--" && data[0].Amount != "" && data[0].Amount != null) {
-                    $('#Amount1').attr('placeholder', data[0].Amount);
-                    $('field32').show();
-                }
-
-                if (data[0].Amount2 != "--None--" && data[0].Amount2 != "" && data[0].Amount2 != null) {
-                    $('#Amount2').attr('placeholder', data[0].Amount2);
-                    $('field33').show();
-                }
-
-                if (data[0].Amount3 != "--None--" && data[0].Amount3 != "" && data[0].Amount3 != null) {
-                    $('#Amount3').attr('placeholder', data[0].Amount3);
-                    $('field34').show();
-                }
-                if (data[0].Textarea != "--None--" && data[0].Textarea != "" && data[0].Textarea != null) {
-                    $('#Textarea1').attr('placeholder', data[0].Textarea);
-                    $('field35').show();
-                }
-                if (data[0].Html != "--None--" && data[0].Html != "" && data[0].Html != null) {
-                    $('#HTMlEditor1').attr('placeholder', data[0].Html);
-                    $('field36').show();
-                }
-                if (data[0].Upload != "--None--" && data[0].Upload != "" && data[0].Upload != null) {
-                    $('#LbPHOTOUPLOAD').attr('placeholder', data[0].Upload);
-                    $('field37').show();
-                }
-                if (data[0].MultiSelect1 != "--None--" && data[0].MultiSelect1 != "" && data[0].MultiSelect1 != null) {
-                    $('#Multiselect1').attr('placeholder', data[0].MultiSelect1);
-                    $('field38').show();
-                }
-                if (data[0].MultiSelect2 != "--None--" && data[0].MultiSelect2 != "" && data[0].MultiSelect2 != null) {
-                    $('#Multiselect2').attr('placeholder', data[0].MultiSelect2);
-                    $('field39').show();
-                }
-                if (data[0].MultiSelect3 != "--None--" && data[0].MultiSelect3 != "" && data[0].MultiSelect3 != null) {
-                    $('#Multiselect3').attr('placeholder', data[0].MultiSelect3);
-                    $('field40').show();
-                }
-                if (data[0].MultiSelect4 != "--None--" && data[0].MultiSelect4 != "" && data[0].MultiSelect4 != null) {
-                    $('#Multiselect4').attr('placeholder', data[0].MultiSelect4);
-                    $('field41').show();
-                }
-                if (data[0].MultiSelect5 != "--None--" && data[0].MultiSelect5 != "" && data[0].MultiSelect5 != null) {
-                    $('#Multiselect5').attr('placeholder', data[0].MultiSelect5);
-                    $('field42').show();
-                }
-
-            },
-            error: function (data) {
-                alert("error found");
-            }
-        });
-
-    }
-
-    function PageLoad_Placeholder() {
-        var field1 = $('#drpSegmenttab3 option:selected').val();
-        var field2 = $('#drpMasterTab3 option:selected').val();
-
-        $.ajax({
-            url: "/AllMaster/FormLoadPlaceholder",
-
-            data: { Type: 'Caption', field1: field1, field2: field2 },
-            type: "POST",
-            dataType: "json",
-            success: function (data) {
-                if (data[0].Field1 != "--None--" && data[0].Field1 != "" && data[0].Field1 != null) {
-                    $('#LbSrNo').attr("data-original-title", data[0].Field1);
-                }
-                if (data[0].Field2 != "--None--" && data[0].Field2 != "" && data[0].Field2 != null) {
-                    $('#LbCode').attr("data-original-title", data[0].Field2);
-                }
-
-                if (data[0].Field3 != "--None--" && data[0].Field3 != "" && data[0].Field3 != null) {
-                    $('#LbName').attr("data-original-title", data[0].Field3);
-                    $('#divName').show();
-                }
-                if (data[0].Field4 != "--None--" && data[0].Field4 != "" && data[0].Field4 != null) {
-                    $('#LbActive').attr("data-original-title", data[0].Field4);
-
-                    $('#divActive').show();
-                }
-
-                if (data[0].Field5 != "--None--" && data[0].Field5 != "" && data[0].Field5 != null) {
-                    $('#LbRemarks').attr("data-original-title", data[0].Field5);
-                    $('#divRemarks').show();
-                }
-
-                if (data[0].Field6 != "--None--" && data[0].Field6 != "" && data[0].Field6 != null) {
-                    $('#LbDropdown1').attr("data-original-title", data[0].Field6);
-                    $('#LbDropdown1').attr('title', data[0].Field6);
-                    $('#divDropdown1').show();
-                }
-                if (data[0].Field7 != "--None--" && data[0].Field7 != "" && data[0].Field7 != null) {
-                    $('#LbDropdown2').attr("data-original-title", data[0].Field7);
-                    $('#divDropdown2').show();
-                }
-                if (data[0].Field8 != "--None--" && data[0].Field8 != "" && data[0].Field8 != null) {
-                    $('#LbDropdown3').attr("data-original-title", data[0].Field8);
-                    $('#divDropdown3').show();
-                }
-                if (data[0].Field9 != "--None--" && data[0].Field9 != "" && data[0].Field9 != null) {
-                    $('#LbDropdown4').attr("data-original-title", data[0].Field9);
-                    $('#divDropdown4').show();
-                }
-                if (data[0].Field10 != "--None--" && data[0].Field10 != "" && data[0].Field10 != null) {
-                    $('#LbDropdown5').attr("data-original-title", data[0].Field10);
-                    $('#divDropdown5').show();
-                }
-                if (data[0].Field11 != "--None--" && data[0].Field11 != "" && data[0].Field11 != null) {
-                    $('#LbDropdown6').attr("data-original-title", data[0].Field11);
-                    $('#divDropdown6').show();
-                }
-
-                if (data[0].Field12 != "--None--" && data[0].Field12 != "" && data[0].Field12 != null) {
-                    $('#LbTextbox1').attr("data-original-title", data[0].Field12);
-                    $('#divTextbox1').show();
-                }
-                if (data[0].Field13 != "--None--" && data[0].Field13 != "" && data[0].Field13 != null) {
-                    $('#LbTextbox2').attr("data-original-title", data[0].Field13);
-                    $('#divTextbox2').show();
-                }
-                if (data[0].Field14 != "--None--" && data[0].Field14 != "" && data[0].Field14 != null) {
-                    $('#LbTextbox3').attr("data-original-title", data[0].Field14);
-                    $('#divTextbox3').show();
-                }
-                if (data[0].Field15 != "--None--" && data[0].Field15 != "" && data[0].Field15 != null) {
-                    $('#LbTextbox4').attr("data-original-title", data[0].Field15);
-                    $('#divTextbox4').show();
-                }
-                if (data[0].Field16 != "--None--" && data[0].Field16 != "" && data[0].Field16 != null) {
-                    $('#LbTextbox5').attr("data-original-title", data[0].Field16);
-                    $('#divTextbox5').show();
-                }
-
-                if (data[0].Field17 != "--None--" && data[0].Field17 != "" && data[0].Field17 != null) {
-                    $('#LbTextbox6').attr("data-original-title", data[0].Field17);
-                    $('#divTextbox6').show();
-                }
-                if (data[0].Rating1 != "--None--" && data[0].Rating1 != "" && data[0].Rating1 != null) {
-                    $('#LbRating1').attr("data-original-title", data[0].Rating1);
-                    $('#divRating1').show();
-                }
-                if (data[0].Rating2 != "--None--" && data[0].Rating2 != "" && data[0].Rating2 != null) {
-                    $('#LbRating2').attr("data-original-title", data[0].Rating2);
-                    $('#divRating2').show();
-                }
-                if (data[0].Rating3 != "--None--" && data[0].Rating3 != "" && data[0].Rating3 != null) {
-                    $('#LbRating3').attr("data-original-title", data[0].Rating3);
-                    $('#divRating3').show();
-                }
-
-                if (data[0].Date1 != "--None--" && data[0].Date1 != "" && data[0].Date1 != null) {
-
-                    $('#LbDate1').attr("data-original-title", data[0].Date1);
-                    $('#divDate1').show();
-                }
-                if (data[0].Date2 != "--None--" && data[0].Date2 != "" && data[0].Date2 != null) {
-                    $('#LbDate2').attr("data-original-title", data[0].Date2);
-                    $('#divDate2').show();
-                }
-                if (data[0].Date3 != "--None--" && data[0].Date3 != "" && data[0].Date3 != null) {
-                    $('#LbDate3').attr("data-original-title", data[0].Date3);
-                    $('#divDate3').show();
-                }
-                if (data[0].Time1 != "--None--" && data[0].Time1 != "" && data[0].Time1 != null) {
-                    $('#LbTime1').attr("data-original-title", data[0].Time1);
-                    $('#divTime1').show();
-                }
-                if (data[0].Time2 != "--None--" && data[0].Time2 != "" && data[0].Time2 != null) {
-                    $('#LbTime2').attr("data-original-title", data[0].Time2);
-                    $('#divTime2').show();
-                }
-                if (data[0].Email1 != "--None--" && data[0].Email1 != "" && data[0].Email1 != null) {
-                    $('#LbEmail1').attr("data-original-title", data[0].Email1);
-                    $('#divEmail1').show();
-                }
-
-                if (data[0].Email2 != "--None--" && data[0].Email2 != "" && data[0].Email2 != null) {
-                    $('#LbEmail2').attr("data-original-title", data[0].Email2);
-                    $('#divEmail2').show();
-                }
-
-                if (data[0].Email3 != "--None--" && data[0].Email3 != "" && data[0].Email3 != null) {
-                    $('#LbEmail3').attr("data-original-title", data[0].Email3);
-                    $('#divEmail3').show();
-                }
-                if (data[0].Amount != "--None--" && data[0].Amount != "" && data[0].Amount != null) {
-                    $('#LbAmount1').attr("data-original-title", data[0].Amount);
-                    $('#divAmount1').show();
-                }
-
-                if (data[0].Amount2 != "--None--" && data[0].Amount2 != "" && data[0].Amount2 != null) {
-                    $('#LbAmount2').attr("data-original-title", data[0].Amount2);
-                    $('#divAmount2').show();
-                }
-
-                if (data[0].Amount3 != "--None--" && data[0].Amount3 != "" && data[0].Amount3 != null) {
-                    $('#LbAmount3').attr("data-original-title", data[0].Amount3);
-                    $('#divAmount3').show();
-                }
-                if (data[0].TextArea != "--None--" && data[0].TextArea != "" && data[0].TextArea != null) {
-                    $('#LbTextarea').attr("data-original-title", data[0].Textarea);
-                    $('#divTextarea1').show();
-                }
-                if (data[0].Html != "--None--" && data[0].Html != "" && data[0].Html != null) {
-                    $('#HTMlEditor1').attr("data-original-title", data[0].Textarea);
-                    $('#divHtmleditor1').show();
-                }
-
-                if (data[0].Upload != "--None--" && data[0].Upload != "" && data[0].Upload != null) {
-                    $('#LbHTML').attr("data-original-title", data[0].Html);
-                    $('#divphotoUpload1').show();
-                }
-
-                if (data[0].MultiSelect1 != "--None--" && data[0].MultiSelect1 != "" && data[0].MultiSelect1 != null) {
-                    $('#LbMultiselect1').attr("data-original-title", data[0].MultiSelect1);
-                    $('#divMultiselect1').show();
-                }
-
-                if (data[0].MultiSelect2 != "--None--" && data[0].MultiSelect2 != "" && data[0].MultiSelect2 != null) {
-                    $('#LbMultiselect2').attr("data-original-title", data[0].MultiSelect1);
-                    $('#divMultiselect2').show();
-                }
-                if (data[0].MultiSelect3 != "--None--" && data[0].MultiSelect3 != "" && data[0].MultiSelect3 != null) {
-                    $('#LbMultiselect3').attr("data-original-title", data[0].MultiSelect1);
-                    $('#divMultiselect3').show();
-                }
-                if (data[0].MultiSelect4 != "--None--" && data[0].MultiSelect4 != "" && data[0].MultiSelect4 != null) {
-                    $('#LbMultiselect4').attr("data-original-title", data[0].MultiSelect4);
-                    $('#divMultiselect4').show();
-                }
-                if (data[0].MultiSelect5 != "--None--" && data[0].MultiSelect5 != "" && data[0].MultiSelect5 != null) {
-                    $('#LbMultiselect5').attr("data-original-title", data[0].MultiSelect5);
-                    $('#divMultiselect5').show();
-                }
-
-            },
-            error: function (data) {
-                alert("error found");
-            }
-        });
-
-    }
-
+  
+   
+   
     function hide_Tooltip() {
 
         $('#field6').show();
@@ -922,7 +377,7 @@
              },
              dataType: 'json',
              success: function (response) {
-                 
+
                  //Master
                  if (response['AMaster'].length > 0) {
 
@@ -930,7 +385,7 @@
                      $('#drpSegmenttab3').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      $('#drpCorporateTab').find('option[value="' + response['AMaster'][0]['Corporate'] + '"]').attr('selected', true).change();
                      $('#drpMasterTab3').find('option[value="' + response['AMaster'][0]['xmaster'] + '"]').attr('selected', true).change();
-                    
+
                  }
                  if (response['AUserMasterData'].length > 0) {
 
@@ -943,8 +398,24 @@
                      $('#Dropdown3Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross1'] + '"]').attr('selected', true).change();
                      $('#Dropdown4Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross2'] + '"]').attr('selected', true).change();
                      $('#Dropdown5Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross3'] + '"]').attr('selected', true).change();
-                     $('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true).change();
+                     $('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true);
 
+                     FillDropdown('Dropdown1Tab3', 'xlink');
+                     FillDropdown('Dropdown2Tab3', 'xcross');
+                     FillDropdown('Dropdown3Tab3', 'xcross1');
+                     FillDropdown('Dropdown4Tab3', 'xcross2');
+                     FillDropdown('Dropdown5Tab3', 'xcross3');
+                     FillDropdown('Dropdown6Tab3', 'xcross4');
+                     FillDropdown('MultiSelect1', 'MultiSelect1');
+                     FillDropdown('MultiSelect2', 'MultiSelect2');
+                     FillDropdown('MultiSelect3', 'MultiSelect3');
+                     FillDropdown('MultiSelect4', 'MultiSelect4');
+                     FillDropdown('MultiSelect5', 'MultiSelect5');
+                     hide_Tooltip();
+                     PageLoad_FilledAll();
+
+
+                     $('#txtSrNoTab3').val(response['AUserMasterData'][0]['USrno']);
                      $('#Textbox1Tab3').val(response['AUserMasterData'][0]['Uxreference1']);
                      $('#Textbox2Tab3').val(response['AUserMasterData'][0]['Uxreference2']);
                      $('#Textbox3Tab3').val(response['AUserMasterData'][0]['Uxreference3']);
@@ -977,10 +448,15 @@
                      $('#Multiselect4').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect4'] + '"]').attr('selected', true).change();
                      $('#Multiselect5').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect5'] + '"]').attr('selected', true).change();
 
-                   
+
+
+                     $('#btnSave').text('UPDATE');
+                     $('#btnSave').attr("class", "btn btn-primary btnSave");
+                     // $('#btnDelete').show();
+
                  }
-                 alert(response['AMaster'][0]['xmaster']);
-                 $("#drpMasterTab3").val(response['AMaster'][0]['xmaster']);
+                 //alert(response['AMaster'][0]['xmaster']);
+                 //$("#drpMasterTab3").val(response['AMaster'][0]['xmaster']);
              }
          });
 
@@ -1010,7 +486,7 @@
                     //console.log(response['ACaption'][0]['xmastercaption']);
 
                     if (response['ACaption'][0]['Field3caption'] != "--None--" && response['ACaption'][0]['Field3caption'] != "" && response['ACaption'][0]['Field3caption'] != null) {
-                       
+
                         $('#LbName').text(response['ACaption'][0]['Field3caption']);
                         $('#divName').show();
                     }
@@ -1144,12 +620,12 @@
                     }
                     if (response['ACaption'][0]['Htmlcaption'] != "--None--" && response['ACaption'][0]['Htmlcaption'] != "" && response['ACaption'][0]['Htmlcaption'] != null) {
 
-                        $('#HTMlEditor1').text(response['ACaption'][0]['Htmlcaption']);
+                        $('#LbHTML').text(response['ACaption'][0]['Htmlcaption']);
                         $('#divHtmleditor1').show();
                     }
                     if (response['ACaption'][0]['Uploadcaption'] != "--None--" && response['ACaption'][0]['Uploadcaption'] != "" && response['ACaption'][0]['Uploadcaption'] != null) {
 
-                        $('#LbHTML').text(response['ACaption'][0]['Uploadcaption']);
+                        $('#LbPHOTOUPLOAD').text(response['ACaption'][0]['Uploadcaption']);
                         $('#divphotoUpload1').show();
                     }
                     if (response['ACaption'][0]['TextAreacaption'] != "--None--" && response['ACaption'][0]['TextAreacaption'] != "" && response['ACaption'][0]['TextAreacaption'] != null) {
@@ -1179,24 +655,24 @@
                     }
                     if (response['ACaption'][0]['MultiSelect5caption'] != "--None--" && response['ACaption'][0]['MultiSelect5caption'] != "" && response['ACaption'][0]['MultiSelect5caption'] != null) {
 
-                        $('#LbMultiselect5').val(response['ACaption'][0]['MultiSelect5caption']);
+                        $('#LbMultiselect5').text(response['ACaption'][0]['MultiSelect5caption']);
                         $('#divMultiselect5').show();
                     }
                 }
                 //Placeholder
                 if (response['Aplaceholder'].length > 0) {
                     //console.log(response['Aplaceholder'][0]['xmaster']);
-                  //  alert(response['Aplaceholder'][0]['field12']);
+                    //  alert(response['Aplaceholder'][0]['field12']);
                     if (response['Aplaceholder'][0]['Field3'] != "--None--" && response['Aplaceholder'][0]['Field3'] != "" && response['Aplaceholder'][0]['Field3'] != null) {
                         $('#txtnameTab3').attr("placeholder", (response['Aplaceholder'][0]['Field3']));
                     }
-                    if (response['Aplaceholder'][0]['Field5'] != "--None--" && response['Aplaceholder'][0]['Field5'] != "" && response['Aplaceholder'][0]['Field5'] != null)
-                    {
+
+                    if (response['Aplaceholder'][0]['Field5'] != "--None--" && response['Aplaceholder'][0]['Field5'] != "" && response['Aplaceholder'][0]['Field5'] != null) {
                         $('#txtRemarsTab3').attr("placeholder", (response['Aplaceholder'][0]['Field5']));
                     }
-                    if (response['Aplaceholder'][0]['Field12'] != "--None--" && response['Aplaceholder'][0]['Field12'] != "" && response['Aplaceholder'][0]['Field12'] != null)
-                    {
-                        
+
+                    if (response['Aplaceholder'][0]['Field12'] != "--None--" && response['Aplaceholder'][0]['Field12'] != "" && response['Aplaceholder'][0]['Field12'] != null) {
+
                         $('#Textbox1Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field12']));
                     }
                     if (response['Aplaceholder'][0]['Field13'] != "--None--" && response['Aplaceholder'][0]['Field13'] != "" && response['Aplaceholder'][0]['Field13'] != null) {
@@ -1205,14 +681,16 @@
                     if (response['Aplaceholder'][0]['Field14'] != "--None--" && response['Aplaceholder'][0]['Field14'] != "" && response['Aplaceholder'][0]['Field14'] != null) {
                         $('#Textbox3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field14']));
                     }
-                    if (response['Aplaceholder'][0]['field15'] != "--None--" && response['Aplaceholder'][0]['field15'] != "" && response['Aplaceholder'][0]['field15'] != null) {
-                        $('#Textbox4Tab3').attr("placeholder", (response['Aplaceholder'][0]['field15']));
+                    if (response['Aplaceholder'][0]['Field15'] != "--None--" && response['Aplaceholder'][0]['Field15'] != "" && response['Aplaceholder'][0]['Field15'] != null) {
+
+
+                        $('#Textbox4Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field15']));
                     }
-                    if (response['Aplaceholder'][0]['field16'] != "--None--" && response['Aplaceholder'][0]['field16'] != "" && response['Aplaceholder'][0]['field16'] != null) {
-                        $('#Textbox5Tab3').attr("placeholder", (response['Aplaceholder'][0]['field16']));
+                    if (response['Aplaceholder'][0]['Field16'] != "--None--" && response['Aplaceholder'][0]['Field16'] != "" && response['Aplaceholder'][0]['Field16'] != null) {
+                        $('#Textbox5Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field16']));
                     }
-                    if (response['Aplaceholder'][0]['field17'] != "--None--" && response['Aplaceholder'][0]['field17'] != "" && response['Aplaceholder'][0]['field17'] != null) {
-                        $('#Textbox6Tab3').attr("placeholder", (response['Aplaceholder'][0]['field17']));
+                    if (response['Aplaceholder'][0]['Field17'] != "--None--" && response['Aplaceholder'][0]['Field17'] != "" && response['Aplaceholder'][0]['Field17'] != null) {
+                        $('#Textbox6Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field17']));
                     }
                     if (response['Aplaceholder'][0]['Date1'] != "--None--" && response['Aplaceholder'][0]['Date1'] != "" && response['Aplaceholder'][0]['Date1'] != null) {
                         $('#Date1').attr("placeholder", (response['Aplaceholder'][0]['Date1']));
@@ -1245,12 +723,16 @@
                         $('#Amount2').attr("placeholder", (response['Aplaceholder'][0]['Amount2']));
                     }
                     if (response['Aplaceholder'][0]['Amount3'] != "--None--" && response['Aplaceholder'][0]['Amount3'] != "" && response['Aplaceholder'][0]['Amount3'] != null) {
-                        $('#Amount3').attr("placeholder", (response['Aplaceholder'][0]['Amount3']));
+
+
+                        $('#Amount3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Amount3']));
                     }
-                    if (response['Aplaceholder'][0]['Textarea'] != "--None--" && response['Aplaceholder'][0]['Textarea'] != "" && response['Aplaceholder'][0]['Textarea'] != null) {
-                        $('#Textarea1').attr("placeholder", (response['Aplaceholder'][0]['Textarea']));
+                    if (response['Aplaceholder'][0]['TextArea'] != "--None--" && response['Aplaceholder'][0]['TextArea'] != "" && response['Aplaceholder'][0]['TextArea'] != null) {
+
+                        $('#Textarea1').attr("placeholder", (response['Aplaceholder'][0]['TextArea']));
                     }
                     if (response['Aplaceholder'][0]['Html'] != "--None--" && response['Aplaceholder'][0]['Html'] != "" && response['Aplaceholder'][0]['Html'] != null) {
+
                         $('#HTMlEditor1').attr("placeholder", (response['Aplaceholder'][0]['Html']));
                     }
                     if (response['Aplaceholder'][0]['Upload'] != "--None--" && response['Aplaceholder'][0]['Upload'] != "" && response['Aplaceholder'][0]['Upload'] != null) {
@@ -1260,33 +742,130 @@
                 }
                 //validation
                 if (response['AValidation'].length > 0) {
-                    if (response['AValidation'][0]['Field3'] != '') {
+
+                    if (response['AValidation'][0]['Field3'] != '' && response['AValidation'][0]['Field3'] != '--None--' && response['Aplaceholder'][0]['Field3'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
                     }
 
-                    if (response['AValidation'][0]['Field12'] != '') {
-                        CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
+                    if (response['AValidation'][0]['Field5'] != '' && response['AValidation'][0]['Field5'] != '--None--' && response['Aplaceholder'][0]['Field5'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field5'], $('#txtRemarsTab3'));
                     }
 
-                    if (response['AValidation'][0]['Field13'] != '') {
+                    if (response['AValidation'][0]['Field12'] != '' && response['AValidation'][0]['Field12'] != '--None--' && response['Aplaceholder'][0]['Field12'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['Aplaceholder'][0]['Field13'] != null)
+                    {
                         CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
                     }
 
-                    if (response['AValidation'][0]['Field14'] != '') {
+                    if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['Aplaceholder'][0]['Field14'] != null)
+                    {
                         CheckFormValidations(response['AValidation'][0]['Field14'], $('#Textbox3Tab3'));
                     }
 
-                    if (response['AValidation'][0]['Field15'] != '') {
+                    if (response['AValidation'][0]['Field15'] != '' && response['AValidation'][0]['Field15'] != '--None--' && response['Aplaceholder'][0]['Field15'] != null)
+                    {
                         CheckFormValidations(response['AValidation'][0]['Field15'], $('#Textbox4Tab3'));
                     }
-
-                    if (response['AValidation'][0]['Email2'] != '') {
+                    if (response['AValidation'][0]['Field16'] != '' && response['AValidation'][0]['Field16'] != '--None--' && response['Aplaceholder'][0]['Field16'] != null)
+                    {
+                        CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox5Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field17'] != '' && response['AValidation'][0]['Field17'] != '--None--' && response['Aplaceholder'][0]['Field17'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox6Tab3'));
+                    }
+                    if (response['AValidation'][0]['Date1'] != '' && response['AValidation'][0]['Date1'] != '--None--' && response['Aplaceholder'][0]['Date1'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Date1'], $('#Date1'));
+                    }
+                    if (response['AValidation'][0]['Date2'] != '' && response['AValidation'][0]['Date2'] != '--None--' && response['Aplaceholder'][0]['Date2'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Date2'], $('#Date2'));
+                    }
+                    if (response['AValidation'][0]['Date3'] != '' && response['AValidation'][0]['Date3'] != '--None--' && response['Aplaceholder'][0]['Date3'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Date3'], $('#Date3'));
+                    }
+                    if (response['AValidation'][0]['Time1'] != '' && response['AValidation'][0]['Time1'] != '--None--' && response['Aplaceholder'][0]['Time1'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Time1'], $('#time1'));
+                    }
+                    if (response['AValidation'][0]['Time2'] != '' && response['AValidation'][0]['Time2'] != '--None--' && response['Aplaceholder'][0]['Time2'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Time2'], $('#time2'));
+                    }
+                    if (response['AValidation'][0]['Email1'] != '' && response['AValidation'][0]['Email1'] != '--None--' && response['Aplaceholder'][0]['Email1'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Email1'], $('#Email1'));
+                    }
+                    if (response['AValidation'][0]['Email2'] != '' && response['AValidation'][0]['Email2'] != '--None--' && response['Aplaceholder'][0]['Email2'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Email2'], $('#Email2'));
                     }
+                    if (response['AValidation'][0]['Email3'] != '' && response['AValidation'][0]['Email3'] != '--None--' && response['Aplaceholder'][0]['Email3'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Email3'], $('#Email3'));
+                    }
+                    if (response['AValidation'][0]['Amount'] != '' && response['AValidation'][0]['Amount'] != '--None--' && response['Aplaceholder'][0]['Amount'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Amount'], $('#Amount1'));
+                    }
+                    if (response['AValidation'][0]['Amount2'] != '' && response['AValidation'][0]['Amount2'] != '--None--' && response['Aplaceholder'][0]['Amount2'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Amount2'], $('#Amount2'));
+                    }
+                    if (response['AValidation'][0]['Amount3'] != '' && response['AValidation'][0]['Amount3'] != '--None--' && response['Aplaceholder'][0]['Amount3'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Amount3'], $('#Amount3Tab3'));
+                    }
+                    if (response['AValidation'][0]['TextArea'] != '' && response['AValidation'][0]['TextArea'] != '--None--' && response['Aplaceholder'][0]['TextArea'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['TextArea'], $('#Textarea1'));
+                    }
 
-                    
+                    if (response['AValidation'][0]['Html'] != '' && response['AValidation'][0]['Html'] != '--None--' && response['Aplaceholder'][0]['Html'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Html'], $('#HTMlEditor1'));
+                    }
+
+                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['Aplaceholder'][0]['Upload'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    }
+
+                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['Aplaceholder'][0]['Upload'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    }
+                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['Aplaceholder'][0]['Upload'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    }
+                    if (response['AValidation'][0]['Field6'] != '' && response['AValidation'][0]['Field6'] != '--None--' && response['Aplaceholder'][0]['Field6'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field6'], $('#Dropdown1Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field7'] != '' && response['AValidation'][0]['Field7'] != '--None--' && response['Aplaceholder'][0]['Field7'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field7'], $('#Dropdown2Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field8'] != '' && response['AValidation'][0]['Field8'] != '--None--' && response['Aplaceholder'][0]['Field8'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field8'], $('#Dropdown3Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field9'] != '' && response['AValidation'][0]['Field9'] != '--None--' && response['Aplaceholder'][0]['Field9'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field9'], $('#Dropdown4Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field10'] != '' && response['AValidation'][0]['Field10'] != '--None--' && response['Aplaceholder'][0]['Field10'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field10'], $('#Dropdown5Tab3'));
+                    }
+                    if (response['AValidation'][0]['Field11'] != '' && response['AValidation'][0]['Field11'] != '--None--' && response['Aplaceholder'][0]['Field11'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Field11'], $('#Dropdown6Tab3'));
+                    }
+
+
+                    if (response['AValidation'][0]['MultiSelect1'] != '' && response['AValidation'][0]['MultiSelect1'] != '--None--' && response['Aplaceholder'][0]['MultiSelect1'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect1'], $('#Multiselect1'));
+                    }
+                    if (response['AValidation'][0]['MultiSelect2'] != '' && response['AValidation'][0]['MultiSelect2'] != '--None--' && response['Aplaceholder'][0]['MultiSelect2'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect2'], $('#Dropdown6Tab3'));
+                    }
+                    if (response['AValidation'][0]['MultiSelect3'] != '' && response['AValidation'][0]['MultiSelect3'] != '--None--' && response['Aplaceholder'][0]['MultiSelect3'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect3'], $('#MultiSelect3'));
+                    }
+                    if (response['AValidation'][0]['MultiSelect4'] != '' && response['AValidation'][0]['MultiSelect4'] != '--None--' && response['Aplaceholder'][0]['MultiSelect4'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect4'], $('#MultiSelect4'));
+                    }
+                    if (response['AValidation'][0]['MultiSelect5'] != '' && response['AValidation'][0]['MultiSelect5'] != '--None--' && response['Aplaceholder'][0]['MultiSelect5'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect5'], $('#MultiSelect5'));
+                    }
+
+
+
                     //console.log(response['AMaster'][0]['xmaster']);
-                    
+
                     //$('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
                     //$('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
                     //$('#txtValidationCode4').val(response['AValidation'][0]['Field6']);
@@ -1330,7 +909,7 @@
                     //console.log(response['Atooltip'][0]['xmaster']);
                     //$('#txtHelp1').val(response['Atooltip'][0]['Field3']);
                     if (response['Atooltip'][0]['Field3'] != "--None--" && response['Atooltip'][0]['Field3'] != "" && response['Atooltip'][0]['Field3'] != null) {
-                        
+
                         //$('#LbName').attr("data-original-title", (response['Atooltip'][0]['Field3']));
                         $('#field6').attr("data-original-title", (response['Atooltip'][0]['Field3']));
                         $('#field6').show();
@@ -1387,130 +966,130 @@
                         $('#field16').show();
                     }
                     if (response['Atooltip'][0]['Field14'] != "--None--" && response['Atooltip'][0]['Field14'] != "" && response['Atooltip'][0]['Field14'] != null) {
-                        $('#LbTextbox3').attr("data-original-title", (response['Atooltip'][0]['Field14']));
+                        $('#field17').attr("data-original-title", (response['Atooltip'][0]['Field14']));
                         $('#field17').show();
                     }
                     if (response['Atooltip'][0]['Field15'] != "--None--" && response['Atooltip'][0]['Field15'] != "" && response['Atooltip'][0]['Field15'] != null) {
-                        $('#LbTextbox4').attr("data-original-title", (response['Atooltip'][0]['Field15']));
+                        $('#field18').attr("data-original-title", (response['Atooltip'][0]['Field15']));
                         $('#field18').show();
                     }
                     if (response['Atooltip'][0]['Field16'] != "--None--" && response['Atooltip'][0]['Field16'] != "" && response['Atooltip'][0]['Field16'] != null) {
-                        $('#LbTextbox5').attr("data-original-title", (response['Atooltip'][0]['Field16']));
+                        $('#field19').attr("data-original-title", (response['Atooltip'][0]['Field16']));
                         $('#field19').show();
                     }
                     if (response['Atooltip'][0]['Field17'] != "--None--" && response['Atooltip'][0]['Field17'] != "" && response['Atooltip'][0]['Field17'] != null) {
 
-                        $('#LbTextbox6').attr("data-original-title", (response['Atooltip'][0]['Field17']));
+                        $('#field20').attr("data-original-title", (response['Atooltip'][0]['Field17']));
                         $('#field20').show();
                     }
                     if (response['Atooltip'][0]['Rating1'] != "--None--" && response['Atooltip'][0]['Rating1'] != "" && response['Atooltip'][0]['Rating1'] != null) {
 
-                        $('#LbRating1').attr("data-original-title", (response['Atooltip'][0]['Rating1']));
+                        $('#field21').attr("data-original-title", (response['Atooltip'][0]['Rating1']));
                         $('field21').show();
                     }
                     if (response['Atooltip'][0]['Rating2'] != "--None--" && response['Atooltip'][0]['Rating2'] != "" && response['Atooltip'][0]['Rating2'] != null) {
 
-                        $('#LbRating2').attr("data-original-title", (response['Atooltip'][0]['Rating2']));
+                        $('#field22').attr("data-original-title", (response['Atooltip'][0]['Rating2']));
                         $('field22').show();
                     }
                     if (response['Atooltip'][0]['Rating3'] != "--None--" && response['Atooltip'][0]['Rating3'] != "" && response['Atooltip'][0]['Rating3'] != null) {
 
-                        $('#LbRating3').attr("data-original-title", (response['Atooltip'][0]['Rating3']));
+                        $('#field23').attr("data-original-title", (response['Atooltip'][0]['Rating3']));
                         $('#field23').show();
                     }
                     if (response['Atooltip'][0]['Date1'] != "--None--" && response['Atooltip'][0]['Date1'] != "" && response['Atooltip'][0]['Date1'] != null) {
 
-                        $('#LbDate1').attr("data-original-title", (response['Atooltip'][0]['Date1']));
+                        $('#field24').attr("data-original-title", (response['Atooltip'][0]['Date1']));
                         $('#field24').show();
                     }
                     if (response['Atooltip'][0]['Date2'] != "--None--" && response['Atooltip'][0]['Date2'] != "" && response['Atooltip'][0]['Date2'] != null) {
 
-                        $('#LbDate2').attr("data-original-title", (response['Atooltip'][0]['Date2']));
+                        $('#field25').attr("data-original-title", (response['Atooltip'][0]['Date2']));
                         $('#field25').show();
                     }
                     if (response['Atooltip'][0]['Date2'] != "--None--" && response['Atooltip'][0]['Date2'] != "" && response['Atooltip'][0]['Date2'] != null) {
 
-                        $('#LbDate3').attr("data-original-title", (response['Atooltip'][0]['Date3']));
+                        $('#field26').attr("data-original-title", (response['Atooltip'][0]['Date3']));
                         $('#field26').show();
                     }
                     if (response['Atooltip'][0]['Email1'] != "--None--" && response['Atooltip'][0]['Email1'] != "" && response['Atooltip'][0]['Email1'] != null) {
 
-                        $('#LbEmail1').attr("data-original-title", (response['Atooltip'][0]['Email1']));
+                        $('#field29').attr("data-original-title", (response['Atooltip'][0]['Email1']));
                         $('#field29').show();
                     }
                     if (response['Atooltip'][0]['Email2'] != "--None--" && response['Atooltip'][0]['Email2'] != "" && response['Atooltip'][0]['Email2'] != null) {
 
-                        $('#LbEmail2').attr("data-original-title", (response['Atooltip'][0]['Email2']));
+                        $('#field31').attr("data-original-title", (response['Atooltip'][0]['Email2']));
                         $('#field30').show();
                     }
                     if (response['Atooltip'][0]['Email3'] != "--None--" && response['Atooltip'][0]['Email3'] != "" && response['Atooltip'][0]['Email3'] != null) {
 
-                        $('#LbEmail3').attr("data-original-title", (response['Atooltip'][0]['Email3']));
+                        $('#field31').attr("data-original-title", (response['Atooltip'][0]['Email3']));
                         $('#field31').show();
                     }
                     if (response['Atooltip'][0]['Amount'] != "--None--" && response['Atooltip'][0]['Amount'] != "" && response['Atooltip'][0]['Amount'] != null) {
 
-                        $('#LbAmount1').attr("data-original-title", (response['Atooltip'][0]['Amount']));
+                        $('#field32').attr("data-original-title", (response['Atooltip'][0]['Amount']));
                         $('#field32').show();
                     }
                     if (response['Atooltip'][0]['Amount2'] != "--None--" && response['Atooltip'][0]['Amount2'] != "" && response['Atooltip'][0]['Amount2'] != null) {
 
-                        $('#LbAmount2').attr("data-original-title", (response['Atooltip'][0]['Amount2']));
+                        $('#field33').attr("data-original-title", (response['Atooltip'][0]['Amount2']));
                         $('#field33').show();
                     }
                     if (response['Atooltip'][0]['Amount3'] != "--None--" && response['Atooltip'][0]['Amount3'] != "" && response['Atooltip'][0]['Amount3'] != null) {
 
-                        $('#LbAmount3').attr("data-original-title", (response['Atooltip'][0]['Amount3']));
+                        $('#field34').attr("data-original-title", (response['Atooltip'][0]['Amount3']));
                         $('#field34').show();
                     }
                     if (response['Atooltip'][0]['Time1'] != "--None--" && response['Atooltip'][0]['Time1'] != "" && response['Atooltip'][0]['Time1'] != null) {
 
-                        $('#LbTime1').attr("data-original-title", (response['Atooltip'][0]['Time1']));
+                        $('#field27').attr("data-original-title", (response['Atooltip'][0]['Time1']));
                         $('#field27').show();
                     }
                     if (response['Atooltip'][0]['Time2'] != "--None--" && response['Atooltip'][0]['Time2'] != "" && response['Atooltip'][0]['Time2'] != null) {
 
-                        $('#LbTime2').attr("data-original-title", (response['Atooltip'][0]['Time2']));
+                        $('#field28').attr("data-original-title", (response['Atooltip'][0]['Time2']));
                         $('#field28').show();
                     }
                     if (response['Atooltip'][0]['Html'] != "--None--" && response['Atooltip'][0]['Html'] != "" && response['Atooltip'][0]['Html'] != null) {
 
-                        $('#HTMlEditor1').attr("data-original-title", (response['Atooltip'][0]['Html']));
+                        $('#field36').attr("data-original-title", (response['Atooltip'][0]['Html']));
                         $('#field36').show();
                     }
                     if (response['Atooltip'][0]['Upload'] != "--None--" && response['Atooltip'][0]['Upload'] != "" && response['Atooltip'][0]['Upload'] != null) {
 
-                        $('#LbHTML').attr("data-original-title", (response['Atooltip'][0]['Upload']));
+                        $('#field37').attr("data-original-title", (response['Atooltip'][0]['Upload']));
                         $('#field37').show();
                     }
                     if (response['Atooltip'][0]['TextArea'] != "--None--" && response['Atooltip'][0]['TextArea'] != "" && response['Atooltip'][0]['TextArea'] != null) {
 
-                        $('#LbTextarea').attr("data-original-title", (response['Atooltip'][0]['TextArea']));
+                        $('#field35').attr("data-original-title", (response['Atooltip'][0]['TextArea']));
                         $('#field35').show();
                     }
                     if (response['Atooltip'][0]['MultiSelect1'] != "--None--" && response['Atooltip'][0]['MultiSelect1'] != "" && response['Atooltip'][0]['MultiSelect1'] != null) {
 
-                        $('#LbMultiselect1').attr("data-original-title", (response['Atooltip'][0]['MultiSelect1']));
+                        $('#field38').attr("data-original-title", (response['Atooltip'][0]['MultiSelect1']));
                         $('#field38').show();
                     }
                     if (response['Atooltip'][0]['MultiSelect2'] != "--None--" && response['Atooltip'][0]['MultiSelect2'] != "" && response['Atooltip'][0]['MultiSelect2'] != null) {
 
-                        $('#LbMultiselect2').attr("data-original-title", (response['Atooltip'][0]['MultiSelect2']));
+                        $('#field39').attr("data-original-title", (response['Atooltip'][0]['MultiSelect2']));
                         $('#field39').show();
                     }
                     if (response['Atooltip'][0]['MultiSelect3'] != "--None--" && response['Atooltip'][0]['MultiSelect3'] != "" && response['Atooltip'][0]['MultiSelect3'] != null) {
 
-                        $('#LbMultiselect3').attr("data-original-title", (response['Atooltip'][0]['MultiSelect3']));
+                        $('#field40').attr("data-original-title", (response['Atooltip'][0]['MultiSelect3']));
                         $('#field40').show();
                     }
                     if (response['Atooltip'][0]['MultiSelect4'] != "--None--" && response['Atooltip'][0]['MultiSelect4'] != "" && response['Atooltip'][0]['MultiSelect4'] != null) {
 
-                        $('#LbMultiselect4').attr("data-original-title", (response['Atooltip'][0]['MultiSelect4']));
+                        $('#field41').attr("data-original-title", (response['Atooltip'][0]['MultiSelect4']));
                         $('#field41').show();
                     }
                     if (response['Atooltip'][0]['MultiSelect5'] != "--None--" && response['Atooltip'][0]['MultiSelect5'] != "" && response['Atooltip'][0]['MultiSelect5'] != null) {
 
-                        $('#LbMultiselect5').attr("data-original-title", (response['Atooltip'][0]['MultiSelect5']));
+                        $('#field42').attr("data-original-title", (response['Atooltip'][0]['MultiSelect5']));
                         $('#field42').show();
                     }
                 }

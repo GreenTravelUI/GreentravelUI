@@ -371,6 +371,7 @@
                    }
                }
            });
+        $('#btnCancel').click();
     });
 
 
@@ -642,7 +643,7 @@
         var screen = 0;
         var FormCode = 0;
         var TabCode = 0;
-        var Corporate =0;
+        var Corporate = 0;
         var unit = '';
         var Branch = '';
         var userid = 0;

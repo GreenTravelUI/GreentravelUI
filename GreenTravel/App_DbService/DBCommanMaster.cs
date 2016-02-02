@@ -505,7 +505,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        
+
         public int insert_data_UserMaster(CommanUserMaster CUH)
         {
             try
@@ -523,19 +523,71 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@IsActive", CUH.UIsActive);
                 _cmd.Parameters.AddWithValue("@Remark", CUH.URemark);
 
-                _cmd.Parameters.AddWithValue("@xlink", CUH.Uxlink);
-                _cmd.Parameters.AddWithValue("@xcross", CUH.Uxcross);
-                _cmd.Parameters.AddWithValue("@xcross1", CUH.Uxcross1);
-                _cmd.Parameters.AddWithValue("@xcross2", CUH.Uxcross2);
-                _cmd.Parameters.AddWithValue("@xcross3 ", CUH.Uxcross3);
-                _cmd.Parameters.AddWithValue("@xcross4", CUH.Uxcross4);
+                if (CUH.Uxlink != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xlink", CUH.Uxlink);
+                }
+                else { _cmd.Parameters.AddWithValue("@xlink", "0"); }
 
-                _cmd.Parameters.AddWithValue("@xreference1 ", CUH.Uxreference1);
-                _cmd.Parameters.AddWithValue("@xreference2 ", CUH.Uxreference2);
-                _cmd.Parameters.AddWithValue("@xreference3 ", CUH.Uxreference3);
-                _cmd.Parameters.AddWithValue("@xreference4 ", CUH.Uxreference4);
-                _cmd.Parameters.AddWithValue("@xreference5 ", CUH.Uxreference5);
-                _cmd.Parameters.AddWithValue("@xreference6 ", CUH.Uxreference6);
+                if (CUH.Uxcross != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross", CUH.Uxcross);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross", "0"); }
+                if (CUH.Uxcross1 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross1", CUH.Uxcross1);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross1", "0"); }
+
+                if (CUH.Uxcross2 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross2", CUH.Uxcross2);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross2", "0"); }
+
+                if (CUH.Uxcross3 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross3 ", CUH.Uxcross3);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross3", "0"); }
+                if (CUH.Uxcross4 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xcross4", CUH.Uxcross4);
+                }
+                else { _cmd.Parameters.AddWithValue("@xcross4", "0"); }
+
+                if (CUH.Uxreference1 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference1 ", CUH.Uxreference1);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference1", "0"); }
+                if (CUH.Uxreference2 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference2 ", CUH.Uxreference2);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference2", "0"); }
+                if (CUH.Uxreference3 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference3 ", CUH.Uxreference3);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference3", "0"); }
+                if (CUH.Uxreference4 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference4 ", CUH.Uxreference4);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference4", "0"); }
+                if (CUH.Uxreference5 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference5 ", CUH.Uxreference5);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference5", "0"); }
+                if (CUH.Uxreference6 != null)
+                {
+                    _cmd.Parameters.AddWithValue("@xreference6 ", CUH.Uxreference6);
+                }
+                else { _cmd.Parameters.AddWithValue("@xreference6", "0"); }
+
 
                 _cmd.Parameters.AddWithValue("@xdetail ", CUH.Uxdetail);
 
@@ -613,13 +665,13 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Html", CUH.UHtml);
                 _cmd.Parameters.AddWithValue("@Upload", CUH.UUpload);
                 _cmd.Parameters.AddWithValue("@TextArea", CUH.UTextArea);
-                
+
                 _cmd.Parameters.AddWithValue("@MultiSelect1", CUH.UMultiSelect1);
                 _cmd.Parameters.AddWithValue("@MultiSelect2", CUH.UMultiSelect2);
                 _cmd.Parameters.AddWithValue("@MultiSelect3", CUH.UMultiSelect3);
                 _cmd.Parameters.AddWithValue("@MultiSelect4", CUH.UMultiSelect4);
                 _cmd.Parameters.AddWithValue("@MultiSelect5", CUH.UMultiSelect5);
-                
+
                 _cmd.Parameters.AddWithValue("@CreatedBy", CUH.UCreatedBy);
                 if (CUH.UEntryDatetime == null)
                 {
@@ -659,7 +711,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        
+
         public DataSet BindDropDown(commanbaseParamater CBP)
         {
             try

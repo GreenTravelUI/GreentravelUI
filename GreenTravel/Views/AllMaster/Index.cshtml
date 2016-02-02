@@ -85,7 +85,7 @@
                                         <option value="0">InActive</option>
                                     </select>
                                 </div>
-                                <div class="form-group" id="divRemark">
+                                <div class="form-group" id="divRemarks">
                                     <label id="LbRemarks">
                                         Remarks/Description &nbsp 
                                     </label>
@@ -170,6 +170,7 @@
                                     <label for="txtLastName" id="LbRating1">Rating 1 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field21"></i>
                                     <select id="Rating1" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="0">--Select Rating--</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -181,6 +182,7 @@
                                     <label for="txtLastName" id="LbRating2">Rating 2 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field22"></i>
                                     <select id="Rating2" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="0">--Select Rating--</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -192,6 +194,7 @@
                                     <label for="txtLastName" id="LbRating3">Rating 3 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field23"></i>
                                     <select id="Rating3" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                                        <option value="0">--Select Rating--</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -319,11 +322,20 @@
 
                                 <br />
                                 <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                @*<button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     CREATE</button>
                                 <button id="btnCancel" type="submit" class="btn btn-green  btnCancel">
+                                    CLEAR</button>*@
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                @*<button id="btnUpdate" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>*@
+                               @* <button id="btnDelete" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>*@
+                                <button id="btnCancel" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
-
+                                <button id="btnQuit" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
 
                             </form>
                         </div>
@@ -503,99 +515,110 @@
 
 
 @section scripts{
-    <script>
+    
+<script>
 
-        function CheckFormValidations(validationCode, control) {
-            var code = validationCode.split('||');
-            $.each(code, function (key, value) {
-                SetValidation(value, control);
-            });
-        }
-
-        function SetValidation(valCode, control) {
-            var values = valCode.split(':');
-            control.addClass(values[0].toLowerCase());
-            if (values[0].toLowerCase() == 'max') {
-                control.attr('data-max', values[1].toString());
-            } else if (values[0].toLowerCase() == 'min') {
-                control.attr('data-min', values[1].toString());
-            } else if (values[0].toLowerCase() == 'reg') {
-                control.attr('data-reg', values[1].toString());
-            }
-        }
-        $(document).ready(function () {
-            $('.form-group').on('blur', 'input', function () {
-                controlValidations($(this));
-            });
-
+    function CheckFormValidations(validationCode, control) {
+        var code = validationCode.split('||');
+        $.each(code, function (key, value) {
+            SetValidation(value, control);
         });
-        function controlValidations(control) {
-            control.removeClass('red-input');
-            control.parent().find('p.red-error').remove();
-            if (control.hasClass('req')) {
-                if (control.val().trim().length == 0) {
-                    control.after('<p class="red-error">This field is required.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('max')) {
-                if (control.val().length > parseInt(control.data('max'))) {
-                    control.after('<p class="red-error">Maximum ' + control.data('max') + ' characters are required.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('min')) {
-                if (control.val().length < parseInt(control.data('min'))) {
-                    control.after('<p class="red-error">Minimum ' + control.data('min') + ' characters are required.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('alphbet')) {
-                if (!control.val().match(/^[a-zA-Z]*$/)) {
-                    control.after('<p class="red-error">Only Alphabets are allowed.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('alphnum')) {
-                if (!control.val().match(/^[a-zA-Z0-9]*$/)) {
-                    control.after('<p class="red-error">Only AlphaNumeric value is allowed.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('num')) {
-                if (!control.val().match(/^([0-9]*)$/)) {
-                    control.after('<p class="red-error">Only Numeric value is allowed.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('email')) {
-                if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-                    control.after('<p class="red-error">Invalid Email Format.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-            }
-            if (control.hasClass('reg')) {
-                var str = control.data('reg');
-                if (!control.val().match(str)) {
-                    control.after('<p class="red-error">Invalid Data.</p>');
-                    control.addClass('red-input');
-                    return;
-                }
-                //if (control.val().length > parseInt(control.data('reg'))) {
-                //    control.after('<p class="red-error">Maximum ' + control.data('reg') + ' characters are required.</p>');
-                //    control.addClass('red-input');
-                //    return;
-                //}
+    }
+
+    function SetValidation(valCode, control) {
+        var values = valCode.split(':');
+        control.addClass(values[0].toLowerCase());
+        if (values[0].toLowerCase() == 'max') {
+            control.attr('data-max', values[1].toString());
+        } else if (values[0].toLowerCase() == 'min') {
+            control.attr('data-min', values[1].toString());
+        } else if (values[0].toLowerCase() == 'reg') {
+            control.attr('data-reg', values[1].toString());
+        }
+    }
+    $(document).ready(function () {
+        $('.form-group').on('blur', 'input', function () {
+            controlInputValidations($(this));
+        });
+        $('.form-group').on('blur', 'select', function () {
+            alert();
+            controlSelectValidations($(this));
+        });
+    });
+    function controlInputValidations(control) {
+        control.removeClass('red-input');
+        control.parent().find('p.red-error').remove();
+        if (control.hasClass('req')) {
+            if (control.val().trim().length == 0) {
+                control.after('<p class="red-error">This field is required.</p>');
+                control.addClass('red-input');
+                return;
             }
         }
+        if (control.hasClass('max')) {
+            if (control.val().length > parseInt(control.data('max'))) {
+                control.after('<p class="red-error">Maximum ' + control.data('max') + ' characters are required.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+        if (control.hasClass('min')) {
+            if (control.val().length < parseInt(control.data('min'))) {
+                control.after('<p class="red-error">Minimum ' + control.data('min') + ' characters are required.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+        if (control.hasClass('alphbet')) {
+            if (!control.val().match(/^[a-zA-Z]*$/)) {
+                control.after('<p class="red-error">Only Alphabets are allowed.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+        if (control.hasClass('alphnum')) {
+            if (!control.val().match(/^[a-zA-Z0-9]*$/)) {
+                control.after('<p class="red-error">Only AlphaNumeric value is allowed.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+        if (control.hasClass('num')) {
+            if (!control.val().match(/^([0-9]*)$/)) {
+                control.after('<p class="red-error">Only Numeric value is allowed.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+        if (control.hasClass('email')) {
+            if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+                control.after('<p class="red-error">Invalid Email Format.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+        if (control.hasClass('reg')) {
+            var str = control.data('reg');
+            if (!control.val().match(str)) {
+                control.after('<p class="red-error">Invalid Data.</p>');
+                control.addClass('red-input');
+                return;
+            }
+        }
+    }
+    function controlSelectValidations(control) {
+        control.removeClass('red-input');
+        control.parent().find('p.red-error').remove();
+        if (control.hasClass('req')) {
+            if (control.find('option:selected').val() == '0') {
+                control.next().after('<p class="red-error">This field is required.</p>');
+                control.next().addClass('red-input');
+                return;
+            }
+        }
+    }
     </script>
+	
 
     <script src="~/Scripts/JS/Page/AllMasters.js"></script>
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
