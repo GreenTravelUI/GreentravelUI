@@ -35,9 +35,9 @@ namespace GreenTravel.Models
         public string UnitCorpBy { get; set; }
         public string TerminalBy { get; set; }
         public string BranchId { get; set; }
-        
+
     }
-    
+
     //public class Formlode
     //{
     //    public string Module { get; set; }
@@ -50,9 +50,9 @@ namespace GreenTravel.Models
     //    public string userid { get; set; }
     //    public string Ip { get; set; }
     //    public string Type { get; set; }
-      
+
     //}
-    
+
     //public class Baseformsetup
     //{
     //    public string Module { get; set; }
@@ -73,7 +73,7 @@ namespace GreenTravel.Models
     //    public string Control { get; set; }
     //    public string Srno { get; set; }
     //}
-    
+
     public class GridFormparamater
     {
         public string Corporate { get; set; }
@@ -82,7 +82,7 @@ namespace GreenTravel.Models
         public string FormName { get; set; }
         public string RowNumber { get; set; }
         public string srno { get; set; }
-       
+
     }
 
     public class FormTab
@@ -165,6 +165,7 @@ namespace GreenTravel.Models
         public string ClearVisibility { get; set; }
         public string ClearNotification { get; set; }
         public string ClearTask { get; set; }
+        public string FormQuitName { get; set; }
         public string FormQuitClass { get; set; }
         public string FormQuitVisibility { get; set; }
         public string FormQuitNotification { get; set; }
@@ -187,6 +188,62 @@ namespace GreenTravel.Models
         public string UnitCorpBy { get; set; }
         public string TerminalBy { get; set; }
         public string BranchBy { get; set; }
+
+    }
+
+    public class Utility
+    {
+        public string srno { get; set; }
+        public string CorporateId { get; set; }
+        public string TabCode { get; set; }
+        public string FormCode { get; set; }
+        public string Utilities { get; set; }
+        public string Attribute1 { get; set; }
+        public string Attribute2 { get; set; }
+        public string Attribute3 { get; set; }
+        public string Attribute4 { get; set; }
+        public string Attribute5 { get; set; }
+        public string Attribute6 { get; set; }
+        public string Attribute7 { get; set; }
+        public string Attribute8 { get; set; }
+        public string Attribute9 { get; set; }
+        public string Attribute10 { get; set; }
+        public string CreatedBy { get; set; }
+        public string EntryDatetime { get; set; }
+        public string EditedBy { get; set; }
+        public string EditDatetime { get; set; }
+        public string CorpcentreBy { get; set; }
+        public string UnitCorpBy { get; set; }
+        public string TerminalBy { get; set; }
+        public string BranchBy { get; set; }
+    }
+
+    public class Section_Master
+    {
+        public string srno { get; set; }
+        public string CorporateId { get; set; }
+        public string TabCode { get; set; }
+        public string FormCode { get; set; }
+        public string SectionName { get; set; }
+        public string Attribute1 { get; set; }
+        public string Attribute2 { get; set; }
+        public string Attribute3 { get; set; }
+        public string Attribute4 { get; set; }
+        public string Attribute5 { get; set; }
+        public string Attribute6 { get; set; }
+        public string Attribute7 { get; set; }
+        public string Attribute8 { get; set; }
+        public string Attribute9 { get; set; }
+        public string Attribute10 { get; set; }
+        public string CreatedBy { get; set; }
+        public string EntryDatetime { get; set; }
+        public string EditedBy { get; set; }
+        public string EditDatetime { get; set; }
+        public string CorpcentreBy { get; set; }
+        public string UnitCorpBy { get; set; }
+        public string TerminalBy { get; set; }
+        public string BranchBy { get; set; }
+        public string rownumber { get; set; }
     }
 
     public class GridFormparamater
