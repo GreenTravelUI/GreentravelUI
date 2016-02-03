@@ -371,7 +371,18 @@
                    }
                }
            });
-        $('#btnCancel').click();
+        $("#SearchMaster").addClass("active");
+        $("#CreateMaster").removeClass("active");
+        $("#tab2").removeClass("active");
+        $("#tab1").addClass("active");
+        $('#txtMasterCode').attr("disabled", false)
+        $('input[type="text"]').val('');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+        $('.drpdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
     });
 
 

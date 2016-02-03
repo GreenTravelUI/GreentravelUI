@@ -259,7 +259,7 @@
         var BranchBy = '0';
         var srno = '';
       //  alert($('#drpCorporate option:selected').val());
-        var CorporateId = $('#drpCorporate option:selected').val();
+        var CorporateId = $('#drpCorporate1 option:selected').val();
         var FormCode = Frmcode;
         var TabCode = FrmtabCode;
         var SaveName = $('#txtSaveName').val();
@@ -637,7 +637,7 @@
     };
     $('.btnsavesection').on('click', function () {
         var flag = 0;
-        var CorporateId = $('#drpCorporate option:selected').val();
+        var CorporateId = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
         var FormCode = Frmcode
         var Attribute1 = '';

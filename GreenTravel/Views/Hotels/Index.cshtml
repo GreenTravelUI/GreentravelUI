@@ -43,7 +43,13 @@
 
     li.content {
         list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
     }
+
+        li.content .libody {
+            transition-timing-function: linear;
+        }
 
     .summery-uitilities-detail {
         width: 33.3333%;
@@ -59,11 +65,15 @@
         margin-left: 5px;
         padding: 5px;
         float: right;
-        
     }
-    .summery-nav-btn.active {
-        background-color: #fff;
-        cursor: pointer;
+
+        .summery-nav-btn.active {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .libody.summery-body {
+        
     }
 </style>
 
@@ -617,14 +627,45 @@
                             <ul class="wrapper">
                                 <li class="content summery">
                                     <h4 class="panel-title-summery">Summery <span class="summery-nav-btn active next fa fa-chevron-right"></span>&nbsp;<span class="summery-nav-btn prev fa fa-chevron-left"></span> </h4>
-                                    <div class="" style="border: 1px solid #22BAA0;">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h3>Summery Content</h3>
-                                            </div>
-                                            
+                                    <div class="libody summery-body">
+                                        <div class="summ-lis-height ">
+                                            <ul class="summery-list slimscroll " style="margin:0 10px;">
+                                                <div class="summ-list-div">
+
+                                                    <li>Corporate Company Official Name:<br />
+                                                        <a href="#" class="invalid-red">Lorem Ipsum <i>&nbsp;</i></a>
+                                                    </li>
+                                                    <li>Hotel Name :<br />
+                                                        <a href="javascript:void(0);" class="invalid-red">@*  / valid-green *@
+                                                            <label id="lblHotelName" for="txtHotelName">Hotel Name</label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Type Of Hotel :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="valid-green">@* invalid-red /  *@
+                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel">Type Of Hotel</label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Star Rating :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Operating Currency :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </ul>
                                         </div>
-                                        <div class="summery-buttons">
+                                        <div class="summery-buttons" style="margin:0 10px;">
                                             <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                                 SAVE</button>
                                             <button id="btnSave" type="submit" class="btn btn-primary btnSave">
@@ -638,28 +679,34 @@
                                     </div>
                                 </li>
                                 <li class="content utilities">
-                                    <h4 class="panel-title-summery">Utilities </h4>
-                                    <div class="" style="border: 1px solid #22BAA0;">
-                                        <div class="form-group">
-                                            <h3>Summery Content</h3>
+                                    <h4 class="panel-title-summery">Utilities <span class="summery-nav-btn next fa fa-chevron-right"></span>&nbsp;<span class="summery-nav-btn active prev fa fa-chevron-left"></span> </h4>
+                                    <div class="libody">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="summery-body    ">
+                                                    <h3>Utilities Content</h3>
+                                                </div>
+                                                <div class="summery-buttons">
+                                                    <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                        SAVE</button>
+                                                    <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                        UPDATE</button>
+                                                    <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                        DELETE</button>
+                                                    <p>
+                                                        Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                                    </p>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="summery-buttons">
-                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                SAVE</button>
-                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                UPDATE</button>
-                                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                                DELETE</button>
-                                            <p>
-                                                Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                            </p>
-                                        </div>
+
                                     </div>
                                 </li>
                             </ul>
                             <div class="panel panel-white" style="display: none;">
                                 <div id="divSummery">
-                                    <h4 class="panel-title-summery">Summary </h4>
+                                    <h4 class="panel-title-summery">Summary   </h4>
                                     <ul class="utilitis-drop ">
                                         <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                             <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
@@ -2067,6 +2114,7 @@
         </div>
     </div>
 </div>
+
 <div class="col-md-12">
     <div class="panel panel-white">
         <h4 class="panel-title-summery">Utilities </h4>
@@ -2548,8 +2596,23 @@
                     { '2': 'Inactive' }
                 ]
             });
-            $('.active.next').on(function () {
 
+            $('.next').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().next().show();
+                    //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
+                }
+            });
+
+            $('.prev').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().prev().show();
+                    //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
+                }
             });
         });
     </script>
