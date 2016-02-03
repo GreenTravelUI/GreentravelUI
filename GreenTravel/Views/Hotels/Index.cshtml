@@ -18,6 +18,53 @@
         font-size: 20px;
         font-weight: normal;
     }
+
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover {
+        background-color: #22baa0;
+        border-color: #22baa0;
+        border-left: 0 none #22baa0;
+        color: #fff;
+    }
+
+    #wrapper, .wrapper {
+        width: 200%;
+        transform: translate3d(0, 0, 0);
+        transition: transform .5s ease-in-out;
+        padding-left: 0;
+    }
+
+    .content {
+        float: left;
+        width: 50%;
+        min-height: 200px;
+        white-space: normal;
+        background-repeat: no-repeat;
+    }
+
+    li.content {
+        list-style: outside none none;
+    }
+
+    .summery-uitilities-detail {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    .summery-nav-btn {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
+        
+    }
+    .summery-nav-btn.active {
+        background-color: #fff;
+        cursor: pointer;
+    }
 </style>
 
 <div class="col-md-12 form-detail">
@@ -177,7 +224,7 @@
                     </div>
                     @*Create Hotel*@
                     <div role="tabpanel" class="tab-pane " id="tab2">
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                             <form>
                                 <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Basic Details - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
@@ -566,157 +613,217 @@
                                     QUIT FORM</button>
                             </form>
                         </div>
-                        <div class="col-md-5 summery-detail summerytab2">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-
-                                        <ul class="summery-list slimscroll">
-                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>Hotel Name :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Type Of Hotel :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Star Rating :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblStarRating" for="drpStarRating"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Operating Currency :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Website  :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblWebsite" for="txtWebsite"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Official Email(s)  :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Official Phone  :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
+                        <div class="col-md-4  summery-detail summery-uitilities-detail summerytab2">
+                            <ul class="wrapper">
+                                <li class="content summery">
+                                    <h4 class="panel-title-summery">Summery <span class="summery-nav-btn active next fa fa-chevron-right"></span>&nbsp;<span class="summery-nav-btn prev fa fa-chevron-left"></span> </h4>
+                                    <div class="" style="border: 1px solid #22BAA0;">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>Summery Content</h3>
                                             </div>
-                                            <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>Address Line 1 
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>City :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>State :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblState" for="txtState"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Country :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCountry" for="txtCountry"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Zip/Postal Code :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblZipCode" for="txtZipCode"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                        </ul>
-
+                                            
+                                        </div>
+                                        <div class="summery-buttons">
+                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                SAVE</button>
+                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                UPDATE</button>
+                                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                DELETE</button>
+                                            <p>
+                                                Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="summery-buttons">
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
+                                </li>
+                                <li class="content utilities">
+                                    <h4 class="panel-title-summery">Utilities </h4>
+                                    <div class="" style="border: 1px solid #22BAA0;">
+                                        <div class="form-group">
+                                            <h3>Summery Content</h3>
+                                        </div>
+                                        <div class="summery-buttons">
+                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                SAVE</button>
+                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                UPDATE</button>
+                                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                DELETE</button>
+                                            <p>
+                                                Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="panel panel-white" style="display: none;">
+                                <div id="divSummery">
+                                    <h4 class="panel-title-summery">Summary </h4>
+                                    <ul class="utilitis-drop ">
+                                        <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                            <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                            <ul>
+                                                <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                    Task </a></li>
+                                                <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                    Notifications </a></li>
+                                                <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                    Calendar </a></li>
+                                                <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                    Email </a></li>
+                                                <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                    SMS </a></li>
+                                                <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                    Notes </a></li>
+                                                <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                    Tags </a></li>
+                                                <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                    Help Video </a></li>
+                                                <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                    Guided Tour </a></li>
+                                                <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                    Copy </a></li>
+                                                <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                    Print </a></li>
+                                                <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                    Updates </a></li>
+                                                <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                    Screenshot </a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                        <div class="summ-lis-height">
+
+                                            <ul class="summery-list slimscroll">
+                                                <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                                <div class="summ-list-div">
+                                                    <div class="summ-list-left">
+                                                        <li>Hotel Name :<br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblHotelName" for="txtHotelName"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>Type Of Hotel :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>Star Rating :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblStarRating" for="drpStarRating"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>Operating Currency :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                    </div>
+                                                    <div class="summ-list-right">
+                                                        <li>Website  :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblWebsite" for="txtWebsite"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>Official Email(s)  :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>Official Phone  :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                    </div>
+                                                </div>
+                                                <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                                <div class="summ-list-div">
+                                                    <div class="summ-list-left">
+                                                        <li>Address Line 1 
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>City :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblCity" for="txtCity"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>State :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblState" for="txtState"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+
+                                                    </div>
+                                                    <div class="summ-list-right">
+                                                        <li>Country :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblCountry" for="txtCountry"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                        <li>Zip/Postal Code :
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblZipCode" for="txtZipCode"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                    </div>
+                                                </div>
+                                            </ul>
+
+                                        </div>
+                                        <div class="summery-buttons">
+                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                SAVE</button>
+                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                UPDATE</button>
+                                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                DELETE</button>
+                                            <p>
+                                                Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="divUtilities">
+                                    <h4 class="panel-title-summery">Utilities </h4>
+                                    <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                        <div class="summ-lis-height">
+                                            <ul class="utility-list">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="task">&nbsp;</i><br />
+                                                        Task
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1393,28 +1500,17 @@
                             <form>
                                 <h3 class="tab6section1">Function Room - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtConferenceRoomName" value="Meetings & Events" placeholder="Conference Room Name">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="drpSetupStyle">Function Type <span>*</span></label>
-                                                <select id="drpSetupStyle" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
-                                                    <option selected="selected">Half Day AM</option>
-                                                    <option selected="selected">Half Day PM</option>
-                                                    <option>Full Day</option>
-                                                    <option>Half Day AM-Only Coffee No Lunch</option>
-                                                    <option>Half Day PM-Only Coffee No Lunch</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                    <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="Meetings & Events" placeholder="Conference Room Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="drpSetupStyle">Function Type <span>*</span></label>
+                                        <input type="text" data-role="tagsinput" class="form-control" value="Half Day AM,Half Day PM" id="txtTags" placeholder="Function Type">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-
                                         <div class="table-responsive">
                                             <table id="" class="display table" style="width: 100%; cellspacing: 0;">
                                                 <thead>
@@ -1437,11 +1533,7 @@
                                                         <td class="width: 5%;">1</td>
                                                         <td class="width: 31.67%;">
                                                             <div class="form-group">
-                                                                <select id="drpSetupStyle" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                                                    <option>Class Room</option>
-                                                                    <option selected="selected">Banqute</option>
-                                                                    <option>Theater</option>
-                                                                </select>
+                                                                <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
                                                             </div>
                                                         </td>
                                                         <td class="width: 31.67%;">
@@ -1459,11 +1551,7 @@
                                                         <td>1</td>
                                                         <td>
                                                             <div class="form-group">
-                                                                <select id="drpSetupStyle" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                                                    <option>Class Room</option>
-                                                                    <option selected="selected">Banqute</option>
-                                                                    <option>Theater</option>
-                                                                </select>
+                                                                <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
                                                             </div>
                                                         </td>
                                                         <td>
@@ -1678,59 +1766,81 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtBreakFastFromTime">Break Fast From Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtBreakFastFromTime" value="8:00 AM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtBreakFastToTime">Break Fast To Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtBreakFastToTime" value="9:00 AM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <label for="txtBreakFastToTime">Price (Per Person)</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtBreakFastToTime" value="">
+                                                <span class="input-group-addon add-on">THB</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtLunchFromTime">Lunch From Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtLunchFromTime" value="11:00 AM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtLunchToTime">Lunch To Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtLunchToTime" value="02:00 PM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <label for="txtBreakFastToTime">Price (Per Person)</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtBreakFastToTime" value="">
+                                                <span class="input-group-addon add-on">THB</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtDinnerFromTime">Dinner From Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtDinnerFromTime" value="7:00 PM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtDinnerToTime">Dinner To Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtDinnerToTime" value="11:00 PM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <label for="txtBreakFastToTime">Price (Per Person)</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="txtBreakFastToTime" value="">
+                                                <span class="input-group-addon add-on">THB</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtDinnerToTime">Menu Type</label>
                                     <div class="row">
                                         <div class="col-md-4 form-marings">
                                             <input type="checkbox" checked="checked">French
@@ -1763,7 +1873,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txtDinnerToTime">Menu Attechment</label>
-                                    <input type="text" class="form-control" id="txtDinnerToTime" placeholder="Menu Attechment">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtDinnerToTime" placeholder="Menu Attechment">
+                                        <a href="javascript:void(0);" class="input-group-addon add-on addbtn" data-toggle="modal" data-target="#MySelectSightseeing" rel="tooltip" title="Add Menu Attachment"><span class="fa fa-plus"></span></a>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1782,7 +1895,7 @@
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRestaurantGrid">SEARCH</a>
                             </form>
                         </div>
-                        <div class="col-md-5 summery-detail summerytab7">
+                        <div class="col-md-4 summery-detail summerytab7">
                             <div class="panel panel-white">
                                 <h4 class="panel-title-summery">Summary </h4>
                                 <ul class="utilitis-drop ">
@@ -1871,7 +1984,6 @@
                     <div role="tabpanel" class="tab-pane " id="tab8">
                         <div class="col-md-12">
                             <h3 class="tab7section1">FOC Rules - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-
                             <div class="table-responsive">
                                 <div class="dropdown table-custome-drop">
                                     <div class="btn-group">
@@ -1911,7 +2023,12 @@
                                             <td><span class="spaneditable">1</span></td>
                                             <td><span class="spaneditable">Yes</span></td>
                                             <td>
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                <div class="form-group">
+                                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Active</option>
+                                                        <option>Inactive</option>
+                                                    </select>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1921,11 +2038,14 @@
                                             <td><span class="spaneditable">2</span></td>
                                             <td><span class="spaneditable">No</span></td>
                                             <td>
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                <div class="form-group">
+                                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Active</option>
+                                                        <option>Inactive</option>
+                                                    </select>
+                                                </div>
                                             </td>
                                         </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>
@@ -2427,6 +2547,9 @@
                     { '1': 'Active' },
                     { '2': 'Inactive' }
                 ]
+            });
+            $('.active.next').on(function () {
+
             });
         });
     </script>

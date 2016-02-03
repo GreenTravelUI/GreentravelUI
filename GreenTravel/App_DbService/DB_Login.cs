@@ -11,7 +11,6 @@ namespace GreenTravel.App_DbService
 {
     public class DB_Login : Base
     {
-
         public List<Login> GetUserData(string type, string Email, string url, string Password)
         {
             _petaDB.EnableAutoSelect = false;
@@ -167,6 +166,5 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
     }
 }

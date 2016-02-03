@@ -30,6 +30,11 @@
 
     $('#btnSave').click(function (e) {
         e.preventDefault();
+        /* Form Validation */
+        if (!validateForm($(this).parent())) {
+            alert('Invalid data found!');
+            return false;
+        }
         var USrno = '0';
         //  alert($('#btnSave').text());
         if ($('#btnSave').text() != "Create") {
