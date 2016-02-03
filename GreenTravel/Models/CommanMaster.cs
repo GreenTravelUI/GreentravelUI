@@ -436,6 +436,7 @@ namespace GreenTravel.Models
         public string field5 { get; set; }
         public string Control { get; set; }
         public string Language { get; set; }
+        public string Srno { get; set; }
     }
 
     public class GridAdminparamater

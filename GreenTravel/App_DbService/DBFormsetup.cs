@@ -76,42 +76,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        //public DataSet BindDropDown(Formlode Fl)
-        //{
-        //    try
-        //    {
-        //        _cn.Open();
-        //        SqlCommand _cmd = new SqlCommand("sp_Formload_Form_Master ", _cn);
-        //        _cmd.CommandType = CommandType.StoredProcedure;
-        //        _cmd.Parameters.AddWithValue("@Module", Fl.Module);
-        //        _cmd.Parameters.AddWithValue("@screen", Fl.screen);
-        //        _cmd.Parameters.AddWithValue("@FormCode", Fl.FormCode);
-        //        _cmd.Parameters.AddWithValue("@TabCode", Fl.TabCode);
-        //        _cmd.Parameters.AddWithValue("@Corporate", Fl.Corporate);
-        //        _cmd.Parameters.AddWithValue("@unit", Fl.unit);
-        //        _cmd.Parameters.AddWithValue("@Branch", Fl.Branch);
-        //        _cmd.Parameters.AddWithValue("@userid", Fl.userid);
-        //        _cmd.Parameters.AddWithValue("@Ip", Fl.Ip);
-        //        _cmd.Parameters.AddWithValue("@Type", Fl.Type);
-
-        //        _cmd.CommandType = CommandType.StoredProcedure;
-        //        SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-        //        DataSet _ds = new DataSet();
-        //        _adp.Fill(_ds);
-        //        //_adp.Dispose();
-        //        //_cmd.Dispose();
-        //        return _ds;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        _cn.Close();
-        //        _cn.Dispose();
-        //    }
-        //}
+        
         public DataSet BindGrid(Gridformsetup GP)
         {
             try
@@ -149,6 +114,50 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
+        public DataSet BindDropDown(commanbaseParamater CBP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_Form_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CBP.Type);
+                _cmd.Parameters.AddWithValue("@field1", CBP.field1);
+                _cmd.Parameters.AddWithValue("@field2", CBP.field2);
+                _cmd.Parameters.AddWithValue("@field3", CBP.field3);
+                _cmd.Parameters.AddWithValue("@field4", CBP.field4);
+                _cmd.Parameters.AddWithValue("@field5", CBP.field5);
+                _cmd.Parameters.AddWithValue("@Control", CBP.Control);
+                _cmd.Parameters.AddWithValue("@Srno", CBP.Srno);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
         public DataSet Edit_data(Edit_AdminMaster EA)
         {
             try
@@ -182,9 +191,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
-
-
         public DataSet insertdata_Formtab(FormTab FT)
         {
             try
@@ -303,7 +309,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public int insertdata_Standardbutton(StandardButton STB)
         {
             try
@@ -312,7 +317,7 @@ namespace GreenTravel.App_DbService
                 SqlCommand _cmd = new SqlCommand("sp_save_Form_ButtonClass_Master", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 _cmd.Parameters.AddWithValue("@srno", STB.TabCode);
-                _cmd.Parameters.AddWithValue("@CorporateId", STB.CorporateId);
+                _cmd.Parameters.AddWithValue("@Corporate", STB.CorporateId);
                 _cmd.Parameters.AddWithValue("@TabCode", STB.TabCode);
                 _cmd.Parameters.AddWithValue("@FormCode", STB.FormCode);
                 _cmd.Parameters.AddWithValue("@SaveName", STB.SaveName);
@@ -386,49 +391,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
-        //public DataSet BindDropDown1(Baseformsetup BFS)
-        //{
-        //    try
-        //    {
-        //        _cn.Open();
-        //        SqlCommand _cmd = new SqlCommand("sp_Base_Form_Master", _cn);
-        //        _cmd.CommandType = CommandType.StoredProcedure;
-        //        _cmd.Parameters.AddWithValue("@Module", BFS.Module);
-        //        _cmd.Parameters.AddWithValue("@screen", BFS.screen);
-        //        _cmd.Parameters.AddWithValue("@FormCode", BFS.FormCode);
-        //        _cmd.Parameters.AddWithValue("@TabCode", BFS.TabCode);
-        //        _cmd.Parameters.AddWithValue("@Corporate", BFS.Corporate);
-        //        _cmd.Parameters.AddWithValue("@unit", BFS.unit);
-        //        _cmd.Parameters.AddWithValue("@Branch", BFS.Branch);
-        //        _cmd.Parameters.AddWithValue("@userid", BFS.userid);
-        //        _cmd.Parameters.AddWithValue("@Ip", BFS.Ip);
-        //        _cmd.Parameters.AddWithValue("@Type", BFS.Type);
-        //        _cmd.Parameters.AddWithValue("@field1", BFS.field1);
-        //        _cmd.Parameters.AddWithValue("@field2", BFS.field2);
-        //        _cmd.Parameters.AddWithValue("@field3", BFS.field3);
-        //        _cmd.Parameters.AddWithValue("@field4", BFS.field4);
-        //        _cmd.Parameters.AddWithValue("@field5", BFS.field5);
-        //        _cmd.Parameters.AddWithValue("@Control", BFS.Control);
-        //        _cmd.Parameters.AddWithValue("@Srno", BFS.Srno);
-        //        _cmd.CommandType = CommandType.StoredProcedure;
-        //        SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
-        //        DataSet _ds = new DataSet();
-        //        _adp.Fill(_ds);
-        //        _adp.Dispose();
-        //        _cmd.Dispose();
-        //        return _ds;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        _cn.Close();
-        //        _cn.Dispose();
-        //    }
-        //}
         public DataSet BindGridFormTab(GridFormTab GFT)
         {
             try
@@ -466,7 +428,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public int insertdata_SectionMaster(Section_Master SM)
         {
             try
