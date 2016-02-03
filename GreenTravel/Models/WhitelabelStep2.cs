@@ -22,21 +22,29 @@ namespace GreenTravel.Models
         public string control { get; set; }
         public List<GridHearder> GridHearder { get; set; }
         public List<GridColumn> GridColumn { get; set; }
+        //public List<GridFeature> GridFeature { get; set; }
     }
 
-    public partial class GridHearder
+    public partial class Grid
+    {
+        public List<GridHearder> GridHearder { get; set; }
+        public List<GridColumn> GridColumn { get; set; }
+    }
+
+    public  class GridHearder
     {
         public string SrNo { get; set; } //xname
         public string xname { get; set; }
-        
+
     }
-    public partial class GridColumn
+    public  class GridColumn
     {
         public string SrNo { get; set; } //xname
         public string xname { get; set; }
+        public string xlink { get; set; }
+
     }
-
-
+   
     //public class WholeGrid
     //{
     //    public string Corporate { get; set; }
@@ -44,6 +52,6 @@ namespace GreenTravel.Models
     //    public List<GridColumn> GridColumn { get; set; }
     //}
 
-  //   public List<Customerdetail> Customerdetail { get; set; }
+    //   public List<Customerdetail> Customerdetail { get; set; }
 
 }
