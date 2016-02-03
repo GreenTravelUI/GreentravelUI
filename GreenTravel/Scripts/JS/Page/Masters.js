@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     /*Tab 1*/
+   
     var deletesrno;
     getdata();
     $("#drpCorporate").change(function () {
@@ -368,13 +369,17 @@
                success: function (response) {
                    if (response != null && response.success) {
                        alert("Record Save Sucessfully!");
+
+
+
+
                    }
                }
            });
-        $("#SearchMaster").addClass("active");
-        $("#CreateMaster").removeClass("active");
-        $("#tab2").removeClass("active");
-        $("#tab1").addClass("active");
+
+        $('#btnsUpdate').hide();
+        $('#btnDelete').hide();
+        $('#btnSaveMastersetup').show();
         $('#txtMasterCode').attr("disabled", false)
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
@@ -383,6 +388,7 @@
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+
     });
 
 

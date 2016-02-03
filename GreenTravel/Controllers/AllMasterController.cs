@@ -20,6 +20,58 @@ namespace GreenTravel.Controllers
             return View();
         }
         #region  Tab 2 Code
+
+
+        public ActionResult BindDropDown(commanbaseParamater CBP)
+        {
+            try
+            {
+                DataSet ds = _objCM.BindDropDownBase_Tab2(CBP);
+                List<CommanDropdown> Segment = new List<CommanDropdown>();
+                List<CommanDropdown> Corporate = new List<CommanDropdown>();
+                List<CommanDropdown> RATING = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Segment.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.Corporate = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.Corporate.Rows)
+                    {
+                        Corporate.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                if (ds.Tables[2].Rows.Count > 0)
+                {
+                    ViewBag.RATING = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.RATING.Rows)
+                    {
+                        RATING.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+
+
+
+                var result = Segment;
+               // return Json(result, JsonRequestBehavior.AllowGet);
+                return Json(new { Segment = Segment, Corporate = Corporate, RATING = RATING }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+
+
         public ActionResult BindDropDownTab(commanbaseParamater CBP)
         {
             try
