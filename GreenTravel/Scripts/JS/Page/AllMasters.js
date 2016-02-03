@@ -1,6 +1,11 @@
 ﻿$(document).ready(function () {
     getdata();
     hide_div();
+    FillDropDown_Category();  // To fill the dropown- Category
+
+
+
+
 
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
@@ -183,7 +188,8 @@
         var Branch = '';
         var userid = '';
         var Ip = '';
-        var field1 = $('#drpSegmenttab3 option:selected').val();
+        var field1 ='1';
+      //  var field1 = $('#drpSegmenttab3 option:selected').val();
         var field2 = $('#drpMasterTab3 option:selected').val();
         var field3 = '';
         var field4 = '';
@@ -211,6 +217,70 @@
             }
         });
     }
+
+
+    function FillDropDown_Category() {
+
+
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Language = '';
+        var Type = 'DropDown';
+        $.ajax({
+            url: "/AllMaster/BindDropDown",
+            type: "POST",
+            dataType: "json",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+                Ip: Ip, Language: Language, Type: Type
+            },
+            success: function (data) {
+                if (data['Segment'].length > 0) {
+
+                    for (var i = 0; i < data['Segment'].length; i++) {
+                        var opt = new Option(data['Segment'][i]['Text'], data['Segment'][i]['Value']);
+                        $('#drpSegmenttab3').append(opt);
+                    }
+                   // $("#drpSegmenttab3 option:first").attr('selected', 'selected').change();
+                    DropdownSeletedValue(drpSegmenttab3);
+                }
+
+                if (data['Corporate'].length > 0) {
+
+                    for (var i = 0; i < data['Corporate'].length; i++) {
+                        var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
+                        $('#drpCorporateTab').append(opt);
+                    }
+                   // $("#" + "drpCorporateTab" + " option:first").attr('selected', 'selected').change();
+                    DropdownSeletedValue(drpCorporateTab);
+                }
+
+
+
+
+
+            },
+            error: function (data) {
+                alert("error found");
+            }
+
+        });
+
+    }
+    function DropdownSeletedValue(controlId) {
+        var myDDL = $(controlId);
+        myDDL[0].selectedIndex = 0;
+    }
+
+
+
 
     function hide_div() {
         $('#divSrno').hide();
@@ -470,7 +540,8 @@
     function PageLoad_FilledAll() {
 
         hide_div();
-        var field1 = $('#drpSegmenttab3 option:selected').val();
+        var field1 = 1;
+        //var field1 = $('#drpSegmenttab3 option:selected').val();
         var field2 = $('#drpMasterTab3 option:selected').val();
         $.ajax({
             url: "/AllMaster/ALL_Data_Field",

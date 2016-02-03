@@ -371,7 +371,17 @@
                    }
                }
            });
-        $('#btnCancel').click();
+        $('#btnsUpdate').hide();
+        $('#btnDelete').hide();
+        $('#btnSaveMastersetup').show();
+        $('#txtMasterCode').attr("disabled", false)
+        $('input[type="text"]').val('');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+        $('.drpdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
     });
 
 
