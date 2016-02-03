@@ -25,7 +25,12 @@
         var BaseCurrency = $('#drpBaseCurrency option:selected').val();
         var BaseLanguage = $('#drpBaseLanguage option:selected').val();
         var OtherLanguage = '';
-        var Logo = $('#txtLogo').val();
+        if ($('#txtLogo').val() != null) {
+            var Logo = $('#txtLogo').val();
+        }
+        else {
+            var Logo = '';
+        }
         var Favicon = $('#txtFavicon').val();
         var OfficialEmail = $('#txtOfficialEmail').val();
         var OfficialPhone = $('#txtOfficialPhone').val();
@@ -239,6 +244,8 @@
         console.log($(this).parent().parent().children(':eq(1)').text());
         //console.log($(this).parent().parent().children(':eq(2)').text());
 
+        Dropdown_Bind_Tab1();
+
         $("#SearchMaster").removeClass("active");
         $("#CreateMaster").addClass("active");
         $("#tab1").removeClass("active");
@@ -268,6 +275,8 @@
                  //Master
 
                  if (response['Whiteregjs'].length > 0) {
+
+                     $('#txtsrnouserpref').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
                      $('#txtCmpOfficeName').val(response['Whiteregjs'][0]['CorpCoOfficialName']);
                      $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
@@ -408,25 +417,79 @@
 
     $('#tabuserpreferance').click(function (e) {
 
-       
+        $('#btnUpdateuserpref').hide();
+        $('#btnCanceluserpref').hide();
+
         Dropdown_Bind_Userpreferance_Checkbox();
+        Dropdown_Bind_user_preferance();
+
+        if ($('#txtsrnouserpref').val() != "") {
+            var srno = $('#txtsrnouserpref').val();
+
+            $('#btnUpdateuserpref').show();
+            $('#btnCanceluserpref').show();
+            $('#btnSaveuserpref').hide();
+
+
+            var tablename = 'dbo._White_Register_UserPreferences';
+            var Corporate = '0';
+            var unit = '0';
+            var Formcode = '0';
+            var Formtabcode = '0';
+
+            var Type = 'EditMode';
+            $.ajax(
+             {
+                 type: "POST",
+                 url: "/WhitelabelStep1/Edit_data_user_preferance",
+                 data: {
+                     tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+                 },
+                 dataType: 'json',
+                 success: function (response) {
+                     console.log(response);
+                     console.log(response['UserPreferancestep1js'].length)
+                     //Master
+
+                     if (response['UserPreferancestep1js'].length > 0) {
+
+                         $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['srno']);
+                         $('#drpDashboardGadgetPosition').find('option[value="' + response['UserPreferancestep1js'][0]['GadgetPosition'] + '"]').attr('selected', true).change();
+
+                         //var chkloop = response['UserPreferancestep1js'][0]['OtherPreferences'];
+                         var chkloop = response['UserPreferancestep1js'][0]['OtherPreferences'].toString().split(",");
+
+                         $.each(chkloop, function () {
+
+                             $("input[value='" + this + "']").prop('checked', true);
+                         });
+
+
+                         //alert(response['UserPreferancestep1js'][0]['OtherPreferences']);
+                     }
+                 }
+             });
+
+
+        }
+
 
     });
 
 
     function Dropdown_Bind_Userpreferance_Checkbox() {
-       
+
         var Module = '';
         var screen = '';
         var FormCode = '';
         var TabCode = '';
         var Corporate = '2';
-        var unit = '';
-        var Branch = '';
-        var userid = '';
+        var unit = '0';
+        var Branch = '0';
+        var userid = '0';
         var Ip = '';
         var Type = 'ChkBox';
-        var html="";
+        var html = "";
         $.ajax({
             url: "/WhitelabelStep1/BindDropDownUserpreferanceCheckbox",
             type: "POST",
@@ -435,22 +498,61 @@
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
             },
             success: function (response) {
-               
+                
+                $("#userperferancechk").html('');
                 if (response['WRcheckbox'].length > 0) {
                     for (var i = 0; i < response['WRcheckbox'].length; i++) {
-                        html = html+'<div class="col-md-6 form-marings">' +
-                                '<input type="checkbox" value="' + response['WRcheckbox'][i]['Value'] + '"/>' + response['WRcheckbox'][i]['Text'] +
+                        html = html + '<div class="col-md-6 form-marings">' +
+                                '<span><input type="checkbox" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>' + response['WRcheckbox'][i]['Text'] +
                                '</div>'
                     }
                     $(html).appendTo($("#userperferancechk"))
                 }
-               
-                
+
+
             }
         });
     }
 
 
+    function Dropdown_Bind_user_preferance() {
+
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '0';
+        var Branch = '0';
+        var userid = '0';
+        var Ip = '';
+        var Type = 'DropDown';
+        var html = "";
+        $.ajax({
+            url: "/WhitelabelStep1/BindDropDownUserpreferancedropdown",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+            },
+            success: function (response) {
+               
+                if (response['UPdrp'].length > 0) {
+                   
+                    $('#drpDashboardGadgetPosition').html('');
+                    for (var i = 0; i < response['UPdrp'].length; i++) {
+                        var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
+                        
+                        $('#drpDashboardGadgetPosition').append(opt);
+                    }
+                    $('#drpDashboardGadgetPosition option:first').attr('selected', 'selected').change();
+                }
+
+
+            }
+        });
+
+    }
 
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
@@ -465,55 +567,73 @@
         var Corporate = '0';
         var UserId = '0';
         var GadgetPosition = $('#drpDashboardGadgetPosition option:selected').val();
-       // var OtherPreferences = '';
+        // var OtherPreferences = '';
         var pagerow = '10';
-       
 
-        $("#userperferancechk div").each(function () {
-            var OtherPreferences = '';
-            var OtherPreferences = $(this).children(':eq(1)').find('checkbox').val()
-         //   console.log($(this).children(':eq(1)').find('input').val());
-            alert(OtherPreferences);
+        var OtherPreferences = '';
+        var index = 0;
+        $("#userperferancechk input").each(function () {
+            if ($(this).prop('checked') == true) {
+                if (index != 0) {
+                    OtherPreferences = OtherPreferences + ',';
 
-            var Attribute1 = '';
-            var Attribute2 = '';
-            var Attribute3 = '';
-            var Attribute4 = '';
-            var Attribute5 = '';
-            var Attribute6 = '';
-            var Attribute7 = '';
-            var Attribute8 = '';
-            var Attribute9 = '';
-            var Attribute10 = '';
-            var EntryDatetime = '';
-            var CreatedBy = '0';
-            var EditedBy = '0';
-            var EditDatetime = '';
-            var CorpcentreBy = '0';
-            var UnitCorpBy = '0';
-            var TerminalBy = '0';
-            var BranchBy = '0';
+                }
 
-            $.ajax(
-               {
-                   type: "POST",
-                   url: "/WhitelabelStep1/insert_Data_user_preferance",
-                   data: {
-                       srno: srno, Corporate: Corporate, UserId: UserId, GadgetPosition: GadgetPosition, OtherPreferences: OtherPreferences,
-                       pagerow: pagerow, Attribute1: Attribute1, Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
-                       Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
-                       UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
-                   },
-                   dataType: 'json',
-                   success: function (response) {
-                       if (response != null && response.success) {
-                           alert("Record Save Sucessfully!");
-                         
-                       }
-                   }
-               });
+
+                OtherPreferences += $(this).val().trim();
+                index = 1;
+            }
         });
 
+        var Attribute1 = '';
+        var Attribute2 = '';
+        var Attribute3 = '';
+        var Attribute4 = '';
+        var Attribute5 = '';
+        var Attribute6 = '';
+        var Attribute7 = '';
+        var Attribute8 = '';
+        var Attribute9 = '';
+        var Attribute10 = '';
+        var EntryDatetime = '';
+        var CreatedBy = '0';
+        var EditedBy = '0';
+        var EditDatetime = '';
+        var CorpcentreBy = '0';
+        var UnitCorpBy = '0';
+        var TerminalBy = '0';
+        var BranchBy = '0';
+
+        $.ajax({
+            type: "POST",
+            url: "/WhitelabelStep1/insert_Data_user_preferance",
+            data: {
+                srno: srno, Corporate: Corporate, UserId: UserId, GadgetPosition: GadgetPosition, OtherPreferences: OtherPreferences,
+                pagerow: pagerow, Attribute1: Attribute1, Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+                Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
+                UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response != null && response.success) {
+                    alert("Record Save Sucessfully!");
+                    $("#tab1").addClass("active");
+                    $("#tab5").removeClass("active");
+                    $("#tabuserpreferance").removeClass("active");
+                    $("#Search").addClass("active");
+
+                }
+            }
+        });
+
+
+    });
+
+    $('#btnclearuserpref').click(function (e) {
+        $('input:checkbox').removeAttr('checked');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
     });
 
 });

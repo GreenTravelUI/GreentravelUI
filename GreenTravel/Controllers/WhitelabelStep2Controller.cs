@@ -15,14 +15,12 @@ namespace GreenTravel.Controllers
         DbWhitelabelStep2 _objw2 = new DbWhitelabelStep2();
         //
         // GET: /WhitelabelStep2/
-         [HttpGet]
+        [HttpGet]
         public ActionResult Index()
         {
-            WhitelabelStep2 CV = new WhitelabelStep2();
-            CV.GridColumn = null;
-            CV.GridHearder = null;
-            return View(CV);
-           
+
+            return View();
+
         }
         public ActionResult BindDropDown(WhitelabelStep2 CBP)
         {
@@ -40,7 +38,7 @@ namespace GreenTravel.Controllers
                 }
                 var result = items;
                 return Json(result, JsonRequestBehavior.AllowGet);
-               // return Json(new SelectList(result, "Text", "Value"));
+                // return Json(new SelectList(result, "Text", "Value"));
 
             }
             catch (Exception)
@@ -48,7 +46,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-        [HttpPost]
+
         public ActionResult BindGridBase(WhitelabelStep2 CBP)
         {
             try
@@ -57,11 +55,7 @@ namespace GreenTravel.Controllers
                 WhitelabelStep2 CV = new WhitelabelStep2();
 
                 List<GridHearder> GridHearder = new List<GridHearder>();
-              //  List<CommanUserMaster> Caption = new List<CommanUserMaster>();
 
-
-
-                //List<CommanDropdown> items = new List<CommanDropdown>();
                 if (dsList.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.GridHearder = dsList.Tables[0];
@@ -72,9 +66,9 @@ namespace GreenTravel.Controllers
                 }
                 var Header = GridHearder;
                 CV.GridHearder = GridHearder;
-                //return View(CV);
-                return Json(GridHearder, JsonRequestBehavior.AllowGet);
-                //return Json(new SelectList(Header, "xname", "SrNo"));
+                // return View(CV);
+                // return Json(result, JsonRequestBehavior.AllowGet);
+                return Json(new SelectList(Header, "xname", "SrNo"));
 
             }
             catch (Exception)
@@ -89,19 +83,68 @@ namespace GreenTravel.Controllers
         public ActionResult Index(FormCollection fc)
         {
 
-          //  string CountriesID = Convert.ToString(objcv.SelectedCountriesId); //tightly coupled
+            //  string CountriesID = Convert.ToString(objcv.SelectedCountriesId); //tightly coupled
             string StateID = fc["drpFeatureCategory"];
             ViewData["Category"] = StateID;
             WhitelabelStep2 CV = new WhitelabelStep2();
             CV.GridColumn = null;
             CV.GridHearder = null;
-            return View(CV);
+            return View(CV.GridHearder.ToList());
 
 
-          
+
         }
 
 
+        public PartialViewResult _DisplayGridData(string id)
+        {
+            DataSet dsList = _objw2.Basegrid(id);
+            WhitelabelStep2 CV = new WhitelabelStep2();
+            Grid _grid = new Grid();
+            List<GridHearder> GridHearder = new List<GridHearder>();
+            List<GridColumn> GridColumn = new List<GridColumn>();
+            List<Grid> lstGrid = new List<Grid>();
+            if (dsList.Tables[0].Rows.Count > 0)
+            {
+                ViewBag.GridHearder = dsList.Tables[0];
+                ViewBag.GridColumn = dsList.Tables[1];
+
+               
+                if (dsList.Tables[0] != null)
+                {
+                    foreach (System.Data.DataRow dr in ViewBag.GridColumn.Rows)
+                    {
+                        GridColumn.Add(new GridColumn 
+                        { xname = @dr["xname"].ToString(),
+                          SrNo = @dr["xcode"].ToString(),
+                          xlink = @dr["xlink"].ToString()
+                        });
+                    }
+                }
+
+                if (dsList.Tables[1] != null)
+                {
+                    foreach (System.Data.DataRow dr in ViewBag.GridHearder.Rows)
+                    {
+                        GridHearder.Add(new GridHearder
+                        { 
+                            xname = @dr["xname"].ToString(), 
+                            SrNo = @dr["xcode"].ToString() 
+                             
+                        });
+
+                     //   var gf = GridColumn.Where(s => s.SrNo == dr["xcode"].ToString()).ToList();
+                    }
+                }
+
+            }
+            
+            _grid.GridColumn = GridColumn.ToList();
+            _grid.GridHearder = GridHearder.ToList();
+            
+            lstGrid.Add(_grid);
+            return PartialView(lstGrid);
+        }
 
 
     }
