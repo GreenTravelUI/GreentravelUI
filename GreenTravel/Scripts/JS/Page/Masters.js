@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     /*Tab 1*/
+   
     var deletesrno;
     getdata();
     $("#drpCorporate").change(function () {
@@ -368,9 +369,14 @@
                success: function (response) {
                    if (response != null && response.success) {
                        alert("Record Save Sucessfully!");
+
+
+
+
                    }
                }
            });
+
         $('#btnsUpdate').hide();
         $('#btnDelete').hide();
         $('#btnSaveMastersetup').show();
@@ -382,6 +388,7 @@
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+
     });
 
 

@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     getdata();
     hide_div();
-    FillDropDown_Category();  // To fill the dropown- Category
+   // FillDropDown_Category();  // To fill the dropown- Category
 
 
 
@@ -36,10 +36,10 @@
     $('#btnSave').click(function (e) {
         e.preventDefault();
         /* Form Validation */
-        if (!validateForm($(this).parent())) {
-            alert('Invalid data found!');
-            return false;
-        }
+        //if (!validateForm($(this).parent())) {
+        //    alert('Invalid data found!');
+        //    return false;
+        //}
         var USrno = '0';
         //  alert($('#btnSave').text());
         if ($('#btnSave').text() != "Create") {
@@ -135,8 +135,17 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
+                       $('input[type="text"]').val('');
+
+                       $('.Dropdown').each(function () {
+                           $(this).val($(this).find('option:first').val()).change();
+                       });
+
+                       $('.drpdown').each(function () {
+                           $(this).val($(this).find('option:first').val()).change();
+                       });
                        alert("Record Save Sucessfully!");
-                       $('#btnCancel').click();
+                     
                        // getdata();
                    }
                }

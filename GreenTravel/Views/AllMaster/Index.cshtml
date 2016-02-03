@@ -21,6 +21,8 @@
     }
 </style>
 
+
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -221,15 +223,22 @@
                                     <label class="control-label" id="LbTime1">Time 1 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field27"></i>
                                     <div class="input-group input-append bootstrap-timepicker">
-                                        <input id="time1" type="text" class="form-control">
+                                        @*<input id="time1" type="text" class="form-control">
+                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>*@
+
+                                        <input type="text" class="form-control" value="01.06 Hrs" id="time1">
                                         <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+
+
+
+
                                     </div>
                                 </div>
                                 <div class="form-group" id="divTime2">
                                     <label class="control-label" id="LbTime2">Time 2 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field28"></i>
                                     <div class="input-group input-append bootstrap-timepicker">
-                                        <input id="time2" type="text" class="form-control">
+                                        <input id="time2" type="text" class="form-control" value="01.06 Hrs">
                                         <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                     </div>
                                 </div>
@@ -515,6 +524,14 @@
 
 
 @section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#time1').timepicker();
+            $('#time2').timepicker();
+            // $('#datetimepicker4').datetimepicker();
+        });
+    </script>
+
     <script src="~/Scripts/JS/CommonValidations.js"></script>
     <script src="~/Scripts/JS/Page/AllMasters.js"></script>
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
