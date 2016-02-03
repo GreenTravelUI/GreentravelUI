@@ -53,10 +53,22 @@ namespace GreenTravel.Models
     }
 
 
+    public class GridFromControlDisplay
+    {
+        public string corporate { get; set; }
+        public string Features { get; set; }
+        public string Module { get; set; }
+        public string Form { get; set; }
+        public string Tab { get; set; }
+        public string Section { get; set; }
+        public string Controls { get; set; }
+        public string RowNumber { get; set; }
+        public string Srno { get; set; }
+    }
     //public class GridFrmControlDisplay
     //{
     //    public string CompanyName { get; set; } //xname
-    //    public string CompanyIndustry  { get; set; } //xmaster
+    //    public string CompanyIndustry { get; set; } //xmaster
     //    public string ApplicationURL { get; set; }
     //    public string RefferenceCompany { get; set; }
     //    public string Srno { get; set; }

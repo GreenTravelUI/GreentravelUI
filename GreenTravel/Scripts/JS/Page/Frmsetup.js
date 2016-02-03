@@ -4,8 +4,9 @@
     var FrmtabCode
     var ID = 2;
     var customID = 2;
+    Dropdown_Bind_Tab1();
     getdata();
-    //    getdatatab();
+    // getdatatab();
 
 
     function Dropdown_Bind_Tab1() {
@@ -28,12 +29,13 @@
             },
             success: function (response) {
                 if (response['GTCorporate'].length > 0) {
-                    $('#drpCorporate').html('');
+                    $('.formcorporate').html('');
                     for (var i = 0; i < response['GTCorporate'].length; i++) {
                         var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
-                        $('#drpCorporate').append(opt);
+                        $('.formcorporate').append(opt);
                     }
-                    $('#drpCorporate option:first').attr('selected', 'selected').change();
+                    $('#drpCorporate1 option:first').attr('selected', 'selected').change();
+                    $('#drpCorporatetab option:first').attr('selected', 'selected').change();
                 }
                 if (response['GTFrom'].length > 0) {
                     $('#drpFormCode').html('');
@@ -47,13 +49,66 @@
         });
     }
 
-    $('#frmtab').click(function (e) {
-        Dropdown_Bind_Tab1();
-    });
+    //$('#frmtab').click(function (e) {
+    //    Dropdown_Bind_Tab1();
+    //});
 
     $('#frmsection').click(function (e) {
         getdatatab();
     });
+
+    $("#drpCorporate1").change(function () {
+      //  alert('drpCorporate1');
+       // alert($('#drpCorporate1 option:selected').val());
+        FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
+    });
+    $("#drpFeatures").change(function () {
+      //  alert('drpFeatures');
+        FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
+    });
+    $("#drpModule").change(function () {
+      //  alert('drpModule');
+        FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
+    });
+    function FillDropdown(Corporate,Field1,Field2,controlId) {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = Corporate;
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var field1 = Field1;
+        var field2 = Field2;
+        var field3 = '';
+        var field4 = '';
+        var field5 = '';
+        var Control = controlId;
+        var Language = '';
+        var Type = 'ConditionalDropdown';
+        var Srno = '';
+        $.ajax({
+            url: "/FormSetup/BindDropDownbase",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+                Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
+                Control: Control, Language: Language, Srno: Srno
+            },
+            success: function (data) {
+                console.log(data);
+               // alert(controlId);
+                $('#' + controlId + '').html('');
+                for (var i = 0; i < data.length; i++) {
+                    var opt = new Option(data[i]['Text'], data[i]['Value']);
+                    $('#' + controlId + '').append(opt);
+                }
+                $("#" + controlId + " option:first").attr('selected', 'selected').change();
+            }
+        });
+    }
 
     $('.btnSave').click(function (e) {
         e.preventDefault();
@@ -107,7 +162,7 @@
            });
     });
 
-    $('#btnSaveformtab').click(function (e) {
+    $('.btnSaveformtab').click(function (e) {
         e.preventDefault();
 
         var Attribute1 = '';
@@ -140,7 +195,7 @@
 
 
 
-        var Corporate = $('#drpCorporate option:selected').val();
+        var Corporate = $('#drpCorporatetab option:selected').val();
         var FormCode = $('#drpFormCode option:selected').val();
         var TabNumber = $('#txtTabNumber').val();
 
@@ -182,7 +237,7 @@
 
     });
 
-    $('#btnstandardbutton').click(function (e) {
+    $('.btnSaveStandard').click(function (e) {
         e.preventDefault();
         var Attribute1 = '';
         var Attribute2 = '';
@@ -203,7 +258,8 @@
         var TerminalBy = '0';
         var BranchBy = '0';
         var srno = '';
-        var CorporateId = '1';
+      //  alert($('#drpCorporate option:selected').val());
+        var CorporateId = $('#drpCorporate option:selected').val();
         var FormCode = Frmcode;
         var TabCode = FrmtabCode;
         var SaveName = $('#txtSaveName').val();
@@ -381,6 +437,7 @@
              success: function (response) {
                  console.log(response)
                  if (response['AFrmStandardbtn'].length > 0) {
+                     $('#btnstandardbutton').hide();
                      //   $('#txtMasterCode').val(response['AFrmStandardbtn'][0]['xmaster']);
                      $('#txtSaveName').val(response['AFrmStandardbtn'][0]['SaveName']);
                      $('#txtSaveClass').val(response['AFrmStandardbtn'][0]['SaveClass']);
@@ -424,8 +481,8 @@
         var Xmaster = '';
         var Type = 'EditMode';
         var html = '';
-      
-       // $(html).remove($("#tblModalSection"))
+
+        // $(html).remove($("#tblModalSection"))
         $.ajax(
          {
              type: "POST",
@@ -435,11 +492,12 @@
              },
              dataType: 'json',
              success: function (response) {
+                 
                  console.log(response['ASectionMaster'])
                  if (response['ASectionMaster'].length > 0) {
-                     // $("#tblModalSection").remove();
-                     ID = response['ASectionMaster'].length;
-                     alert(ID);
+                     $("#tblModalSection tbody").html('');
+                     ID = response['ASectionMaster'].length + 1 ;
+                   //  alert(ID);
                      $("#btnModalSectionSave").hide();
                      for (var i = 0; i < response['ASectionMaster'].length; i++) {
 
@@ -458,7 +516,6 @@
                                  '</tr>'
                          }
                      }
-                     alert(html);
                      $(html).appendTo($("#tblModalSection"))
                  }
              }
@@ -500,6 +557,7 @@
     });
 
     function getdatatab() {
+
         var tablename = 'dbo._Form_Tab_Master';
         var Corporate = '2';
         var unit = '';
@@ -577,9 +635,9 @@
         ID++;
         //  alert(ID);
     };
-    $('#btnModalSectionSave').on('click', function () {
-        var flag = false;
-        var CorporateId = 2
+    $('.btnsavesection').on('click', function () {
+        var flag = 0;
+        var CorporateId = $('#drpCorporate option:selected').val();
         var TabCode = FrmtabCode;
         var FormCode = Frmcode
         var Attribute1 = '';
@@ -603,15 +661,14 @@
         $("#tblModalSection tbody tr").each(function () {
             var SectionName = '';
             var SectionName = $(this).children(':eq(1)').find('input').val();
+            console.log($(this).children(':eq(2)').find('input').val().trim());
             var srno;
-            if ($(this).children(':eq(1)').find('input').val() == '') {
-                srno = $(this).children(':eq(1)').find('input').val();
+            if ($(this).children(':eq(2)').find('input').val().trim() != '') {
+                srno = $(this).children(':eq(2)').find('input').val();
             }
             else {
                 srno = 0;
             }
-
-            
             console.log($(this).children(':eq(1)').find('input').val());
             $.ajax(
                {
@@ -626,17 +683,15 @@
                    },
                    dataType: 'json',
                    success: function (response) {
-                       // console.log(response[0])
-                       if (response.length > 0) {
-                           var flag = true
+                       if (response.success != '') {
+                            flag = 1
                        }
                        //  
                    }
                });
             //console.log($(this).children(':eq(1)').find('input').val());
         });
-        //   alert(flag)
-        if (flag == true) {
+        if (flag == 1) {
             alert("Record Save Sucessfully");
         }
     });
