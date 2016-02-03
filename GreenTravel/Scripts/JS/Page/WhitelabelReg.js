@@ -130,13 +130,20 @@
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
             },
             success: function (response) {
-                if (response['GTIndutry'].length > 0) {
-                    $('.Industry').html('');
-                    for (var i = 0; i < response['GTIndutry'].length; i++) {
-                        var opt = new Option(response['GTIndutry'][i]['Text'], response['GTIndutry'][i]['Value']);
-                        $('.Industry').append(opt);
+                if (response['GTINDUTRYS'].length > 0) {
+                    $('#drpcompanyIndustry').html('');
+                    for (var i = 0; i < response['GTINDUTRYS'].length; i++) {
+                        var opt = new Option(response['GTINDUTRYS'][i]['Text'], response['GTINDUTRYS'][i]['Value']);
+                        $('#drpcompanyIndustry').append(opt);
                     }
                     $('#drpcompanyIndustry option:first').attr('selected', 'selected').change();
+                }
+                if (response['GTIndutry'].length > 0) {
+                    $('#drpcompanyType').html('');
+                    for (var i = 0; i < response['GTIndutry'].length; i++) {
+                        var opt = new Option(response['GTIndutry'][i]['Text'], response['GTIndutry'][i]['Value']);
+                        $('#drpcompanyType').append(opt);
+                    }
                     $('#drpcompanyType option:first').attr('selected', 'selected').change();
                 }
                 if (response['GTservice'].length > 0) {
