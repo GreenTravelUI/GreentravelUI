@@ -22,7 +22,7 @@ $(document).ready(function () {
         controlInputValidations($(this));
     });
     $('.form-group').on('blur', 'textarea', function () {
-        controlInputValidations($(this));
+        controlTextareaValidations($(this));
     });
     $('.form-group').on('select2:close', 'select.req', function () {
         controlSelectValidations($(this));
@@ -76,13 +76,35 @@ function controlInputValidations(control) {
     }
     if (control.hasClass('email')) {
         if (control.val().trim().length > 0) {
-            if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+            //if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+            if (!control.val().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
                 control.after('<p class="red-error">Invalid Email Format.</p>');
                 control.addClass('red-input');
                 return false;
             }
         }
     }
+    if (control.hasClass('amt')) {
+        if (control.val().trim().length > 0) {
+            if (!control.val().match(/^(?:0|[1-9]\d*)(?:\.(?!.*000)\d+)?$/)) {
+                control.after('<p class="red-error">Invalid Amount Format.</p>');
+                control.addClass('red-input');
+                return false;
+            }
+        }
+    }
+    //if (control.hasClass('time')) {
+    //    control.removeClass('red-input');
+    //    control.parent().parent().find('p.red-error').remove();
+    //    if (control.val().trim().length > 0) {
+    //        if (!control.val().match(/^([0-1][0-9])\:[0-5][0-9]\s*[AP]M$/)) {
+    //            control.parent().after('<p class="red-error">Invalid Time Format.</p>');
+    //            control.addClass('red-input');
+    //            return false;
+    //        }
+    //    }
+    //}
+    
     if (control.hasClass('reg')) {
         var str = control.data('reg');
         if (!control.val().match(str)) {
@@ -91,12 +113,34 @@ function controlInputValidations(control) {
             return false;
         }
     }
+    return true;
 }
 function controlSelectValidations(control) {
+    var flag = true;
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
+        console.log('value: ' + control.find('option:selected').val());
         if (control.find('option:selected').val() == '0') {
+            control.next().after('<p class="red-error">This field is required.</p>');
+            control.next().addClass('red-input');
+            flag = false;
+        } 
+    }
+    return flag;
+}
+function controlMultiSelectValidations(control) {
+    console.log(control.attr('id'));
+    control.next().removeClass('red-input');
+    control.parent().find('p.red-error').remove();
+    if (control.hasClass('req')) {
+        var isSelected = false;
+        control.find('option').each(function () {
+            if ($(this).is(':selected')) {
+                isSelected = true;
+            }
+        });
+        if (!isSelected) {
             control.next().after('<p class="red-error">This field is required.</p>');
             control.next().addClass('red-input');
             return false;
@@ -120,6 +164,7 @@ function formInputValidations(frm) {
     frm.find('input').each(function () {
         if ($(this).parent().is(':visible')) {
             if (!controlInputValidations($(this))) {
+                console.log('txt: #'+$(this).attr('id'));
                 inputFlag = false;
             }
         }
@@ -142,9 +187,19 @@ function formSelectValidations(frm) {
     var selectFlag = true;
     frm.find('select.req').each(function () {
         if ($(this).parent().is(':visible')) {
-            if (!controlSelectValidations($(this))) {
-                selectFlag = false;
-                $(this).focus();
+            var attr = $(this).attr('multiple');
+            if (typeof attr !== typeof undefined && attr !== false) {
+                if (!controlMultiSelectValidations($(this))) {
+                    console.log('controlMultiSelectValidations:-> #' + $(this).attr('id'));
+                    selectFlag = false;
+                    $(this).focus();
+                }
+            } else {
+                if (!controlSelectValidations($(this))) {
+                    console.log('controlSelectValidations: #' + $(this).attr('id'));
+                    selectFlag = false;
+                    $(this).focus();
+                }
             }
         }
     });
@@ -153,12 +208,15 @@ function formSelectValidations(frm) {
 function validateForm(frm) {
     var flag = true;
     if (!formInputValidations(frm)) {
+        console.log('formInputValidations');
         flag = false;
     }
     if (!formTextareaValidations(frm)) {
+        console.log('formTextareaValidations');
         flag = false;
     }
     if (!formSelectValidations(frm)) {
+        console.log('formSelectValidations');
         flag = false;
     }
     return flag;

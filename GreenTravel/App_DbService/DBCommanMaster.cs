@@ -649,7 +649,7 @@ namespace GreenTravel.App_DbService
                 }
                 else
                 {
-                    _cmd.Parameters.AddWithValue("@Time1", DateTime.ParseExact(CUH.UTime1, "dd/MM/yyyy", null));
+                    _cmd.Parameters.AddWithValue("@Time1", CUH.UTime1);
                 }
 
 
@@ -659,7 +659,7 @@ namespace GreenTravel.App_DbService
                 }
                 else
                 {
-                    _cmd.Parameters.AddWithValue("@Time2", DateTime.ParseExact(CUH.UTime2, "dd/MM/yyyy", null));
+                    _cmd.Parameters.AddWithValue("@Time2", CUH.UTime2);
                 }
 
                 _cmd.Parameters.AddWithValue("@Html", CUH.UHtml);

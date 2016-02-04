@@ -36,10 +36,10 @@
     $('#btnSave').click(function (e) {
         e.preventDefault();
         /* Form Validation */
-        //if (!validateForm($(this).parent())) {
-        //    alert('Invalid data found!');
-        //    return false;
-        //}
+        if (!validateForm($(this).parent())) {
+            alert('Invalid data found!');
+            return false;
+        }
         var USrno = '0';
         //  alert($('#btnSave').text());
         if ($('#btnSave').text() != "Create") {
@@ -202,8 +202,8 @@
         var Branch = '';
         var userid = '';
         var Ip = '';
-        var field1 ='1';
-      //  var field1 = $('#drpSegmenttab3 option:selected').val();
+       // var field1 ='1';
+        var field1 = $('#drpSegmenttab3 option:selected').val();
         var field2 = $('#drpMasterTab3 option:selected').val();
         var field3 = '';
         var field4 = '';
@@ -554,8 +554,8 @@
     function PageLoad_FilledAll() {
 
         hide_div();
-        var field1 = 1;
-        //var field1 = $('#drpSegmenttab3 option:selected').val();
+       // var field1 = 1;
+        var field1 = $('#drpSegmenttab3 option:selected').val();
         var field2 = $('#drpMasterTab3 option:selected').val();
         $.ajax({
             url: "/AllMaster/ALL_Data_Field",
