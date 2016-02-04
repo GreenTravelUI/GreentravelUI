@@ -21,13 +21,15 @@
     }
 </style>
 
+
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" id="MastersRecord"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Master Record</a></li>
+                    <li role="presentation" id="MastersRecord" class="active"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Master Record</a></li>
                     <li role="presentation" id="MasterDataViews"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Master Record</a></li>
                 </ul>
                 <div class="tab-content">
@@ -221,15 +223,22 @@
                                     <label class="control-label" id="LbTime1">Time 1 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field27"></i>
                                     <div class="input-group input-append bootstrap-timepicker">
-                                        <input id="time1" type="text" class="form-control">
+                                        @*<input id="time1" type="text" class="form-control">
+                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>*@
+
+                                        <input type="text" class="form-control" value="01.06 Hrs" id="time1">
                                         <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+
+
+
+
                                     </div>
                                 </div>
                                 <div class="form-group" id="divTime2">
                                     <label class="control-label" id="LbTime2">Time 2 </label>
                                     &nbsp <i class="fa fa-question-circle text-info" data-toggle="tooltip" data-placement="right" id="field28"></i>
                                     <div class="input-group input-append bootstrap-timepicker">
-                                        <input id="time2" type="text" class="form-control">
+                                        <input id="time2" type="text" class="form-control" value="01.06 Hrs">
                                         <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                     </div>
                                 </div>
@@ -330,7 +339,7 @@
                                     SAVE</button>
                                 @*<button id="btnUpdate" type="submit" class="btn btn-primary btnSave">
                                     UPDATE</button>*@
-                               @* <button id="btnDelete" type="submit" class="btn btn-green btnCancel">
+                                @* <button id="btnDelete" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>*@
                                 <button id="btnCancel" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
@@ -515,111 +524,15 @@
 
 
 @section scripts{
-    
-<script>
-
-    function CheckFormValidations(validationCode, control) {
-        var code = validationCode.split('||');
-        $.each(code, function (key, value) {
-            SetValidation(value, control);
+    <script type="text/javascript">
+        $(function () {
+            $('#time1').timepicker();
+            $('#time2').timepicker();
+            // $('#datetimepicker4').datetimepicker();
         });
-    }
-
-    function SetValidation(valCode, control) {
-        var values = valCode.split(':');
-        control.addClass(values[0].toLowerCase());
-        if (values[0].toLowerCase() == 'max') {
-            control.attr('data-max', values[1].toString());
-        } else if (values[0].toLowerCase() == 'min') {
-            control.attr('data-min', values[1].toString());
-        } else if (values[0].toLowerCase() == 'reg') {
-            control.attr('data-reg', values[1].toString());
-        }
-    }
-    $(document).ready(function () {
-        $('.form-group').on('blur', 'input', function () {
-            controlInputValidations($(this));
-        });
-        $('.form-group').on('blur', 'select', function () {
-            alert();
-            controlSelectValidations($(this));
-        });
-    });
-    function controlInputValidations(control) {
-        control.removeClass('red-input');
-        control.parent().find('p.red-error').remove();
-        if (control.hasClass('req')) {
-            if (control.val().trim().length == 0) {
-                control.after('<p class="red-error">This field is required.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('max')) {
-            if (control.val().length > parseInt(control.data('max'))) {
-                control.after('<p class="red-error">Maximum ' + control.data('max') + ' characters are required.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('min')) {
-            if (control.val().length < parseInt(control.data('min'))) {
-                control.after('<p class="red-error">Minimum ' + control.data('min') + ' characters are required.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('alphbet')) {
-            if (!control.val().match(/^[a-zA-Z]*$/)) {
-                control.after('<p class="red-error">Only Alphabets are allowed.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('alphnum')) {
-            if (!control.val().match(/^[a-zA-Z0-9]*$/)) {
-                control.after('<p class="red-error">Only AlphaNumeric value is allowed.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('num')) {
-            if (!control.val().match(/^([0-9]*)$/)) {
-                control.after('<p class="red-error">Only Numeric value is allowed.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('email')) {
-            if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-                control.after('<p class="red-error">Invalid Email Format.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-        if (control.hasClass('reg')) {
-            var str = control.data('reg');
-            if (!control.val().match(str)) {
-                control.after('<p class="red-error">Invalid Data.</p>');
-                control.addClass('red-input');
-                return;
-            }
-        }
-    }
-    function controlSelectValidations(control) {
-        control.removeClass('red-input');
-        control.parent().find('p.red-error').remove();
-        if (control.hasClass('req')) {
-            if (control.find('option:selected').val() == '0') {
-                control.next().after('<p class="red-error">This field is required.</p>');
-                control.next().addClass('red-input');
-                return;
-            }
-        }
-    }
     </script>
-	
 
+    <script src="~/Scripts/JS/CommonValidations.js"></script>
     <script src="~/Scripts/JS/Page/AllMasters.js"></script>
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
     <script>

@@ -43,7 +43,8 @@ namespace GreenTravel.Controllers
             try
             {
                 DataSet ds = _objwl.BindDropDown(CFP);
-                List<CommanDropdown> items = new List<CommanDropdown>();
+                List<CommanDropdown> Industry = new List<CommanDropdown>();
+                List<CommanDropdown> items = new List<CommanDropdown>();//company Type
                 List<CommanDropdown> itemservice = new List<CommanDropdown>();
                 List<CommanDropdown> BMode = new List<CommanDropdown>();
                 List<CommanDropdown> CURRENCY = new List<CommanDropdown>();
@@ -53,6 +54,16 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Industry.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var Industrys = Industry;
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[1];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
                         items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
@@ -110,7 +121,7 @@ namespace GreenTravel.Controllers
                 var corporate = Corporate;
 
 
-                return Json(new { GTIndutry = result, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate }, JsonRequestBehavior.AllowGet);
+                return Json(new { GTINDUTRYS=Industrys, GTIndutry = result, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -257,12 +268,37 @@ namespace GreenTravel.Controllers
             }
         }
 
-
-        public ActionResult insert_Data_user_preferance(WhitelabelReg WR)
+        public ActionResult BindDropDownUserpreferancedropdown(WhitelabelReg WR)
         {
             try
             {
-                DataSet ds = _objwl.insert_Data_user_preferance(WR);
+                DataSet ds = _objwl.BindDropDownUserpreferancedropdown(WR);
+                List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemsdrp.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var result = itemsdrp;
+
+                return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult insert_Data_user_preferance(UserPreferancestep1 UP)
+        {
+            try
+            {
+                DataSet ds = _objwl.insert_Data_user_preferance(UP);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
@@ -277,7 +313,41 @@ namespace GreenTravel.Controllers
             }
         }
 
-       
+
+        public ActionResult Edit_data_user_preferance(UserPreferancestep1 UP)
+        {
+            try
+            {
+                DataSet ds = _objwl.Edit_data_user_preferance(UP);
+                List<UserPreferancestep1> UserPreferancestep1 = new List<UserPreferancestep1>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        UserPreferancestep1.Add(new UserPreferancestep1
+                        {
+                            srno = @dr["srno"].ToString(),
+                            GadgetPosition = @dr["GadgetPosition"].ToString(),
+                            OtherPreferences = @dr["OtherPreferences"].ToString(),
+                            pagerow = @dr["pagerow"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                                                     
+                        });
+                    }
+                }
+                var result = UserPreferancestep1;
+
+                return Json(new { UserPreferancestep1js = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
 
     }
