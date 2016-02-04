@@ -58,7 +58,7 @@ namespace GreenTravel.Controllers
 
 
                 var result = Segment;
-               // return Json(result, JsonRequestBehavior.AllowGet);
+                // return Json(result, JsonRequestBehavior.AllowGet);
                 return Json(new { Segment = Segment, Corporate = Corporate, RATING = RATING }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -70,20 +70,58 @@ namespace GreenTravel.Controllers
 
         }
 
+        public ActionResult BindDropDown_Multiselect(commanbaseParamater CBP)
+        {
+            try
+            {
+                DataSet ds = _objCM.BindDropDownTab2(CBP);
+                List<CommanDropdown> Mul = new List<CommanDropdown>();
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                       // Mul = null;
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            Mul.Clear();
+                            ViewBag.fname = "";
+                            ViewBag.fname = ds.Tables[0];
+                            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                            {
+                                Mul.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                            }
 
+                        }
+                    }
+                }
+              
+                var result = Mul;
+                return Json(new { AMul = result }, JsonRequestBehavior.AllowGet); ;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
 
         public ActionResult BindDropDownTab(commanbaseParamater CBP)
         {
             try
             {
-                DataSet ds = _objCM.BindDropDownTab2(CBP);
+                DataSet dstable = _objCM.BindDropDownTab2(CBP);
                 List<CommanDropdown> items = new List<CommanDropdown>();
-                if (ds.Tables[0].Rows.Count > 0)
+                if (dstable.Tables[0] != null)
                 {
-                    ViewBag.fname = ds.Tables[0];
-                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    if (dstable.Tables[0].Rows.Count > 0)
                     {
-                        items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        ViewBag.fname = dstable.Tables[0];
+                        foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                        {
+                            items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        }
                     }
                 }
                 var result = items;
@@ -454,8 +492,8 @@ namespace GreenTravel.Controllers
                             UEditedBy = @dr["EditedBy"].ToString(),
                             UEditDatetime = @dr["EditDatetime"].ToString(),
                             UCorpcentreBy = @dr["CorpcentreBy"].ToString(),
-                           // UUnitCorpBy = @dr["UnitCorpBy "].ToString(),
-                          //  UTerminalBy = @dr["TerminalBy"].ToString(),
+                            // UUnitCorpBy = @dr["UnitCorpBy "].ToString(),
+                            //  UTerminalBy = @dr["TerminalBy"].ToString(),
                             UBranchBy = @dr["BranchBy"].ToString(),
 
                             URating1 = @dr["Rating1"].ToString(),
@@ -506,7 +544,7 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objCM.FormLoadHelp(CBP);
                 //DataSet ds = _objCM.Edit_data(EA);
-               // DataSet ds = _objCM.FormLoadHelp(CUH);
+                // DataSet ds = _objCM.FormLoadHelp(CUH);
                 //List<CommanMaster> Master = new List<CommanMaster>();
                 List<CommanMasterCaption> Caption = new List<CommanMasterCaption>();
                 List<CommanMasterPlaceholder> Placeholder = new List<CommanMasterPlaceholder>();
