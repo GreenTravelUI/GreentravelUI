@@ -191,6 +191,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public DataSet insertdata_Formtab(FormTab FT)
         {
             try
@@ -274,6 +275,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
         public DataSet BindDropDown(CommanFieldPara CBP)
         {
             try
@@ -309,6 +311,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public int insertdata_Standardbutton(StandardButton STB)
         {
             try
@@ -391,6 +394,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
         public DataSet BindGridFormTab(GridFormTab GFT)
         {
             try
@@ -428,6 +432,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public int insertdata_SectionMaster(Section_Master SM)
         {
             try
@@ -486,6 +491,109 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
+        public int insertdata_CustomMaster(Custom_Master CustomM)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_Form_CustomButtons_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@srno", CustomM.srno);
+                _cmd.Parameters.AddWithValue("@Corporate", CustomM.Corporate);
+                _cmd.Parameters.AddWithValue("@TabCode", CustomM.TabCode);
+                _cmd.Parameters.AddWithValue("@FormCode", CustomM.FormCode);
+
+                _cmd.Parameters.AddWithValue("@CustomName", CustomM.CustomName);
+                _cmd.Parameters.AddWithValue("@CustomClass", CustomM.CustomClass);
+                _cmd.Parameters.AddWithValue("@CustomVisibility", CustomM.CustomVisibility);
+                _cmd.Parameters.AddWithValue("@CustomNotification", CustomM.CustomNotification);
+                _cmd.Parameters.AddWithValue("@CustomTask", CustomM.CustomTask);
+                
+                _cmd.Parameters.AddWithValue("@Attribute1", CustomM.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", CustomM.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", CustomM.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", CustomM.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", CustomM.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", CustomM.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", CustomM.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", CustomM.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", CustomM.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", CustomM.Attribute10);
+                _cmd.Parameters.AddWithValue("@CreatedBy", CustomM.CreatedBy);
+                if (CustomM.EntryDatetime == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(CustomM.EntryDatetime, "dd/MM/yyyy", null));
+                }
+                if (CustomM.EditDatetime == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(CustomM.EditDatetime, "dd/MM/yyyy", null));
+                }
+                _cmd.Parameters.AddWithValue("@EditedBy", CustomM.EditedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", CustomM.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", CustomM.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", CustomM.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", CustomM.BranchBy);
+                int i = _cmd.ExecuteNonQuery();
+                return i;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+
+        }
+
+        public DataSet BindUtility(CommanFieldPara CBP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_Form_Utility_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CBP.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+
     }
 
 }
