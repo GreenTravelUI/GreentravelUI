@@ -119,6 +119,7 @@
             ]
         });
     }
+
     function Dropdown_Bind_Tab1() {
         var Module = '';
         var screen = '';
@@ -145,57 +146,11 @@
                         $('.Industry').append(opt);
                     }
                     $('#drpcompanyIndustry option:first').attr('selected', 'selected').change();
-                    $('#drpcompanyType option:first').attr('selected', 'selected').change();
                 }
-                if (response['GTservice'].length > 0) {
-                    $('#drpServices').html('');
-                    for (var i = 0; i < response['GTservice'].length; i++) {
-                        var opt = new Option(response['GTservice'][i]['Text'], response['GTservice'][i]['Value']);
-                        $('#drpServices').append(opt);
-                    }
-                    $('#drpServices option:first').attr('selected', 'selected').change();
-                }
-                if (response['GTBmode'].length > 0) {
-                    $('#drpBusinessMode').html('');
-                    for (var i = 0; i < response['GTBmode'].length; i++) {
-                        var opt = new Option(response['GTBmode'][i]['Text'], response['GTBmode'][i]['Value']);
-                        $('#drpBusinessMode').append(opt);
-                    }
-                    $('#drpBusinessMode option:first').attr('selected', 'selected').change();
-                }
-                if (response['GTcurrency'].length > 0) {
-                    $('#drpBaseCurrency').html('');
-                    for (var i = 0; i < response['GTcurrency'].length; i++) {
-                        var opt = new Option(response['GTcurrency'][i]['Text'], response['GTcurrency'][i]['Value']);
-                        $('#drpBaseCurrency').append(opt);
-                    }
-                    $('#drpBaseCurrency option:first').attr('selected', 'selected').change();
-                }
-                if (response['GTlanguage'].length > 0) {
-                    $('.Language').html('');
-                    for (var i = 0; i < response['GTlanguage'].length; i++) {
-                        var opt = new Option(response['GTlanguage'][i]['Text'], response['GTlanguage'][i]['Value']);
-                        $('.Language').append(opt);
-                    }
-                    $('#drpBaseLanguage option:first').attr('selected', 'selected').change();
-                    $('#drpOtherLanguage option:first').attr('selected', 'selected').change();
-                }
-                if (response['GTCorporate'].length > 0) {
-                    $('#drpRefferenceCorporateCompany').html('');
-                    for (var i = 0; i < response['GTCorporate'].length; i++) {
-                        var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
-                        $('#drpRefferenceCorporateCompany').append(opt);
-                    }
-                    $('#drpRefferenceCorporateCompany option:first').attr('selected', 'selected').change();
-                }
-
-                //console.log(response['GTIndutry'][0]);
-                //console.log(response['GTservice'][0]);
-                //console.log(response['GTBmode'][0]);
-
             }
         });
     }
+
     $("table").delegate(".editor_Step", "click", function () {
         console.log($(this).parent().parent().children(':eq(0)').text());
         console.log($(this).parent().parent().children(':eq(1)').text());

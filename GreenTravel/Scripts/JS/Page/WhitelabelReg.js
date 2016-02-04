@@ -89,8 +89,8 @@
                success: function (response) {
                    if (response != null && response.success) {
                        alert("Record Save Sucessfully!");
-                       $("#tab1").addClass("active");
-                       $("#tab2").removeClass("active");
+                       $("#tab2").addClass("active");
+                       $("#tab1").removeClass("active");
                    }
                }
            });
@@ -103,12 +103,25 @@
         Dropdown_Bind_Tab1();
     });
 
-    $('#btnclearbasic').click(function (e) {
+    $('.btnclearbasicclass').click(function (e) {
         $('input[type="text"]').val('');
+        $('.chkCopyrightNotecs').removeAttr('checked');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+        $("#tab2").addClass("active");
+        $("#tab1").removeClass("active");
     });
 
     $('#btnQuitbasic').click(function (e) {
         $('input[type="text"]').val('');
+        $('.chkCopyrightNotecs').removeAttr('checked');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+        $("#tab1").addClass("active");
+        $("#tab2").removeClass("active");
+
     });
 
     function Dropdown_Bind_Tab1() {

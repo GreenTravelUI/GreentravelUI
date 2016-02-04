@@ -659,7 +659,7 @@ namespace GreenTravel.App_DbService
                 }
                 else
                 {
-                    _cmd.Parameters.AddWithValue("@Time2", CUH.UTime2);
+                    _cmd.Parameters.AddWithValue("@Time2", CUH.UTime1);
                 }
 
                 _cmd.Parameters.AddWithValue("@Html", CUH.UHtml);

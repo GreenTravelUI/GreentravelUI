@@ -51,12 +51,12 @@ namespace GreenTravel.Controllers
                     {
                         items.Add(new GridFormparamater
                         {
-                            RowNumber = @dr["RowNumber"].ToString(),
-                            Corporate = @dr["CorporateName"].ToString(),
-                            FeatureGroup = @dr["FeatureGroup"].ToString(),
-                            Module = @dr["Module"].ToString(),
-                            FormName = @dr["FormName"].ToString(),
-                            srno = @dr["Srno"].ToString(),
+                            RowNumber = dr["RowNumber"].ToString(),
+                            Corporate = dr["CorporateName"].ToString(),
+                            FeatureGroup = dr["FeatureName"].ToString(),
+                            Module = dr["ModuleName"].ToString(),
+                            FormName = dr["FormName"].ToString(),
+                            srno = dr["Srno"].ToString(),
                         });
                     }
                 }
@@ -97,46 +97,7 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = frmset;
-
-                if (ds.Tables[1].Rows.Count > 0)
-                {
-                    ViewBag.Standardbtn = ds.Tables[1];
-                    foreach (System.Data.DataRow dr in ViewBag.Standardbtn.Rows)
-                    {
-                        frmStandardbtn.Add(new StandardButton
-                        {
-                            SaveName = @dr["SaveName"].ToString(),
-                            SaveClass = @dr["SaveClass"].ToString(),
-                            SaveVisibility = @dr["SaveVisibility"].ToString(),
-                            SaveNotification = @dr["SaveNotification"].ToString(),
-                            SaveTask = @dr["SaveTask"].ToString(),
-                            UpdateName = @dr["UpdateName"].ToString(),
-                            UpdateClass = @dr["UpdateClass"].ToString(),
-                            UpdateVisibility = @dr["UpdateVisibility"].ToString(),
-                            UpdateNotification = @dr["UpdateNotification"].ToString(),
-                            UpdateTask = @dr["UpdateTask"].ToString(),
-                            DeleteName = @dr["DeleteName"].ToString(),
-                            DeleteClass = @dr["DeleteClass"].ToString(),
-                            DeleteVisibility = @dr["DeleteVisibility"].ToString(),
-                            DeleteNotification = @dr["DeleteNotification"].ToString(),
-                            DeleteTask = @dr["DeleteTask"].ToString(),
-                            ClearName = @dr["ClearName"].ToString(),
-                            ClearClass = @dr["ClearClass"].ToString(),
-                            ClearVisibility = @dr["ClearVisibility"].ToString(),
-                            ClearNotification = @dr["ClearNotification"].ToString(),
-                            ClearTask = @dr["ClearTask"].ToString(),
-                            FormQuitName = @dr["FormQuitName"].ToString(),
-                            FormQuitClass = @dr["FormQuitClass"].ToString(),
-                            FormQuitVisibility = @dr["FormQuitVisibility"].ToString(),
-                            FormQuitNotification = @dr["FormQuitNotification"].ToString(),
-                            FormQuitTask = @dr["FormQuitTask"].ToString(),
-
-                        });
-                    }
-                }
-                var FrmStandardbtn = frmStandardbtn;
-                // return Json(new { AMaster = result, AFrmStandardbtn = FrmStandardbtn }, JsonRequestBehavior.AllowGet);
-                return Json(result, JsonRequestBehavior.AllowGet);
+               return Json(result, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -260,7 +221,7 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objfs.Edit_data(EA);
                 List<StandardButton> frmStandardbtn = new List<StandardButton>();
-                List<Section_Master> Section_Master = new List<Section_Master>();
+                List<Custom_Master> CustomMaster = new List<Custom_Master>();
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.Standardbtn = ds.Tables[1];
@@ -300,22 +261,26 @@ namespace GreenTravel.Controllers
                 var FrmStandardbtn = frmStandardbtn;
 
 
-                if (ds.Tables[4].Rows.Count > 0)
+                if (ds.Tables[2].Rows.Count > 0)
                 {
-                    ViewBag.Section = ds.Tables[4];
+                    ViewBag.Section = ds.Tables[2];
                     foreach (System.Data.DataRow dr in ViewBag.Section.Rows)
                     {
-                        Section_Master.Add(new Section_Master
+                        CustomMaster.Add(new Custom_Master
                         {
-                            srno = @dr["Srno"].ToString(),
-                            SectionName = @dr["SectionName"].ToString(),
-                            rownumber = @dr["RowNumber"].ToString(),
+                            srno = dr["Srno"].ToString(),
+                            CustomName = dr["CustomName"].ToString(),
+                            CustomClass = dr["CustomClass"].ToString(),
+                            CustomVisibility = dr["CustomVisibility"].ToString(),
+                            CustomNotification = dr["CustomNotification"].ToString(),
+                            CustomTask = dr["CustomTask"].ToString(),
+                            Rownumber = dr["RowNumber"].ToString(),
                         });
                     }
                 }
-                var SectionMaster = Section_Master;
+                var CustomMas = CustomMaster;
 
-                return Json(new { AFrmStandardbtn = FrmStandardbtn, ASectionMaster = SectionMaster }, JsonRequestBehavior.AllowGet);
+                return Json(new { AFrmStandardbtn = FrmStandardbtn, ACustomMaster = CustomMas }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -374,6 +339,27 @@ namespace GreenTravel.Controllers
             }
 
         }
+
+
+        public ActionResult InsertData_CustomMaster(Custom_Master Custm)
+        {
+            try
+            {
+                int result = _objfs.insertdata_CustomMaster(Custm);
+                if (result == 1)
+                {
+                    ViewBag.Message = "Record Save Sucessfully !";
+                }
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         #endregion
 
         public ActionResult BindDropDownbase(commanbaseParamater CBP)
@@ -399,131 +385,26 @@ namespace GreenTravel.Controllers
             }
         }
 
-
-        //public ActionResult BindDropDown(Formlode FL)
-        //{
-        //    try
-        //    {
-        //        DataSet ds = _objfs.BindDropDown(FL);
-
-        //        List<CommanDropdown> items = new List<CommanDropdown>();
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            ViewBag.fname = ds.Tables[0];
-        //            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-        //            {
-        //                items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
-        //            }
-        //        }
-        //        var result = items;
-        //        return Json(result, JsonRequestBehavior.AllowGet);
-        //        //return Json(items.ToArray(), JsonRequestBehavior.AllowGet);
-
-        //        //return result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-
-
-        //}
-
-        //public ActionResult BindDropDownfeature(Baseformsetup BS)
-        //{
-        //    try
-        //    {
-        //        DataSet ds = _objfs.BindDropDown1(BS);
-
-        //        List<CommanDropdown> items = new List<CommanDropdown>();
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            ViewBag.fname = ds.Tables[0];
-        //            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-        //            {
-        //                items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
-        //            }
-        //        }
-        //        var result = items;
-        //        return Json(result, JsonRequestBehavior.AllowGet);
-        //        //return Json(items.ToArray(), JsonRequestBehavior.AllowGet);
-
-        //        //return result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-
-
-        //}
-
-        //public ActionResult BindDropDown_Formtab(Formlode Ft)
-        //{
-        //    try
-        //    {
-        //        DataSet ds = _objfs.BindDropDown(Ft);
-
-        //        List<CommanDropdown> items = new List<CommanDropdown>();
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            ViewBag.fname = ds.Tables[0];
-        //            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-        //            {
-        //                items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
-        //            }
-        //        }
-        //        var result = items;
-        //        return Json(result, JsonRequestBehavior.AllowGet);
-        //        //return Json(items.ToArray(), JsonRequestBehavior.AllowGet);
-
-        //        //return result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-
-
-        //}
-
-        //public ActionResult BindDropDown1_Formtab(Baseformsetup BtS)
-        //{
-        //    try
-        //    {
-        //        DataSet ds = _objfs.BindDropDown_Formtab(BtS);
-
-        //        List<CommanDropdown> items = new List<CommanDropdown>();
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            ViewBag.fname = ds.Tables[0];
-        //            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-        //            {
-        //                items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
-        //            }
-        //        }
-        //        var result = items;
-        //        return Json(result, JsonRequestBehavior.AllowGet);
-        //        //return Json(items.ToArray(), JsonRequestBehavior.AllowGet);
-
-        //        //return result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-
-
-        //}
-
-
-
-
-
-
+        public ActionResult BindUtility(CommanFieldPara CFP)
+        {
+            try
+            {
+                DataSet ds = _objfs.BindUtility(CFP);
+                List<CommanDropdown> Utility = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Utility = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.Utility.Rows)
+                    {
+                        Utility.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                return Json(new { GTUtility = Utility}, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
