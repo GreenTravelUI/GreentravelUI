@@ -17,5 +17,7 @@ namespace GreenTravel.Models.Comman
         public string userid { get; set; }
         public string Ip { get; set; }
         public string Type { get; set; }
+        public string Srno { get; set; }
+
     }
 }

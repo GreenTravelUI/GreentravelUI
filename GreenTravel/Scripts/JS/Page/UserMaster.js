@@ -88,6 +88,12 @@
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
 
+        /* Form Validation */
+        if (!validateForm($(this).parent())) {
+            alert('Invalid data found!');
+            return false;
+        }
+
         if ($('#txtsrno').val() != "") {
             var srno = $('#txtsrno').val();
         }
@@ -261,5 +267,186 @@
       
     });
 
+    $('.userlitab3class').click(function (e) {
 
+        BindDropdownUnit();
+        BindDropdownLocation();
+        BindDropdownUserrole();
+        BindAccessgrid();
+    });
+
+    function BindDropdownUnit() {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Type = 'ConditionalDropdown';
+        var Srno = '';
+        $.ajax({
+            url: "/User/BindDropdownUnit",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
+            },
+            success: function (response) {
+                if (response['UNITDRPJS'].length > 0) {
+                    $('#drpUnitCompany').html('');
+                    for (var i = 0; i < response['UNITDRPJS'].length; i++) {
+                        var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
+                        $('#drpUnitCompany').append(opt);
+                    }
+                    $('#drpUnitCompany option:first').attr('selected', 'selected').change();
+                }
+
+                              
+
+            }
+        });
+
+    }
+
+    function BindDropdownLocation() {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Type = 'ConditionalDropdown';
+        var Srno = '';
+        $.ajax({
+            url: "/User/BindDropdownLocation",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
+            },
+            success: function (response) {
+                if (response['UNITDRPJS'].length > 0) {
+                    $('#drpLocation').html('');
+                    for (var i = 0; i < response['UNITDRPJS'].length; i++) {
+                        var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
+                        $('#drpLocation').append(opt);
+                    }
+                    $('#drpLocation option:first').attr('selected', 'selected').change();
+                }
+
+
+
+            }
+        });
+
+    }
+
+    function BindDropdownUserrole() {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Type = 'DropDown';
+        var Srno = '';
+        $.ajax({
+            url: "/User/BindDropdownUserrole",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
+            },
+            success: function (response) {
+                if (response['UNITDRPJS'].length > 0) {
+                    $('#drpRole').html('');
+                    for (var i = 0; i < response['UNITDRPJS'].length; i++) {
+                        var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
+                        $('#drpRole').append(opt);
+                    }
+                    $('#drpRole option:first').attr('selected', 'selected').change();
+                }
+
+                if (response['USERDRPJS'].length > 0) {
+                    $('#drpUser').html('');
+                    for (var i = 0; i < response['USERDRPJS'].length; i++) {
+                        var opt = new Option(response['USERDRPJS'][i]['Text'], response['USERDRPJS'][i]['Value']);
+                        $('#drpUser').append(opt);
+                    }
+                    $('#drpUser option:first').attr('selected', 'selected').change();
+                }
+
+
+
+            }
+        });
+
+    }
+
+    function BindAccessgrid() {
+        
+        var tablename = 'dbo._UserRoleMaster';
+        var Corporate = '2';
+        var Segment = '';
+        var PageNo = '1';
+        var type = 'Grid';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var Role = "";
+        var Unit = "";
+        var Branch = "";
+        var Userid ="";
+
+        //var Role = $('#drpRole option:selected').val();
+        //var Unit = $('#drpUnitCompany option:selected').val();
+        //var Branch = $('#drpLocation option:selected').val();
+        //var Userid = $('#drpUser option:selected').val();
+      
+        $('.userAccessRightsclass').dataTable({
+            "ServerSide": true,
+            destroy: true,
+            "ajax": {
+                "url": "/User/BindAccessgrid",
+                "Type": "GET",
+                "dataType": 'json',
+                "contentType": "application/json; charset=utf-8",
+                "dataSrc": function (json) {
+                    return json;
+                },
+                "data": {
+                    "tablename": tablename,
+                    "Corporate": Corporate,
+                    "Segment": Segment,
+                    "PageNo": PageNo,
+                    "type": type,
+                    "Formcode": Formcode,
+                    "Formtabcode": Formtabcode,
+                   
+                }
+            },
+            "columns": [
+                
+                { "data": "srno", className: "hide_cell" },
+              
+
+                {
+                    data: null,
+                    className: "center",
+                    defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-cubes"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
+                }
+            ]
+        });
+
+    }
+
+   
 });
