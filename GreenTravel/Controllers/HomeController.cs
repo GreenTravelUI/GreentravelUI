@@ -161,13 +161,14 @@ namespace GreenTravel.Controllers
                 Password = Pword
             };
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
-
-            if (ds.Tables[0] != null)
+            if (ds.Tables.Count > 0)
             {
-                Session["Corporate"] = ds.Tables[0].Rows[0]["Corporate"];
-                Session["logo"] = ds.Tables[0].Rows[0]["logo"];
+                if (ds.Tables[0] != null)
+                {
+                    Session["Corporate"] = ds.Tables[0].Rows[0]["Corporate"];
+                    Session["logo"] = ds.Tables[0].Rows[0]["logo"];
+                }
             }
-
             var lst = JsonConvert.SerializeObject(ds.Tables[0], Formatting.None, new JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
             return Content(lst, "application/json");
 

@@ -3,10 +3,6 @@
     hide_div();
     // FillDropDown_Category();  // To fill the dropown- Category
 
-
-
-
-
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
     });
@@ -250,11 +246,11 @@
                     //$('#drpMasterTab3').append(opt);
                     $('#' + controlId + '').append(opt);
                 }
-                $("#" + controlId + " option:first").attr('selected', 'selected').change();
-
+                $("#" + controlId + " option:first").attr('selected', 'selected');
             }
         });
     }
+
     function FillDropdown_Multiselect(controlId, type) {
         var Module = '';
         var screen = '';
@@ -318,6 +314,7 @@
             }
         });
     }
+
     function FillDropDown_Category() {
 
 
@@ -470,7 +467,6 @@
         $('field42').hide();
     }
 
-
     function getdata() {
 
 
@@ -543,7 +539,6 @@
              },
              dataType: 'json',
              success: function (response) {
-
                  //Master
                  if (response['AMaster'].length > 0) {
 
@@ -556,16 +551,26 @@
                  if (response['AUserMasterData'].length > 0) {
 
                      $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
-                     $('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
+                     //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                      $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
                      console.log('Before Set Dropdown Values');
-                     $('#Dropdown1Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxlink'] + '"]').attr('selected', true).change();
-                     $('#Dropdown2Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross'] + '"]').attr('selected', true).change();
-                     $('#Dropdown3Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross1'] + '"]').attr('selected', true).change();
-                     $('#Dropdown4Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross2'] + '"]').attr('selected', true).change();
-                     $('#Dropdown5Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross3'] + '"]').attr('selected', true).change();
-                     $('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true);
-                     console.log('After Set Dropdown Values');
+
+                     setSelect2Value($('#drpActiveTab3'), response['AUserMasterData'][0]['UIsActive']);
+
+                     setSelect2Value($('#Dropdown1Tab3'), response['AUserMasterData'][0]['Uxlink']);
+                     setSelect2Value($('#Dropdown2Tab3'), response['AUserMasterData'][0]['Uxcross']);
+                     setSelect2Value($('#Dropdown3Tab3'), response['AUserMasterData'][0]['Uxcross1']);
+                     setSelect2Value($('#Dropdown4Tab3'), response['AUserMasterData'][0]['Uxcross2']);
+                     setSelect2Value($('#Dropdown5Tab3'), response['AUserMasterData'][0]['Uxcross3']);
+                     setSelect2Value($('#Dropdown6Tab3'), response['AUserMasterData'][0]['Uxcross4']);
+
+                     //$('#Dropdown1Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxlink'] + '"]').attr('selected', true).change();
+                     //$('#Dropdown2Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross'] + '"]').attr('selected', true).change();
+                     //$('#Dropdown3Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross1'] + '"]').attr('selected', true).change();
+                     //$('#Dropdown4Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross2'] + '"]').attr('selected', true).change();
+                     //$('#Dropdown5Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross3'] + '"]').attr('selected', true).change();
+                     //$('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true);
+
 
                      //FillDropdown('Dropdown1Tab3', 'xlink');
                      //FillDropdown('Dropdown2Tab3', 'xcross');
@@ -625,11 +630,7 @@
                  //alert(response['AMaster'][0]['xmaster']);
                  //$("#drpMasterTab3").val(response['AMaster'][0]['xmaster']);
              }
-         }).then(function () {
-             console.log('In Then call');
-         });
-
-
+         })
     });
 
     $("table").delegate(".editor_Delte", "click", function () {

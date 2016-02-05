@@ -369,11 +369,7 @@
                },
                success: function (response) {
                    if (response != null && response.success) {
-                       alert("Record Save Sucessfully!");
-
-
-
-
+                       swal('Good job!', 'Record Save Sucessfully!', 'success');
                    }
                }
            });
@@ -467,17 +463,29 @@
                      
                      $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
                      
-                     $('#drpMastersetup2').find('option[value="' + response['AMaster'][0]['xcross'] + '"]').attr('selected', true).change();
+                     //$('#drpMastersetup2').find('option[value="' + response['AMaster'][0]['xcross'] + '"]').attr('selected', true).change();
+                     setSelect2Value($('#drpMastersetup2'), response['AMaster'][0]['xcross']);
+                     setSelect2Value($('#drpMastersetup3'), response['AMaster'][0]['xcross1']);
+                     setSelect2Value($('#drpMastersetup4'), response['AMaster'][0]['xcross2']);
+                     setSelect2Value($('#drpMastersetup5'), response['AMaster'][0]['xcross3']);
+                     setSelect2Value($('#drpMastersetup6'), response['AMaster'][0]['xcross4']);
                      
-                     $('#drpMastersetup3').find('option[value="' + response['AMaster'][0]['xcross1'] + '"]').attr('selected', true).change();
-                     $('#drpMastersetup4').find('option[value="' + response['AMaster'][0]['xcross2'] + '"]').attr('selected', true).change();
-                     $('#drpMastersetup5').find('option[value="' + response['AMaster'][0]['xcross3'] + '"]').attr('selected', true).change();
-                     $('#drpMastersetup6').find('option[value="' + response['AMaster'][0]['xcross4'] + '"]').attr('selected', true).change();
-                     $('#drpMultiselectsetup1').find('option[value="' + response['AMaster'][0]['MultiSelect1'] + '"]').attr('selected', true).change();
-                     $('#drpMultiselectsetup2').find('option[value="' + response['AMaster'][0]['MultiSelect2'] + '"]').attr('selected', true).change();
-                     $('#drpMultiselectsetup3').find('option[value="' + response['AMaster'][0]['MultiSelect3'] + '"]').attr('selected', true).change();
-                     $('#drpMultiselectsetup4').find('option[value="' + response['AMaster'][0]['MultiSelect4'] + '"]').attr('selected', true).change();
-                     $('#drpMultiselectsetup5').find('option[value="' + response['AMaster'][0]['MultiSelect5'] + '"]').attr('selected', true).change();
+                     //$('#drpMastersetup3').find('option[value="' + response['AMaster'][0]['xcross1'] + '"]').attr('selected', true).change();
+                     //$('#drpMastersetup4').find('option[value="' + response['AMaster'][0]['xcross2'] + '"]').attr('selected', true).change();
+                     //$('#drpMastersetup5').find('option[value="' + response['AMaster'][0]['xcross3'] + '"]').attr('selected', true).change();
+                     //$('#drpMastersetup6').find('option[value="' + response['AMaster'][0]['xcross4'] + '"]').attr('selected', true).change();
+
+
+                     setSelect2Value($('#drpMultiselectsetup1'), response['AMaster'][0]['MultiSelect1']);
+                     setSelect2Value($('#drpMultiselectsetup2'), response['AMaster'][0]['MultiSelect2']);
+                     setSelect2Value($('#drpMultiselectsetup3'), response['AMaster'][0]['MultiSelect3']);
+                     setSelect2Value($('#drpMultiselectsetup4'), response['AMaster'][0]['MultiSelect4']);
+                     setSelect2Value($('#drpMultiselectsetup5'), response['AMaster'][0]['MultiSelect5']);
+                     //$('#drpMultiselectsetup1').find('option[value="' + response['AMaster'][0]['MultiSelect1'] + '"]').attr('selected', true).change();
+                     //$('#drpMultiselectsetup2').find('option[value="' + response['AMaster'][0]['MultiSelect2'] + '"]').attr('selected', true).change();
+                     //$('#drpMultiselectsetup3').find('option[value="' + response['AMaster'][0]['MultiSelect3'] + '"]').attr('selected', true).change();
+                     //$('#drpMultiselectsetup4').find('option[value="' + response['AMaster'][0]['MultiSelect4'] + '"]').attr('selected', true).change();
+                     //$('#drpMultiselectsetup5').find('option[value="' + response['AMaster'][0]['MultiSelect5'] + '"]').attr('selected', true).change();
                  }
                  //Caption
                  if (response['ACaption'].length > 0) {

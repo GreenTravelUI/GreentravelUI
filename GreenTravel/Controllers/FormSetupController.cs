@@ -61,7 +61,10 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = items;
-                return Json(result, JsonRequestBehavior.AllowGet);
+                
+                var rJson = Json(result, JsonRequestBehavior.AllowGet);
+                rJson.MaxJsonLength = int.MaxValue;
+                return rJson;
             }
             catch (Exception)
             {
