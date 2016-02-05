@@ -32,20 +32,53 @@
                         var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
                         $('.formcorporate').append(opt);
                     }
-                    $('#drpCorporate1 option:first').attr('selected', 'selected').change();
-                    $('#drpCorporatetab option:first').attr('selected', 'selected').change();
+                    setSelect2Value($('#drpCorporate1'), '0');
+                    setSelect2Value($('#drpCorporatetab'), '0');
+                    // $('#drpCorporatetab option:first').attr('selected', 'selected').change();
                 }
+                //if (response['GTFrom'].length > 0) {
+                //    $('#drpFormCode').html('');
+                //    for (var i = 0; i < response['GTFrom'].length; i++) {
+                //        var opt = new Option(response['GTFrom'][i]['Text'], response['GTFrom'][i]['Value']);
+                //        $('#drpFormCode').append(opt);
+                //    }
+                //    setSelect2Value($('#drpFormCode'), '0');
+                //}
+            }
+        });
+    }
+
+    function DropDownFormcode() {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '';
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var Type = 'DropDown';
+        $.ajax({
+            url: "/FormSetup/BindDropDown",
+            type: "POST",
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+            },
+            success: function (response) {
                 if (response['GTFrom'].length > 0) {
                     $('#drpFormCode').html('');
                     for (var i = 0; i < response['GTFrom'].length; i++) {
                         var opt = new Option(response['GTFrom'][i]['Text'], response['GTFrom'][i]['Value']);
                         $('#drpFormCode').append(opt);
                     }
-                    $('#drpFormCode option:first').attr('selected', 'selected').change();
+                    setSelect2Value($('#drpFormCode'), '0');
                 }
             }
         });
     }
+
     function getdata() {
         var tablename = 'dbo._Form_Master';
         var Corporate = '2';
@@ -59,6 +92,7 @@
         var Formtabcode = '0';
         var type = 'Grid';
         $('#example1').dataTable({
+             destroy: true,
             "ServerSide": true,
             destroy: true,
             "ajax": {
@@ -101,26 +135,32 @@
     $('#frmsection').click(function (e) {
         getdatatab();
     });
+    
+    $('#serachfrom').click(function (e) {
+        getdata();
+    });
+
     //Tab2 Click  Event  
     $('#frmtab').click(function (e) {
         if ($('#txtSrNo1').val() == '') {
             alert("Please Edit Data");
             Quitform();
         }
+        else {
+            DropDownFormcode();
+        }
+
     });
 
     $("#drpCorporate1").change(function () {
-        // alert($('#drpCorporate1 option:selected').val());
         FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
     });
 
     $("#drpFeatures").change(function () {
-        //  alert('drpFeatures');
         FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
     });
 
     $("#drpModule").change(function () {
-        //  alert('drpModule');
         FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
     });
 
@@ -153,14 +193,12 @@
                 Control: Control, Language: Language, Srno: Srno
             },
             success: function (data) {
-                console.log(data);
-                // alert(controlId);
                 $('#' + controlId + '').html('');
                 for (var i = 0; i < data.length; i++) {
                     var opt = new Option(data[i]['Text'], data[i]['Value']);
                     $('#' + controlId + '').append(opt);
                 }
-                $("#" + controlId + " option:first").attr('selected', 'selected').change();
+                setSelect2Value($('#' + controlId + ''), '0');
             }
         });
     }
@@ -212,13 +250,8 @@
                },
                dataType: 'json',
                success: function (data) {
-                   console.log(data);
-                   console.log(data.srno);
-                   console.log(data.success);
                    $('#txtSrNo1').val(data.srno)
-                   //alert("Record Save Sucessfully");
                    swal('Good job!', 'Record Save Sucessfully', 'success')
-
                }
            });
     });
@@ -295,7 +328,6 @@
                },
                dataType: 'json',
                success: function (response) {
-                   //  alert("Record Save Sucessfully");
                    swal('Good job!', 'Record Save Sucessfully', 'success')
                }
            });
@@ -327,7 +359,6 @@
         var TerminalBy = '0';
         var BranchBy = '0';
         var srno = '';
-        // alert($('#drpCorporate option:selected').val());
         var CorporateId = $('#drpCorporate1 option:selected').val();
         var FormCode = Frmcode;
         var TabCode = FrmtabCode;
@@ -417,13 +448,9 @@
                      $('#txtSrNo1').val(response[0].SrNo);
                      $('#txtFormName').val(response[0].FormName);
                      $('#txtFormPreFix').val(response[0].FormPrefixCode);
-
                      $('#drpCorporate1').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
-
                      $('#drpFeatures').find('option[value="' + response[0].FeatureGroup + '"]').attr('selected', true).change();
-
                      $('#drpModule').find('option[value="' + response[0].Module + '"]').attr('selected', true).change();
-
                      $('#drpScreen').find('option[value="' + response[0].Screen + '"]').attr('selected', true).change();
                      $('#txtHeader').val(response[0].Header);
                      $('#txtSubHeader').val(response[0].SubHeader);
@@ -433,15 +460,12 @@
     });
     //Delete form 
     $("table").delegate(".editor_Delte", "click", function () {
-        console.log(($(this).parent().parent().children(':eq(1)').text()));
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(1)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
     //editdata in  button ,custom button  ,utility
     $("table").delegate(".SectiontabButtonclass", "click", function () {
-        console.log(($(this).parent().parent().children(':eq(1)').text()));
-        console.log(($(this).parent().parent().children(':eq(2)').text()));
         Frmcode = 0;
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
@@ -462,7 +486,6 @@
              },
              dataType: 'json',
              success: function (response) {
-                 //console.log(response)
                  clearButtonclass();
                  $("#tblModalIconCustom tbody").html('');
                  if (response['AFrmStandardbtn'].length > 0) {
@@ -544,7 +567,6 @@
     });
     //Section In Editmode  
     $("table").delegate(".TabSection", "click", function () {
-        //alert('Section');
         Frmcode = 0;
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
@@ -652,7 +674,6 @@
     });
     //Delete Button  Click
     $('#modeldelete').click(function (e) {
-        console.log(deletesrno);
         var Module = 0;
         var screen = 0;
         var FormCode = 0;
@@ -700,6 +721,7 @@
             var type = 'Grid';
             var Segment = '';
             $('#Gridsectab').dataTable({
+                destroy: true,
                 "ServerSide": true,
                 destroy: true,
                 "ajax": {
@@ -757,7 +779,6 @@
                     '</tr>'
         $(html).appendTo($("#tblModalSection"))
         ID++;
-        //  alert(ID);
     };
     //save Section 
     $('.btnsavesection').on('click', function () {
@@ -786,7 +807,7 @@
         $("#tblModalSection tbody tr").each(function () {
             var SectionName = '';
             var SectionName = $(this).children(':eq(1)').find('input').val();
-            console.log($(this).children(':eq(2)').find('input').val().trim());
+            //console.log($(this).children(':eq(2)').find('input').val().trim());
             var srno;
             if ($(this).children(':eq(2)').find('input').val().trim() != '') {
                 srno = $(this).children(':eq(2)').find('input').val();
@@ -794,7 +815,6 @@
             else {
                 srno = 0;
             }
-            console.log($(this).children(':eq(1)').find('input').val());
             $.ajax(
                {
                    type: "POST",
@@ -838,7 +858,6 @@
     };
     //save Custom  Button
     $('.btnsaveCustomButton').on('click', function () {
-        //alert('Custom  Button');
         var flag = 0;
         var srno
         var Corporate = $('#drpCorporate1 option:selected').val();
@@ -853,7 +872,6 @@
         var TerminalBy = 0;
         var BranchBy = 0;
         $("#tblModalIconCustom tbody tr").each(function () {
-            alert('');
             var CustomName = '';
             var CustomClass = '';
             var CustomVisibility = '';
@@ -864,7 +882,6 @@
             CustomVisibility = false;
             CustomNotification = false;
             CustomTask = false;
-            //console.log($(this).children(':eq(2)').find('input').val().trim());
             var srno;
             if ($(this).children(':eq(6)').find('input').val().trim() != '') {
                 srno = $(this).children(':eq(6)').find('input').val();
@@ -872,7 +889,6 @@
             else {
                 srno = 0;
             }
-            //console.log($(this).children(':eq(1)').find('input').val());
             $.ajax(
                {
                    type: "POST",
@@ -887,18 +903,14 @@
                    dataType: 'json',
                    success: function (response) {
                        if (response != null && response.success) {
-                           //alert("Record Save Sucessfully!");
                            flag = 1
                        }
                    }
                });
-            //console.log($(this).children(':eq(1)').find('input').val());
         });
         if (flag == 1) {
             $("#myModalIcon").modal('hide');
             swal('Good job!', 'Record Save Sucessfully', 'success')
-            //alert("Record Save Sucessfully");
-
         }
     });
     function getUtility() {

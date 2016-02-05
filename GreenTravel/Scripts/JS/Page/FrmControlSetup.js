@@ -1,8 +1,10 @@
 ﻿$(document).ready(function () {
     var deletesrno;
     BindGrid();
-   
-    $('#btnSave').click(function (e) {
+    $('#searchcontrol').click(function (e) {
+        BindGrid();
+    });
+    $('.btnSave').click(function (e) {
         e.preventDefault();
         /* OnSave validations */
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
@@ -25,7 +27,6 @@
         var ValidationCode = $('#txtValiadtioncode').val();
         var PlaceholderText = $('#txtPlaceholdertext').val();
         var TooltipHelpText = $('#txtTooltiptext').val();
-        //alert($('#reqfield').is(":checked"));
         var RequiredField = $('#reqfield').is(":checked");
         var ReqValidationMsg = $('#txtreqValidationmessage').val();
         var ReglarExField = $('#regfield').is(":checked");
@@ -74,7 +75,7 @@
              dataType: 'json',
              success: function (response) {
                  if (response != null && response.success) {
-                     alert("Record Save Sucessfully!");
+                     swal('Good job!', 'Record Save Sucessfully!', 'success')
                  }
              }
          });
@@ -88,6 +89,7 @@
         var Formcode = $('#txtFormcode').val();
         var Formtabcode = '0';
         $('#fromcontrolsetup').dataTable({
+             destroy: true,
             "ServerSide": true,
             "ajax": {
                 "url": "/FormControlSetup/BindGridView",
@@ -160,22 +162,20 @@
             },
             success: function (data) {
                 console.log(data);
-                // alert(controlId);
                 $('#' + controlId + '').html('');
                 for (var i = 0; i < data.length; i++) {
                     var opt = new Option(data[i]['Text'], data[i]['Value']);
                     $('#' + controlId + '').append(opt);
                 }
-                $("#" + controlId + " option:first").attr('selected', 'selected').change();
+                // $("#" + controlId + " option:first").attr('selected', 'selected').change();
+                setSelect2Value($('#' + controlId + ''), '0');
             }
         });
     }
 
 
     $("table").delegate(".editor_Step", "click", function () {
-        //$('#Fromcontrol').trigger("click");
-        console.log($(this).parent().parent().children(':eq(0)').text());
-        console.log($(this).parent().parent().children(':eq(1)').text());
+         // console.log($(this).parent().parent().children(':eq(1)').text());
         $("#searchcontrol").removeClass("active");
         $("#Fromcontrol").addClass("active");
         $("#tab1").removeClass("active");
@@ -200,7 +200,8 @@
              dataType: 'json',
              success: function (response) {
                  if (response.length > 0) {
-                    // alert(response[0].Srno);
+                     $('#btnSaveControl').hide();
+                     $('#btnUpdateControl').show();
                      $('#txtTabsrno').val(response[0].Srno);
                      $('#drpTab').find('option[value="' + response[0].TabCode + '"]').attr('selected', true).change();
                      $('#drpSection').find('option[value="' + response[0].SectionCode + '"]').attr('selected', true).change();
@@ -271,12 +272,10 @@
         e.preventDefault();
         $('#btnUpdate').hide();
         $('#btnSave').show();
-
         $('.inputControl').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
-      //  $('#drpTab option:first').attr('selected', 'selected').change();
     });
     $('#btnquitfrom').click(function (e) {
         e.preventDefault();
@@ -288,5 +287,6 @@
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+        BindGrid();
     });
 });
