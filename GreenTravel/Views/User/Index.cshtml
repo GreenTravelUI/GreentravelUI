@@ -20,7 +20,7 @@ color: red;
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
                     <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User </a></li>
                     <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
+                    <li role="presentation"id="userlitab3" class="userlitab3class"><a href="#tab3" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -78,28 +78,28 @@ color: red;
                                     <label for="txtFirstName">Name <span>*</span></label>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
+                                            <input type="text" class="form-control col-sm-5 textbox-control req" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
+                                            <input type="text" class="form-control col-sm-5 textbox-control req" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEmail">Email <span>*</span></label>
-                                    <input type="text" class="form-control textbox-control" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
+                                    <input type="text" class="form-control textbox-control req" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
-                                    <input type="text" class="form-control confirm" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
+                                    <input type="text" class="form-control confirm req" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtPassword">Password <span>*</span></label>
-                                    <input type="Password" class="form-control " id="txtPassword" placeholder="Password">
+                                    <input type="Password" class="form-control req" id="txtPassword" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtConfirmPassword">Confirm Password</label>
-                                    <input type="Password" class="form-control confirm" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
+                                    <input type="Password" class="form-control confirm req" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
                                 </div>
                                 <br />
                                 <button id="btnSaveUser" type="submit" class="btn btn-success btnSaveuserclass">
@@ -196,7 +196,7 @@ color: red;
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane " id="tab3">
+                    <div role="tabpanel" class="tab-pane" id="tab3">
                         <form>
                             <div class="table-responsive">
                                 <div class="col-md-12">
@@ -220,7 +220,7 @@ color: red;
                                     </div>
                                 </div>
                             </div>
-                            <table id="userAccessRights" class="display table dataTable" role="grid" style="">
+                            <table id="userAccessRights" class="display userAccessRightsclass" role="grid" style="width: 100%;">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -251,95 +251,11 @@ color: red;
                                                 <input type="checkbox" /></th>
                                     </tr>
                                 </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <th></th>
-                                        <th>
-                                            <input type="text" />
-                                        </th>
-                                        <th>
-                                            <input type="text" />
-                                        </th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>
-                                            <a href="#">
-                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
-                                        </th>
-                                    </tr>
-
-                                    @*<tr>
-                                        <td>1</td>
-                                        <td>Masters</td>
-                                        <td>Country</td>
-                                        <td>
-                                            <input type="checkbox" class="chkView" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkAdd" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkUpdate" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkDelete" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Masters</td>
-                                        <td>State</td>
-                                        <td>
-                                            <input type="checkbox" class="chkView" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkAdd" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkUpdate" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkDelete" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Masters</td>
-                                        <td>City</td>
-                                        <td>
-                                            <input type="checkbox" class="chkView" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkAdd" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkUpdate" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkDelete" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Masters</td>
-                                        <td>State</td>
-                                        <td>
-                                            <input type="checkbox" class="chkView" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkAdd" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkUpdate" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkDelete" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Masters</td>
-                                        <td>City</td>
-                                        <td>
-                                            <input type="checkbox" class="chkView" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkAdd" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkUpdate" /></td>
-                                        <td>
-                                            <input type="checkbox" class="chkDelete" /></td>
-                                    </tr>*@
-                                </tbody>
+                               
                             </table>
-                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                            <button id="btnSaveaccessright" type="submit" class="btn btn-success btnSaveaccessrightclass">
                                 SAVE</button>
-                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                            <button id="btnCancelaccessright" type="submit" class="btn btn-green btnSaveaccessrightclass">
                                 CANCEL</button>
                         </form>
                     </div>

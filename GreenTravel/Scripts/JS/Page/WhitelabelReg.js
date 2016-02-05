@@ -3,6 +3,11 @@
     $('.btnSave').click(function (e) {
         e.preventDefault();
 
+        if (!validateForm($(this).parent())) {
+            alert('Invalid data found!');
+            return false;
+        }
+
         if ($('#txtsrno').val() != "") {
             var srno = $('#txtsrno').val();
         }

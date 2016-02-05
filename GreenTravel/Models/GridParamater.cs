@@ -20,5 +20,6 @@ namespace GreenTravel.Models
         public string Formtabcode { get; set; }
         public string type { get; set; }
         public string Segment { get; set; }
+        public string Role { get; set; }
     }
 }

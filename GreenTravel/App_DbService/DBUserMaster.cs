@@ -5,6 +5,7 @@ using System.Web;
 using GreenTravel.Models;
 using System.Data.SqlClient;
 using System.Data;
+using GreenTravel.Models.Comman;
 
 
 namespace GreenTravel.App_DbService
@@ -224,7 +225,169 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-     
+
+
+        public DataSet BindDropdownUnit(CommanFieldPara CFP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CFP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CFP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CFP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CFP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CFP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CFP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CFP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CFP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CFP.Type);
+                _cmd.Parameters.AddWithValue("@field1","");
+                _cmd.Parameters.AddWithValue("@field2","");
+                _cmd.Parameters.AddWithValue("@field3","");
+                _cmd.Parameters.AddWithValue("@field4","");
+                _cmd.Parameters.AddWithValue("@field5","");
+                _cmd.Parameters.AddWithValue("@Control","DrpUnit");
+                _cmd.Parameters.AddWithValue("@Srno", CFP.Srno);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet BindDropdownLocation(CommanFieldPara CFP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CFP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CFP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CFP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CFP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CFP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CFP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CFP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CFP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CFP.Type);
+                _cmd.Parameters.AddWithValue("@field1","UNIT-2-0-1");
+                _cmd.Parameters.AddWithValue("@field2", "");
+                _cmd.Parameters.AddWithValue("@field3", "");
+                _cmd.Parameters.AddWithValue("@field4", "");
+                _cmd.Parameters.AddWithValue("@field5", "");
+                _cmd.Parameters.AddWithValue("@Control", "DrpLocation");
+                _cmd.Parameters.AddWithValue("@Srno", CFP.Srno);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet BindDropdownUserrole(CommanFieldPara CFP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CFP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CFP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CFP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CFP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CFP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CFP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CFP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CFP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CFP.Type);
+               
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet BindAccessgrid(GridParamater GP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
+                _cmd.Parameters.AddWithValue("@Role", GP.Role);
+                _cmd.Parameters.AddWithValue("@unit", GP.unit);
+                _cmd.Parameters.AddWithValue("@userid", GP.userid);
+                _cmd.Parameters.AddWithValue("@WhereClause", GP.WhereClause);
+                _cmd.Parameters.AddWithValue("@Branch", GP.Branch);
+                _cmd.Parameters.AddWithValue("@PageNo", GP.PageNo);
+                _cmd.Parameters.AddWithValue("@RecordsPerPage", GP.RecordsPerPage);
+                _cmd.Parameters.AddWithValue("@Formcode", GP.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
+                _cmd.Parameters.AddWithValue("@type", GP.type);
+                _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
 
     }
 }
