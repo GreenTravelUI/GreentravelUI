@@ -1,8 +1,14 @@
 ﻿$(document).ready(function () {
     var deletesrno;
     BindGrid();
-    $('.btnSave').click(function (e) {
+   
+    $('#btnSave').click(function (e) {
         e.preventDefault();
+        /* OnSave validations */
+        if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
+            alert('Invalid data found!');
+            return false;
+        }
         if ($('#txtTabsrno').val() == '') {
             var Srno = 0;
         }
@@ -10,7 +16,7 @@
             var Srno = $('#txtTabsrno').val();
         }
         var Corporate = 2;
-        var FormCode = 2;
+        var FormCode = $('#txtFormcode').val();
         var TabCode = $('#drpTab option:selected').val();
         var SectionCode = $('#drpSection option:selected').val();
         var FieldControlLabel = $('#txtcontrollabel').val();
@@ -19,7 +25,7 @@
         var ValidationCode = $('#txtValiadtioncode').val();
         var PlaceholderText = $('#txtPlaceholdertext').val();
         var TooltipHelpText = $('#txtTooltiptext').val();
-        alert($('#reqfield').is(":checked"));
+        //alert($('#reqfield').is(":checked"));
         var RequiredField = $('#reqfield').is(":checked");
         var ReqValidationMsg = $('#txtreqValidationmessage').val();
         var ReglarExField = $('#regfield').is(":checked");
@@ -79,9 +85,9 @@
         var Segment = '';
         var PageNo = '1';
         var type = 'Grid';
-        var Formcode = '0';
+        var Formcode = $('#txtFormcode').val();
         var Formtabcode = '0';
-        $('#example1').dataTable({
+        $('#fromcontrolsetup').dataTable({
             "ServerSide": true,
             "ajax": {
                 "url": "/FormControlSetup/BindGridView",
@@ -119,39 +125,55 @@
             ]
         });
     }
-
-    function Dropdown_Bind_Tab1() {
+    FillDropdown(0, $('#txtFormcode').val(), '', 'drpTab');
+    $("#drpTab").change(function () {
+        FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
+    });
+   
+    function FillDropdown(Corporate, Field1, Field2, controlId) {
         var Module = '';
         var screen = '';
         var FormCode = '';
         var TabCode = '';
-        var Corporate = '';
+        var Corporate = Corporate;
         var unit = '';
         var Branch = '';
         var userid = '';
         var Ip = '';
-        var Type = 'DropDown';
+        var field1 = Field1;
+        var field2 = Field2;
+        var field3 = '';
+        var field4 = '';
+        var field5 = '';
+        var Control = controlId;
+        var Language = '';
+        var Type = 'ConditionalDropdown';
+        var Srno = '';
         $.ajax({
             url: "/FormControlSetup/BindDropDown",
             type: "POST",
+            async: false,
             data: {
-                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
-                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+                Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
+                Control: Control, Language: Language, Srno: Srno
             },
-            success: function (response) {
-                if (response['GTIndutry'].length > 0) {
-                    $('.Industry').html('');
-                    for (var i = 0; i < response['GTIndutry'].length; i++) {
-                        var opt = new Option(response['GTIndutry'][i]['Text'], response['GTIndutry'][i]['Value']);
-                        $('.Industry').append(opt);
-                    }
-                    $('#drpcompanyIndustry option:first').attr('selected', 'selected').change();
+            success: function (data) {
+                console.log(data);
+                // alert(controlId);
+                $('#' + controlId + '').html('');
+                for (var i = 0; i < data.length; i++) {
+                    var opt = new Option(data[i]['Text'], data[i]['Value']);
+                    $('#' + controlId + '').append(opt);
                 }
+                $("#" + controlId + " option:first").attr('selected', 'selected').change();
             }
         });
     }
 
+
     $("table").delegate(".editor_Step", "click", function () {
+        //$('#Fromcontrol').trigger("click");
         console.log($(this).parent().parent().children(':eq(0)').text());
         console.log($(this).parent().parent().children(':eq(1)').text());
         $("#searchcontrol").removeClass("active");
@@ -177,8 +199,8 @@
              },
              dataType: 'json',
              success: function (response) {
-                 console.log(response[0])
                  if (response.length > 0) {
+                    // alert(response[0].Srno);
                      $('#txtTabsrno').val(response[0].Srno);
                      $('#drpTab').find('option[value="' + response[0].TabCode + '"]').attr('selected', true).change();
                      $('#drpSection').find('option[value="' + response[0].SectionCode + '"]').attr('selected', true).change();
@@ -188,7 +210,6 @@
                      $('#txtValiadtioncode').val(response[0].ValidationCode);
                      $('#txtPlaceholdertext').val(response[0].PlaceholderText);
                      $('#txtTooltiptext').val(response[0].TooltipHelpText);
-                     //   alert(response[0].RequiredField.toLowerCase());
                      if (response[0].RequiredField.toLowerCase() == 'true') {
                          $("#reqfield").attr('checked', 'checked');
                          $("#reqfield").parent().addClass('checked');
@@ -251,10 +272,11 @@
         $('#btnUpdate').hide();
         $('#btnSave').show();
 
-        $('input[type="text"]').val('');
+        $('.inputControl').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+      //  $('#drpTab option:first').attr('selected', 'selected').change();
     });
     $('#btnquitfrom').click(function (e) {
         e.preventDefault();
@@ -262,7 +284,7 @@
         $("#Fromcontrol").removeClass("active");
         $("#tab3").removeClass("active");
         $("#tab1").addClass("active");
-        $('input[type="text"]').val('');
+        $('.inputControl').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });

@@ -18,8 +18,16 @@ namespace GreenTravel.Controllers
 
         public ActionResult Index()
         {
+            
             return View();
         }
+
+        //public ActionResult Index(int Formcode)
+        //{
+
+        //    return View();
+        //}
+        
         public ActionResult Insert_Data(FrmControlSetup FCS)
         {
             try

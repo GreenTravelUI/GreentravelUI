@@ -75,7 +75,6 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objfs.Edit_data(EA);
                 List<Formsetup> frmset = new List<Formsetup>();
-                List<StandardButton> frmStandardbtn = new List<StandardButton>();
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -159,6 +158,51 @@ namespace GreenTravel.Controllers
                 throw;
             }
 
+        }
+        public ActionResult Edit_FormTab(Edit_AdminMaster EA)
+        {
+            try
+            {
+                DataSet ds = _objfs.Edit_FormTab(EA);
+                List<FormTab> frmTab = new List<FormTab>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        frmTab.Add(new FormTab
+                        {
+                            SrNo = @dr["SrNo"].ToString(),
+                            FormCode = @dr["FormCode"].ToString(),
+                            TabNumber = @dr["TabNumber"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                            TabHeader = @dr["TabHeader"].ToString(),
+                            TabClass = @dr["TabClass"].ToString(),
+                            TooltipHelpText = @dr["TooltipHelpText"].ToString(),
+                            MasterTable = @dr["MasterTable"].ToString(),
+                            MasterTablePrefix = @dr["MasterTablePrefix"].ToString(),
+                            TrxTable1 = @dr["TrxTable1"].ToString(),
+                            TrxTable2 = @dr["TrxTable2"].ToString(),
+                            TrxTable3 = @dr["TrxTable3"].ToString(),
+                            TrxTable4 = @dr["TrxTable4"].ToString(),
+                            TrxTable5 = @dr["TrxTable5"].ToString(),
+                            TrxTable6 = @dr["TrxTable6"].ToString(),
+                            TrxTable7 = @dr["TrxTable7"].ToString(),
+                            TrxTable8 = @dr["TrxTable8"].ToString(),
+                            TrxTable9 = @dr["TrxTable9"].ToString(),
+                            TrxTable10 = @dr["TrxTable10"].ToString(),
+
+                        });
+                    }
+                }
+                var result = frmTab;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
 

@@ -113,6 +113,8 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@field3", CBP.field3);
                 _cmd.Parameters.AddWithValue("@field4", CBP.field4);
                 _cmd.Parameters.AddWithValue("@field5", CBP.field5);
+                _cmd.Parameters.AddWithValue("@Control", CBP.Control);
+                _cmd.Parameters.AddWithValue("@Srno", CBP.Srno);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();
