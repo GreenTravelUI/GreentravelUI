@@ -243,4 +243,12 @@ namespace GreenTravel.Models
         public string BranchBy { get; set; }
         public string Rownumber { get; set; }
     }
+
+    public class DataTableData
+    {
+        public int draw { get; set; }
+        public int recordsTotal { get; set; }
+        public int recordsFiltered { get; set; }
+        public List<GridFormparamater> data { get; set; }
+    }
 }

@@ -216,7 +216,9 @@
                    console.log(data.srno);
                    console.log(data.success);
                    $('#txtSrNo1').val(data.srno)
-                   alert("Record Save Sucessfully");
+                   //alert("Record Save Sucessfully");
+                   swal('Good job!', 'Record Save Sucessfully', 'success')
+
                }
            });
     });
@@ -248,7 +250,8 @@
         var TrxTable8 = $('#txtTrxTable8').val();
         var TrxTable9 = $('#txtTrxTable9').val();
         var TrxTable10 = $('#txtTrxTable10').val();
-        if ($('#txtSrNo').val() != "") {
+
+        if ($('#txtSrNo').val() == "") {
             var SrNo = 0;
         }
         else {
@@ -292,7 +295,8 @@
                },
                dataType: 'json',
                success: function (response) {
-                   alert("Record Save Sucessfully");
+                   //  alert("Record Save Sucessfully");
+                   swal('Good job!', 'Record Save Sucessfully', 'success')
                }
            });
 
@@ -372,7 +376,8 @@
                },
                dataType: 'json',
                success: function (response) {
-                   alert("Record Save Sucessfully");
+                   $("#myModalIcon").modal('hide');
+                   swal('Good job!', 'Record Save Sucessfully', 'success')
                }
            });
 
@@ -804,18 +809,15 @@
                    },
                    dataType: 'json',
                    success: function (response) {
-                       //console(response);
-                       console.log(response["responseText"])
                        if (response["responseText"] != "") {
                            flagsection = 1
                        }
                    }
                });
         });
-        // alert(flagsection);
-        //console.log(flagsection)
         if (flagsection == 1) {
-            alert("Record Save Sucessfully");
+            $("#myModalSection").modal('hide');
+            swal('Good job!', 'Record Save Sucessfully', 'success')
         }
     });
     $('#btnCustomsection').on('click', function () {
@@ -893,7 +895,10 @@
             //console.log($(this).children(':eq(1)').find('input').val());
         });
         if (flag == 1) {
-            alert("Record Save Sucessfully");
+            $("#myModalIcon").modal('hide');
+            swal('Good job!', 'Record Save Sucessfully', 'success')
+            //alert("Record Save Sucessfully");
+
         }
     });
     function getUtility() {
@@ -945,6 +950,19 @@
         clearFormTAB();
         Quitform();
     });
+    $('#btnquittab').on('click', function () {
+        clearFormTAB();
+        $("#tab3").removeClass("active");
+        $("#tab4").removeClass("active");
+        $("#tab5").addClass("active");
+        $("#tab1").removeClass("active");
+        $("#Frmcreate").removeClass("active");
+        $("#frmtab").removeClass("active");
+        $("#frmsection").addClass("active");
+        $("#serachfrom").removeClass("active");
+
+    });
+
     /*Clear */
     $('#btnClearFS').click(function (e) {
         e.preventDefault();
@@ -959,7 +977,6 @@
         clearFormTAB();
     });
     function Quitform() {
-        alert("Quit");
         $("#tab3").removeClass("active");
         $("#tab4").removeClass("active");
         $("#tab5").removeClass("active");
@@ -969,7 +986,7 @@
 
         $("#serachfrom").addClass("active");
         $("#tab1").addClass("active");
-       
+
     }
     function clearForm() {
         $('.inputform').val('');
