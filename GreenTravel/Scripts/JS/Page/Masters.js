@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     /*Tab 1*/
-   
+
     var deletesrno;
     getdata();
     $("#drpCorporate").change(function () {
@@ -28,6 +28,7 @@
         $.ajax({
             url: "/Masters/BindDropDown",
             type: "POST",
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
                 Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
@@ -440,7 +441,7 @@
         var Formcode = '0';
         var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(2)').text();
-        console.log(Xmaster);
+        //console.log(Xmaster);
         var Type = 'EditMode';
         $.ajax(
          {
@@ -451,8 +452,8 @@
              },
              dataType: 'json',
              success: function (response) {
-                 console.log(response);
-                 console.log(response['AMaster'].length)
+                 //console.log(response);
+                 //console.log(response['AMaster'].length)
                  //Master
                  if (response['AMaster'].length > 0) {
                      $('#txtMasterCode').attr("disabled", true)
@@ -463,8 +464,11 @@
                      $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      $('#drpCorporate').find('option[value="' + response['AMaster'][0]['Corporate'] + '"]').attr('selected', true).change();
                      //alert(response['AMaster'][0]['xlink']);
+                     
                      $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
+                     
                      $('#drpMastersetup2').find('option[value="' + response['AMaster'][0]['xcross'] + '"]').attr('selected', true).change();
+                     
                      $('#drpMastersetup3').find('option[value="' + response['AMaster'][0]['xcross1'] + '"]').attr('selected', true).change();
                      $('#drpMastersetup4').find('option[value="' + response['AMaster'][0]['xcross2'] + '"]').attr('selected', true).change();
                      $('#drpMastersetup5').find('option[value="' + response['AMaster'][0]['xcross3'] + '"]').attr('selected', true).change();
@@ -655,7 +659,7 @@
     });
 
     $('#modeldelete').click(function (e) {
-        console.log(deletesrno);
+        //console.log(deletesrno);
         var Module = 0;
         var screen = 0;
         var FormCode = 0;
@@ -726,7 +730,7 @@
                 {
                     data: null,
                     className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a>'
+                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
                 }
 
 
