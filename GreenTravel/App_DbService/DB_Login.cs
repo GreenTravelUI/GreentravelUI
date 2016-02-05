@@ -132,7 +132,7 @@ namespace GreenTravel.App_DbService
                 else
                     _cmd.Parameters.AddWithValue("@Role", DBNull.Value);
 
-                if (_FormValidationPara.userid != null)
+                if (_FormValidationPara.userid != 0)
                     _cmd.Parameters.AddWithValue("@userid", _FormValidationPara.userid);
                 else
                     _cmd.Parameters.AddWithValue("@userid", DBNull.Value);

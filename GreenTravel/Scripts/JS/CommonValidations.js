@@ -34,7 +34,14 @@ function controlInputValidations(control) {
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
         if (control.val().trim().length == 0) {
-            control.after('<p class="red-error">This field is required.</p>');
+            var attr = $(this).attr('data-reqmsg');
+            var msg = 'This field is required.';
+            if (typeof attr !== typeof undefined && attr !== false) {
+                if (attr.trim() != '') {
+                    msg = attr;
+                }
+            }
+            control.after('<p class="red-error">' + msg + '</p>');
             control.addClass('red-input');
             return false;
         }
@@ -93,6 +100,17 @@ function controlInputValidations(control) {
             }
         }
     }
+    if (control.hasClass('confirm')) {
+        var mainControl = $('#' + control.data('confirm'));
+        if (mainControl.val() != control.val()) {
+            var length = mainControl.prev().text().indexOf('*')
+            var nameControl = mainControl.prev().text().substring(0, length > 0 ? length-1 : mainControl.prev().text().length);
+            control.after('<p class="red-error">' + nameControl + 's not matched. Try again.</p>');
+            control.addClass('red-input');
+            return false;
+        }
+    }
+
     //if (control.hasClass('time')) {
     //    control.removeClass('red-input');
     //    control.parent().parent().find('p.red-error').remove();
@@ -104,7 +122,7 @@ function controlInputValidations(control) {
     //        }
     //    }
     //}
-    
+
     if (control.hasClass('reg')) {
         var str = control.data('reg');
         if (!control.val().match(str)) {
@@ -115,6 +133,7 @@ function controlInputValidations(control) {
     }
     return true;
 }
+
 function controlSelectValidations(control) {
     var flag = true;
     control.next().removeClass('red-input');
@@ -125,10 +144,11 @@ function controlSelectValidations(control) {
             control.next().after('<p class="red-error">This field is required.</p>');
             control.next().addClass('red-input');
             flag = false;
-        } 
+        }
     }
     return flag;
 }
+
 function controlMultiSelectValidations(control) {
     console.log(control.attr('id'));
     control.next().removeClass('red-input');
@@ -146,7 +166,9 @@ function controlMultiSelectValidations(control) {
             return false;
         }
     }
+    return true;
 }
+
 function controlTextareaValidations(control) {
     control.parent().find('p.red-error').remove();
     control.removeClass('red-input');
@@ -158,19 +180,36 @@ function controlTextareaValidations(control) {
             return false;
         }
     }
+    if (control.hasClass('max')) {
+        if (control.val().length > parseInt(control.data('max'))) {
+            control.after('<p class="red-error">Maximum ' + control.data('max') + ' characters are required.</p>');
+            control.addClass('red-input');
+            return false;
+        }
+    }
+    if (control.hasClass('min')) {
+        if (control.val().length < parseInt(control.data('min'))) {
+            control.after('<p class="red-error">Minimum ' + control.data('min') + ' characters are required.</p>');
+            control.addClass('red-input');
+            return false;
+        }
+    }
+    return true;
 }
+
 function formInputValidations(frm) {
     var inputFlag = true;
     frm.find('input').each(function () {
         if ($(this).parent().is(':visible')) {
             if (!controlInputValidations($(this))) {
-                console.log('txt: #'+$(this).attr('id'));
+                console.log('txt: #' + $(this).attr('id'));
                 inputFlag = false;
             }
         }
     });
     return inputFlag;
 }
+
 function formTextareaValidations(frm) {
     var textareaFlag = true;
     frm.find('textarea.req').each(function () {
@@ -183,6 +222,7 @@ function formTextareaValidations(frm) {
     });
     return textareaFlag;
 }
+
 function formSelectValidations(frm) {
     var selectFlag = true;
     frm.find('select.req').each(function () {
@@ -205,6 +245,7 @@ function formSelectValidations(frm) {
     });
     return selectFlag;
 }
+
 function validateForm(frm) {
     var flag = true;
     if (!formInputValidations(frm)) {
