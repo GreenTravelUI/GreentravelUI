@@ -161,7 +161,7 @@
                 Control: Control, Language: Language, Srno: Srno
             },
             success: function (data) {
-                console.log(data);
+                
                 $('#' + controlId + '').html('');
                 for (var i = 0; i < data.length; i++) {
                     var opt = new Option(data[i]['Text'], data[i]['Value']);
@@ -175,7 +175,7 @@
 
 
     $("table").delegate(".editor_Step", "click", function () {
-         // console.log($(this).parent().parent().children(':eq(1)').text());
+         
         $("#searchcontrol").removeClass("active");
         $("#Fromcontrol").addClass("active");
         $("#tab1").removeClass("active");
@@ -230,13 +230,13 @@
          });
     });
     $("table").delegate(".editor_Delte", "click", function () {
-        console.log( ($(this).parent().parent().children(':eq(1)').text()));
+        
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(1)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
     $('#modeldelete').click(function (e) {
-        console.log(deletesrno);
+        
         var Module = 0;
         var screen = 0;
         var FormCode = 0;
@@ -263,7 +263,7 @@
             },
             success: function (data) {
                 if (data.length > 0) {
-                    alert("Record Delete Sucessfully!");
+                    swal('Good job!', 'Record Delete Sucessfully!', 'success')
                 }
             }
         });

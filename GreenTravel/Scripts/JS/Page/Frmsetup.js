@@ -92,7 +92,7 @@
         var Formtabcode = '0';
         var type = 'Grid';
         $('#example1').dataTable({
-             destroy: true,
+
             "ServerSide": true,
             destroy: true,
             "ajax": {
@@ -127,7 +127,7 @@
                 {
                     data: null,
                     className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"><i class="fa fa-pencil-square-o"></i></a>'
+                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"><i class="fa fa-anchor"></i></a>'
                 }]
         });
     }
@@ -135,7 +135,7 @@
     $('#frmsection').click(function (e) {
         getdatatab();
     });
-    
+
     $('#serachfrom').click(function (e) {
         getdata();
     });
@@ -721,7 +721,7 @@
             var type = 'Grid';
             var Segment = '';
             $('#Gridsectab').dataTable({
-                destroy: true,
+             
                 "ServerSide": true,
                 destroy: true,
                 "ajax": {
@@ -998,7 +998,7 @@
 
         $("#serachfrom").addClass("active");
         $("#tab1").addClass("active");
-
+        $("#serachfrom").trigger('click');
     }
     function clearForm() {
         $('.inputform').val('');
