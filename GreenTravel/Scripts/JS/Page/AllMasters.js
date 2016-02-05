@@ -38,10 +38,10 @@
     $('#btnSave').click(function (e) {
         e.preventDefault();
         /* Form Validation */
-        //if (!validateForm($(this).parent())) {
-        //    alert('Invalid data found!');
-        //    return false;
-        //}
+        if (!validateForm($(this).parent())) {
+            alert('Invalid data found!');
+            return false;
+        }
         var USrno = '0';
         //  alert($('#btnSave').text());
         if ($('#btnSave').text() != "Create") {
@@ -114,26 +114,32 @@
         var UHtml = $('#HTMlEditor1').val();
         var UUpload = $('#photoUpload').val();
         var UTextArea = $('#Textarea1').val();
-        var Mul = "";
-        var index = 0;
+        var Mul = '';
+        var i = 0;
         //$("#Multiselect1 option")
-        var Miltiselect1value = $("#Multiselect1").next().find('ul li').text();
-        var splitMS1 = Miltiselect1value.split('×');
-        $.each(splitMS1,function (index,value) {
-            if (value.trim() != '') {
-                if (index != 0) {
-                    Mul = Mul + ',';
-                }
-                Mul = Mul + $('#Multiselect1 option[text=' + value + ']').val();
-                index = 1;
-            }
-        })
-        
-        var UMultiSelect1 = Mul;
-        var UMultiSelect2 = '';
-        var UMultiSelect3 = '';
-        var UMultiSelect4 = '';
-        var UMultiSelect5 = '';
+        //var Miltiselect1value = $("#Multiselect1").next().find('ul li').text();
+        //var splitMS1 = Miltiselect1value.split('×');
+        //$.each(splitMS1, function (index, value) {
+        //    if (value.toString().trim() != '') {
+        //        if (i != 0) {
+        //            Mul += ',';
+        //        }
+        //        $('#Multiselect1 option').each(function () {
+        //            if ($(this).text() == value) {
+        //                Mul += $(this).val();
+        //            }
+        //        });
+        //        i += 1;
+        //    }
+        //})
+        //console.log(Mul);
+
+
+        var UMultiSelect1 = getMultiselectValue($("#Multiselect1"));
+        var UMultiSelect2 = getMultiselectValue($("#Multiselect2"));
+        var UMultiSelect3 = getMultiselectValue($("#Multiselect3"));
+        var UMultiSelect4 = getMultiselectValue($("#Multiselect4"));
+        var UMultiSelect5 = getMultiselectValue($("#Multiselect5"));
 
         $.ajax(
            {
@@ -236,6 +242,7 @@
                 Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
             },
             success: function (data) {
+                console.log('BindDropDownTab');
                 // alert(data[0]['Text']);
                 $('#' + controlId + '').html('');
                 for (var i = 0; i < data.length; i++) {
@@ -506,7 +513,7 @@
                 {
                     data: null,
                     className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="" class="editor_Delte"><i class="fa fa-trash-o"></i></a>'
+                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
                 }
 
 
@@ -551,25 +558,26 @@
                      $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
                      $('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                      $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
-
+                     console.log('Before Set Dropdown Values');
                      $('#Dropdown1Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxlink'] + '"]').attr('selected', true).change();
                      $('#Dropdown2Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross'] + '"]').attr('selected', true).change();
                      $('#Dropdown3Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross1'] + '"]').attr('selected', true).change();
                      $('#Dropdown4Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross2'] + '"]').attr('selected', true).change();
                      $('#Dropdown5Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross3'] + '"]').attr('selected', true).change();
                      $('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true);
+                     console.log('After Set Dropdown Values');
 
-                     FillDropdown('Dropdown1Tab3', 'xlink');
-                     FillDropdown('Dropdown2Tab3', 'xcross');
-                     FillDropdown('Dropdown3Tab3', 'xcross1');
-                     FillDropdown('Dropdown4Tab3', 'xcross2');
-                     FillDropdown('Dropdown5Tab3', 'xcross3');
-                     FillDropdown('Dropdown6Tab3', 'xcross4');
-                     FillDropdown('MultiSelect1', 'MultiSelect1');
-                     FillDropdown('MultiSelect2', 'MultiSelect2');
-                     FillDropdown('MultiSelect3', 'MultiSelect3');
-                     FillDropdown('MultiSelect4', 'MultiSelect4');
-                     FillDropdown('MultiSelect5', 'MultiSelect5');
+                     //FillDropdown('Dropdown1Tab3', 'xlink');
+                     //FillDropdown('Dropdown2Tab3', 'xcross');
+                     //FillDropdown('Dropdown3Tab3', 'xcross1');
+                     //FillDropdown('Dropdown4Tab3', 'xcross2');
+                     //FillDropdown('Dropdown5Tab3', 'xcross3');
+                     //FillDropdown('Dropdown6Tab3', 'xcross4');
+                     //FillDropdown('MultiSelect1', 'MultiSelect1');
+                     //FillDropdown('MultiSelect2', 'MultiSelect2');
+                     //FillDropdown('MultiSelect3', 'MultiSelect3');
+                     //FillDropdown('MultiSelect4', 'MultiSelect4');
+                     //FillDropdown('MultiSelect5', 'MultiSelect5');
                      hide_Tooltip();
                      PageLoad_FilledAll();
 
@@ -617,6 +625,8 @@
                  //alert(response['AMaster'][0]['xmaster']);
                  //$("#drpMasterTab3").val(response['AMaster'][0]['xmaster']);
              }
+         }).then(function () {
+             console.log('In Then call');
          });
 
 

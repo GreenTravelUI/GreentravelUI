@@ -85,7 +85,7 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.Message = "Record Save Sucessfully !";
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet); return View();
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -103,7 +103,7 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.Message = "Record Save Sucessfully !";
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet); return View();
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet); 
             }
             catch (Exception)
             {
@@ -221,7 +221,7 @@ namespace GreenTravel.Controllers
                         Caption.Add(new CommanMasterCaption
                         {
                             xmastercaption = @dr["xmaster"].ToString(),
-                            SEGMENTcaption = @dr["SEGMENT"].ToString(),
+                            //SEGMENTcaption = @dr["SEGMENT"].ToString(),
                             Field1caption = @dr["Field1"].ToString(),
                             Field2caption = @dr["Field2"].ToString(),
                             Field3caption = @dr["Field3"].ToString(),
