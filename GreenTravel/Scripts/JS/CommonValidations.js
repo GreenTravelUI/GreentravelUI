@@ -104,7 +104,7 @@ function controlInputValidations(control) {
         var mainControl = $('#' + control.data('confirm'));
         if (mainControl.val() != control.val()) {
             var length = mainControl.prev().text().indexOf('*')
-            var nameControl = mainControl.prev().text().substring(0, length > 0 ? length-1 : mainControl.prev().text().length);
+            var nameControl = mainControl.prev().text().substring(0, length > 0 ? length - 1 : mainControl.prev().text().length);
             control.after('<p class="red-error">' + nameControl + 's not matched. Try again.</p>');
             control.addClass('red-input');
             return false;
@@ -139,7 +139,7 @@ function controlSelectValidations(control) {
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
-        console.log('value: ' + control.find('option:selected').val());
+        
         if (control.find('option:selected').val() == '0') {
             control.next().after('<p class="red-error">This field is required.</p>');
             control.next().addClass('red-input');
