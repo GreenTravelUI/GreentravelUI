@@ -8,14 +8,24 @@
     });
 
     $("#drpMasterTab3").change(function () {
-
-
-        FillDropdown('Dropdown1Tab3', 'xlink');
-        FillDropdown('Dropdown2Tab3', 'xcross');
-        FillDropdown('Dropdown3Tab3', 'xcross1');
-        FillDropdown('Dropdown4Tab3', 'xcross2');
-        FillDropdown('Dropdown5Tab3', 'xcross3');
-        FillDropdown('Dropdown6Tab3', 'xcross4');
+        if ($('#Dropdown1Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown1Tab3', 'xlink');
+        }
+        if ($('#Dropdown2Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown2Tab3', 'xcross');
+        }
+        if ($('#Dropdown3Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown3Tab3', 'xcross1');
+        }
+        if ($('#Dropdown4Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown4Tab3', 'xcross2');
+        }
+        if ($('#Dropdown5Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown5Tab3', 'xcross3');
+        }
+        if ($('#Dropdown6Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown6Tab3', 'xcross4');
+        }
 
         FillDropdown_Multiselect('MultiSelect1', 'MultiSelect1');
 
@@ -246,7 +256,7 @@
                     //$('#drpMasterTab3').append(opt);
                     $('#' + controlId + '').append(opt);
                 }
-                $("#" + controlId + " option:first").attr('selected', 'selected');
+                //$("#" + controlId + " option:first").attr('selected', 'selected');
             }
         });
     }
