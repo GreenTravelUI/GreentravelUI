@@ -60,6 +60,7 @@
         var type = 'Grid';
         $('#example1').dataTable({
             "ServerSide": true,
+            destroy: true,
             "ajax": {
                 "url": "/FormSetup/BindGridView",
                 "Type": "GET",
@@ -700,6 +701,7 @@
             var Segment = '';
             $('#Gridsectab').dataTable({
                 "ServerSide": true,
+                destroy: true,
                 "ajax": {
                     "url": "/FormSetup/BindGridViewFormsetup",
                     "Type": "GET",

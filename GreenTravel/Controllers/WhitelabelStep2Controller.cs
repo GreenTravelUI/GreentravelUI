@@ -15,7 +15,7 @@ namespace GreenTravel.Controllers
         DbWhitelabelStep2 _objw2 = new DbWhitelabelStep2();
         //
         // GET: /WhitelabelStep2/
-        [HttpGet]
+        
         public ActionResult Index()
         {
 
@@ -77,25 +77,6 @@ namespace GreenTravel.Controllers
             }
         }
 
-
-
-        [HttpPost]
-        public ActionResult Index(FormCollection fc)
-        {
-
-            //  string CountriesID = Convert.ToString(objcv.SelectedCountriesId); //tightly coupled
-            string StateID = fc["drpFeatureCategory"];
-            ViewData["Category"] = StateID;
-            WhitelabelStep2 CV = new WhitelabelStep2();
-            CV.GridColumn = null;
-            CV.GridHearder = null;
-            return View(CV.GridHearder.ToList());
-
-
-
-        }
-
-
         public PartialViewResult _DisplayGridData(string id)
         {
             DataSet dsList = _objw2.Basegrid(id);
@@ -145,7 +126,26 @@ namespace GreenTravel.Controllers
             lstGrid.Add(_grid);
             return PartialView(lstGrid);
         }
+        public ActionResult Insert(WhitelabelStep2 CBP)
+        {
+            try
+            {
+                DataSet result = _objw2.Insert(CBP);
+                if (result.Tables[0].Rows.Count >1)
+                {
+                    ViewBag.Message = "Record Save Sucessfully !";
+                }
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
 
     }
 }

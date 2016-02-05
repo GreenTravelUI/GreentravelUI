@@ -9,24 +9,30 @@
         <figure>
             <figcaption class="panel-body tab-itenaries">
 
-                <h3 style="margin-top: 0; text-align: center;">
-                    @Html.DisplayFor(modelItem => itemHeader.xname)
+                <div class="myDiv">
+                    <h3 style="margin-top: 0; text-align: center;">
+                        <label style="display: none" id="lbheadingName">@Html.DisplayFor(modelItem => itemHeader.SrNo) </label>
 
+                    </h3>
+                </div>
+
+                <h3 style="margin-top: 0; text-align: center;">
+                    <label id="lbheading">@Html.DisplayFor(modelItem => itemHeader.xname) </label>
                 </h3>
-                <table class="table" style="margin-bottom: 0;">
+
+
+
+                <table class="table sampletable" style="margin-bottom: 0;">
                     <tbody>
                         @foreach (var itemColumn in item.GridColumn.Where(m => m.xlink == itemHeader.SrNo))
                         {
                             <tr>
-
                                 <td>
-
-                                    @Html.DisplayFor(modelItem => (itemColumn.xname))
+                                    @itemColumn.xname
                                 </td>
                                 <td>
-                                    <input type="checkbox" /></td>
-
-
+                                    <input id="@itemColumn.SrNo" type="checkbox" >
+                                </td>
                             </tr>
                         }
                     </tbody>

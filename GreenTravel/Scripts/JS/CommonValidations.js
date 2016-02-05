@@ -61,14 +61,14 @@ function controlInputValidations(control) {
         }
     }
     if (control.hasClass('alphbet')) {
-        if (!control.val().match(/^[a-zA-Z]*$/)) {
+        if (!control.val().match(/^[a-zA-Z ]*$/)) {
             control.after('<p class="red-error">Only Alphabets are allowed.</p>');
             control.addClass('red-input');
             return false;
         }
     }
     if (control.hasClass('alphnum')) {
-        if (!control.val().match(/^[a-zA-Z0-9]*$/)) {
+        if (!control.val().match(/^[a-zA-Z0-9 ]*$/)) {
             control.after('<p class="red-error">Only AlphaNumeric value is allowed.</p>');
             control.addClass('red-input');
             return false;
