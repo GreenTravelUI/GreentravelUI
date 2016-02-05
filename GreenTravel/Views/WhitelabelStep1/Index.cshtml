@@ -20,12 +20,12 @@ color: red;
         $('#txtConfirmPassword').on('change', function () {
             var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
             if (result == true) {
-                $('#btnsavebasic').attr("disabled", false);
+              //  $('#btnsavebasic').attr("disabled", false);
             }
             else {
                 $('#txtConfirmPassword').focus();
-                alert('PassWord Not a Same')
-                $('#btnsavebasic').attr("disabled", true);
+                //alert('PassWord Not a Same')
+              //  $('#btnsavebasic').attr("disabled", true);
             }
 
            
@@ -212,7 +212,7 @@ color: red;
                                     </div>
                                     <div class="form-group">
                                         <label for="txtConfirmPassword">Confirm Password </label>
-                                        <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
+                                        <input type="password" class="form-control confirm" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtOfficialEmail">Official Email <span>*</span></label>
@@ -810,5 +810,7 @@ color: red;
 @section scripts{
     <script src="~/Scripts/JS/Page/WhitelabelReg.js"></script>
     <script src="~/Scripts/JS/CommonValidations.js"></script>
+    
+   
 }
 

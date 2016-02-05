@@ -2,6 +2,9 @@
     ViewBag.Title = "Form Control Set-Up";
     ViewBag.PageTitle = "Form Control Set-Up";
 }
+@{ 
+    var queryValue = Request.QueryString["id"];  
+}
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -26,7 +29,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table id="example1" class="display" style="width: 100%; cellspacing: 0;">
+                                <table id="fromcontrolsetup" class="display" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -55,55 +58,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
-                                    @*<tbody>
-                                        <tr>
 
-                                            <th></th>
-                                            <th>
-                                                <input type="text" /></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th class="action-buttons">
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>13</td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>Corporate1</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>*@
                                 </table>
                             </div>
                         </form>
@@ -117,7 +72,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group" style="display: block">
                                             <label>Tabsrno <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtTabsrno" placeholder="Tab Srno" readonly="true">
+                                            <input type="text" class="form-control inputControl" id="txtTabsrno" placeholder="Tab Srno" readonly="true">
+                                            <input type="text" class="form-control" id="txtFormcode" value=" @queryValue " readonly="true">
                                         </div>
                                     </div>
                                 </div>
@@ -125,21 +81,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tab <span>*</span></label>
-                                            <select id="drpTab" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                                <option value="--None--">--None-- </option>
-                                                <option value="1">Create Agent</option>
+                                            <select id="drpTab" data-reqmsg="Select Tab" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Section <span>*</span></label>
-                                            <select id="drpSection" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                                <option value="--None--">--None-- </option>
-                                                <option value="1">Basic Details </option>
-                                                <option value="2">Agent Address </option>
-                                                <option value="3">Agent Overview </option>
-                                                <option value="4">Invoice Currency & Credit Limit </option>
+                                            <select id="drpSection" data-reqmsg="Select Section" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
@@ -148,13 +97,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Control Label<span></span></label>
-                                            <input type="text" class="form-control" id="txtcontrollabel" placeholder="Control Name">
+                                            <input type="text" class="form-control inputControl" id="txtcontrollabel" placeholder="Control Name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Control ID <span></span></label>
-                                            <input type="text" class="form-control" id="txtcontrolid" placeholder="Control Id">
+                                            <input type="text" class="form-control inputControl" id="txtcontrolid" placeholder="Control Id">
                                         </div>
                                     </div>
 
@@ -175,7 +124,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Validation Code <span></span></label>
-                                            <input type="text" class="form-control" id="txtValiadtioncode" placeholder="Validation Code">
+                                            <input type="text" class="form-control inputControl" id="txtValiadtioncode" placeholder="Validation Code">
                                         </div>
                                     </div>
                                 </div>
@@ -183,14 +132,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Placeholder Text <span></span></label>
-                                            <input type="text" class="form-control" id="txtPlaceholdertext" placeholder="Placeholder">
+                                            <input type="text" class="form-control inputControl" id="txtPlaceholdertext" placeholder="Placeholder">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Tool Tip (Help text) <span></span></label>
-                                            <input type="text" class="form-control" id="txtTooltiptext" placeholder="Tool Tip (Help text)">
+                                            <input type="text" class="form-control inputControl" id="txtTooltiptext" placeholder="Tool Tip (Help text)">
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +157,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Validation Message <span></span></label>
-                                            <input type="text" class="form-control" id="txtreqValidationmessage" placeholder="Validation Message">
+                                            <input type="text" class="form-control inputControl" id="txtreqValidationmessage" placeholder="Validation Message">
                                         </div>
                                     </div>
                                 </div>
@@ -223,11 +172,11 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Validation Message <span></span></label>
-                                            <input type="text" class="form-control" id="txtRegvalidationmessage" placeholder="Validation Message">
+                                            <input type="text" class="form-control inputControl" id="txtRegvalidationmessage" placeholder="Validation Message">
                                         </div>
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Guided Tour Text <span></span></label>
-                                            <input type="text" class="form-control" id="txtGuidedTour" placeholder="Guided Tour">
+                                            <input type="text" class="form-control inputControl" id="txtGuidedTour" placeholder="Guided Tour">
                                         </div>
 
                                     </div>
@@ -236,14 +185,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Guided Tour Step No <span></span></label>
-                                            <input type="text" class="form-control" id="txtGuidedtourStep" placeholder="Guided Tour Step No">
+                                            <input type="text" class="form-control inputControl" id="txtGuidedtourStep" placeholder="Guided Tour Step No">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" data-placement="right">Order <span></span></label>
-                                            <input type="text" class="form-control" id="txtorder" placeholder="Control Order">
+                                            <input type="text" class="form-control inputControl" id="txtorder" placeholder="Control Order">
                                         </div>
                                     </div>
                                 </div>
@@ -256,10 +205,9 @@
                                     SAVE</button>
                                 <button id="btnUpdate" type="submit" class="btn btn-primary btnSave" style="display: none">
                                     UPDATE</button>
-
-                                <button id="btnclear" type="submit" class="btn btn-warning">
+                                <button id="btnclear" type="button" class="btn btn-warning">
                                     CLEAR</button>
-                                <button id="btnquitfrom" type="submit" class="btn btn-info">
+                                <button id="btnquitfrom" type="button" class="btn btn-info">
                                     QUIT FORM</button>
                             </div>
                         </form>
@@ -301,6 +249,7 @@
     </div>
 </div>
 @section scripts{
+    <script src="~/Scripts/JS/CommonValidations.js"></script>
     <script src="~/Scripts/JS/Page/FrmControlSetup.js"></script>
 }
 

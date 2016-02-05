@@ -45,7 +45,17 @@ namespace GreenTravel.Models
         public string CorpcentreBy { get; set; }
         public string UnitCorpBy { get; set; }
         public string TerminalBy { get; set; }
-        public DataSet StoreAllData { get; set; } 
+        public DataSet StoreAllData { get; set; }
+        public string BranchBy { get; set; }
+
+        public string RowNumber { get; set; }
+        public string Name { get; set; }
+        public string Corporate { get; set; }
+        public string Unit { get; set; }
+        public string Branch { get; set; }
+        public string tablename { get; set; }
+        public string Formcode { get; set; }
+        public string Formtabcode { get; set; }
     }
 
     public class UserMaster_Formpara

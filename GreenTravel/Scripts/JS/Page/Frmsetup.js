@@ -6,6 +6,7 @@
     var customID = 2;
     Dropdown_Bind_Tab1();
     getdata();
+
     function Dropdown_Bind_Tab1() {
         var Module = '';
         var screen = '';
@@ -99,20 +100,29 @@
     $('#frmsection').click(function (e) {
         getdatatab();
     });
+    //Tab2 Click  Event  
+    $('#frmtab').click(function (e) {
+        if ($('#txtSrNo1').val() == '') {
+            alert("Please Edit Data");
+            Quitform();
+        }
+    });
 
     $("#drpCorporate1").change(function () {
-        //  alert('drpCorporate1');
         // alert($('#drpCorporate1 option:selected').val());
         FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
     });
+
     $("#drpFeatures").change(function () {
         //  alert('drpFeatures');
         FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
     });
+
     $("#drpModule").change(function () {
         //  alert('drpModule');
         FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
     });
+
     function FillDropdown(Corporate, Field1, Field2, controlId) {
         var Module = '';
         var screen = '';
@@ -135,7 +145,7 @@
         $.ajax({
             url: "/FormSetup/BindDropDownbase",
             type: "POST",
-            async:false,
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
                 Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
@@ -153,8 +163,13 @@
             }
         });
     }
+    //save Form  Code --tab1
     $('.btnSave').click(function (e) {
         e.preventDefault();
+        if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
+            alert('Invalid data found!');
+            return false;
+        }
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -204,9 +219,13 @@
                }
            });
     });
+    //save Tab data --tab 2
     $('.btnSaveformtab').click(function (e) {
         e.preventDefault();
-
+        if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
+            alert('Invalid data found!');
+            return false;
+        }
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -240,7 +259,6 @@
         var Corporate = $('#drpCorporatetab option:selected').val();
         var FormCode = $('#drpFormCode option:selected').val();
         var TabNumber = $('#txtTabNumber').val();
-
         var TabHeader = $('#txtTabHeader').val();
         var TabClass = $('#txtTabClass').val();
         var TooltipHelpText = $('#txtTooltipHelpText').val();
@@ -278,8 +296,13 @@
            });
 
     });
+    //model  Button  
     $('.btnSaveStandard').click(function (e) {
         e.preventDefault();
+        if (!validateForm($(this).parent().parent().parent())) {  // Pass form control in parameter
+            alert('Invalid data found!');
+            return false;
+        }
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -353,18 +376,15 @@
            });
 
     });
-
-    
+    //Redirect Form Control
     $("table").delegate(".editor_Control", "click", function () {
         var FormCode = $(this).parent().parent().children(':eq(1)').text();
-        window.location.href = '/FormControlSetup/Index/?Formcode='+ FormCode;
-       
+        window.location.href = '/FormControlSetup/Index/?id=' + FormCode;
+
 
     });
-
+    //Edit Form  
     $("table").delegate(".editor_edit", "click", function () {
-        console.log($(this).parent().parent().children(':eq(0)').text());
-        console.log($(this).parent().parent().children(':eq(1)').text());
         $("#serachfrom").removeClass("active");
         $("#Frmcreate").addClass("active");
         $("#tab1").removeClass("active");
@@ -387,11 +407,11 @@
              },
              dataType: 'json',
              success: function (response) {
-                 console.log(response[0])
                  if (response.length > 0) {
                      $('#txtSrNo1').val(response[0].SrNo);
                      $('#txtFormName').val(response[0].FormName);
                      $('#txtFormPreFix').val(response[0].FormPrefixCode);
+
                      $('#drpCorporate1').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
 
                      $('#drpFeatures').find('option[value="' + response[0].FeatureGroup + '"]').attr('selected', true).change();
@@ -405,17 +425,18 @@
              }
          });
     });
+    //Delete form 
     $("table").delegate(".editor_Delte", "click", function () {
         console.log(($(this).parent().parent().children(':eq(1)').text()));
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(1)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
+    //editdata in  button ,custom button  ,utility
     $("table").delegate(".SectiontabButtonclass", "click", function () {
         console.log(($(this).parent().parent().children(':eq(1)').text()));
         console.log(($(this).parent().parent().children(':eq(2)').text()));
-        Frmcode = '';
-        Frmcode = $(this).parent().parent().children(':eq(1)').text()
+        Frmcode = 0;
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
         var tablename = 'dbo._Form_Master';
@@ -423,7 +444,7 @@
         var unit = '0';
         var Formcode = Frmcode;
         var Formtabcode = FrmtabCode;
-        var Xmaster = '';
+        var Xmaster = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
         var html = '';
         $.ajax(
@@ -465,9 +486,10 @@
                      $('#txtFormQuitClass').val(response['AFrmStandardbtn'][0]['FormQuitClass']);
                      // $('#chkFormQuitVisibility').is(":checked");
                  }
-                
-                 
+
+
                  if (response['ACustomMaster'].length > 0) {
+                     html = '';
                      customID = response['ACustomMaster'].length + 1;
                      $("#btncustomsave").hide();
                      for (var i = 0; i < response['ACustomMaster'].length; i++) {
@@ -496,16 +518,28 @@
                          }
                      }
                      $(html).appendTo($("#tblModalIconCustom"))
-
+                 }
+                 else {
+                     customID = response['ACustomMaster'].length + 1;
+                     var html = '<tr>' +
+                                '<td>' + customID + '</td>' +
+                                '<td><input type="text" placeholder="Custom Name"  class="form-control" /></td>' +
+                                '<td> <input type="text" placeholder="Custom Class"  class="form-control" /></td>' +
+                                '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
+                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
+                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
+                                '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
+                                '</tr>'
+                     $(html).appendTo($("#tblModalIconCustom"))
                  }
              }
          });
         getUtility();
     });
+    //Section In Editmode  
     $("table").delegate(".TabSection", "click", function () {
         //alert('Section');
-        Frmcode = '';
-        Frmcode = $(this).parent().parent().children(':eq(1)').text()
+        Frmcode = 0;
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
         var tablename = 'dbo._Form_Master';
@@ -513,7 +547,7 @@
         var unit = '0';
         var Formcode = Frmcode;
         var Formtabcode = FrmtabCode;
-        var Xmaster = '';
+        var Xmaster = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
         var html = '';
         $.ajax(
@@ -525,37 +559,92 @@
              },
              dataType: 'json',
              success: function (response) {
-                 //console.log(response['ASectionMaster'])
+                 html = '';
                  clearSectionNameTab();
-                 clearButtonclass();
                  if (response['ASectionMaster'].length > 0) {
                      $("#tblModalSection tbody").html('');
                      ID = response['ASectionMaster'].length + 1;
                      $("#btnModalSectionSave").hide();
                      for (var i = 0; i < response['ASectionMaster'].length; i++) {
+                         if (typeof html === typeof undefined && html === false || html == '') {
 
-                         if (html == '') {
                              html = '<tr>' +
                                     '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                     '<td> <input type="text"  value="' + response['ASectionMaster'][i]['SectionName'] + '" /></td>' +
                                     '<td> <input type="text"  value="' + response['ASectionMaster'][i]['srno'] + '" /></td>' +
-                                    '</tr>'
+                                    '</tr>';
                          }
                          else {
                              html += '<tr>' +
                                  '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                  '<td> <input type="text"  value="' + response['ASectionMaster'][i]['SectionName'] + '" /></td>' +
                                  '<td> <input type="text"  value="' + response['ASectionMaster'][i]['srno'] + '" /></td>' +
-                                 '</tr>'
+                                 '</tr>';
                          }
                      }
                      $(html).appendTo($("#tblModalSection"))
                  }
-                 
-
+                 else {
+                     ID = response['ASectionMaster'].length + 1;
+                     var html = '<tr>' +
+                                '<td>' + ID + '</td>' +
+                                '<td> <input type="text" id="txtsection' + ID + '"/></td>' +
+                                '<td> <input type="text" /></td>' +
+                                '</tr>'
+                     $(html).appendTo($("#tblModalSection"))
+                 }
              }
          });
     });
+    //Edit tab Data 
+    $("table").delegate(".EditTabData", "click", function () {
+        $("#frmsection").removeClass("active");
+        $("#frmtab").addClass("active");
+        $("#tab5").removeClass("active");
+        $("#tab4").addClass("active");
+        $('#btnUpdatetab').show();
+        $('#btnSaveformtab').hide();
+        var tablename = 'dbo._Form_Tab_Master';
+        var Corporate = '0';
+        var unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var Xmaster = $(this).parent().parent().children(':eq(2)').text();
+        var Type = 'EditMode';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/FormSetup/Edit_FormTab",
+             data: {
+                 "tablename": tablename, "Corporate": Corporate, "unit": unit, "Formcode": Formcode, "Formtabcode": Formtabcode, "Xmaster": Xmaster, "Type": Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 if (response.length > 0) {
+                     $('#txtSrNo').val(response[0].SrNo);
+                     $('#txtTabNumber').val(response[0].TabNumber);
+                     $('#txtTabClass').val(response[0].TabClass);
+                     $('#txtTabHeader').val(response[0].TabHeader);
+                     $('#txtTooltipHelpText').val(response[0].TooltipHelpText);
+                     $('#txtTabMainTable').val(response[0].MasterTable);
+                     $('#txtTabMainTablePrefix').val(response[0].MasterTablePrefix);
+                     $('#drpCorporatetab').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
+                     $('#drpFormCode').find('option[value="' + response[0].FormCode + '"]').attr('selected', true).change();
+                     $('#txtTrxTable1').val(response[0].TrxTable1);
+                     $('#txtTrxTable2').val(response[0].TrxTable2);
+                     $('#txtTrxTable3').val(response[0].TrxTable3);
+                     $('#txtTrxTable4').val(response[0].TrxTable4);
+                     $('#txtTrxTable5').val(response[0].TrxTable5);
+                     $('#txtTrxTable6').val(response[0].TrxTable6);
+                     $('#txtTrxTable7').val(response[0].TrxTable7);
+                     $('#txtTrxTable8').val(response[0].TrxTable8);
+                     $('#txtTrxTable9').val(response[0].TrxTable9);
+                     $('#txtTrxTable10').val(response[0].TrxTable10);
+                 }
+             }
+         });
+    });
+    //Delete Button  Click
     $('#modeldelete').click(function (e) {
         console.log(deletesrno);
         var Module = 0;
@@ -589,62 +678,68 @@
             }
         });
     });
+    //Tab 3 Grid
     function getdatatab() {
-
-        var tablename = 'dbo._Form_Tab_Master';
-        var Corporate = '2';
-        var unit = '';
-        var userid = '';
-        var WhereClause = '';
-        var Branch = '';
-        var PageNo = '1';
-        var RecordsPerPage = '10';
-        var Formcode = $('#txtSrNo1').val();
-        var Formtabcode = '0';
-        var type = 'Grid';
-        var Segment = '';
-        $('#Gridsectab').dataTable({
-            "ServerSide": true,
-            "ajax": {
-                "url": "/FormSetup/BindGridViewFormsetup",
-                "Type": "GET",
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "dataSrc": function (json) {
-                    return json;
-                },
-                "data": {
-                    "tablename": tablename,
-                    "Corporate": Corporate,
-                    "unit": unit,
-                    "userid": userid,
-                    "WhereClause": WhereClause,
-                    "Branch": Branch,
-                    "PageNo": PageNo,
-                    "RecordsPerPage": RecordsPerPage,
-                    "Formcode": Formcode,
-                    "Formtabcode": Formtabcode,
-                    "type": type,
-                    "Segment": Segment
+        if ($('#txtSrNo1').val() != '') {
+            var tablename = 'dbo._Form_Tab_Master';
+            var Corporate = '2';
+            var unit = '';
+            var userid = '';
+            var WhereClause = '';
+            var Branch = '';
+            var PageNo = '1';
+            var RecordsPerPage = '10';
+            var Formcode = $('#txtSrNo1').val();
+            var Formtabcode = '0';
+            var type = 'Grid';
+            var Segment = '';
+            $('#Gridsectab').dataTable({
+                "ServerSide": true,
+                "ajax": {
+                    "url": "/FormSetup/BindGridViewFormsetup",
+                    "Type": "GET",
+                    "dataType": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": function (json) {
+                        return json;
+                    },
+                    "data": {
+                        "tablename": tablename,
+                        "Corporate": Corporate,
+                        "unit": unit,
+                        "userid": userid,
+                        "WhereClause": WhereClause,
+                        "Branch": Branch,
+                        "PageNo": PageNo,
+                        "RecordsPerPage": RecordsPerPage,
+                        "Formcode": Formcode,
+                        "Formtabcode": Formtabcode,
+                        "type": type,
+                        "Segment": Segment
+                    }
                 }
-            }
-            ,
-            "columns": [
-                { "data": "RowNumber" },
-                { "data": "FormCode" },
-                { "data": "TabSrNo" },
-                { "data": "Formname" },
-                { "data": "TabHeader" },
-                { "data": "TabClass" },
-                {
-                    data: null,
-                    className: "center",
-                    defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon" class="SectiontabButtonclass"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection" class="TabSection"><i class="fa fa-list-alt"></i></a>'
-                }
-            ]
-        });
+                ,
+                "columns": [
+                    { "data": "RowNumber" },
+                    { "data": "FormCode" },
+                    { "data": "TabSrNo" },
+                    { "data": "Formname" },
+                    { "data": "TabHeader" },
+                    { "data": "TabClass" },
+                    {
+                        data: null,
+                        className: "center",
+                        defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon" class="SectiontabButtonclass"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection" class="TabSection"><i class="fa fa-list-alt"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="EditTabData"><i class="fa fa-pencil-square-o"></i></a>'
+                    }
+                ]
+            });
+        }
+        else {
+            Quitform();
+            alert("Please Edit Data");
+        }
     }
-     $('#btnaddSection').click(function (e) {
+    $('#btnaddSection').click(function (e) {
         addRow();
     });
     function addRow() {
@@ -657,8 +752,9 @@
         ID++;
         //  alert(ID);
     };
+    //save Section 
     $('.btnsavesection').on('click', function () {
-        var flag = 0;
+        var flagsection = 0;
         var CorporateId = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
         var FormCode = Frmcode;
@@ -696,6 +792,7 @@
                {
                    type: "POST",
                    url: "/FormSetup/InsertData_SectionMaster",
+                   async: false,
                    data: {
                        "srno": srno, "CorporateId": CorporateId, "TabCode": TabCode, "FormCode": FormCode, "SectionName": SectionName,
                        "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
@@ -704,14 +801,18 @@
                        "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
                    },
                    dataType: 'json',
-                   success: function (data) {
-                       if (response != null && response.success) {
-                           flag = 1
+                   success: function (response) {
+                       //console(response);
+                       console.log(response["responseText"])
+                       if (response["responseText"] != "") {
+                           flagsection = 1
                        }
                    }
                });
         });
-        if (flag == 1) {
+        // alert(flagsection);
+        //console.log(flagsection)
+        if (flagsection == 1) {
             alert("Record Save Sucessfully");
         }
     });
@@ -731,6 +832,7 @@
         $(html).appendTo($("#tblModalIconCustom"))
         customID++;
     };
+    //save Custom  Button
     $('.btnsaveCustomButton').on('click', function () {
         //alert('Custom  Button');
         var flag = 0;
@@ -771,6 +873,7 @@
                {
                    type: "POST",
                    url: "/FormSetup/InsertData_CustomMaster",
+                   async: false,
                    data: {
                        "srno": srno, "Corporate": Corporate, "TabCode": TabCode, "FormCode": FormCode, "CustomName": CustomName,
                        "CustomClass": CustomClass, "CustomVisibility": CustomVisibility, "CustomNotification": CustomNotification, "CustomTask": CustomTask,
@@ -812,6 +915,7 @@
             },
             success: function (response) {
                 if (response['GTUtility'].length > 0) {
+                    $("#UtilityFrom").html('');
                     for (var i = 0; i < response['GTUtility'].length; i++) {
                         if (htmlutility == '') {
                             htmlutility = '<div class="col-md-4">    <div class="form-group"> <div class="col-md-12"> ' +
@@ -826,9 +930,9 @@
                                    '</div> </div> </div>'
                         }
                     }
-                 //   alert(htmlutility)
                     $(htmlutility).appendTo($("#UtilityFrom"))
                 }
+
             }
         });
     }
@@ -837,16 +941,8 @@
     $('.QuitForm').on('click', function () {
         clearForm();
         clearFormTAB();
-        $("#serachfrom").addClass("active");
-        $("#Frmcreate").removeClass("active");
-        $("#frmtab").removeClass("active");
-        $("#frmsection").removeClass("active");
-        $("#tab1").addClass("active");
-        $("#tab3").removeClass("active");
-        $("#tab4").removeClass("active");
-        $("#tab5").removeClass("active");
+        Quitform();
     });
-    /*Quit Button*/
     /*Clear */
     $('#btnClearFS').click(function (e) {
         e.preventDefault();
@@ -860,6 +956,19 @@
         $('#btnSaveformtab').show();
         clearFormTAB();
     });
+    function Quitform() {
+        alert("Quit");
+        $("#tab3").removeClass("active");
+        $("#tab4").removeClass("active");
+        $("#tab5").removeClass("active");
+        $("#Frmcreate").removeClass("active");
+        $("#frmtab").removeClass("active");
+        $("#frmsection").removeClass("active");
+
+        $("#serachfrom").addClass("active");
+        $("#tab1").addClass("active");
+       
+    }
     function clearForm() {
         $('.inputform').val('');
         $('.Dropdown').each(function () {
@@ -879,9 +988,6 @@
         $("#tblModalIconCustom tbody").html('');
     }
     function clearSectionNameTab() {
-        $("#tblModalIconCustom tbody").html('');
+        $("#tblModalSection tbody").html('');
     }
-    /*Clear */
-
-
 });

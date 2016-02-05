@@ -593,6 +593,39 @@ namespace GreenTravel.App_DbService
             }
         }
 
+        public DataSet Edit_FormTab(Edit_AdminMaster EA)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_Form_Tab_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", EA.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", EA.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", EA.unit);
+                _cmd.Parameters.AddWithValue("@Formcode", EA.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", EA.Formtabcode);
+                _cmd.Parameters.AddWithValue("@srno", EA.Xmaster);
+                _cmd.Parameters.AddWithValue("@Type", EA.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
 
     }
 
