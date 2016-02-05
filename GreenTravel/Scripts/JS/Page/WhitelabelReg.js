@@ -91,6 +91,8 @@
                        alert("Record Save Sucessfully!");
                        $("#tab2").addClass("active");
                        $("#tab1").removeClass("active");
+                       $("#CreateMaster").addClass("active");
+                       $("#Search").removeClass("active");
                    }
                }
            });
@@ -111,6 +113,8 @@
         });
         $("#tab2").addClass("active");
         $("#tab1").removeClass("active");
+        $("#CreateMaster").addClass("active");
+        $("#Search").removeClass("active");
     });
 
     $('#btnQuitbasic').click(function (e) {
@@ -338,7 +342,10 @@
                      $('#txtOtherRefference2').val(response['Whiteregjs'][0]['OtherReference2']);
                      $('#txtCommision').val(response['Whiteregjs'][0]['Commision']);
 
-
+                     $("#SearchMaster").removeClass("active");
+                     $("#CreateMaster").addClass("active");
+                     $("#Search").removeClass("active");
+                     $("#CreateCorporate").addClass("active");
 
 
 

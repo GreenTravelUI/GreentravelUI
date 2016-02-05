@@ -93,18 +93,7 @@ function controlInputValidations(control) {
             }
         }
     }
-    //if (control.hasClass('time')) {
-    //    control.removeClass('red-input');
-    //    control.parent().parent().find('p.red-error').remove();
-    //    if (control.val().trim().length > 0) {
-    //        if (!control.val().match(/^([0-1][0-9])\:[0-5][0-9]\s*[AP]M$/)) {
-    //            control.parent().after('<p class="red-error">Invalid Time Format.</p>');
-    //            control.addClass('red-input');
-    //            return false;
-    //        }
-    //    }
-    //}
-    
+
     if (control.hasClass('reg')) {
         var str = control.data('reg');
         if (!control.val().match(str)) {
@@ -113,7 +102,25 @@ function controlInputValidations(control) {
             return false;
         }
     }
-    return true;
+    if (control.hasClass('confirm')) {
+
+        var mainControl = $('#' + control.data('confirm'));
+
+        if (mainControl.val() != control.val()) {
+
+            var length = mainControl.prev().text().indexOf('*')
+
+            var nameControl = mainControl.prev().text().substring(0, length > 0 ? length - 1 : mainControl.prev().text().length);
+
+            control.after('<p class="red-error">' + nameControl + 's not matched. Try again.</p>');
+
+            control.addClass('red-input');
+
+            return false;
+
+        }
+
+    }
 }
 function controlSelectValidations(control) {
     var flag = true;

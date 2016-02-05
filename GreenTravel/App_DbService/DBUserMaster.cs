@@ -12,42 +12,22 @@ namespace GreenTravel.App_DbService
     public class DBUserMaster : Base
     {
 
-        public int insert_data(UserMaster UM)
+        public DataSet insert_data(UserMaster UM)
         {
             try
             {
                 _cn.Open();
-                SqlCommand _cmd = new SqlCommand("SP_SAVE_User_Details_Master", _cn);
+                SqlCommand _cmd = new SqlCommand("sp_save_user_details_master", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 _cmd.Parameters.AddWithValue("@srno", UM.srno);
-                _cmd.Parameters.AddWithValue("@UserCode", UM.UserCode);
+                _cmd.Parameters.AddWithValue("@Corporate", UM.Corporate);
+                _cmd.Parameters.AddWithValue("@Unit", UM.Unit);
+                _cmd.Parameters.AddWithValue("@Branch", UM.Branch);
                 _cmd.Parameters.AddWithValue("@FirstName", UM.FirstName);
                 _cmd.Parameters.AddWithValue("@LastName", UM.LastName);
                 _cmd.Parameters.AddWithValue("@Email", UM.Email);
                 _cmd.Parameters.AddWithValue("@Password", UM.Password);
-                _cmd.Parameters.AddWithValue("@Gender", UM.Gender);
-                _cmd.Parameters.AddWithValue("@CellPhone ", UM.CellPhone);
-                _cmd.Parameters.AddWithValue("@OfficePhone", UM.OfficePhone);
-                _cmd.Parameters.AddWithValue("@OfficePhoneExtension ", UM.OfficePhoneExtension);
-                _cmd.Parameters.AddWithValue("@ResiedencePhone ", UM.ResiedencePhone);
-                _cmd.Parameters.AddWithValue("@Qualification ", UM.Qualification);
-                _cmd.Parameters.AddWithValue("@DrivingLicenceNumber ", UM.DrivingLicenceNumber);
 
-                if (UM.BirthDate == null)
-                {
-                    _cmd.Parameters.AddWithValue("@BirthDate", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@BirthDate", DateTime.ParseExact(UM.BirthDate, "dd/MM/yyyy", null));
-                }
-
-                _cmd.Parameters.AddWithValue("@Nationality", UM.Nationality);
-                _cmd.Parameters.AddWithValue("@Status", UM.Status);
-                _cmd.Parameters.AddWithValue("@Designation ", UM.Designation);
-                _cmd.Parameters.AddWithValue("@SittingLocation ", UM.SittingLocation);
-                _cmd.Parameters.AddWithValue("@Photo ", UM.Photo);
-                _cmd.Parameters.AddWithValue("@Signature ", UM.Signature);
                 _cmd.Parameters.AddWithValue("@Attribute1", UM.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", UM.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", UM.Attribute3);
@@ -58,7 +38,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", UM.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", UM.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", UM.Attribute10);
-                _cmd.Parameters.AddWithValue("@CreatedBy", UM.CreatedBy);
+
                 if (UM.EntryDatetime == null)
                 {
                     _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
@@ -68,6 +48,7 @@ namespace GreenTravel.App_DbService
                     _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(UM.EntryDatetime, "dd/MM/yyyy", null));
                 }
                 _cmd.Parameters.AddWithValue("@EditedBy", UM.EditedBy);
+                _cmd.Parameters.AddWithValue("@CreatedBy", UM.CreatedBy);
 
                 if (UM.EditDatetime == null)
                 {
@@ -80,9 +61,14 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", UM.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", UM.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", UM.TerminalBy);
-                int i = _cmd.ExecuteNonQuery();
-                //  string i = _cmd.ExecuteScalar().ToString();
-                return i;
+                _cmd.Parameters.AddWithValue("@BranchBy", UM.BranchBy);
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+
             }
             catch
             {
@@ -166,55 +152,79 @@ namespace GreenTravel.App_DbService
             //return ds;
         }
 
-        //public string insert_data(UserMaster UM)
-        //{
+        public DataSet BindGrid(GridParamater GP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_User_Details_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", GP.unit);
+                _cmd.Parameters.AddWithValue("@userid", GP.userid);
+                _cmd.Parameters.AddWithValue("@WhereClause", GP.WhereClause);
+                _cmd.Parameters.AddWithValue("@Branch", GP.Branch);
+                _cmd.Parameters.AddWithValue("@PageNo", GP.PageNo);
+                _cmd.Parameters.AddWithValue("@RecordsPerPage", GP.RecordsPerPage);
+                _cmd.Parameters.AddWithValue("@Formcode", GP.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
+                _cmd.Parameters.AddWithValue("@type", GP.type);
+                _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
 
-        //    _petaDB.EnableAutoSelect = false;
-        //    var data = _petaDB.Query<UserMaster>(";exec SP_SAVE_User_Details_Master @srno,@UserCode,@FirstName ,@LastName ,@Email ,@Password,@Gender,@CellPhone,@OfficePhone,@OfficePhoneExtension,@ResiedencePhone,@Qualification,@DrivingLicenceNumber,@BirthDate ,@Nationality,@Status,@Designation,@SittingLocation,@Photo,@Signature,@Attribute1 ,@Attribute2 ,@Attribute3 ,@Attribute4 ,@Attribute5 ,@Attribute6 ,@Attribute7 ,@Attribute8 ,@Attribute9 ,@Attribute10,CreatedBy,@EntryDatetime ,@EditedBy,@EditDatetime ,@CorpcentreBy,@UnitCorpBy,@TerminalBy",
-        //      new
-        //      {
-        //          srno = UM.srno,
-        //          UserCode = UM.UserCode,
-        //          FirstName = UM.FirstName,
-        //          LastName = UM.LastName,
-        //          Email = UM.Email,
-        //          Password = UM.Password,
-        //          Gender = "null",
-        //          CellPhone = "null",
-        //          OfficePhone = "null",
-        //          OfficePhoneExtension = "null",
-        //          ResiedencePhone = "null",
-        //          Qualification = "null",
-        //          DrivingLicenceNumber = "null",
-        //          BirthDate = "null",
-        //          Nationality = "null",
-        //          Status = "null",
-        //          Designation = "null",
-        //          SittingLocation = "null",
-        //          Photo = "null",
-        //          Signature = "null",
-        //          Attribute1 = "null",
-        //          Attribute2 = "null",
-        //          Attribute3 = "null",
-        //          Attribute4 = "null",
-        //          Attribute5 = "null",
-        //          Attribute6 = "null",
-        //          Attribute7 = "null",
-        //          Attribute8 = "null",
-        //          Attribute9 = "null",
-        //          Attribute10 = "null",
-        //          CreatedBy = "null",
-        //          EntryDatetime = "null",
-        //          EditedBy = "null",
-        //          EditDatetime = "null",
-        //          CorpcentreBy = "null",
-        //          UnitCorpBy = "null",
-        //          TerminalBy = "null"
-        //      });
 
-        //    return "0";
-        //}
+        public DataSet Edit_data(UserMaster UM)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_User_Details_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", UM.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", UM.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", UM.Unit);
+                _cmd.Parameters.AddWithValue("@Formcode",UM.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", UM.Formtabcode);
+                _cmd.Parameters.AddWithValue("@srno", UM.srno);
+                _cmd.Parameters.AddWithValue("@Type", "EditMode");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+     
 
     }
 }

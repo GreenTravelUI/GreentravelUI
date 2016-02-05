@@ -34,21 +34,7 @@ namespace GreenTravel.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(UserMaster UM)
-        {
-            try
-            {
-                //string Result = _obj_db_UM.insert_data(UM);
-                int result = _obj_db_UM.insert_data(UM);
-                ViewData["result"] = result;
-                return View();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            //return View();
-        }
+      
         public ActionResult ShowAllMobileDetails(UserMaster_Formpara UMFRM)
         {
             UserMaster UM = new UserMaster();
@@ -60,29 +46,95 @@ namespace GreenTravel.Controllers
             return View(UM);
         }
 
-        public DataTable FillGrid(string Type, string Email, string url, string Pword)
+        public ActionResult BindGridView(GridParamater GP)
         {
-            UserMaster_Formpara UMFRM = new UserMaster_Formpara()
+            try
             {
-                type = "Grid_Data",
-                corporate = "1",
-                FormType = "1",
-                FormTabCode = "1"
-            };
+                DataSet ds = _obj_db_UM.BindGrid(GP);
+                List<UserMaster> items = new List<UserMaster>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new UserMaster
+                        {
+                            RowNumber = @dr["RowNumber"].ToString(),
+                            srno = @dr["srno"].ToString(),
+                            Email = @dr["Email"].ToString(),
+                            Name = @dr["Name"].ToString(),
+                           
+                        });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-            DataSet ds = ds = _obj_db_UM.RetrieveAllUserData(UMFRM);
+        // insert_Data
+        public ActionResult insert_Data(UserMaster UM)
+        {
+            try
+            {
+                DataSet ds = _obj_db_UM.insert_data(UM);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                }
+               return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+               // return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
 
-            return ds.Tables[0];
-            //var lst = JsonConvert.SerializeObject(ds.Tables[0], Formatting.None, new JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
-            ////return Content(lst, "application/json"); 
-            //return new
-            //{
-            //    sEcho = 4,
-            //    iTotalRecords = 5,
-            //    iTotalDisplayRecords = 5,
-            //    aaData = lst
-            //};
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+
+        public ActionResult Edit_Data(UserMaster UM)
+        {
+            try
+            {
+                DataSet ds = _obj_db_UM.Edit_data(UM);
+                List<UserMaster> UserMaster = new List<UserMaster>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        UserMaster.Add(new UserMaster
+                        {
+                            srno = @dr["srno"].ToString(),
+                            FirstName = @dr["FirstName"].ToString(),
+                            LastName = @dr["LastName"].ToString(),
+                            Email = @dr["Email"].ToString(),
+                            Password = @dr["Password"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                            Unit = @dr["Unit"].ToString(),
+                            Branch = @dr["Branch"].ToString(),
+                            BranchBy = @dr["BranchBy"].ToString(),
+                            CreatedBy = @dr["CreatedBy"].ToString(),
+                            UnitCorpBy = @dr["UnitCorpBy"].ToString(),
+                           
+                        });
+                    }
+                }
+                var result = UserMaster;
+
+                return Json(new { UserMasterresjs = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
