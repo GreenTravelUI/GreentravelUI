@@ -369,6 +369,7 @@
                },
                success: function (response) {
                    if (response != null && response.success) {
+                       getdata();
                        swal('Good job!', 'Record Save Sucessfully!', 'success');
                    }
                }
@@ -448,8 +449,6 @@
              },
              dataType: 'json',
              success: function (response) {
-                 //console.log(response);
-                 //console.log(response['AMaster'].length)
                  //Master
                  if (response['AMaster'].length > 0) {
                      $('#txtMasterCode').attr("disabled", true)
@@ -459,37 +458,23 @@
                      $('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
                      $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      $('#drpCorporate').find('option[value="' + response['AMaster'][0]['Corporate'] + '"]').attr('selected', true).change();
-                     //alert(response['AMaster'][0]['xlink']);
                      
                      $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
                      
-                     //$('#drpMastersetup2').find('option[value="' + response['AMaster'][0]['xcross'] + '"]').attr('selected', true).change();
                      setSelect2Value($('#drpMastersetup2'), response['AMaster'][0]['xcross']);
                      setSelect2Value($('#drpMastersetup3'), response['AMaster'][0]['xcross1']);
                      setSelect2Value($('#drpMastersetup4'), response['AMaster'][0]['xcross2']);
                      setSelect2Value($('#drpMastersetup5'), response['AMaster'][0]['xcross3']);
                      setSelect2Value($('#drpMastersetup6'), response['AMaster'][0]['xcross4']);
-                     
-                     //$('#drpMastersetup3').find('option[value="' + response['AMaster'][0]['xcross1'] + '"]').attr('selected', true).change();
-                     //$('#drpMastersetup4').find('option[value="' + response['AMaster'][0]['xcross2'] + '"]').attr('selected', true).change();
-                     //$('#drpMastersetup5').find('option[value="' + response['AMaster'][0]['xcross3'] + '"]').attr('selected', true).change();
-                     //$('#drpMastersetup6').find('option[value="' + response['AMaster'][0]['xcross4'] + '"]').attr('selected', true).change();
-
 
                      setSelect2Value($('#drpMultiselectsetup1'), response['AMaster'][0]['MultiSelect1']);
                      setSelect2Value($('#drpMultiselectsetup2'), response['AMaster'][0]['MultiSelect2']);
                      setSelect2Value($('#drpMultiselectsetup3'), response['AMaster'][0]['MultiSelect3']);
                      setSelect2Value($('#drpMultiselectsetup4'), response['AMaster'][0]['MultiSelect4']);
                      setSelect2Value($('#drpMultiselectsetup5'), response['AMaster'][0]['MultiSelect5']);
-                     //$('#drpMultiselectsetup1').find('option[value="' + response['AMaster'][0]['MultiSelect1'] + '"]').attr('selected', true).change();
-                     //$('#drpMultiselectsetup2').find('option[value="' + response['AMaster'][0]['MultiSelect2'] + '"]').attr('selected', true).change();
-                     //$('#drpMultiselectsetup3').find('option[value="' + response['AMaster'][0]['MultiSelect3'] + '"]').attr('selected', true).change();
-                     //$('#drpMultiselectsetup4').find('option[value="' + response['AMaster'][0]['MultiSelect4'] + '"]').attr('selected', true).change();
-                     //$('#drpMultiselectsetup5').find('option[value="' + response['AMaster'][0]['MultiSelect5'] + '"]').attr('selected', true).change();
                  }
                  //Caption
                  if (response['ACaption'].length > 0) {
-                     //console.log(response['ACaption'][0]['xmastercaption']);
                      $('#txtcaption1').val(response['ACaption'][0]['Field3caption']);
                      $('#txtcaption2').val(response['ACaption'][0]['Field4caption']);
                      $('#txtCaption3').val(response['ACaption'][0]['Field5caption']);
@@ -530,7 +515,6 @@
                  }
                  //Placeholder
                  if (response['Aplaceholder'].length > 0) {
-                     //console.log(response['AMaster'][0]['xmaster']);
                      $('#txtPlaceHolder1').val(response['Aplaceholder'][0]['Field3']);
                      $('#txtPlaceHolder2').val(response['Aplaceholder'][0]['Field4']);
                      $('#txtPlaceHolder3').val(response['Aplaceholder'][0]['Field5']);
@@ -571,7 +555,6 @@
                  }
                  //validation
                  if (response['AValidation'].length > 0) {
-                     //console.log(response['AMaster'][0]['xmaster']);
                      $('#txtValidationCode1').val(response['AValidation'][0]['Field3']);
                      $('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
                      $('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
@@ -660,7 +643,6 @@
     });
 
     $("table").delegate(".editor_Delte", "click", function () {
-        //alert($(this).parent().parent().children(':eq(2)').text());
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(2)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
@@ -694,7 +676,8 @@
             },
             success: function (data) {
                 if (data.length > 0) {
-                    alert("Record Delete Sucessfully!");
+                    swal('Good job!', 'Record Delete Sucessfully!', 'success');
+                    //alert("Record Delete Sucessfully!");
                 }
             }
         });
@@ -711,6 +694,7 @@
         var Formtabcode = '0';
         $('#example1').dataTable({
             "ServerSide": true,
+            "destroy": true,
             "ajax": {
                 "url": "/Masters/BindGridView",
                 "Type": "GET",
