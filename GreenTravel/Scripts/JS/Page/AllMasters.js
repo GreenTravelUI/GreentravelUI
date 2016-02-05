@@ -558,22 +558,6 @@
                      $('#Dropdown4Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross2'] + '"]').attr('selected', true).change();
                      $('#Dropdown5Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross3'] + '"]').attr('selected', true).change();
                      $('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true);
-
-                     FillDropdown('Dropdown1Tab3', 'xlink');
-                     FillDropdown('Dropdown2Tab3', 'xcross');
-                     FillDropdown('Dropdown3Tab3', 'xcross1');
-                     FillDropdown('Dropdown4Tab3', 'xcross2');
-                     FillDropdown('Dropdown5Tab3', 'xcross3');
-                     FillDropdown('Dropdown6Tab3', 'xcross4');
-                     FillDropdown('MultiSelect1', 'MultiSelect1');
-                     FillDropdown('MultiSelect2', 'MultiSelect2');
-                     FillDropdown('MultiSelect3', 'MultiSelect3');
-                     FillDropdown('MultiSelect4', 'MultiSelect4');
-                     FillDropdown('MultiSelect5', 'MultiSelect5');
-                     hide_Tooltip();
-                     PageLoad_FilledAll();
-
-
                      $('#txtSrNoTab3').val(response['AUserMasterData'][0]['USrno']);
                      $('#Textbox1Tab3').val(response['AUserMasterData'][0]['Uxreference1']);
                      $('#Textbox2Tab3').val(response['AUserMasterData'][0]['Uxreference2']);
