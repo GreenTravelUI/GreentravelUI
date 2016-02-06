@@ -56,7 +56,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[0];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        Industry.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        Industry.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var Industrys = Industry;
@@ -66,7 +66,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[1];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var result = items;
@@ -75,7 +75,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[2];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        itemservice.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        itemservice.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var service = itemservice;
@@ -85,7 +85,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[3];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        BMode.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        BMode.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var BussineMode = BMode;
@@ -95,7 +95,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[4];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        CURRENCY.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        CURRENCY.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var currency = CURRENCY;
@@ -105,7 +105,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[5];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        Language.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        Language.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var language = Language;
@@ -115,7 +115,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[6];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        Corporate.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        Corporate.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var corporate = Corporate;
@@ -176,32 +176,32 @@ namespace GreenTravel.Controllers
                     {
                         WhitelabelReg.Add(new WhitelabelReg
                         {
-                            srno = @dr["srno"].ToString(),
-                            CorpCoOfficialName = @dr["CorpCoOfficialName"].ToString(),
-                            CorpCompanyIndust = @dr["CorpCompanyIndust"].ToString(),
-                            CompanyType = @dr["CompanyType"].ToString(),
-                            Services = @dr["Services"].ToString(),
-                            BusinessMode = @dr["BusinessMode"].ToString(),
-                            AdminUserName = @dr["AdminUserName"].ToString(),
-                            Password = @dr["Password"].ToString(),
-                            ApplicationTheme = @dr["ApplicationTheme"].ToString(),
-                            ApplicationUrl = @dr["ApplicationUrl"].ToString(),
-                            WebTheme = @dr["WebTheme"].ToString(),
-                            WebUrl = @dr["WebUrl"].ToString(),
-                            BaseCurrency = @dr["BaseCurrency"].ToString(),
-                            BaseLanguage = @dr["BaseLanguage"].ToString(),
-                            Logo = @dr["Logo"].ToString(),
-                            Favicon = @dr["Favicon"].ToString(),
-                            OfficialEmail = @dr["OfficialEmail"].ToString(),
-                            OfficialPhone = @dr["OfficialPhone"].ToString(),
-                           // FullSemiWhiteLblcheck= @dr["srno"].ToString(),
-                            FullSemiWhiteLbl = @dr["FullSemiWhiteLbl"].ToString(),
-                            CopyrightNote = @dr["CopyrightNote"].ToString(),
-                            CopyrightNoteFlag = @dr["CopyrightNoteFlag"].ToString(),
-                            RefCorpCompany = @dr["RefCorpCompany"].ToString(),
-                            OtherReference1 = @dr["OtherReference1"].ToString(),
-                            OtherReference2 = @dr["OtherReference2"].ToString(),
-                            Commision = @dr["Commision"].ToString(),
+                            srno = dr["srno"].ToString(),
+                            CorpCoOfficialName = dr["CorpCoOfficialName"].ToString(),
+                            CorpCompanyIndust = dr["CorpCompanyIndust"].ToString(),
+                            CompanyType = dr["CompanyType"].ToString(),
+                            Services = dr["Services"].ToString(),
+                            BusinessMode = dr["BusinessMode"].ToString(),
+                            AdminUserName = dr["AdminUserName"].ToString(),
+                            Password = dr["Password"].ToString(),
+                            ApplicationTheme = dr["ApplicationTheme"].ToString(),
+                            ApplicationUrl = dr["ApplicationUrl"].ToString(),
+                            WebTheme = dr["WebTheme"].ToString(),
+                            WebUrl = dr["WebUrl"].ToString(),
+                            BaseCurrency = dr["BaseCurrency"].ToString(),
+                            BaseLanguage = dr["BaseLanguage"].ToString(),
+                            Logo = dr["Logo"].ToString(),
+                            Favicon = dr["Favicon"].ToString(),
+                            OfficialEmail = dr["OfficialEmail"].ToString(),
+                            OfficialPhone = dr["OfficialPhone"].ToString(),
+                            FullSemiWhiteLbl = dr["FullSemiWhiteLbl"].ToString(),
+                            CopyrightNote = dr["CopyrightNote"].ToString(),
+                            CopyrightNoteFlag = dr["CopyrightNoteFlag"].ToString(),
+                            RefCorpCompany = dr["RefCorpCompany"].ToString(),
+                            OtherReference1 = dr["OtherReference1"].ToString(),
+                            OtherReference2 = dr["OtherReference2"].ToString(),
+                            Commision = dr["Commision"].ToString(),
+                            OtherLanguage = dr["OtherLanguage"].ToString(),
 
                         });
                     }
@@ -255,7 +255,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[0];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var result = items;
@@ -281,7 +281,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[0];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        itemsdrp.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        itemsdrp.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var result = itemsdrp;
@@ -328,11 +328,11 @@ namespace GreenTravel.Controllers
                     {
                         UserPreferancestep1.Add(new UserPreferancestep1
                         {
-                            srno = @dr["srno"].ToString(),
-                            GadgetPosition = @dr["GadgetPosition"].ToString(),
-                            OtherPreferences = @dr["OtherPreferences"].ToString(),
-                            pagerow = @dr["pagerow"].ToString(),
-                            Corporate = @dr["Corporate"].ToString(),
+                            srno = dr["srno"].ToString(),
+                            GadgetPosition = dr["GadgetPosition"].ToString(),
+                            OtherPreferences = dr["OtherPreferences"].ToString(),
+                            pagerow = dr["pagerow"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
                                                      
                         });
                     }
