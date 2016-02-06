@@ -70,7 +70,7 @@
         var UnitCorpBy = '0';
         var TerminalBy = '0';
         var BranchBy = '0';
-
+       
         $.ajax(
            {
                type: "POST",
@@ -83,7 +83,7 @@
                    DefaultLogo: DefaultLogo, RefCorpCompany: RefCorpCompany, OtherReference1: OtherReference1, OtherReference2: OtherReference2, Commision: Commision, Attribute1: Attribute1,
                    Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
                    Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CretedBy: CretedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
-                   UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
+                   UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy 
                },
                dataType: 'json',
                success: function (response) {
@@ -353,9 +353,13 @@
              }
          });
     });
+    
+
 
     $("table").delegate(".editor_feature", "click", function () {
-        alert('Feature');
+        var FormCode = $(this).parent().parent().children(':eq(1)').text();
+        window.location.href = '/WhitelabelStep2/Index/?id=' + FormCode;
+       // alert('Feature');
     });
 
     $("table").delegate(".editor_accessright", "click", function () {

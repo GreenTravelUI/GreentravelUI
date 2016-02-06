@@ -15,13 +15,14 @@ namespace GreenTravel.Controllers
         DbWhitelabelStep2 _objw2 = new DbWhitelabelStep2();
         //
         // GET: /WhitelabelStep2/
-        
+
         public ActionResult Index()
         {
 
             return View();
 
         }
+
         public ActionResult BindDropDown(WhitelabelStep2 CBP)
         {
             try
@@ -90,15 +91,16 @@ namespace GreenTravel.Controllers
                 ViewBag.GridHearder = dsList.Tables[0];
                 ViewBag.GridColumn = dsList.Tables[1];
 
-               
+
                 if (dsList.Tables[0] != null)
                 {
                     foreach (System.Data.DataRow dr in ViewBag.GridColumn.Rows)
                     {
-                        GridColumn.Add(new GridColumn 
-                        { xname = @dr["xname"].ToString(),
-                          SrNo = @dr["xcode"].ToString(),
-                          xlink = @dr["xlink"].ToString()
+                        GridColumn.Add(new GridColumn
+                        {
+                            xname = @dr["xname"].ToString(),
+                            SrNo = @dr["xcode"].ToString(),
+                            xlink = @dr["xlink"].ToString()
                         });
                     }
                 }
@@ -108,34 +110,37 @@ namespace GreenTravel.Controllers
                     foreach (System.Data.DataRow dr in ViewBag.GridHearder.Rows)
                     {
                         GridHearder.Add(new GridHearder
-                        { 
-                            xname = @dr["xname"].ToString(), 
-                            SrNo = @dr["xcode"].ToString() 
-                             
+                        {
+                            xname = @dr["xname"].ToString(),
+                            SrNo = @dr["xcode"].ToString()
+
                         });
 
-                     //   var gf = GridColumn.Where(s => s.SrNo == dr["xcode"].ToString()).ToList();
+                        //   var gf = GridColumn.Where(s => s.SrNo == dr["xcode"].ToString()).ToList();
                     }
                 }
 
             }
-            
+
             _grid.GridColumn = GridColumn.ToList();
             _grid.GridHearder = GridHearder.ToList();
-            
+
             lstGrid.Add(_grid);
             return PartialView(lstGrid);
         }
+
         public ActionResult Insert(WhitelabelStep2 CBP)
         {
             try
             {
+
+
                 DataSet result = _objw2.Insert(CBP);
-                if (result.Tables[0].Rows.Count >1)
+                if (result.Tables[0].Rows.Count > 1)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"];
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)
@@ -147,5 +152,53 @@ namespace GreenTravel.Controllers
 
         }
 
+        public ActionResult Edit(WhitelabelStep2 CBP)
+        {
+            try
+            {
+
+
+                DataSet result = _objw2.Edit(CBP);
+                List<WhitelabelStep2> WhitelabelStep2 = new List<WhitelabelStep2>();
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = result.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        WhitelabelStep2.Add(new WhitelabelStep2
+                        {
+                            srno = @dr["srno"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                            FeaturesCategory = @dr["FeaturesCategory"].ToString(),
+                        });
+                    }
+                }
+                List<WhitelabelStep2> Obj_WhitelabelStep2 = new List<WhitelabelStep2>();
+                if (result.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.Grid = result.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.Grid.Rows)
+                    {
+                        Obj_WhitelabelStep2.Add(new WhitelabelStep2
+                        {
+                            srno = @dr["srno"].ToString(),
+                            FeatureGroup = @dr["FeatureGroup"].ToString(),
+                            Feature = @dr["Feature"].ToString(),
+                        });
+                    }
+                }
+                return Json(new { Dropdown = WhitelabelStep2, Grid = Obj_WhitelabelStep2 }, JsonRequestBehavior.AllowGet);
+                //var data = frmTab;
+                // return Json(data, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
     }
 }
