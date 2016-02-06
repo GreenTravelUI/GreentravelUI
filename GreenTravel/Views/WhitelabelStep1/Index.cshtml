@@ -6,65 +6,17 @@
 }
 <style>
     .hide_cell {
-        display:none;
+        display: none;
     }
-    #errmsg
-{
-color: red;
-}
+
+    #errmsg {
+        color: red;
+    }
 </style>
-<script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-        $('#txtConfirmPassword').on('change', function () {
-            var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
-            if (result == true) {
-              //  $('#btnsavebasic').attr("disabled", false);
-            }
-            else {
-                $('#txtConfirmPassword').focus();
-                //alert('PassWord Not a Same')
-              //  $('#btnsavebasic').attr("disabled", true);
-            }
-
-           
-        });
-
-        //$('.txtofficalphoneclass').keypress(function (e) {
-            
-        //    //if the letter is not digit then display error and don't type anything
-        //    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        //        //display error message
-        //        $("#errmsg").html("Digits Only").show().fadeOut("slow");
-        //        return false;
-        //    }
-        //});
-
-
-        //Comapare validation  
-        function CompareValidation($attr1, $attr2) {
-            if ($attr1 != $attr2) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-        function isEmail(txtOfficialEmail) {
-            var regex = '/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
-            return regex.test(txtOfficialEmail);
-        }
-
-       
-    });
-</script>
-
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div role="tabpanel">
-                <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
                     <li role="presentation" class="active" id="Search"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Company </a></li>
                     <li role="presentation" id="CreateCorporate"><a href="#tab2" role="tab" data-section="tab2" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Basic / Reference</a></li>
@@ -92,7 +44,7 @@ color: red;
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th style="display:none">Srno
+                                            <th style="display: none">Srno
                                             </th>
                                             <th>Company Name
                                             </th>
@@ -109,7 +61,7 @@ color: red;
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th style="display:none">Srno
+                                            <th style="display: none">Srno
                                             </th>
                                             <th>Company Name
                                             </th>
@@ -123,140 +75,90 @@ color: red;
                                             </th>
                                         </tr>
                                     </tfoot>
-                                    @*<tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th class="action-buttons">
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td><span>User2</span></td>
-                                            <td class="action-buttons">
-                                                <a href="#" title="Step 1"><i class="text-success fa fa-pencil-square-o"></i></a>
-                                                <a href="#" title="Application Features"><i class="text-primary fa fa-cubes"></i></a>
-                                                <a href="#" title="Access Right"><i class="fa fa-key"></i></a>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>*@
                                 </table>
                             </div>
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab2">
-                        <div class="progress" style="display: none;">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                                70%
-                            </div>
-                        </div>
                         <form>
                             <div class="col-md-12">
                                 <h3 class="tab2section1"><span class="section-index">1</span>&nbsp;Basic Details</h3>
-                                 <div class="form-group">
-                                         <input type="text" class="form-control" id="txtsrno" placeholder="srno">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="txtsrno" placeholder="srno" style="display: none">
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="txtCmpOfficeName">Corporate Company Official Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtCmpOfficeName" placeholder="Company Official Name">
+                                        <input type="text" class="form-control req" id="txtCmpOfficeName" placeholder="Company Official Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="drpcompanyIndustry">Corporate Company Industry <span>*</span></label>
-                                        <select id="drpcompanyIndustry" class="js-states form-control Industry Dropdown" style="display: none; width: 100%">
+                                        <select id="drpcompanyIndustry" class="js-states form-control Industry Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpcompanyType">Company Type <span>*</span></label>
-                                        <select id="drpcompanyType" class="js-states form-control Industry Dropdown" style="display: none; width: 100%">
+                                        <select id="drpcompanyType" class="js-states form-control Industry Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpServices">Services <span>*</span></label>
-                                        <select id="drpServices" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                        <select id="drpServices" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpBusinessMode">Business Mode <span>*</span></label>
-                                        <select id="drpBusinessMode" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                            <option value="Static 1" selected>Static 1</option>
-                                            <option value="Static 2">Static 2</option>
-                                            <option value="Static 3">Static 3</option>
+                                        <select id="drpBusinessMode" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="txtUsername">Admin User Name (Email) <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtUsername" placeholder="Email">
+                                        <input type="text" class="form-control req" id="txtUsername" placeholder="Email">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtPassword">Password <span>*</span></label>
-                                        <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                                        <input type="password" class="form-control req" id="txtPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txtConfirmPassword">Confirm Password </label>
-                                        <input type="password" class="form-control confirm" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
+                                        <label for="txtConfirmPassword">Confirm Password <span>*</span></label>
+                                        <input type="password" class="form-control confirm req" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtOfficialEmail">Official Email <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Official Email">
+                                        <input type="text" class="form-control req" id="txtOfficialEmail" placeholder="Official Email">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtOfficialPhone">Official Phone <span>*</span>&nbsp;<span id="errmsg"></span> </label>
-                                        <input type="text" class="form-control num" id="txtOfficialPhone" placeholder="Official Phone">
+                                        <input type="text" class="form-control num req" id="txtOfficialPhone" placeholder="Official Phone">
                                     </div>
                                     <div class="form-group no-select">
                                         <label for="exampleInputEmail1">Application Theme <span>*</span> </label>
-                                        <select class="cs-select cs-skin-boxes Dropdown" id="DrpApplicationTheme">
+                                        <select class="cs-select cs-skin-boxes Dropdown req" id="DrpApplicationTheme">
                                             <option value="" disabled selected>Application Theme</option>
                                             <option value="#22BAA0" data-class="color-588c75">#22BAA0</option>
                                             <option value="#b0c47f" data-class="color-b0c47f">#b0c47f</option>
                                             <option value="#f3e395" data-class="color-f3e395">#f3e395</option>
-
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="txtApplicationURL">Application URL <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtApplicationURL" placeholder="Application URL">
+                                        <input type="text" class="form-control req" id="txtApplicationURL" placeholder="Application URL">
                                     </div>
                                     <div class="form-group">
                                         <label for="drpBaseCurrency">Base Currency <span>*</span></label>
-                                        <select id="drpBaseCurrency" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                            <option value="Static 1" selected>Static 1</option>
-                                            <option value="Static 2">Static 2</option>
-                                            <option value="Static 3">Static 3</option>
+                                        <select id="drpBaseCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpBaseLanguage">Base Language <span>*</span></label>
-                                        <select id="drpBaseLanguage" class="js-states form-control Language Dropdown" style="display: none; width: 100%">
-                                            <option value="Static 1" selected>Static 1</option>
-                                            <option value="Static 2">Static 2</option>
-                                            <option value="Static 3">Static 3</option>
+                                        <select id="drpBaseLanguage" class="js-states form-control Language Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="txtLogo">Logo <span>*</span> </label>
-                                        <input type="text" class="form-control" id="txtLogo" placeholder="Accounting Group">
+                                        <input type="text" class="form-control req" id="txtLogo" placeholder="Accounting Group">
                                     </div>
                                     <div class="form-group no-select">
                                         <label for="exampleInputEmail1">Web Theme </label>
@@ -274,7 +176,7 @@ color: red;
                                     </div>
                                     <div class="form-group">
                                         <label for="drpOtherLanguage">Other Language <span></span></label>
-                                        <select id="drpOtherLanguage " class="js-states form-control Language Dropdown" style="display: none; width: 100%">
+                                        <select id="drpOtherLanguage" class="js-states form-control Language Dropdown" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -297,7 +199,7 @@ color: red;
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="checkbox" id="chkCopyrightNote" class="form-marings chkCopyrightNotecs">Copyright Note
+                                        <input type="checkbox" id="chkCopyrightNote" value="checkcopyright" class="form-marings chkCopyrightNotecs">Copyright Note
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="txtCopyRights" placeholder="Copyright Note">
@@ -325,25 +227,20 @@ color: red;
                                         <input type="text" class="form-control" id="txtCommision" placeholder="Commision">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                </div>
+
                             </div>
+                            <br />
+                            <button id="btnsavebasic" type="submit" class="btn btn-success btnSave">
+                                SAVE</button>
+                            <button id="btnupdatebasic" type="submit" class="btn btn-primary btnSave" style="display: none">
+                                UPDATE</button>
+                            <button id="btndeltebasic" type="Button" class="btn btn-green btnCancel" style="display: none">
+                                DELETE</button>
+                            <button id="btnclearbasic" type="Button" class="btn btn-warning btnclearbasicclass">
+                                CLEAR</button>
+                            <button id="btnQuitbasic" type="Button" class="btn btn-info">
+                                QUIT FORM</button>
                         </form>
-                        <div class="col-md-12">
-                            <form>
-                                <br />
-                                <button id="btnsavebasic" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnupdatebasic" type="submit" class="btn btn-primary btnSave" style="display: none">
-                                    UPDATE</button>
-                                <button id="btndeltebasic" type="submit" class="btn btn-green btnCancel" style="display: none">
-                                    DELETE</button>
-                                <button id="btnclearbasic" type="Button" class="btn btn-warning btnclearbasicclass">
-                                    CLEAR</button>
-                                <button id="btnQuitbasic" type="Button" class="btn btn-info">
-                                    QUIT FORM</button>
-                            </form>
-                        </div>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab3">
                         <form>
@@ -578,7 +475,7 @@ color: red;
                                     <div class="form-group">
                                         <label for="drpSupportMode">Support Mode  <span>*</span></label>
                                         <select id="drpSupportMode " class="js-states form-control" style="display: none; width: 100%">
-                                             <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 1" selected>Static 1</option>
                                             <option value="Static 2">Static 2</option>
                                             <option value="Static 3">Static 3</option>
                                         </select>
@@ -594,7 +491,7 @@ color: red;
                                     <div class="form-group">
                                         <label for="drpBillingCycle">Currency <span>*</span></label>
                                         <select id="drpmaINCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                             <option value="Static 1" selected>Static 1</option>
+                                            <option value="Static 1" selected>Static 1</option>
                                             <option value="Static 2">Static 2</option>
                                             <option value="Static 3">Static 3</option>
                                         </select>
@@ -626,49 +523,10 @@ color: red;
                                 <div class="form-group">
                                     <label for="drpDashboardGadgetPosition">Dashboard Gadget Position <span>*</span></label>
                                     <select id="drpDashboardGadgetPosition" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                   @* <option value="Static 1" selected>Static 1</option>
-                                            <option value="Static 2">Static 2</option>
-                                            <option value="Static 3">Static 3</option>*@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <div class="row" id ="userperferancechk">
-                                      @* <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Grid Colasdasdasdasdumn Rearrange
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Custom Grid View
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Fixed Header
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Fixed Menu Bar
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Horizontal Bar
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Toggle Sidebar
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Compact Menu
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Hover Menu
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Box Layout
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Theme Color
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Form Based Summery
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" />Utilities
-                                        </div>*@
+                                    <div class="row" id="userperferancechk">
                                     </div>
                                 </div>
                             </div>
@@ -693,7 +551,6 @@ color: red;
             </div>
         </div>
     </div>
-
 </div>
 <div class="col-md-12">
     <div class="panel panel-white">
@@ -810,7 +667,7 @@ color: red;
 @section scripts{
     <script src="~/Scripts/JS/Page/WhitelabelReg.js"></script>
     <script src="~/Scripts/JS/CommonValidations.js"></script>
-    
-   
+
+
 }
 

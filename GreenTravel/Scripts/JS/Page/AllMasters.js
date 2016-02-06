@@ -3,32 +3,14 @@
     hide_div();
     // FillDropDown_Category();  // To fill the dropown- Category
 
-
-
-
-
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
     });
 
     $("#drpMasterTab3").change(function () {
-
-
-        FillDropdown('Dropdown1Tab3', 'xlink');
-        FillDropdown('Dropdown2Tab3', 'xcross');
-        FillDropdown('Dropdown3Tab3', 'xcross1');
-        FillDropdown('Dropdown4Tab3', 'xcross2');
-        FillDropdown('Dropdown5Tab3', 'xcross3');
-        FillDropdown('Dropdown6Tab3', 'xcross4');
-
-        FillDropdown_Multiselect('MultiSelect1', 'MultiSelect1');
-
-        FillDropdown_Multiselect('MultiSelect2', 'MultiSelect2');
-        FillDropdown_Multiselect('MultiSelect3', 'MultiSelect3');
-        FillDropdown_Multiselect('MultiSelect4', 'MultiSelect4');
-        FillDropdown_Multiselect('MultiSelect5', 'MultiSelect5');
         hide_Tooltip();
         PageLoad_FilledAll();
+        
         $('#btnSave').text('CREATE');
         $('#btnSave').attr("class", "btn btn-success btnSave");
         //$('#btnDelete').hide();
@@ -132,7 +114,7 @@
         //        i += 1;
         //    }
         //})
-        //console.log(Mul);
+        
 
 
         var UMultiSelect1 = getMultiselectValue($("#Multiselect1"));
@@ -157,15 +139,7 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       $('input[type="text"]').val('');
-
-                       $('.Dropdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-
-                       $('.drpdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
+                       $('#btnCancel').trigger('click');
                        alert("Record Save Sucessfully!");
 
                        // getdata();
@@ -177,9 +151,9 @@
 
     $('#btnCancel').click(function (e) {
         e.preventDefault();
-
-        $('input[type="text"]').val('');
-
+        clearValidations($(this).parent());
+        $('input').val('');
+        $('textarea').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
@@ -188,9 +162,7 @@
             $(this).val($(this).find('option:first').val()).change();
         });
 
-
-
-        //alert('Cancel');
+        $('select').next().find('ul li.select2-selection__choice').remove();
     });
 
     /*Tab Master Records*/
@@ -242,19 +214,17 @@
                 Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
             },
             success: function (data) {
-                console.log('BindDropDownTab');
-                // alert(data[0]['Text']);
                 $('#' + controlId + '').html('');
                 for (var i = 0; i < data.length; i++) {
                     var opt = new Option(data[i]['Text'], data[i]['Value']);
                     //$('#drpMasterTab3').append(opt);
                     $('#' + controlId + '').append(opt);
                 }
-                $("#" + controlId + " option:first").attr('selected', 'selected').change();
-
+                //$("#" + controlId + " option:first").attr('selected', 'selected');
             }
         });
     }
+
     function FillDropdown_Multiselect(controlId, type) {
         var Module = '';
         var screen = '';
@@ -318,6 +288,7 @@
             }
         });
     }
+
     function FillDropDown_Category() {
 
 
@@ -470,7 +441,6 @@
         $('field42').hide();
     }
 
-
     function getdata() {
 
 
@@ -543,7 +513,6 @@
              },
              dataType: 'json',
              success: function (response) {
-
                  //Master
                  if (response['AMaster'].length > 0) {
 
@@ -556,31 +525,20 @@
                  if (response['AUserMasterData'].length > 0) {
 
                      $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
-                     $('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
+                     //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                      $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
-                     console.log('Before Set Dropdown Values');
-                     $('#Dropdown1Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxlink'] + '"]').attr('selected', true).change();
-                     $('#Dropdown2Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross'] + '"]').attr('selected', true).change();
-                     $('#Dropdown3Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross1'] + '"]').attr('selected', true).change();
-                     $('#Dropdown4Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross2'] + '"]').attr('selected', true).change();
-                     $('#Dropdown5Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross3'] + '"]').attr('selected', true).change();
-                     $('#Dropdown6Tab3').find('option[value="' + response['AUserMasterData'][0]['Uxcross4'] + '"]').attr('selected', true);
-                     console.log('After Set Dropdown Values');
+                     
+                     setSelect2Value($('#drpActiveTab3'), response['AUserMasterData'][0]['UIsActive']);
 
-                     //FillDropdown('Dropdown1Tab3', 'xlink');
-                     //FillDropdown('Dropdown2Tab3', 'xcross');
-                     //FillDropdown('Dropdown3Tab3', 'xcross1');
-                     //FillDropdown('Dropdown4Tab3', 'xcross2');
-                     //FillDropdown('Dropdown5Tab3', 'xcross3');
-                     //FillDropdown('Dropdown6Tab3', 'xcross4');
-                     //FillDropdown('MultiSelect1', 'MultiSelect1');
-                     //FillDropdown('MultiSelect2', 'MultiSelect2');
-                     //FillDropdown('MultiSelect3', 'MultiSelect3');
-                     //FillDropdown('MultiSelect4', 'MultiSelect4');
-                     //FillDropdown('MultiSelect5', 'MultiSelect5');
-                     hide_Tooltip();
-                     PageLoad_FilledAll();
+                     setSelect2Value($('#Dropdown1Tab3'), response['AUserMasterData'][0]['Uxlink']);
+                     setSelect2Value($('#Dropdown2Tab3'), response['AUserMasterData'][0]['Uxcross']);
+                     setSelect2Value($('#Dropdown3Tab3'), response['AUserMasterData'][0]['Uxcross1']);
+                     setSelect2Value($('#Dropdown4Tab3'), response['AUserMasterData'][0]['Uxcross2']);
+                     setSelect2Value($('#Dropdown5Tab3'), response['AUserMasterData'][0]['Uxcross3']);
+                     setSelect2Value($('#Dropdown6Tab3'), response['AUserMasterData'][0]['Uxcross4']);
 
+                     //hide_Tooltip();
+                     //PageLoad_FilledAll();
 
                      $('#txtSrNoTab3').val(response['AUserMasterData'][0]['USrno']);
                      $('#Textbox1Tab3').val(response['AUserMasterData'][0]['Uxreference1']);
@@ -608,33 +566,21 @@
                      $('#photoUpload').val(response['AUserMasterData'][0]['UUpload']);
                      $('#Textarea1').val(response['AUserMasterData'][0]['UTextArea']);
 
-
                      $('#Multiselect1').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect1'] + '"]').attr('selected', true).change();
                      $('#Multiselect2').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect2'] + '"]').attr('selected', true).change();
                      $('#Multiselect3').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect3'] + '"]').attr('selected', true).change();
                      $('#Multiselect4').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect4'] + '"]').attr('selected', true).change();
                      $('#Multiselect5').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect5'] + '"]').attr('selected', true).change();
 
-
-
                      $('#btnSave').text('UPDATE');
                      $('#btnSave').attr("class", "btn btn-primary btnSave");
-                     // $('#btnDelete').show();
-
                  }
-                 //alert(response['AMaster'][0]['xmaster']);
-                 //$("#drpMasterTab3").val(response['AMaster'][0]['xmaster']);
              }
-         }).then(function () {
-             console.log('In Then call');
-         });
-
-
+         })
     });
 
     $("table").delegate(".editor_Delte", "click", function () {
-        //console.log($(this).parent().parent().children(':eq(1)').text());
-        //console.log($(this).parent().parent().children(':eq(2)').text());
+        
     });
 
     function PageLoad_FilledAll() {
@@ -648,13 +594,10 @@
             data: { Type: 'Caption', field1: field1, field2: field2 },
             type: "POST",
             dataType: "json",
+            async: false,
             success: function (response) {
-                //console.log(response);
-                //console.log(response['ACaption'].length)
                 //Caption
                 if (response['ACaption'].length > 0) {
-                    //console.log(response['ACaption'][0]['xmastercaption']);
-
                     if (response['ACaption'][0]['Field3caption'] != "--None--" && response['ACaption'][0]['Field3caption'] != "" && response['ACaption'][0]['Field3caption'] != null) {
 
                         $('#LbName').text(response['ACaption'][0]['Field3caption']);
@@ -831,7 +774,6 @@
                 }
                 //Placeholder
                 if (response['Aplaceholder'].length > 0) {
-                    //console.log(response['Aplaceholder'][0]['xmaster']);
                     //  alert(response['Aplaceholder'][0]['field12']);
                     if (response['Aplaceholder'][0]['Field3'] != "--None--" && response['Aplaceholder'][0]['Field3'] != "" && response['Aplaceholder'][0]['Field3'] != null) {
                         $('#txtnameTab3').attr("placeholder", (response['Aplaceholder'][0]['Field3']));
@@ -939,7 +881,7 @@
                         CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox5Tab3'));
                     }
                     if (response['AValidation'][0]['Field17'] != '' && response['AValidation'][0]['Field17'] != '--None--' && response['Aplaceholder'][0]['Field17'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox6Tab3'));
+                        CheckFormValidations(response['AValidation'][0]['Field17'], $('#Textbox6Tab3'));
                     }
                     if (response['AValidation'][0]['Date1'] != '' && response['AValidation'][0]['Date1'] != '--None--' && response['Aplaceholder'][0]['Date1'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Date1'], $('#Date1'));
@@ -1030,8 +972,7 @@
 
 
 
-                    //console.log(response['AMaster'][0]['xmaster']);
-
+                    
                     //$('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
                     //$('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
                     //$('#txtValidationCode4').val(response['AValidation'][0]['Field6']);
@@ -1072,7 +1013,6 @@
 
                 //tooltip
                 if (response['Atooltip'].length > 0) {
-                    //console.log(response['Atooltip'][0]['xmaster']);
                     //$('#txtHelp1').val(response['Atooltip'][0]['Field3']);
                     if (response['Atooltip'][0]['Field3'] != "--None--" && response['Atooltip'][0]['Field3'] != "" && response['Atooltip'][0]['Field3'] != null) {
 
@@ -1260,6 +1200,41 @@
                     }
                 }
 
+            }
+        }).done(function () {
+            if ($('#Dropdown1Tab3').parent().is(':visible')) {
+                FillDropdown('Dropdown1Tab3', 'xlink');
+            }
+            if ($('#Dropdown2Tab3').parent().is(':visible')) {
+                FillDropdown('Dropdown2Tab3', 'xcross');
+            }
+            if ($('#Dropdown3Tab3').parent().is(':visible')) {
+                FillDropdown('Dropdown3Tab3', 'xcross1');
+            }
+            if ($('#Dropdown4Tab3').parent().is(':visible')) {
+                FillDropdown('Dropdown4Tab3', 'xcross2');
+            }
+            if ($('#Dropdown5Tab3').parent().is(':visible')) {
+                FillDropdown('Dropdown5Tab3', 'xcross3');
+            }
+            if ($('#Dropdown6Tab3').parent().is(':visible')) {
+                FillDropdown('Dropdown6Tab3', 'xcross4');
+            }
+
+            if ($('#Multiselect1').parent().is(':visible')) {
+                FillDropdown_Multiselect('Multiselect1', 'MultiSelect1');
+            }
+            if ($('#Multiselect2').parent().is(':visible')) {
+                FillDropdown_Multiselect('Multiselect2', 'MultiSelect2');
+            }
+            if ($('#Multiselect3').parent().is(':visible')) {
+                FillDropdown_Multiselect('Multiselect3', 'MultiSelect3');
+            }
+            if ($('#Multiselect4').parent().is(':visible')) {
+                FillDropdown_Multiselect('Multiselect4', 'MultiSelect4');
+            }
+            if ($('#Multiselect5').parent().is(':visible')) {
+                FillDropdown_Multiselect('Multiselect5', 'MultiSelect5');
             }
         });
 

@@ -7,28 +7,111 @@ namespace GreenTravel.Models.Comman
 {
     public class CommanPara
     {
-        public string Corporate { get; set; }
-        public string FormCode { get; set; }
-        public string TabCode { get; set; }
-
-        public string Attribute1 { get; set; }
-        public string Attribute2 { get; set; }
-        public string Attribute3 { get; set; }
-        public string Attribute4 { get; set; }
-        public string Attribute5 { get; set; }
-        public string Attribute6 { get; set; }
-        public string Attribute7 { get; set; }
-        public string Attribute8 { get; set; }
-        public string Attribute9 { get; set; }
-        public string Attribute10 { get; set; }
-
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+        public string CreatedBy
+        {
+            get
+            {
+                try
+                {
+                    return HttpContext.Current.Session["UserId"].ToString();
+                }
+                catch
+                {
+                    return "-1";
+                }
+            }
+            set { HttpContext.Current.Session["UserId"] = value; }
+        }
+        public string EntryDatetime
+        {
+            get
+            {
+                return DateTime.Now.ToString();
+            }
+            set { HttpContext.Current.Session["UserId"] = value; }
+        }
+        public string EditedBy
+        {
+            get
+            {
+                try
+                {
+                    return HttpContext.Current.Session["UserId"].ToString();
+                }
+                catch
+                {
+                    return "-1";
+                }
+            }
+            set { HttpContext.Current.Session["UserId"] = value; }
+        }
+        public string EditDatetime
+        {
+            get
+            {
+                return HttpContext.Current.Session["UserId"].ToString();
+            }
+            set { HttpContext.Current.Session["UserId"] = value; }
+        }
+        public string CorpcentreBy
+        {
+            get
+            {
+                try
+                {
+                    return HttpContext.Current.Session["Corporate"].ToString();
+                }
+                catch
+                {
+                    return "-1";
+                }
+            }
+            set { HttpContext.Current.Session["Corporate"] = value; }
+        }
+        public string UnitCorpBy
+        {
+            get
+            {
+                try
+                {
+                    return HttpContext.Current.Session["Unit"].ToString();
+                }
+                catch
+                {
+                    return "-1";
+                }
+            }
+            set { HttpContext.Current.Session["Unit"] = value; }
+        }
+        public string TerminalBy
+        {
+            get
+            {
+                try
+                {
+                    return HttpContext.Current.Session["Location"].ToString();
+                }
+                catch
+                {
+                    return "-1";
+                }
+            }
+            set { HttpContext.Current.Session["Location"] = value; }
+        }
+        public string BranchBy
+        {
+            get
+            {
+                try
+                {
+                    return HttpContext.Current.Session["Branch"].ToString();
+                }
+                catch
+                {
+                    return "-1";
+                }
+            }
+            set { HttpContext.Current.Session["Branch"] = value; }
+        }
     }
 }

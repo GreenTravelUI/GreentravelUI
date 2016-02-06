@@ -60,8 +60,20 @@ namespace GreenTravel.Controllers
                         });
                     }
                 }
-                var result = items;
-                return Json(result, JsonRequestBehavior.AllowGet);
+                 var result = items;
+                //int start = 1;
+                //int length = 1;
+                ////items = items.GetRange(1, Math.Min(length, list.Count - start));
+                //items = items.GetRange(start, Math.Min(length, items.Count - start));
+                //DataTableData dataTableData = new DataTableData();
+                //dataTableData.draw = 1;
+                //dataTableData.recordsTotal = items.Count;
+                //dataTableData.data = items;
+                //dataTableData.recordsFiltered = items.Count;
+                //return Json(result, JsonRequestBehavior.AllowGet);
+                var rJson = Json(result, JsonRequestBehavior.AllowGet);
+                rJson.MaxJsonLength = int.MaxValue;
+                return rJson;
             }
             catch (Exception)
             {
@@ -96,7 +108,7 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = frmset;
-               return Json(result, JsonRequestBehavior.AllowGet);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -443,7 +455,7 @@ namespace GreenTravel.Controllers
                         Utility.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
-                return Json(new { GTUtility = Utility}, JsonRequestBehavior.AllowGet);
+                return Json(new { GTUtility = Utility }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

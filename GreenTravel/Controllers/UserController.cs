@@ -8,6 +8,7 @@ using GreenTravel.App_DbService;
 using PetaPoco;
 using Newtonsoft.Json;
 using System.Data;
+using GreenTravel.Models.Comman;
 
 namespace GreenTravel.Controllers
 {
@@ -136,5 +137,137 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+
+        public ActionResult BindDropdownUnit(CommanFieldPara CFP)
+        {
+            try
+            {
+                DataSet ds = _obj_db_UM.BindDropdownUnit(CFP);
+                List<CommanDropdown> Industry = new List<CommanDropdown>();
+                List<CommanDropdown> Item = new List<CommanDropdown>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Industry.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var Unitdrp = Industry;
+
+                //if (ds.Tables[1].Rows.Count > 0)
+                //{
+                //    ViewBag.fname = ds.Tables[1];
+                //    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                //    {
+                //        Item.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                //    }
+                //}
+                //var Locationdrp = Item;
+
+                return Json(new { UNITDRPJS = Unitdrp}, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult BindDropdownLocation(CommanFieldPara CFP)
+        {
+            try
+            {
+                DataSet ds = _obj_db_UM.BindDropdownLocation(CFP);
+                List<CommanDropdown> Industry = new List<CommanDropdown>();
+              
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Industry.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var Unitdrp = Industry;
+
+               
+                return Json(new { UNITDRPJS = Unitdrp }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult BindDropdownUserrole(CommanFieldPara CFP)
+        {
+            try
+            {
+                DataSet ds = _obj_db_UM.BindDropdownUserrole(CFP);
+                List<CommanDropdown> Industry = new List<CommanDropdown>();
+                List<CommanDropdown> Item = new List<CommanDropdown>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Industry.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var Unitdrp = Industry;
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Item.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var Locationdrp = Item;
+
+                return Json(new { UNITDRPJS = Unitdrp, USERDRPJS = Locationdrp }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public ActionResult BindAccessgrid(GridParamater GP)
+        {
+            try
+            {
+                DataSet ds = _obj_db_UM.BindAccessgrid(GP);
+                List<UserMaster_AccessRight> items = new List<UserMaster_AccessRight>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new UserMaster_AccessRight
+                        {
+                          //  Module = @dr["Module"].ToString(),
+                         //   Screen = @dr["Screen"].ToString(),
+                          //  srno = @dr["srno"].ToString(),
+                           
+
+                        });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
     }
 }
