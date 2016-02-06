@@ -33,17 +33,9 @@
                         $('.formcorporate').append(opt);
                     }
                     setSelect2Value($('#drpCorporate1'), '0');
-                    setSelect2Value($('#drpCorporatetab'), '0');
-                    // $('#drpCorporatetab option:first').attr('selected', 'selected').change();
+                    // setSelect2Value($('#drpCorporatetab'), '0');
+
                 }
-                //if (response['GTFrom'].length > 0) {
-                //    $('#drpFormCode').html('');
-                //    for (var i = 0; i < response['GTFrom'].length; i++) {
-                //        var opt = new Option(response['GTFrom'][i]['Text'], response['GTFrom'][i]['Value']);
-                //        $('#drpFormCode').append(opt);
-                //    }
-                //    setSelect2Value($('#drpFormCode'), '0');
-                //}
             }
         });
     }
@@ -143,11 +135,11 @@
     //Tab2 Click  Event  
     $('#frmtab').click(function (e) {
         if ($('#txtSrNo1').val() == '') {
-            alert("Please Edit Data");
+            swal('Please Edit Data');
             Quitform();
         }
         else {
-            DropDownFormcode();
+            $('.tab3Formname').text($('#txtFormName').val())
         }
 
     });
@@ -206,7 +198,7 @@
     $('.btnSave').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-            alert('Invalid data found!');
+            swal('Invalid data found!');
             return false;
         }
         var Attribute1 = '';
@@ -251,7 +243,7 @@
                dataType: 'json',
                success: function (data) {
                    $('#txtSrNo1').val(data.srno)
-                   swal('Good job!', 'Record Save Sucessfully', 'success')
+                   swal('Good job!', 'Record Save Sucessfully', 'success');
                }
            });
     });
@@ -259,7 +251,7 @@
     $('.btnSaveformtab').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-            alert('Invalid data found!');
+            swal('Invalid data found!');
             return false;
         }
         var Attribute1 = '';
@@ -290,19 +282,14 @@
         else {
             var SrNo = $('#txtSrNo').val();
         }
-
-
-
-        var Corporate = $('#drpCorporatetab option:selected').val();
-        var FormCode = $('#drpFormCode option:selected').val();
+        var Corporate = $('#drpCorporate1 option:selected').val();
+        var FormCode = $('#txtSrNo1').val();
         var TabNumber = $('#txtTabNumber').val();
         var TabHeader = $('#txtTabHeader').val();
         var TabClass = $('#txtTabClass').val();
         var TooltipHelpText = $('#txtTooltipHelpText').val();
         var MasterTable = $('#txtTabMainTable').val();
         var MasterTablePrefix = $('#txtTabMainTablePrefix').val();
-
-
         var CreatedBy = 0;
         var EntryDatetime = '';
         var EditedBy = 0;
@@ -328,7 +315,7 @@
                },
                dataType: 'json',
                success: function (response) {
-                   swal('Good job!', 'Record Save Sucessfully', 'success')
+                   swal('Good job!', 'Record Save Sucessfully', 'success');
                }
            });
 
@@ -337,7 +324,7 @@
     $('.btnSaveStandard').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent().parent().parent())) {  // Pass form control in parameter
-            alert('Invalid data found!');
+            swal('Invalid data found!');
             return false;
         }
         var Attribute1 = '';
@@ -408,7 +395,7 @@
                dataType: 'json',
                success: function (response) {
                    $("#myModalIcon").modal('hide');
-                   swal('Good job!', 'Record Save Sucessfully', 'success')
+                   swal('Good job!', 'Record Save Sucessfully', 'success');
                }
            });
 
@@ -656,8 +643,8 @@
                      $('#txtTooltipHelpText').val(response[0].TooltipHelpText);
                      $('#txtTabMainTable').val(response[0].MasterTable);
                      $('#txtTabMainTablePrefix').val(response[0].MasterTablePrefix);
-                     $('#drpCorporatetab').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
-                     $('#drpFormCode').find('option[value="' + response[0].FormCode + '"]').attr('selected', true).change();
+                     //$('#drpCorporatetab').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
+                     //$('#drpFormCode').find('option[value="' + response[0].FormCode + '"]').attr('selected', true).change();
                      $('#txtTrxTable1').val(response[0].TrxTable1);
                      $('#txtTrxTable2').val(response[0].TrxTable2);
                      $('#txtTrxTable3').val(response[0].TrxTable3);
@@ -701,6 +688,7 @@
             success: function (data) {
                 if (data.length > 0) {
                     alert("Record Delete Sucessfully!");
+
                 }
             }
         });
@@ -721,7 +709,7 @@
             var type = 'Grid';
             var Segment = '';
             $('#Gridsectab').dataTable({
-             
+
                 "ServerSide": true,
                 destroy: true,
                 "ajax": {
@@ -765,7 +753,8 @@
         }
         else {
             Quitform();
-            alert("Please Edit Data");
+            swal('Please Edit Data');
+
         }
     }
     $('#btnaddSection').click(function (e) {
@@ -837,7 +826,7 @@
         });
         if (flagsection == 1) {
             $("#myModalSection").modal('hide');
-            swal('Good job!', 'Record Save Sucessfully', 'success')
+            swal('Good job!', 'Record Save Sucessfully', 'success');
         }
     });
     $('#btnCustomsection').on('click', function () {
@@ -857,7 +846,8 @@
         customID++;
     };
     //save Custom  Button
-    $('.btnsaveCustomButton').on('click', function () {
+    $('.btnsaveCustomButton').on('click', function (e) {
+        e.preventDefault();
         var flag = 0;
         var srno
         var Corporate = $('#drpCorporate1 option:selected').val();
@@ -910,7 +900,7 @@
         });
         if (flag == 1) {
             $("#myModalIcon").modal('hide');
-            swal('Good job!', 'Record Save Sucessfully', 'success')
+            swal('Good job!', 'Record Save Sucessfully', 'success');
         }
     });
     function getUtility() {
@@ -955,7 +945,11 @@
             }
         });
     }
-
+    $('.Utilitysavedata').on('click', function (e) {
+        e.preventDefault();
+        $("#myModalIcon").modal('hide');
+        //swal('Good job!', 'Record Save Sucessfully', 'success')
+    });
     /*Quit Button*/
     $('.QuitForm').on('click', function () {
         clearForm();

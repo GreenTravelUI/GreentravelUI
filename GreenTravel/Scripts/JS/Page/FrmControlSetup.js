@@ -8,7 +8,7 @@
         e.preventDefault();
         /* OnSave validations */
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-            alert('Invalid data found!');
+            swal('Invalid data found!');
             return false;
         }
         if ($('#txtTabsrno').val() == '') {
@@ -75,7 +75,7 @@
              dataType: 'json',
              success: function (response) {
                  if (response != null && response.success) {
-                     swal('Good job!', 'Record Save Sucessfully!', 'success')
+                     swal('Good job!', 'Record Save Sucessfully!', 'success');
                  }
              }
          });
@@ -263,7 +263,7 @@
             },
             success: function (data) {
                 if (data.length > 0) {
-                    swal('Good job!', 'Record Delete Sucessfully!', 'success')
+                    swal('Good job!', 'Record Delete Sucessfully!', 'success');
                 }
             }
         });
