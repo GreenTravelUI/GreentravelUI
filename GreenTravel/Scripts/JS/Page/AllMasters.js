@@ -139,15 +139,7 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       $('input[type="text"]').val('');
-
-                       $('.Dropdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-
-                       $('.drpdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
+                       $('#btnCancel').trigger('click');
                        alert("Record Save Sucessfully!");
 
                        // getdata();
@@ -159,9 +151,9 @@
 
     $('#btnCancel').click(function (e) {
         e.preventDefault();
-
-        $('input[type="text"]').val('');
-
+        clearValidations($(this).parent());
+        $('input').val('');
+        $('textarea').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
@@ -170,9 +162,7 @@
             $(this).val($(this).find('option:first').val()).change();
         });
 
-
-
-        //alert('Cancel');
+        $('select').next().find('ul li.select2-selection__choice').remove();
     });
 
     /*Tab Master Records*/
@@ -891,7 +881,7 @@
                         CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox5Tab3'));
                     }
                     if (response['AValidation'][0]['Field17'] != '' && response['AValidation'][0]['Field17'] != '--None--' && response['Aplaceholder'][0]['Field17'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox6Tab3'));
+                        CheckFormValidations(response['AValidation'][0]['Field17'], $('#Textbox6Tab3'));
                     }
                     if (response['AValidation'][0]['Date1'] != '' && response['AValidation'][0]['Date1'] != '--None--' && response['Aplaceholder'][0]['Date1'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Date1'], $('#Date1'));
