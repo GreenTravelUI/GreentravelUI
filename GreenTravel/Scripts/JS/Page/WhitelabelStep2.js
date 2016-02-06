@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    $('#btnSave').hide();
+    $('#btnUpdate').hide();
 
     //  Bind Drop-Down 
     FillDropdown('drpFeatureCategory', 'Dropdown');
@@ -63,18 +65,117 @@
         var Control = 'DrpFeatureGroup';
         var Language = '';
         var Type = 'Conditional';
-
+        $('#btnSave').show();
+        
 
         $("#partial").load('/WhitelabelStep2/_DisplayGridData?id=' + field1);
         getdata();
     });
 
     // For Save Button Click event 
-    $(".btnSave").on('click', function (e) {
-        Save();
+    $('.btnSaveStep2').click(function (e) {
+        {
+
+            e.preventDefault();
+            var groupAry = [];
+            var FeatureAry = [];
+            var flagCategory = 0;
+            var msg = "";
+            var i = 0;
+            var srno = '0';
+            var Corporate = $('#txtCorporateID').val();
+            var Module = '0';
+            var Screen = '0';
+            var CreatedBy = '';
+            var EntryDatetime = '';
+            var EditedBy = '';
+            var EditDatetime = '';
+            var CorpcentreBy = '';
+            var UnitCorpBy = '';
+            var TerminalBy = '';
+            var BranchBy = '';
+            var Attribute1 = '';
+            var Attribute2 = '';
+            var Attribute3 = '';
+            var Attribute4 = '';
+            var Attribute5 = '';
+            var Attribute6 = '';
+            var Attribute7 = '';
+            var Attribute8 = '';
+            var Attribute9 = '';
+            var Attribute10 = '';
+            var CreatedBy = '';
+            var EntryDatetime = '';
+            var EditedBy = '';
+            var EditDatetime = '';
+            var CorpcentreBy = '';
+            var UnitCorpBy = '';
+            var TerminalBy = '';
+            var BranchBy = '';
+            var checkedInput = '';
+            var FeaturesCategory = '';
+            var FeatureGroup = '';
+            var Feature = '';
+
+            $('ul.grid div').find('li').each(function () {
+                groupAry.push($(this).find('.myDiv h3').text().trim());
+                checkedInput = '';
+                var Feature = '';
+                FeaturesCategory = $('#drpFeatureCategory option:selected').val();
+                FeatureGroup = $(this).find('.myDiv h3').text().trim();
+                $(this).find('table tbody tr').each(function () {
+                    if ($(this).find('input').is(':checked')) {
+                        if (i != 0) {
+                            checkedInput += '||';
+                        }
+                        checkedInput += $(this).find('input').attr('id');
+                        i += 1;
+                    }
+                });
+                Feature = checkedInput;
+                FeatureAry.push(Feature);
+            });
+
+            var theIds1 = JSON.stringify(FeatureAry);
+            var theIds2 = JSON.stringify(groupAry);
+            $.ajax({
+                type: "POST",
+                url: "/WhitelabelStep2/Insert",
+                async: false,
+                data: {
+                    srno: srno, Corporate: Corporate, FeaturesCategory: FeaturesCategory,
+                    FeatureGroup: FeatureGroup, Feature: Feature, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, CorpcentreBy: CorpcentreBy,
+                    UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy, Attribute1: Attribute1,
+                    Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+                    Attribute9: Attribute9, Attribute10: Attribute10, FeatureAry: theIds1, groupAry: theIds2
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response != null) {
+                        flagsection = 1
+                        msg = "Record Save Sucessfully";
+                    }
+                }
+            });
+            if (flagsection == 1) {
+                alert(msg);
+            }
+        }
     });
-   
-   
+
+    // To Clear
+    $("btnClear").on('click', function (e) {
+        e.preventDefault();
+        $('.inputform').val('');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+    });
+    $("btnQuit").on('click', function (e) {
+
+        window.location.href = '/WhitelabelStep1/Index';
+    });
+
 });
 // Function ( Edit Mode )
 function getdata() {
@@ -95,6 +196,9 @@ function getdata() {
         success: function (response) {
             var i;
             if (response['Grid'].length > 0) {
+
+                $('#btnSave').hide();
+                $('#btnUpdate').show();
                 $.each(response['Grid'], function () {
                     var tempgroup = this;
                     var chkloop = this['Feature'].toString().split("||");
@@ -116,93 +220,19 @@ function getdata() {
                     });
                 });
             }
+            else {
+                $('#btnSave').show();
+                $('#btnUpdate').hide();
+            }
         }
     });
 }
 
-function Save() {
-    e.preventDefault();
-    var groupAry = [];
-    var FeatureAry = [];
-    var flagCategory = 0;
-    var msg = "";
-    var i = 0;
-    var srno = '0';
-    var Corporate = $('#txtCorporateID').val();
-    var Module = '0';
-    var Screen = '0';
-    var CreatedBy = '';
-    var EntryDatetime = '';
-    var EditedBy = '';
-    var EditDatetime = '';
-    var CorpcentreBy = '';
-    var UnitCorpBy = '';
-    var TerminalBy = '';
-    var BranchBy = '';
-    var Attribute1 = '';
-    var Attribute2 = '';
-    var Attribute3 = '';
-    var Attribute4 = '';
-    var Attribute5 = '';
-    var Attribute6 = '';
-    var Attribute7 = '';
-    var Attribute8 = '';
-    var Attribute9 = '';
-    var Attribute10 = '';
-    var CreatedBy = '';
-    var EntryDatetime = '';
-    var EditedBy = '';
-    var EditDatetime = '';
-    var CorpcentreBy = '';
-    var UnitCorpBy = '';
-    var TerminalBy = '';
-    var BranchBy = '';
-    var checkedInput = '';
-    var FeaturesCategory = '';
-    var FeatureGroup = '';
-    var Feature = '';
 
-    $('ul.grid div').find('li').each(function () {
-        groupAry.push($(this).find('.myDiv h3').text().trim());
-        checkedInput = '';
-        var Feature = '';
-        FeaturesCategory = $('#drpFeatureCategory option:selected').val();
-        FeatureGroup = $(this).find('.myDiv h3').text().trim();
-        $(this).find('table tbody tr').each(function () {
-            if ($(this).find('input').is(':checked')) {
-                if (i != 0) {
-                    checkedInput += '||';
-                }
-                checkedInput += $(this).find('input').attr('id');
-                i += 1;
-            }
-        });
-        Feature = checkedInput;
-        FeatureAry.push(Feature);
+function clearForm() {
+    $('.inputform').val('');
+    $('.Dropdown').each(function () {
+        $(this).val($(this).find('option:first').val()).change();
     });
-
-    var theIds1 = JSON.stringify(FeatureAry);
-    var theIds2 = JSON.stringify(groupAry);
-    $.ajax({
-        type: "POST",
-        url: "/WhitelabelStep2/Insert",
-        async: false,
-        data: {
-            srno: srno, Corporate: Corporate, FeaturesCategory: FeaturesCategory,
-            FeatureGroup: FeatureGroup, Feature: Feature, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, CorpcentreBy: CorpcentreBy,
-            UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy, Attribute1: Attribute1,
-            Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
-            Attribute9: Attribute9, Attribute10: Attribute10, FeatureAry: theIds1, groupAry: theIds2
-        },
-        dataType: 'json',
-        success: function (response) {
-            if (response != null) {
-                flagsection = 1
-                msg = "Record Save Sucessfully";
-            }
-        }
-    });
-    if (flagsection == 1) {
-        alert(msg);
-    }
 }
+
