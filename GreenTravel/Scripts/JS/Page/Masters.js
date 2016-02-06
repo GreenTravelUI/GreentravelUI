@@ -434,7 +434,7 @@
         $("#tab2").addClass("active");
 
         $('#btnsUpdate').show();
-        $('#btnDelete').show();
+        $('#btnDelete').hide();
         $('#btnSaveMastersetup').hide();
 
         var tablename = 'dbo.ADMINMASTER';

@@ -10,7 +10,7 @@
     $("#drpMasterTab3").change(function () {
         hide_Tooltip();
         PageLoad_FilledAll();
-        
+       
         $('#btnSave').text('CREATE');
         $('#btnSave').attr("class", "btn btn-success btnSave");
         //$('#btnDelete').hide();
@@ -220,7 +220,8 @@
                     //$('#drpMasterTab3').append(opt);
                     $('#' + controlId + '').append(opt);
                 }
-                //$("#" + controlId + " option:first").attr('selected', 'selected');
+               // alert(contrlId);
+               // $("#" + controlId + " option:first").attr('selected', 'selected');
             }
         });
     }
