@@ -176,7 +176,7 @@ function controlTextareaValidations(control) {
         if (control.val().trim().length == 0) {
             control.after('<p class="red-error">This field is required.</p>');
             control.addClass('red-input');
-            control.focus();
+            //control.focus();
             return false;
         }
     }
@@ -212,7 +212,7 @@ function formInputValidations(frm) {
 
 function formTextareaValidations(frm) {
     var textareaFlag = true;
-    frm.find('textarea.req').each(function () {
+    frm.find('textarea').each(function () {
         if ($(this).parent().is(':visible')) {
             if (!controlTextareaValidations($(this))) {
                 textareaFlag = false;
@@ -261,4 +261,19 @@ function validateForm(frm) {
         flag = false;
     }
     return flag;
+}
+
+function clearValidations(frm) {
+    frm.find('input').each(function () {
+        $(this).removeClass('red-input');
+        $(this).parent().find('p.red-error').remove();
+    });
+    frm.find('textarea').each(function () {
+        $(this).removeClass('red-input');
+        $(this).parent().find('p.red-error').remove();
+    });
+    frm.find('select').each(function () {
+        $(this).next().removeClass('red-input');
+        $(this).parent().find('p.red-error').remove();
+    });
 }
