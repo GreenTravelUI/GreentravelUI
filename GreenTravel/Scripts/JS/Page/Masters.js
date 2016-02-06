@@ -45,6 +45,11 @@
 
     $('.btnSave').click(function (e) {
         e.preventDefault();
+        /* Form Validation */
+        if (!validateForm($(this).parent())) {
+            alert('Invalid data found!');
+            return false;
+        }
         var xmaster = $('#txtMasterCode').val();
         var xname = $('#txtMasterName').val();
         var drpCaption = $('#txtdrpCaption').val();
