@@ -301,7 +301,7 @@
                      $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
                      $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
                      // $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();
-                     alert(response['Whiteregjs'][0]['OtherLanguage']);
+                    
                      setSelect2Value($('#drpOtherLanguage'), response['Whiteregjs'][0]['OtherLanguage']);
                      $('#txtFavicon').val(response['Whiteregjs'][0]['Favicon']);
                      var fulllabelwhite = response['Whiteregjs'][0]['FullSemiWhiteLbl'];
