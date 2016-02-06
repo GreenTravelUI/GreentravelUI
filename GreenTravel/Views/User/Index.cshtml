@@ -4,14 +4,172 @@
     ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
 }
 <style>
-    .hide_cell {
-        display:none;
+    .hide_cell
+    {
+        display: none;
     }
+
     #errmsg
-{
-color: red;
-}
+    {
+        color: red;
+    }
 </style>
+<link href="/assets/plugins/gridgallery/css/component.css" rel="stylesheet" type="text/css" />
+<style>
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4
+    {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5
+    {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span,
+        .tab-itenaries .col-md-2 > h5 > span,
+        .tab-itenaries .col-md-3 > h5 > span,
+        .tab-itenaries .col-md-4 > h5 > span,
+        .tab-itenaries .col-md-5 > h5 > span,
+        .tab-itenaries .col-md-6 > h5 > span,
+        .tab-itenaries .col-md-7 > h5 > span,
+        .tab-itenaries .col-md-8 > h5 > span,
+        .tab-itenaries .col-md-9 > h5 > span,
+        .m-b-lg > h5 > span
+        {
+            float: right;
+        }
+
+    .tab-itenaries a > span
+    {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries
+    {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        /*margin-bottom: 15px;*/
+    }
+
+        .tab-itenaries .form-control
+        {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label
+            {
+                width: 100%;
+            }
+
+            .tab-itenaries .form-control h2
+            {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border
+        {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 25px;
+        }
+
+        .tab-itenaries .form-control .btn
+        {
+            padding: 8px 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .tab-itenaries span.total-cost
+        {
+            font-size: 11px;
+        }
+
+        .tab-itenaries .table > tbody > tr:first-child > td
+        {
+            border-width: 0;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:first-child
+        {
+            width: 60%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:last-child
+        {
+            text-align: right;
+            width: 40%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td
+        {
+            font-size: 11px;
+            padding: 7px !important;
+        }
+
+    .grid figcaption
+    {
+        background: #fff none repeat scroll 0 0;
+        padding: 25px;
+    }
+
+    .grid li:hover figure
+    {
+        opacity: 1;
+    }
+
+    .grid li
+    {
+        cursor: default;
+    }
+
+    figcaption > h3
+    {
+        border-bottom: 1px dashed #3c3c3c !important;
+    }
+</style>
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -20,10 +178,11 @@ color: red;
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
                     <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User </a></li>
                     <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
-                    <li role="presentation"id="userlitab3" class="userlitab3class"><a href="#tab3" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
+                    <li role="presentation" id="userlitab3" class="userlitab3class"><a href="#tab3" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
+
                         <form>
                             <div class="table-responsive">
                                 <div class="dropdown table-custome-drop">
@@ -43,7 +202,7 @@ color: red;
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th style="display:none">srno</th>
+                                            <th style="display: none">srno</th>
                                             <th>Name
                                             </th>
                                             <th>Email
@@ -51,12 +210,12 @@ color: red;
                                             <th>Action
                                             </th>
                                         </tr>
-                                        
+
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th style="display:none">srno</th>
+                                            <th style="display: none">srno</th>
                                             <th>Name
                                             </th>
                                             <th>Email
@@ -65,7 +224,7 @@ color: red;
                                             </th>
                                         </tr>
                                     </tfoot>
-                                   
+
                                 </table>
                             </div>
                         </form>
@@ -74,7 +233,7 @@ color: red;
                         <div class="col-md-7">
                             <form>
                                 <div class="form-group">
-                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtsrno" placeholder="SrNo" data-label="lblFirstName">
+                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtsrno" placeholder="SrNo" style="display: none" data-label="lblFirstName">
                                     <label for="txtFirstName">Name <span>*</span></label>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -87,11 +246,11 @@ color: red;
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEmail">Email <span>*</span></label>
-                                    <input type="text" class="form-control textbox-control req" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
+                                    <input type="text" class="form-control textbox-control req email" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
-                                    <input type="text" class="form-control confirm req" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
+                                    <input type="text" class="form-control confirm req email" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtPassword">Password <span>*</span></label>
@@ -217,49 +376,78 @@ color: red;
                                             <label>User</label>
                                             <select id="drpUser" class="js-states col-sm-2" style="display: none; width: 100%"></select>
                                         </div>
-                                    </div>
+
+
+
+                                        <div id="grid-gallery" class="grid-gallery">
+                                            <section class="grid-wrap">
+                                                <ul class="grid">
+                                                    <li class="grid-sizer"></li>
+                                                    <div id="partial"></div>
+
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <h3 style="margin-top: 0; text-align: center;">Common</h3>
+                                                                <table class="table" style="margin-bottom: 0;">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Model</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Task</td>
+                                                                            <td>
+                                                                                <input type="checkbox" /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Notification</td>
+                                                                            <td>
+                                                                                <input type="checkbox" /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Calendar</td>
+                                                                            <td>
+                                                                                <input type="checkbox" /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Chat </td>
+                                                                            <td>
+                                                                                <input type="checkbox" /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Email Client </td>
+                                                                            <td>
+                                                                                <input type="checkbox" /></td>
+                                                                        </tr>
+                                                                                                                                              
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+
+                                                </ul>
+                                            </section>
+                                            <section class="slideshow">
+                                                <ul>
+                                                    <li></li>
+                                                </ul>
+                                            </section>
+                                        </div>
+                                         </div>
+                                    <div class="row">
+                                        <button id="btnSaveaccessright" type="submit" class="btn btn-success btnSaveaccessrightclass">
+                                            SAVE</button>
+                                        <button id="btnCancelaccessright" type="submit" class="btn btn-green btnSaveaccessrightclass">
+                                            CANCEL</button>
+                                   </div>
                                 </div>
                             </div>
-                            <table id="userAccessRights" class="display userAccessRightsclass" role="grid" style="width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Module</th>
-                                        <th>Screen</th>
-                                        <th>View
-                                                <input type="checkbox" /></th>
-                                        <th>Add
-                                                <input type="checkbox" /></th>
-                                        <th>Update
-                                                <input type="checkbox" /></th>
-                                        <th>Delete
-                                                <input type="checkbox" /></th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Module</th>
-                                        <th>Screen</th>
-                                        <th>View
-                                                <input type="checkbox" /></th>
-                                        <th>Add
-                                                <input type="checkbox" /></th>
-                                        <th>Update
-                                                <input type="checkbox" /></th>
-                                        <th>Delete
-                                                <input type="checkbox" /></th>
-                                    </tr>
-                                </tfoot>
-                               
-                            </table>
-                            <button id="btnSaveaccessright" type="submit" class="btn btn-success btnSaveaccessrightclass">
-                                SAVE</button>
-                            <button id="btnCancelaccessright" type="submit" class="btn btn-green btnSaveaccessrightclass">
-                                CANCEL</button>
                         </form>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -939,39 +1127,39 @@ color: red;
 
 
 @section Scripts{
-       
-   
+
+
 
     <script>
 
-    $(document).ready(function () {
-        
-     
-
-        //$('.textbox-control').on('blur', function () {
-        //    var $lbl = $('#' + $(this).data('label'));
-        //    $lbl.text($(this).val());
-        //});
-
-        //$('.dropdown-control').on('change', function () {
-        //    validateData($(this));
-        //});
-
-        //$('.checkbox-control').on('change', function () {
-        //    validateData($(this));
-        //});
-        //$('.textarea-control').on('blur', function () {
-        //    validateData($(this));
-        //});
+        $(document).ready(function () {
 
 
 
-       
-     
-    });
+            //$('.textbox-control').on('blur', function () {
+            //    var $lbl = $('#' + $(this).data('label'));
+            //    $lbl.text($(this).val());
+            //});
 
-</script>
+            //$('.dropdown-control').on('change', function () {
+            //    validateData($(this));
+            //});
 
-     <script src="~/Scripts/JS/Page/UserMaster.js"></script>
+            //$('.checkbox-control').on('change', function () {
+            //    validateData($(this));
+            //});
+            //$('.textarea-control').on('blur', function () {
+            //    validateData($(this));
+            //});
+
+
+
+
+
+        });
+
+    </script>
+
+    <script src="~/Scripts/JS/Page/UserMaster.js"></script>
     <script src="~/Scripts/JS/CommonValidations.js"></script>
 }
