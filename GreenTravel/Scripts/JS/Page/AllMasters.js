@@ -10,7 +10,7 @@
     $("#drpMasterTab3").change(function () {
         hide_Tooltip();
         PageLoad_FilledAll();
-        
+
         $('#btnSave').text('CREATE');
         $('#btnSave').attr("class", "btn btn-success btnSave");
         //$('#btnDelete').hide();
@@ -114,7 +114,7 @@
         //        i += 1;
         //    }
         //})
-        
+
 
 
         var UMultiSelect1 = getMultiselectValue($("#Multiselect1"));
@@ -527,7 +527,7 @@
                      $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
                      //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                      $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
-                     
+
                      setSelect2Value($('#drpActiveTab3'), response['AUserMasterData'][0]['UIsActive']);
 
                      setSelect2Value($('#Dropdown1Tab3'), response['AUserMasterData'][0]['Uxlink']);
@@ -580,7 +580,7 @@
     });
 
     $("table").delegate(".editor_Delte", "click", function () {
-        
+
     });
 
     function PageLoad_FilledAll() {
@@ -953,26 +953,32 @@
                         CheckFormValidations(response['AValidation'][0]['Field11'], $('#Dropdown6Tab3'));
                     }
 
-
                     if (response['AValidation'][0]['MultiSelect1'] != '' && response['AValidation'][0]['MultiSelect1'] != '--None--' && response['Aplaceholder'][0]['MultiSelect1'] != null) {
                         CheckFormValidations(response['AValidation'][0]['MultiSelect1'], $('#Multiselect1'));
                     }
                     if (response['AValidation'][0]['MultiSelect2'] != '' && response['AValidation'][0]['MultiSelect2'] != '--None--' && response['Aplaceholder'][0]['MultiSelect2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect2'], $('#Dropdown6Tab3'));
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect2'], $('#Multiselect2'));
                     }
                     if (response['AValidation'][0]['MultiSelect3'] != '' && response['AValidation'][0]['MultiSelect3'] != '--None--' && response['Aplaceholder'][0]['MultiSelect3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect3'], $('#MultiSelect3'));
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect3'], $('#Multiselect3'));
                     }
                     if (response['AValidation'][0]['MultiSelect4'] != '' && response['AValidation'][0]['MultiSelect4'] != '--None--' && response['Aplaceholder'][0]['MultiSelect4'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect4'], $('#MultiSelect4'));
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect4'], $('#Multiselect4'));
                     }
                     if (response['AValidation'][0]['MultiSelect5'] != '' && response['AValidation'][0]['MultiSelect5'] != '--None--' && response['Aplaceholder'][0]['MultiSelect5'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect5'], $('#MultiSelect5'));
+                        CheckFormValidations(response['AValidation'][0]['MultiSelect5'], $('#Multiselect5'));
                     }
 
+                    if (response['AValidation'][0]['Rating1'] != '' && response['AValidation'][0]['Rating1'] != '--None--' && response['Aplaceholder'][0]['Rating1'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Rating1'], $('#Rating1'));
+                    }
+                    if (response['AValidation'][0]['Rating2'] != '' && response['AValidation'][0]['Rating2'] != '--None--' && response['Aplaceholder'][0]['Rating2'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Rating2'], $('#Rating2'));
+                    }
+                    if (response['AValidation'][0]['Rating3'] != '' && response['AValidation'][0]['Rating3'] != '--None--' && response['Aplaceholder'][0]['Rating3'] != null) {
+                        CheckFormValidations(response['AValidation'][0]['Rating3'], $('#Rating3'));
+                    }
 
-
-                    
                     //$('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
                     //$('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
                     //$('#txtValidationCode4').val(response['AValidation'][0]['Field6']);

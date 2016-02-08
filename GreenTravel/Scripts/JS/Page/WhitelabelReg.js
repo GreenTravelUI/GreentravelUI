@@ -320,13 +320,13 @@
                      var chkCopyrightNotecheck = response['Whiteregjs'][0]['CopyrightNoteFlag'];
                      if (chkCopyrightNotecheck == "True") {
                       
-                         $("input[value='" + checkcopyright + "']").prop('checked', true);
-                       //  document.getElementById("chkCopyrightNote").checked = true;
+                         //$("input[value='" + checkcopyright + "']").prop('checked', true);
+                         document.getElementById("chkCopyrightNote").checked = true;
                      }
                      else {
                        
-                         $("input[value='" + checkcopyright + "']").prop('checked', false);
-                       //  document.getElementById("chkCopyrightNote").checked = false;
+                         //$("input[value='" + checkcopyright + "']").prop('checked', false);
+                         document.getElementById("chkCopyrightNote").checked = false;
                      }
                      
                      $('#txtCopyRights').val(response['Whiteregjs'][0]['CopyrightNote']);

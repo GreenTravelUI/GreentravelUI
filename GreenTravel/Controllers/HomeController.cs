@@ -36,7 +36,7 @@ namespace GreenTravel.Controllers
                 url = "https://agent.travelzunlimited.com/crm"
             };
 
-            Session["logo"] = "assets/images/logo-green.png";
+            Session["Logo"] = "assets/images/Logo-green.png";
             Session["backgroundImage"] = "/assets/images/login-bg.jpg";
             Session["Favicon"] = "assets/images/favicon.ico";
             DataSet ds = ds = _objDBLogin.GetLoginData(_FormValidationPara);
@@ -95,16 +95,16 @@ namespace GreenTravel.Controllers
 
 
 
-                    if (ds.Tables[0].Rows[0]["backgroundImage"] != null)
+                    if (ds.Tables[0].Rows[0]["BackgroundImg"] != null)
                     {
-                        if (ds.Tables[0].Rows[0]["backgroundImage"].ToString() != "" && ds.Tables[0].Rows[0]["backgroundImage"].ToString() != "--None--")
-                            Session["backgroundImage"] = ds.Tables[0].Rows[0]["backgroundImage"];
+                        if (ds.Tables[0].Rows[0]["BackgroundImg"].ToString() != "" && ds.Tables[0].Rows[0]["BackgroundImg"].ToString() != "--None--")
+                            Session["BackgroundImg"] = ds.Tables[0].Rows[0]["BackgroundImg"];
                     }
 
-                    if (ds.Tables[0].Rows[0]["logo"] != null)
+                    if (ds.Tables[0].Rows[0]["Logo"] != null)
                     {
-                        if (ds.Tables[0].Rows[0]["logo"].ToString() != "" && ds.Tables[0].Rows[0]["logo"].ToString() != "--None--")
-                            Session["logo"] = ds.Tables[0].Rows[0]["logo"];
+                        if (ds.Tables[0].Rows[0]["Logo"].ToString() != "" && ds.Tables[0].Rows[0]["Logo"].ToString() != "--None--")
+                            Session["Logo"] = ds.Tables[0].Rows[0]["Logo"];
                     }
 
                     if (ds.Tables[0].Rows[0]["LoginFrmCaption"] != null)
@@ -132,41 +132,41 @@ namespace GreenTravel.Controllers
             //return View();
         }
 
-        public string LoginUser(string Type, string Email, string url, string Pword)
+        public string LoginUser(FormValidationPara _FormValidationPara)
         {
-            var login_Data = _objDBLogin.GetUserData(Type, Email, url, Pword);
-            if (login_Data != null)
+            if (Session["Corporate"].ToString() != String.Empty)
             {
-                return "1";
+                _FormValidationPara.corporate = Session["Corporate"].ToString();
+            }
+            DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0]["NOS"].ToString() != "0")
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
             }
             else
             {
                 return "0";
-
             }
-            // List<Login> li = _objDBLogin.GetUserData(Type, Email, url);
-            //if (li.Count > 0)
-            //{
-            //}
+
 
         }
 
-        public ActionResult PageLoad(string Type, string Email, string url, string Pword)
+        public ActionResult PageLoad(FormValidationPara _FormValidationPara)
         {
-            FormValidationPara _FormValidationPara = new FormValidationPara()
-            {
-                type = Type,
-                Email = Email,
-                url = url,
-                Password = Pword
-            };
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables.Count > 0)
             {
                 if (ds.Tables[0] != null)
                 {
                     Session["Corporate"] = ds.Tables[0].Rows[0]["Corporate"];
-                    Session["logo"] = ds.Tables[0].Rows[0]["logo"];
+                    Session["Logo"] = ds.Tables[0].Rows[0]["Logo"];
                 }
             }
             var lst = JsonConvert.SerializeObject(ds.Tables[0], Formatting.None, new JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
