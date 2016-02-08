@@ -109,6 +109,7 @@
 
     $('.btnclearbasicclass').click(function (e) {
         $('input[type="text"]').val('');
+        $('input[type="password"]').val('');
         $('.chkCopyrightNotecs').removeAttr('checked');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -117,6 +118,10 @@
         $("#tab1").removeClass("active");
         $("#CreateMaster").addClass("active");
         $("#Search").removeClass("active");
+        $('#btnupdatebasic').hide();
+        $('#btndeltebasic').hide();
+        $('#btnsavebasic').show();
+
     });
 
     $('#btnQuitbasic').click(function (e) {
@@ -127,6 +132,7 @@
         });
         $("#tab1").addClass("active");
         $("#tab2").removeClass("active");
+        $("#CreateCorporate").removeClass("active");
 
     });
 
@@ -313,11 +319,14 @@
                      }
                      var chkCopyrightNotecheck = response['Whiteregjs'][0]['CopyrightNoteFlag'];
                      if (chkCopyrightNotecheck == "True") {
+                                              
                          document.getElementById("chkCopyrightNote").checked = true;
                      }
                      else {
-                         document.getElementById("chkCopyrightNote").checked = false;
+                                              
+                        document.getElementById("chkCopyrightNote").checked = false;
                      }
+                     
                      $('#txtCopyRights').val(response['Whiteregjs'][0]['CopyrightNote']);
                      $('#drpRefferenceCorporateCompany').find('option[value="' + response['Whiteregjs'][0]['RefCorpCompany'] + '"]').attr('selected', true).change();
                      $('#txtOtherRefference1').val(response['Whiteregjs'][0]['OtherReference1']);

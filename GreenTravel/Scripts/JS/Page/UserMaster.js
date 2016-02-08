@@ -55,13 +55,14 @@
         //$('.tab-pane').removeClass('active');
         //$('' + $(this).parent().attr('href')).addClass('active');
 
-       
         BindGrid();
         
         $("#tab1").addClass("active");
         $("#tab2").removeClass("active");
         $("#userlitab1").addClass("active");
         $("#userlitab2").removeClass("active");
+        $("#tab3").removeClass("active");
+        $("#userlitab3").removeClass("active");
         //var i=1;
         //if(i==1)
         //    {
@@ -100,7 +101,7 @@
         else {
             var srno = '0';
         }
-
+      
         var Corporate = '0';
 
         var Unit = '0';
@@ -143,13 +144,16 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       alert("Record Save Sucessfully!");
+                       swal('Good job!', 'Record Save Sucessfully!', 'success')
                        $("#tab2").addClass("active");
                        $("#tab1").removeClass("active");
                        $("#userlitab2").addClass("active");
                        $("#userlitab1").removeClass("active");
                        $('input[type="text"]').val('');
                        $('input[type="password"]').val('');
+                       $('#btnSaveUser').show();
+                       $('#btnUpdateUser').hide();
+                       $('#btnCancelUser').hide();
 
                    }
                }
@@ -234,12 +238,9 @@
              },
              dataType: 'json',
              success: function (response) {
-                 console.log(response);
-                 console.log(response['UserMasterresjs'].length)
-                
-
+               
                  if (response['UserMasterresjs'].length > 0) {
-
+                   
                      $('#txtsrno').val(response['UserMasterresjs'][0]['srno']);
                      $('#txtFirstName').val(response['UserMasterresjs'][0]['FirstName']);
                      $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
@@ -290,6 +291,7 @@
         $.ajax({
             url: "/User/BindDropdownUnit",
             type: "POST",
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
@@ -326,6 +328,7 @@
         $.ajax({
             url: "/User/BindDropdownLocation",
             type: "POST",
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
@@ -362,6 +365,7 @@
         $.ajax({
             url: "/User/BindDropdownUserrole",
             type: "POST",
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
@@ -393,7 +397,7 @@
     }
 
     function BindAccessgrid() {
-        
+        alert("h");
         var tablename = 'dbo._UserRoleMaster';
         var Corporate = '2';
         var Segment = '';
@@ -411,12 +415,13 @@
         //var Branch = $('#drpLocation option:selected').val();
         //var Userid = $('#drpUser option:selected').val();
       
-        $('.userAccessRightsclass').dataTable({
+        $('.accessrightul').dataTable({
             "ServerSide": true,
             destroy: true,
             "ajax": {
                 "url": "/User/BindAccessgrid",
                 "Type": "GET",
+                
                 "dataType": 'json',
                 "contentType": "application/json; charset=utf-8",
                 "dataSrc": function (json) {

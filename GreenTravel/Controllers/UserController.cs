@@ -26,20 +26,20 @@ namespace GreenTravel.Controllers
             //UMFRM.FormTabCode = "1";
             //UM.StoreAllData = _obj_db_UM.RetrieveAllUserData(UMFRM);
             return View();
-         //   return View();
+            //   return View();
         }
 
-       
+
         public ActionResult AccessRights()
         {
             return View();
         }
         [HttpPost]
-      
+
         public ActionResult ShowAllMobileDetails(UserMaster_Formpara UMFRM)
         {
             UserMaster UM = new UserMaster();
-            UMFRM.type="Grid_Data";
+            UMFRM.type = "Grid_Data";
             UMFRM.corporate = "1";
             UMFRM.FormType = "1";
             UMFRM.FormTabCode = "1";
@@ -64,7 +64,7 @@ namespace GreenTravel.Controllers
                             srno = @dr["srno"].ToString(),
                             Email = @dr["Email"].ToString(),
                             Name = @dr["Name"].ToString(),
-                           
+
                         });
                     }
                 }
@@ -87,8 +87,8 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
-               return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-               // return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                // return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)
@@ -123,7 +123,7 @@ namespace GreenTravel.Controllers
                             BranchBy = @dr["BranchBy"].ToString(),
                             CreatedBy = @dr["CreatedBy"].ToString(),
                             UnitCorpBy = @dr["UnitCorpBy"].ToString(),
-                           
+
                         });
                     }
                 }
@@ -167,7 +167,7 @@ namespace GreenTravel.Controllers
                 //}
                 //var Locationdrp = Item;
 
-                return Json(new { UNITDRPJS = Unitdrp}, JsonRequestBehavior.AllowGet);
+                return Json(new { UNITDRPJS = Unitdrp }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -181,7 +181,7 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _obj_db_UM.BindDropdownLocation(CFP);
                 List<CommanDropdown> Industry = new List<CommanDropdown>();
-              
+
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -193,7 +193,7 @@ namespace GreenTravel.Controllers
                 }
                 var Unitdrp = Industry;
 
-               
+
                 return Json(new { UNITDRPJS = Unitdrp }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -252,11 +252,9 @@ namespace GreenTravel.Controllers
                     {
                         items.Add(new UserMaster_AccessRight
                         {
-                          //  Module = @dr["Module"].ToString(),
-                         //   Screen = @dr["Screen"].ToString(),
-                          //  srno = @dr["srno"].ToString(),
-                           
-
+                            //  Module = @dr["Module"].ToString(),
+                            //   Screen = @dr["Screen"].ToString(),
+                            //  srno = @dr["srno"].ToString(),
                         });
                     }
                 }
@@ -268,6 +266,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-        
+
     }
 }

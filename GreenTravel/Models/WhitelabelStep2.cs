@@ -24,20 +24,20 @@ namespace GreenTravel.Models
         public List<GridColumn> GridColumn { get; set; }
         //public List<GridFeature> GridFeature { get; set; }
 
-        public object srno { get; set; }
-        public object FeaturesCategory { get; set; }
-        public object FeatureGroup { get; set; }
-        public object Feature { get; set; }
-        public object Attribute1 { get; set; }
-        public object Attribute2 { get; set; }
-        public object Attribute3 { get; set; }
-        public object Attribute4 { get; set; }
-        public object Attribute5 { get; set; }
-        public object Attribute6 { get; set; }
-        public object Attribute7 { get; set; }
-        public object Attribute8 { get; set; }
-        public object Attribute9 { get; set; }
-        public object Attribute10 { get; set; }
+        public string srno { get; set; }
+        public string FeaturesCategory { get; set; }
+        public string FeatureGroup { get; set; }
+        public string Feature { get; set; }
+        public string Attribute1 { get; set; }
+        public string Attribute2 { get; set; }
+        public string Attribute3 { get; set; }
+        public string Attribute4 { get; set; }
+        public string Attribute5 { get; set; }
+        public string Attribute6 { get; set; }
+        public string Attribute7 { get; set; }
+        public string Attribute8 { get; set; }
+        public string Attribute9 { get; set; }
+        public string Attribute10 { get; set; }
         public string CreatedBy { get; set; }
         public string EntryDatetime { get; set; }
         public string EditedBy { get; set; }
@@ -46,6 +46,15 @@ namespace GreenTravel.Models
         public string UnitCorpBy { get; set; }
         public string TerminalBy { get; set; }
         public string BranchBy { get; set; }
+        public object groupAry { get; set; }
+        public object FeatureAry { get; set; }
+
+
+        public string tablename { get; set; }
+
+      //  public string Formcode { get; set; }
+
+        public string Formtabcode { get; set; }
     }
 
     public partial class Grid
