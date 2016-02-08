@@ -91,6 +91,16 @@ function controlInputValidations(control) {
             }
         }
     }
+    if (control.hasClass('url')) {
+        if (control.val().trim().length > 0) {
+            //if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+            if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
+                control.after('<p class="red-error">Invalid Url Format.</p>');
+                control.addClass('red-input');
+                return false;
+            }
+        }
+    }
     if (control.hasClass('amt')) {
         if (control.val().trim().length > 0) {
             if (!control.val().match(/^(?:0|[1-9]\d*)(?:\.(?!.*000)\d+)?$/)) {
