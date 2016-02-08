@@ -4,7 +4,9 @@
     // FillDropDown_Category();  // To fill the dropown- Category
 
     $("#drpCorporateTab").change(function () {
-        FillDropdown('drpMasterTab3', 'ConditionalDropdown')
+        hide_div();
+        FillDropdown('drpMasterTab3', 'ConditionalDropdown');
+        setSelect2Value($('#drpMasterTab3'), '0');
     });
 
     $("#drpMasterTab3").change(function () {
@@ -166,7 +168,6 @@
     });
 
     /*Tab Master Records*/
-
     function FillAllData() {
         FillDropdown('Dropdown1Tab3', 'xlink');
         FillDropdown('Dropdown2Tab3', 'xcross');
