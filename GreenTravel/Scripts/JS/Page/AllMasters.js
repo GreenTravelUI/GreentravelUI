@@ -954,6 +954,23 @@
                     }
 
 
+                    
+                    if (response['AValidation'][0]['Rating1'] != '' && response['AValidation'][0]['Rating1'] != '--None--' && response['Aplaceholder'][0]['Rating1'] != null) {
+                        
+                        CheckFormValidations(response['AValidation'][0]['Rating1'], $('#Rating1'));
+                    }
+                    if (response['AValidation'][0]['Rating2'] != '' && response['AValidation'][0]['Rating2'] != '--None--' && response['Aplaceholder'][0]['Rating2'] != null) {
+                        
+                        CheckFormValidations(response['AValidation'][0]['Rating2'], $('#Rating2'));
+                    }
+                    if (response['AValidation'][0]['Rating3'] != '' && response['AValidation'][0]['Rating3'] != '--None--' && response['Aplaceholder'][0]['Rating3'] != null) {
+                       
+                        CheckFormValidations(response['AValidation'][0]['Rating3'], $('#Rating3'));
+                    }
+
+
+
+
                     if (response['AValidation'][0]['MultiSelect1'] != '' && response['AValidation'][0]['MultiSelect1'] != '--None--' && response['Aplaceholder'][0]['MultiSelect1'] != null) {
                         CheckFormValidations(response['AValidation'][0]['MultiSelect1'], $('#Multiselect1'));
                     }
