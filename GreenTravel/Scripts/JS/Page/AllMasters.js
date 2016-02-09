@@ -1,12 +1,21 @@
 ﻿$(document).ready(function () {
+    FillDropDown_Category();
     getdata();
     hide_div();
+
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
         if ($('#drpMasterTab3 option:first').is(':selected')) {
             hide_div();
         }
     });
+    $("#drpSegmenttab3").change(function () {
+        FillDropdown('drpMasterTab3', 'ConditionalDropdown')
+
+    });
+
+
+
 
     $("#drpMasterTab3").change(function () {
         clearValidations($(this).parent());
@@ -121,7 +130,7 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                      
+
                        swal('', response['success'], response['Event']);
                    }
                }
@@ -294,7 +303,7 @@
         var screen = '';
         var FormCode = '';
         var TabCode = '';
-        var Corporate = '';
+        var Corporate = '0';
         var unit = '';
         var Branch = '';
         var userid = '';
@@ -328,10 +337,18 @@
                         var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
                         $('#drpCorporateTab').append(opt);
                     }
-                    // $("#" + "drpCorporateTab" + " option:first").attr('selected', 'selected').change();
+
                     DropdownSeletedValue(drpCorporateTab);
                 }
+                if (data['Master'].length > 0) {
 
+                    for (var i = 0; i < data['Master'].length; i++) {
+                        var opt = new Option(data['Master'][i]['Text'], data['Master'][i]['Value']);
+                        $('#drpMasterTab3').append(opt);
+                    }
+
+                    DropdownSeletedValue(drpCorporateTab);
+                }
 
 
 

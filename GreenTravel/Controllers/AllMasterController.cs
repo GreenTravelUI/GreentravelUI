@@ -30,6 +30,7 @@ namespace GreenTravel.Controllers
                 List<CommanDropdown> Segment = new List<CommanDropdown>();
                 List<CommanDropdown> Corporate = new List<CommanDropdown>();
                 List<CommanDropdown> RATING = new List<CommanDropdown>();
+                List<CommanDropdown> Master = new List<CommanDropdown>();
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -40,7 +41,7 @@ namespace GreenTravel.Controllers
                 }
                 if (ds.Tables[1].Rows.Count > 0)
                 {
-                    ViewBag.Corporate = ds.Tables[0];
+                    ViewBag.Corporate = ds.Tables[1];
                     foreach (System.Data.DataRow dr in ViewBag.Corporate.Rows)
                     {
                         Corporate.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
@@ -48,18 +49,25 @@ namespace GreenTravel.Controllers
                 }
                 if (ds.Tables[2].Rows.Count > 0)
                 {
-                    ViewBag.RATING = ds.Tables[0];
+                    ViewBag.RATING = ds.Tables[2];
                     foreach (System.Data.DataRow dr in ViewBag.RATING.Rows)
                     {
                         RATING.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
                     }
                 }
-
+                if (ds.Tables[3].Rows.Count > 0)
+                {
+                    ViewBag.Master = ds.Tables[3];
+                    foreach (System.Data.DataRow dr in ViewBag.Master.Rows)
+                    {
+                        Master.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
 
 
                 var result = Segment;
                 // return Json(result, JsonRequestBehavior.AllowGet);
-                return Json(new { Segment = Segment, Corporate = Corporate, RATING = RATING }, JsonRequestBehavior.AllowGet);
+                return Json(new { Segment = Segment, Corporate = Corporate, RATING = RATING, Master = Master }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -365,9 +373,9 @@ namespace GreenTravel.Controllers
                 if (result != null)
                 {
                     ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
-                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save")
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
                     { ViewBag.Event = "success"; }
-                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Update" || result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    else if ( result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
                     { ViewBag.Event = "error"; }
 
                 }
