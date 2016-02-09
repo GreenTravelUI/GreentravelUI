@@ -80,7 +80,7 @@ namespace GreenTravel.Controllers
                 {
                     if (ds.Tables.Count > 0)
                     {
-                       // Mul = null;
+                        // Mul = null;
                         if (ds.Tables[0].Rows.Count > 0)
                         {
                             Mul.Clear();
@@ -94,7 +94,7 @@ namespace GreenTravel.Controllers
                         }
                     }
                 }
-              
+
                 var result = Mul;
                 return Json(new { AMul = result }, JsonRequestBehavior.AllowGet); ;
             }
@@ -359,12 +359,21 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                int result = _objCM.insert_data_UserMaster(CUH);
-                if (result == 1)
+                ViewBag.Message = "";
+                ViewBag.Event = "";
+                DataSet result = _objCM.insert_data_UserMaster(CUH);
+                if (result != null)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save")
+                    { ViewBag.Event = "success"; }
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Update" || result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
+
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                var result1 = ViewBag.Message;
+
+                return Json(new { success = result1, Event = ViewBag.Event }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)

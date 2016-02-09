@@ -104,7 +104,7 @@
         var UMultiSelect3 = getMultiselectValue($("#Multiselect3"));
         var UMultiSelect4 = getMultiselectValue($("#Multiselect4"));
         var UMultiSelect5 = getMultiselectValue($("#Multiselect5"));
-        alert(USrno);
+
         $.ajax(
            {
                type: "POST",
@@ -121,10 +121,8 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       //  $('#btnCancel').trigger('click');
-                       swal('Good job!', 'Record Save Sucessfully!', 'success');
-
-                       // getdata();
+                      
+                       swal('', response['success'], response['Event']);
                    }
                }
            });
@@ -165,7 +163,7 @@
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
     });
-    
+
     /*Tab Master Records*/
 
     function FillAllData() {

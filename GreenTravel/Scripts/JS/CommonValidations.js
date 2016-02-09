@@ -14,6 +14,9 @@ function SetValidation(valCode, control) {
         control.attr('data-min', values[1].toString());
     } else if (values[0].toLowerCase() == 'reg') {
         control.attr('data-reg', values[1].toString());
+    } else if (values[0].toLowerCase() == 'req') {
+        var lblControl = control.parent().find('label');
+        lblControl.html(lblControl.text() + ' <span>*</span>');
     }
 }
 
@@ -60,6 +63,8 @@ function controlInputValidations(control) {
             }
             control.after('<p class="red-error">' + msg + '</p>');
             control.addClass('red-input');
+
+
             fillSummeryBox(control);
             return false;
         }
