@@ -696,8 +696,8 @@
 
     function getdata() {
         var tablename = 'dbo.ADMINMASTER';
-        var Corporate = '2';
-        var Segment = '1';
+        var Corporate = '0';
+        var Segment = '0';
         var PageNo = '1';
         var type = 'Grid';
         var Formcode = '0';

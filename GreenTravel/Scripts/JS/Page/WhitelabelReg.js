@@ -130,6 +130,7 @@
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+        $("#Search").addClass("active");
         $("#tab1").addClass("active");
         $("#tab2").removeClass("active");
         $("#CreateCorporate").removeClass("active");
@@ -265,6 +266,7 @@
         Dropdown_Bind_Tab1();
         $("#SearchMaster").removeClass("active");
         $("#CreateMaster").addClass("active");
+       
         $("#tab1").removeClass("active");
         $("#tab2").addClass("active");
         $('#btnupdatebasic').show();

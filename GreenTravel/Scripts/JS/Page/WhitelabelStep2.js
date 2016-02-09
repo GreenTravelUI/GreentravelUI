@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $('#btnSave').hide();
+
     $('#btnUpdate').hide();
 
     //  Bind Drop-Down 
@@ -66,7 +67,7 @@
         var Language = '';
         var Type = 'Conditional';
         $('#btnSave').show();
-        
+
 
         $("#partial").load('/WhitelabelStep2/_DisplayGridData?id=' + field1);
         getdata();
@@ -171,12 +172,14 @@
             $(this).val($(this).find('option:first').val()).change();
         });
     });
+
     $("btnQuit").on('click', function (e) {
 
         window.location.href = '/WhitelabelStep1/Index';
     });
 
 });
+
 // Function ( Edit Mode )
 function getdata() {
     var tablename = 'dbo._White_feature_mapping';

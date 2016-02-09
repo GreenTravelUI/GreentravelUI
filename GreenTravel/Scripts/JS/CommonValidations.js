@@ -14,6 +14,9 @@ function SetValidation(valCode, control) {
         control.attr('data-min', values[1].toString());
     } else if (values[0].toLowerCase() == 'reg') {
         control.attr('data-reg', values[1].toString());
+    } else if (values[0].toLowerCase() == 'req') {
+        var lblControl = control.parent().find('label');
+        lblControl.html(lblControl.text() + ' <span>*</span>');
     }
 }
 
@@ -60,6 +63,8 @@ function controlInputValidations(control) {
             }
             control.after('<p class="red-error">' + msg + '</p>');
             control.addClass('red-input');
+
+
             fillSummeryBox(control);
             return false;
         }
@@ -93,6 +98,13 @@ function controlInputValidations(control) {
             control.after('<p class="red-error">Only AlphaNumeric value is allowed.</p>');
             control.addClass('red-input');
             fillSummeryBox(control)
+            return false;
+        }
+    }
+    if (control.hasClass('passwordcrite')) {
+        if (!control.val().match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*#?&])[a-zA-Z$@$!%*#?&]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/)) {
+            control.after('<p class="red-error">Password Should contain Mininum Requierment</p>');
+            control.addClass('red-input');
             return false;
         }
     }
