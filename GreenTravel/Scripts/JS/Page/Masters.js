@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     /*Tab 1*/
-
+    $('#type').val('Save');
     var deletesrno;
     getdata();
     $("#drpCorporate").change(function () {
@@ -50,6 +50,9 @@
             alert('Invalid data found!');
             return false;
         }
+
+
+        var Type = $('#type').val();
         var xmaster = $('#txtMasterCode').val();
         var xname = $('#txtMasterName').val();
         var drpCaption = $('#txtdrpCaption').val();
@@ -72,11 +75,33 @@
                type: "POST",
                url: "/Masters/Insert_Data",
                data: {
-                   xmaster: xmaster, xname: xname, drpCaption: drpCaption, ENTRYCONTROL: ENTRYCONTROL, SEGMENT: SEGMENT, Corporate: Corporate, xlink: xlink, xcross: xcross, xcross1: xcross1, xcross2: xcross2, xcross3: xcross3, xcross4: xcross4,
+                   Type: Type, xmaster: xmaster, xname: xname, drpCaption: drpCaption, ENTRYCONTROL: ENTRYCONTROL, SEGMENT: SEGMENT, Corporate: Corporate, xlink: xlink, xcross: xcross, xcross1: xcross1, xcross2: xcross2, xcross3: xcross3, xcross4: xcross4,
                    MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
                },
                dataType: 'json',
-               success: function (response) {
+               success: function (responsedata) {
+                   swal('', responsedata['success'], responsedata['Event']);
+                   if (responsedata['Event'] != 'Duplicate') {
+                       clearValidations($(this).parent());
+                       e.preventDefault();
+                       $('#btnsUpdate').hide();
+                       $('#btnDelete').hide();
+                       $('#btnSaveMastersetup').show();
+                       $('#txtMasterCode').attr("disabled", false)
+                       $('input[type="text"]').val('');
+                       $('.Dropdown').each(function () {
+                           $(this).val($(this).find('option:first').val()).change();
+                       });
+                       $('.drpdown').each(function () {
+                           $(this).val($(this).find('option:first').val()).change();
+                       });
+                       $('#type').val('Save');
+                   }
+                   //else {
+                   //   // $('#type').val('Save');
+                   //   // $('#txtMasterCode').attr("disabled", false);
+                   //}
+
                    //if (response != null && response.success) {
                    //    alert("Record Save Sucessfully!");
                    //} 
@@ -153,6 +178,7 @@
                },
                dataType: 'json',
                success: function (response) {
+
 
                }
            });
@@ -375,7 +401,7 @@
                success: function (response) {
                    if (response != null && response.success) {
                        getdata();
-                       swal('Good job!', 'Record Save Sucessfully!', 'success');
+                       //swal('Good job!', 'Record Save Sucessfully!', 'success');
                    }
                }
            });
@@ -383,7 +409,7 @@
         //$('#btnsUpdate').hide();
         //$('#btnDelete').hide();
         //$('#btnSaveMastersetup').show();
-        $('#txtMasterCode').attr("disabled", false)
+
         // $('input[type="text"]').val('');
         //$('.Dropdown').each(function () {
         //    $(this).val($(this).find('option:first').val()).change();
@@ -397,6 +423,8 @@
 
     $('#btnQuitform').click(function (e) {
         e.preventDefault();
+
+        clearValidations($(this).parent());
         $("#SearchMaster").addClass("active");
         $("#CreateMaster").removeClass("active");
         $("#tab2").removeClass("active");
@@ -409,9 +437,11 @@
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+        $('#type').val('Save');
     });
 
     $('#btnCancelMastersetup').click(function (e) {
+        clearValidations($(this).parent());
         e.preventDefault();
         $('#btnsUpdate').hide();
         $('#btnDelete').hide();
@@ -424,13 +454,14 @@
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+        $('#type').val('Save');
     });
 
 
 
 
     $("table").delegate(".editor_edit", "click", function () {
-        //  console.log($(this).parent().parent().children(':eq(1)').text());
+        clearValidations($('#tab2').find('form'));
         $("#SearchMaster").removeClass("active");
         $("#CreateMaster").addClass("active");
         $("#tab1").removeClass("active");
@@ -460,6 +491,9 @@
                  //Master
                  if (response['AMaster'].length > 0) {
                      $('#txtMasterCode').attr("disabled", true)
+
+
+                     $('#type').val('Update');
                      $('#txtMasterCode').val(response['AMaster'][0]['xmaster']);
                      $('#txtMasterName').val(response['AMaster'][0]['xname']);
                      $('#txtdrpCaption').val(response['AMaster'][0]['drpCaption']);
@@ -646,6 +680,7 @@
                  }
 
              }
+
          });
 
 
@@ -702,7 +737,7 @@
         var type = 'Grid';
         var Formcode = '0';
         var Formtabcode = '0';
-        var table = $('#example1').dataTable({
+        $('#example1').dataTable({
             "ServerSide": true,
             "destroy": true,
             "ajax": {
@@ -734,31 +769,9 @@
                     className: "center",
                     defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
                 }
-            ],
-            'dom': 'Bfrtip',
-            'buttons': [
-                {
-                    extend: 'pdfHtml5',
-                    customize: function (doc) {
-                        doc.content.splice(1, 0, {
-                            margin: [0, 0, 0, 12],
-                            alignment: 'center'
-                        });
-                    }
-                }
+
+
             ]
         });
-        var tableTools = new $.fn.dataTable.TableTools(table, {
-            'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
-            "aButtons": [
-                {
-                    "sExtends": "xls",
-                    "sFileName": "Masters" + new Date() + ".xls",
-                    "aButtons": ["xls"],
-                    "bFooter": false
-                }
-            ]
-        });
-        $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
     }
 });
