@@ -1,8 +1,7 @@
 ﻿$(document).ready(function () {
-    
-    BindGrid();
-       
 
+    BindGrid();
+    
     function BindGrid() {
         
         var tablename = 'dbo._User_Details_Master';
@@ -54,8 +53,6 @@
         //$(this).parent().addClass('active');
         //$('.tab-pane').removeClass('active');
         //$('' + $(this).parent().attr('href')).addClass('active');
-
-        BindGrid();
         
         $("#tab1").addClass("active");
         $("#tab2").removeClass("active");
@@ -63,14 +60,11 @@
         $("#userlitab2").removeClass("active");
         $("#tab3").removeClass("active");
         $("#userlitab3").removeClass("active");
-        //var i=1;
-        //if(i==1)
-        //    {
-        //    $(this).children().trigger("click");
-        //    i = 2;
-        //    exit();
-        //}
+       
+        BindGrid();
+        
     });
+   
     $('.Usertab2').click(function (e) {
 
         $("#userlitab2").addClass("active");
@@ -83,6 +77,9 @@
     $('.btnclearuser').click(function (e) {
         $('input[type="text"]').val('');
         $('input[type="password"]').val('');
+        $('#btnSaveUser').show();
+        $('#btnUpdateUser').hide();
+        $('#btnCancelUser').hide();
 
     });
 
@@ -261,10 +258,15 @@
          });
     });
 
-    $('.Quituserbtn').click(function (e) {
+    $('.quituserbtn').click(function (e) {
         
-        $(".usertab1gridclass")[0].click();
-        
+        $(".usertab1gridclass").click();
+        $("#tab1").addClass("active");
+        $("#tab2").removeClass("active");
+        $("#userlitab1").addClass("active");
+        $("#userlitab2").removeClass("active");
+        $("#tab3").removeClass("active");
+        $("#userlitab3").removeClass("active");
       
     });
 
