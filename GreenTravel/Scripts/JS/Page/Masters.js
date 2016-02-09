@@ -467,8 +467,8 @@
                      setSelect2Value($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
                      setSelect2Value($('#drpCorporate'), response['AMaster'][0]['Corporate']);
                      bind_dropdown();
-                    // $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
-                    // $('#drpCorporate').find('option[value="' + response['AMaster'][0][''] + '"]').attr('selected', true).change();
+                     // $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
+                     // $('#drpCorporate').find('option[value="' + response['AMaster'][0][''] + '"]').attr('selected', true).change();
                      $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
                      setSelect2Value($('#drpMastersetup2'), response['AMaster'][0]['xcross']);
                      setSelect2Value($('#drpMastersetup3'), response['AMaster'][0]['xcross1']);
@@ -702,7 +702,7 @@
         var type = 'Grid';
         var Formcode = '0';
         var Formtabcode = '0';
-        $('#example1').dataTable({
+        var table = $('#example1').dataTable({
             "ServerSide": true,
             "destroy": true,
             "ajax": {
@@ -734,9 +734,30 @@
                     className: "center",
                     defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
                 }
-
-
+            ],
+            'dom': 'Bfrtip',
+            'buttons': [
+                {
+                    extend: 'pdfHtml5',
+                    customize: function (doc) {
+                        doc.content.splice(1, 0, {
+                            margin: [0, 0, 0, 12],
+                            alignment: 'center'
+                        });
+                    }
+                }
             ]
         });
+        var tableTools = new $.fn.dataTable.TableTools(table, {
+            'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
+            "aButtons": [
+                {
+                    "sExtends": "collection",
+                    "sButtonText": "Export",
+                    "aButtons": ["xls", "pdf"]
+                }
+            ]
+        });
+        $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
     }
 });

@@ -117,8 +117,8 @@ function controlInputValidations(control) {
     }
     if (control.hasClass('url')) {
         if (control.val().trim().length > 0) {
-            //if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-            if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
+            if (!control.val().match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
+            //if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
                 control.after('<p class="red-error">Invalid Url Format.</p>');
                 control.addClass('red-input');
                 fillSummeryBox(control)
@@ -147,18 +147,6 @@ function controlInputValidations(control) {
             return false;
         }
     }
-
-    //if (control.hasClass('time')) {
-    //    control.removeClass('red-input');
-    //    control.parent().parent().find('p.red-error').remove();
-    //    if (control.val().trim().length > 0) {
-    //        if (!control.val().match(/^([0-1][0-9])\:[0-5][0-9]\s*[AP]M$/)) {
-    //            control.parent().after('<p class="red-error">Invalid Time Format.</p>');
-    //            control.addClass('red-input');
-    //            return false;
-    //        }
-    //    }
-    //}
 
     if (control.hasClass('reg')) {
         var str = control.data('reg');

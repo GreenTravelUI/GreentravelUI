@@ -3,6 +3,7 @@
     ViewBag.PageTitle = "Configure Master";
     
 }
+<link href="~/assets/plugins/datatables/css/dataTables.tableTools.css" rel="stylesheet" />
 <style>
     .field-name {
         float: left;
@@ -18,6 +19,7 @@
         padding-right: 15px;
     }
 </style>
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -1463,9 +1465,11 @@
     </div>
 </div>
 
-
 @section scripts{
+
+    <script src="~/assets/plugins/datatables/js/dataTables.tableTools.js"></script>
     <script src="~/Scripts/JS/Page/Masters.js"></script>
+    
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
     <script>
         $(document).ready(function () {
@@ -1490,26 +1494,26 @@
 
                 $('.disclose').on('click', function () {
                     $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
-                })
+                });
 
                 $('#serialize').click(function () {
                     serialized = $('ol.sortable').nestedSortable('serialize');
                     $('#serializeOutput').text(serialized + '\n\n');
-                })
+                });
 
                 $('#toHierarchy').click(function (e) {
                     hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
                     hiered = dump(hiered);
                     (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
                     $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
-                })
+                });
 
                 $('#toArray').click(function (e) {
                     arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
                     arraied = dump(arraied);
                     (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
                     $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
-                })
+                });
             }
         });
     </script>
