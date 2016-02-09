@@ -74,6 +74,13 @@ function controlInputValidations(control) {
             return false;
         }
     }
+    if (control.hasClass('passwordcrite')) {
+        if (!control.val().match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*#?&])[a-zA-Z$@$!%*#?&]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/)) {
+            control.after('<p class="red-error">Password Should contain Mininum Requierment</p>');
+            control.addClass('red-input');
+            return false;
+        }
+    }
     if (control.hasClass('num')) {
         if (!control.val().match(/^([0-9]*)$/)) {
             control.after('<p class="red-error">Only Numeric value is allowed.</p>');
