@@ -506,7 +506,7 @@ namespace GreenTravel.App_DbService
 
         }
 
-        public int insert_data_UserMaster(CommanUserMaster CUH)
+        public DataSet insert_data_UserMaster(CommanUserMaster CUH)
         {
             try
             {
@@ -697,8 +697,17 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@BranchBy", CUH.UBranchBy);
                 _cmd.Parameters.AddWithValue("@UserId", CUH.UUserId);
 
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                // int i = _cmd.ExecuteNonQuery();
+                // return i;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+
+
+
             }
             catch
             {
