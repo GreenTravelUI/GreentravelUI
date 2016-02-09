@@ -752,9 +752,10 @@
             'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
             "aButtons": [
                 {
-                    "sExtends": "collection",
-                    "sButtonText": "Export",
-                    "aButtons": ["xls", "pdf"]
+                    "sExtends": "xls",
+                    "sFileName": "Masters" + new Date() + ".xls",
+                    "aButtons": ["xls"],
+                    "bFooter": false
                 }
             ]
         });
