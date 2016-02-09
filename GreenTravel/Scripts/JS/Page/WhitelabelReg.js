@@ -595,10 +595,8 @@
             success: function (response) {
                 if (response != null && response.success) {
                     swal('Good job!', 'Record Save Sucessfully', 'success')
-                    $("#tab1").addClass("active");
-                    $("#tab5").removeClass("active");
-                    $("#tabuserpreferance").removeClass("active");
-                    $("#Search").addClass("active");
+                    $("#btnUpdateuserpref").show();
+                    $("#btnSaveuserpref").hide();
                 }
             }
         });
