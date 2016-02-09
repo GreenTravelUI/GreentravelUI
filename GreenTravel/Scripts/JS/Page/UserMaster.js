@@ -397,7 +397,7 @@
     }
 
     function BindAccessgrid() {
-        
+        alert("h");
         var tablename = 'dbo._UserRoleMaster';
         var Corporate = '2';
         var Segment = '';
@@ -415,7 +415,7 @@
         //var Branch = $('#drpLocation option:selected').val();
         //var Userid = $('#drpUser option:selected').val();
       
-        $('.userAccessRightsclass').dataTable({
+        $('.accessrightul').dataTable({
             "ServerSide": true,
             destroy: true,
             "ajax": {
