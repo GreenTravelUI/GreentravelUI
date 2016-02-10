@@ -303,13 +303,13 @@
                      $('#txtConfirmPassword').val(response['Whiteregjs'][0]['Password']);
                      $('#txtOfficialEmail').val(response['Whiteregjs'][0]['OfficialEmail']);
                      $('#txtOfficialPhone').val(response['Whiteregjs'][0]['OfficialPhone']);
-                     alert(response['Whiteregjs'][0]['ApplicationTheme']);
+                     //alert(response['Whiteregjs'][0]['ApplicationTheme']);
                      $('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
                      $('#txtApplicationURL').val(response['Whiteregjs'][0]['ApplicationUrl']);
                      $('#drpBaseCurrency').find('option[value="' + response['Whiteregjs'][0]['BaseCurrency'] + '"]').attr('selected', true).change();
                      $('#drpBaseLanguage').find('option[value="' + response['Whiteregjs'][0]['BaseLanguage'] + '"]').attr('selected', true).change();
                      $('#txtLogo').val(response['Whiteregjs'][0]['Logo']);
-                     alert(response['Whiteregjs'][0]['WebTheme']);
+                     //alert(response['Whiteregjs'][0]['WebTheme']);
                      $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
                      $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
                      // $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();

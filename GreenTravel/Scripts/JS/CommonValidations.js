@@ -64,7 +64,6 @@ function controlInputValidations(control) {
             control.after('<p class="red-error">' + msg + '</p>');
             control.addClass('red-input');
 
-
             fillSummeryBox(control);
             return false;
         }

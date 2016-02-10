@@ -598,8 +598,8 @@
     function PageLoad_FilledAll() {
 
         hide_div();
-        var field1 = 1;
-        //var field1 = $('#drpSegmenttab3 option:selected').val();
+       // var field1 = 1;
+        var field1 = $('#drpSegmenttab3 option:selected').val();
         var field2 = $('#drpMasterTab3 option:selected').val();
         $.ajax({
             url: "/AllMaster/ALL_Data_Field",
