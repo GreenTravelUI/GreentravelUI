@@ -14,6 +14,9 @@ function SetValidation(valCode, control) {
         control.attr('data-min', values[1].toString());
     } else if (values[0].toLowerCase() == 'reg') {
         control.attr('data-reg', values[1].toString());
+    } else if (values[0].toLowerCase() == 'req') {
+        var lblControl = control.parent().find('label');
+        lblControl.html(lblControl.text() + ' <span>*</span>');
     }
 }
 
@@ -29,6 +32,23 @@ $(document).ready(function () {
     });
 });
 
+function fillSummeryBox(control) {
+    var parentTab = control.closest('form').closest('.tab-pane.active');
+    parentTab.find('.summery-detail ul.wrapper li.utilities').find('.next').trigger('click');
+    parentTab.find('.summery-detail ul.wrapper li.summery').find('ul.summery-list.slimscroll ').html('');
+
+    control.closest('form').find('p.red-error').each(function () {
+        var txtControl = $(this).prev();
+        var lblControl = $(this).prev().prev();
+        var length = lblControl.text().indexOf('*');
+        var nameControl = lblControl.text().substring(0, length > 0 ? length - 1 : lblControl.text().length);
+        var newLi = '<li>' + nameControl + '<br/><a class="invalid-red"><label for="' + txtControl.attr('id') + '">' + (txtControl.val().trim() != '' ? txtControl.val() : '(Required)') + '</label><i class=""></i></a></li>';
+
+        parentTab.find('.summery-detail ul.wrapper li.summery').find('ul.summery-list.slimscroll ').append(newLi);
+        //<li>Hotel Name :<br /><a href="javascript:void(0);" class="invalid-red"><label id="lblHotelName" for="txtHotelName">Hotel Name</label><i>&nbsp;</i></a></li>
+    });
+}
+/* For Master Records */
 function controlInputValidations(control) {
     control.removeClass('red-input');
     control.parent().find('p.red-error').remove();
@@ -43,6 +63,9 @@ function controlInputValidations(control) {
             }
             control.after('<p class="red-error">' + msg + '</p>');
             control.addClass('red-input');
+
+
+            fillSummeryBox(control);
             return false;
         }
     }
@@ -50,6 +73,7 @@ function controlInputValidations(control) {
         if (control.val().length > parseInt(control.data('max'))) {
             control.after('<p class="red-error">Maximum ' + control.data('max') + ' characters are required.</p>');
             control.addClass('red-input');
+            fillSummeryBox(control)
             return false;
         }
     }
@@ -57,6 +81,7 @@ function controlInputValidations(control) {
         if (control.val().length < parseInt(control.data('min'))) {
             control.after('<p class="red-error">Minimum ' + control.data('min') + ' characters are required.</p>');
             control.addClass('red-input');
+            fillSummeryBox(control)
             return false;
         }
     }
@@ -64,12 +89,21 @@ function controlInputValidations(control) {
         if (!control.val().match(/^[a-zA-Z ]*$/)) {
             control.after('<p class="red-error">Only Alphabets are allowed.</p>');
             control.addClass('red-input');
+            fillSummeryBox(control)
             return false;
         }
     }
     if (control.hasClass('alphnum')) {
         if (!control.val().match(/^[a-zA-Z0-9 ]*$/)) {
             control.after('<p class="red-error">Only AlphaNumeric value is allowed.</p>');
+            control.addClass('red-input');
+            fillSummeryBox(control)
+            return false;
+        }
+    }
+    if (control.hasClass('passwordcrite')) {
+        if (!control.val().match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*#?&])[a-zA-Z$@$!%*#?&]{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/)) {
+            control.after('<p class="red-error">Password Should contain Mininum Requierment</p>');
             control.addClass('red-input');
             return false;
         }
@@ -78,6 +112,7 @@ function controlInputValidations(control) {
         if (!control.val().match(/^([0-9]*)$/)) {
             control.after('<p class="red-error">Only Numeric value is allowed.</p>');
             control.addClass('red-input');
+            fillSummeryBox(control)
             return false;
         }
     }
@@ -87,16 +122,18 @@ function controlInputValidations(control) {
             if (!control.val().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
                 control.after('<p class="red-error">Invalid Email Format.</p>');
                 control.addClass('red-input');
+                fillSummeryBox(control)
                 return false;
             }
         }
     }
     if (control.hasClass('url')) {
         if (control.val().trim().length > 0) {
-            //if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-            if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
+            if (!control.val().match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
+            //if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
                 control.after('<p class="red-error">Invalid Url Format.</p>');
                 control.addClass('red-input');
+                fillSummeryBox(control)
                 return false;
             }
         }
@@ -106,6 +143,7 @@ function controlInputValidations(control) {
             if (!control.val().match(/^(?:0|[1-9]\d*)(?:\.(?!.*000)\d+)?$/)) {
                 control.after('<p class="red-error">Invalid Amount Format.</p>');
                 control.addClass('red-input');
+                fillSummeryBox(control)
                 return false;
             }
         }
@@ -117,30 +155,21 @@ function controlInputValidations(control) {
             var nameControl = mainControl.prev().text().substring(0, length > 0 ? length - 1 : mainControl.prev().text().length);
             control.after('<p class="red-error">' + nameControl + 's not matched. Try again.</p>');
             control.addClass('red-input');
+            fillSummeryBox(control)
             return false;
         }
     }
-
-    //if (control.hasClass('time')) {
-    //    control.removeClass('red-input');
-    //    control.parent().parent().find('p.red-error').remove();
-    //    if (control.val().trim().length > 0) {
-    //        if (!control.val().match(/^([0-1][0-9])\:[0-5][0-9]\s*[AP]M$/)) {
-    //            control.parent().after('<p class="red-error">Invalid Time Format.</p>');
-    //            control.addClass('red-input');
-    //            return false;
-    //        }
-    //    }
-    //}
 
     if (control.hasClass('reg')) {
         var str = control.data('reg');
         if (!control.val().match(str)) {
             control.after('<p class="red-error">Invalid Data.</p>');
             control.addClass('red-input');
+            fillSummeryBox(control)
             return false;
         }
     }
+    fillSummeryBox(control)
     return true;
 }
 
@@ -149,7 +178,7 @@ function controlSelectValidations(control) {
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
-        
+
         if (control.find('option:selected').val() == '0') {
             control.next().after('<p class="red-error">This field is required.</p>');
             control.next().addClass('red-input');
@@ -256,6 +285,7 @@ function formSelectValidations(frm) {
     return selectFlag;
 }
 
+/* Validate Given Form Controls */
 function validateForm(frm) {
     var flag = true;
     if (!formInputValidations(frm)) {
@@ -273,6 +303,7 @@ function validateForm(frm) {
     return flag;
 }
 
+/* Clear All Validation Messages From Given Form */
 function clearValidations(frm) {
     frm.find('input').each(function () {
         $(this).removeClass('red-input');
@@ -287,3 +318,4 @@ function clearValidations(frm) {
         $(this).parent().find('p.red-error').remove();
     });
 }
+
