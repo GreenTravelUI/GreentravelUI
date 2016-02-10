@@ -721,7 +721,7 @@
         var type = 'Grid';
         var Formcode = '0';
         var Formtabcode = '0';
-        $('#example1').dataTable({
+        var table = $('#example1').dataTable({
             "ServerSide": true,
             "destroy": true,
             "ajax": {
@@ -757,5 +757,17 @@
 
             ]
         });
+        var tableTools = new $.fn.dataTable.TableTools(table, {
+            'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
+            "aButtons": [
+                {
+                    "sExtends": "xls",
+                    "sFileName": "Masters" + new Date() + ".xls",
+                    "aButtons": ["xls"],
+                    "bFooter": false
+                }
+            ]
+        });
+        $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
     }
 });
