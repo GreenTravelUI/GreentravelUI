@@ -414,8 +414,8 @@
         $("#CreateMaster").removeClass("active");
         $("#tab2").removeClass("active");
         $("#tab1").addClass("active");
-        $('#txtMasterCode').attr("disabled", false);
         $('input[type="text"]').removeAttr('disabled');
+        $('#txtMasterCode').attr("disabled", false)
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -423,7 +423,6 @@
         });
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
-            $(this).removeAttr('disabled');
         });
         $('#type').val('Save');
     });

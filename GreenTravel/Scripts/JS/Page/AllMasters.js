@@ -596,9 +596,9 @@
     });
 
     function PageLoad_FilledAll() {
-
+        masterchangehide();
         hide_div();
-       // var field1 = 1;
+        //  var field1 = 1;
         var field1 = $('#drpSegmenttab3 option:selected').val();
         var field2 = $('#drpMasterTab3 option:selected').val();
         $.ajax({
@@ -940,12 +940,12 @@
                         CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
                     }
 
-                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    }
-                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    }
+                    //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
+                    //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    //}
+                    //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
+                    //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    //}
                     if (response['AValidation'][0]['Field6'] != '' && response['AValidation'][0]['Field6'] != '--None--' && response['AValidation'][0]['Field6'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field6'], $('#Dropdown1Tab3'));
                     }
@@ -1257,6 +1257,15 @@
         });
 
 
+    }
+
+    function masterchangehide() {
+        $('.Master').val('');
+        $('.MDropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+        $('textarea').val('');
+        $('select').next().find('ul li.select2-selection__choice').remove();
     }
 
 });
