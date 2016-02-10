@@ -737,7 +737,7 @@
         var type = 'Grid';
         var Formcode = '0';
         var Formtabcode = '0';
-        $('#example1').dataTable({
+        var table = $('#example1').dataTable({
             "ServerSide": true,
             "destroy": true,
             "ajax": {
@@ -769,9 +769,31 @@
                     className: "center",
                     defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
                 }
-
-
+            ],
+            'dom': 'Bfrtip',
+            'buttons': [
+                {
+                    extend: 'pdfHtml5',
+                    customize: function (doc) {
+                        doc.content.splice(1, 0, {
+                            margin: [0, 0, 0, 12],
+                            alignment: 'center'
+                        });
+                    }
+                }
             ]
         });
+        var tableTools = new $.fn.dataTable.TableTools(table, {
+            'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
+            "aButtons": [
+                {
+                    "sExtends": "xls",
+                    "sFileName": "Masters" + new Date() + ".xls",
+                    "aButtons": ["xls"],
+                    "bFooter": false
+                }
+            ]
+        });
+        $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
     }
 });
