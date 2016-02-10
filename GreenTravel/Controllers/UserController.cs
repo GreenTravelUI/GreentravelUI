@@ -29,6 +29,7 @@ namespace GreenTravel.Controllers
             //   return View();
         }
 
+
         public ActionResult AccessRights()
         {
             return View();
@@ -96,7 +97,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
 
         public ActionResult Edit_Data(UserMaster UM)
         {
@@ -175,7 +175,6 @@ namespace GreenTravel.Controllers
             }
         }
 
-
         public ActionResult BindDropdownLocation(CommanFieldPara CFP)
         {
             try
@@ -202,7 +201,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
 
         public ActionResult BindDropdownUserrole(CommanFieldPara CFP)
         {
@@ -268,15 +266,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
-
-        //public PartialViewResult _PartialDisplayGridData(string id)
-        //{
-        //    DataSet dsList = _obj_db_UM.BindAccessgrid(id);
-        //    WhitelabelStep2 CV = new WhitelabelStep2();
-        //    return PartialView(lstGrid);
-        //}
-
 
     }
 }

@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<GreenTravel.Models.Grid>
+
+
 @foreach (var item in Model)
 {
     foreach (var itemHeader in item.GridHearder)
@@ -13,9 +15,13 @@
 
                     </h3>
                 </div>
+
                 <h3 style="margin-top: 0; text-align: center;">
                     <label id="lbheading">@Html.DisplayFor(modelItem => itemHeader.xname) </label>
                 </h3>
+
+
+
                 <table class="table sampletable" style="margin-bottom: 0;">
                     <tbody>
                         @foreach (var itemColumn in item.GridColumn.Where(m => m.xlink == itemHeader.SrNo))

@@ -13,7 +13,6 @@ namespace GreenTravel.Models
     }
     public class CommanMaster
     {
-        public string Type { get; set; }
         public string xmaster { get; set; }
         public string xname { get; set; }
         public string Corporate { get; set; }
