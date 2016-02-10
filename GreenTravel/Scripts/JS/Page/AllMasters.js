@@ -165,7 +165,7 @@
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
     });
-    
+
     /*Tab Master Records*/
 
     function FillAllData() {
@@ -849,11 +849,19 @@
                     }
 
                 }
+                var str = '';
+                var n = '';
                 //validation
                 if (response['AValidation'].length > 0) {
-
                     if (response['AValidation'][0]['Field3'] != '' && response['AValidation'][0]['Field3'] != '--None--' && response['AValidation'][0]['Field3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
+                        str = response['AValidation'][0]['Field3']
+                        n = str.toLowerCase().search("req");
+                        if (n != -1) {
+                            CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
+                        }
+                        else {
+                            CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
+                        }
                     }
 
                     if (response['AValidation'][0]['Field5'] != '' && response['AValidation'][0]['Field5'] != '--None--' && response['AValidation'][0]['Field5'] != null) {
@@ -864,7 +872,15 @@
                         CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
                     }
                     if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['AValidation'][0]['Field13'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
+                        str = response['AValidation'][0]['Field13']
+                        n = str.toLowerCase().search("req");
+                        if (n != -1) {
+                            CheckFormValidations(response['AValidation'][0]['Field13'], $('#txtnameTab3'));
+                        }
+                        else {
+                            CheckFormValidations(response['AValidation'][0]['Field13'], $('#txtnameTab3'));
+                        }
+                        // CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
                     }
 
                     if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['AValidation'][0]['Field14'] != null) {
