@@ -13,13 +13,14 @@ namespace GreenTravel.App_DbService
         /* insert Basic details
            ADMIN_MASTER
          */
-        public int insert_data(CommanMaster CM)
+        public DataSet insert_data(CommanMaster CM)
         {
             try
             {
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("sp_save_adminmaster", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Type", CM.Type);
                 _cmd.Parameters.AddWithValue("@xmaster", CM.xmaster);
                 _cmd.Parameters.AddWithValue("@xname", CM.xname);
                 _cmd.Parameters.AddWithValue("@drpCaption", CM.drpCaption);
@@ -97,7 +98,12 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@language", CM.language);
                 _cmd.Parameters.AddWithValue("@Corporate", CM.Corporate);
                 int i = _cmd.ExecuteNonQuery();
-                return i;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
             }
             catch
             {
@@ -506,7 +512,7 @@ namespace GreenTravel.App_DbService
 
         }
 
-        public int insert_data_UserMaster(CommanUserMaster CUH)
+        public DataSet insert_data_UserMaster(CommanUserMaster CUH)
         {
             try
             {
@@ -697,8 +703,17 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@BranchBy", CUH.UBranchBy);
                 _cmd.Parameters.AddWithValue("@UserId", CUH.UUserId);
 
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                // int i = _cmd.ExecuteNonQuery();
+                // return i;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+
+
+
             }
             catch
             {

@@ -1,12 +1,21 @@
 ﻿$(document).ready(function () {
+    FillDropDown_Category();
     getdata();
     hide_div();
+
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
         if ($('#drpMasterTab3 option:first').is(':selected')) {
             hide_div();
         }
     });
+    $("#drpSegmenttab3").change(function () {
+        FillDropdown('drpMasterTab3', 'ConditionalDropdown')
+
+    });
+
+
+
 
     $("#drpMasterTab3").change(function () {
         clearValidations($(this).parent());
@@ -104,7 +113,7 @@
         var UMultiSelect3 = getMultiselectValue($("#Multiselect3"));
         var UMultiSelect4 = getMultiselectValue($("#Multiselect4"));
         var UMultiSelect5 = getMultiselectValue($("#Multiselect5"));
-        alert(USrno);
+
         $.ajax(
            {
                type: "POST",
@@ -121,10 +130,8 @@
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       //  $('#btnCancel').trigger('click');
-                       swal('Good job!', 'Record Save Sucessfully!', 'success');
 
-                       // getdata();
+                       swal('', response['success'], response['Event']);
                    }
                }
            });
@@ -296,7 +303,7 @@
         var screen = '';
         var FormCode = '';
         var TabCode = '';
-        var Corporate = '';
+        var Corporate = '0';
         var unit = '';
         var Branch = '';
         var userid = '';
@@ -330,10 +337,18 @@
                         var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
                         $('#drpCorporateTab').append(opt);
                     }
-                    // $("#" + "drpCorporateTab" + " option:first").attr('selected', 'selected').change();
+
                     DropdownSeletedValue(drpCorporateTab);
                 }
+                if (data['Master'].length > 0) {
 
+                    for (var i = 0; i < data['Master'].length; i++) {
+                        var opt = new Option(data['Master'][i]['Text'], data['Master'][i]['Value']);
+                        $('#drpMasterTab3').append(opt);
+                    }
+
+                    DropdownSeletedValue(drpCorporateTab);
+                }
 
 
 
@@ -849,19 +864,11 @@
                     }
 
                 }
-                var str = '';
-                var n = '';
                 //validation
                 if (response['AValidation'].length > 0) {
+
                     if (response['AValidation'][0]['Field3'] != '' && response['AValidation'][0]['Field3'] != '--None--' && response['AValidation'][0]['Field3'] != null) {
-                        str = response['AValidation'][0]['Field3']
-                        n = str.toLowerCase().search("req");
-                        if (n != -1) {
-                            CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
-                        }
-                        else {
-                            CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
-                        }
+                        CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
                     }
 
                     if (response['AValidation'][0]['Field5'] != '' && response['AValidation'][0]['Field5'] != '--None--' && response['AValidation'][0]['Field5'] != null) {
@@ -872,15 +879,7 @@
                         CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
                     }
                     if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['AValidation'][0]['Field13'] != null) {
-                        str = response['AValidation'][0]['Field13']
-                        n = str.toLowerCase().search("req");
-                        if (n != -1) {
-                            CheckFormValidations(response['AValidation'][0]['Field13'], $('#txtnameTab3'));
-                        }
-                        else {
-                            CheckFormValidations(response['AValidation'][0]['Field13'], $('#txtnameTab3'));
-                        }
-                        // CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
+                        CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
                     }
 
                     if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['AValidation'][0]['Field14'] != null) {
