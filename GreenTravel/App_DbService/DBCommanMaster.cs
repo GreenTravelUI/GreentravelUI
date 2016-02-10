@@ -97,7 +97,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@TerminalBy", CM.TerminalBy);
                 _cmd.Parameters.AddWithValue("@language", CM.language);
                 _cmd.Parameters.AddWithValue("@Corporate", CM.Corporate);
-                int i = _cmd.ExecuteNonQuery();
+                //int i = _cmd.ExecuteNonQuery();
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();
                 _adp.Fill(_ds);

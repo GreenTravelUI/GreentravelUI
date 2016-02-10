@@ -940,12 +940,12 @@
                         CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
                     }
 
-                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    }
-                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    }
+                    //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
+                    //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    //}
+                    //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
+                    //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                    //}
                     if (response['AValidation'][0]['Field6'] != '' && response['AValidation'][0]['Field6'] != '--None--' && response['AValidation'][0]['Field6'] != null) {
                         CheckFormValidations(response['AValidation'][0]['Field6'], $('#Dropdown1Tab3'));
                     }

@@ -45,6 +45,7 @@
 
     $('.btnSave').click(function (e) {
         e.preventDefault();
+        var a = 0;
         /* Form Validation */
         if (!validateForm($(this).parent())) {
             alert('Invalid data found!');
@@ -81,30 +82,10 @@
                dataType: 'json',
                success: function (responsedata) {
                    swal('', responsedata['success'], responsedata['Event']);
-                   if (responsedata['Event'] != 'Duplicate') {
-                       clearValidations($(this).parent());
-                       e.preventDefault();
-                       $('#btnsUpdate').hide();
-                       $('#btnDelete').hide();
-                       $('#btnSaveMastersetup').show();
-                       $('#txtMasterCode').attr("disabled", false)
-                       $('input[type="text"]').val('');
-                       $('.Dropdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-                       $('.drpdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-                       $('#type').val('Save');
+                   if (responsedata['Event'] != 'Duplicate')
+                   {
+                       a = 1;
                    }
-                   //else {
-                   //   // $('#type').val('Save');
-                   //   // $('#txtMasterCode').attr("disabled", false);
-                   //}
-
-                   //if (response != null && response.success) {
-                   //    alert("Record Save Sucessfully!");
-                   //} 
                }
            });
 
@@ -405,19 +386,22 @@
                    }
                }
            });
-
-        //$('#btnsUpdate').hide();
-        //$('#btnDelete').hide();
-        //$('#btnSaveMastersetup').show();
-
-        // $('input[type="text"]').val('');
-        //$('.Dropdown').each(function () {
-        //    $(this).val($(this).find('option:first').val()).change();
-        //});
-        //$('.drpdown').each(function () {
-        //    $(this).val($(this).find('option:first').val()).change();
-        //});
-
+        if (a = 1) {
+            clearValidations($(this).parent());
+            e.preventDefault();
+            $('#btnsUpdate').hide();
+            $('#btnDelete').hide();
+            $('#btnSaveMastersetup').show();
+            $('#txtMasterCode').attr("disabled", false)
+            $('input[type="text"]').val('');
+            $('.Dropdown').each(function () {
+                $(this).val($(this).find('option:first').val()).change();
+            });
+            $('.drpdown').each(function () {
+                $(this).val($(this).find('option:first').val()).change();
+            });
+            $('#type').val('Save');
+        }
     });
 
 
