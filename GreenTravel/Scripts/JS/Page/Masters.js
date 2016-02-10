@@ -45,6 +45,7 @@
 
     $('.btnSave').click(function (e) {
         e.preventDefault();
+        var a = 0;
         /* Form Validation */
         if (!validateForm($(this).parent())) {
             alert('Invalid data found!');
@@ -81,30 +82,10 @@
                dataType: 'json',
                success: function (responsedata) {
                    swal('', responsedata['success'], responsedata['Event']);
-                   if (responsedata['Event'] != 'Duplicate') {
-                       clearValidations($(this).parent());
-                       e.preventDefault();
-                       $('#btnsUpdate').hide();
-                       $('#btnDelete').hide();
-                       $('#btnSaveMastersetup').show();
-                       $('#txtMasterCode').attr("disabled", false)
-                       $('input[type="text"]').val('');
-                       $('.Dropdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-                       $('.drpdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-                       $('#type').val('Save');
+                   if (responsedata['Event'] != 'Duplicate')
+                   {
+                       a = 1;
                    }
-                   //else {
-                   //   // $('#type').val('Save');
-                   //   // $('#txtMasterCode').attr("disabled", false);
-                   //}
-
-                   //if (response != null && response.success) {
-                   //    alert("Record Save Sucessfully!");
-                   //} 
                }
            });
 
@@ -405,19 +386,22 @@
                    }
                }
            });
-
-        //$('#btnsUpdate').hide();
-        //$('#btnDelete').hide();
-        //$('#btnSaveMastersetup').show();
-
-        // $('input[type="text"]').val('');
-        //$('.Dropdown').each(function () {
-        //    $(this).val($(this).find('option:first').val()).change();
-        //});
-        //$('.drpdown').each(function () {
-        //    $(this).val($(this).find('option:first').val()).change();
-        //});
-
+        if (a = 1) {
+            clearValidations($(this).parent());
+            e.preventDefault();
+            $('#btnsUpdate').hide();
+            $('#btnDelete').hide();
+            $('#btnSaveMastersetup').show();
+            $('#txtMasterCode').attr("disabled", false)
+            $('input[type="text"]').val('');
+            $('.Dropdown').each(function () {
+                $(this).val($(this).find('option:first').val()).change();
+            });
+            $('.drpdown').each(function () {
+                $(this).val($(this).find('option:first').val()).change();
+            });
+            $('#type').val('Save');
+        }
     });
 
 
@@ -737,7 +721,7 @@
         var type = 'Grid';
         var Formcode = '0';
         var Formtabcode = '0';
-        var table = $('#example1').dataTable({
+        $('#example1').dataTable({
             "ServerSide": true,
             "destroy": true,
             "ajax": {
@@ -769,31 +753,9 @@
                     className: "center",
                     defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
                 }
-            ],
-            'dom': 'Bfrtip',
-            'buttons': [
-                {
-                    extend: 'pdfHtml5',
-                    customize: function (doc) {
-                        doc.content.splice(1, 0, {
-                            margin: [0, 0, 0, 12],
-                            alignment: 'center'
-                        });
-                    }
-                }
+
+
             ]
         });
-        var tableTools = new $.fn.dataTable.TableTools(table, {
-            'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
-            "aButtons": [
-                {
-                    "sExtends": "xls",
-                    "sFileName": "Masters" + new Date() + ".xls",
-                    "aButtons": ["xls"],
-                    "bFooter": false
-                }
-            ]
-        });
-        $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
     }
 });

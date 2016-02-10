@@ -32,7 +32,7 @@ namespace GreenTravel.Controllers
                     ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
                     if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
                     { ViewBag.Event = "success"; }
-                    else if ( result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
                     { ViewBag.Event = "error"; }
 
                 }
