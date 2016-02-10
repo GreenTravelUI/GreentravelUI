@@ -14,7 +14,7 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transportation Price</a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation SIC</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-car"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation PVT</a></li>
+                    @*<li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-car"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transportation PVT</a></li>*@
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule For FIT</a></li>
                 </ul>
                 <div class="tab-content">
@@ -164,20 +164,158 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSICFromPlace">From Place</label>
-                                    <input type="text" class="form-control" id="txtSICFromPlace" placeholder="From Place">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>From Place</th>
+                                                            <th>To Place</th>
+                                                            <th>Opening Time</th>
+                                                            <th>Adult SIC Rate</th>
+                                                            <th>Child SIC Rate</th>
+                                                            <th>Applied</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <span>Pattaya Airport</span>
+                                                            <td>
+                                                                <span>Pattaya</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" value="01.06 Hrs" id="time1">
+                                                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" id="timepicker4">
+                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" id="timepicker4">
+                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option>Per Person</option>
+                                                                    <option>Flat</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <span>Pattaya</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>Bangkok Airpot</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" value="01.06 Hrs" id="time1">
+                                                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" id="timepicker4">
+                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" id="timepicker4">
+                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option>Per Person</option>
+                                                                    <option>Flat</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSICToPlace">To Place</label>
-                                    <input type="text" class="form-control" id="txtSICToPlace" placeholder="To Place">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSICFromTravelDate">Adult SIC Rate</label>
-                                    <input type="text" class="form-control" id="txtSICAdultSICRate" placeholder="Adult SIC Rate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSICChildSICRate">Child SIC Rate</label>
-                                    <input type="text" class="form-control" id="txtSICChildSICRate" placeholder="Child SIC Rate">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Additional Service</th>
+                                                            <th>Price</th>
+                                                            <th>Applied</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th colspan="4">
+                                                                <button id="btnadd" class="btn btn-success btnSave" type="submit">
+                                                                    Add</button>
+                                                            </th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" id="timepicker4">
+                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option>Per Person</option>
+                                                                    <option>Flat</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <div class="input-group input-append bootstrap-timepicker">
+                                                                    <input type="text" class="form-control" id="timepicker4">
+                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option>Per Person</option>
+                                                                    <option>Flat</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <br />
@@ -495,96 +633,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-12">
-    <div class="panel panel-white">
-        <h4 class="panel-title-summery">Utilities </h4>
-        <div class="panel-body utility-panel">
-            <ul class="utility-list">
-                <li>
-                    <a href="#">
-                        <i class="task">&nbsp;</i><br />
-                        Task
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="noti">&nbsp;</i><br />
-                        Notifications
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="cal">&nbsp;</i><br />
-                        Calendar
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="e-mail">&nbsp;</i><br />
-                        Email
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="sms">&nbsp;</i><br />
-                        SMS
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="notes">&nbsp;</i><br />
-                        Notes
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="tages">&nbsp;</i><br />
-                        Tags
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="help-video">&nbsp;</i><br />
-                        Help Video
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="guided-tour">&nbsp;</i><br />
-                        Guided Tour
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="copy">&nbsp;</i><br />
-                        Copy
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="print">&nbsp;</i><br />
-                        Print
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="updates">&nbsp;</i><br />
-                        Updates
-                    </a>
-                </li>
-                <li>
 
-                    <a href="#">
-                        <i class="screns">&nbsp;</i><br />
-                        Screenshot
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-
-</div>
 
 @section scripts{
     <script>

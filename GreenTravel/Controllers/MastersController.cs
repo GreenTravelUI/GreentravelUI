@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,12 +26,18 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                int result = _objCM.insert_data(CM);
-                if (result == 1)
+                DataSet result = _objCM.insert_data(CM);
+                if (result != null)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
+
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                var result1 = ViewBag.Message;
+                return Json(new { success = result1, Event = ViewBag.Event }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)
@@ -103,7 +109,7 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.Message = "Record Save Sucessfully !";
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet); 
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -276,7 +282,7 @@ namespace GreenTravel.Controllers
                     {
                         Placeholder.Add(new CommanMasterPlaceholder
                         {
-                            xmaster= @dr["xmaster"].ToString(),
+                            xmaster = @dr["xmaster"].ToString(),
                             Field1 = @dr["Field1"].ToString(),
                             Field2 = @dr["Field2"].ToString(),
                             Field3 = @dr["Field3"].ToString(),
@@ -300,25 +306,25 @@ namespace GreenTravel.Controllers
                             Rating1 = @dr["Rating1"].ToString(),
                             Rating2 = @dr["Rating2"].ToString(),
                             Rating3 = @dr["Rating3"].ToString(),
-                            Date1= @dr["Date1"].ToString(),
-                            Date2= @dr["Date2"].ToString(),
-                            Date3= @dr["Date3"].ToString(),
-                            Email1= @dr["Email1"].ToString(),
-                            Email2= @dr["Email2"].ToString(),
-                            Email3= @dr["Email3"].ToString(),
-                            Amount= @dr["Amount"].ToString(),
-                            Amount2= @dr["Amount2"].ToString(),
-                            Amount3= @dr["Amount3"].ToString(),
+                            Date1 = @dr["Date1"].ToString(),
+                            Date2 = @dr["Date2"].ToString(),
+                            Date3 = @dr["Date3"].ToString(),
+                            Email1 = @dr["Email1"].ToString(),
+                            Email2 = @dr["Email2"].ToString(),
+                            Email3 = @dr["Email3"].ToString(),
+                            Amount = @dr["Amount"].ToString(),
+                            Amount2 = @dr["Amount2"].ToString(),
+                            Amount3 = @dr["Amount3"].ToString(),
                             Time1 = @dr["Time1"].ToString(),
                             Time2 = @dr["Time2"].ToString(),
-                            Html= @dr["Html"].ToString(),
+                            Html = @dr["Html"].ToString(),
                             Upload = @dr["Upload"].ToString(),
-                            TextArea= @dr["TextArea"].ToString(),
-                            MultiSelect1= @dr["MultiSelect1"].ToString(),
-                            MultiSelect2= @dr["MultiSelect2"].ToString(),
-                            MultiSelect3= @dr["MultiSelect3"].ToString(),
-                            MultiSelect4= @dr["MultiSelect4"].ToString(),
-                            MultiSelect5= @dr["MultiSelect5"].ToString(),
+                            TextArea = @dr["TextArea"].ToString(),
+                            MultiSelect1 = @dr["MultiSelect1"].ToString(),
+                            MultiSelect2 = @dr["MultiSelect2"].ToString(),
+                            MultiSelect3 = @dr["MultiSelect3"].ToString(),
+                            MultiSelect4 = @dr["MultiSelect4"].ToString(),
+                            MultiSelect5 = @dr["MultiSelect5"].ToString(),
                         });
                     }
                 }
