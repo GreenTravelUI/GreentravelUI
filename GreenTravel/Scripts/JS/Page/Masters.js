@@ -2,7 +2,12 @@
     /*Tab 1*/
     $('#type').val('Save');
     var deletesrno;
+    bind_dropdown();
     getdata();
+
+    $("#drpSegment").change(function () {
+        bind_dropdown();
+    });
     $("#drpCorporate").change(function () {
         bind_dropdown();
     });
@@ -51,8 +56,6 @@
             alert('Invalid data found!');
             return false;
         }
-
-
         var Type = $('#type').val();
         var xmaster = $('#txtMasterCode').val();
         var xname = $('#txtMasterName').val();
@@ -74,6 +77,7 @@
         $.ajax(
            {
                type: "POST",
+               async: false,
                url: "/Masters/Insert_Data",
                data: {
                    Type: Type, xmaster: xmaster, xname: xname, drpCaption: drpCaption, ENTRYCONTROL: ENTRYCONTROL, SEGMENT: SEGMENT, Corporate: Corporate, xlink: xlink, xcross: xcross, xcross1: xcross1, xcross2: xcross2, xcross3: xcross3, xcross4: xcross4,
@@ -81,329 +85,326 @@
                },
                dataType: 'json',
                success: function (responsedata) {
-                   swal('', responsedata['success'], responsedata['Event']);
-                   if (responsedata['Event'] != 'Duplicate')
-                   {
+                   // console.log(responsedata);
+                   if (responsedata['Event'] == 'error') {
                        a = 1;
+                       clearValidations($(this).parent());
+                       e.preventDefault();
+                       $('#btnsUpdate').hide();
+                       $('#btnDelete').hide();
+                       $('#btnSaveMastersetup').show();
+                       $('#txtMasterCode').attr("disabled", false)
+                       $('input[type="text"]').val('');
+                       $('.Dropdown').each(function () {
+                           $(this).val($(this).find('option:first').val()).change();
+                       });
+                       $('.drpdown').each(function () {
+                           $(this).val($(this).find('option:first').val()).change();
+                       });
+                       $('#type').val('Save');
+                       swal('', responsedata['success'], responsedata['Event']);
+                   }
+                   else {
+                       //caption
+                       var xmastercaption = $('#txtMasterCode').val();
+                       var SEGMENTcaption = $('#drpSegment option:selected').val();
+                       var Field1caption = 'Sr.No';
+                       var Field2caption = 'Code';
+                       var Field3caption = $('#txtcaption1').val();
+                       var Field4caption = $('#txtcaption2').val();
+                       var Field5caption = $('#txtCaption3').val();
+                       /*DropDown*/
+                       var Field6caption = $('#txtCaption4').val();
+                       var Field7caption = $('#txtCaption5').val();
+                       var Field8caption = $('#txtCaption6').val();
+                       var Field9caption = $('#txtCaption7').val();
+                       var Field10caption = $('#txtCaption8').val();
+
+                       var Field11caption = $('#txtCaption9').val();
+
+                       /*DropDown*/
+                       /*Textbox*/
+                       var Field12caption = $('#txtCaption10').val();
+                       var Field13caption = $('#txtCaption11').val();
+                       var Field14caption = $('#txtCaption12').val();
+                       var Field15caption = $('#txtCaption13').val();
+                       var Field16caption = $('#txtCaption14').val();
+                       var Field17caption = $('#txtCaption15').val();
+                       /*Textbox*/
+
+                       var Rating1caption = $('#txtCaption16').val();
+                       var Rating2caption = $('#txtCaption17').val();
+                       var Rating3caption = $('#txtCaption18').val();
+
+                       var Date1caption = $('#txtCaption19').val();
+                       var Date2caption = $('#txtCaption20').val();
+                       var Date3caption = $('#txtCaption21').val();
+
+                       var Email1caption = $('#txtCaption24').val();
+                       var Email2caption = $('#txtCaption25').val();
+                       var Email3caption = $('#txtCaption26').val();
+
+                       var Amountcaption = $('#txtCaption27').val();
+                       var Amount2caption = $('#txtCaption28').val();
+                       var Amount3caption = $('#txtCaption29').val();
+
+                       var Time1caption = $('#txtCaption22').val();
+                       var Time2caption = $('#txtCaption23').val();
+
+                       var Htmlcaption = $('#txtCaption31').val();
+                       var Uploadcaption = $('#txtCaption32').val();
+                       var TextAreacaption = $('#txtCaption30').val();
+                       var MultiSelect1caption = $('#txtCaption33').val();
+                       var MultiSelect2caption = $('#txtCaption34').val();
+                       var MultiSelect3caption = $('#txtCaption35').val();
+                       var MultiSelect4caption = $('#txtCaption36').val();
+                       var MultiSelect5caption = $('#txtCaption37').val();
+
+
+                       $.ajax(
+                          {
+                              type: "POST",
+                              url: "/Masters/Insert_Data_Caption",
+                              data: {
+                                  xmastercaption: xmastercaption, SEGMENTcaption: SEGMENTcaption, Field1caption: Field1caption, Field2caption: Field2caption, Field3caption: Field3caption, Field4caption: Field4caption, Field5caption: Field5caption, Field6caption: Field6caption, Field7caption: Field7caption, Field8caption: Field8caption, Field9caption: Field9caption, Field10caption: Field10caption, Field11caption: Field11caption,
+                                  Field12caption: Field12caption, Field13caption: Field13caption, Field14caption: Field14caption, Field15caption: Field15caption, Field16caption: Field16caption, Field17caption: Field17caption, Rating1caption: Rating1caption, Rating2caption: Rating2caption, Rating3caption: Rating3caption,
+                                  Date1caption: Date1caption, Date2caption: Date2caption, Date3caption: Date3caption, Email1caption: Email1caption, Email2caption: Email2caption, Email3caption: Email3caption, Amountcaption: Amountcaption, Amount2caption: Amount2caption, Amount3caption: Amount3caption, Time1caption: Time1caption, Time2caption: Time2caption, Htmlcaption: Htmlcaption,
+                                  Uploadcaption: Uploadcaption, TextAreacaption: TextAreacaption,
+                                  MultiSelect1caption: MultiSelect1caption, MultiSelect2caption: MultiSelect2caption, MultiSelect3caption: MultiSelect3caption, MultiSelect4caption: MultiSelect4caption, MultiSelect5caption: MultiSelect5caption
+                              },
+                              dataType: 'json',
+                              success: function (response) {
+
+
+                              }
+                          });
+
+
+
+                       /*Place Holder*/
+                       var xmaster = $('#txtMasterCode').val();
+                       var SEGMENT = $('#drpSegment option:selected').val();
+                       var Field1 = 'Sr.No';
+                       var Field2 = 'Code';
+                       var Field3 = $('#txtPlaceHolder1').val();
+                       var Field4 = $('#txtPlaceHolder2').val();
+                       var Field5 = $('#txtPlaceHolder3').val();
+                       /*DropDown*/
+                       var Field6 = $('#txtPlaceHolder4').val();
+                       var Field7 = $('#txtPlaceHolder5').val();
+                       var Field8 = $('#txtPlaceHolder6').val();
+                       var Field9 = $('#txtPlaceHolder7').val();
+                       var Field10 = $('#txtPlaceHolder8').val();
+                       var Field11 = $('#txtPlaceHolder9').val();
+
+                       /*DropDown*/
+                       /*Textbox*/
+                       var Field12 = $('#txtPlaceHolder10').val();
+                       var Field13 = $('#txtPlaceHolder11').val();
+                       var Field14 = $('#txtPlaceHolder12').val();
+                       var Field15 = $('#txtPlaceHolder13').val();
+                       var Field16 = $('#txtPlaceHolder14').val();
+                       var Field17 = $('#txtPlaceHolder15').val();
+                       /*Textbox*/
+
+                       var Rating1 = $('#txtPlaceHolder16').val();
+                       var Rating2 = $('#txtPlaceHolder17').val();
+                       var Rating3 = $('#txtPlaceHolder18').val();
+
+                       var Date1 = $('#txtPlaceHolder19').val();
+                       var Date2 = $('#txtPlaceHolder20').val();
+                       var Date3 = $('#txtPlaceHolder21').val();
+
+                       var Email1 = $('#txtPlaceHolder24').val();
+                       var Email2 = $('#txtPlaceHolder25').val();
+                       var Email3 = $('#txtPlaceHolder26').val();
+
+                       var Amount = $('#txtPlaceHolder27').val();
+                       var Amount2 = $('#txtPlaceHolder28').val();
+                       var Amount3 = $('#txtPlaceHolder29').val();
+
+                       var Time1 = $('#txtPlaceHolder22').val();
+                       var Time2 = $('#txtPlaceHolder23').val();
+
+                       var Html = $('#txtPlaceHolder31').val();
+                       var Upload = $('#txtPlaceHolder32').val();
+                       var TextArea = $('#txtPlaceHolder30').val();
+
+                       var MultiSelect1 = $('#txtPlaceHolder33').val();
+                       var MultiSelect2 = $('#txtPlaceHolder34').val();
+                       var MultiSelect3 = $('#txtPlaceHolder35').val();
+                       var MultiSelect4 = $('#txtPlaceHolder36').val();
+                       var MultiSelect5 = $('#txtPlaceHolder37').val();
+                       $.ajax(
+                          {
+                              type: "POST",
+                              url: "/Masters/Insert_Data_PlaceHolder",
+                              data: {
+                                  xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
+                                  Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
+                                  Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
+                                  Upload: Upload, TextArea: TextArea,
+                                  MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
+                              },
+                              success: function (response) {
+                                  //if (response != null && response.success) {
+                                  //    alert("Record Save Sucessfully!");
+                                  //}
+                              }
+                          });
+
+
+
+                       /*Help*/
+                       var xmaster = $('#txtMasterCode').val();
+                       var Field1 = 'Sr.No';
+                       var Field2 = 'Code';
+                       var Field3 = $('#txtHelp1').val();
+                       var Field4 = $('#txtHelp2').val();
+                       var Field5 = $('#txtHelp3').val();
+                       /*DropDown*/
+                       var Field6 = $('#txtHelp4').val();
+                       var Field7 = $('#txtHelp5').val();
+                       var Field8 = $('#txtHelp6').val();
+                       var Field9 = $('#txtHelp7').val();
+                       var Field10 = $('#txtHelp8').val();
+                       var Field11 = $('#txtHelp9').val();
+
+                       /*DropDown*/
+                       /*Textbox*/
+                       var Field12 = $('#txtHelp10').val();
+                       var Field13 = $('#txtHelp11').val();
+                       var Field14 = $('#txtHelp12').val();
+                       var Field15 = $('#txtHelp13').val();
+                       var Field16 = $('#txtHelp14').val();
+                       var Field17 = $('#txtHelp15').val();
+
+                       /*Textbox*/
+
+                       var Rating1 = $('#txtHelp16').val();
+                       var Rating2 = $('#txtHelp17').val();
+                       var Rating3 = $('#txtHelp18').val();
+
+                       var Date1 = $('#txtHelp19').val();
+                       var Date2 = $('#txtHelp20').val();
+                       var Date3 = $('#txtHelp21').val();
+
+                       var Email1 = $('#txtHelp24').val();
+                       var Email2 = $('#txtHelp25').val();
+                       var Email3 = $('#txtHelp26').val();
+
+                       var Amount = $('#txtHelp27').val();
+                       var Amount2 = $('#txtHelp28').val();
+                       var Amount3 = $('#txtHelp29').val();
+
+                       var Time1 = $('#txtHelp22').val();
+                       var Time2 = $('#txtHelp23').val();
+
+                       var Html = $('#txtHelp31').val();
+                       var Upload = $('#txtHelp32').val();
+                       var TextArea = $('#txtHelp30').val();
+
+                       var MultiSelect1 = $('#txtHelp33').val();
+                       var MultiSelect2 = $('#txtHelp34').val();
+                       var MultiSelect3 = $('#txtHelp35').val();
+                       var MultiSelect4 = $('#txtHelp36').val();
+                       var MultiSelect5 = $('#txtHelp37').val();
+                       $.ajax(
+                          {
+                              type: "POST",
+                              url: "/Masters/Insert_Data_Help",
+                              data: {
+                                  xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
+                                  Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
+                                  Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
+                                  Upload: Upload, TextArea: TextArea,
+                                  MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
+                              },
+                              success: function (response) {
+                                  //if (response != null && response.success) {
+                                  //    alert("Record Save Sucessfully!");
+                                  //}
+                              }
+                          });
+
+
+
+                       /*Validation*/
+                       var xmaster = $('#txtMasterCode').val();
+                       var Field1 = 'Sr.No';
+                       var Field2 = 'Code';
+                       var Field3 = $('#txtValidationCode1').val();
+                       var Field4 = $('#txtValidationCode2').val();
+                       var Field5 = $('#txtValidationCode3').val();
+                       /*DropDown*/
+                       var Field6 = $('#txtValidationCode4').val();
+                       var Field7 = $('#txtValidationCode5').val();
+                       var Field8 = $('#txtValidationCode6').val();
+                       var Field9 = $('#txtValidationCode7').val();
+                       var Field10 = $('#txtValidationCode8').val();
+                       var Field11 = $('#txtValidationCode9').val();
+
+                       /*DropDown*/
+                       /*Textbox*/
+                       var Field12 = $('#txtValidationCode10').val();
+
+                       var Field13 = $('#txtValidationCode11').val();
+                       var Field14 = $('#txtValidationCode12').val();
+                       var Field15 = $('#txtValidationCode13').val();
+                       var Field16 = $('#txtValidationCode14').val();
+                       var Field17 = $('#txtValidationCode15').val();
+                       /*Textbox*/
+
+                       var Rating1 = $('#txtValidationCode16').val();
+                       var Rating2 = $('#txtValidationCode17').val();
+                       var Rating3 = $('#txtValidationCode18').val();
+
+                       var Date1 = $('#txtValidationCode19').val();
+                       var Date2 = $('#txtValidationCode20').val();
+                       var Date3 = $('#txtValidationCode21').val();
+
+                       var Email1 = $('#txtValidationCode24').val();
+                       var Email2 = $('#txtValidationCode25').val();
+                       var Email3 = $('#txtValidationCode26').val();
+
+                       var Amount = $('#txtValidationCode27').val();
+                       var Amount2 = $('#txtValidationCode28').val();
+                       var Amount3 = $('#txtValidationCode29').val();
+
+                       var Time1 = $('#txtValidationCode22').val();
+                       var Time2 = $('#txtValidationCode23').val();
+
+                       var Html = $('#txtValidationCode31').val();
+                       var Upload = $('#txtValidationCode32').val();
+                       var TextArea = $('#txtValidationCode30').val();
+
+                       var MultiSelect1 = $('#txtValidationCode33').val();
+                       var MultiSelect2 = $('#txtValidationCode34').val();
+                       var MultiSelect3 = $('#txtValidationCode35').val();
+                       var MultiSelect4 = $('#txtValidationCode36').val();
+                       var MultiSelect5 = $('#txtValidationCode37').val();
+                       $.ajax(
+                          {
+                              type: "POST",
+                              url: "/Masters/Insert_Data_Validation",
+                              data: {
+                                  xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
+                                  Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
+                                  Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
+                                  Upload: Upload, TextArea: TextArea,
+                                  MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
+                              },
+                              success: function (response) {
+                                  if (response != null && response.success) {
+                                      getdata();
+                                      swal('Good job!', 'Record Save Sucessfully!', 'success');
+                                  }
+                              }
+                          });
                    }
                }
-           });
-
-
-        //caption
-        var xmastercaption = $('#txtMasterCode').val();
-        var SEGMENTcaption = $('#drpSegment option:selected').val();
-        var Field1caption = 'Sr.No';
-        var Field2caption = 'Code';
-        var Field3caption = $('#txtcaption1').val();
-        var Field4caption = $('#txtcaption2').val();
-        var Field5caption = $('#txtCaption3').val();
-        /*DropDown*/
-        var Field6caption = $('#txtCaption4').val();
-        var Field7caption = $('#txtCaption5').val();
-        var Field8caption = $('#txtCaption6').val();
-        var Field9caption = $('#txtCaption7').val();
-        var Field10caption = $('#txtCaption8').val();
-
-        var Field11caption = $('#txtCaption9').val();
-
-        /*DropDown*/
-        /*Textbox*/
-        var Field12caption = $('#txtCaption10').val();
-        var Field13caption = $('#txtCaption11').val();
-        var Field14caption = $('#txtCaption12').val();
-        var Field15caption = $('#txtCaption13').val();
-        var Field16caption = $('#txtCaption14').val();
-        var Field17caption = $('#txtCaption15').val();
-        /*Textbox*/
-
-        var Rating1caption = $('#txtCaption16').val();
-        var Rating2caption = $('#txtCaption17').val();
-        var Rating3caption = $('#txtCaption18').val();
-
-        var Date1caption = $('#txtCaption19').val();
-        var Date2caption = $('#txtCaption20').val();
-        var Date3caption = $('#txtCaption21').val();
-
-        var Email1caption = $('#txtCaption24').val();
-        var Email2caption = $('#txtCaption25').val();
-        var Email3caption = $('#txtCaption26').val();
-
-        var Amountcaption = $('#txtCaption27').val();
-        var Amount2caption = $('#txtCaption28').val();
-        var Amount3caption = $('#txtCaption29').val();
-
-        var Time1caption = $('#txtCaption22').val();
-        var Time2caption = $('#txtCaption23').val();
-
-        var Htmlcaption = $('#txtCaption31').val();
-        var Uploadcaption = $('#txtCaption32').val();
-        var TextAreacaption = $('#txtCaption30').val();
-        var MultiSelect1caption = $('#txtCaption33').val();
-        var MultiSelect2caption = $('#txtCaption34').val();
-        var MultiSelect3caption = $('#txtCaption35').val();
-        var MultiSelect4caption = $('#txtCaption36').val();
-        var MultiSelect5caption = $('#txtCaption37').val();
-
-
-        $.ajax(
-           {
-               type: "POST",
-               url: "/Masters/Insert_Data_Caption",
-               data: {
-                   xmastercaption: xmastercaption, SEGMENTcaption: SEGMENTcaption, Field1caption: Field1caption, Field2caption: Field2caption, Field3caption: Field3caption, Field4caption: Field4caption, Field5caption: Field5caption, Field6caption: Field6caption, Field7caption: Field7caption, Field8caption: Field8caption, Field9caption: Field9caption, Field10caption: Field10caption, Field11caption: Field11caption,
-                   Field12caption: Field12caption, Field13caption: Field13caption, Field14caption: Field14caption, Field15caption: Field15caption, Field16caption: Field16caption, Field17caption: Field17caption, Rating1caption: Rating1caption, Rating2caption: Rating2caption, Rating3caption: Rating3caption,
-                   Date1caption: Date1caption, Date2caption: Date2caption, Date3caption: Date3caption, Email1caption: Email1caption, Email2caption: Email2caption, Email3caption: Email3caption, Amountcaption: Amountcaption, Amount2caption: Amount2caption, Amount3caption: Amount3caption, Time1caption: Time1caption, Time2caption: Time2caption, Htmlcaption: Htmlcaption,
-                   Uploadcaption: Uploadcaption, TextAreacaption: TextAreacaption,
-                   MultiSelect1caption: MultiSelect1caption, MultiSelect2caption: MultiSelect2caption, MultiSelect3caption: MultiSelect3caption, MultiSelect4caption: MultiSelect4caption, MultiSelect5caption: MultiSelect5caption
-               },
-               dataType: 'json',
-               success: function (response) {
-
-
-               }
-           });
-
-
-
-        /*Place Holder*/
-        var xmaster = $('#txtMasterCode').val();
-        var SEGMENT = $('#drpSegment option:selected').val();
-        var Field1 = 'Sr.No';
-        var Field2 = 'Code';
-        var Field3 = $('#txtPlaceHolder1').val();
-        var Field4 = $('#txtPlaceHolder2').val();
-        var Field5 = $('#txtPlaceHolder3').val();
-        /*DropDown*/
-        var Field6 = $('#txtPlaceHolder4').val();
-        var Field7 = $('#txtPlaceHolder5').val();
-        var Field8 = $('#txtPlaceHolder6').val();
-        var Field9 = $('#txtPlaceHolder7').val();
-        var Field10 = $('#txtPlaceHolder8').val();
-        var Field11 = $('#txtPlaceHolder9').val();
-
-        /*DropDown*/
-        /*Textbox*/
-        var Field12 = $('#txtPlaceHolder10').val();
-        var Field13 = $('#txtPlaceHolder11').val();
-        var Field14 = $('#txtPlaceHolder12').val();
-        var Field15 = $('#txtPlaceHolder13').val();
-        var Field16 = $('#txtPlaceHolder14').val();
-        var Field17 = $('#txtPlaceHolder15').val();
-        /*Textbox*/
-
-        var Rating1 = $('#txtPlaceHolder16').val();
-        var Rating2 = $('#txtPlaceHolder17').val();
-        var Rating3 = $('#txtPlaceHolder18').val();
-
-        var Date1 = $('#txtPlaceHolder19').val();
-        var Date2 = $('#txtPlaceHolder20').val();
-        var Date3 = $('#txtPlaceHolder21').val();
-
-        var Email1 = $('#txtPlaceHolder24').val();
-        var Email2 = $('#txtPlaceHolder25').val();
-        var Email3 = $('#txtPlaceHolder26').val();
-
-        var Amount = $('#txtPlaceHolder27').val();
-        var Amount2 = $('#txtPlaceHolder28').val();
-        var Amount3 = $('#txtPlaceHolder29').val();
-
-        var Time1 = $('#txtPlaceHolder22').val();
-        var Time2 = $('#txtPlaceHolder23').val();
-
-        var Html = $('#txtPlaceHolder31').val();
-        var Upload = $('#txtPlaceHolder32').val();
-        var TextArea = $('#txtPlaceHolder30').val();
-
-        var MultiSelect1 = $('#txtPlaceHolder33').val();
-        var MultiSelect2 = $('#txtPlaceHolder34').val();
-        var MultiSelect3 = $('#txtPlaceHolder35').val();
-        var MultiSelect4 = $('#txtPlaceHolder36').val();
-        var MultiSelect5 = $('#txtPlaceHolder37').val();
-        $.ajax(
-           {
-               type: "POST",
-               url: "/Masters/Insert_Data_PlaceHolder",
-               data: {
-                   xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
-                   Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
-                   Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
-                   Upload: Upload, TextArea: TextArea,
-                   MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
-               },
-               success: function (response) {
-                   //if (response != null && response.success) {
-                   //    alert("Record Save Sucessfully!");
-                   //}
-               }
-           });
-
-
-
-        /*Help*/
-        var xmaster = $('#txtMasterCode').val();
-        var Field1 = 'Sr.No';
-        var Field2 = 'Code';
-        var Field3 = $('#txtHelp1').val();
-        var Field4 = $('#txtHelp2').val();
-        var Field5 = $('#txtHelp3').val();
-        /*DropDown*/
-        var Field6 = $('#txtHelp4').val();
-        var Field7 = $('#txtHelp5').val();
-        var Field8 = $('#txtHelp6').val();
-        var Field9 = $('#txtHelp7').val();
-        var Field10 = $('#txtHelp8').val();
-        var Field11 = $('#txtHelp9').val();
-
-        /*DropDown*/
-        /*Textbox*/
-        var Field12 = $('#txtHelp10').val();
-        var Field13 = $('#txtHelp11').val();
-        var Field14 = $('#txtHelp12').val();
-        var Field15 = $('#txtHelp13').val();
-        var Field16 = $('#txtHelp14').val();
-        var Field17 = $('#txtHelp15').val();
-
-        /*Textbox*/
-
-        var Rating1 = $('#txtHelp16').val();
-        var Rating2 = $('#txtHelp17').val();
-        var Rating3 = $('#txtHelp18').val();
-
-        var Date1 = $('#txtHelp19').val();
-        var Date2 = $('#txtHelp20').val();
-        var Date3 = $('#txtHelp21').val();
-
-        var Email1 = $('#txtHelp24').val();
-        var Email2 = $('#txtHelp25').val();
-        var Email3 = $('#txtHelp26').val();
-
-        var Amount = $('#txtHelp27').val();
-        var Amount2 = $('#txtHelp28').val();
-        var Amount3 = $('#txtHelp29').val();
-
-        var Time1 = $('#txtHelp22').val();
-        var Time2 = $('#txtHelp23').val();
-
-        var Html = $('#txtHelp31').val();
-        var Upload = $('#txtHelp32').val();
-        var TextArea = $('#txtHelp30').val();
-
-        var MultiSelect1 = $('#txtHelp33').val();
-        var MultiSelect2 = $('#txtHelp34').val();
-        var MultiSelect3 = $('#txtHelp35').val();
-        var MultiSelect4 = $('#txtHelp36').val();
-        var MultiSelect5 = $('#txtHelp37').val();
-        $.ajax(
-           {
-               type: "POST",
-               url: "/Masters/Insert_Data_Help",
-               data: {
-                   xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
-                   Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
-                   Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
-                   Upload: Upload, TextArea: TextArea,
-                   MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
-               },
-               success: function (response) {
-                   //if (response != null && response.success) {
-                   //    alert("Record Save Sucessfully!");
-                   //}
-               }
-           });
-
-
-
-        /*Validation*/
-        var xmaster = $('#txtMasterCode').val();
-        var Field1 = 'Sr.No';
-        var Field2 = 'Code';
-        var Field3 = $('#txtValidationCode1').val();
-        var Field4 = $('#txtValidationCode2').val();
-        var Field5 = $('#txtValidationCode3').val();
-        /*DropDown*/
-        var Field6 = $('#txtValidationCode4').val();
-        var Field7 = $('#txtValidationCode5').val();
-        var Field8 = $('#txtValidationCode6').val();
-        var Field9 = $('#txtValidationCode7').val();
-        var Field10 = $('#txtValidationCode8').val();
-        var Field11 = $('#txtValidationCode9').val();
-
-        /*DropDown*/
-        /*Textbox*/
-        var Field12 = $('#txtValidationCode10').val();
-
-        var Field13 = $('#txtValidationCode11').val();
-        var Field14 = $('#txtValidationCode12').val();
-        var Field15 = $('#txtValidationCode13').val();
-        var Field16 = $('#txtValidationCode14').val();
-        var Field17 = $('#txtValidationCode15').val();
-        /*Textbox*/
-
-        var Rating1 = $('#txtValidationCode16').val();
-        var Rating2 = $('#txtValidationCode17').val();
-        var Rating3 = $('#txtValidationCode18').val();
-
-        var Date1 = $('#txtValidationCode19').val();
-        var Date2 = $('#txtValidationCode20').val();
-        var Date3 = $('#txtValidationCode21').val();
-
-        var Email1 = $('#txtValidationCode24').val();
-        var Email2 = $('#txtValidationCode25').val();
-        var Email3 = $('#txtValidationCode26').val();
-
-        var Amount = $('#txtValidationCode27').val();
-        var Amount2 = $('#txtValidationCode28').val();
-        var Amount3 = $('#txtValidationCode29').val();
-
-        var Time1 = $('#txtValidationCode22').val();
-        var Time2 = $('#txtValidationCode23').val();
-
-        var Html = $('#txtValidationCode31').val();
-        var Upload = $('#txtValidationCode32').val();
-        var TextArea = $('#txtValidationCode30').val();
-
-        var MultiSelect1 = $('#txtValidationCode33').val();
-        var MultiSelect2 = $('#txtValidationCode34').val();
-        var MultiSelect3 = $('#txtValidationCode35').val();
-        var MultiSelect4 = $('#txtValidationCode36').val();
-        var MultiSelect5 = $('#txtValidationCode37').val();
-        $.ajax(
-           {
-               type: "POST",
-               url: "/Masters/Insert_Data_Validation",
-               data: {
-                   xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
-                   Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
-                   Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
-                   Upload: Upload, TextArea: TextArea,
-                   MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
-               },
-               success: function (response) {
-                   if (response != null && response.success) {
-                       getdata();
-                       //swal('Good job!', 'Record Save Sucessfully!', 'success');
-                   }
-               }
-           });
-        if (a = 1) {
-            clearValidations($(this).parent());
-            e.preventDefault();
-            $('#btnsUpdate').hide();
-            $('#btnDelete').hide();
-            $('#btnSaveMastersetup').show();
-            $('#txtMasterCode').attr("disabled", false)
-            $('input[type="text"]').val('');
-            $('.Dropdown').each(function () {
-                $(this).val($(this).find('option:first').val()).change();
-            });
-            $('.drpdown').each(function () {
-                $(this).val($(this).find('option:first').val()).change();
-            });
-            $('#type').val('Save');
-        }
-    });
-
+           });//Ajax call End
+    });//Buton Click  End 
 
     $('#btnQuitform').click(function (e) {
         e.preventDefault();
@@ -430,13 +431,16 @@
         $('#btnsUpdate').hide();
         $('#btnDelete').hide();
         $('#btnSaveMastersetup').show();
-        $('#txtMasterCode').attr("disabled", false)
+        $('#txtMasterCode').attr("disabled", false);
+        $('input[type="text"]').removeAttr('disabled');
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
+            $(this).removeAttr('disabled');
         });
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
+            $(this).removeAttr('disabled');
         });
         $('#type').val('Save');
     });
@@ -473,10 +477,9 @@
              dataType: 'json',
              success: function (response) {
                  //Master
+                 clearValidations($(this).parent());
                  if (response['AMaster'].length > 0) {
                      $('#txtMasterCode').attr("disabled", true)
-
-
                      $('#type').val('Update');
                      $('#txtMasterCode').val(response['AMaster'][0]['xmaster']);
                      $('#txtMasterName').val(response['AMaster'][0]['xname']);
@@ -487,58 +490,96 @@
                      bind_dropdown();
                      // $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      // $('#drpCorporate').find('option[value="' + response['AMaster'][0][''] + '"]').attr('selected', true).change();
-                     $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
-                     setSelect2Value($('#drpMastersetup2'), response['AMaster'][0]['xcross']);
-                     setSelect2Value($('#drpMastersetup3'), response['AMaster'][0]['xcross1']);
-                     setSelect2Value($('#drpMastersetup4'), response['AMaster'][0]['xcross2']);
-                     setSelect2Value($('#drpMastersetup5'), response['AMaster'][0]['xcross3']);
-                     setSelect2Value($('#drpMastersetup6'), response['AMaster'][0]['xcross4']);
-
-                     setSelect2Value($('#drpMultiselectsetup1'), response['AMaster'][0]['MultiSelect1']);
-                     setSelect2Value($('#drpMultiselectsetup2'), response['AMaster'][0]['MultiSelect2']);
-                     setSelect2Value($('#drpMultiselectsetup3'), response['AMaster'][0]['MultiSelect3']);
-                     setSelect2Value($('#drpMultiselectsetup4'), response['AMaster'][0]['MultiSelect4']);
-                     setSelect2Value($('#drpMultiselectsetup5'), response['AMaster'][0]['MultiSelect5']);
+                    // $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
+                     setValueAndDisable($('#drpDropdownMastersetup1'), response['AMaster'][0]['xlink']);
+                     setValueAndDisable($('#drpMastersetup2'), response['AMaster'][0]['xcross']);
+                     setValueAndDisable($('#drpMastersetup3'), response['AMaster'][0]['xcross1']);
+                     setValueAndDisable($('#drpMastersetup4'), response['AMaster'][0]['xcross2']);
+                     setValueAndDisable($('#drpMastersetup5'), response['AMaster'][0]['xcross3']);
+                     setValueAndDisable($('#drpMastersetup6'), response['AMaster'][0]['xcross4']);
+                     
+                     setValueAndDisable($('#drpMultiselectsetup1'), response['AMaster'][0]['MultiSelect1']);
+                     setValueAndDisable($('#drpMultiselectsetup2'), response['AMaster'][0]['MultiSelect2']);
+                     setValueAndDisable($('#drpMultiselectsetup3'), response['AMaster'][0]['MultiSelect3']);
+                     setValueAndDisable($('#drpMultiselectsetup4'), response['AMaster'][0]['MultiSelect4']);
+                     setValueAndDisable($('#drpMultiselectsetup5'), response['AMaster'][0]['MultiSelect5']);
                  }
                  //Caption
                  if (response['ACaption'].length > 0) {
-                     $('#txtcaption1').val(response['ACaption'][0]['Field3caption']);
-                     $('#txtcaption2').val(response['ACaption'][0]['Field4caption']);
-                     $('#txtCaption3').val(response['ACaption'][0]['Field5caption']);
-                     $('#txtCaption4').val(response['ACaption'][0]['Field6caption']);
-                     $('#txtCaption5').val(response['ACaption'][0]['Field7caption']);
-                     $('#txtCaption6').val(response['ACaption'][0]['Field8caption']);
-                     $('#txtCaption7').val(response['ACaption'][0]['Field9caption']);
-                     $('#txtCaption8').val(response['ACaption'][0]['Field10caption']);
-                     $('#txtCaption9').val(response['ACaption'][0]['Field11caption']);
-                     $('#txtCaption10').val(response['ACaption'][0]['Field12caption']);
-                     $('#txtCaption11').val(response['ACaption'][0]['Field13caption']);
-                     $('#txtCaption12').val(response['ACaption'][0]['Field14caption']);
-                     $('#txtCaption13').val(response['ACaption'][0]['Field15caption']);
-                     $('#txtCaption14').val(response['ACaption'][0]['Field16caption']);
-                     $('#txtCaption15').val(response['ACaption'][0]['Field17caption']);
-                     $('#txtCaption16').val(response['ACaption'][0]['Rating1caption']);
-                     $('#txtCaption17').val(response['ACaption'][0]['Rating2caption']);
-                     $('#txtCaption18').val(response['ACaption'][0]['Rating3caption']);
-                     $('#txtCaption19').val(response['ACaption'][0]['Date1caption']);
-                     $('#txtCaption20').val(response['ACaption'][0]['Date2caption']);
-                     $('#txtCaption21').val(response['ACaption'][0]['Date3caption']);
-                     $('#txtCaption24').val(response['ACaption'][0]['Email1caption']);
-                     $('#txtCaption25').val(response['ACaption'][0]['Email2caption']);
-                     $('#txtCaption26').val(response['ACaption'][0]['Email3caption']);
-                     $('#txtCaption27').val(response['ACaption'][0]['Amountcaption']);
-                     $('#txtCaption28').val(response['ACaption'][0]['Amount2caption']);
-                     $('#txtCaption29').val(response['ACaption'][0]['Amount3caption']);
-                     $('#txtCaption22').val(response['ACaption'][0]['Time1caption']);
-                     $('#txtCaption23').val(response['ACaption'][0]['Time2caption']);
-                     $('#txtCaption31').val(response['ACaption'][0]['Htmlcaption']);
-                     $('#txtCaption32').val(response['ACaption'][0]['Uploadcaption']);
-                     $('#txtCaption30').val(response['ACaption'][0]['TextAreacaption']);
-                     $('#txtCaption33').val(response['ACaption'][0]['MultiSelect1caption']);
-                     $('#txtCaption34').val(response['ACaption'][0]['MultiSelect2caption']);
-                     $('#txtCaption35').val(response['ACaption'][0]['MultiSelect3caption']);
-                     $('#txtCaption36').val(response['ACaption'][0]['MultiSelect4caption']);
-                     $('#txtCaption37').val(response['ACaption'][0]['MultiSelect5caption']);
+                     setValueAndDisable($('#txtcaption1'), response['ACaption'][0]['Field3caption']);
+                     //$('#txtcaption1').val(response['ACaption'][0]['Field3caption']);
+                     setValueAndDisable($('#txtcaption2'), response['ACaption'][0]['Field4caption']);
+                     //  $('#txtcaption2').val(response['ACaption'][0]['Field4caption']);
+                     setValueAndDisable($('#txtCaption3'), response['ACaption'][0]['Field5caption']);
+                     //$('#txtCaption3').val(response['ACaption'][0]['Field5caption']);
+                     setValueAndDisable($('#txtCaption4'), response['ACaption'][0]['Field6caption']);
+                     //$('#txtCaption4').val(response['ACaption'][0]['Field6caption']);
+                     setValueAndDisable($('#txtCaption5'), response['ACaption'][0]['Field7caption']);
+                     //$('#txtCaption5').val(response['ACaption'][0]['Field7caption']);
+                     setValueAndDisable($('#txtCaption6'), response['ACaption'][0]['Field8caption']);
+                     // $('#txtCaption6').val(response['ACaption'][0]['Field8caption']);
+                     setValueAndDisable($('#txtCaption7'), response['ACaption'][0]['Field9caption']);
+                     //  $('#txtCaption7').val(response['ACaption'][0]['Field9caption']);
+                     setValueAndDisable($('#txtCaption8'), response['ACaption'][0]['Field10caption']);
+                     // $('#txtCaption8').val(response['ACaption'][0]['Field10caption']);
+                     setValueAndDisable($('#txtCaption9'), response['ACaption'][0]['Field11caption']);
+                     // $('#txtCaption9').val(response['ACaption'][0]['Field11caption']);
+                     setValueAndDisable($('#txtCaption10'), response['ACaption'][0]['Field12caption']);
+                     //$('#txtCaption10').val(response['ACaption'][0]['Field12caption']);
+                     setValueAndDisable($('#txtCaption11'), response['ACaption'][0]['Field13caption']);
+                     //   $('#txtCaption11').val(response['ACaption'][0]['Field13caption']);
+                     setValueAndDisable($('#txtCaption12'), response['ACaption'][0]['Field14caption']);
+                     //  $('#txtCaption12').val(response['ACaption'][0]['Field14caption']);
+                     setValueAndDisable($('#txtCaption13'), response['ACaption'][0]['Field15caption']);
+                     //  $('#txtCaption13').val(response['ACaption'][0]['Field15caption']);
+                     setValueAndDisable($('#txtCaption14'), response['ACaption'][0]['Field16caption']);
+                     //$('#txtCaption14').val(response['ACaption'][0]['Field16caption']);
+                     setValueAndDisable($('#txtCaption15'), response['ACaption'][0]['Field17caption']);
+                     //$('#txtCaption15').val(response['ACaption'][0]['Field17caption']);
+                     setValueAndDisable($('#txtCaption16'), response['ACaption'][0]['Rating1caption']);
+                     //$('#txtCaption16').val(response['ACaption'][0]['Rating1caption']);
+                     setValueAndDisable($('#txtCaption17'), response['ACaption'][0]['Rating2caption']);
+                     /// $('#txtCaption17').val(response['ACaption'][0]['Rating2caption']);
+                     setValueAndDisable($('#txtCaption18'), response['ACaption'][0]['Rating3caption']);
+                     //$('#txtCaption18').val(response['ACaption'][0]['Rating3caption']);
+                     setValueAndDisable($('#txtCaption19'), response['ACaption'][0]['Date1caption']);
+                     // $('#txtCaption19').val(response['ACaption'][0]['Date1caption']);
+                     setValueAndDisable($('#txtCaption20'), response['ACaption'][0]['Date2caption']);
+                     //  $('#txtCaption20').val(response['ACaption'][0]['Date2caption']);
+                     setValueAndDisable($('#txtCaption21'), response['ACaption'][0]['Date3caption']);
+                     // $('#txtCaption21').val(response['ACaption'][0]['Date3caption']);
+                     setValueAndDisable($('#txtCaption24'), response['ACaption'][0]['Email1caption']);
+                     //$('#txtCaption24').val(response['ACaption'][0]['Email1caption']);
+                     setValueAndDisable($('#txtCaption25'), response['ACaption'][0]['Email2caption']);
+                     //$('#txtCaption25').val(response['ACaption'][0]['Email2caption']);
+                     setValueAndDisable($('#txtCaption26'), response['ACaption'][0]['Email3caption']);
+                     //   $('#txtCaption26').val(response['ACaption'][0]['Email3caption']);
+                     setValueAndDisable($('#txtCaption27'), response['ACaption'][0]['Amountcaption']);
+                     //$('#txtCaption27').val(response['ACaption'][0]['Amountcaption']);
+                     setValueAndDisable($('#txtCaption28'), response['ACaption'][0]['Amount2caption']);
+                     // $('#txtCaption28').val(response['ACaption'][0]['Amount2caption']);
+                     setValueAndDisable($('#txtCaption29'), response['ACaption'][0]['Amount3caption']);
+                     // $('#txtCaption29').val(response['ACaption'][0]['Amount3caption']);
+                     setValueAndDisable($('#txtCaption22'), response['ACaption'][0]['Time1caption']);
+                     // $('#txtCaption22').val(response['ACaption'][0]['Time1caption']);
+                     setValueAndDisable($('#txtCaption23'), response['ACaption'][0]['Time2caption']);
+                     //  $('#txtCaption23').val(response['ACaption'][0]['Time2caption']);
+                     setValueAndDisable($('#txtCaption31'), response['ACaption'][0]['Htmlcaption']);
+                     //  $('#txtCaption31').val(response['ACaption'][0]['Htmlcaption']);
+                     setValueAndDisable($('#txtCaption32'), response['ACaption'][0]['Uploadcaption']);
+                     // $('#txtCaption32').val(response['ACaption'][0]['Uploadcaption']);
+                     setValueAndDisable($('#txtCaption30'), response['ACaption'][0]['TextAreacaption']);
+                     //  $('#txtCaption30').val(response['ACaption'][0]['TextAreacaption']);
+                     setValueAndDisable($('#txtCaption33'), response['ACaption'][0]['MultiSelect1caption']);
+                     //  $('#txtCaption33').val(response['ACaption'][0]['MultiSelect1caption']);
+                     setValueAndDisable($('#txtCaption34'), response['ACaption'][0]['MultiSelect2caption']);
+                     //$('#txtCaption34').val(response['ACaption'][0]['MultiSelect2caption']);
+                     setValueAndDisable($('#txtCaption35'), response['ACaption'][0]['MultiSelect3caption']);
+                     //    $('#txtCaption35').val(response['ACaption'][0]['MultiSelect3caption']);
+                     setValueAndDisable($('#txtCaption36'), response['ACaption'][0]['MultiSelect4caption']);
+                     //  $('#txtCaption36').val(response['ACaption'][0]['MultiSelect4caption']);
+                     setValueAndDisable($('#txtCaption37'), response['ACaption'][0]['MultiSelect5caption']);
+                     // $('#txtCaption37').val(response['ACaption'][0]['MultiSelect5caption']);
                  }
                  //Placeholder
                  if (response['Aplaceholder'].length > 0) {
