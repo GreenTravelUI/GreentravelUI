@@ -1,0 +1,255 @@
+﻿@{
+    ViewBag.Title = "GIT Transfer Master";
+    ViewBag.PageTitle = "GIT Transfer Master";
+    ViewBag.FooterCopyRight = "2015 &copy; Green Travels.";
+}
+
+<style>
+    .modal-lg {
+        width: 95%;
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach GIT Transfer</a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-map-signs"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create GIT Transfer</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Trtansfer Package Type</th>
+                                            <th>Vehicle Type</th>
+                                            <th>Vehicle Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Trtansfer Package Type</th>
+                                            <th>Vehicle Type</th>
+                                            <th>Vehicle Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Amari Ocean - Grand Palace</td>
+                                            <td>Bus</td>
+                                            <td>Volvo Bus</td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab2section1">GIT Transfer</h3>
+                                <div class="form-group">
+                                    <label for="txtHotelName">Trtansfer Package Type</label>
+                                    <select id="drpCompanyStatus" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpCompanyStatus">Vehicle Type </label>
+                                            <select id="drpCompanyStatus" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpCompanyStatus">Vehicle Name</label>
+                                            <input type="text" class="form-control" id="txtSeatCapacity" placeholder="Vehicle Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtHotelName">Seat Capacity</label>
+                                            <input type="text" class="form-control" id="txtSeatCapacity" placeholder="Seat Capacity">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtHotelName">Luggage Capicity</label>
+                                            <input type="text" class="form-control" id="txtLuggageCapicity" placeholder="Luggage Capicity">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtOfficialEmail">Rate</label>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtSICAdultSICRate" placeholder="Rate">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab2">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="~/assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-left">
+                                                <li>Transportation Company Name :<br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblHotelName" for="txtHotelName"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Official Email(s)  :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Official Phone  :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Website  :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblWebsite" for="txtWebsite"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Address Line 1 
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>City :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblCity" for="txtCity"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div class="summ-list-right">
+
+                                                <li>State :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblState" for="txtState"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Country :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblCountry" for="txtCountry"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Zip/Postal Code :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblZipCode" for="txtZipCode"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

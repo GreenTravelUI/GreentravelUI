@@ -56,7 +56,8 @@
     <link href="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/datatables/css/datatables.min.css" rel="stylesheet" />
+    @*<link href="/assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css" />*@
     <link href="/assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
     <link href="/assets/plugins/tipso/tipso.min.css" rel="stylesheet" />
@@ -487,7 +488,13 @@
                                                 <li>@Html.ActionLink("Supplier", "Supplier", "Sightseeing")</li>
                                             </ul>
                                         </li>
-                                        <li>@Html.ActionLink("Transportation", "Index", "Transportation")</li>
+                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Transportation<span class="arrow"></span></a>
+                                            <ul class="sub-menu">
+                                                <li>@Html.ActionLink("Supplier", "Index", "Transportation")</li>
+                                                <li>@Html.ActionLink("FIT Transfer PVT Master", "FITTransferPVT", "Transportation")</li>
+                                                <li>@Html.ActionLink("GIT Transfer Master", "GITTransfer", "Transportation")</li>
+                                            </ul>
+                                        </li>
                                         <li>@Html.ActionLink("Guide", "Index", "Guide")</li>
                                     </ul>
                                 </li>
@@ -925,7 +932,8 @@
     <script src="/assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
     <script src="/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
     <script src="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
-    <script src="/assets/plugins/datatables/js/jquery.datatables.min.js"></script>
+    <script src="~/assets/plugins/datatables/js/datatables.min.js"></script>
+    @*<script src="/assets/plugins/datatables/js/jquery.datatables.min.js"></script>*@
     <script src="/assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
     <script src="/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="/assets/plugins/select2/js/select2.min.js"></script>

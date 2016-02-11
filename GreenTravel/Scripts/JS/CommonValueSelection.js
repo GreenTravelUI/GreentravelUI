@@ -22,5 +22,21 @@
 function setSelect2Value(control, value) {
     control.find('option[value="' + value + '"]').attr('selected', true);
     control.next();
-    $('#select2-' + control.attr('id') + '-container').text(control.find('option:selected').text()).attr('title',control.find('option:selected').text());
+    $('#select2-' + control.attr('id') + '-container').text(control.find('option:selected').text()).attr('title', control.find('option:selected').text());
+}
+
+function setValueAndDisable(control, value) {
+    if (control.is('select')) {
+        control.find('option[value="' + value + '"]').attr('selected', true);
+        control.next();
+        $('#select2-' + control.attr('id') + '-container').text(control.find('option:selected').text()).attr('title', control.find('option:selected').text());
+    } else if (control.is('input')) {
+        control.val(value);
+    }
+    //alert(value);
+    if (value != '0' && value != '' && value != '--None--') {
+        control.attr('disabled', 'disabled');
+    } else {
+        control.removeAttr('disabled');
+    }
 }

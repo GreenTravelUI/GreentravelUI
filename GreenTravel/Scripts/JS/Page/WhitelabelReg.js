@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    BindGrid();
+ BindGrid();
     $('.btnSave').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
@@ -266,11 +266,11 @@
         Dropdown_Bind_Tab1();
         $("#SearchMaster").removeClass("active");
         $("#CreateMaster").addClass("active");
-       
+
         $("#tab1").removeClass("active");
         $("#tab2").addClass("active");
         $('#btnupdatebasic').show();
-        $('#btndeltebasic').show();
+        $('#btndeltebasic').hide();
         $('#btnsavebasic').hide();
         var tablename = 'dbo._White_Register_Basic';
         var Corporate = '0';
@@ -293,7 +293,9 @@
                      $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
                      $('#txtCmpOfficeName').val(response['Whiteregjs'][0]['CorpCoOfficialName']);
                      $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
+                     //setSelect2Value($('#drpcompanyIndustry'), response['Whiteregjs'][0]['CorpCompanyIndust']);
                      $('#drpcompanyType').find('option[value="' + response['Whiteregjs'][0]['CompanyType'] + '"]').attr('selected', true).change();
+                    // setSelect2Value($('#drpcompanyType'), response['Whiteregjs'][0]['CompanyType']);
                      $('#drpServices').find('option[value="' + response['Whiteregjs'][0]['Services'] + '"]').attr('selected', true).change();
                      $('#drpBusinessMode').find('option[value="' + response['Whiteregjs'][0]['BusinessMode'] + '"]').attr('selected', true).change();
                      $('#txtUsername').val(response['Whiteregjs'][0]['AdminUserName']);
@@ -301,15 +303,17 @@
                      $('#txtConfirmPassword').val(response['Whiteregjs'][0]['Password']);
                      $('#txtOfficialEmail').val(response['Whiteregjs'][0]['OfficialEmail']);
                      $('#txtOfficialPhone').val(response['Whiteregjs'][0]['OfficialPhone']);
+                     //alert(response['Whiteregjs'][0]['ApplicationTheme']);
                      $('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
                      $('#txtApplicationURL').val(response['Whiteregjs'][0]['ApplicationUrl']);
                      $('#drpBaseCurrency').find('option[value="' + response['Whiteregjs'][0]['BaseCurrency'] + '"]').attr('selected', true).change();
                      $('#drpBaseLanguage').find('option[value="' + response['Whiteregjs'][0]['BaseLanguage'] + '"]').attr('selected', true).change();
                      $('#txtLogo').val(response['Whiteregjs'][0]['Logo']);
+                     //alert(response['Whiteregjs'][0]['WebTheme']);
                      $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
                      $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
                      // $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();
-                    
+
                      setSelect2Value($('#drpOtherLanguage'), response['Whiteregjs'][0]['OtherLanguage']);
                      $('#txtFavicon').val(response['Whiteregjs'][0]['Favicon']);
                      var fulllabelwhite = response['Whiteregjs'][0]['FullSemiWhiteLbl'];
@@ -321,14 +325,14 @@
                      }
                      var chkCopyrightNotecheck = response['Whiteregjs'][0]['CopyrightNoteFlag'];
                      if (chkCopyrightNotecheck == "True") {
-                                              
+
                          document.getElementById("chkCopyrightNote").checked = true;
                      }
                      else {
-                                              
-                        document.getElementById("chkCopyrightNote").checked = false;
+
+                         document.getElementById("chkCopyrightNote").checked = false;
                      }
-                     
+
                      $('#txtCopyRights').val(response['Whiteregjs'][0]['CopyrightNote']);
                      $('#drpRefferenceCorporateCompany').find('option[value="' + response['Whiteregjs'][0]['RefCorpCompany'] + '"]').attr('selected', true).change();
                      $('#txtOtherRefference1').val(response['Whiteregjs'][0]['OtherReference1']);
@@ -607,4 +611,14 @@
             $(this).val($(this).find('option:first').val()).change();
         });
     });
+
+    $("#btnquituserpref").click(function (e) {
+
+        $("#tab1").addClass("active");
+        $("#tabuserpreferance").removeClass("active");
+        $("#tab5").removeClass("active");
+        $("#Search").addClass("active");
+
+    });
+
 });

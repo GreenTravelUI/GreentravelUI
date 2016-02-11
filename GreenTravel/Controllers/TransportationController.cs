@@ -16,5 +16,14 @@ namespace GreenTravel.Controllers
             return View();
         }
 
+        public ActionResult FITTransferPVT()
+        {
+            return View();
+        }
+
+        public ActionResult GITTransfer()
+        {
+            return View();
+        }
     }
 }
