@@ -1,7 +1,8 @@
 ﻿$(document).ready(function () {
     FillDropDown_Category();
-    getdata();
+   // getdata();
     hide_div();
+    FillViewsSetup('ulviewsname', 'DrpView');
 
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
@@ -9,13 +10,11 @@
             hide_div();
         }
     });
+
     $("#drpSegmenttab3").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
 
     });
-
-
-
 
     $("#drpMasterTab3").change(function () {
         clearValidations($(this).parent());
@@ -153,7 +152,6 @@
 
         $('select').next().find('ul li.select2-selection__choice').remove();
     });
-
 
     //Quit  Button  Click 
     $('#btnQuit').click(function (e) {
@@ -1258,5 +1256,61 @@
 
 
     }
+
+    // For Views
+    function FillViewsSetup(controlId, type) {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = $('#drpCorporateTab option:selected').val();
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var field1 = '1';
+        var field1 = '';
+        var field2 = '';
+        var field3 = '';
+        var field4 = '';
+        var field5 = '';
+        var Control = '';
+        var Language = '';
+        var Type = 'ConditionalDropdown';
+        $.ajax({
+            url: "/AllMaster/FillViewsControls",
+            type: "POST",
+            async: false,
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+                Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
+            },
+            success: function (response) {
+                if (response['AMul'].length > 0) {
+
+                    for (var i = 0; i < response['AMul'].length; i++) {
+                        var html = '<li><a id=' + response['AMul'][i]['Value'] + ' class="ViewsNameClass" href="#">' + response['AMul'][i]['Text'] + '</a></li>';
+                        $(html).appendTo($("#ulviewsname"));
+                    }
+                }
+            }
+        });
+    }
+
+    $(".ViewsNameClass").click(function (e) {
+
+        var ViewId = this.id;
+        var MasterCode = '';
+        var corporate = '1';
+        var Unit = '';
+        var Location = '';
+        var Branch = '';
+        var UserId = '';
+        var Type = 'Grid';
+        $("#partialView").load('/AllMaster/_PartialCountry?ViewId=' + ViewId + '&MasterCode=' + MasterCode + '&corporate=' + corporate + '&Unit=' + Unit + '&Location=' + Location + '&Branch=' + Branch + '&UserId=' + UserId + '&Type=' + Type);
+    });
+
+
+
 
 });

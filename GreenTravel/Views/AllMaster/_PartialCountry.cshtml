@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GreenTravel.Models.Views>
+<script src="/assets/js/pages/table-data.js"></script>
+<script src="/assets/js/jquery.sortable.js"></script>
+<script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
+
+<table id="example-editable" class="display" style="width: 100%; cellspacing: 0;">
+    <thead>
+        <tr>
+            @foreach (var item in Model)
+            {
+                foreach (var itemheader in item.ViewsGridHearder)
+                { 
+                <th>@Html.DisplayFor(modelItem => itemheader.Header)</th>
+                
+                }
+            }
+
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+
+            @foreach (var item in Model)
+            {
+                foreach (var itemheader in item.ViewsGridHearder)
+                { 
+                <th>@Html.DisplayFor(modelItem => itemheader.Header)</th>
+                
+                }
+            }
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            foreach (var itemColumn in item.ViewsGridColumn)
+            { <tr>
+                <th>@Html.DisplayFor(modelItem => itemColumn.column1)</th>
+                <th>@Html.DisplayFor(modelItem => itemColumn.column2)</th>
+                <th>@Html.DisplayFor(modelItem => itemColumn.column3)</th>
+                <th>@Html.DisplayFor(modelItem => itemColumn.column4)</th>
+
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $('#example-editable').DataTable();
+        table.destroy();
+    });
+</script>

@@ -74,6 +74,8 @@ namespace GreenTravel.Models
         public string TerminalBy { get; set; }
         public string BranchBy { get; set; }
         public string language { get; set; }
+        public List<ViewsGridHearder> ViewsGridHearder { get; set; }
+        public List<ViewsGridColumn> ViewsGridColumn { get; set; }
     }
 
     public class CommanMasterCaption
@@ -479,6 +481,49 @@ namespace GreenTravel.Models
         public string SrNo { get; set; }
     }
 
-   
+
+    public partial class Views
+    {
+        public List<ViewsGridHearder> ViewsGridHearder { get; set; }
+        public List<ViewsGridColumn> ViewsGridColumn { get; set; }
+    }
+
+
+    public class ViewsGridColumn
+    {
+        public string column1 { get; set; }
+        public string column2 { get; set; }
+        public string column3 { get; set; }
+        public string column4 { get; set; }
+        public string column5 { get; set; }
+        public string column6 { get; set; }
+        public string column7 { get; set; }
+        public string column8 { get; set; }
+        public string column9 { get; set; }
+        public string column10 { get; set; }
+        public string column11 { get; set; }
+        public string column12 { get; set; }
+        public string column13 { get; set; }
+        public string column14 { get; set; }
+        public string column15 { get; set; }
+        public string column16 { get; set; }
+        public string column17 { get; set; }
+        public string column18 { get; set; }
+        public string column19 { get; set; }
+        public string column20 { get; set; }
+
+    }
+
+
+
+    public class ViewsGridHearder
+    {
+        public string Header { get; set; }
+        public string DisplayOrder { get; set; }
+        public string Visibility { get; set; }
+        public string TableColumn { get; set; }
+        //public string column1 { get; set; }
+       
+    }
 
 }
