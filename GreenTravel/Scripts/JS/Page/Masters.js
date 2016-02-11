@@ -473,12 +473,14 @@
          {
              type: "POST",
              url: "/Masters/Edit_data",
+             async: false,
              data: {
                  tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
              },
              dataType: 'json',
              success: function (response) {
                  //Master
+                 console.log(response['AMaster']);
                  clearValidations($(this).parent());
                  if (response['AMaster'].length > 0) {
                      $('#txtMasterCode').attr("disabled", true)
@@ -487,7 +489,8 @@
                      $('#txtMasterName').val(response['AMaster'][0]['xname']);
                      $('#txtdrpCaption').val(response['AMaster'][0]['drpCaption']);
                      $('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
-                     setSelect2Value($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
+                     $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
+                     //setSelect2Value($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
                      setSelect2Value($('#drpCorporate'), response['AMaster'][0]['Corporate']);
                      bind_dropdown();
                      // $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
