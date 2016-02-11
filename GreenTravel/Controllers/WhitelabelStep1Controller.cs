@@ -128,7 +128,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult BindGridView(GridParamater GP)
         {
             try
@@ -160,8 +159,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
-
         public ActionResult Edit_Data(WhitelabelReg WR)
         {
             try
@@ -219,11 +216,11 @@ namespace GreenTravel.Controllers
 
 
         #region tab4 billing/Maintanace
-        public ActionResult insert_data_main(WhitelabelReg WR)
+        public ActionResult insert_BillingMaintencae(Billing_maintanence _Billing_maintanence)
         {
             try
             {
-                DataSet ds = _objwl.insert_data_main(WR);
+                DataSet ds = _objwl.insert_BillingMaintencae(_Billing_maintanence);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
