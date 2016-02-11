@@ -24,6 +24,7 @@
                     <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hosting / Subscription </a></li>
                     <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Maintanence</a></li>
                     <li role="presentation" id="tabuserpreferance"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Preferance</a></li>
+                    <li role="presentation" id="tabpasswordauthentication"><a href="#tab6" role="tab" data-section="tab6" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Password Authentication</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -415,7 +416,7 @@
                             <form>
                                 <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing</h3>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="txtsrnotab4" placeholder="Billing Name">
+                                    <input type="text" class="form-control" id="txtsrnotab4" placeholder="Billing Srno">
                                     <div class="form-group">
                                         <label for="txtBillingName">Billing Name <span>*</span></label>
                                         <input type="text" class="form-control" id="txtBillingName" placeholder="Billing Name">
@@ -504,15 +505,13 @@
                         <div class="col-md-12">
                             <form>
                                 <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSavemain">
+                                <button id="btnSavebilling" type="submit" class="btn btn-success btnSavebillingmain">
                                     SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSavemain">
+                                <button id="btnUpdateBilling" type="submit" class="btn btn-primary btnSavebillingmain">
                                     UPDATE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnClear">
+                                <button id="btnClearbilling" type="button" class="btn btn-warning btnClear">
                                     CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnQuit">
+                                <button id="btnQuitBilling" type="button" class="btn btn-info btnQuit">
                                     QUIT FORM</button>
                             </form>
                         </div>
@@ -544,6 +543,79 @@
                                 <button id="btnclearuserpref" type="button" class="btn btn-warning btnClearuserpref">
                                     CLEAR</button>
                                 <button id="btnquituserpref" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="tab6">
+                        <form>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtrequiredcapitalcharacters">Required Capital Characters</label>
+                                    <input type="text" class="form-control" id="txtrequiredcapitalcharacters" placeholder="Capital Characters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtrequirednumeric">Required Numeric</label>
+                                    <input type="text" class="form-control" id="txtrequirednumeric" placeholder="Required Numeric">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtrequiredspecialcharacter">Required Special Characters</label>
+                                    <input type="text" class="form-control" id="txtrequiredspecialcharacter" placeholder="Required Special Characters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpencryptkey">Encription Key</label>
+                                    <select id="drpencryptkey" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtpasswordminimumlength">Password Minimum Lenght</label>
+                                    <input type="text" class="form-control" id="txtpasswordminimumlength" placeholder="Password minimum Length">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtpasswordexpirydays">Password Expiry Days</label>
+                                    <input type="text" class="form-control" id="txtpasswordexpirydays" placeholder="Password Expiry Days">
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label for="txtuserlockunlockminuts">User Lock/UnLock  Minuts</label>
+                                        <input type="text" class="form-control" id="txtuserlockunlockminuts" placeholder="Lock/Unlock Minuts">
+                                    </div>
+                                 <div class="form-group">
+                                        <label for="txtnumberofattemptslock">Number of Attempts Lock</label>
+                                        <input type="text" class="form-control" id="txtnumberofattemptslock" placeholder="Number of attempts">
+                                    </div>
+                                <div class="form-group">
+                                        <label for="txtotpexpirytime">OTP Expiry Time</label>
+                                        <input type="text" class="form-control" id="txtotpexpirytime" placeholder="OTP Expiry Time">
+                                    </div>
+                                <div class="form-group">
+                                        <label for="txtlastsamepassword">Last Same Password</label>
+                                        <input type="text" class="form-control" id="txtlastsamepassword" placeholder="Last Same Password">
+                                    </div>
+                                <div class="form-group">
+                                        <label for="txtcontinuenumber">Continue Number</label>
+                                        <input type="text" class="form-control" id="txtcontinuenumber" placeholder="Continue Number">
+                                    </div>
+                                <div class="form-group">
+                                        <label for="txtcaptchaenableattempt">Captch Enable Attempt</label>
+                                        <input type="text" class="form-control" id="txtcaptchaenableattempt" placeholder="Captch Enable Attempt">
+                                    </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                                <button id="btnSavepassword" type="submit" class="btn btn-success btnsavepasswordauth">
+                                    SAVE</button>
+                                <button id="btnUpdatepassword" type="submit" class="btn btn-primary btnsavepasswordauth">
+                                    UPDATE</button>
+                                <button id="btnCancelpassword" type="button" class="btn btn-green">
+                                    DELETE</button>
+                                <button id="btnclearpassword" type="button" class="btn btn-warning">
+                                    CLEAR</button>
+                                <button id="btnquitpassword" type="button" class="btn btn-info">
                                     QUIT FORM</button>
                             </div>
                         </form>

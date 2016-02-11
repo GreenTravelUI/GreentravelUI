@@ -183,11 +183,11 @@ namespace GreenTravel.App_DbService
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("sp_Edit_White_Register_Basic", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@tablename","0");
+                _cmd.Parameters.AddWithValue("@tablename", "0");
                 _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
-                _cmd.Parameters.AddWithValue("@unit","0");
-                _cmd.Parameters.AddWithValue("@Formcode","0");
-                _cmd.Parameters.AddWithValue("@Formtabcode","0");
+                _cmd.Parameters.AddWithValue("@unit", "0");
+                _cmd.Parameters.AddWithValue("@Formcode", "0");
+                _cmd.Parameters.AddWithValue("@Formtabcode", "0");
                 _cmd.Parameters.AddWithValue("@srno", WR.srno);
                 _cmd.Parameters.AddWithValue("@Type", "EditMode");
                 _cmd.CommandType = CommandType.StoredProcedure;
@@ -210,67 +210,46 @@ namespace GreenTravel.App_DbService
             }
         }
 
-
-        public DataSet insert_data_main(WhitelabelReg WR)
+        public DataSet insert_BillingMaintencae(Billing_maintanence _Billing_maintanence)
         {
             try
             {
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("sp_save_White_Register_MaintanenceSupport", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@srno", WR.srno);
-                _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
-                _cmd.Parameters.AddWithValue("@BillingName", WR.BillingName);
-                _cmd.Parameters.AddWithValue("@BillingContactPerson", WR.BillingContactPerson);
-                _cmd.Parameters.AddWithValue("@BillingAddress1", WR.BillingAddress1);
-                _cmd.Parameters.AddWithValue("@BillingAddress2", WR.BillingAddress2);
-                _cmd.Parameters.AddWithValue("@BillingCity", WR.BillingCity);
-                _cmd.Parameters.AddWithValue("@BillingState", WR.BillingState);
-                _cmd.Parameters.AddWithValue("@BillingCountry", WR.BillingCountry);
-                _cmd.Parameters.AddWithValue("@BillingArea", WR.BillingArea);
-                _cmd.Parameters.AddWithValue("@BillingZipCode", WR.BillingZipCode);
-                _cmd.Parameters.AddWithValue("@BillingEmail", WR.BillingEmail);
-                _cmd.Parameters.AddWithValue("@BillingPhone", WR.BillingPhone);
-                _cmd.Parameters.AddWithValue("@BillingContactMobile", WR.BillingContactMobile);
-                _cmd.Parameters.AddWithValue("@Currency", WR.Currency);
-                _cmd.Parameters.AddWithValue("@SupportMode", WR.SupportMode);
-                _cmd.Parameters.AddWithValue("@FreeSupportPeriod", WR.FreeSupportPeriod);
-                _cmd.Parameters.AddWithValue("@SupportCostPM", WR.SupportCostPM);
-
-                _cmd.Parameters.AddWithValue("@Attribute1", WR.Attribute1);
-                _cmd.Parameters.AddWithValue("@Attribute2", WR.Attribute2);
-                _cmd.Parameters.AddWithValue("@Attribute3", WR.Attribute3);
-                _cmd.Parameters.AddWithValue("@Attribute4", WR.Attribute4);
-                _cmd.Parameters.AddWithValue("@Attribute5", WR.Attribute5);
-                _cmd.Parameters.AddWithValue("@Attribute6", WR.Attribute6);
-                _cmd.Parameters.AddWithValue("@Attribute7", WR.Attribute7);
-                _cmd.Parameters.AddWithValue("@Attribute8", WR.Attribute8);
-                _cmd.Parameters.AddWithValue("@Attribute9", WR.Attribute9);
-                _cmd.Parameters.AddWithValue("@Attribute10", WR.Attribute10);
-
-                if (WR.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(WR.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", WR.EditedBy);
-                _cmd.Parameters.AddWithValue("@CretedBy", WR.CretedBy);
-
-                if (WR.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(WR.EditDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@CorpcentreBy", WR.CorpcentreBy);
-                _cmd.Parameters.AddWithValue("@UnitCorpBy", WR.UnitCorpBy);
-                _cmd.Parameters.AddWithValue("@TerminalBy", WR.TerminalBy);
-                _cmd.Parameters.AddWithValue("@BranchBy", WR.BranchBy);
+                _cmd.Parameters.AddWithValue("@srno", _Billing_maintanence.srno);
+                _cmd.Parameters.AddWithValue("@Corporate", _Billing_maintanence.Corporate);
+                _cmd.Parameters.AddWithValue("@BillingName", _Billing_maintanence.BillingName);
+                _cmd.Parameters.AddWithValue("@BillingContactPerson", _Billing_maintanence.BillingContactPerson);
+                _cmd.Parameters.AddWithValue("@BillingAddress1", _Billing_maintanence.BillingAddress1);
+                _cmd.Parameters.AddWithValue("@BillingAddress2", _Billing_maintanence.BillingAddress2);
+                _cmd.Parameters.AddWithValue("@BillingCity", _Billing_maintanence.BillingCity);
+                _cmd.Parameters.AddWithValue("@BillingState", _Billing_maintanence.BillingState);
+                _cmd.Parameters.AddWithValue("@BillingCountry", _Billing_maintanence.BillingCountry);
+                _cmd.Parameters.AddWithValue("@BillingArea", _Billing_maintanence.BillingArea);
+                _cmd.Parameters.AddWithValue("@BillingZipCode", _Billing_maintanence.BillingZipCode);
+                _cmd.Parameters.AddWithValue("@BillingEmail", _Billing_maintanence.BillingEmail);
+                _cmd.Parameters.AddWithValue("@BillingPhone", _Billing_maintanence.BillingPhone);
+                _cmd.Parameters.AddWithValue("@BillingContactMobile", _Billing_maintanence.BillingContactMobile);
+                _cmd.Parameters.AddWithValue("@Currency", _Billing_maintanence.Currency);
+                _cmd.Parameters.AddWithValue("@SupportMode", _Billing_maintanence.SupportMode);
+                _cmd.Parameters.AddWithValue("@FreeSupportPeriod", _Billing_maintanence.FreeSupportPeriod);
+                _cmd.Parameters.AddWithValue("@SupportCostPM", _Billing_maintanence.SupportCostPM);
+                _cmd.Parameters.AddWithValue("@Attribute1", _Billing_maintanence.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", _Billing_maintanence.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", _Billing_maintanence.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", _Billing_maintanence.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", _Billing_maintanence.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", _Billing_maintanence.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", _Billing_maintanence.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", _Billing_maintanence.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", _Billing_maintanence.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", _Billing_maintanence.Attribute10);
+                _cmd.Parameters.AddWithValue("@CretedBy", _Billing_maintanence.CreatedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", _Billing_maintanence.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", _Billing_maintanence.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", _Billing_maintanence.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", _Billing_maintanence.BranchBy);
                 SqlDataAdapter adp = new SqlDataAdapter(_cmd);
                 DataSet ds = new DataSet();
                 adp.Fill(ds);
@@ -336,7 +315,7 @@ namespace GreenTravel.App_DbService
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("sp_Formload_White_Register_UserPreferences", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
-                
+
                 _cmd.Parameters.AddWithValue("@Module", WR.Module);
                 _cmd.Parameters.AddWithValue("@screen", WR.screen);
                 _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
@@ -365,7 +344,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-        
+
         // insert_Data_user_preferance
 
         public DataSet insert_Data_user_preferance(UserPreferancestep1 UP)

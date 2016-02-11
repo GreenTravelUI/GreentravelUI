@@ -7,111 +7,90 @@ namespace GreenTravel.Models.Comman
 {
     public class CommanPara
     {
+        //public string _ip = HttpContext.Current.Request.UserHostAddress;
+        //public string _Userid="1";
+        //public string _Corporate="2";
+        //public string _Unit="1";
+        //public string _Branch="11";
+
+
         public string CreatedBy
         {
-            get
-            {
-                try
-                {
-                    return HttpContext.Current.Session["UserId"].ToString();
-                }
-                catch
-                {
-                    return "-1";
-                }
-            }
-            set { HttpContext.Current.Session["UserId"] = value; }
+            get;
+            set;
+            //get
+            //{
+            //    return _Userid;
+            //}
+            //set
+            //{
+            //    _Userid = value;
+            //}
         }
-        public string EntryDatetime
-        {
-            get
-            {
-                return DateTime.Now.ToString();
-            }
-            set { HttpContext.Current.Session["UserId"] = value; }
-        }
-        public string EditedBy
-        {
-            get
-            {
-                try
-                {
-                    return HttpContext.Current.Session["UserId"].ToString();
-                }
-                catch
-                {
-                    return "-1";
-                }
-            }
-            set { HttpContext.Current.Session["UserId"] = value; }
-        }
-        public string EditDatetime
-        {
-            get
-            {
-                return HttpContext.Current.Session["UserId"].ToString();
-            }
-            set { HttpContext.Current.Session["UserId"] = value; }
-        }
+
         public string CorpcentreBy
         {
-            get
-            {
-                try
-                {
-                    return HttpContext.Current.Session["Corporate"].ToString();
-                }
-                catch
-                {
-                    return "-1";
-                }
-            }
-            set { HttpContext.Current.Session["Corporate"] = value; }
+            get;
+            set;
+            //get
+            //{
+            //    return _Corporate;
+            //}
+            //set
+            //{
+            //    _Corporate = value;
+            //}
         }
+
         public string UnitCorpBy
         {
-            get
-            {
-                try
-                {
-                    return HttpContext.Current.Session["Unit"].ToString();
-                }
-                catch
-                {
-                    return "-1";
-                }
-            }
-            set { HttpContext.Current.Session["Unit"] = value; }
+            get;
+            set;
+            //get
+            //{
+            //    return _Unit;
+            //}
+            //set
+            //{
+            //    _Unit = value;
+            //}
+        }
+
+        public string BranchBy
+        {
+            get;
+            set;
+            //get
+            //{
+            //    return _Branch;
+            //}
+            //set
+            //{
+            //    _Branch = value;
+            //}
         }
         public string TerminalBy
         {
-            get
-            {
-                try
-                {
-                    return HttpContext.Current.Session["Location"].ToString();
-                }
-                catch
-                {
-                    return "-1";
-                }
-            }
-            set { HttpContext.Current.Session["Location"] = value; }
+            get;
+            set;
+            //get
+            //{
+            //    return _ip;
+            //}
+            //set
+            //{
+            //    _ip = value;
+            //}
         }
-        public string BranchBy
+
+        public CommanPara()
         {
-            get
-            {
-                try
-                {
-                    return HttpContext.Current.Session["Branch"].ToString();
-                }
-                catch
-                {
-                    return "-1";
-                }
-            }
-            set { HttpContext.Current.Session["Branch"] = value; }
+            CreatedBy = "1";
+            CorpcentreBy = "2";
+            UnitCorpBy = "1";
+            BranchBy = "11";
+            TerminalBy = "103.11.29.22";
         }
+
     }
 }
