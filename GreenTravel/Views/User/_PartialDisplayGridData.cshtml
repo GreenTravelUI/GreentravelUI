@@ -1,0 +1,59 @@
+﻿@model IEnumerable<GreenTravel.Models.UserMaster_AccessRight>
+
+
+
+hello
+@*@foreach (var item in Model)
+{
+    foreach (var itemHeader in item.GridHearder)
+    {
+    <li>
+        <figure>
+            <figcaption class="panel-body tab-itenaries">
+
+                <div class="myDiv">
+                    <h3 style="margin-top: 0; text-align: center;">
+                        <label style="display: none" id="lbheadingName">@Html.DisplayFor(modelItem => itemHeader.SrNo) </label>
+
+                    </h3>
+                </div>
+
+                <h3 style="margin-top: 0; text-align: center;">
+                    <label id="lbheading">
+                        <input type="checkbox" />
+                        @Html.DisplayFor(modelItem => itemHeader.xname)
+                    </label>
+                </h3>
+
+
+
+                <table class="table sampletable" style="margin-bottom: 0;">
+                    <tbody>
+                        @foreach (var itemColumn in item.GridColumn.Where(m => m.xlink == itemHeader.SrNo))
+                        {
+                            <tr>
+                                <td>
+                                    @itemColumn.xname
+                                </td>
+                                <td>
+                                    <input id="@itemColumn.SrNo" type="checkbox" >
+                                    <input type="text" name="txtname" class="txtScreenId" style="display: none" />
+                                    <input type="checkbox" id="View" class="Viewname" />View
+                                     <input type="checkbox" id="Create" class="Createname" />Create
+                                      <input type="checkbox" id="Update" class="Updatename" />Update
+                                       <input type="checkbox" id="Delete" class="Deletename" />Delete
+
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </figcaption>
+        </figure>
+    </li>
+    }
+}*@
+
+
+
