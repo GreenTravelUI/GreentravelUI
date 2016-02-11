@@ -416,6 +416,26 @@ namespace GreenTravel.Controllers
             }
 
         }
+
+        public ActionResult InsertData_Utility(Utility _Utility)
+        {
+            try
+            {
+                int result = _objfs.insertdata_Utility(_Utility);
+                if (result == 1)
+                {
+                    ViewBag.Message = "Record Save Sucessfully !";
+                }
+                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         #endregion
 
         public ActionResult BindDropDownbase(commanbaseParamater CBP)

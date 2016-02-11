@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    var test = 0;
     BindGrid();
     $('.btnSave').click(function (e) {
         e.preventDefault();
@@ -304,17 +303,17 @@
                      $('#txtConfirmPassword').val(response['Whiteregjs'][0]['Password']);
                      $('#txtOfficialEmail').val(response['Whiteregjs'][0]['OfficialEmail']);
                      $('#txtOfficialPhone').val(response['Whiteregjs'][0]['OfficialPhone']);
-                     // $("#DrpApplicationTheme").spectrum("set", response['Whiteregjs'][0]['ApplicationTheme']);
-                     //$('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
-                     setSelect2Value($('#DrpApplicationTheme'), response['Whiteregjs'][0]['ApplicationTheme']);
+                     alert(response['Whiteregjs'][0]['ApplicationTheme']);
+                     $('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
                      $('#txtApplicationURL').val(response['Whiteregjs'][0]['ApplicationUrl']);
                      $('#drpBaseCurrency').find('option[value="' + response['Whiteregjs'][0]['BaseCurrency'] + '"]').attr('selected', true).change();
                      $('#drpBaseLanguage').find('option[value="' + response['Whiteregjs'][0]['BaseLanguage'] + '"]').attr('selected', true).change();
                      $('#txtLogo').val(response['Whiteregjs'][0]['Logo']);
+                     alert(response['Whiteregjs'][0]['WebTheme']);
                      $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
                      $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
-                     //setSelect2Value($('.cs-skin-boxes'), response['Whiteregjs'][0]['WebTheme']);
                      // $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();
+
                      setSelect2Value($('#drpOtherLanguage'), response['Whiteregjs'][0]['OtherLanguage']);
                      $('#txtFavicon').val(response['Whiteregjs'][0]['Favicon']);
                      var fulllabelwhite = response['Whiteregjs'][0]['FullSemiWhiteLbl'];
@@ -621,56 +620,70 @@
         $("#Search").addClass("active");
 
     });
-
-    $("#divwebtheme").click(function (e) {
-        
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        }
-    });
-
-    $("#divapplicationtheme").click(function (e) {
-        // alert("full screen");
-
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        }
-    });
-
-    $('.cs-skin-boxes').click(function (e) {
-
-        //if (document.exitFullscreen) {
-        //    document.exitFullscreen();
-        //} else if (document.mozCancelFullScreen) {
-        //    document.mozCancelFullScreen();
-        //} else if (document.webkitExitFullscreen) {
-        //    document.webkitExitFullscreen();
+    $(".btnSavebillingmain").click(function (e) {
+        e.preventDefault();
+        //if (!validateForm($(this).parent())) {
+        //    swal('Invalid data found!')
+        //    return false;
         //}
-
-
-        var docElm = document.documentElement;
-        if (docElm.requestFullscreen) {
-            docElm.requestFullscreen();
-        }
-        else if (docElm.mozRequestFullScreen) {
-            docElm.mozRequestFullScreen();
-        }
-        else if (docElm.webkitRequestFullScreen) {
-            docElm.webkitRequestFullScreen();
-        }
-        else if (docElm.msRequestFullscreen) {
-            docElm.msRequestFullscreen();
-        }
-
-     
+        //if ($('#txtsrno').val() != "") {
+        //    var srno = $('#txtsrno').val();
+        //}
+        //else {
+        //    var srno = '';
+        //}
+        var srno = '';
+        var Corporate = $('#txtsrno').val();
+        var BillingName = $('#txtBillingName').val();
+        var BillingContactPerson = $('#txtBillingContactPerson').val();
+        var BillingAddress1 = $('#txtBillingAddressLine1').val();
+        var BillingAddress2 = $('#txtBillingAddressLine2').val();
+        var BillingCity = $('#txtBillingCity').val();
+        var BillingState = $('#txtBillingState').val();
+        var BillingCountry = $('#txtBillingCountry').val();
+        var BillingArea = '';
+        var BillingZipCode = $('#txtBillingZipCode').val();
+        var BillingEmail = $('#txtBillingEmail').val();
+        var BillingPhone = $('#txtBillingTelephone').val();
+        var BillingContactMobile = $('#txtBillingCellPhone').val();
+        var Currency = $('#drpmaINCurrency option:selected').val();
+        var SupportMode = $('#drpSupportMode option:selected').val(); 
+        var FreeSupportPeriod = $('#txtFreeSupportPeriod').val();
+        var SupportCostPM = $('#txtSupportCostPerMonth').val();
+        var Attribute1 = '';
+        var Attribute2 = '';
+        var Attribute3 = '';
+        var Attribute4 = '';
+        var Attribute5 = '';
+        var Attribute6 = '';
+        var Attribute7 = '';
+        var Attribute8 = '';
+        var Attribute9 = '';
+        var Attribute10 = '';
+        $.ajax(
+           {
+               type: "POST",
+               url: "/WhitelabelStep1/insert_BillingMaintencae",
+               data: {
+                   "srno": srno, "Corporate": Corporate, "BillingName": BillingName, "BillingContactPerson": BillingContactPerson, "BillingAddress1": BillingAddress1,
+                   "BillingAddress2": BillingAddress2, "BillingCity": BillingCity, "BillingState": BillingState, "BillingCountry": BillingCountry, "BillingArea": BillingArea,
+                   "BillingZipCode": BillingZipCode, "BillingEmail": BillingEmail, "BillingPhone": BillingPhone, "BillingContactMobile": BillingContactMobile, "Currency": Currency,
+                   "SupportMode":SupportMode,"FreeSupportPeriod":FreeSupportPeriod,"SupportCostPM":SupportCostPM,
+                   "Attribute1": Attribute1,"Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                   "Attribute7": Attribute7, "Attribute8": Attribute8,"Attribute9": Attribute9, "Attribute10": Attribute10
+               },
+               dataType: 'json',
+               success: function (response) {
+                   if (response != null && response.success) {
+                       swal('Good job!', 'Record Save Sucessfully!', 'success')
+                       //$("#tab2").addClass("active");
+                       //$("#tab1").removeClass("active");
+                       //$("#CreateMaster").addClass("active");
+                       //$("#Search").removeClass("active");
+                   }
+               }
+           });
     });
+
 
 });

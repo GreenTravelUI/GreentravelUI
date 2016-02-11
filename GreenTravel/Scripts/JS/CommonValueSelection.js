@@ -20,8 +20,10 @@
 }
 
 function setSelect2Value(control, value) {
+    
     control.find('option[value="' + value + '"]').attr('selected', true);
     control.next();
+    
     $('#select2-' + control.attr('id') + '-container').text(control.find('option:selected').text()).attr('title', control.find('option:selected').text());
 }
 

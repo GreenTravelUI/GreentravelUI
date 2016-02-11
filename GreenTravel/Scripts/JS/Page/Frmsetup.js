@@ -607,6 +607,7 @@
                                 '<td> <input type="text" /></td>' +
                                 '</tr>'
                      $(html).appendTo($("#tblModalSection"))
+                     ID++;
                  }
              }
          });
@@ -761,6 +762,7 @@
         addRow();
     });
     function addRow() {
+        console.log(ID);
         var html = '<tr>' +
                     '<td>' + ID + '</td>' +
                     '<td> <input type="text" id="txtsection' + ID + '"/></td>' +
@@ -945,10 +947,48 @@
             }
         });
     }
+    //Utility Save Button  
     $('.Utilitysavedata').on('click', function (e) {
         e.preventDefault();
+        var Corporate = $('#drpCorporate1 option:selected').val();
+        var TabCode = FrmtabCode;
+        var FormCode = Frmcode;
+        var CreatedBy = 0;
+        var EntryDatetime = '';
+        var EditedBy = 0;
+        var EditDatetime = '';
+        var CorpcentreBy = 0;
+        var UnitCorpBy = 0;
+        var TerminalBy = 0;
+        var BranchBy = 0;
+        var Utilities = '';
+        var srno;
+        if ($(this).children(':eq(6)').find('input').val().trim() != '') {
+            srno = $(this).children(':eq(6)').find('input').val();
+        }
+        else {
+            srno = 0;
+        }
+        $.ajax(
+           {
+               type: "POST",
+               url: "/FormSetup/InsertData_Utility",
+               async: false,
+               data: {
+                   "srno": srno, "Corporate": Corporate, "TabCode": TabCode, "FormCode": FormCode, 
+                   "Utilities": Utilities, "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
+                   "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+               },
+               dataType: 'json',
+               success: function (response) {
+                   if (response != null && response.success) {
+                       swal('Good job!', 'Record Save Sucessfully', 'success')
+                   }
+               }
+           });
+
         $("#myModalIcon").modal('hide');
-        //swal('Good job!', 'Record Save Sucessfully', 'success')
+
     });
     /*Quit Button*/
     $('.QuitForm').on('click', function () {
