@@ -77,7 +77,6 @@ namespace GreenTravel.Controllers
 
 
         }
-
         public ActionResult BindDropDown_Multiselect(commanbaseParamater CBP)
         {
             try
@@ -114,7 +113,6 @@ namespace GreenTravel.Controllers
 
 
         }
-
         public ActionResult BindDropDownTab(commanbaseParamater CBP)
         {
             try
@@ -375,7 +373,7 @@ namespace GreenTravel.Controllers
                     ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
                     if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
                     { ViewBag.Event = "success"; }
-                    else if ( result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
                     { ViewBag.Event = "error"; }
 
                 }
@@ -392,7 +390,6 @@ namespace GreenTravel.Controllers
 
 
         }
-
         public ActionResult BindGridUser(GridParamater GP)
         {
             try
@@ -801,6 +798,96 @@ namespace GreenTravel.Controllers
             }
         }
 
+        public ActionResult FillViewsControls(commanbaseParamater CBP)
+        {
+            try
+            {
+                DataSet ds = _objCM.FillViewsControls(CBP);
+                List<CommanDropdown> Mul = new List<CommanDropdown>();
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                        // Mul = null;
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            Mul.Clear();
+                            ViewBag.fname = "";
+                            ViewBag.fname = ds.Tables[0];
+                            foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                            {
+                                Mul.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                            }
+
+                        }
+                    }
+                }
+
+                var result = Mul;
+                return Json(new { AMul = result }, JsonRequestBehavior.AllowGet); ;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        public PartialViewResult _PartialCountry(string ViewId, string MasterCode, string corporate, string Unit, string Location, string Branch, string UserId, string Type)
+        {
+            DataSet dsList = _objCM.bindViewsControls(ViewId, MasterCode, corporate, Unit, Location, Branch, UserId, Type);
+            CommanMaster CV = new CommanMaster();
+            Views _grid = new Views();
+            List<ViewsGridHearder> GridHearder = new List<ViewsGridHearder>();
+            List<ViewsGridColumn> GridColumn = new List<ViewsGridColumn>();
+            List<Views> lstGrid = new List<Views>();
+            if (dsList.Tables[0].Rows.Count > 0)
+            {
+                ViewBag.GridHearder = dsList.Tables[0];
+                ViewBag.GridColumn = dsList.Tables[1];
+
+
+                if (dsList.Tables[0] != null)
+                {
+                    foreach (System.Data.DataRow dr in ViewBag.GridColumn.Rows)
+                    {
+                        GridColumn.Add(new ViewsGridColumn
+                        {
+                            column1 = @dr["column1"].ToString(),
+                            column2 = @dr["column2"].ToString(),
+                            column3 = @dr["column3"].ToString(),
+                            column4 = @dr["column4"].ToString()
+                        });
+                    }
+                }
+
+                if (dsList.Tables[1] != null)
+                {
+                    foreach (System.Data.DataRow dr in ViewBag.GridHearder.Rows)
+                    {
+                        GridHearder.Add(new ViewsGridHearder
+                        {
+                            Header = @dr["Header"].ToString(),
+                            DisplayOrder = @dr["DisplayOrder"].ToString(),
+                            Visibility = @dr["Visibility"].ToString(),
+                            TableColumn = @dr["TableColumn"].ToString()
+
+                        });
+
+                        //   var gf = GridColumn.Where(s => s.SrNo == dr["xcode"].ToString()).ToList();
+                    }
+                }
+
+            }
+
+            _grid.ViewsGridColumn = GridColumn.ToList();
+            _grid.ViewsGridHearder = GridHearder.ToList();
+
+            lstGrid.Add(_grid);
+            return PartialView(lstGrid);
+        }
 
 
         #endregion

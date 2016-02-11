@@ -1118,6 +1118,94 @@ namespace GreenTravel.App_DbService
             }
         }
 
+        public DataSet FillViewsControls(commanbaseParamater CBP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_Views", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CBP.Type);
+                _cmd.Parameters.AddWithValue("@field1", CBP.field1);
+                _cmd.Parameters.AddWithValue("@field2", CBP.field2);
+                _cmd.Parameters.AddWithValue("@field3", CBP.field3);
+                _cmd.Parameters.AddWithValue("@field4", CBP.field4);
+                _cmd.Parameters.AddWithValue("@field5", CBP.field5);
+                _cmd.Parameters.AddWithValue("@Control", CBP.Control);
+                _cmd.Parameters.AddWithValue("@Language", CBP.Language);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet bindViewsControls(string ViewId, string MasterCode, string corporate, string Unit, string Location, string Branch, string UserId, string Type)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_Views", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@ViewSrNo", ViewId);
+                _cmd.Parameters.AddWithValue("@MasterCode", MasterCode);
+                _cmd.Parameters.AddWithValue("@corporate", corporate);
+                _cmd.Parameters.AddWithValue("@Unit", Unit);
+                _cmd.Parameters.AddWithValue("@Location", Location);
+                _cmd.Parameters.AddWithValue("@Branch", Branch);
+                _cmd.Parameters.AddWithValue("@UserId", UserId);
+                _cmd.Parameters.AddWithValue("@Type", Type);
+                _cmd.Parameters.AddWithValue("@field1", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field2", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field3", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field4", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field5", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field6", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field7", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field8", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field9", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@field10", DBNull.Value);
+
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
 
     }
 }
