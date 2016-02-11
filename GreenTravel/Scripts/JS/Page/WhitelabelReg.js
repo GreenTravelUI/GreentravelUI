@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
- BindGrid();
+    var test = 0;
+    BindGrid();
     $('.btnSave').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
@@ -295,7 +296,7 @@
                      $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
                      //setSelect2Value($('#drpcompanyIndustry'), response['Whiteregjs'][0]['CorpCompanyIndust']);
                      $('#drpcompanyType').find('option[value="' + response['Whiteregjs'][0]['CompanyType'] + '"]').attr('selected', true).change();
-                    // setSelect2Value($('#drpcompanyType'), response['Whiteregjs'][0]['CompanyType']);
+                     // setSelect2Value($('#drpcompanyType'), response['Whiteregjs'][0]['CompanyType']);
                      $('#drpServices').find('option[value="' + response['Whiteregjs'][0]['Services'] + '"]').attr('selected', true).change();
                      $('#drpBusinessMode').find('option[value="' + response['Whiteregjs'][0]['BusinessMode'] + '"]').attr('selected', true).change();
                      $('#txtUsername').val(response['Whiteregjs'][0]['AdminUserName']);
@@ -303,17 +304,17 @@
                      $('#txtConfirmPassword').val(response['Whiteregjs'][0]['Password']);
                      $('#txtOfficialEmail').val(response['Whiteregjs'][0]['OfficialEmail']);
                      $('#txtOfficialPhone').val(response['Whiteregjs'][0]['OfficialPhone']);
-                     alert(response['Whiteregjs'][0]['ApplicationTheme']);
-                     $('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
+                     // $("#DrpApplicationTheme").spectrum("set", response['Whiteregjs'][0]['ApplicationTheme']);
+                     //$('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
+                     setSelect2Value($('#DrpApplicationTheme'), response['Whiteregjs'][0]['ApplicationTheme']);
                      $('#txtApplicationURL').val(response['Whiteregjs'][0]['ApplicationUrl']);
                      $('#drpBaseCurrency').find('option[value="' + response['Whiteregjs'][0]['BaseCurrency'] + '"]').attr('selected', true).change();
                      $('#drpBaseLanguage').find('option[value="' + response['Whiteregjs'][0]['BaseLanguage'] + '"]').attr('selected', true).change();
                      $('#txtLogo').val(response['Whiteregjs'][0]['Logo']);
-                     alert(response['Whiteregjs'][0]['WebTheme']);
                      $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
                      $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
+                     //setSelect2Value($('.cs-skin-boxes'), response['Whiteregjs'][0]['WebTheme']);
                      // $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();
-
                      setSelect2Value($('#drpOtherLanguage'), response['Whiteregjs'][0]['OtherLanguage']);
                      $('#txtFavicon').val(response['Whiteregjs'][0]['Favicon']);
                      var fulllabelwhite = response['Whiteregjs'][0]['FullSemiWhiteLbl'];
@@ -619,6 +620,57 @@
         $("#tab5").removeClass("active");
         $("#Search").addClass("active");
 
+    });
+
+    $("#divwebtheme").click(function (e) {
+        
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    });
+
+    $("#divapplicationtheme").click(function (e) {
+        // alert("full screen");
+
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    });
+
+    $('.cs-skin-boxes').click(function (e) {
+
+        //if (document.exitFullscreen) {
+        //    document.exitFullscreen();
+        //} else if (document.mozCancelFullScreen) {
+        //    document.mozCancelFullScreen();
+        //} else if (document.webkitExitFullscreen) {
+        //    document.webkitExitFullscreen();
+        //}
+
+
+        var docElm = document.documentElement;
+        if (docElm.requestFullscreen) {
+            docElm.requestFullscreen();
+        }
+        else if (docElm.mozRequestFullScreen) {
+            docElm.mozRequestFullScreen();
+        }
+        else if (docElm.webkitRequestFullScreen) {
+            docElm.webkitRequestFullScreen();
+        }
+        else if (docElm.msRequestFullscreen) {
+            docElm.msRequestFullscreen();
+        }
+
+     
     });
 
 });
