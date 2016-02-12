@@ -133,15 +133,21 @@ namespace GreenTravel.Controllers
         {
             try
             {
-
-
+                ViewBag.Message = "";
+                ViewBag.Event = "";
+                ViewBag.SrNo = "";
                 DataSet result = _objw2.Insert(CBP);
-                if (result.Tables[0].Rows.Count > 1)
+                if (result.Tables[0].Rows.Count > 0)
                 {
-                    ViewBag.Message = result.Tables[0].Rows[0]["msg"];
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; 
+                    
+                    }
+                    ViewBag.SrNo=result.Tables[0].Rows[0]["SrNo"].ToString();
                 }
-                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
-
+                var result1 = ViewBag.Message;
+                return Json(new { success = result1, Event = ViewBag.Event, SrNo = ViewBag.SrNo }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
