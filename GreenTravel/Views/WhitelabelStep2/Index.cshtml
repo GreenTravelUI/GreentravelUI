@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<GreenTravel.Models.WhitelabelStep2>
+@using GreenTravel.Models.Comman;
 
 @{
-   
+   EncryptionDecryption enc_dec = new EncryptionDecryption();
     ViewBag.Title = "Comapany Application Features";
     ViewBag.PageTitle = "Comapany Application Features";
 }
 @{ 
-    var queryValue = Request.QueryString["id"];  
+    var queryValue = HttpUtility.UrlDecode(enc_dec.Decrypt(Request.QueryString["id"].ToString()));  
 }
 
 

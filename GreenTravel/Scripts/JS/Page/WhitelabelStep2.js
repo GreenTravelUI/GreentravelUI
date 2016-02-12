@@ -3,7 +3,6 @@
     //  Bind Drop-Down 
     FillDropdown('drpFeatureCategory', 'Dropdown');
 
-
     // Function ( Bind Drop-Down )
 
     $('#btnSave').hide();
@@ -144,8 +143,6 @@
             }
         }
     });
-
-
 
     // To Clear
     $("btnClear").on('click', function (e) {
