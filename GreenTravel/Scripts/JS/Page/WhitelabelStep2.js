@@ -11,6 +11,8 @@
 
     // For Feature-Category Drop-Down Change
     $("#drpFeatureCategory").change(function () {
+
+
         var countrySelected = $("select option:selected").first().text();
         var Module = '';
         var screen = '';
@@ -29,9 +31,16 @@
         var Control = 'DrpFeatureGroup';
         var Language = '';
         var Type = 'Conditional';
+        if (field1 != '0' || field1 != '--None--') {
+            getdata();
+            clearValidations($(this).closest('form'));
+        }
+        else {
+            $('#btnSave').hide();
+            $('#btnUpdate').hide();
+        }
         $("#partial").load('/WhitelabelStep2/_DisplayGridData?id=' + field1);
-        getdata();
-        clearValidations($(this).closest('form'));
+
     });
 
 
@@ -39,30 +48,27 @@
 
     $('.btnSaveStep2').click(function (e) {
         {
-            e.preventDefault();
+
             var a = 0;
-            $('ul.grid div').find('li').each(function () {
-                //alert(a);
-                $(this).find('table tbody tr').each(function () {
-                    if ($(this).find('input').is(':checked')) {
-                        a = 1;
-                        //alert("bb");
-                    }
-                });
-
-            });
-
-            if (a == 0) {
-
-                //  alert("Hello");
-                swal('', 'Please select atleast 1 records ', 'warning');
-
+            e.preventDefault();
+            if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
+                swal('Invalid data found!');
                 return false;
             }
 
+            $('ul.grid div').find('li').each(function () {
 
+                $(this).find('table tbody tr').each(function () {
+                    if ($(this).find('input').is(':checked')) {
+                        a = 1;
+                    }
+                });
+            });
 
-
+            if (a == 0) {
+                swal('', 'Please select atleast 1 records ', 'warning');
+                return false;
+            }
 
             var groupAry = [];
             var FeatureAry = [];
@@ -74,14 +80,6 @@
             var Corporate = $('#txtCorporateID').val();
             var Module = '0';
             var Screen = '0';
-            var CreatedBy = '';
-            var EntryDatetime = '';
-            var EditedBy = '';
-            var EditDatetime = '';
-            var CorpcentreBy = '';
-            var UnitCorpBy = '';
-            var TerminalBy = '';
-            var BranchBy = '';
             var Attribute1 = '';
             var Attribute2 = '';
             var Attribute3 = '';
@@ -92,13 +90,6 @@
             var Attribute8 = '';
             var Attribute9 = '';
             var Attribute10 = '';
-            var CreatedBy = '';
-            var EntryDatetime = '';
-            var EditedBy = '';
-            var EditDatetime = '';
-            var CorpcentreBy = '';
-            var UnitCorpBy = '';
-            var TerminalBy = '';
             var BranchBy = '';
             var checkedInput = '';
             var FeaturesCategory = '';
@@ -132,8 +123,7 @@
                 async: false,
                 data: {
                     srno: srno, Corporate: Corporate, FeaturesCategory: FeaturesCategory,
-                    FeatureGroup: FeatureGroup, Feature: Feature, EntryDatetime: EntryDatetime, CreatedBy: CreatedBy, EditedBy: EditedBy, CorpcentreBy: CorpcentreBy,
-                    UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy, Attribute1: Attribute1,
+                    FeatureGroup: FeatureGroup, Feature: Feature, BranchBy: BranchBy, Attribute1: Attribute1,
                     Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
                     Attribute9: Attribute9, Attribute10: Attribute10, FeatureAry: theIds1, groupAry: theIds2
                 },
@@ -143,7 +133,6 @@
                         flagsection = 1;
                         msg = response['success'];
                         event = response['Event'];
-
                         $('#txtSrNo').text(response['SrNo']);
                     }
                 }
@@ -168,8 +157,8 @@
     });
 
 
-    $("btnQuit").on('click', function (e) {
-        $('#txtSrNo').val('0');
+    $("#btnQuit").on('click', function (e) {
+
         window.location.href = '/WhitelabelStep1/Index';
     });
 
