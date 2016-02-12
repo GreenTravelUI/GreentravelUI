@@ -87,8 +87,6 @@ namespace GreenTravel.Controllers
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
                 return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-                // return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {

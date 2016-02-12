@@ -613,677 +613,679 @@
 
     });
 
-    function PageLoad_FilledAll() {
-        masterchangehide();
-        hide_div();
-        //  var field1 = 1;
-        var field1 = $('#drpSegmenttab3 option:selected').val();
-        var field2 = $('#drpMasterTab3 option:selected').val();
-        $.ajax({
-            url: "/AllMaster/ALL_Data_Field",
-            data: { Type: 'Caption', field1: field1, field2: field2 },
-            type: "POST",
-            dataType: "json",
-            async: false,
-            success: function (response) {
-                //Caption
-                if (response['ACaption'].length > 0) {
-                    if (response['ACaption'][0]['Field3caption'] != "--None--" && response['ACaption'][0]['Field3caption'] != "" && response['ACaption'][0]['Field3caption'] != null) {
-
-                        $('#LbName').text(response['ACaption'][0]['Field3caption']);
-                        $('#divName').show();
-                    }
-                    if (response['ACaption'][0]['Field4caption'] != "--None--" && response['ACaption'][0]['Field4caption'] != "" && response['ACaption'][0]['Field4caption'] != null) {
-
-                        $('#LbActive').text(response['ACaption'][0]['Field4caption']);
-                        $('#divActive').show();
-                    }
-                    if (response['ACaption'][0]['Field5caption'] != "--None--" && response['ACaption'][0]['Field5caption'] != "" && response['ACaption'][0]['Field5caption'] != null) {
-                        $('#LbRemarks').text(response['ACaption'][0]['Field5caption']);
-                        $('#divRemarks').show();
-                    }
-                    if (response['ACaption'][0]['Field6caption'] != "--None--" && response['ACaption'][0]['Field6caption'] != "" && response['ACaption'][0]['Field6caption'] != null) {
-                        $('#LbDropdown1').text(response['ACaption'][0]['Field6caption']);
-                        $('#divDropdown1').show();
-                    }
-                    if (response['ACaption'][0]['Field7caption'] != "--None--" && response['ACaption'][0]['Field7caption'] != "" && response['ACaption'][0]['Field7caption'] != null) {
-                        $('#LbDropdown2').text(response['ACaption'][0]['Field7caption']);
-                        $('#divDropdown2').show();
-                    }
-                    if (response['ACaption'][0]['Field8caption'] != "--None--" && response['ACaption'][0]['Field8caption'] != "" && response['ACaption'][0]['Field8caption'] != null) {
-                        $('#LbDropdown3').text(response['ACaption'][0]['Field8caption']);
-                        $('#divDropdown3').show();
-                    }
-                    if (response['ACaption'][0]['Field9caption'] != "--None--" && response['ACaption'][0]['Field9caption'] != "" && response['ACaption'][0]['Field9caption'] != null) {
-                        $('#LbDropdown4').text(response['ACaption'][0]['Field9caption']);
-                        $('#divDropdown4').show();
-                    }
-                    if (response['ACaption'][0]['Field10caption'] != "--None--" && response['ACaption'][0]['Field10caption'] != "" && response['ACaption'][0]['Field10caption'] != null) {
-                        $('#LbDropdown5').text(response['ACaption'][0]['Field10caption']);
-                        $('#divDropdown5').show();
-                    }
-                    if (response['ACaption'][0]['Field11caption'] != "--None--" && response['ACaption'][0]['Field11caption'] != "" && response['ACaption'][0]['Field11caption'] != null) {
-                        $('#LbDropdown6').text(response['ACaption'][0]['Field11caption']);
-                        $('#divDropdown6').show();
-                    }
-                    if (response['ACaption'][0]['Field12caption'] != "--None--" && response['ACaption'][0]['Field12caption'] != "" && response['ACaption'][0]['Field12caption'] != null) {
-                        $('#LbTextbox1').text(response['ACaption'][0]['Field12caption']);
-                        $('#divTextbox1').show();
-                    }
-                    if (response['ACaption'][0]['Field13caption'] != "--None--" && response['ACaption'][0]['Field13caption'] != "" && response['ACaption'][0]['Field13caption'] != null) {
-                        $('#LbTextbox2').text(response['ACaption'][0]['Field13caption']);
-                        $('#divTextbox2').show();
-                    }
-                    if (response['ACaption'][0]['Field14caption'] != "--None--" && response['ACaption'][0]['Field14caption'] != "" && response['ACaption'][0]['Field14caption'] != null) {
-                        $('#LbTextbox3').text(response['ACaption'][0]['Field14caption']);
-                        $('#divTextbox3').show();
-                    }
-                    if (response['ACaption'][0]['Field15caption'] != "--None--" && response['ACaption'][0]['Field15caption'] != "" && response['ACaption'][0]['Field15caption'] != null) {
-                        $('#LbTextbox4').text(response['ACaption'][0]['Field15caption']);
-                        $('#divTextbox4').show();
-                    }
-                    if (response['ACaption'][0]['Field16caption'] != "--None--" && response['ACaption'][0]['Field16caption'] != "" && response['ACaption'][0]['Field16caption'] != null) {
-                        $('#LbTextbox5').text(response['ACaption'][0]['Field16caption']);
-                        $('#divTextbox5').show();
-                    }
-                    if (response['ACaption'][0]['Field17caption'] != "--None--" && response['ACaption'][0]['Field17caption'] != "" && response['ACaption'][0]['Field17caption'] != null) {
-
-                        $('#LbTextbox6').text(response['ACaption'][0]['Field17caption']);
-                        $('#divTextbox6').show();
-                    }
-                    if (response['ACaption'][0]['Rating1caption'] != "--None--" && response['ACaption'][0]['Rating1caption'] != "" && response['ACaption'][0]['Rating1caption'] != null) {
-
-                        $('#LbRating1').text(response['ACaption'][0]['Rating1caption']);
-                        $('#divRating1').show();
-                    }
-                    if (response['ACaption'][0]['Rating2caption'] != "--None--" && response['ACaption'][0]['Rating2caption'] != "" && response['ACaption'][0]['Rating2caption'] != null) {
-
-                        $('#LbRating2').text(response['ACaption'][0]['Rating2caption']);
-                        $('#divRating2').show();
-                    }
-                    if (response['ACaption'][0]['Rating3caption'] != "--None--" && response['ACaption'][0]['Rating3caption'] != "" && response['ACaption'][0]['Rating3caption'] != null) {
-
-                        $('#LbRating3').text(response['ACaption'][0]['Rating3caption']);
-                        $('#divRating3').show();
-                    }
-                    if (response['ACaption'][0]['Date1caption'] != "--None--" && response['ACaption'][0]['Date1caption'] != "" && response['ACaption'][0]['Date1caption'] != null) {
-
-                        $('#LbDate1').text(response['ACaption'][0]['Date1caption']);
-                        $('#divDate1').show();
-                    }
-                    if (response['ACaption'][0]['Date2caption'] != "--None--" && response['ACaption'][0]['Date2caption'] != "" && response['ACaption'][0]['Date2caption'] != null) {
-
-                        $('#LbDate2').text(response['ACaption'][0]['Date2caption']);
-                        $('#divDate2').show();
-                    }
-                    if (response['ACaption'][0]['Date3caption'] != "--None--" && response['ACaption'][0]['Date3caption'] != "" && response['ACaption'][0]['Date3caption'] != null) {
-
-                        $('#LbDate3').text(response['ACaption'][0]['Date3caption']);
-                        $('#divDate3').show();
-                    }
-                    if (response['ACaption'][0]['Email1caption'] != "--None--" && response['ACaption'][0]['Email1caption'] != "" && response['ACaption'][0]['Email1caption'] != null) {
-
-                        $('#LbEmail1').text(response['ACaption'][0]['Email1caption']);
-                        $('#divEmail1').show();
-                    }
-                    if (response['ACaption'][0]['Email2caption'] != "--None--" && response['ACaption'][0]['Email2caption'] != "" && response['ACaption'][0]['Email2caption'] != null) {
-
-                        $('#LbEmail2').text(response['ACaption'][0]['Email2caption']);
-                        $('#divEmail2').show();
-                    }
-                    if (response['ACaption'][0]['Email3caption'] != "--None--" && response['ACaption'][0]['Email3caption'] != "" && response['ACaption'][0]['Email3caption'] != null) {
-
-                        $('#LbEmail3').text(response['ACaption'][0]['Email3caption']);
-                        $('#divEmail3').show();
-                    }
-                    if (response['ACaption'][0]['Amountcaption'] != "--None--" && response['ACaption'][0]['Amountcaption'] != "" && response['ACaption'][0]['Amountcaption'] != null) {
-
-                        $('#LbAmount1').text(response['ACaption'][0]['Amountcaption']);
-                        $('#divAmount1').show();
-                    }
-                    if (response['ACaption'][0]['Amount2caption'] != "--None--" && response['ACaption'][0]['Amount2caption'] != "" && response['ACaption'][0]['Amount2caption'] != null) {
-
-                        $('#LbAmount2').text(response['ACaption'][0]['Amount2caption']);
-                        $('#divAmount2').show();
-                    }
-                    if (response['ACaption'][0]['Amount3caption'] != "--None--" && response['ACaption'][0]['Amount3caption'] != "" && response['ACaption'][0]['Amount3caption'] != null) {
-
-                        $('#LbAmount3').text(response['ACaption'][0]['Amount3caption']);
-                        $('#divAmount3').show();
-                    }
-                    if (response['ACaption'][0]['Time1caption'] != "--None--" && response['ACaption'][0]['Time1caption'] != "" && response['ACaption'][0]['Time1caption'] != null) {
-
-                        $('#LbTime1').text(response['ACaption'][0]['Time1caption']);
-                        $('#divTime1').show();
-                    }
-                    if (response['ACaption'][0]['Time2caption'] != "--None--" && response['ACaption'][0]['Time2caption'] != "" && response['ACaption'][0]['Time2caption'] != null) {
-
-                        $('#LbTime2').text(response['ACaption'][0]['Time2caption']);
-                        $('#divTime2').show();
-                    }
-                    if (response['ACaption'][0]['Htmlcaption'] != "--None--" && response['ACaption'][0]['Htmlcaption'] != "" && response['ACaption'][0]['Htmlcaption'] != null) {
-                        alert(response['ACaption'][0]['Htmlcaption'])
-                        $('#LbHTML').text(response['ACaption'][0]['Htmlcaption']);
-                        $('#divHtmleditor1').show();
-                    }
-                    if (response['ACaption'][0]['Uploadcaption'] != "--None--" && response['ACaption'][0]['Uploadcaption'] != "" && response['ACaption'][0]['Uploadcaption'] != null) {
-
-                        $('#LbPHOTOUPLOAD').text(response['ACaption'][0]['Uploadcaption']);
-                        $('#divphotoUpload1').show();
-                    }
-                    if (response['ACaption'][0]['TextAreacaption'] != "--None--" && response['ACaption'][0]['TextAreacaption'] != "" && response['ACaption'][0]['TextAreacaption'] != null) {
-
-                        $('#LbTextarea').text(response['ACaption'][0]['TextAreacaption']);
-                        $('#divTextarea1').show();
-                    }
-                    if (response['ACaption'][0]['MultiSelect1caption'] != "--None--" && response['ACaption'][0]['MultiSelect1caption'] != "" && response['ACaption'][0]['MultiSelect1caption'] != null) {
-
-                        $('#LbMultiselect1').text(response['ACaption'][0]['MultiSelect1caption']);
-                        $('#divMultiselect1').show();
-                    }
-                    if (response['ACaption'][0]['MultiSelect2caption'] != "--None--" && response['ACaption'][0]['MultiSelect2caption'] != "" && response['ACaption'][0]['MultiSelect2caption'] != null) {
-
-                        $('#LbMultiselect2').text(response['ACaption'][0]['MultiSelect2caption']);
-                        $('#divMultiselect2').show();
-                    }
-                    if (response['ACaption'][0]['MultiSelect3caption'] != "--None--" && response['ACaption'][0]['MultiSelect3caption'] != "" && response['ACaption'][0]['MultiSelect3caption'] != null) {
-
-                        $('#LbMultiselect3').text(response['ACaption'][0]['MultiSelect3caption']);
-                        $('#divMultiselect3').show();
-                    }
-                    if (response['ACaption'][0]['MultiSelect4caption'] != "--None--" && response['ACaption'][0]['MultiSelect4caption'] != "" && response['ACaption'][0]['MultiSelect4caption'] != null) {
-
-                        $('#LbMultiselect4').text(response['ACaption'][0]['MultiSelect4caption']);
-                        $('#divMultiselect4').show();
-                    }
-                    if (response['ACaption'][0]['MultiSelect5caption'] != "--None--" && response['ACaption'][0]['MultiSelect5caption'] != "" && response['ACaption'][0]['MultiSelect5caption'] != null) {
-
-                        $('#LbMultiselect5').text(response['ACaption'][0]['MultiSelect5caption']);
-                        $('#divMultiselect5').show();
-                    }
-                }
-                //Placeholder
-                if (response['Aplaceholder'].length > 0) {
-                    //  alert(response['Aplaceholder'][0]['field12']);
-                    if (response['Aplaceholder'][0]['Field3'] != "--None--" && response['Aplaceholder'][0]['Field3'] != "" && response['Aplaceholder'][0]['Field3'] != null) {
-                        $('#txtnameTab3').attr("placeholder", (response['Aplaceholder'][0]['Field3']));
-                    }
-
-                    if (response['Aplaceholder'][0]['Field5'] != "--None--" && response['Aplaceholder'][0]['Field5'] != "" && response['Aplaceholder'][0]['Field5'] != null) {
-                        $('#txtRemarsTab3').attr("placeholder", (response['Aplaceholder'][0]['Field5']));
-                    }
-
-                    if (response['Aplaceholder'][0]['Field12'] != "--None--" && response['Aplaceholder'][0]['Field12'] != "" && response['Aplaceholder'][0]['Field12'] != null) {
-
-                        $('#Textbox1Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field12']));
-                    }
-                    if (response['Aplaceholder'][0]['Field13'] != "--None--" && response['Aplaceholder'][0]['Field13'] != "" && response['Aplaceholder'][0]['Field13'] != null) {
-                        $('#Textbox2Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field13']));
-                    }
-                    if (response['Aplaceholder'][0]['Field14'] != "--None--" && response['Aplaceholder'][0]['Field14'] != "" && response['Aplaceholder'][0]['Field14'] != null) {
-                        $('#Textbox3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field14']));
-                    }
-                    if (response['Aplaceholder'][0]['Field15'] != "--None--" && response['Aplaceholder'][0]['Field15'] != "" && response['Aplaceholder'][0]['Field15'] != null) {
-
-
-                        $('#Textbox4Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field15']));
-                    }
-                    if (response['Aplaceholder'][0]['Field16'] != "--None--" && response['Aplaceholder'][0]['Field16'] != "" && response['Aplaceholder'][0]['Field16'] != null) {
-                        $('#Textbox5Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field16']));
-                    }
-                    if (response['Aplaceholder'][0]['Field17'] != "--None--" && response['Aplaceholder'][0]['Field17'] != "" && response['Aplaceholder'][0]['Field17'] != null) {
-                        $('#Textbox6Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field17']));
-                    }
-                    if (response['Aplaceholder'][0]['Date1'] != "--None--" && response['Aplaceholder'][0]['Date1'] != "" && response['Aplaceholder'][0]['Date1'] != null) {
-                        $('#Date1').attr("placeholder", (response['Aplaceholder'][0]['Date1']));
-                    }
-                    if (response['Aplaceholder'][0]['Date2'] != "--None--" && response['Aplaceholder'][0]['Date2'] != "" && response['Aplaceholder'][0]['Date2'] != null) {
-                        $('#Date2').attr("placeholder", (response['Aplaceholder'][0]['Date2']));
-                    }
-                    if (response['Aplaceholder'][0]['Date3'] != "--None--" && response['Aplaceholder'][0]['Date3'] != "" && response['Aplaceholder'][0]['Date3'] != null) {
-                        $('#Date3').attr("placeholder", (response['Aplaceholder'][0]['Date3']));
-                    }
-                    if (response['Aplaceholder'][0]['Time1'] != "--None--" && response['Aplaceholder'][0]['Time1'] != "" && response['Aplaceholder'][0]['Time1'] != null) {
-                        $('#time1').attr("placeholder", (response['Aplaceholder'][0]['Time1']));
-                    }
-                    if (response['Aplaceholder'][0]['Time2'] != "--None--" && response['Aplaceholder'][0]['Time2'] != "" && response['Aplaceholder'][0]['Time2'] != null) {
-                        $('#time2').attr("placeholder", (response['Aplaceholder'][0]['Time2']));
-                    }
-                    if (response['Aplaceholder'][0]['Email1'] != "--None--" && response['Aplaceholder'][0]['Email1'] != "" && response['Aplaceholder'][0]['Email1'] != null) {
-                        $('#Email1').attr("placeholder", (response['Aplaceholder'][0]['Email1']));
-                    }
-                    if (response['Aplaceholder'][0]['Email2'] != "--None--" && response['Aplaceholder'][0]['Email2'] != "" && response['Aplaceholder'][0]['Email2'] != null) {
-                        $('#Email2').attr("placeholder", (response['Aplaceholder'][0]['Email2']));
-                    }
-                    if (response['Aplaceholder'][0]['Email3'] != "--None--" && response['Aplaceholder'][0]['Email3'] != "" && response['Aplaceholder'][0]['Email3'] != null) {
-                        $('#Email3').attr("placeholder", (response['Aplaceholder'][0]['Email3']));
-                    }
-                    if (response['Aplaceholder'][0]['Amount'] != "--None--" && response['Aplaceholder'][0]['Amount'] != "" && response['Aplaceholder'][0]['Amount'] != null) {
-                        $('#Amount1').attr("placeholder", (response['Aplaceholder'][0]['Amount']));
-                    }
-                    if (response['Aplaceholder'][0]['Amount2'] != "--None--" && response['Aplaceholder'][0]['Amount2'] != "" && response['Aplaceholder'][0]['Amount2'] != null) {
-                        $('#Amount2').attr("placeholder", (response['Aplaceholder'][0]['Amount2']));
-                    }
-                    if (response['Aplaceholder'][0]['Amount3'] != "--None--" && response['Aplaceholder'][0]['Amount3'] != "" && response['Aplaceholder'][0]['Amount3'] != null) {
-
-
-                        $('#Amount3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Amount3']));
-                    }
-                    if (response['Aplaceholder'][0]['TextArea'] != "--None--" && response['Aplaceholder'][0]['TextArea'] != "" && response['Aplaceholder'][0]['TextArea'] != null) {
-
-                        $('#Textarea1').attr("placeholder", (response['Aplaceholder'][0]['TextArea']));
-                    }
-                    if (response['Aplaceholder'][0]['Html'] != "--None--" && response['Aplaceholder'][0]['Html'] != "" && response['Aplaceholder'][0]['Html'] != null) {
-
-                        $('#HTMlEditor1').attr("placeholder", (response['Aplaceholder'][0]['Html']));
-                    }
-                    if (response['Aplaceholder'][0]['Upload'] != "--None--" && response['Aplaceholder'][0]['Upload'] != "" && response['Aplaceholder'][0]['Upload'] != null) {
-                        $('#photoUpload').attr("placeholder", (response['Aplaceholder'][0]['Upload']));
-                    }
-
-                }
-                //validation
-                if (response['AValidation'].length > 0) {
-
-                    if (response['AValidation'][0]['Field3'] != '' && response['AValidation'][0]['Field3'] != '--None--' && response['AValidation'][0]['Field3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
-                    }
-
-                    if (response['AValidation'][0]['Field5'] != '' && response['AValidation'][0]['Field5'] != '--None--' && response['AValidation'][0]['Field5'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field5'], $('#txtRemarsTab3'));
-                    }
-
-                    if (response['AValidation'][0]['Field12'] != '' && response['AValidation'][0]['Field12'] != '--None--' && response['AValidation'][0]['Field12'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['AValidation'][0]['Field13'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
-                    }
-
-                    if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['AValidation'][0]['Field14'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field14'], $('#Textbox3Tab3'));
-                    }
-
-                    if (response['AValidation'][0]['Field15'] != '' && response['AValidation'][0]['Field15'] != '--None--' && response['AValidation'][0]['Field15'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field15'], $('#Textbox4Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field16'] != '' && response['AValidation'][0]['Field16'] != '--None--' && response['AValidation'][0]['Field16'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox5Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field17'] != '' && response['AValidation'][0]['Field17'] != '--None--' && response['AValidation'][0]['Field17'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field17'], $('#Textbox6Tab3'));
-                    }
-                    if (response['AValidation'][0]['Date1'] != '' && response['AValidation'][0]['Date1'] != '--None--' && response['AValidation'][0]['Date1'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Date1'], $('#Date1'));
-                    }
-                    if (response['AValidation'][0]['Date2'] != '' && response['AValidation'][0]['Date2'] != '--None--' && response['AValidation'][0]['Date2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Date2'], $('#Date2'));
-                    }
-                    if (response['AValidation'][0]['Date3'] != '' && response['AValidation'][0]['Date3'] != '--None--' && response['AValidation'][0]['Date3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Date3'], $('#Date3'));
-                    }
-                    if (response['AValidation'][0]['Time1'] != '' && response['AValidation'][0]['Time1'] != '--None--' && response['AValidation'][0]['Time1'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Time1'], $('#time1'));
-                    }
-                    if (response['AValidation'][0]['Time2'] != '' && response['AValidation'][0]['Time2'] != '--None--' && response['AValidation'][0]['Time2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Time2'], $('#time2'));
-                    }
-                    if (response['AValidation'][0]['Email1'] != '' && response['AValidation'][0]['Email1'] != '--None--' && response['AValidation'][0]['Email1'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Email1'], $('#Email1'));
-                    }
-                    if (response['AValidation'][0]['Email2'] != '' && response['AValidation'][0]['Email2'] != '--None--' && response['AValidation'][0]['Email2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Email2'], $('#Email2'));
-                    }
-                    if (response['AValidation'][0]['Email3'] != '' && response['AValidation'][0]['Email3'] != '--None--' && response['AValidation'][0]['Email3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Email3'], $('#Email3'));
-                    }
-                    if (response['AValidation'][0]['Amount'] != '' && response['AValidation'][0]['Amount'] != '--None--' && response['AValidation'][0]['Amount'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Amount'], $('#Amount1'));
-                    }
-                    if (response['AValidation'][0]['Amount2'] != '' && response['AValidation'][0]['Amount2'] != '--None--' && response['AValidation'][0]['Amount2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Amount2'], $('#Amount2'));
-                    }
-                    if (response['AValidation'][0]['Amount3'] != '' && response['AValidation'][0]['Amount3'] != '--None--' && response['AValidation'][0]['Amount3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Amount3'], $('#Amount3Tab3'));
-                    }
-                    if (response['AValidation'][0]['TextArea'] != '' && response['AValidation'][0]['TextArea'] != '--None--' && response['AValidation'][0]['TextArea'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['TextArea'], $('#Textarea1'));
-                    }
-
-                    if (response['AValidation'][0]['Html'] != '' && response['AValidation'][0]['Html'] != '--None--' && response['AValidation'][0]['Html'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Html'], $('#HTMlEditor1'));
-                    }
-
-                    if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['Aplaceholder'][0]['Upload'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    }
-
-                    //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
-                    //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    //}
-                    //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
-                    //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
-                    //}
-                    if (response['AValidation'][0]['Field6'] != '' && response['AValidation'][0]['Field6'] != '--None--' && response['AValidation'][0]['Field6'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field6'], $('#Dropdown1Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field7'] != '' && response['AValidation'][0]['Field7'] != '--None--' && response['AValidation'][0]['Field7'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field7'], $('#Dropdown2Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field8'] != '' && response['AValidation'][0]['Field8'] != '--None--' && response['AValidation'][0]['Field8'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field8'], $('#Dropdown3Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field9'] != '' && response['AValidation'][0]['Field9'] != '--None--' && response['AValidation'][0]['Field9'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field9'], $('#Dropdown4Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field10'] != '' && response['AValidation'][0]['Field10'] != '--None--' && response['AValidation'][0]['Field10'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field10'], $('#Dropdown5Tab3'));
-                    }
-                    if (response['AValidation'][0]['Field11'] != '' && response['AValidation'][0]['Field11'] != '--None--' && response['AValidation'][0]['Field11'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Field11'], $('#Dropdown6Tab3'));
-                    }
-
-                    if (response['AValidation'][0]['MultiSelect1'] != '' && response['AValidation'][0]['MultiSelect1'] != '--None--' && response['AValidation'][0]['MultiSelect1'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect1'], $('#Multiselect1'));
-                    }
-                    if (response['AValidation'][0]['MultiSelect2'] != '' && response['AValidation'][0]['MultiSelect2'] != '--None--' && response['AValidation'][0]['MultiSelect2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect2'], $('#Multiselect2'));
-                    }
-                    if (response['AValidation'][0]['MultiSelect3'] != '' && response['AValidation'][0]['MultiSelect3'] != '--None--' && response['AValidation'][0]['MultiSelect3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect3'], $('#Multiselect3'));
-                    }
-                    if (response['AValidation'][0]['MultiSelect4'] != '' && response['AValidation'][0]['MultiSelect4'] != '--None--' && response['AValidation'][0]['MultiSelect4'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect4'], $('#Multiselect4'));
-                    }
-                    if (response['AValidation'][0]['MultiSelect5'] != '' && response['AValidation'][0]['MultiSelect5'] != '--None--' && response['AValidation'][0]['MultiSelect5'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['MultiSelect5'], $('#Multiselect5'));
-                    }
-
-                    if (response['AValidation'][0]['Rating1'] != '' && response['AValidation'][0]['Rating1'] != '--None--' && response['AValidation'][0]['Rating1'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Rating1'], $('#Rating1'));
-                    }
-                    if (response['AValidation'][0]['Rating2'] != '' && response['AValidation'][0]['Rating2'] != '--None--' && response['AValidation'][0]['Rating2'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Rating2'], $('#Rating2'));
-                    }
-                    if (response['AValidation'][0]['Rating3'] != '' && response['AValidation'][0]['Rating3'] != '--None--' && response['AValidation'][0]['Rating3'] != null) {
-                        CheckFormValidations(response['AValidation'][0]['Rating3'], $('#Rating3'));
-                    }
-
-                    //$('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
-                    //$('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
-                    //$('#txtValidationCode4').val(response['AValidation'][0]['Field6']);
-                    //$('#txtValidationCode5').val(response['AValidation'][0]['Field7']);
-                    //$('#txtValidationCode6').val(response['AValidation'][0]['Field8']);
-                    //$('#txtValidationCode7').val(response['AValidation'][0]['Field9']);
-                    //$('#txtValidationCode8').val(response['AValidation'][0]['Field10']);
-                    //$('#txtValidationCode9').val(response['AValidation'][0]['Field11']);
-                    //$('#txtValidationCode10').val(response['AValidation'][0]['Field12']);
-                    //$('#txtValidationCode11').val(response['AValidation'][0]['Field13']);
-                    //$('#txtValidationCode12').val(response['AValidation'][0]['Field14']);
-                    //$('#txtValidationCode13').val(response['AValidation'][0]['Field15']);
-                    //$('#txtValidationCode14').val(response['AValidation'][0]['Field16']);
-                    //$('#txtValidationCode15').val(response['AValidation'][0]['Field17']);
-                    //$('#txtValidationCode16').val(response['AValidation'][0]['Rating1']);
-                    //$('#txtValidationCode17').val(response['AValidation'][0]['Rating2']);
-                    //$('#txtValidationCode18').val(response['AValidation'][0]['Rating3']);
-                    //$('#txtValidationCode19').val(response['AValidation'][0]['Date1']);
-                    //$('#txtValidationCode20').val(response['AValidation'][0]['Date2']);
-                    //$('#txtValidationCode21').val(response['AValidation'][0]['Date3']);
-                    //$('#txtValidationCode24').val(response['AValidation'][0]['Email1']);
-                    //$('#txtValidationCode25').val(response['AValidation'][0]['Email2']);
-                    //$('#txtValidationCode26').val(response['AValidation'][0]['Email3']);
-                    //$('#txtValidationCode27').val(response['AValidation'][0]['Amount']);
-                    //$('#txtValidationCode28').val(response['AValidation'][0]['Amount2']);
-                    //$('#txtValidationCode29').val(response['AValidation'][0]['Amount3']);
-                    //$('#txtValidationCode22').val(response['AValidation'][0]['Time1']);
-                    //$('#txtValidationCode23').val(response['AValidation'][0]['Time2']);
-                    //$('#txtValidationCode31').val(response['AValidation'][0]['Html']);
-                    //$('#txtValidationCode32').val(response['AValidation'][0]['Upload']);
-                    //$('#txtValidationCode30').val(response['AValidation'][0]['TextArea']);
-                    //$('#txtValidationCode33').val(response['AValidation'][0]['MultiSelect1']);
-                    //$('#txtValidationCode34').val(response['AValidation'][0]['MultiSelect2']);
-                    //$('#txtValidationCode35').val(response['AValidation'][0]['MultiSelect3']);
-                    //$('#txtValidationCode36').val(response['AValidation'][0]['MultiSelect4']);
-                    //$('#txtValidationCode37').val(response['AValidation'][0]['MultiSelect5']);
-                }
-
-                //tooltip
-                if (response['Atooltip'].length > 0) {
-                    //$('#txtHelp1').val(response['Atooltip'][0]['Field3']);
-                    if (response['Atooltip'][0]['Field3'] != "--None--" && response['Atooltip'][0]['Field3'] != "" && response['Atooltip'][0]['Field3'] != null) {
-
-                        //$('#LbName').attr("data-original-title", (response['Atooltip'][0]['Field3']));
-                        $('#field6').attr("data-original-title", (response['Atooltip'][0]['Field3']));
-                        $('#field6').show();
-                    }
-                    if (response['Atooltip'][0]['Field4'] != "--None--" && response['Atooltip'][0]['Field4'] != "" && response['Atooltip'][0]['Field4'] != null) {
-
-                        // $('#LbActive').attr("data-original-title", (response['Atooltip'][0]['Field4']));
-                        $('#field7').attr("data-original-title", (response['Atooltip'][0]['Field4']));
-                        $('#field7').show();
-                    }
-                    if (response['Atooltip'][0]['Field5'] != "--None--" && response['Atooltip'][0]['Field5'] != "" && response['Atooltip'][0]['Field5'] != null) {
-                        //$('#LbRemarks').attr("data-original-title", (response['Atooltip'][0]['Field5']));
-                        $('#field8').attr("data-original-title", (response['Atooltip'][0]['Field5']));
-                        $('#field8').show();
-                    }
-                    if (response['Atooltip'][0]['Field6'] != "--None--" && response['Atooltip'][0]['Field6'] != "" && response['Atooltip'][0]['Field6'] != null) {
-                        //$('#LbDropdown1').attr("data-original-title", (response['Atooltip'][0]['Field6']));
-                        $('#field9').attr("data-original-title", (response['Atooltip'][0]['Field6']));
-                        $('#field9').show();
-                    }
-                    if (response['Atooltip'][0]['Field7'] != "--None--" && response['Atooltip'][0]['Field7'] != "" && response['Atooltip'][0]['Field7'] != null) {
-                        // $('#LbDropdown2').attr("data-original-title", (response['Atooltip'][0]['Field7']));
-                        $('#field10').attr("data-original-title", (response['Atooltip'][0]['Field7']));
-                        $('#field10').show();
-                    }
-                    if (response['Atooltip'][0]['Field8'] != "--None--" && response['Atooltip'][0]['Field8'] != "" && response['Atooltip'][0]['Field8'] != null) {
-                        // $('#LbDropdown3').attr("data-original-title", (response['Atooltip'][0]['Field8']));
-                        $('#field11').attr("data-original-title", (response['Atooltip'][0]['Field8']));
-                        $('#field11').show();
-                    }
-                    if (response['Atooltip'][0]['Field9'] != "--None--" && response['Atooltip'][0]['Field9'] != "" && response['Atooltip'][0]['Field9'] != null) {
-                        //  $('#LbDropdown4').attr("data-original-title", (response['Atooltip'][0]['Field9']));
-                        $('#field12').attr("data-original-title", (response['Atooltip'][0]['Field9']));
-                        $('#field12').show();
-                    }
-                    if (response['Atooltip'][0]['Field10'] != "--None--" && response['Atooltip'][0]['Field10'] != "" && response['Atooltip'][0]['Field10'] != null) {
-                        // $('#LbDropdown5').attr("data-original-title", (response['Atooltip'][0]['Field10']));
-                        $('#field13').attr("data-original-title", (response['Atooltip'][0]['Field10']));
-                        $('#field13').show();
-                    }
-                    if (response['Atooltip'][0]['Field11'] != "--None--" && response['Atooltip'][0]['Field11'] != "" && response['Atooltip'][0]['Field11'] != null) {
-                        // $('#LbDropdown6').attr("data-original-title", (response['Atooltip'][0]['Field11']));
-                        $('#field14').attr("data-original-title", (response['Atooltip'][0]['Field11']));
-                        $('#field14').show();
-                    }
-                    if (response['Atooltip'][0]['Field12'] != "--None--" && response['Atooltip'][0]['Field12'] != "" && response['Atooltip'][0]['Field12'] != null) {
-                        // $('#LbTextbox1').attr("data-original-title", (response['Atooltip'][0]['Field12']));
-                        $('#field15').attr("data-original-title", (response['Atooltip'][0]['Field12']));
-                        $('#field15').show();
-                    }
-                    if (response['Atooltip'][0]['Field13'] != "--None--" && response['Atooltip'][0]['Field13'] != "" && response['Atooltip'][0]['Field13'] != null) {
-                        // $('#LbTextbox2').attr("data-original-title", (response['Atooltip'][0]['Field13']));
-                        $('#field16').attr("data-original-title", (response['Atooltip'][0]['Field13']));
-                        $('#field16').show();
-                    }
-                    if (response['Atooltip'][0]['Field14'] != "--None--" && response['Atooltip'][0]['Field14'] != "" && response['Atooltip'][0]['Field14'] != null) {
-                        $('#field17').attr("data-original-title", (response['Atooltip'][0]['Field14']));
-                        $('#field17').show();
-                    }
-                    if (response['Atooltip'][0]['Field15'] != "--None--" && response['Atooltip'][0]['Field15'] != "" && response['Atooltip'][0]['Field15'] != null) {
-                        $('#field18').attr("data-original-title", (response['Atooltip'][0]['Field15']));
-                        $('#field18').show();
-                    }
-                    if (response['Atooltip'][0]['Field16'] != "--None--" && response['Atooltip'][0]['Field16'] != "" && response['Atooltip'][0]['Field16'] != null) {
-                        $('#field19').attr("data-original-title", (response['Atooltip'][0]['Field16']));
-                        $('#field19').show();
-                    }
-                    if (response['Atooltip'][0]['Field17'] != "--None--" && response['Atooltip'][0]['Field17'] != "" && response['Atooltip'][0]['Field17'] != null) {
-
-                        $('#field20').attr("data-original-title", (response['Atooltip'][0]['Field17']));
-                        $('#field20').show();
-                    }
-                    if (response['Atooltip'][0]['Rating1'] != "--None--" && response['Atooltip'][0]['Rating1'] != "" && response['Atooltip'][0]['Rating1'] != null) {
-
-                        $('#field21').attr("data-original-title", (response['Atooltip'][0]['Rating1']));
-                        $('field21').show();
-                    }
-                    if (response['Atooltip'][0]['Rating2'] != "--None--" && response['Atooltip'][0]['Rating2'] != "" && response['Atooltip'][0]['Rating2'] != null) {
-
-                        $('#field22').attr("data-original-title", (response['Atooltip'][0]['Rating2']));
-                        $('field22').show();
-                    }
-                    if (response['Atooltip'][0]['Rating3'] != "--None--" && response['Atooltip'][0]['Rating3'] != "" && response['Atooltip'][0]['Rating3'] != null) {
-
-                        $('#field23').attr("data-original-title", (response['Atooltip'][0]['Rating3']));
-                        $('#field23').show();
-                    }
-                    if (response['Atooltip'][0]['Date1'] != "--None--" && response['Atooltip'][0]['Date1'] != "" && response['Atooltip'][0]['Date1'] != null) {
-
-                        $('#field24').attr("data-original-title", (response['Atooltip'][0]['Date1']));
-                        $('#field24').show();
-                    }
-                    if (response['Atooltip'][0]['Date2'] != "--None--" && response['Atooltip'][0]['Date2'] != "" && response['Atooltip'][0]['Date2'] != null) {
-
-                        $('#field25').attr("data-original-title", (response['Atooltip'][0]['Date2']));
-                        $('#field25').show();
-                    }
-                    if (response['Atooltip'][0]['Date3'] != "--None--" && response['Atooltip'][0]['Date3'] != "" && response['Atooltip'][0]['Date3'] != null) {
-
-                        $('#field26').attr("data-original-title", (response['Atooltip'][0]['Date3']));
-                        $('#field26').show();
-                    }
-                    if (response['Atooltip'][0]['Email1'] != "--None--" && response['Atooltip'][0]['Email1'] != "" && response['Atooltip'][0]['Email1'] != null) {
-
-                        $('#field29').attr("data-original-title", (response['Atooltip'][0]['Email1']));
-                        $('#field29').show();
-                    }
-                    if (response['Atooltip'][0]['Email2'] != "--None--" && response['Atooltip'][0]['Email2'] != "" && response['Atooltip'][0]['Email2'] != null) {
-
-                        $('#field30').attr("data-original-title", (response['Atooltip'][0]['Email2']));
-                        $('#field30').show();
-                    }
-                    if (response['Atooltip'][0]['Email3'] != "--None--" && response['Atooltip'][0]['Email3'] != "" && response['Atooltip'][0]['Email3'] != null) {
-
-                        $('#field31').attr("data-original-title", (response['Atooltip'][0]['Email3']));
-                        $('#field31').show();
-                    }
-                    if (response['Atooltip'][0]['Amount'] != "--None--" && response['Atooltip'][0]['Amount'] != "" && response['Atooltip'][0]['Amount'] != null) {
-
-                        $('#field32').attr("data-original-title", (response['Atooltip'][0]['Amount']));
-                        $('#field32').show();
-                    }
-                    if (response['Atooltip'][0]['Amount2'] != "--None--" && response['Atooltip'][0]['Amount2'] != "" && response['Atooltip'][0]['Amount2'] != null) {
-
-                        $('#field33').attr("data-original-title", (response['Atooltip'][0]['Amount2']));
-                        $('#field33').show();
-                    }
-                    if (response['Atooltip'][0]['Amount3'] != "--None--" && response['Atooltip'][0]['Amount3'] != "" && response['Atooltip'][0]['Amount3'] != null) {
-
-                        $('#field34').attr("data-original-title", (response['Atooltip'][0]['Amount3']));
-                        $('#field34').show();
-                    }
-                    if (response['Atooltip'][0]['Time1'] != "--None--" && response['Atooltip'][0]['Time1'] != "" && response['Atooltip'][0]['Time1'] != null) {
-
-                        $('#field27').attr("data-original-title", (response['Atooltip'][0]['Time1']));
-                        $('#field27').show();
-                    }
-                    if (response['Atooltip'][0]['Time2'] != "--None--" && response['Atooltip'][0]['Time2'] != "" && response['Atooltip'][0]['Time2'] != null) {
-
-                        $('#field28').attr("data-original-title", (response['Atooltip'][0]['Time2']));
-                        $('#field28').show();
-                    }
-                    if (response['Atooltip'][0]['Html'] != "--None--" && response['Atooltip'][0]['Html'] != "" && response['Atooltip'][0]['Html'] != null) {
-
-                        $('#field36').attr("data-original-title", (response['Atooltip'][0]['Html']));
-                        $('#field36').show();
-                    }
-                    if (response['Atooltip'][0]['Upload'] != "--None--" && response['Atooltip'][0]['Upload'] != "" && response['Atooltip'][0]['Upload'] != null) {
-
-                        $('#field37').attr("data-original-title", (response['Atooltip'][0]['Upload']));
-                        $('#field37').show();
-                    }
-                    if (response['Atooltip'][0]['TextArea'] != "--None--" && response['Atooltip'][0]['TextArea'] != "" && response['Atooltip'][0]['TextArea'] != null) {
-
-                        $('#field35').attr("data-original-title", (response['Atooltip'][0]['TextArea']));
-                        $('#field35').show();
-                    }
-                    if (response['Atooltip'][0]['MultiSelect1'] != "--None--" && response['Atooltip'][0]['MultiSelect1'] != "" && response['Atooltip'][0]['MultiSelect1'] != null) {
-
-                        $('#field38').attr("data-original-title", (response['Atooltip'][0]['MultiSelect1']));
-                        $('#field38').show();
-                    }
-                    if (response['Atooltip'][0]['MultiSelect2'] != "--None--" && response['Atooltip'][0]['MultiSelect2'] != "" && response['Atooltip'][0]['MultiSelect2'] != null) {
-
-                        $('#field39').attr("data-original-title", (response['Atooltip'][0]['MultiSelect2']));
-                        $('#field39').show();
-                    }
-                    if (response['Atooltip'][0]['MultiSelect3'] != "--None--" && response['Atooltip'][0]['MultiSelect3'] != "" && response['Atooltip'][0]['MultiSelect3'] != null) {
-
-                        $('#field40').attr("data-original-title", (response['Atooltip'][0]['MultiSelect3']));
-                        $('#field40').show();
-                    }
-                    if (response['Atooltip'][0]['MultiSelect4'] != "--None--" && response['Atooltip'][0]['MultiSelect4'] != "" && response['Atooltip'][0]['MultiSelect4'] != null) {
-
-                        $('#field41').attr("data-original-title", (response['Atooltip'][0]['MultiSelect4']));
-                        $('#field41').show();
-                    }
-                    if (response['Atooltip'][0]['MultiSelect5'] != "--None--" && response['Atooltip'][0]['MultiSelect5'] != "" && response['Atooltip'][0]['MultiSelect5'] != null) {
-
-                        $('#field42').attr("data-original-title", (response['Atooltip'][0]['MultiSelect5']));
-                        $('#field42').show();
-                    }
-                }
-
-            }
-        }).done(function () {
-            if ($('#Dropdown1Tab3').parent().is(':visible')) {
-                FillDropdown('Dropdown1Tab3', 'xlink');
-            }
-            if ($('#Dropdown2Tab3').parent().is(':visible')) {
-                FillDropdown('Dropdown2Tab3', 'xcross');
-            }
-            if ($('#Dropdown3Tab3').parent().is(':visible')) {
-                FillDropdown('Dropdown3Tab3', 'xcross1');
-            }
-            if ($('#Dropdown4Tab3').parent().is(':visible')) {
-                FillDropdown('Dropdown4Tab3', 'xcross2');
-            }
-            if ($('#Dropdown5Tab3').parent().is(':visible')) {
-                FillDropdown('Dropdown5Tab3', 'xcross3');
-            }
-            if ($('#Dropdown6Tab3').parent().is(':visible')) {
-                FillDropdown('Dropdown6Tab3', 'xcross4');
-            }
-
-            if ($('#Multiselect1').parent().is(':visible')) {
-                FillDropdown_Multiselect('Multiselect1', 'MultiSelect1');
-            }
-            if ($('#Multiselect2').parent().is(':visible')) {
-                FillDropdown_Multiselect('Multiselect2', 'MultiSelect2');
-            }
-            if ($('#Multiselect3').parent().is(':visible')) {
-                FillDropdown_Multiselect('Multiselect3', 'MultiSelect3');
-            }
-            if ($('#Multiselect4').parent().is(':visible')) {
-                FillDropdown_Multiselect('Multiselect4', 'MultiSelect4');
-            }
-            if ($('#Multiselect5').parent().is(':visible')) {
-                FillDropdown_Multiselect('Multiselect5', 'MultiSelect5');
-            }
-        });
-
-
-    }
-
-    function masterchangehide() {
-        $('.Master').val('');
-        $('.MDropdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
-        });
-        $('textarea').val('');
-        $('select').next().find('ul li.select2-selection__choice').remove();
-    }
+    
 
 });
+
+function PageLoad_FilledAll() {
+    masterchangehide();
+    hide_div();
+    //  var field1 = 1;
+    //var field1 = $('#drpSegmenttab3 option:selected').val();
+    //var field2 = $('#drpMasterTab3 option:selected').val();
+    $.ajax({
+        url: "/AllMaster/ALL_Data_Field",
+        data: { Type: 'Caption', field1: field1, field2: field2 },
+        type: "POST",
+        dataType: "json",
+        async: false,
+        success: function (response) {
+            //Caption
+            if (response['ACaption'].length > 0) {
+                if (response['ACaption'][0]['Field3caption'] != "--None--" && response['ACaption'][0]['Field3caption'] != "" && response['ACaption'][0]['Field3caption'] != null) {
+
+                    $('#LbName').text(response['ACaption'][0]['Field3caption']);
+                    $('#divName').show();
+                }
+                if (response['ACaption'][0]['Field4caption'] != "--None--" && response['ACaption'][0]['Field4caption'] != "" && response['ACaption'][0]['Field4caption'] != null) {
+
+                    $('#LbActive').text(response['ACaption'][0]['Field4caption']);
+                    $('#divActive').show();
+                }
+                if (response['ACaption'][0]['Field5caption'] != "--None--" && response['ACaption'][0]['Field5caption'] != "" && response['ACaption'][0]['Field5caption'] != null) {
+                    $('#LbRemarks').text(response['ACaption'][0]['Field5caption']);
+                    $('#divRemarks').show();
+                }
+                if (response['ACaption'][0]['Field6caption'] != "--None--" && response['ACaption'][0]['Field6caption'] != "" && response['ACaption'][0]['Field6caption'] != null) {
+                    $('#LbDropdown1').text(response['ACaption'][0]['Field6caption']);
+                    $('#divDropdown1').show();
+                }
+                if (response['ACaption'][0]['Field7caption'] != "--None--" && response['ACaption'][0]['Field7caption'] != "" && response['ACaption'][0]['Field7caption'] != null) {
+                    $('#LbDropdown2').text(response['ACaption'][0]['Field7caption']);
+                    $('#divDropdown2').show();
+                }
+                if (response['ACaption'][0]['Field8caption'] != "--None--" && response['ACaption'][0]['Field8caption'] != "" && response['ACaption'][0]['Field8caption'] != null) {
+                    $('#LbDropdown3').text(response['ACaption'][0]['Field8caption']);
+                    $('#divDropdown3').show();
+                }
+                if (response['ACaption'][0]['Field9caption'] != "--None--" && response['ACaption'][0]['Field9caption'] != "" && response['ACaption'][0]['Field9caption'] != null) {
+                    $('#LbDropdown4').text(response['ACaption'][0]['Field9caption']);
+                    $('#divDropdown4').show();
+                }
+                if (response['ACaption'][0]['Field10caption'] != "--None--" && response['ACaption'][0]['Field10caption'] != "" && response['ACaption'][0]['Field10caption'] != null) {
+                    $('#LbDropdown5').text(response['ACaption'][0]['Field10caption']);
+                    $('#divDropdown5').show();
+                }
+                if (response['ACaption'][0]['Field11caption'] != "--None--" && response['ACaption'][0]['Field11caption'] != "" && response['ACaption'][0]['Field11caption'] != null) {
+                    $('#LbDropdown6').text(response['ACaption'][0]['Field11caption']);
+                    $('#divDropdown6').show();
+                }
+                if (response['ACaption'][0]['Field12caption'] != "--None--" && response['ACaption'][0]['Field12caption'] != "" && response['ACaption'][0]['Field12caption'] != null) {
+                    $('#LbTextbox1').text(response['ACaption'][0]['Field12caption']);
+                    $('#divTextbox1').show();
+                }
+                if (response['ACaption'][0]['Field13caption'] != "--None--" && response['ACaption'][0]['Field13caption'] != "" && response['ACaption'][0]['Field13caption'] != null) {
+                    $('#LbTextbox2').text(response['ACaption'][0]['Field13caption']);
+                    $('#divTextbox2').show();
+                }
+                if (response['ACaption'][0]['Field14caption'] != "--None--" && response['ACaption'][0]['Field14caption'] != "" && response['ACaption'][0]['Field14caption'] != null) {
+                    $('#LbTextbox3').text(response['ACaption'][0]['Field14caption']);
+                    $('#divTextbox3').show();
+                }
+                if (response['ACaption'][0]['Field15caption'] != "--None--" && response['ACaption'][0]['Field15caption'] != "" && response['ACaption'][0]['Field15caption'] != null) {
+                    $('#LbTextbox4').text(response['ACaption'][0]['Field15caption']);
+                    $('#divTextbox4').show();
+                }
+                if (response['ACaption'][0]['Field16caption'] != "--None--" && response['ACaption'][0]['Field16caption'] != "" && response['ACaption'][0]['Field16caption'] != null) {
+                    $('#LbTextbox5').text(response['ACaption'][0]['Field16caption']);
+                    $('#divTextbox5').show();
+                }
+                if (response['ACaption'][0]['Field17caption'] != "--None--" && response['ACaption'][0]['Field17caption'] != "" && response['ACaption'][0]['Field17caption'] != null) {
+
+                    $('#LbTextbox6').text(response['ACaption'][0]['Field17caption']);
+                    $('#divTextbox6').show();
+                }
+                if (response['ACaption'][0]['Rating1caption'] != "--None--" && response['ACaption'][0]['Rating1caption'] != "" && response['ACaption'][0]['Rating1caption'] != null) {
+
+                    $('#LbRating1').text(response['ACaption'][0]['Rating1caption']);
+                    $('#divRating1').show();
+                }
+                if (response['ACaption'][0]['Rating2caption'] != "--None--" && response['ACaption'][0]['Rating2caption'] != "" && response['ACaption'][0]['Rating2caption'] != null) {
+
+                    $('#LbRating2').text(response['ACaption'][0]['Rating2caption']);
+                    $('#divRating2').show();
+                }
+                if (response['ACaption'][0]['Rating3caption'] != "--None--" && response['ACaption'][0]['Rating3caption'] != "" && response['ACaption'][0]['Rating3caption'] != null) {
+
+                    $('#LbRating3').text(response['ACaption'][0]['Rating3caption']);
+                    $('#divRating3').show();
+                }
+                if (response['ACaption'][0]['Date1caption'] != "--None--" && response['ACaption'][0]['Date1caption'] != "" && response['ACaption'][0]['Date1caption'] != null) {
+
+                    $('#LbDate1').text(response['ACaption'][0]['Date1caption']);
+                    $('#divDate1').show();
+                }
+                if (response['ACaption'][0]['Date2caption'] != "--None--" && response['ACaption'][0]['Date2caption'] != "" && response['ACaption'][0]['Date2caption'] != null) {
+
+                    $('#LbDate2').text(response['ACaption'][0]['Date2caption']);
+                    $('#divDate2').show();
+                }
+                if (response['ACaption'][0]['Date3caption'] != "--None--" && response['ACaption'][0]['Date3caption'] != "" && response['ACaption'][0]['Date3caption'] != null) {
+
+                    $('#LbDate3').text(response['ACaption'][0]['Date3caption']);
+                    $('#divDate3').show();
+                }
+                if (response['ACaption'][0]['Email1caption'] != "--None--" && response['ACaption'][0]['Email1caption'] != "" && response['ACaption'][0]['Email1caption'] != null) {
+
+                    $('#LbEmail1').text(response['ACaption'][0]['Email1caption']);
+                    $('#divEmail1').show();
+                }
+                if (response['ACaption'][0]['Email2caption'] != "--None--" && response['ACaption'][0]['Email2caption'] != "" && response['ACaption'][0]['Email2caption'] != null) {
+
+                    $('#LbEmail2').text(response['ACaption'][0]['Email2caption']);
+                    $('#divEmail2').show();
+                }
+                if (response['ACaption'][0]['Email3caption'] != "--None--" && response['ACaption'][0]['Email3caption'] != "" && response['ACaption'][0]['Email3caption'] != null) {
+
+                    $('#LbEmail3').text(response['ACaption'][0]['Email3caption']);
+                    $('#divEmail3').show();
+                }
+                if (response['ACaption'][0]['Amountcaption'] != "--None--" && response['ACaption'][0]['Amountcaption'] != "" && response['ACaption'][0]['Amountcaption'] != null) {
+
+                    $('#LbAmount1').text(response['ACaption'][0]['Amountcaption']);
+                    $('#divAmount1').show();
+                }
+                if (response['ACaption'][0]['Amount2caption'] != "--None--" && response['ACaption'][0]['Amount2caption'] != "" && response['ACaption'][0]['Amount2caption'] != null) {
+
+                    $('#LbAmount2').text(response['ACaption'][0]['Amount2caption']);
+                    $('#divAmount2').show();
+                }
+                if (response['ACaption'][0]['Amount3caption'] != "--None--" && response['ACaption'][0]['Amount3caption'] != "" && response['ACaption'][0]['Amount3caption'] != null) {
+
+                    $('#LbAmount3').text(response['ACaption'][0]['Amount3caption']);
+                    $('#divAmount3').show();
+                }
+                if (response['ACaption'][0]['Time1caption'] != "--None--" && response['ACaption'][0]['Time1caption'] != "" && response['ACaption'][0]['Time1caption'] != null) {
+
+                    $('#LbTime1').text(response['ACaption'][0]['Time1caption']);
+                    $('#divTime1').show();
+                }
+                if (response['ACaption'][0]['Time2caption'] != "--None--" && response['ACaption'][0]['Time2caption'] != "" && response['ACaption'][0]['Time2caption'] != null) {
+
+                    $('#LbTime2').text(response['ACaption'][0]['Time2caption']);
+                    $('#divTime2').show();
+                }
+                if (response['ACaption'][0]['Htmlcaption'] != "--None--" && response['ACaption'][0]['Htmlcaption'] != "" && response['ACaption'][0]['Htmlcaption'] != null) {
+                    alert(response['ACaption'][0]['Htmlcaption'])
+                    $('#LbHTML').text(response['ACaption'][0]['Htmlcaption']);
+                    $('#divHtmleditor1').show();
+                }
+                if (response['ACaption'][0]['Uploadcaption'] != "--None--" && response['ACaption'][0]['Uploadcaption'] != "" && response['ACaption'][0]['Uploadcaption'] != null) {
+
+                    $('#LbPHOTOUPLOAD').text(response['ACaption'][0]['Uploadcaption']);
+                    $('#divphotoUpload1').show();
+                }
+                if (response['ACaption'][0]['TextAreacaption'] != "--None--" && response['ACaption'][0]['TextAreacaption'] != "" && response['ACaption'][0]['TextAreacaption'] != null) {
+
+                    $('#LbTextarea').text(response['ACaption'][0]['TextAreacaption']);
+                    $('#divTextarea1').show();
+                }
+                if (response['ACaption'][0]['MultiSelect1caption'] != "--None--" && response['ACaption'][0]['MultiSelect1caption'] != "" && response['ACaption'][0]['MultiSelect1caption'] != null) {
+
+                    $('#LbMultiselect1').text(response['ACaption'][0]['MultiSelect1caption']);
+                    $('#divMultiselect1').show();
+                }
+                if (response['ACaption'][0]['MultiSelect2caption'] != "--None--" && response['ACaption'][0]['MultiSelect2caption'] != "" && response['ACaption'][0]['MultiSelect2caption'] != null) {
+
+                    $('#LbMultiselect2').text(response['ACaption'][0]['MultiSelect2caption']);
+                    $('#divMultiselect2').show();
+                }
+                if (response['ACaption'][0]['MultiSelect3caption'] != "--None--" && response['ACaption'][0]['MultiSelect3caption'] != "" && response['ACaption'][0]['MultiSelect3caption'] != null) {
+
+                    $('#LbMultiselect3').text(response['ACaption'][0]['MultiSelect3caption']);
+                    $('#divMultiselect3').show();
+                }
+                if (response['ACaption'][0]['MultiSelect4caption'] != "--None--" && response['ACaption'][0]['MultiSelect4caption'] != "" && response['ACaption'][0]['MultiSelect4caption'] != null) {
+
+                    $('#LbMultiselect4').text(response['ACaption'][0]['MultiSelect4caption']);
+                    $('#divMultiselect4').show();
+                }
+                if (response['ACaption'][0]['MultiSelect5caption'] != "--None--" && response['ACaption'][0]['MultiSelect5caption'] != "" && response['ACaption'][0]['MultiSelect5caption'] != null) {
+
+                    $('#LbMultiselect5').text(response['ACaption'][0]['MultiSelect5caption']);
+                    $('#divMultiselect5').show();
+                }
+            }
+            //Placeholder
+            if (response['Aplaceholder'].length > 0) {
+                //  alert(response['Aplaceholder'][0]['field12']);
+                if (response['Aplaceholder'][0]['Field3'] != "--None--" && response['Aplaceholder'][0]['Field3'] != "" && response['Aplaceholder'][0]['Field3'] != null) {
+                    $('#txtnameTab3').attr("placeholder", (response['Aplaceholder'][0]['Field3']));
+                }
+
+                if (response['Aplaceholder'][0]['Field5'] != "--None--" && response['Aplaceholder'][0]['Field5'] != "" && response['Aplaceholder'][0]['Field5'] != null) {
+                    $('#txtRemarsTab3').attr("placeholder", (response['Aplaceholder'][0]['Field5']));
+                }
+
+                if (response['Aplaceholder'][0]['Field12'] != "--None--" && response['Aplaceholder'][0]['Field12'] != "" && response['Aplaceholder'][0]['Field12'] != null) {
+
+                    $('#Textbox1Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field12']));
+                }
+                if (response['Aplaceholder'][0]['Field13'] != "--None--" && response['Aplaceholder'][0]['Field13'] != "" && response['Aplaceholder'][0]['Field13'] != null) {
+                    $('#Textbox2Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field13']));
+                }
+                if (response['Aplaceholder'][0]['Field14'] != "--None--" && response['Aplaceholder'][0]['Field14'] != "" && response['Aplaceholder'][0]['Field14'] != null) {
+                    $('#Textbox3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field14']));
+                }
+                if (response['Aplaceholder'][0]['Field15'] != "--None--" && response['Aplaceholder'][0]['Field15'] != "" && response['Aplaceholder'][0]['Field15'] != null) {
+
+
+                    $('#Textbox4Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field15']));
+                }
+                if (response['Aplaceholder'][0]['Field16'] != "--None--" && response['Aplaceholder'][0]['Field16'] != "" && response['Aplaceholder'][0]['Field16'] != null) {
+                    $('#Textbox5Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field16']));
+                }
+                if (response['Aplaceholder'][0]['Field17'] != "--None--" && response['Aplaceholder'][0]['Field17'] != "" && response['Aplaceholder'][0]['Field17'] != null) {
+                    $('#Textbox6Tab3').attr("placeholder", (response['Aplaceholder'][0]['Field17']));
+                }
+                if (response['Aplaceholder'][0]['Date1'] != "--None--" && response['Aplaceholder'][0]['Date1'] != "" && response['Aplaceholder'][0]['Date1'] != null) {
+                    $('#Date1').attr("placeholder", (response['Aplaceholder'][0]['Date1']));
+                }
+                if (response['Aplaceholder'][0]['Date2'] != "--None--" && response['Aplaceholder'][0]['Date2'] != "" && response['Aplaceholder'][0]['Date2'] != null) {
+                    $('#Date2').attr("placeholder", (response['Aplaceholder'][0]['Date2']));
+                }
+                if (response['Aplaceholder'][0]['Date3'] != "--None--" && response['Aplaceholder'][0]['Date3'] != "" && response['Aplaceholder'][0]['Date3'] != null) {
+                    $('#Date3').attr("placeholder", (response['Aplaceholder'][0]['Date3']));
+                }
+                if (response['Aplaceholder'][0]['Time1'] != "--None--" && response['Aplaceholder'][0]['Time1'] != "" && response['Aplaceholder'][0]['Time1'] != null) {
+                    $('#time1').attr("placeholder", (response['Aplaceholder'][0]['Time1']));
+                }
+                if (response['Aplaceholder'][0]['Time2'] != "--None--" && response['Aplaceholder'][0]['Time2'] != "" && response['Aplaceholder'][0]['Time2'] != null) {
+                    $('#time2').attr("placeholder", (response['Aplaceholder'][0]['Time2']));
+                }
+                if (response['Aplaceholder'][0]['Email1'] != "--None--" && response['Aplaceholder'][0]['Email1'] != "" && response['Aplaceholder'][0]['Email1'] != null) {
+                    $('#Email1').attr("placeholder", (response['Aplaceholder'][0]['Email1']));
+                }
+                if (response['Aplaceholder'][0]['Email2'] != "--None--" && response['Aplaceholder'][0]['Email2'] != "" && response['Aplaceholder'][0]['Email2'] != null) {
+                    $('#Email2').attr("placeholder", (response['Aplaceholder'][0]['Email2']));
+                }
+                if (response['Aplaceholder'][0]['Email3'] != "--None--" && response['Aplaceholder'][0]['Email3'] != "" && response['Aplaceholder'][0]['Email3'] != null) {
+                    $('#Email3').attr("placeholder", (response['Aplaceholder'][0]['Email3']));
+                }
+                if (response['Aplaceholder'][0]['Amount'] != "--None--" && response['Aplaceholder'][0]['Amount'] != "" && response['Aplaceholder'][0]['Amount'] != null) {
+                    $('#Amount1').attr("placeholder", (response['Aplaceholder'][0]['Amount']));
+                }
+                if (response['Aplaceholder'][0]['Amount2'] != "--None--" && response['Aplaceholder'][0]['Amount2'] != "" && response['Aplaceholder'][0]['Amount2'] != null) {
+                    $('#Amount2').attr("placeholder", (response['Aplaceholder'][0]['Amount2']));
+                }
+                if (response['Aplaceholder'][0]['Amount3'] != "--None--" && response['Aplaceholder'][0]['Amount3'] != "" && response['Aplaceholder'][0]['Amount3'] != null) {
+
+
+                    $('#Amount3Tab3').attr("placeholder", (response['Aplaceholder'][0]['Amount3']));
+                }
+                if (response['Aplaceholder'][0]['TextArea'] != "--None--" && response['Aplaceholder'][0]['TextArea'] != "" && response['Aplaceholder'][0]['TextArea'] != null) {
+
+                    $('#Textarea1').attr("placeholder", (response['Aplaceholder'][0]['TextArea']));
+                }
+                if (response['Aplaceholder'][0]['Html'] != "--None--" && response['Aplaceholder'][0]['Html'] != "" && response['Aplaceholder'][0]['Html'] != null) {
+
+                    $('#HTMlEditor1').attr("placeholder", (response['Aplaceholder'][0]['Html']));
+                }
+                if (response['Aplaceholder'][0]['Upload'] != "--None--" && response['Aplaceholder'][0]['Upload'] != "" && response['Aplaceholder'][0]['Upload'] != null) {
+                    $('#photoUpload').attr("placeholder", (response['Aplaceholder'][0]['Upload']));
+                }
+
+            }
+            //validation
+            if (response['AValidation'].length > 0) {
+
+                if (response['AValidation'][0]['Field3'] != '' && response['AValidation'][0]['Field3'] != '--None--' && response['AValidation'][0]['Field3'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field3'], $('#txtnameTab3'));
+                }
+
+                if (response['AValidation'][0]['Field5'] != '' && response['AValidation'][0]['Field5'] != '--None--' && response['AValidation'][0]['Field5'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field5'], $('#txtRemarsTab3'));
+                }
+
+                if (response['AValidation'][0]['Field12'] != '' && response['AValidation'][0]['Field12'] != '--None--' && response['AValidation'][0]['Field12'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field12'], $('#Textbox1Tab3'));
+                }
+                if (response['AValidation'][0]['Field13'] != '' && response['AValidation'][0]['Field13'] != '--None--' && response['AValidation'][0]['Field13'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field13'], $('#Textbox2Tab3'));
+                }
+
+                if (response['AValidation'][0]['Field14'] != '' && response['AValidation'][0]['Field14'] != '--None--' && response['AValidation'][0]['Field14'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field14'], $('#Textbox3Tab3'));
+                }
+
+                if (response['AValidation'][0]['Field15'] != '' && response['AValidation'][0]['Field15'] != '--None--' && response['AValidation'][0]['Field15'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field15'], $('#Textbox4Tab3'));
+                }
+                if (response['AValidation'][0]['Field16'] != '' && response['AValidation'][0]['Field16'] != '--None--' && response['AValidation'][0]['Field16'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field16'], $('#Textbox5Tab3'));
+                }
+                if (response['AValidation'][0]['Field17'] != '' && response['AValidation'][0]['Field17'] != '--None--' && response['AValidation'][0]['Field17'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field17'], $('#Textbox6Tab3'));
+                }
+                if (response['AValidation'][0]['Date1'] != '' && response['AValidation'][0]['Date1'] != '--None--' && response['AValidation'][0]['Date1'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Date1'], $('#Date1'));
+                }
+                if (response['AValidation'][0]['Date2'] != '' && response['AValidation'][0]['Date2'] != '--None--' && response['AValidation'][0]['Date2'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Date2'], $('#Date2'));
+                }
+                if (response['AValidation'][0]['Date3'] != '' && response['AValidation'][0]['Date3'] != '--None--' && response['AValidation'][0]['Date3'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Date3'], $('#Date3'));
+                }
+                if (response['AValidation'][0]['Time1'] != '' && response['AValidation'][0]['Time1'] != '--None--' && response['AValidation'][0]['Time1'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Time1'], $('#time1'));
+                }
+                if (response['AValidation'][0]['Time2'] != '' && response['AValidation'][0]['Time2'] != '--None--' && response['AValidation'][0]['Time2'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Time2'], $('#time2'));
+                }
+                if (response['AValidation'][0]['Email1'] != '' && response['AValidation'][0]['Email1'] != '--None--' && response['AValidation'][0]['Email1'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Email1'], $('#Email1'));
+                }
+                if (response['AValidation'][0]['Email2'] != '' && response['AValidation'][0]['Email2'] != '--None--' && response['AValidation'][0]['Email2'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Email2'], $('#Email2'));
+                }
+                if (response['AValidation'][0]['Email3'] != '' && response['AValidation'][0]['Email3'] != '--None--' && response['AValidation'][0]['Email3'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Email3'], $('#Email3'));
+                }
+                if (response['AValidation'][0]['Amount'] != '' && response['AValidation'][0]['Amount'] != '--None--' && response['AValidation'][0]['Amount'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Amount'], $('#Amount1'));
+                }
+                if (response['AValidation'][0]['Amount2'] != '' && response['AValidation'][0]['Amount2'] != '--None--' && response['AValidation'][0]['Amount2'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Amount2'], $('#Amount2'));
+                }
+                if (response['AValidation'][0]['Amount3'] != '' && response['AValidation'][0]['Amount3'] != '--None--' && response['AValidation'][0]['Amount3'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Amount3'], $('#Amount3Tab3'));
+                }
+                if (response['AValidation'][0]['TextArea'] != '' && response['AValidation'][0]['TextArea'] != '--None--' && response['AValidation'][0]['TextArea'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['TextArea'], $('#Textarea1'));
+                }
+
+                if (response['AValidation'][0]['Html'] != '' && response['AValidation'][0]['Html'] != '--None--' && response['AValidation'][0]['Html'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Html'], $('#HTMlEditor1'));
+                }
+
+                if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['Aplaceholder'][0]['Upload'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                }
+
+                //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
+                //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                //}
+                //if (response['AValidation'][0]['Upload'] != '' && response['AValidation'][0]['Upload'] != '--None--' && response['AValidation'][0]['Upload'] != null) {
+                //    CheckFormValidations(response['AValidation'][0]['Upload'], $('#photoUpload'));
+                //}
+                if (response['AValidation'][0]['Field6'] != '' && response['AValidation'][0]['Field6'] != '--None--' && response['AValidation'][0]['Field6'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field6'], $('#Dropdown1Tab3'));
+                }
+                if (response['AValidation'][0]['Field7'] != '' && response['AValidation'][0]['Field7'] != '--None--' && response['AValidation'][0]['Field7'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field7'], $('#Dropdown2Tab3'));
+                }
+                if (response['AValidation'][0]['Field8'] != '' && response['AValidation'][0]['Field8'] != '--None--' && response['AValidation'][0]['Field8'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field8'], $('#Dropdown3Tab3'));
+                }
+                if (response['AValidation'][0]['Field9'] != '' && response['AValidation'][0]['Field9'] != '--None--' && response['AValidation'][0]['Field9'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field9'], $('#Dropdown4Tab3'));
+                }
+                if (response['AValidation'][0]['Field10'] != '' && response['AValidation'][0]['Field10'] != '--None--' && response['AValidation'][0]['Field10'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field10'], $('#Dropdown5Tab3'));
+                }
+                if (response['AValidation'][0]['Field11'] != '' && response['AValidation'][0]['Field11'] != '--None--' && response['AValidation'][0]['Field11'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Field11'], $('#Dropdown6Tab3'));
+                }
+
+                if (response['AValidation'][0]['MultiSelect1'] != '' && response['AValidation'][0]['MultiSelect1'] != '--None--' && response['AValidation'][0]['MultiSelect1'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['MultiSelect1'], $('#Multiselect1'));
+                }
+                if (response['AValidation'][0]['MultiSelect2'] != '' && response['AValidation'][0]['MultiSelect2'] != '--None--' && response['AValidation'][0]['MultiSelect2'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['MultiSelect2'], $('#Multiselect2'));
+                }
+                if (response['AValidation'][0]['MultiSelect3'] != '' && response['AValidation'][0]['MultiSelect3'] != '--None--' && response['AValidation'][0]['MultiSelect3'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['MultiSelect3'], $('#Multiselect3'));
+                }
+                if (response['AValidation'][0]['MultiSelect4'] != '' && response['AValidation'][0]['MultiSelect4'] != '--None--' && response['AValidation'][0]['MultiSelect4'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['MultiSelect4'], $('#Multiselect4'));
+                }
+                if (response['AValidation'][0]['MultiSelect5'] != '' && response['AValidation'][0]['MultiSelect5'] != '--None--' && response['AValidation'][0]['MultiSelect5'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['MultiSelect5'], $('#Multiselect5'));
+                }
+
+                if (response['AValidation'][0]['Rating1'] != '' && response['AValidation'][0]['Rating1'] != '--None--' && response['AValidation'][0]['Rating1'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Rating1'], $('#Rating1'));
+                }
+                if (response['AValidation'][0]['Rating2'] != '' && response['AValidation'][0]['Rating2'] != '--None--' && response['AValidation'][0]['Rating2'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Rating2'], $('#Rating2'));
+                }
+                if (response['AValidation'][0]['Rating3'] != '' && response['AValidation'][0]['Rating3'] != '--None--' && response['AValidation'][0]['Rating3'] != null) {
+                    CheckFormValidations(response['AValidation'][0]['Rating3'], $('#Rating3'));
+                }
+
+                //$('#txtValidationCode2').val(response['AValidation'][0]['Field4']);
+                //$('#txtValidationCode3').val(response['AValidation'][0]['Field5']);
+                //$('#txtValidationCode4').val(response['AValidation'][0]['Field6']);
+                //$('#txtValidationCode5').val(response['AValidation'][0]['Field7']);
+                //$('#txtValidationCode6').val(response['AValidation'][0]['Field8']);
+                //$('#txtValidationCode7').val(response['AValidation'][0]['Field9']);
+                //$('#txtValidationCode8').val(response['AValidation'][0]['Field10']);
+                //$('#txtValidationCode9').val(response['AValidation'][0]['Field11']);
+                //$('#txtValidationCode10').val(response['AValidation'][0]['Field12']);
+                //$('#txtValidationCode11').val(response['AValidation'][0]['Field13']);
+                //$('#txtValidationCode12').val(response['AValidation'][0]['Field14']);
+                //$('#txtValidationCode13').val(response['AValidation'][0]['Field15']);
+                //$('#txtValidationCode14').val(response['AValidation'][0]['Field16']);
+                //$('#txtValidationCode15').val(response['AValidation'][0]['Field17']);
+                //$('#txtValidationCode16').val(response['AValidation'][0]['Rating1']);
+                //$('#txtValidationCode17').val(response['AValidation'][0]['Rating2']);
+                //$('#txtValidationCode18').val(response['AValidation'][0]['Rating3']);
+                //$('#txtValidationCode19').val(response['AValidation'][0]['Date1']);
+                //$('#txtValidationCode20').val(response['AValidation'][0]['Date2']);
+                //$('#txtValidationCode21').val(response['AValidation'][0]['Date3']);
+                //$('#txtValidationCode24').val(response['AValidation'][0]['Email1']);
+                //$('#txtValidationCode25').val(response['AValidation'][0]['Email2']);
+                //$('#txtValidationCode26').val(response['AValidation'][0]['Email3']);
+                //$('#txtValidationCode27').val(response['AValidation'][0]['Amount']);
+                //$('#txtValidationCode28').val(response['AValidation'][0]['Amount2']);
+                //$('#txtValidationCode29').val(response['AValidation'][0]['Amount3']);
+                //$('#txtValidationCode22').val(response['AValidation'][0]['Time1']);
+                //$('#txtValidationCode23').val(response['AValidation'][0]['Time2']);
+                //$('#txtValidationCode31').val(response['AValidation'][0]['Html']);
+                //$('#txtValidationCode32').val(response['AValidation'][0]['Upload']);
+                //$('#txtValidationCode30').val(response['AValidation'][0]['TextArea']);
+                //$('#txtValidationCode33').val(response['AValidation'][0]['MultiSelect1']);
+                //$('#txtValidationCode34').val(response['AValidation'][0]['MultiSelect2']);
+                //$('#txtValidationCode35').val(response['AValidation'][0]['MultiSelect3']);
+                //$('#txtValidationCode36').val(response['AValidation'][0]['MultiSelect4']);
+                //$('#txtValidationCode37').val(response['AValidation'][0]['MultiSelect5']);
+            }
+
+            //tooltip
+            if (response['Atooltip'].length > 0) {
+                //$('#txtHelp1').val(response['Atooltip'][0]['Field3']);
+                if (response['Atooltip'][0]['Field3'] != "--None--" && response['Atooltip'][0]['Field3'] != "" && response['Atooltip'][0]['Field3'] != null) {
+
+                    //$('#LbName').attr("data-original-title", (response['Atooltip'][0]['Field3']));
+                    $('#field6').attr("data-original-title", (response['Atooltip'][0]['Field3']));
+                    $('#field6').show();
+                }
+                if (response['Atooltip'][0]['Field4'] != "--None--" && response['Atooltip'][0]['Field4'] != "" && response['Atooltip'][0]['Field4'] != null) {
+
+                    // $('#LbActive').attr("data-original-title", (response['Atooltip'][0]['Field4']));
+                    $('#field7').attr("data-original-title", (response['Atooltip'][0]['Field4']));
+                    $('#field7').show();
+                }
+                if (response['Atooltip'][0]['Field5'] != "--None--" && response['Atooltip'][0]['Field5'] != "" && response['Atooltip'][0]['Field5'] != null) {
+                    //$('#LbRemarks').attr("data-original-title", (response['Atooltip'][0]['Field5']));
+                    $('#field8').attr("data-original-title", (response['Atooltip'][0]['Field5']));
+                    $('#field8').show();
+                }
+                if (response['Atooltip'][0]['Field6'] != "--None--" && response['Atooltip'][0]['Field6'] != "" && response['Atooltip'][0]['Field6'] != null) {
+                    //$('#LbDropdown1').attr("data-original-title", (response['Atooltip'][0]['Field6']));
+                    $('#field9').attr("data-original-title", (response['Atooltip'][0]['Field6']));
+                    $('#field9').show();
+                }
+                if (response['Atooltip'][0]['Field7'] != "--None--" && response['Atooltip'][0]['Field7'] != "" && response['Atooltip'][0]['Field7'] != null) {
+                    // $('#LbDropdown2').attr("data-original-title", (response['Atooltip'][0]['Field7']));
+                    $('#field10').attr("data-original-title", (response['Atooltip'][0]['Field7']));
+                    $('#field10').show();
+                }
+                if (response['Atooltip'][0]['Field8'] != "--None--" && response['Atooltip'][0]['Field8'] != "" && response['Atooltip'][0]['Field8'] != null) {
+                    // $('#LbDropdown3').attr("data-original-title", (response['Atooltip'][0]['Field8']));
+                    $('#field11').attr("data-original-title", (response['Atooltip'][0]['Field8']));
+                    $('#field11').show();
+                }
+                if (response['Atooltip'][0]['Field9'] != "--None--" && response['Atooltip'][0]['Field9'] != "" && response['Atooltip'][0]['Field9'] != null) {
+                    //  $('#LbDropdown4').attr("data-original-title", (response['Atooltip'][0]['Field9']));
+                    $('#field12').attr("data-original-title", (response['Atooltip'][0]['Field9']));
+                    $('#field12').show();
+                }
+                if (response['Atooltip'][0]['Field10'] != "--None--" && response['Atooltip'][0]['Field10'] != "" && response['Atooltip'][0]['Field10'] != null) {
+                    // $('#LbDropdown5').attr("data-original-title", (response['Atooltip'][0]['Field10']));
+                    $('#field13').attr("data-original-title", (response['Atooltip'][0]['Field10']));
+                    $('#field13').show();
+                }
+                if (response['Atooltip'][0]['Field11'] != "--None--" && response['Atooltip'][0]['Field11'] != "" && response['Atooltip'][0]['Field11'] != null) {
+                    // $('#LbDropdown6').attr("data-original-title", (response['Atooltip'][0]['Field11']));
+                    $('#field14').attr("data-original-title", (response['Atooltip'][0]['Field11']));
+                    $('#field14').show();
+                }
+                if (response['Atooltip'][0]['Field12'] != "--None--" && response['Atooltip'][0]['Field12'] != "" && response['Atooltip'][0]['Field12'] != null) {
+                    // $('#LbTextbox1').attr("data-original-title", (response['Atooltip'][0]['Field12']));
+                    $('#field15').attr("data-original-title", (response['Atooltip'][0]['Field12']));
+                    $('#field15').show();
+                }
+                if (response['Atooltip'][0]['Field13'] != "--None--" && response['Atooltip'][0]['Field13'] != "" && response['Atooltip'][0]['Field13'] != null) {
+                    // $('#LbTextbox2').attr("data-original-title", (response['Atooltip'][0]['Field13']));
+                    $('#field16').attr("data-original-title", (response['Atooltip'][0]['Field13']));
+                    $('#field16').show();
+                }
+                if (response['Atooltip'][0]['Field14'] != "--None--" && response['Atooltip'][0]['Field14'] != "" && response['Atooltip'][0]['Field14'] != null) {
+                    $('#field17').attr("data-original-title", (response['Atooltip'][0]['Field14']));
+                    $('#field17').show();
+                }
+                if (response['Atooltip'][0]['Field15'] != "--None--" && response['Atooltip'][0]['Field15'] != "" && response['Atooltip'][0]['Field15'] != null) {
+                    $('#field18').attr("data-original-title", (response['Atooltip'][0]['Field15']));
+                    $('#field18').show();
+                }
+                if (response['Atooltip'][0]['Field16'] != "--None--" && response['Atooltip'][0]['Field16'] != "" && response['Atooltip'][0]['Field16'] != null) {
+                    $('#field19').attr("data-original-title", (response['Atooltip'][0]['Field16']));
+                    $('#field19').show();
+                }
+                if (response['Atooltip'][0]['Field17'] != "--None--" && response['Atooltip'][0]['Field17'] != "" && response['Atooltip'][0]['Field17'] != null) {
+
+                    $('#field20').attr("data-original-title", (response['Atooltip'][0]['Field17']));
+                    $('#field20').show();
+                }
+                if (response['Atooltip'][0]['Rating1'] != "--None--" && response['Atooltip'][0]['Rating1'] != "" && response['Atooltip'][0]['Rating1'] != null) {
+
+                    $('#field21').attr("data-original-title", (response['Atooltip'][0]['Rating1']));
+                    $('field21').show();
+                }
+                if (response['Atooltip'][0]['Rating2'] != "--None--" && response['Atooltip'][0]['Rating2'] != "" && response['Atooltip'][0]['Rating2'] != null) {
+
+                    $('#field22').attr("data-original-title", (response['Atooltip'][0]['Rating2']));
+                    $('field22').show();
+                }
+                if (response['Atooltip'][0]['Rating3'] != "--None--" && response['Atooltip'][0]['Rating3'] != "" && response['Atooltip'][0]['Rating3'] != null) {
+
+                    $('#field23').attr("data-original-title", (response['Atooltip'][0]['Rating3']));
+                    $('#field23').show();
+                }
+                if (response['Atooltip'][0]['Date1'] != "--None--" && response['Atooltip'][0]['Date1'] != "" && response['Atooltip'][0]['Date1'] != null) {
+
+                    $('#field24').attr("data-original-title", (response['Atooltip'][0]['Date1']));
+                    $('#field24').show();
+                }
+                if (response['Atooltip'][0]['Date2'] != "--None--" && response['Atooltip'][0]['Date2'] != "" && response['Atooltip'][0]['Date2'] != null) {
+
+                    $('#field25').attr("data-original-title", (response['Atooltip'][0]['Date2']));
+                    $('#field25').show();
+                }
+                if (response['Atooltip'][0]['Date3'] != "--None--" && response['Atooltip'][0]['Date3'] != "" && response['Atooltip'][0]['Date3'] != null) {
+
+                    $('#field26').attr("data-original-title", (response['Atooltip'][0]['Date3']));
+                    $('#field26').show();
+                }
+                if (response['Atooltip'][0]['Email1'] != "--None--" && response['Atooltip'][0]['Email1'] != "" && response['Atooltip'][0]['Email1'] != null) {
+
+                    $('#field29').attr("data-original-title", (response['Atooltip'][0]['Email1']));
+                    $('#field29').show();
+                }
+                if (response['Atooltip'][0]['Email2'] != "--None--" && response['Atooltip'][0]['Email2'] != "" && response['Atooltip'][0]['Email2'] != null) {
+
+                    $('#field30').attr("data-original-title", (response['Atooltip'][0]['Email2']));
+                    $('#field30').show();
+                }
+                if (response['Atooltip'][0]['Email3'] != "--None--" && response['Atooltip'][0]['Email3'] != "" && response['Atooltip'][0]['Email3'] != null) {
+
+                    $('#field31').attr("data-original-title", (response['Atooltip'][0]['Email3']));
+                    $('#field31').show();
+                }
+                if (response['Atooltip'][0]['Amount'] != "--None--" && response['Atooltip'][0]['Amount'] != "" && response['Atooltip'][0]['Amount'] != null) {
+
+                    $('#field32').attr("data-original-title", (response['Atooltip'][0]['Amount']));
+                    $('#field32').show();
+                }
+                if (response['Atooltip'][0]['Amount2'] != "--None--" && response['Atooltip'][0]['Amount2'] != "" && response['Atooltip'][0]['Amount2'] != null) {
+
+                    $('#field33').attr("data-original-title", (response['Atooltip'][0]['Amount2']));
+                    $('#field33').show();
+                }
+                if (response['Atooltip'][0]['Amount3'] != "--None--" && response['Atooltip'][0]['Amount3'] != "" && response['Atooltip'][0]['Amount3'] != null) {
+
+                    $('#field34').attr("data-original-title", (response['Atooltip'][0]['Amount3']));
+                    $('#field34').show();
+                }
+                if (response['Atooltip'][0]['Time1'] != "--None--" && response['Atooltip'][0]['Time1'] != "" && response['Atooltip'][0]['Time1'] != null) {
+
+                    $('#field27').attr("data-original-title", (response['Atooltip'][0]['Time1']));
+                    $('#field27').show();
+                }
+                if (response['Atooltip'][0]['Time2'] != "--None--" && response['Atooltip'][0]['Time2'] != "" && response['Atooltip'][0]['Time2'] != null) {
+
+                    $('#field28').attr("data-original-title", (response['Atooltip'][0]['Time2']));
+                    $('#field28').show();
+                }
+                if (response['Atooltip'][0]['Html'] != "--None--" && response['Atooltip'][0]['Html'] != "" && response['Atooltip'][0]['Html'] != null) {
+
+                    $('#field36').attr("data-original-title", (response['Atooltip'][0]['Html']));
+                    $('#field36').show();
+                }
+                if (response['Atooltip'][0]['Upload'] != "--None--" && response['Atooltip'][0]['Upload'] != "" && response['Atooltip'][0]['Upload'] != null) {
+
+                    $('#field37').attr("data-original-title", (response['Atooltip'][0]['Upload']));
+                    $('#field37').show();
+                }
+                if (response['Atooltip'][0]['TextArea'] != "--None--" && response['Atooltip'][0]['TextArea'] != "" && response['Atooltip'][0]['TextArea'] != null) {
+
+                    $('#field35').attr("data-original-title", (response['Atooltip'][0]['TextArea']));
+                    $('#field35').show();
+                }
+                if (response['Atooltip'][0]['MultiSelect1'] != "--None--" && response['Atooltip'][0]['MultiSelect1'] != "" && response['Atooltip'][0]['MultiSelect1'] != null) {
+
+                    $('#field38').attr("data-original-title", (response['Atooltip'][0]['MultiSelect1']));
+                    $('#field38').show();
+                }
+                if (response['Atooltip'][0]['MultiSelect2'] != "--None--" && response['Atooltip'][0]['MultiSelect2'] != "" && response['Atooltip'][0]['MultiSelect2'] != null) {
+
+                    $('#field39').attr("data-original-title", (response['Atooltip'][0]['MultiSelect2']));
+                    $('#field39').show();
+                }
+                if (response['Atooltip'][0]['MultiSelect3'] != "--None--" && response['Atooltip'][0]['MultiSelect3'] != "" && response['Atooltip'][0]['MultiSelect3'] != null) {
+
+                    $('#field40').attr("data-original-title", (response['Atooltip'][0]['MultiSelect3']));
+                    $('#field40').show();
+                }
+                if (response['Atooltip'][0]['MultiSelect4'] != "--None--" && response['Atooltip'][0]['MultiSelect4'] != "" && response['Atooltip'][0]['MultiSelect4'] != null) {
+
+                    $('#field41').attr("data-original-title", (response['Atooltip'][0]['MultiSelect4']));
+                    $('#field41').show();
+                }
+                if (response['Atooltip'][0]['MultiSelect5'] != "--None--" && response['Atooltip'][0]['MultiSelect5'] != "" && response['Atooltip'][0]['MultiSelect5'] != null) {
+
+                    $('#field42').attr("data-original-title", (response['Atooltip'][0]['MultiSelect5']));
+                    $('#field42').show();
+                }
+            }
+
+        }
+    }).done(function () {
+        if ($('#Dropdown1Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown1Tab3', 'xlink');
+        }
+        if ($('#Dropdown2Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown2Tab3', 'xcross');
+        }
+        if ($('#Dropdown3Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown3Tab3', 'xcross1');
+        }
+        if ($('#Dropdown4Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown4Tab3', 'xcross2');
+        }
+        if ($('#Dropdown5Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown5Tab3', 'xcross3');
+        }
+        if ($('#Dropdown6Tab3').parent().is(':visible')) {
+            FillDropdown('Dropdown6Tab3', 'xcross4');
+        }
+
+        if ($('#Multiselect1').parent().is(':visible')) {
+            FillDropdown_Multiselect('Multiselect1', 'MultiSelect1');
+        }
+        if ($('#Multiselect2').parent().is(':visible')) {
+            FillDropdown_Multiselect('Multiselect2', 'MultiSelect2');
+        }
+        if ($('#Multiselect3').parent().is(':visible')) {
+            FillDropdown_Multiselect('Multiselect3', 'MultiSelect3');
+        }
+        if ($('#Multiselect4').parent().is(':visible')) {
+            FillDropdown_Multiselect('Multiselect4', 'MultiSelect4');
+        }
+        if ($('#Multiselect5').parent().is(':visible')) {
+            FillDropdown_Multiselect('Multiselect5', 'MultiSelect5');
+        }
+    });
+
+
+}
+
+function masterchangehide() {
+    $('.Master').val('');
+    $('.MDropdown').each(function () {
+        $(this).val($(this).find('option:first').val()).change();
+    });
+    $('textarea').val('');
+    $('select').next().find('ul li.select2-selection__choice').remove();
+}

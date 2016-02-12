@@ -47,7 +47,6 @@ namespace GreenTravel.Models
         public string TerminalBy { get; set; }
         public DataSet StoreAllData { get; set; }
         public string BranchBy { get; set; }
-
         public string RowNumber { get; set; }
         public string Name { get; set; }
         public string Corporate { get; set; }

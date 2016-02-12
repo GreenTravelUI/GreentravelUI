@@ -1,5 +1,10 @@
-﻿$(document).ready(function () {
+﻿$(window).unload(function () {
+    $('select option').remove();
+});
+
+$(document).ready(function () {
     /*Tab 1*/
+    FillDropDown_Category();
     $('#type').val('Save');
     var deletesrno;
     bind_dropdown();
@@ -8,52 +13,21 @@
     $("#drpSegment").change(function () {
         bind_dropdown();
     });
+
     $("#drpCorporate").change(function () {
         bind_dropdown();
     });
-
-    function bind_dropdown() {
-        var Module = '';
-        var screen = '';
-        var FormCode = '';
-        var TabCode = '';
-        var Corporate = $('#drpCorporate option:selected').val();
-        var unit = '';
-        var Branch = '';
-        var userid = '';
-        var Ip = '';
-        var Type = 'ConditionalDropdown';
-        var field1 = $('#txtMasterCode').val();
-        var field2 = $('#drpSegment option:selected').val();
-        var field3 = '';
-        var field4 = '';
-        var field5 = '';
-        var Control = '';
-        var Language = '';
-        $.ajax({
-            url: "/Masters/BindDropDown",
-            type: "POST",
-            async: false,
-            data: {
-                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
-                Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
-            },
-            success: function (data) {
-                $('.Dropdown').html('');
-                for (var i = 0; i < data.length; i++) {
-                    var opt = new Option(data[i]['Text'], data[i]['Value']);
-                    $('.Dropdown').append(opt);
-                }
-            }
-        });
-    }
 
     $('.btnSave').click(function (e) {
         e.preventDefault();
         var a = 0;
         /* Form Validation */
         if (!validateForm($(this).parent())) {
-            alert('Invalid data found!');
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         var Type = $('#type').val();
@@ -404,58 +378,61 @@
                    }
                }
            });//Ajax call End
-    });//Buton Click  End 
+    });
 
     $('#btnQuitform').click(function (e) {
-        e.preventDefault();
-
         clearValidations($(this).parent());
+
+        $('#btnCancelMastersetup').trigger('click');
+
+        //$('input[type="text"]').removeAttr('disabled');
+        //$('#txtMasterCode').removeAttr("disabled");
+
+        //$('input[type="text"]').val('');
+        //$('.Dropdown').each(function () {
+        //    $(this).val($(this).find('option:first').val()).change();
+        //    $(this).removeAttr('disabled');
+        //});
+        //$('.drpdown').each(function () {
+        //    $(this).val($(this).find('option:first').val()).change();
+        //});
+        //$('#type').val('Save');
+
+        /* Hide/Show Tab */
         $("#SearchMaster").addClass("active");
         $("#CreateMaster").removeClass("active");
         $("#tab2").removeClass("active");
         $("#tab1").addClass("active");
-        $('input[type="text"]').removeAttr('disabled');
-        $('#txtMasterCode').attr("disabled", false)
-        $('input[type="text"]').val('');
-        $('.Dropdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
-            $(this).removeAttr('disabled');
-        });
-        $('.drpdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
-        });
-        $('#type').val('Save');
+
+        e.preventDefault();
     });
 
     $('#btnCancelMastersetup').click(function (e) {
-        clearValidations($(this).parent());
-        e.preventDefault();
+        var thisForm = $(this).closest('form');
         $('#btnsUpdate').hide();
         $('#btnDelete').hide();
         $('#btnSaveMastersetup').show();
-        $('#txtMasterCode').attr("disabled", false);
-        $('input[type="text"]').removeAttr('disabled');
-        $('input[type="text"]').val('');
-        $('.Dropdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
+        thisForm.find('input').removeAttr('disabled');
+        thisForm.find('input').val('');
+
+        thisForm.find('select').each(function () {
+            $(this).find('option').removeAttr('selected');
+        });
+        thisForm.find('.Dropdown').each(function () {
+            setValueAndDisable($(this), '0');
             $(this).removeAttr('disabled');
         });
-        $('.drpdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
+        thisForm.find('.drpdown').each(function () {
+            setValueAndDisable($(this), '0');
             $(this).removeAttr('disabled');
         });
         $('#type').val('Save');
+        clearValidations($(this).parent());
+        e.preventDefault();
     });
-
-
-
 
     $("table").delegate(".editor_edit", "click", function () {
         clearValidations($('#tab2').find('form'));
-        $("#SearchMaster").removeClass("active");
-        $("#CreateMaster").addClass("active");
-        $("#tab1").removeClass("active");
-        $("#tab2").addClass("active");
 
         $('#btnsUpdate').show();
         $('#btnDelete').hide();
@@ -467,20 +444,17 @@
         var Formcode = '0';
         var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(2)').text();
-        //console.log(Xmaster);
         var Type = 'EditMode';
         $.ajax(
          {
              type: "POST",
              url: "/Masters/Edit_data",
-             async: false,
              data: {
                  tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
              },
              dataType: 'json',
              success: function (response) {
                  //Master
-                 console.log(response['AMaster']);
                  clearValidations($(this).parent());
                  if (response['AMaster'].length > 0) {
                      $('#txtMasterCode').attr("disabled", true)
@@ -489,9 +463,8 @@
                      $('#txtMasterName').val(response['AMaster'][0]['xname']);
                      $('#txtdrpCaption').val(response['AMaster'][0]['drpCaption']);
                      $('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
-                     $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
-                     //setSelect2Value($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
-                     setSelect2Value($('#drpCorporate'), response['AMaster'][0]['Corporate']);
+                     setValueAndDisable($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
+                     setValueAndDisable($('#drpCorporate'), response['AMaster'][0]['Corporate']);
                      bind_dropdown();
                      // $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      // $('#drpCorporate').find('option[value="' + response['AMaster'][0][''] + '"]').attr('selected', true).change();
@@ -708,13 +681,13 @@
                      $('#txtHelp36').val(response['Atooltip'][0]['MultiSelect4']);
                      $('#txtHelp37').val(response['Atooltip'][0]['MultiSelect5']);
                  }
-
              }
-
+         }).done(function () {
+             $("#SearchMaster").removeClass("active");
+             $("#CreateMaster").addClass("active");
+             $("#tab1").removeClass("active");
+             $("#tab2").addClass("active");
          });
-
-
-
     });
 
     $("table").delegate(".editor_Delte", "click", function () {
@@ -757,63 +730,150 @@
             }
         });
     });
-
-
-    function getdata() {
-        var tablename = 'dbo.ADMINMASTER';
-        var Corporate = '0';
-        var Segment = '0';
-        var PageNo = '1';
-        var type = 'Grid';
-        var Formcode = '0';
-        var Formtabcode = '0';
-        var table = $('#example1').dataTable({
-            "ServerSide": true,
-            "destroy": true,
-            "ajax": {
-                "url": "/Masters/BindGridView",
-                "Type": "GET",
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "dataSrc": function (json) {
-                    return json;
-                },
-                "data": {
-                    "tablename": tablename,
-                    "Corporate": Corporate,
-                    "Segment": Segment,
-                    "PageNo": PageNo,
-                    "type": type,
-                    "Formcode": Formcode,
-                    "Formtabcode": Formtabcode
-                }
-            },
-            "columns": [
-                { "data": "RowNumber" },
-                { "data": "name" },
-                { "data": "Mastercode" },
-                { "data": "Entry_Level" },
-                { "data": "segment" },
-                {
-                    data: null,
-                    className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
-                }
-
-
-            ]
-        });
-        var tableTools = new $.fn.dataTable.TableTools(table, {
-            'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
-            "aButtons": [
-                {
-                    "sExtends": "xls",
-                    "sFileName": "Masters" + new Date() + ".xls",
-                    "aButtons": ["xls"],
-                    "bFooter": false
-                }
-            ]
-        });
-        $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
-    }
 });
+
+function FillDropDown_Category() {
+    $('#drpSegment').html('');
+    $('#drpSegment').append($('<option value="0">--None--</option>'));
+    $('#drpSegment').append($('<option value="1">Travels</option>'));
+
+    $('#drpCorporate').html('');
+    $('#drpCorporate').append($('<option value="0">--None--</option>'));
+    $('#drpCorporate').append($('<option value="1">Flamingo</option>'));
+    $('#drpCorporate').append($('<option value="2">Travels Unlimited</option>'));
+
+    //var Module = '';
+    //var screen = '';
+    //var FormCode = '';
+    //var TabCode = '';
+    //var Corporate = '0';
+    //var unit = '';
+    //var Branch = '';
+    //var userid = '';
+    //var Ip = '';
+    //var Language = '';
+    //var Type = 'DropDown';
+    //$.ajax({
+    //    url: "/AllMaster/BindDropDown",
+    //    type: "POST",
+    //    async: false,
+    //    dataType: "json",
+    //    data: {
+    //        Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+    //        Ip: Ip, Language: Language, Type: Type
+    //    },
+    //    success: function (data) {
+    //        if (data['Segment'].length > 0) {
+    //            $('#drpSegment').html('');
+    //            for (var i = 0; i < data['Segment'].length; i++) {
+    //                var opt = new Option(data['Segment'][i]['Text'], data['Segment'][i]['Value']);
+    //                $('#drpSegment').append(opt);
+    //            }
+    //        }
+    //        if (data['Corporate'].length > 0) {
+    //            $('#drpCorporate').html('');
+    //            for (var i = 0; i < data['Corporate'].length; i++) {
+    //                var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
+    //                $('#drpCorporate').append(opt);
+    //            }
+    //        }
+    //    },
+    //    error: function (data) {
+    //        alert("error found");
+    //    }
+    //});
+}
+
+function bind_dropdown() {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = $('#drpCorporate option:selected').val();
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var Type = 'ConditionalDropdown';
+    var field1 = $('#txtMasterCode').val();
+    var field2 = $('#drpSegment option:selected').val();
+    var field3 = '';
+    var field4 = '';
+    var field5 = '';
+    var Control = '';
+    var Language = '';
+    $.ajax({
+        url: "/Masters/BindDropDown",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
+        },
+        success: function (data) {
+            $('.Dropdown').html('');
+            for (var i = 0; i < data.length; i++) {
+                var opt = new Option(data[i]['Text'], data[i]['Value']);
+                $('.Dropdown').append(opt);
+            }
+        }
+    });
+}
+
+function getdata() {
+    var tablename = 'dbo.ADMINMASTER';
+    var Corporate = '0';
+    var Segment = '0';
+    var PageNo = '1';
+    var type = 'Grid';
+    var Formcode = '0';
+    var Formtabcode = '0';
+    var table = $('#example1').dataTable({
+        "ServerSide": true,
+        "destroy": true,
+        "ajax": {
+            "url": "/Masters/BindGridView",
+            "Type": "GET",
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "dataSrc": function (json) {
+                return json;
+            },
+            "data": {
+                "tablename": tablename,
+                "Corporate": Corporate,
+                "Segment": Segment,
+                "PageNo": PageNo,
+                "type": type,
+                "Formcode": Formcode,
+                "Formtabcode": Formtabcode
+            }
+        },
+        "columns": [
+            { "data": "RowNumber" },
+            { "data": "name" },
+            { "data": "Mastercode" },
+            { "data": "Entry_Level" },
+            { "data": "segment" },
+            {
+                data: null,
+                className: "center",
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
+            }
+
+
+        ]
+    });
+    var tableTools = new $.fn.dataTable.TableTools(table, {
+        'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
+        "aButtons": [
+            {
+                "sExtends": "xls",
+                "sFileName": "Masters" + new Date() + ".xls",
+                "aButtons": ["xls"],
+                "bFooter": false
+            }
+        ]
+    });
+    $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
+}

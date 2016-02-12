@@ -167,7 +167,7 @@ namespace GreenTravel.App_DbService
                     dr["Branchby"] = CFP.BranchBy;
                     dr["CreatedBy"] = CFP.CreatedBy;
                     dr["EntryDatetime"] = DBNull.Value;
-                    dr["EditedBy"] = CFP.EditedBy;
+                    dr["EditedBy"] = CFP.CreatedBy;
                     dr["EditDatetime"] = DBNull.Value; ;
                     dr["CorpcentreBy"] = CFP.CorpcentreBy;
                     dr["TerminalBy"] = CFP.TerminalBy;
@@ -195,9 +195,9 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", CFP.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", CFP.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", CFP.CreatedBy);
-                _cmd.Parameters.AddWithValue("@EntryDatetime", CFP.EntryDatetime);
-                _cmd.Parameters.AddWithValue("@EditedBy", CFP.EditedBy);
-                _cmd.Parameters.AddWithValue("@EditDatetime", CFP.EditDatetime);
+                _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
+                _cmd.Parameters.AddWithValue("@EditedBy", CFP.CreatedBy);
+                _cmd.Parameters.AddWithValue("@EditDatetime",DBNull.Value);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", CFP.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", CFP.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", CFP.TerminalBy);
