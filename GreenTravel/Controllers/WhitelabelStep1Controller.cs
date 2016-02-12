@@ -235,6 +235,152 @@ namespace GreenTravel.Controllers
             }
         }
 
+        public ActionResult Bindtab4dropdown(WhitelabelReg WR)
+        {
+            try
+            {
+                DataSet ds = _objwl.Bindtab4dropdown(WR);
+                List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
+                List<CommanDropdown> itemsdrpcurrncy = new List<CommanDropdown>();
+                List<CommanDropdown> itemcountry = new List<CommanDropdown>();
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemsdrp.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = itemsdrp;
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemsdrpcurrncy.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result1 = itemsdrpcurrncy;
+
+                if (ds.Tables[2].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[2];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcountry.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result2 = itemcountry;
+
+                return Json(new { UPdrpc = result1, UPdrp = result, Ucountry=result2 }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public ActionResult Bindbillingcountry(WhitelabelReg WR)
+        {
+            try
+            {
+                DataSet ds = _objwl.Bindbillingcountry(WR);
+                List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
+              
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemsdrp.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = itemsdrp;
+
+               
+                return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult Bindbillingstate(WhitelabelReg WR)
+        {
+            try
+            {
+                DataSet ds = _objwl.Bindbillingstate(WR);
+                List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemsdrp.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = itemsdrp;
+
+
+                return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult Edit_data_billing(Billing_maintanence BM)
+        {
+            try
+            {
+                DataSet ds = _objwl.Edit_data_billing(BM);
+                List<Billing_maintanence> Billingmaintanence = new List<Billing_maintanence>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Billingmaintanence.Add(new Billing_maintanence
+                        {
+                            srno = dr["srno"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            BillingName = dr["BillingName"].ToString(),
+                            BillingContactPerson = dr["BillingContactPerson"].ToString(),
+                            BillingAddress1 = dr["BillingAddress1"].ToString(),
+                            BillingAddress2 = dr["BillingAddress2"].ToString(),
+                            BillingCity = dr["BillingCity"].ToString(),
+                            BillingState = dr["BillingState"].ToString(),
+                            BillingCountry = dr["BillingCountry"].ToString(),
+                            BillingZipCode = dr["BillingZipCode"].ToString(),
+                            BillingEmail = dr["BillingEmail"].ToString(),
+                            BillingPhone = dr["BillingPhone"].ToString(),
+                            BillingContactMobile = dr["BillingContactMobile"].ToString(),
+                            Currency = dr["Currency"].ToString(),
+                            SupportMode = dr["SupportMode"].ToString(),
+                            FreeSupportPeriod = dr["FreeSupportPeriod"].ToString(),
+                            SupportCostPM = dr["SupportCostPM "].ToString(),
+
+
+                        });
+                    }
+                }
+                var result = Billingmaintanence;
+
+                return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
 
 

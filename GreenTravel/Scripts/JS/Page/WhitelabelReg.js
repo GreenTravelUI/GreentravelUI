@@ -1,4 +1,10 @@
-﻿$(document).ready(function () {
+﻿$(window).unload(function () {
+
+    $('select option').remove();
+
+});
+
+$(document).ready(function () {
     BindGrid();
     $('.btnSave').click(function (e) {
         e.preventDefault();
@@ -290,6 +296,7 @@
              success: function (response) {
                  if (response['Whiteregjs'].length > 0) {
                      $('#txtsrnouserpref').val(response['Whiteregjs'][0]['srno']);
+                     $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
                      $('#txtCmpOfficeName').val(response['Whiteregjs'][0]['CorpCoOfficialName']);
                      $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
@@ -303,13 +310,11 @@
                      $('#txtConfirmPassword').val(response['Whiteregjs'][0]['Password']);
                      $('#txtOfficialEmail').val(response['Whiteregjs'][0]['OfficialEmail']);
                      $('#txtOfficialPhone').val(response['Whiteregjs'][0]['OfficialPhone']);
-                     alert(response['Whiteregjs'][0]['ApplicationTheme']);
                      $('#DrpApplicationTheme').find('option[value="' + response['Whiteregjs'][0]['ApplicationTheme'] + '"]').attr('selected', true).change();
                      $('#txtApplicationURL').val(response['Whiteregjs'][0]['ApplicationUrl']);
                      $('#drpBaseCurrency').find('option[value="' + response['Whiteregjs'][0]['BaseCurrency'] + '"]').attr('selected', true).change();
                      $('#drpBaseLanguage').find('option[value="' + response['Whiteregjs'][0]['BaseLanguage'] + '"]').attr('selected', true).change();
                      $('#txtLogo').val(response['Whiteregjs'][0]['Logo']);
-                     alert(response['Whiteregjs'][0]['WebTheme']);
                      $('#DrpWebtheme').find('option[value="' + response['Whiteregjs'][0]['WebTheme'] + '"]').attr('selected', true).change();
                      $('#txtWebURL').val(response['Whiteregjs'][0]['WebUrl']);
                      // $('#drpOtherLanguage').find('option[value="' + response['Whiteregjs'][0]['OtherLanguage'] + '"]').attr('selected', true).change();
@@ -622,32 +627,32 @@
     });
     $(".btnSavebillingmain").click(function (e) {
         e.preventDefault();
-        //if (!validateForm($(this).parent())) {
-        //    swal('Invalid data found!')
-        //    return false;
-        //}
-        //if ($('#txtsrno').val() != "") {
-        //    var srno = $('#txtsrno').val();
-        //}
-        //else {
-        //    var srno = '';
-        //}
-        var srno = '';
-        var Corporate = $('#txtsrno').val();
+        if (!validateForm($(this).parent())) {
+            swal('Invalid data found!')
+            return false;
+        }
+        if ($('#txtsrnotab4').val() != "") {
+            var srno = $('#txtsrnotab4').val();
+        }
+        else {
+            var srno = '';
+        }
+
+        var Corporate = '2';
         var BillingName = $('#txtBillingName').val();
         var BillingContactPerson = $('#txtBillingContactPerson').val();
         var BillingAddress1 = $('#txtBillingAddressLine1').val();
         var BillingAddress2 = $('#txtBillingAddressLine2').val();
-        var BillingCity = $('#txtBillingCity').val();
-        var BillingState = $('#txtBillingState').val();
-        var BillingCountry = $('#txtBillingCountry').val();
+        var BillingCity = $('#drpbillingCity option:selected').val();
+        var BillingState = $('#drpbillingState option:selected').val();
+        var BillingCountry = $('#drpbillingcountry option:selected').val();
         var BillingArea = '';
         var BillingZipCode = $('#txtBillingZipCode').val();
         var BillingEmail = $('#txtBillingEmail').val();
         var BillingPhone = $('#txtBillingTelephone').val();
         var BillingContactMobile = $('#txtBillingCellPhone').val();
         var Currency = $('#drpmaINCurrency option:selected').val();
-        var SupportMode = $('#drpSupportMode option:selected').val(); 
+        var SupportMode = $('#drpSupportMode option:selected').val();
         var FreeSupportPeriod = $('#txtFreeSupportPeriod').val();
         var SupportCostPM = $('#txtSupportCostPerMonth').val();
         var Attribute1 = '';
@@ -668,22 +673,262 @@
                    "srno": srno, "Corporate": Corporate, "BillingName": BillingName, "BillingContactPerson": BillingContactPerson, "BillingAddress1": BillingAddress1,
                    "BillingAddress2": BillingAddress2, "BillingCity": BillingCity, "BillingState": BillingState, "BillingCountry": BillingCountry, "BillingArea": BillingArea,
                    "BillingZipCode": BillingZipCode, "BillingEmail": BillingEmail, "BillingPhone": BillingPhone, "BillingContactMobile": BillingContactMobile, "Currency": Currency,
-                   "SupportMode":SupportMode,"FreeSupportPeriod":FreeSupportPeriod,"SupportCostPM":SupportCostPM,
-                   "Attribute1": Attribute1,"Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
-                   "Attribute7": Attribute7, "Attribute8": Attribute8,"Attribute9": Attribute9, "Attribute10": Attribute10
+                   "SupportMode": SupportMode, "FreeSupportPeriod": FreeSupportPeriod, "SupportCostPM": SupportCostPM,
+                   "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                   "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
                },
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
                        swal('Good job!', 'Record Save Sucessfully!', 'success')
-                       //$("#tab2").addClass("active");
-                       //$("#tab1").removeClass("active");
-                       //$("#CreateMaster").addClass("active");
-                       //$("#Search").removeClass("active");
+                       $("#btnUpdateBilling").show();
+                       $("#btnSavebilling").hide();
                    }
                }
            });
     });
 
+
+    $("#Tab4").click(function (e) {
+        Bindtab4dropdown();
+
+        if ($('#txtsrnotab4').val() != "") {
+            $("#btnUpdateBilling").show();
+            $("#btnSavebilling").hide();
+
+            var tablename = 'dbo._White_Register_MaintanenceSupport';
+            var Corporate = Corporate;
+            var unit = '0';
+            var Formcode = '0';
+            var Formtabcode = '0';
+            var srno = $(this).parent().parent().children(':eq(1)').text();
+            
+            var Type = 'EditMode';
+            $.ajax(
+             {
+                 type: "POST",
+                 url: "/WhitelabelStep1/Edit_data_billing",
+
+                 data: {
+                     tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+                 },
+                 dataType: 'json',
+                 success: function (response) {
+                     if (response['Whiteregjs'].length > 0) {
+                         $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
+                         $('#txtBillingName').val(response['Whiteregjs'][0]['BillingName']);
+                         $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
+                         $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
+                         $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
+                         $('#drpbillingcountry').find('option[value="' + response['Whiteregjs'][0]['BillingCountry'] + '"]').attr('selected', true).change();
+                         $('#drpbillingState').find('option[value="' + response['Whiteregjs'][0]['BillingState'] + '"]').attr('selected', true).change();
+                         setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
+                         $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
+                         $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
+                         $('#txtBillingTelephone').val(response['Whiteregjs'][0]['BillingPhone']);
+                         $('#txtBillingCellPhone').val(response['Whiteregjs'][0]['BillingContactMobile']);
+                         setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
+                         $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
+                         $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
+                         setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
+                         
+                     }
+                 }
+             });
+
+            
+        }
+        else {
+            $("#btnUpdateBilling").hide();
+            $("#btnSavebilling").show();
+        }
+
+        
+    });
+
+    $("#drpbillingcountry").change(function (e) {
+        Bindbillingcountry();
+
+    });
+
+    $("#drpbillingState").change(function (e) {
+        Bindbillingstate();
+    });
+    function Bindtab4dropdown() {
+
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '0';
+        var Branch = '0';
+        var userid = '0';
+        var Ip = '';
+        var Type = 'DropDown';
+        var html = "";
+        $.ajax({
+            url: "/WhitelabelStep1/Bindtab4dropdown",
+            type: "POST",
+            async:false,
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+            },
+            success: function (response) {
+
+                if (response['UPdrp'].length > 0) {
+
+                    $('#drpSupportMode').html('');
+                    for (var i = 0; i < response['UPdrp'].length; i++) {
+                        var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
+
+                        $('#drpSupportMode').append(opt);
+                    }
+                    $('#drpSupportMode option:first').attr('selected', 'selected').change();
+                }
+                if (response['UPdrpc'].length > 0) {
+
+                    $('#drpmaINCurrency').html('');
+                    for (var i = 0; i < response['UPdrpc'].length; i++) {
+                        var opt = new Option(response['UPdrpc'][i]['Text'], response['UPdrpc'][i]['Value']);
+
+                        $('#drpmaINCurrency').append(opt);
+                    }
+                    $('#drpmaINCurrency option:first').attr('selected', 'selected').change();
+                }
+
+                if (response['Ucountry'].length > 0) {
+
+                    $('#drpbillingcountry').html('');
+                    for (var i = 0; i < response['Ucountry'].length; i++) {
+                        var opt = new Option(response['Ucountry'][i]['Text'], response['Ucountry'][i]['Value']);
+
+                        $('#drpbillingcountry').append(opt);
+                    }
+                    $('#drpbillingcountry option:first').attr('selected', 'selected').change();
+                }
+
+
+
+            }
+        });
+
+
+    }
+    function Bindbillingcountry() {
+        var srno = '0';
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '0';
+        var Branch = '0';
+        var userid = '0';
+        var Ip = '';
+        var Type = 'ConditionalDropdown';
+        var field1 = $('#drpbillingcountry option:selected').val();
+        var field2 = '';
+        var field3 = '';
+        var field4 = '';
+        var field5 = '';
+        var Control = 'drpState';
+        $.ajax({
+            url: "/WhitelabelStep1/Bindbillingcountry",
+            type: "POST",
+            async: false,
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, srno: srno, Field1: field1,
+                Field2: field2, Field3: field3, Field4: field4, Field5: field5, Control: Control
+            },
+            success: function (response) {
+
+                if (response['UPdrp'].length > 0) {
+
+                    $('#drpbillingState').html('');
+                    for (var i = 0; i < response['UPdrp'].length; i++) {
+                        var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
+
+                        $('#drpbillingState').append(opt);
+                    }
+                    $('#drpbillingState option:first').attr('selected', 'selected').change();
+                }
+
+
+
+            }
+        });
+
+    }
+    function Bindbillingstate() {
+        var srno = '0';
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '0';
+        var Branch = '0';
+        var userid = '0';
+        var Ip = '';
+        var Type = 'ConditionalDropdown';
+        var field1 = '';
+        var field2 = $('#drpbillingcountry option:selected').val();
+        var field3 = '';
+        var field4 = '';
+        var field5 = '';
+        var Control = 'drpModule';
+        $.ajax({
+            url: "/WhitelabelStep1/Bindbillingstate",
+            type: "POST",
+            async: false,
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, srno: srno, Field1: field1,
+                Field2: field2, Field3: field3, Field4: field4, Field5: field5, Control: Control
+            },
+            success: function (response) {
+
+                if (response['UPdrp'].length > 0) {
+
+                    $('#drpbillingCity').html('');
+                    for (var i = 0; i < response['UPdrp'].length; i++) {
+                        var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
+
+                        $('#drpbillingCity').append(opt);
+                    }
+                    $('#drpbillingCity option:first').attr('selected', 'selected').change();
+                }
+
+
+
+            }
+        });
+
+    }
+
+
+    $('.btnbillingclear').click(function (e) {
+
+        $('input[type="text"]').val('');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+
+        });
+
+        $("#btnUpdateBilling").hide();
+        $("#btnSavebilling").show();
+
+    });
+
+    $('.btnbillingquit').click(function (e) {
+
+        $("#Tab4").removeClass("active");
+        $("#tab4").removeClass("active");
+        $("#tab1").addClass("active");
+        $("#Search").addClass("active");
+    });
 
 });
