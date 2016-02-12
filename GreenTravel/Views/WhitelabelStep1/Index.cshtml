@@ -415,15 +415,16 @@
                         <div class="col-md-12">
                             <form>
                                 <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing</h3>
+                                <input type="text" class="form-control" id="txtsrnotab4" placeholder="Billing Srno">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="txtsrnotab4" placeholder="Billing Srno">
+                                    
                                     <div class="form-group">
                                         <label for="txtBillingName">Billing Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtBillingName" placeholder="Billing Name">
+                                        <input type="text" class="form-control req" id="txtBillingName" placeholder="Billing Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
-                                        <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
+                                        <input type="text" class="form-control req" id="txtBillingContactPerson" placeholder="Billing Contact Person">
                                     </div>
 
                                     <div class="form-group">
@@ -435,37 +436,40 @@
                                         <input type="text" class="form-control" id="txtBillingAddressLine2" placeholder="Billing Address Line 2">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txtBillingCity">Billing City </label>
-                                        <input type="text" class="form-control" id="txtBillingCity" placeholder="Billing City">
+                                          <label for="drpbillingcountry">Billing Country</label>
+                                         <select id="drpbillingcountry" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txtBillingState">Billing State</label>
-                                        <input type="text" class="form-control" id="txtBillingState" placeholder="Billing State">
+                                      <label for="drpbillingState">Billing State</label>
+                                       <select id="drpbillingState" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                         </select>
                                     </div>
 
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="txtBillingCountry">Billing Country</label>
-                                        <input type="text" class="form-control" id="txtBillingCountry" placeholder="Billing Country">
+                                        <label for="drpbillingCity">Billing City </label>
+                                         <select id="drpbillingCity" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
-                                        <input type="text" class="form-control" id="txtBillingZipCode" placeholder="Billing Country">
+                                        <input type="text" class="form-control num" id="txtBillingZipCode" placeholder="Zip Code">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtBillingEmail">Billing Email </label>
-                                        <input type="text" class="form-control" id="txtBillingEmail" placeholder="Billing Email">
+                                        <input type="text" class="form-control email" id="txtBillingEmail" placeholder="Billing Email">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtTelephone">Billing Telephone</label>
-                                        <input type="text" class="form-control " id="txtBillingTelephone" placeholder="Billing Telephone">
+                                        <input type="text" class="form-control num max" id="txtBillingTelephone" data-max="15" placeholder="Billing Telephone">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="txtCellPhone">Billing Cell Phone</label>
-                                        <input type="text" class="form-control" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
+                                        <input type="text" class="form-control num max" id="txtBillingCellPhone" data-max="10" placeholder="Billing Cell Phone">
                                     </div>
                                 </div>
                             </form>
@@ -475,27 +479,23 @@
                                 <h3 class="section-headers tab4section2"><span class="section-index">2</span>&nbsp;Support </h3>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="drpSupportMode">Support Mode  <span>*</span></label>
-                                        <select id="drpSupportMode " class="js-states form-control" style="display: none; width: 100%">
-                                            <option value="Static 1" selected>Static 1</option>
-                                            <option value="Static 2">Static 2</option>
-                                            <option value="Static 3">Static 3</option>
+                                        <label for="drpSupportMode">Support Mode <span>*</span></label>
+                                        <select id="drpSupportMode" class="js-states form-control req Dropdown" style="display: none; width: 100%">
+                                           
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txtFreeSupportPeriod">Free Support Period  <span></span></label>
+                                        <label for="txtFreeSupportPeriod">Free Support Period</label>
                                         <input type="text" class="form-control" id="txtFreeSupportPeriod " placeholder="Free Support Period ">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtSupportCostPerMonth">Support Cost Per Month <span></span></label>
-                                        <input type="text" class="form-control" id="txtSupportCostPerMonth" placeholder="Support Cost Per Month">
+                                        <input type="text" class="form-control num" id="txtSupportCostPerMonth" placeholder="Support Cost Per Month">
                                     </div>
                                     <div class="form-group">
-                                        <label for="drpBillingCycle">Currency <span>*</span></label>
-                                        <select id="drpmaINCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                            <option value="Static 1" selected>Static 1</option>
-                                            <option value="Static 2">Static 2</option>
-                                            <option value="Static 3">Static 3</option>
+                                        <label for="drpmaINCurrency">Currency</label>
+                                        <select id="drpmaINCurrency" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                          
                                         </select>
                                     </div>
 
@@ -509,9 +509,9 @@
                                     SAVE</button>
                                 <button id="btnUpdateBilling" type="submit" class="btn btn-primary btnSavebillingmain">
                                     UPDATE</button>
-                                <button id="btnClearbilling" type="button" class="btn btn-warning btnClear">
+                                <button id="btnClearbilling" type="button" class="btn btn-warning btnbillingclear">
                                     CLEAR</button>
-                                <button id="btnQuitBilling" type="button" class="btn btn-info btnQuit">
+                                <button id="btnQuitBilling" type="button" class="btn btn-info btnbillingquit">
                                     QUIT FORM</button>
                             </form>
                         </div>
