@@ -606,7 +606,8 @@
                                 '<td> <input type="text" id="txtsection' + ID + '"/></td>' +
                                 '<td> <input type="text" /></td>' +
                                 '</tr>'
-                     $(html).appendTo($("#tblModalSection"))
+                     $(html).appendTo($("#tblModalSection"));
+                     ID++;
                  }
              }
          });
@@ -956,6 +957,7 @@
         clearFormTAB();
         Quitform();
     });
+
     $('#btnquittab').on('click', function () {
         clearFormTAB();
         $("#tab3").removeClass("active");
