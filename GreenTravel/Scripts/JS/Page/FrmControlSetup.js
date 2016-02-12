@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿$(window).unload(function () {
+    $('select option').remove();
+});
+$(document).ready(function () {
     var deletesrno;
     BindGrid();
     $('#searchcontrol').click(function (e) {
@@ -80,108 +83,16 @@
              }
          });
     });
-    function BindGrid() {
-        var tablename = 'dbo._Form_Field_Master';
-        var Corporate = '2';
-        var Segment = '';
-        var PageNo = '1';
-        var type = 'Grid';
-        var Formcode = $('#txtFormcode').val();
-        var Formtabcode = '0';
-        $('#fromcontrolsetup').dataTable({
-             destroy: true,
-            "ServerSide": true,
-            "ajax": {
-                "url": "/FormControlSetup/BindGridView",
-                "Type": "GET",
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "dataSrc": function (json) {
-                    return json;
-                },
-                "data": {
-                    "tablename": tablename,
-                    "Corporate": Corporate,
-                    "Segment": Segment,
-                    "PageNo": PageNo,
-                    "type": type,
-                    "Formcode": Formcode,
-                    "Formtabcode": Formtabcode
-                }
-            },
-            "columns": [
-                { "data": "RowNumber" },
-                 { "data": "Srno" },
-                { "data": "corporate" },
-                { "data": "Features" },
-                { "data": "Module" },
-                { "data": "Form" },
-                { "data": "Tab" },
-                { "data": "Section" },
-                { "data": "Controls" },
-                {
-                    data: null,
-                    className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a>'
-                }
-            ]
-        });
-    }
     FillDropdown(0, $('#txtFormcode').val(), '', 'drpTab');
     $("#drpTab").change(function () {
         FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
     });
-   
-    function FillDropdown(Corporate, Field1, Field2, controlId) {
-        var Module = '';
-        var screen = '';
-        var FormCode = '';
-        var TabCode = '';
-        var Corporate = Corporate;
-        var unit = '';
-        var Branch = '';
-        var userid = '';
-        var Ip = '';
-        var field1 = Field1;
-        var field2 = Field2;
-        var field3 = '';
-        var field4 = '';
-        var field5 = '';
-        var Control = controlId;
-        var Language = '';
-        var Type = 'ConditionalDropdown';
-        var Srno = '';
-        $.ajax({
-            url: "/FormControlSetup/BindDropDown",
-            type: "POST",
-            async: false,
-            data: {
-                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
-                Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
-                Control: Control, Language: Language, Srno: Srno
-            },
-            success: function (data) {
-                
-                $('#' + controlId + '').html('');
-                for (var i = 0; i < data.length; i++) {
-                    var opt = new Option(data[i]['Text'], data[i]['Value']);
-                    $('#' + controlId + '').append(opt);
-                }
-                // $("#" + controlId + " option:first").attr('selected', 'selected').change();
-                setSelect2Value($('#' + controlId + ''), '0');
-            }
-        });
-    }
-
-
     $("table").delegate(".editor_Step", "click", function () {
-         
         $("#searchcontrol").removeClass("active");
         $("#Fromcontrol").addClass("active");
         $("#tab1").removeClass("active");
         $("#tab3").addClass("active");
         $('#btnUpdate').show();
-       // $('#btnDelete').show();
         $('#btnSave').hide();
         var tablename = 'dbo._Form_Field_Master';
         var Corporate = '2';
@@ -230,13 +141,13 @@
          });
     });
     $("table").delegate(".editor_Delte", "click", function () {
-        
+
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(1)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
     $('#modeldelete').click(function (e) {
-        
+
         var Module = 0;
         var screen = 0;
         var FormCode = 0;
@@ -270,6 +181,7 @@
     });
     $('#btnclear').click(function (e) {
         e.preventDefault();
+        clearValidations($(this).closest('form'));
         $('#btnUpdate').hide();
         $('#btnSave').show();
         $('.inputControl').val('');
@@ -279,6 +191,7 @@
     });
     $('#btnquitfrom').click(function (e) {
         e.preventDefault();
+        clearValidations($(this).closest('form'));
         $("#searchcontrol").addClass("active");
         $("#Fromcontrol").removeClass("active");
         $("#tab3").removeClass("active");
@@ -290,3 +203,90 @@
         BindGrid();
     });
 });
+function BindGrid() {
+    var tablename = 'dbo._Form_Field_Master';
+    var Corporate = '2';
+    var Segment = '';
+    var PageNo = '1';
+    var type = 'Grid';
+    var Formcode = $('#txtFormcode').val();
+    var Formtabcode = '0';
+    $('#fromcontrolsetup').dataTable({
+        destroy: true,
+        "ServerSide": true,
+        "ajax": {
+            "url": "/FormControlSetup/BindGridView",
+            "Type": "GET",
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "dataSrc": function (json) {
+                return json;
+            },
+            "data": {
+                "tablename": tablename,
+                "Corporate": Corporate,
+                "Segment": Segment,
+                "PageNo": PageNo,
+                "type": type,
+                "Formcode": Formcode,
+                "Formtabcode": Formtabcode
+            }
+        },
+        "columns": [
+            { "data": "RowNumber" },
+             { "data": "Srno" },
+            { "data": "corporate" },
+            { "data": "Features" },
+            { "data": "Module" },
+            { "data": "Form" },
+            { "data": "Tab" },
+            { "data": "Section" },
+            { "data": "Controls" },
+            {
+                data: null,
+                className: "center",
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a>'
+            }
+        ]
+    });
+}
+function FillDropdown(Corporate, Field1, Field2, controlId) {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = Corporate;
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var field1 = Field1;
+    var field2 = Field2;
+    var field3 = '';
+    var field4 = '';
+    var field5 = '';
+    var Control = controlId;
+    var Language = '';
+    var Type = 'ConditionalDropdown';
+    var Srno = '';
+    $.ajax({
+        url: "/FormControlSetup/BindDropDown",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
+            Control: Control, Language: Language, Srno: Srno
+        },
+        success: function (data) {
+
+            $('#' + controlId + '').html('');
+            for (var i = 0; i < data.length; i++) {
+                var opt = new Option(data[i]['Text'], data[i]['Value']);
+                $('#' + controlId + '').append(opt);
+            }
+            // $("#" + controlId + " option:first").attr('selected', 'selected').change();
+            setSelect2Value($('#' + controlId + ''), '0');
+        }
+    });
+}
