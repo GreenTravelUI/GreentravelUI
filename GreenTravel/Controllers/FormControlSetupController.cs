@@ -35,7 +35,6 @@ namespace GreenTravel.Controllers
                 int result = _objDCFS.insert_data(FCS);
                 if (result == 1)
                 {
-
                 }
                 return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
             }
@@ -147,5 +146,29 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult DeleteData(commanbaseParamater CBP)
+        {
+            try
+            {
+                DataSet ds = _objDCFS.BindDropDown(CBP);
+                List<MessagePara> items = new List<MessagePara>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new MessagePara { SrNo = dr["SrNo"].ToString(), msg = dr["msg"].ToString(), help = dr["help"].ToString() });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

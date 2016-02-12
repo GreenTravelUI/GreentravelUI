@@ -20,15 +20,10 @@
 }
 
 function setSelect2Value(control, value) {
-
     control.find('option').removeProp('selected');
-
     control.find('option[value="' + value + '"]').prop('selected', true);
-
     var text = control.find(':selected').text();
-
-    console.log(control.val() + ' ||| ' + control.find('option[value="' + value + '"]').text() + ' ||| ' + value);
-
+   // console.log(control.val() + ' ||| ' + control.find('option[value="' + value + '"]').text() + ' ||| ' + value);
     $('#select2-' + control.attr('id') + '-container').text(text).attr('title', text);
 
 }

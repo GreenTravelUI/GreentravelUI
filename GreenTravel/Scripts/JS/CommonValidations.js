@@ -129,7 +129,7 @@ function controlInputValidations(control) {
     if (control.hasClass('url')) {
         if (control.val().trim().length > 0) {
             if (!control.val().match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
-            //if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
+                //if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
                 control.after('<p class="red-error">Invalid Url Format.</p>');
                 control.addClass('red-input');
                 fillSummeryBox(control)
@@ -171,21 +171,41 @@ function controlInputValidations(control) {
     fillSummeryBox(control)
     return true;
 }
-
 function controlSelectValidations(control) {
-    var flag = true;
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
+    console.log('req::' + control.hasClass('req'));
     if (control.hasClass('req')) {
-
-        if (control.find('option:selected').val() == '0') {
-            control.next().after('<p class="red-error">This field is required.</p>');
+        console.log(control.attr('id') + ' :: ' + control.find('option:selected').val() + ' || ' + control.find('option').length);
+        if (control.find('option:selected').val() == '0' || control.find('option').length == 0) {
+            var attr = control.attr('data-reqmsg');
+            var msg = 'This field is required.';
+            if (typeof attr !== typeof undefined && attr !== false) {
+                if (attr.trim() != '') {
+                    msg = attr;
+                }
+            }
+            control.next().after('<p class="red-error">' + msg + '</p>');
             control.next().addClass('red-input');
-            flag = false;
+            return false;
         }
     }
-    return flag;
+    return true;
 }
+//function controlSelectValidations(control) {
+//    var flag = true;
+//    control.next().removeClass('red-input');
+//    control.parent().find('p.red-error').remove();
+//    if (control.hasClass('req')) {
+//        if (control.find('option:selected').val() == '0' || control.find('option').length == 0) {
+//            control.next().after('<p class="red-error">This field is required.</p>');
+//            control.next().addClass('red-input');
+//            flag = false;
+//        }
+
+//    }
+//    return flag;
+//}
 
 function controlMultiSelectValidations(control) {
     console.log(control.attr('id'));
