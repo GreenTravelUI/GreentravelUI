@@ -2,12 +2,14 @@
 @using GreenTravel.Models.Comman;
 
 @{
-   EncryptionDecryption enc_dec = new EncryptionDecryption();
+    EncryptionDecryption enc_dec = new EncryptionDecryption();
     ViewBag.Title = "Comapany Application Features";
     ViewBag.PageTitle = "Comapany Application Features";
 }
 @{ 
-    var queryValue = HttpUtility.UrlDecode(enc_dec.Decrypt(Request.QueryString["id"].ToString()));  
+    var queryValue = HttpUtility.UrlDecode(enc_dec.UrlDecrypt(Request.QueryString["id"].ToString()));
+
+    //  var queryValue = (Request.QueryString["id"].ToString());  
 }
 
 
@@ -190,11 +192,11 @@
                                 <div class="col-md-12">
                                     <form>
                                         <br />
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSaveStep2">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSaveStep2" style="display: none">
                                             SAVE</button>
-                                        <button id="btnUpdate" type="submit" style="display: none" class="btn btn-primary btnSaveStep2">
+                                        <button id="btnUpdate" type="submit" style="display: none" class="btn btn-primary btnSaveStep2" style="display: none">
                                             UPDATE</button>
-                                        <button id="btnClear" class="btn btn-warning ">
+                                        <button id="btnClear" type="button" class="btn btn-warning btnClear">
                                             CLEAR</button>
                                         <button id="btnQuit" class="btn btn-info" style="display: none">
                                             QUIT FORM</button>

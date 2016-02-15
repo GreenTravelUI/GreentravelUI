@@ -353,8 +353,23 @@ $(document).ready(function () {
     });
 
     $("table").delegate(".editor_feature", "click", function () {
+
         var Corporate = $(this).parent().parent().children(':eq(1)').text();
-        window.location.href = '/WhitelabelStep2/Index/?id=' + Corporate;
+        var srno = '';
+        $.ajax(
+              {
+                  type: "POST",
+                  url: "/WhitelabelStep1/Encry",
+                  data: {
+                      srno: srno, Corporate: Corporate
+                  },
+                  dataType: 'json',
+                  success: function (response) {
+                      // alert(response);
+                      window.location.href = '/WhitelabelStep2/Index/?id=' + response;
+                  }
+              });
+
 
     });
 
@@ -702,7 +717,7 @@ $(document).ready(function () {
             var Formcode = '0';
             var Formtabcode = '0';
             var srno = $(this).parent().parent().children(':eq(1)').text();
-            
+
             var Type = 'EditMode';
             $.ajax(
              {
@@ -731,19 +746,19 @@ $(document).ready(function () {
                          $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
                          $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
                          setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
-                         
+
                      }
                  }
              });
 
-            
+
         }
         else {
             $("#btnUpdateBilling").hide();
             $("#btnSavebilling").show();
         }
 
-        
+
     });
 
     $("#drpbillingcountry").change(function (e) {
@@ -770,7 +785,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/WhitelabelStep1/Bindtab4dropdown",
             type: "POST",
-            async:false,
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type

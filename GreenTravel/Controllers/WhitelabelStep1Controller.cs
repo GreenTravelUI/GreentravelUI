@@ -493,5 +493,23 @@ namespace GreenTravel.Controllers
 
         #endregion
 
+        public ActionResult Encry(WhitelabelStep2 CBP)
+        {
+            try
+            {
+                EncryptionDecryption enc_dec = new EncryptionDecryption();
+                var data = HttpUtility.UrlEncode(enc_dec.UrlEncrypt(CBP.Corporate.ToString()));
+                return Json(data, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
     }
 }
