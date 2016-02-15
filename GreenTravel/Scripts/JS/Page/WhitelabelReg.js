@@ -5,6 +5,7 @@
 });
 
 $(document).ready(function () {
+
     BindGrid();
     $('.btnSave').click(function (e) {
         e.preventDefault();
@@ -96,7 +97,21 @@ $(document).ready(function () {
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       swal('Good job!', 'Record Save Sucessfully!', 'success')
+                       console.log(response);
+                       if (response['responseText'] == "Record Already Exist!") {
+                           swal('Record Already Exist!')
+                           $("#btnsavebasic").show();
+                           $("#btnupdatebasic").hide();
+                       }
+                       else {
+                           swal('Good job!', 'Record Save Sucessfully!', 'success')
+                           $("#btnupdatebasic").show();
+                           $("#btnsavebasic").hide();
+                       }
+
+
+                       $("#hdfsrno").val(response['srno']);
+                       // alert($("#hdfsrno").val());
                        $("#tab2").addClass("active");
                        $("#tab1").removeClass("active");
                        $("#CreateMaster").addClass("active");
@@ -295,6 +310,7 @@ $(document).ready(function () {
              dataType: 'json',
              success: function (response) {
                  if (response['Whiteregjs'].length > 0) {
+                     $("#hdfsrno").val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrnouserpref').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
@@ -638,7 +654,7 @@ $(document).ready(function () {
             var srno = '';
         }
 
-        var Corporate = '2';
+        var Corporate = $("#hdfsrno").val();
         var BillingName = $('#txtBillingName').val();
         var BillingContactPerson = $('#txtBillingContactPerson').val();
         var BillingAddress1 = $('#txtBillingAddressLine1').val();
@@ -652,7 +668,8 @@ $(document).ready(function () {
         var BillingPhone = $('#txtBillingTelephone').val();
         var BillingContactMobile = $('#txtBillingCellPhone').val();
         var Currency = $('#drpmaINCurrency option:selected').val();
-        var SupportMode = $('#drpSupportMode option:selected').val();
+        //var SupportMode = $('#drpSupportMode option:selected').val();
+        var SupportMode = getMultiselectValue($('#drpSupportMode'));
         var FreeSupportPeriod = $('#txtFreeSupportPeriod').val();
         var SupportCostPM = $('#txtSupportCostPerMonth').val();
         var Attribute1 = '';
@@ -697,12 +714,11 @@ $(document).ready(function () {
             $("#btnSavebilling").hide();
 
             var tablename = 'dbo._White_Register_MaintanenceSupport';
-            var Corporate = Corporate;
+            var Corporate = $("#hdfsrno").val();
             var unit = '0';
             var Formcode = '0';
             var Formtabcode = '0';
-            var srno = $(this).parent().parent().children(':eq(1)').text();
-            
+            var srno = $('#txtsrnotab4').val();
             var Type = 'EditMode';
             $.ajax(
              {
@@ -715,6 +731,7 @@ $(document).ready(function () {
                  dataType: 'json',
                  success: function (response) {
                      if (response['Whiteregjs'].length > 0) {
+                         console.log(response['Whiteregjs']);
                          $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
                          $('#txtBillingName').val(response['Whiteregjs'][0]['BillingName']);
                          $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
@@ -727,23 +744,34 @@ $(document).ready(function () {
                          $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
                          $('#txtBillingTelephone').val(response['Whiteregjs'][0]['BillingPhone']);
                          $('#txtBillingCellPhone').val(response['Whiteregjs'][0]['BillingContactMobile']);
-                         setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
+                         // setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
+                         var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
+                         console.log(dataarray);
+                         // $("#drpSupportMode").val(dataarray);
+                         console.log(dataarray.length);
+
+                         for (var i in dataarray) {
+                             var optionVal = dataarray[i];
+                             console.log(optionVal);
+                             setSelect2Value($('#drpSupportMode'), optionVal);
+                         }
+
                          $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
                          $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
                          setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
-                         
+
                      }
                  }
              });
 
-            
+
         }
         else {
             $("#btnUpdateBilling").hide();
             $("#btnSavebilling").show();
         }
 
-        
+
     });
 
     $("#drpbillingcountry").change(function (e) {
@@ -770,7 +798,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/WhitelabelStep1/Bindtab4dropdown",
             type: "POST",
-            async:false,
+            async: false,
             data: {
                 Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
                 unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
