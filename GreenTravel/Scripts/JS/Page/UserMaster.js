@@ -108,7 +108,7 @@
         var Email = $('#txtConfirmEmail').val();
         var Password = $('#txtConfirmPassword').val();
      
-        var Attribute1 = '';
+        var Attribute1 = 'Customer';
         var Attribute2 = '';
         var Attribute3 = '';
         var Attribute4 = '';
@@ -197,12 +197,12 @@
             return true;
         }
     }
+
     //email  validation
     function isEmail(email) {
         var regex = '/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
         return regex.test(email);
     }
-
 
 
     $("table").delegate(".editor_Step", "click", function () {

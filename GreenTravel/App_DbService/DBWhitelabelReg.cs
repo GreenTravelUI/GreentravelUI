@@ -226,7 +226,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@BillingCity", _Billing_maintanence.BillingCity);
                 _cmd.Parameters.AddWithValue("@BillingState", _Billing_maintanence.BillingState);
                 _cmd.Parameters.AddWithValue("@BillingCountry", _Billing_maintanence.BillingCountry);
-                _cmd.Parameters.AddWithValue("@BillingArea", _Billing_maintanence.BillingArea);
+              
                 _cmd.Parameters.AddWithValue("@BillingZipCode", _Billing_maintanence.BillingZipCode);
                 _cmd.Parameters.AddWithValue("@BillingEmail", _Billing_maintanence.BillingEmail);
                 _cmd.Parameters.AddWithValue("@BillingPhone", _Billing_maintanence.BillingPhone);
@@ -245,7 +245,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", _Billing_maintanence.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", _Billing_maintanence.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", _Billing_maintanence.Attribute10);
-                _cmd.Parameters.AddWithValue("@CretedBy", _Billing_maintanence.CreatedBy);
+                _cmd.Parameters.AddWithValue("@CreatedBy", _Billing_maintanence.CreatedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", _Billing_maintanence.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", _Billing_maintanence.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", _Billing_maintanence.TerminalBy);
@@ -448,5 +448,165 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
+        public DataSet Bindtab4dropdown(WhitelabelReg WR)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_White_Register_MaintanenceSupport", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+
+                _cmd.Parameters.AddWithValue("@Module", WR.Module);
+                _cmd.Parameters.AddWithValue("@screen", WR.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", WR.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", WR.unit);
+                _cmd.Parameters.AddWithValue("@Branch", WR.Branch);
+                _cmd.Parameters.AddWithValue("@userid", WR.userid);
+                _cmd.Parameters.AddWithValue("@Ip", WR.Ip);
+                _cmd.Parameters.AddWithValue("@Type", WR.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet Bindbillingcountry(WhitelabelReg WR)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_White_Register_MaintanenceSupport", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+
+                _cmd.Parameters.AddWithValue("@srno", WR.srno);
+                _cmd.Parameters.AddWithValue("@Module", WR.Module);
+                _cmd.Parameters.AddWithValue("@screen", WR.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", WR.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", WR.unit);
+                _cmd.Parameters.AddWithValue("@Branch", WR.Branch);
+                _cmd.Parameters.AddWithValue("@userid", WR.userid);
+                _cmd.Parameters.AddWithValue("@Ip", WR.Ip);
+                _cmd.Parameters.AddWithValue("@Type", WR.Type);
+                _cmd.Parameters.AddWithValue("@field1", WR.Field1);
+                _cmd.Parameters.AddWithValue("@field2", WR.Field2);
+                _cmd.Parameters.AddWithValue("@field3", WR.Field3);
+                _cmd.Parameters.AddWithValue("@field4", WR.Field4);
+                _cmd.Parameters.AddWithValue("@field5", WR.Field5);
+                _cmd.Parameters.AddWithValue("@Control", WR.Control);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet Bindbillingstate(WhitelabelReg WR)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_White_Register_MaintanenceSupport", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+
+                _cmd.Parameters.AddWithValue("@srno", WR.srno);
+                _cmd.Parameters.AddWithValue("@Module", WR.Module);
+                _cmd.Parameters.AddWithValue("@screen", WR.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", WR.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", WR.unit);
+                _cmd.Parameters.AddWithValue("@Branch", WR.Branch);
+                _cmd.Parameters.AddWithValue("@userid", WR.userid);
+                _cmd.Parameters.AddWithValue("@Ip", WR.Ip);
+                _cmd.Parameters.AddWithValue("@Type", WR.Type);
+                _cmd.Parameters.AddWithValue("@field1", WR.Field1);
+                _cmd.Parameters.AddWithValue("@field2", WR.Field2);
+                _cmd.Parameters.AddWithValue("@field3", WR.Field3);
+                _cmd.Parameters.AddWithValue("@field4", WR.Field4);
+                _cmd.Parameters.AddWithValue("@field5", WR.Field5);
+                _cmd.Parameters.AddWithValue("@Control", WR.Control);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet Edit_data_billing(Billing_maintanence BM)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_White_Register_MaintanenceSupport", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename","_White_Register_MaintanenceSupport");
+                _cmd.Parameters.AddWithValue("@Corporate", BM.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", "0");
+                _cmd.Parameters.AddWithValue("@Formcode", "0");
+                _cmd.Parameters.AddWithValue("@Formtabcode", "0");
+                _cmd.Parameters.AddWithValue("@srno", BM.srno);
+                _cmd.Parameters.AddWithValue("@Type", "EditMode");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
     }
 }

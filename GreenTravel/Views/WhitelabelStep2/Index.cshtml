@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<GreenTravel.Models.WhitelabelStep2>
+@using GreenTravel.Models.Comman;
 
 @{
-   
+    EncryptionDecryption enc_dec = new EncryptionDecryption();
     ViewBag.Title = "Comapany Application Features";
     ViewBag.PageTitle = "Comapany Application Features";
 }
 @{ 
-    var queryValue = Request.QueryString["id"];  
+    var queryValue = HttpUtility.UrlDecode(enc_dec.UrlDecrypt(Request.QueryString["id"].ToString()));
+
+    //  var queryValue = (Request.QueryString["id"].ToString());  
 }
 
 
@@ -161,11 +164,11 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Feature Category </label>
-                                            <select id="drpFeatureCategory" class="js-states form-control" style="display: none; width: 100%">
+                                            <label>Feature Category <span>*</span> </label>
+                                            <select id="drpFeatureCategory" class="js-states form-control req" style="display: none; width: 100%">
                                             </select>
                                             <input type="text" class="form-control" style="display:none"  id="txtCorporateID" value="@queryValue" readonly="true">
-                                             <input type="text" class="form-control" style="display:none"  id="txtSrNo" value="0" readonly="true">
+                                            <input type="text" class="form-control" style="display: none" id="txtSrNo" value="0" readonly="true">
                                         </div>
                                     </div>
                                 </div>
@@ -189,13 +192,13 @@
                                 <div class="col-md-12">
                                     <form>
                                         <br />
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSaveStep2">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSaveStep2" style="display: none">
                                             SAVE</button>
-                                        <button id="btnUpdate" type="submit" style="display: none" class="btn btn-primary btnSaveStep2">
+                                        <button id="btnUpdate" type="submit" style="display: none" class="btn btn-primary btnSaveStep2" style="display: none">
                                             UPDATE</button>
-                                        <button id="btnClear" type="submit" class="btn btn-warning ">
+                                        <button id="btnClear" type="button" class="btn btn-warning btnClear">
                                             CLEAR</button>
-                                        <button id="btnQuit" type="submit" class="btn btn-info ">
+                                        <button id="btnQuit" class="btn btn-info" style="display: none">
                                             QUIT FORM</button>
                                     </form>
                                 </div>

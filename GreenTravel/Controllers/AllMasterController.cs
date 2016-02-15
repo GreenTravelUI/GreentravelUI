@@ -20,8 +20,6 @@ namespace GreenTravel.Controllers
             return View();
         }
         #region  Tab 2 Code
-
-
         public ActionResult BindDropDown(commanbaseParamater CBP)
         {
             try
@@ -797,7 +795,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult FillViewsControls(commanbaseParamater CBP)
         {
             try
