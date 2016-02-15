@@ -15,10 +15,12 @@ namespace GreenTravel.Controllers
     public class WhitelabelAccessRightsController : Controller
     {
         GreenTravel.App_DbService.WhitelabelAccessRights _objWhitelabelAccessRights = new GreenTravel.App_DbService.WhitelabelAccessRights();
+
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult BindDropdown_Base(CommanFieldPara CFP)
         {
             try
@@ -43,6 +45,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult BindDropdown_FormLoad(CommanFieldConditionalPara CFP)
         {
             try
@@ -62,6 +65,25 @@ namespace GreenTravel.Controllers
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        // insert_Data
+        public ActionResult insert_Data(UserMaster UM)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.insert_data(UM);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                }
+                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

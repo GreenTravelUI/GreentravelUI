@@ -27,11 +27,11 @@ $(document).ready(function () {
         var a = 0;
         /* Form Validation */
         if (!validateForm($(this).parent())) {
-            swal(
-                'Invalid data found!',
-                '',
-                'error'
-              )
+                swal(
+                    'Invalid data found!',
+                    '',
+                    'error'
+                  )
             return false;
         }
         var Type = $('#type').val();

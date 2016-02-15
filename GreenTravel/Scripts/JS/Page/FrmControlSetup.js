@@ -2,7 +2,9 @@
     $('select option').remove();
 });
 $(document).ready(function () {
+    $('select option').remove();
     var deletesrno;
+    Control_type();
     BindGrid();
     $('#searchcontrol').click(function (e) {
         BindGrid();
@@ -78,9 +80,14 @@ $(document).ready(function () {
              dataType: 'json',
              success: function (response) {
                  if (response != null && response.success) {
+                    // $('#btnUpdateControl').show();
+                     //$('#btnSaveControl').hide();
                      swal('Good job!', 'Record Save Sucessfully!', 'success');
                  }
              }
+         }).done(function () {
+             $('#btnUpdateControl').show();
+             $('#btnSaveControl').hide();
          });
     });
     FillDropdown(0, $('#txtFormcode').val(), '', 'drpTab');
@@ -88,12 +95,8 @@ $(document).ready(function () {
         FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
     });
     $("table").delegate(".editor_Step", "click", function () {
-        $("#searchcontrol").removeClass("active");
-        $("#Fromcontrol").addClass("active");
-        $("#tab1").removeClass("active");
-        $("#tab3").addClass("active");
-        $('#btnUpdate').show();
-        $('#btnSave').hide();
+        clearValidations($(this).closest('form'));
+      
         var tablename = 'dbo._Form_Field_Master';
         var Corporate = '2';
         var unit = '0';
@@ -114,11 +117,12 @@ $(document).ready(function () {
                      $('#btnSaveControl').hide();
                      $('#btnUpdateControl').show();
                      $('#txtTabsrno').val(response[0].Srno);
-                     $('#drpTab').find('option[value="' + response[0].TabCode + '"]').attr('selected', true).change();
-                     $('#drpSection').find('option[value="' + response[0].SectionCode + '"]').attr('selected', true).change();
+                     setSelect2Value($('#drpTab'), response[0].TabCode);
+                     FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
+                     setSelect2Value($('#drpSection'), response[0].SectionCode);
                      $('#txtcontrollabel').val(response[0].FieldControlLabel);
                      $('#txtcontrolid').val(response[0].ControlId);
-                     $('#drpcontroltype').find('option[value="' + response[0].FieldControlType + '"]').attr('selected', true).change();
+                     setSelect2Value($('#drpcontroltype'), response[0].FieldControlType);
                      $('#txtValiadtioncode').val(response[0].ValidationCode);
                      $('#txtPlaceholdertext').val(response[0].PlaceholderText);
                      $('#txtTooltiptext').val(response[0].TooltipHelpText);
@@ -138,6 +142,13 @@ $(document).ready(function () {
                      $('#txtorder').val(response[0].FieldOrderNumber);
                  }
              }
+         }).done(function () {
+             $("#searchcontrol").removeClass("active");
+             $("#Fromcontrol").addClass("active");
+             $("#tab1").removeClass("active");
+             $("#tab3").addClass("active");
+             $('#btnUpdate').show();
+             $('#btnSave').hide();
          });
     });
     $("table").delegate(".editor_Delte", "click", function () {
@@ -182,8 +193,8 @@ $(document).ready(function () {
     $('#btnclear').click(function (e) {
         e.preventDefault();
         clearValidations($(this).closest('form'));
-        $('#btnUpdate').hide();
-        $('#btnSave').show();
+        $('#btnUpdateControl').hide();
+        $('#btnSaveControl').show();
         $('.inputControl').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -192,6 +203,8 @@ $(document).ready(function () {
     $('#btnquitfrom').click(function (e) {
         e.preventDefault();
         clearValidations($(this).closest('form'));
+        $('#btnUpdateControl').hide();
+        $('#btnSaveControl').show();
         $("#searchcontrol").addClass("active");
         $("#Fromcontrol").removeClass("active");
         $("#tab3").removeClass("active");
@@ -250,6 +263,7 @@ function BindGrid() {
         ]
     });
 }
+
 function FillDropdown(Corporate, Field1, Field2, controlId) {
     var Module = '';
     var screen = '';
@@ -282,11 +296,18 @@ function FillDropdown(Corporate, Field1, Field2, controlId) {
 
             $('#' + controlId + '').html('');
             for (var i = 0; i < data.length; i++) {
-                var opt = new Option(data[i]['Text'], data[i]['Value']);
-                $('#' + controlId + '').append(opt);
+                //var opt = new Option(data[i]['Text'], data[i]['Value']);
+                $('#' + controlId + '').append($('<option value="' + data[i]['Value'] + '">' + data[i]['Text'] + '</option>'));
             }
             // $("#" + controlId + " option:first").attr('selected', 'selected').change();
             setSelect2Value($('#' + controlId + ''), '0');
         }
     });
+}
+
+function Control_type() {
+    $('#drpcontroltype').html('');
+    $('#drpcontroltype').append($('<option value="0">--None--</option>'));
+    $('#drpcontroltype').append($('<option value="1">Texobox</option>'));
+    $('#drpcontroltype').append($('<option value="2">DropDown</option>'));
 }

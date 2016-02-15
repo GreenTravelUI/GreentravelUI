@@ -55,6 +55,8 @@ namespace GreenTravel.Models
         public string tablename { get; set; }
         public string Formcode { get; set; }
         public string Formtabcode { get; set; }
+        public string Location { get; set; }
+
     }
 
     public class UserMaster_Formpara
