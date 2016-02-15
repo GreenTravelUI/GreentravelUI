@@ -8,11 +8,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace GreenTravel.Controllers
 {
     public class WhitelabelStep2Controller : Controller
     {
         DbWhitelabelStep2 _objw2 = new DbWhitelabelStep2();
+      
         //
         // GET: /WhitelabelStep2/
 
@@ -141,10 +143,11 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
                     if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
-                    { ViewBag.Event = "success"; 
-                    
+                    {
+                        ViewBag.Event = "success";
+
                     }
-                    ViewBag.SrNo=result.Tables[0].Rows[0]["SrNo"].ToString();
+                    ViewBag.SrNo = result.Tables[0].Rows[0]["SrNo"].ToString();
                 }
                 var result1 = ViewBag.Message;
                 return Json(new { success = result1, Event = ViewBag.Event, SrNo = ViewBag.SrNo }, JsonRequestBehavior.AllowGet);
@@ -206,5 +209,71 @@ namespace GreenTravel.Controllers
 
 
         }
+
+        public ActionResult FillAll(WhitelabelStep2 CBP)
+        {
+            try
+            {
+
+                DataSet dsList = _objw2.Basegrid(CBP.Field1);
+                WhitelabelStep2 CV = new WhitelabelStep2();
+                Grid _grid = new Grid();
+                List<GridHearder> GridHearder = new List<GridHearder>();
+                List<GridColumn> GridColumn = new List<GridColumn>();
+                List<Grid> lstGrid = new List<Grid>();
+                if (dsList.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.GridHearder = dsList.Tables[0];
+                    ViewBag.GridColumn = dsList.Tables[1];
+
+
+                    if (dsList.Tables[0] != null)
+                    {
+                        foreach (System.Data.DataRow dr in ViewBag.GridColumn.Rows)
+                        {
+                            GridColumn.Add(new GridColumn
+                            {
+                                xname = @dr["xname"].ToString(),
+                                SrNo = @dr["xcode"].ToString(),
+                                xlink = @dr["xlink"].ToString()
+                            });
+                        }
+                    }
+
+                    if (dsList.Tables[1] != null)
+                    {
+                        foreach (System.Data.DataRow dr in ViewBag.GridHearder.Rows)
+                        {
+                            GridHearder.Add(new GridHearder
+                            {
+                                xname = @dr["xname"].ToString(),
+                                SrNo = @dr["xcode"].ToString()
+
+                            });
+
+                            //   var gf = GridColumn.Where(s => s.SrNo == dr["xcode"].ToString()).ToList();
+                        }
+                    }
+
+                }
+
+                _grid.GridColumn = GridColumn.ToList();
+                _grid.GridHearder = GridHearder.ToList();
+
+                lstGrid.Add(_grid);
+                return Json(new { ColumnList = _grid.GridColumn, HeaderList = _grid.GridHearder }, JsonRequestBehavior.AllowGet);
+                //var data = frmTab;
+                //return Json(_grid, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
     }
 }

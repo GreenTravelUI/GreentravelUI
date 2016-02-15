@@ -30,7 +30,7 @@ $(document).ready(function () {
         FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
     });
     $("#drpFeatures").change(function () {
-        
+
         FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
     });
     $("#drpModule").change(function () {
@@ -40,7 +40,11 @@ $(document).ready(function () {
     $('.btnSave').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-            swal('Invalid data found!');
+            swal(
+               'Invalid data found!',
+               '',
+               'error'
+             )
             return false;
         }
         var Attribute1 = '';
@@ -95,7 +99,11 @@ $(document).ready(function () {
     $('.btnSaveformtab').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-            swal('Invalid data found!');
+            swal(
+               'Invalid data found!',
+               '',
+               'error'
+             )
             return false;
         }
         var Attribute1 = '';
@@ -170,7 +178,11 @@ $(document).ready(function () {
     $('.btnSaveStandard').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent().parent().parent())) {  // Pass form control in parameter
-            swal('Invalid data found!');
+            swal(
+              'Invalid data found!',
+              '',
+              'error'
+            )
             return false;
         }
         var Attribute1 = '';
@@ -256,12 +268,6 @@ $(document).ready(function () {
     //Edit Form  
     $("table").delegate(".editor_edit", "click", function () {
         clearValidations($(this).closest('form'));
-        $("#serachfrom").removeClass("active");
-        $("#Frmcreate").addClass("active");
-        $("#tab1").removeClass("active");
-        $("#tab3").addClass("active");
-        $('#btnUpdateFS').show();
-        $('#btnSavefs').hide();
         var tablename = 'dbo._Form_Master';
         var Corporate = '1';
         var unit = '0';
@@ -290,6 +296,13 @@ $(document).ready(function () {
                      $('#txtSubHeader').val(response[0].SubHeader);
                  }
              }
+         }).done(function () {
+             $("#serachfrom").removeClass("active");
+             $("#Frmcreate").addClass("active");
+             $("#tab1").removeClass("active");
+             $("#tab3").addClass("active");
+             $('#btnUpdateFS').show();
+             $('#btnSavefs').hide();
          });
     });
     //Delete form 

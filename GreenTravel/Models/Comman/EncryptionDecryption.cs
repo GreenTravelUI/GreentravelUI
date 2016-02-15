@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GreenTravel.Models.Comman
 {
@@ -239,7 +240,7 @@ namespace GreenTravel.Models.Comman
             // Return the encrypted bytes from the memory stream.
             return encrypted;
         }
-
+      
 
     }
 }
