@@ -5,9 +5,13 @@
 $(document).ready(function () {
     /*Tab 1*/
     FillDropDown_Category();
+
     $('#type').val('Save');
+
     var deletesrno;
+
     bind_dropdown();
+
     getdata();
 
     $("#drpSegment").change(function () {
@@ -68,13 +72,7 @@ $(document).ready(function () {
                        $('#btnDelete').hide();
                        $('#btnSaveMastersetup').show();
                        $('#txtMasterCode').attr("disabled", false)
-                       $('input[type="text"]').val('');
-                       $('.Dropdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
-                       $('.drpdown').each(function () {
-                           $(this).val($(this).find('option:first').val()).change();
-                       });
+
                        $('#type').val('Save');
                        swal('', responsedata['success'], responsedata['Event']);
                    }
@@ -385,19 +383,6 @@ $(document).ready(function () {
 
         $('#btnCancelMastersetup').trigger('click');
 
-        //$('input[type="text"]').removeAttr('disabled');
-        //$('#txtMasterCode').removeAttr("disabled");
-
-        //$('input[type="text"]').val('');
-        //$('.Dropdown').each(function () {
-        //    $(this).val($(this).find('option:first').val()).change();
-        //    $(this).removeAttr('disabled');
-        //});
-        //$('.drpdown').each(function () {
-        //    $(this).val($(this).find('option:first').val()).change();
-        //});
-        //$('#type').val('Save');
-
         /* Hide/Show Tab */
         $("#SearchMaster").addClass("active");
         $("#CreateMaster").removeClass("active");
@@ -428,11 +413,13 @@ $(document).ready(function () {
         });
         $('#type').val('Save');
         clearValidations($(this).parent());
+        bind_dropdown();
         e.preventDefault();
     });
 
     $("table").delegate(".editor_edit", "click", function () {
         clearValidations($('#tab2').find('form'));
+        $('#btnCancelMastersetup').trigger('click');
 
         $('#btnsUpdate').show();
         $('#btnDelete').hide();
@@ -453,6 +440,7 @@ $(document).ready(function () {
                  tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
              },
              dataType: 'json',
+             async: false,
              success: function (response) {
                  //Master
                  clearValidations($(this).parent());
@@ -463,19 +451,17 @@ $(document).ready(function () {
                      $('#txtMasterName').val(response['AMaster'][0]['xname']);
                      $('#txtdrpCaption').val(response['AMaster'][0]['drpCaption']);
                      $('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
-                     setValueAndDisable($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
-                     setValueAndDisable($('#drpCorporate'), response['AMaster'][0]['Corporate']);
+                     setSelect2ValueDisable($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
+                     setSelect2ValueDisable($('#drpCorporate'), response['AMaster'][0]['Corporate']);
                      bind_dropdown();
-                     // $('#drpSegment').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
-                     // $('#drpCorporate').find('option[value="' + response['AMaster'][0][''] + '"]').attr('selected', true).change();
-                    // $('#drpDropdownMastersetup1').find('option[value="' + response['AMaster'][0]['xlink'] + '"]').attr('selected', true).change();
+
                      setValueAndDisable($('#drpDropdownMastersetup1'), response['AMaster'][0]['xlink']);
                      setValueAndDisable($('#drpMastersetup2'), response['AMaster'][0]['xcross']);
                      setValueAndDisable($('#drpMastersetup3'), response['AMaster'][0]['xcross1']);
                      setValueAndDisable($('#drpMastersetup4'), response['AMaster'][0]['xcross2']);
                      setValueAndDisable($('#drpMastersetup5'), response['AMaster'][0]['xcross3']);
                      setValueAndDisable($('#drpMastersetup6'), response['AMaster'][0]['xcross4']);
-                     
+
                      setValueAndDisable($('#drpMultiselectsetup1'), response['AMaster'][0]['MultiSelect1']);
                      setValueAndDisable($('#drpMultiselectsetup2'), response['AMaster'][0]['MultiSelect2']);
                      setValueAndDisable($('#drpMultiselectsetup3'), response['AMaster'][0]['MultiSelect3']);
@@ -696,6 +682,19 @@ $(document).ready(function () {
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
 
+    $('.form-group').on("change", ".Dropdown", function () {
+        if ($(this).val() != '0') {
+            if (!preventAlreadySelectedMaster($(this))) {
+                swal('\''+$(this).val() + '\' is already selected!', '', 'warning');
+                setSelect2Value($(this), '0');
+            }
+            if (!preventEditedMasterSelection($(this))) {
+                swal('\'' + $(this).val() + '\' is not allowed to be selected!', '', 'warning');
+                setSelect2Value($(this), '0');
+            }
+        }
+    });
+
     $('#modeldelete').click(function (e) {
         //console.log(deletesrno);
         var Module = 0;
@@ -731,6 +730,28 @@ $(document).ready(function () {
         });
     });
 });
+
+function preventAlreadySelectedMaster(control) {
+    var flag = true;
+    $(".Dropdown").each(function () {
+        var drp = $(this)
+        if (drp.attr('id') != control.attr('id')) {
+            //alert(drp.val() + ' === ' + control.val());
+            if (drp.val() == control.val()) {
+                flag = false;
+            }
+        }
+    });
+    return flag;
+}
+
+function preventEditedMasterSelection(control) {
+    var flag = true;
+    if (control.val() == $('#txtMasterCode').val()) {
+        flag = false;
+    }
+    return flag;
+}
 
 function FillDropDown_Category() {
     $('#drpSegment').html('');
@@ -816,6 +837,9 @@ function bind_dropdown() {
                 var opt = new Option(data[i]['Text'], data[i]['Value']);
                 $('.Dropdown').append(opt);
             }
+            $(".Dropdown").each(function () {
+                setSelect2Value($(this), '0');
+            });
         }
     });
 }

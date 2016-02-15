@@ -199,8 +199,6 @@ function FillDropdown(controlId, type) {
     });
 }
 
-
-// Function ( Edit Mode )
 function getdata() {
     var tablename = 'dbo._White_feature_mapping';
     var Corporate = $('#txtCorporateID').val().toString();
@@ -229,28 +227,30 @@ function getdata() {
             if (response['Grid'].length > 0) {
                 $('#btnSave').hide();
                 $('#btnUpdate').show();
-                //$('#txtSrNo').val() = response['Grid']['WhitelabelStep2']
                 $.each(response['Grid'], function () {
+                    //console.log(this['Feature']);
                     var tempgroup = this;
                     var chkloop = this['Feature'].toString().split("||");
+                    console.log(getAllCheckboxes())
+                    $('td > input[type="checkbox"]').each(function () {
+                        console.log($(this).is(':checked'));;
+                    });
                     $.each(chkloop, function () {
                         var tempfeature = this;
-                        $('ul.grid div').find('li').each(function () {
-                            $(this).find('table tbody tr').each(function () {
-                                if ($(this).find("input").attr('id') == tempfeature) {
-                                    $(this).find("input").prop('checked', true);
-                                }
-                            });
-
-                        });
-
+                        //$('form input[type="checkbox"]').each(function () {
+                        //    //$('ul.grid li').each(function () {
+                        //    //console.log($(this).find('table td').find('input[type="checkbox"]').attr('id'));   // find('input[type=checkbox]')
+                        //    //alert($(this).attr('id'));
+                        //    //if ($(this).attr('id') == tempfeature) {
+                        //    //    $(this).prop('checked', true);
+                        //    //}
+                        //});
                     });
                 });
             }
         }
     });
 }
-
 
 function clearForm() {
     $('.inputform').val('');
@@ -259,4 +259,3 @@ function clearForm() {
     });
     $('#txtSrNo').val('0');
 }
-

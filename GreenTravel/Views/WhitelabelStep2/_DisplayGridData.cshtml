@@ -6,13 +6,8 @@
     <li>
         <figure>
             <figcaption class="panel-body tab-itenaries">
-
-                <div class="myDiv">
-                    <h3 style="margin-top: 0; text-align: center;">
-                        <label style="display: none" id="lbheadingName">@Html.DisplayFor(modelItem => itemHeader.SrNo) </label>
-
-                    </h3>
-                </div>
+                <input type="hidden" id="lbheadingName" value="@Html.DisplayFor(modelItem => itemHeader.SrNo)"/>
+                
                 <h3 style="margin-top: 0; text-align: center;">
                     <label id="lbheading">@Html.DisplayFor(modelItem => itemHeader.xname) </label>
                 </h3>
@@ -25,7 +20,7 @@
                                     @itemColumn.xname
                                 </td>
                                 <td>
-                                    <input id="@itemColumn.SrNo" type="checkbox" >
+                                    <input id="@itemColumn.SrNo" class="chkFeatures" type="checkbox" >
                                 </td>
                             </tr>
                         }
@@ -39,3 +34,8 @@
 
 
 
+<script>
+    function getAllCheckboxes() {
+        return $('.sampletable input[type="checkbox"]').length;
+    }
+</script>
