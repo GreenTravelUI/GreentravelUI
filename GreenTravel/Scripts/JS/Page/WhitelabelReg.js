@@ -560,10 +560,7 @@
             if ($(this).prop('checked') == true) {
                 if (index != 0) {
                     OtherPreferences = OtherPreferences + ',';
-
                 }
-
-
                 OtherPreferences += $(this).val().trim();
                 index = 1;
             }
