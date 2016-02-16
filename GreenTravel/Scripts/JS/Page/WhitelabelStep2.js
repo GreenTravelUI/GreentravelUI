@@ -236,11 +236,13 @@ function getdata() {
                         $('ul.grid div').find('li').each(function () {
                             console.log($(this).html());
                             $(this).find('table tbody tr').each(function () {
-                                if ($(this).find("input").attr('id') == tempfeature){
+                                if ($(this).find("input").attr('id') == tempfeature) {
                                     $(this).find("input").prop('checked', true);
                                 }
                             });
+
                         });
+
                     });
                 });
             }
