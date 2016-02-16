@@ -1,12 +1,13 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
+var ID = 2;
+var customID = 2;
+var Message;
+var deletesrno;
+var Frmcode;
+var FrmtabCode
 $(document).ready(function () {
-    var deletesrno;
-    var Frmcode;
-    var FrmtabCode
-    var ID = 2;
-    var customID = 2;
     Dropdown_Bind_Tab1();
     getdata();
     $('#frmsection').click(function (e) {
@@ -71,27 +72,23 @@ $(document).ready(function () {
         var FeatureGroup = $('#drpFeatures option:selected').val();
         var Header = $('#txtHeader').val();
         var SubHeader = $('#txtSubHeader').val();
-        var CreatedBy = 0;
-        var EntryDatetime = '';
-        var EditedBy = 0;
-        var EditDatetime = '';
-        var CorpcentreBy = 0;
-        var UnitCorpBy = 0;
-        var TerminalBy = 0;
-        var BranchId = 0;
         $.ajax(
            {
                type: "POST",
                url: "/FormSetup/InsertData",
                data: {
-                   "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen, "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10, "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy, "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchId": BranchId
+                   "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen,
+                   "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2": Attribute2,
+                   "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7,
+                   "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
                },
                dataType: 'json',
                success: function (data) {
                    $('#txtSrNo1').val(data.srno)
+                   Message = data.responseText;
                    $('#btnUpdateFS').show();
                    $('#btnSavefs').hide();
-                   swal('Good job!', 'Record Save Sucessfully', 'success');
+                   swal('Good job!', Message, 'success');
                }
            });
     });
@@ -142,14 +139,6 @@ $(document).ready(function () {
         var TooltipHelpText = $('#txtTooltipHelpText').val();
         var MasterTable = $('#txtTabMainTable').val();
         var MasterTablePrefix = $('#txtTabMainTablePrefix').val();
-        var CreatedBy = 0;
-        var EntryDatetime = '';
-        var EditedBy = 0;
-        var EditDatetime = '';
-        var CorpcentreBy = 0;
-        var UnitCorpBy = 0;
-        var TerminalBy = 0;
-        var BranchBy = 0;
         $.ajax(
            {
                type: "POST",
@@ -161,15 +150,14 @@ $(document).ready(function () {
                    "TrxTable6": TrxTable6, "TrxTable7": TrxTable7, "TrxTable8": TrxTable8, "TrxTable9": TrxTable9, "TrxTable10": TrxTable10,
                    "SummeryLabel": SummeryLabel, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4,
                    "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9,
-                   "Attribute10": Attribute10, "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime,
-                   "CorpcentreBy": CorpcentreBy, "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
-
+                   "Attribute10": Attribute10
                },
                dataType: 'json',
-               success: function (response) {
+               success: function (data) {
                    $('#btnUpdatetab').show();
                    $('#btnSaveformtab').hide();
-                   swal('Good job!', 'Record Save Sucessfully', 'success');
+                   Message = data.responseText;
+                   swal('Good job!', Message, 'success');
                }
            });
 
@@ -195,41 +183,78 @@ $(document).ready(function () {
         var Attribute8 = '';
         var Attribute9 = '';
         var Attribute10 = '';
-        var CreatedBy = '0';
-        var EntryDatetime = '';
-        var EditedBy = '0';
-        var EditDatetime = '';
-        var CorpcentreBy = '0';
-        var UnitCorpBy = '0';
-        var TerminalBy = '0';
-        var BranchBy = '0';
         var srno = '';
         var CorporateId = $('#drpCorporate1 option:selected').val();
-        var FormCode = Frmcode;
+        var FormCode = $('#txtSrNo1').val();
         var TabCode = FrmtabCode;
         var SaveName = $('#txtSaveName').val();
         var SaveClass = $('#txtSaveClass').val();
-        var SaveVisibility = $("#chkCopyrightNote").is(":checked");
-        var SaveNotification = $("#chkNotification").is(":checked");
-        var SaveTask = $("#chkTask").is(":checked");
+        var SaveVisibility = false;
+        if ($("#chkSaveVisibility").parent().hasClass('checked')) {
+            SaveVisibility = true;
+        }
+        var SaveNotification = false;
+        if ($("#chkNotification").parent().hasClass('checked')) {
+            SaveNotification = true;
+        }
+
+        var SaveTask = false;
+        if ($("#chkTask").parent().hasClass('checked')) {
+            SaveTask = true;
+        }
+
         var UpdateName = $('#txtUpdateName').val();
         var UpdateClass = $('#txtUpdateClass').val();
-        var UpdateVisibility = $("#chkUpdateVisibility").is(":checked");
-        var UpdateNotification = $("#chkUpdateVisibility").is(":checked");
-        var UpdateTask = $("#chkNotification1").is(":checked");
+
+        var UpdateVisibility = false;
+        if ($("#chkUpdateVisibility").parent().hasClass('checked')) {
+            UpdateVisibility = true;
+        }
+        //var UpdateVisibility = $("#chkUpdateVisibility").is(":checked");
+        // var UpdateNotification = $("#chkNotification1").is(":checked");
+        var UpdateNotification = false;
+        if ($("#chkNotification1").parent().hasClass('checked')) {
+            UpdateNotification = true;
+        }
+        // var UpdateTask = $("#chkTask1").is(":checked");
+        var UpdateTask = false;
+        if ($("#chkTask1").parent().hasClass('checked')) {
+            UpdateTask = true;
+        }
         var DeleteName = $('#txtDeleteName').val();
         var DeleteClass = $('#txtDeleteClass').val();
-        var DeleteVisibility = $("#chkDeleteVisibility").is(":checked");
-        var DeleteNotification = $("#chkNotification2").is(":checked");
-        var DeleteTask = $("#chkTask2").is(":checked");
+
+        var DeleteVisibility = false;
+        if ($("#chkDeleteVisibility").parent().hasClass('checked')) {
+            DeleteVisibility = true;
+        }
+        // var DeleteVisibility = $("#chkDeleteVisibility").is(":checked");
+        // var DeleteNotification = $("#chkNotification2").is(":checked");
+        var DeleteNotification = false;
+        if ($("#chkNotification2").parent().hasClass('checked')) {
+            DeleteNotification = true;
+        }
+        //  var DeleteTask = $("#chkTask2").is(":checked");
+        var DeleteTask = false;
+        if ($("#chkTask2").parent().hasClass('checked')) {
+            DeleteTask = true;
+        }
         var ClearName = $('#txtClearName').val();
         var ClearClass = $('#txtClearClass').val();
-        var ClearVisibility = $("#chkClearVisibility").is(":checked");;
+        var ClearVisibility = false;
+        if ($("#chkClearVisibility").parent().hasClass('checked')) {
+            ClearVisibility = true;
+        }
+        // var ClearVisibility = $("#chkClearVisibility").is(":checked");;
         var ClearNotification = false;
         var ClearTask = false;
         var FormQuitName = $('#txtFormQuitName').val();
         var FormQuitClass = $('#txtFormQuitClass').val();
-        var FormQuitVisibility = $('#chkFormQuitVisibility').is(":checked");
+        // var FormQuitVisibility = $('#chkFormQuitVisibility').is(":checked");
+        var FormQuitVisibility = false;
+        if ($("#chkFormQuitVisibility").parent().hasClass('checked')) {
+            FormQuitVisibility = true;
+        }
         var FormQuitNotification = false;
         var FormQuitTask = false;
 
@@ -246,14 +271,14 @@ $(document).ready(function () {
                    "FormQuitName": FormQuitName,
                    "FormQuitClass": FormQuitClass, "FormQuitVisibility": FormQuitVisibility, "FormQuitNotification": FormQuitNotification, "FormQuitTask": FormQuitTask,
                    "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
-                   "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10,
-                   "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
-                   "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+                   "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+
                },
                dataType: 'json',
-               success: function (response) {
+               success: function (data) {
                    $("#myModalIcon").modal('hide');
-                   swal('Good job!', 'Record Save Sucessfully', 'success');
+                   Message = data.responseText;
+                   swal('Good job!', 'Save Record Successfully', 'success');
                }
            });
 
@@ -288,10 +313,17 @@ $(document).ready(function () {
                      $('#txtSrNo1').val(response[0].SrNo);
                      $('#txtFormName').val(response[0].FormName);
                      $('#txtFormPreFix').val(response[0].FormPrefixCode);
-                     $('#drpCorporate1').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
-                     $('#drpFeatures').find('option[value="' + response[0].FeatureGroup + '"]').attr('selected', true).change();
-                     $('#drpModule').find('option[value="' + response[0].Module + '"]').attr('selected', true).change();
-                     $('#drpScreen').find('option[value="' + response[0].Screen + '"]').attr('selected', true).change();
+                     setSelect2Value($('#drpCorporate1'), response[0].Corporate);
+                     FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
+                     setSelect2Value($('#drpFeatures'), response[0].FeatureGroup);
+                     FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
+                     setSelect2Value($('#drpModule'), response[0].Module);
+                     FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
+                     setSelect2Value($('#drpScreen'), response[0].Screen);
+                     //  $('#drpCorporate1').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
+                     // $('#drpFeatures').find('option[value="' + response[0].FeatureGroup + '"]').attr('selected', true).change();
+                     // $('#drpModule').find('option[value="' + response[0].Module + '"]').attr('selected', true).change();
+                     //    $('#drpScreen').find('option[value="' + response[0].Screen + '"]').attr('selected', true).change();
                      $('#txtHeader').val(response[0].Header);
                      $('#txtSubHeader').val(response[0].SubHeader);
                  }
@@ -334,35 +366,105 @@ $(document).ready(function () {
              dataType: 'json',
              success: function (response) {
                  clearButtonclass();
+                 clearValidations($(this).closest('form'));
                  $("#tblModalIconCustom tbody").html('');
                  $('#btnstandardbutton').show();
                  $('#btnSave22').hide();
+                 clearcheckbocstandardbutton();
                  if (response['AFrmStandardbtn'].length > 0) {
                      $('#btnstandardbutton').hide();
                      $('#btnSave22').show();
                      //   $('#txtMasterCode').val(response['AFrmStandardbtn'][0]['xmaster']);
                      $('#txtSaveName').val(response['AFrmStandardbtn'][0]['SaveName']);
                      $('#txtSaveClass').val(response['AFrmStandardbtn'][0]['SaveClass']);
-                     //  $("#chkCopyrightNote").is(":checked");
-                     // $("#chkNotification").is(":checked");
-                     // $("#chkTask").is(":checked");
+                     if (response['AFrmStandardbtn'][0]['SaveVisibility'].toLowerCase() == 'true') {
+                         $('#chkSaveVisibility').attr('checked', true);
+                         $('#chkSaveVisibility').parent().addClass('checked');
+                     } else {
+                         $('#chkSaveVisibility').attr('checked', false);
+                         $('#chkSaveVisibility').parent().removeClass('checked');
+                     }
+                     if (response['AFrmStandardbtn'][0]['SaveNotification'].toLowerCase() == 'true') {
+                         $('#chkNotification').attr('checked', true);
+                         $('#chkNotification').parent().addClass('checked');
+                     } else {
+                         $('#chkNotification').attr('checked', false);
+                         $('#chkNotification').parent().removeClass('checked');
+                     }
+                     if (response['AFrmStandardbtn'][0]['SaveTask'].toLowerCase() == 'true') {
+                         $('#chkTask').attr('checked', true);
+                         $('#chkTask').parent().addClass('checked');
+                     } else {
+                         $('#chkTask').attr('checked', false);
+                         $('#chkTask').parent().removeClass('checked');
+                     }
+
                      $('#txtUpdateName').val(response['AFrmStandardbtn'][0]['UpdateName']);
                      $('#txtUpdateClass').val(response['AFrmStandardbtn'][0]['UpdateClass']);
-                     //$("#chkUpdateVisibility").is(":checked");
-                     // $("#chkUpdateVisibility").is(":checked");
-                     // $("#chkNotification1").is(":checked");
+                     if (response['AFrmStandardbtn'][0]['UpdateVisibility'].toLowerCase() == 'true') {
+                         $('#chkUpdateVisibility').attr('checked', true);
+                         $('#chkUpdateVisibility').parent().addClass('checked');
+                     } else {
+                         $('#chkUpdateVisibility').attr('checked', false);
+                         $('#chkUpdateVisibility').parent().removeClass('checked');
+                     }
+                     if (response['AFrmStandardbtn'][0]['UpdateNotification'].toLowerCase() == 'true') {
+                         $('#chkNotification1').attr('checked', true);
+                         $('#chkNotification1').parent().addClass('checked');
+                     } else {
+                         $('#chkNotification1').attr('checked', false);
+                         $('#chkNotification1').parent().removeClass('checked');
+                     }
+                     if (response['AFrmStandardbtn'][0]['UpdateTask'].toLowerCase() == 'true') {
+                         $('#chkTask1').attr('checked', true);
+                         $('#chkTask1').parent().addClass('checked');
+                     } else {
+                         $('#chkTask1').attr('checked', false);
+                         $('#chkTask1').parent().removeClass('checked');
+                     }
                      $('#txtDeleteName').val(response['AFrmStandardbtn'][0]['DeleteName']);
                      $('#txtDeleteClass').val(response['AFrmStandardbtn'][0]['DeleteClass']);
-                     //$("#chkDeleteVisibility").is(":checked");
-                     //$("#chkNotification2").is(":checked");
-                     //$("#chkTask2").is(":checked");
+                     if (response['AFrmStandardbtn'][0]['DeleteVisibility'].toLowerCase() == 'true') {
+                         $('#chkDeleteVisibility').attr('checked', true);
+                         $('#chkDeleteVisibility').parent().addClass('checked');
+                     } else {
+                         $('#chkDeleteVisibility').attr('checked', false);
+                         $('#chkDeleteVisibility').parent().removeClass('checked');
+                     }
+                     if (response['AFrmStandardbtn'][0]['DeleteNotification'].toLowerCase() == 'true') {
+                         $('#chkNotification2').attr('checked', true);
+                         $('#chkNotification2').parent().addClass('checked');
+                     } else {
+                         $('#chkNotification2').attr('checked', false);
+                         $('#chkNotification2').parent().removeClass('checked');
+                     }
+                     if (response['AFrmStandardbtn'][0]['DeleteTask'].toLowerCase() == 'true') {
+                         $('#chkTask2').attr('checked', true);
+                         $('#chkTask2').parent().addClass('checked');
+                     } else {
+                         $('#chkTask2').attr('checked', false);
+                         $('#chkTask2').parent().removeClass('checked');
+                     }
+
                      $('#txtClearName').val(response['AFrmStandardbtn'][0]['ClearName']);
                      $('#txtClearClass').val(response['AFrmStandardbtn'][0]['ClearClass']);
-                     //$("#chkClearVisibility").is(":checked");;
-                     //var ClearNotification = false;
-                     //var ClearTask = false;
+                     if (response['AFrmStandardbtn'][0]['ClearVisibility'].toLowerCase() == 'true') {
+                         $('#chkClearVisibility').attr('checked', true);
+                         $('#chkClearVisibility').parent().addClass('checked');
+                     } else {
+                         $('#chkClearVisibility').attr('checked', false);
+                         $('#chkClearVisibility').parent().removeClass('checked');
+                     }
                      $('#txtFormQuitName').val(response['AFrmStandardbtn'][0]['FormQuitName']);
                      $('#txtFormQuitClass').val(response['AFrmStandardbtn'][0]['FormQuitClass']);
+                     if (response['AFrmStandardbtn'][0]['FormQuitVisibility'].toLowerCase() == 'true') {
+                         $('#chkFormQuitVisibility').attr('checked', true);
+                         $('#chkFormQuitVisibility').parent().addClass('checked');
+                     } else {
+                         $('#chkFormQuitVisibility').attr('checked', false);
+                         $('#chkFormQuitVisibility').parent().removeClass('checked');
+                     }
+
                      // $('#chkFormQuitVisibility').is(":checked");
                  }
 
@@ -442,6 +544,7 @@ $(document).ready(function () {
              success: function (response) {
                  html = '';
                  clearSectionNameTab();
+                 clearValidations($(this).closest('form'));
                  $("#btnModalSectionSave").show();
                  $("#btnModalSectionUpdate").hide();
                  if (response['ASectionMaster'].length > 0) {
@@ -582,14 +685,6 @@ $(document).ready(function () {
         var Attribute8 = '';
         var Attribute9 = '';
         var Attribute10 = '';
-        var CreatedBy = 0;
-        var EntryDatetime = '';
-        var EditedBy = 0;
-        var EditDatetime = '';
-        var CorpcentreBy = 0;
-        var UnitCorpBy = 0;
-        var TerminalBy = 0;
-        var BranchBy = 0;
         $("#tblModalSection tbody tr").each(function () {
             var SectionName = '';
             var SectionName = $(this).children(':eq(1)').find('input').val();
@@ -609,9 +704,7 @@ $(document).ready(function () {
                    data: {
                        "srno": srno, "CorporateId": CorporateId, "TabCode": TabCode, "FormCode": FormCode, "SectionName": SectionName,
                        "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
-                       "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10,
-                       "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
-                       "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+                       "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
                    },
                    dataType: 'json',
                    success: function (response) {
@@ -737,6 +830,7 @@ $(document).ready(function () {
         clearFormTAB();
         Quitform();
     });
+
     $('#btnquittab').on('click', function (e) {
         clearValidations($(this).closest('form'));
         clearFormTAB();
@@ -1083,4 +1177,39 @@ function FillDropdown(Corporate, Field1, Field2, controlId) {
             setSelect2Value($('#' + controlId + ''), '0');
         }
     });
+}
+
+function clearcheckbocstandardbutton() {
+    $('#chkSaveVisibility').attr('checked', false);
+    $('#chkSaveVisibility').parent().removeClass('checked');
+
+    $('#chkNotification').attr('checked', false);
+    $('#chkNotification').parent().removeClass('checked');
+
+    $('#chkTask').attr('checked', false);
+    $('#chkTask').parent().removeClass('checked');
+
+    $('#chkUpdateVisibility').attr('checked', false);
+    $('#chkUpdateVisibility').parent().removeClass('checked');
+
+    $('#chkNotification1').attr('checked', false);
+    $('#chkNotification1').parent().removeClass('checked');
+
+    $('#chkTask1').attr('checked', false);
+    $('#chkTask1').parent().removeClass('checked');
+
+    $('#chkDeleteVisibility').attr('checked', false);
+    $('#chkDeleteVisibility').parent().removeClass('checked');
+
+    $('#chkNotification2').attr('checked', false);
+    $('#chkNotification2').parent().removeClass('checked');
+
+    $('#chkTask2').attr('checked', false);
+    $('#chkTask2').parent().removeClass('checked');
+
+    $('#chkClearVisibility').attr('checked', false);
+    $('#chkClearVisibility').parent().removeClass('checked');
+
+    $('#chkFormQuitVisibility').attr('checked', false);
+    $('#chkFormQuitVisibility').parent().removeClass('checked');
 }

@@ -213,5 +213,168 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+        //Create Column Tab
+        public DataSet insertdataColumn(ColumnView _ColumnView)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_ViewSetup_Fields", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@SrNo", _ColumnView.srno);
+                _cmd.Parameters.AddWithValue("@ViewCode", _ColumnView.ViewCode);
+                _cmd.Parameters.AddWithValue("@Corporate", _ColumnView.Corporate);
+                _cmd.Parameters.AddWithValue("@ColumnCaption", _ColumnView.ColumnCaption);
+                _cmd.Parameters.AddWithValue("@ColumnName", _ColumnView.ColumnName);
+                _cmd.Parameters.AddWithValue("@FixedOrder", _ColumnView.FixedOrder);
+                _cmd.Parameters.AddWithValue("@Visibility", _ColumnView.Visibility);
+                _cmd.Parameters.AddWithValue("@ColumnUpdate", _ColumnView.ColumnUpdate);
+                _cmd.Parameters.AddWithValue("@UpdateControl", _ColumnView.UpdateControl);
+                _cmd.Parameters.AddWithValue("@UpdateQuery1", _ColumnView.UpdateQuery1);
+                _cmd.Parameters.AddWithValue("@UpdateQuery2", _ColumnView.UpdateQuery2);
+                _cmd.Parameters.AddWithValue("@UpdateQuery3", _ColumnView.UpdateQuery3);
+                _cmd.Parameters.AddWithValue("@UpdateQuery4", _ColumnView.UpdateQuery4);
+                _cmd.Parameters.AddWithValue("@UpdateQuery5", _ColumnView.UpdateQuery5);
+                _cmd.Parameters.AddWithValue("@Attribute1", _ColumnView.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", _ColumnView.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", _ColumnView.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", _ColumnView.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", _ColumnView.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", _ColumnView.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", _ColumnView.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", _ColumnView.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", _ColumnView.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", _ColumnView.Attribute10);
+                _cmd.Parameters.AddWithValue("@CreatedBy", _ColumnView.CreatedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", _ColumnView.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", _ColumnView.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", _ColumnView.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", _ColumnView.BranchBy);
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+
+        }
+
+        public DataSet BindDropDownFormLoadColumn(CommanFieldPara CBP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_ViewSetup_Fields", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CBP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CBP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CBP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CBP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CBP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CBP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CBP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CBP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CBP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", "DropDown");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet BindGridColumn(Gridformsetup GP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_ViewSetup_Fields", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", GP.unit);
+                _cmd.Parameters.AddWithValue("@userid", GP.userid);
+                _cmd.Parameters.AddWithValue("@WhereClause", GP.WhereClause);
+                _cmd.Parameters.AddWithValue("@Branch", GP.Branch);
+                _cmd.Parameters.AddWithValue("@PageNo", GP.PageNo);
+                _cmd.Parameters.AddWithValue("@RecordsPerPage", GP.RecordsPerPage);
+                _cmd.Parameters.AddWithValue("@Formcode", GP.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
+                _cmd.Parameters.AddWithValue("@type", GP.type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet Edit_dataColumn(Edit_AdminMaster EA)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_ViewSetup_Fields", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", EA.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", EA.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", EA.unit);
+                _cmd.Parameters.AddWithValue("@Formcode", EA.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", EA.Formtabcode);
+                _cmd.Parameters.AddWithValue("@srno", EA.Xmaster);
+                _cmd.Parameters.AddWithValue("@Type", EA.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+     
     }
 }

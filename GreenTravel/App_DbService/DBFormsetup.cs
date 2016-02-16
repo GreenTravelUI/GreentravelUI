@@ -37,24 +37,6 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", FS.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", FS.Attribute10);
 
-                if (FS.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(FS.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", FS.EditedBy);
-
-                if (FS.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(FS.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", FS.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", FS.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", FS.TerminalBy);
@@ -76,7 +58,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        
+
         public DataSet BindGrid(Gridformsetup GP)
         {
             try
@@ -232,27 +214,6 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", FT.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", FT.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", FT.CreatedBy);
-                //_cmd.Parameters.AddWithValue("@EntryDatetime", FT.EntryDatetime);
-                _cmd.Parameters.AddWithValue("@EditedBy", FT.EditedBy);
-                //_cmd.Parameters.AddWithValue("@EditDatetime", FT.EditDatetime);
-
-                if (FT.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(FT.EntryDatetime, "dd/MM/yyyy", null));
-                }
-
-                if (FT.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(FT.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", FT.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", FT.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", FT.TerminalBy);
@@ -312,7 +273,7 @@ namespace GreenTravel.App_DbService
             }
         }
 
-        public int insertdata_Standardbutton(StandardButton STB)
+        public DataSet insertdata_Standardbutton(StandardButton STB)
         {
             try
             {
@@ -342,7 +303,6 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@ClearClass", STB.ClearClass);
                 _cmd.Parameters.AddWithValue("@ClearVisibility", STB.ClearVisibility);
                 _cmd.Parameters.AddWithValue("@ClearNotification", STB.ClearNotification);
-                // _cmd.Parameters.AddWithValue("@ClearTask", STB.ClearTask);
                 _cmd.Parameters.AddWithValue("@FormQuitName", STB.FormQuitName);
                 _cmd.Parameters.AddWithValue("@FormQuitClass", STB.FormQuitClass);
                 _cmd.Parameters.AddWithValue("@FormQuitVisibility", STB.FormQuitVisibility);
@@ -359,29 +319,16 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", STB.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", STB.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", STB.CreatedBy);
-                if (STB.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(STB.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                if (STB.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(STB.EditDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", STB.EditedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", STB.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", STB.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", STB.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", STB.BranchBy);
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
             }
             catch
             {
@@ -433,7 +380,7 @@ namespace GreenTravel.App_DbService
             }
         }
 
-        public int insertdata_SectionMaster(Section_Master SM)
+        public DataSet insertdata_SectionMaster(Section_Master SM)
         {
             try
             {
@@ -456,29 +403,16 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", SM.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", SM.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", SM.CreatedBy);
-                if (SM.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(SM.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                if (SM.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(SM.EditDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", SM.EditedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", SM.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", SM.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", SM.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", SM.BranchBy);
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
             }
             catch
             {
@@ -492,7 +426,7 @@ namespace GreenTravel.App_DbService
 
         }
 
-        public int insertdata_CustomMaster(Custom_Master CustomM)
+        public DataSet insertdata_CustomMaster(Custom_Master CustomM)
         {
             try
             {
@@ -509,7 +443,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@CustomVisibility", CustomM.CustomVisibility);
                 _cmd.Parameters.AddWithValue("@CustomNotification", CustomM.CustomNotification);
                 _cmd.Parameters.AddWithValue("@CustomTask", CustomM.CustomTask);
-                
+
                 _cmd.Parameters.AddWithValue("@Attribute1", CustomM.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", CustomM.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", CustomM.Attribute3);
@@ -521,29 +455,16 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", CustomM.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", CustomM.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", CustomM.CreatedBy);
-                if (CustomM.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(CustomM.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                if (CustomM.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(CustomM.EditDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", CustomM.EditedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", CustomM.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", CustomM.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", CustomM.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", CustomM.BranchBy);
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
             }
             catch
             {
@@ -627,7 +548,7 @@ namespace GreenTravel.App_DbService
             }
         }
 
-        public int insertdata_Utility(Utility _Utility)
+        public DataSet insertdata_Utility(Utility _Utility)
         {
             try
             {
@@ -650,29 +571,16 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute9", _Utility.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", _Utility.Attribute10);
                 _cmd.Parameters.AddWithValue("@CreatedBy", _Utility.CreatedBy);
-                if (_Utility.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(_Utility.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                if (_Utility.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(_Utility.EditDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", _Utility.EditedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", _Utility.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", _Utility.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", _Utility.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", _Utility.BranchBy);
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
             }
             catch
             {

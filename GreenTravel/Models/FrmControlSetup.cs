@@ -1,11 +1,12 @@
-﻿using System;
+﻿using GreenTravel.Models.Comman;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace GreenTravel.Models
 {
-    public class FrmControlSetup
+    public class FrmControlSetup : CommanPara
     {
         public string Srno { get; set; }
         public string Corporate { get; set; }
@@ -41,14 +42,6 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
 
     }
 

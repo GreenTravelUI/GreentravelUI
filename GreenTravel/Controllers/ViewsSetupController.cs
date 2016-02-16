@@ -48,6 +48,7 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objDBViewSetup.BindDropDownFormLoad(_CBP);
                 List<CommanDropdown> items = new List<CommanDropdown>();
+                List<CommanDropdown> Master = new List<CommanDropdown>();
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -57,7 +58,17 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = items;
-                return Json(new { GTCorporate = result }, JsonRequestBehavior.AllowGet);
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Master.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result1 = Master;
+                return Json(new { GTCorporate = result, GTMaster = result1 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -155,5 +166,115 @@ namespace GreenTravel.Controllers
             }
         }
 
+        //Crate Column  Tab
+        public ActionResult BindDropDownLoadColumn(CommanFieldPara _CBP)
+        {
+            try
+            {
+                DataSet ds = _objDBViewSetup.BindDropDownFormLoadColumn(_CBP);
+                List<CommanDropdown> items = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = items;
+                return Json(new { GTCorporate = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public ActionResult InsertDataColumn(ColumnView _ColumnView)
+        {
+            try
+            {
+                DataSet ds = _objDBViewSetup.insertdataColumn(_ColumnView);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                }
+                return Json(new { srno = ViewBag.srno, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public ActionResult BindGridViewColumn(Gridformsetup GP)
+        {
+            try
+            {
+                DataSet ds = _objDBViewSetup.BindGridColumn(GP);
+                List<ColumnGridDisplay> items = new List<ColumnGridDisplay>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new ColumnGridDisplay
+                        {
+                            RowNumber = dr["RowNumber"].ToString(),
+                            ColumnCaption = dr["ColumnCaption"].ToString(),
+                            ColumnName = dr["ColumnName"].ToString(),
+                            UpdateControl = dr["UpdateControl"].ToString(),
+                            srno = dr["Srno"].ToString(),
+                        });
+                    }
+                }
+                var result = items;
+                var rJson = Json(result, JsonRequestBehavior.AllowGet);
+                rJson.MaxJsonLength = int.MaxValue;
+                return rJson;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public ActionResult Edit_DataColumn(Edit_AdminMaster EA)
+        {
+            try
+            {
+                DataSet ds = _objDBViewSetup.Edit_dataColumn(EA);
+                List<ColumnView> frmColumnView = new List<ColumnView>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        frmColumnView.Add(new ColumnView
+                        {
+                            srno = dr["SrNo"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            ColumnCaption = dr["ColumnCaption"].ToString(),
+                            ColumnName = dr["ColumnName"].ToString(),
+                            FixedOrder = dr["FixedOrder"].ToString(),
+                            Visibility = dr["Visibility"].ToString(),
+                            ColumnUpdate = dr["ColumnUpdate"].ToString(),
+                            UpdateControl = dr["UpdateControl"].ToString(),
+                            UpdateQuery1 = dr["UpdateQuery1"].ToString(),
+                            UpdateQuery2 = dr["UpdateQuery2"].ToString(),
+                            UpdateQuery3 = dr["UpdateQuery3"].ToString(),
+                            UpdateQuery4 = dr["UpdateQuery4"].ToString(),
+                            UpdateQuery5 = dr["UpdateQuery5"].ToString(),
+
+                        });
+                    }
+                }
+                var result = frmColumnView;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
