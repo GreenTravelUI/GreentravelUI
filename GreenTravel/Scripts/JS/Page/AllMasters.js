@@ -4,9 +4,7 @@
     hide_div();
 
     $("#drpSegmenttab3").change(function () {
-        //hide_div();
-        //clearValidations($(this).closest('form'));
-        //FillDropdown('drpMasterTab3', 'ConditionalDropdown')
+       
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
         if ($('#drpMasterTab3 option:first').is(':selected')) {
             hide_div();

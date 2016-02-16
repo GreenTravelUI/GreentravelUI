@@ -6,26 +6,29 @@
 
     // Function ( Bind Drop-Down )
     $('#btnSave').hide();
-
-
+    $('#btnClear').hide();
     $('#btnUpdate').hide();
 
 
     // For Feature-Category Drop-Down Change
     $("#drpFeatureCategory").change(function () {
 
-        var field1 = $('#drpFeatureCategory option:selected').val();;
+        var field1 = $('#drpFeatureCategory option:selected').val();
+
+        $("#partial").html('');
+        $('#btnClear').hide();
+        $('#btnSave').hide();
+        $('#btnUpdate').hide();
 
         if (field1 != '0' || field1 != '--None--') {
             getdata();
             clearValidations($(this).closest('form'));
+            Loaddata();
         }
         else {
-            $('#btnSave').hide();
-            $('#btnUpdate').hide();
+
+
         }
-        // $("#partial").load('/WhitelabelStep2/_DisplayGridData?id=' + field1);
-        Loaddata();
     });
 
 
@@ -143,6 +146,7 @@
         clearValidations($(this).closest('form'));
         $('#btnSave').hide();
         $('#btnUpdate').hide();
+        $('#btnClear').hide();
     });
 
 
@@ -204,23 +208,25 @@ function getdata() {
     $.ajax({
         url: "/WhitelabelStep2/Edit",
         type: "POST",
-        async: true,
+        async: false,
         data: {
             tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type,
         },
         success: function (response) {
             var i;
             $('#txtSrNo').text('0');
-            $('#btnSave').show();
+            $('#btnSave').hide();
             $('#btnUpdate').hide();
             if (response['Dropdown'].length > 0) {
                 $('#txtSrNo').text(response['Dropdown'][0]['srno']);
                 $('#btnSave').hide();
                 $('#btnUpdate').show();
+                $('#btnClear').show();
             }
             if (response['Grid'].length > 0) {
                 $('#btnSave').hide();
                 $('#btnUpdate').show();
+                $('#btnClear').show();
                 //$('#txtSrNo').val() = response['Grid']['WhitelabelStep2']
                 $.each(response['Grid'], function () {
                     var tempgroup = this;
@@ -228,16 +234,13 @@ function getdata() {
                     $.each(chkloop, function () {
                         var tempfeature = this;
                         $('ul.grid div').find('li').each(function () {
+                            console.log($(this).html());
                             $(this).find('table tbody tr').each(function () {
-                                if ($(this).find("input").attr('id') == tempfeature) {
-                                    //alert("hii");
+                                if ($(this).find("input").attr('id') == tempfeature){
                                     $(this).find("input").prop('checked', true);
-                                    //$(this).find("input").checked = true;
                                 }
                             });
-
                         });
-
                     });
                 });
             }
@@ -264,22 +267,23 @@ function Loaddata() {
     var Formtabcode = '';
     var srno = $('#drpFeatureCategory option:selected').val();
     var Type = 'EditMode';
+    $("#partial").html('');
     $.ajax({
         url: "/WhitelabelStep2/FillAll",
         type: "POST",
-        async: true,
+        async: false,
         data: {
             tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type, field1: field1
         },
         success: function (data) {
             var html = '';
             if (data['HeaderList'].length > 0) {
-                $("#partial").html('');
+
                 for (var i = 0; i < data['HeaderList'].length; i++) {
                     if (html == '') {
-                        html = '<li><figure><figcaption class="panel-body tab-itenaries"><div class="myDiv">' +
-                                '<h3 style="margin-top: 0; text-align: center;">' +
-                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label></h3></div>' +
+                        html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
+
+                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
                                 '<h3 style="margin-top: 0; text-align: center;">' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
                                 '<table class="table sampletable" style="margin-bottom: 0;">' +
@@ -301,9 +305,9 @@ function Loaddata() {
                     }
 
                     else {
-                        html += '<li><figure><figcaption class="panel-body tab-itenaries"><div class="myDiv">' +
-                                '<h3 style="margin-top: 0; text-align: center;">' +
-                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label></h3></div>' +
+                        html += '<li><figure><figcaption class="panel-body tab-itenaries">' +
+
+                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
                                 '<h3 style="margin-top: 0; text-align: center;">' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
                                 '<table class="table sampletable" style="margin-bottom: 0;">' +
