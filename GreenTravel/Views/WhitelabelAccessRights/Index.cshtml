@@ -3,6 +3,15 @@
     ViewBag.PageTitle = "User / Access Rights";
     
 }
+<style>
+    .hide_cell {
+        display: none;
+    }
+
+    #errmsg {
+        color: red;
+    }
+</style>
 
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
@@ -10,9 +19,10 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
+                    <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
+                    <li role="presentation" id="userlitab3"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights Role</a></li>
+                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights User</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -31,129 +41,45 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                    <table id="gridUser" class="display" style="width: 100%;">
                                         <thead>
                                             <tr>
-                                                <th style="width: 5%">#</th>
-                                                <th>Corporate</th>
-                                                <th>Unit</th>
-                                                <th>Location</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th style="width: 15%; text-align: center;">Action
+                                                <th>#</th>
+                                                <th style="display: none">srno</th>
+                                                <th>Corporate
+                                                </th>
+                                                <th>Unit
+                                                </th>
+                                                <th>Location
+                                                </th>
+                                                <th>Name
+                                                </th>
+                                                <th>Email
+                                                </th>
+                                                <th>Action
                                                 </th>
                                             </tr>
-                                            <tr>
-                                                <th></th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th style="text-align: center;">
-                                                    <a href="#">
-                                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                            <img src="assets/images/close.png" height="15" width="15" /></a>
-                                                </th>
-                                            </tr>
+
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Corporate</th>
-                                                <th>Unit</th>
-                                                <th>Location</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
+                                                <th style="display: none">srno</th>
+                                                <th>Corporate
+                                                </th>
+                                                <th>Unit
+                                                </th>
+                                                <th>Location
+                                                </th>
+                                                <th>Name
+                                                </th>
+                                                <th>Email
+                                                </th>
                                                 <th>Action
                                                 </th>
                                             </tr>
                                         </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Corporate 1</td>
-                                                <td>Unit 1</td>
-                                                <td>Location 1</td>
-                                                <td>User1</td>
-                                                <td>user1@gmail.com</td>
-                                                <td class="action-buttons">
-                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                    <a href="#" title="Access Right"><i class="fa fa-key"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Corporate 2</td>
-                                                <td>Unit 2</td>
-                                                <td>Location 2</td>
-                                                <td><span>User2</span>
-                                                </td>
-                                                <td><span>user2@gmail.com</span>
-                                                </td>
-                                                <td class="action-buttons">
-                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                    <a href="#" title="Access Right"><i class="fa fa-key"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Corporate 3</td>
-                                                <td>Unit 3</td>
-                                                <td>Location 3</td>
-                                                <td>User3
-                                                </td>
-                                                <td>user3@gmail.com
-                                                </td>
-                                                <td class="action-buttons">
-                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                    <a href="#" title="Access Right"><i class="fa fa-key"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Corporate 4</td>
-                                                <td>Unit 4</td>
-                                                <td>Location 4</td>
-                                                <td>User4
-                                                </td>
-                                                <td>user4@gmail.com
-                                                </td>
-                                                <td class="action-buttons">
-                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                    <a href="#" title="Access Right"><i class="fa fa-key"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Corporate 5</td>
-                                                <td>Unit 5</td>
-                                                <td>Location 5</td>
-                                                <td>User5
-                                                </td>
-                                                <td>user5@gmail.com
-                                                </td>
-                                                <td class="action-buttons">
-                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                    <a href="#" title="Access Right"><i class="fa fa-key"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+
                                     </table>
                                 </div>
                             </form>
@@ -166,15 +92,15 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label>Corporate <span>*</span></label>
-                                            <select id="drpCorporate" class="js-states col-sm-2 formcorporate req" style="display: none; width: 100%"></select>
+                                            <select id="drpCorporate" class="js-states col-sm-2 form-control Dropdown formcorporate req" style="display: none; width: 100%"></select>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Unit <span>*</span></label>
-                                            <select id="DrpUnitTab2" class="js-states col-sm-2 req" style="display: none; width: 100%"></select>
+                                            <select id="DrpUnitTab2" class="js-states col-sm-2  form-control Dropdown req" style="display: none; width: 100%"></select>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Location <span>*</span></label>
-                                            <select id="DrpLocationTab2" class="js-states col-sm-2 req" style="display: none; width: 100%"></select>
+                                            <select id="DrpLocationTab2" class="js-states col-sm-2 form-control Dropdown req" style="display: none; width: 100%"></select>
                                         </div>
                                     </div>
                                 </div>
@@ -212,9 +138,9 @@
                                     SAVE</button>
                                 <button id="btnUpdateUser" type="submit" class="btn btn-primary btnSaveuserclass" style="display: none">
                                     UPDATE</button>
-                                <button id="btnCancelUser" type="submit" class="btn btn-green" style="display: none">
+                                <button id="btnCancelUser" type="button" class="btn btn-green" style="display: none">
                                     DELETE</button>
-                                <button id="btnClearUser" type="button" class="btn btn-warning btnclearuser">
+                                <button id="btnclearuser" type="button" class="btn btn-warning btnclearuser">
                                     CLEAR</button>
                                 <button id="btnQuitUser" type="button" class="btn btn-info quituserbtn">
                                     QUIT FORM</button>
@@ -337,129 +263,95 @@
                                                 <label>Role</label>
                                                 <select id="drpRole" class="js-states col-sm-2" style="display: none; width: 100%"></select>
                                             </div>
-                                            <div class="form-group col-md-2">
-                                                <label>User</label>
-                                                <select id="drpUser" class="js-states col-sm-2" style="display: none; width: 100%"></select>
-                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        <div class="col-md-12">
+                            <form>
+                                <div class="table-responsive">
+                                    <div class="dropdown table-custome-drop">
+                                        <div class="btn-group">
+                                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-download-alt"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Excel</a></li>
+                                                <li><a href="#">PDF</a></li>
+                                                <li><a href="#">Email</a></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    @*<table id="" class="display table dataTable" role="grid" style="">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Module</th>
-                                                <th>Screen</th>
-                                                <th>View
-                                                <input type="checkbox" /></th>
-                                                <th>Add
-                                                <input type="checkbox" /></th>
-                                                <th>Update
-                                                <input type="checkbox" /></th>
-                                                <th>Delete
-                                                <input type="checkbox" /></th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Module</th>
-                                                <th>Screen</th>
-                                                <th>View
-                                                <input type="checkbox" /></th>
-                                                <th>Add
-                                                <input type="checkbox" /></th>
-                                                <th>Update
-                                                <input type="checkbox" /></th>
-                                                <th>Delete
-                                                <input type="checkbox" /></th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <th></th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th>
-                                                    <input type="text" />
-                                                </th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th>
-                                                    <a href="#">
-                                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                            <img src="assets/images/close.png" height="15" width="15" /></a>
-                                                </th>
-                                            </tr>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <label>Corporate</label>
+                                                <select id="drpRightsCorporate" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label>Unit</label>
+                                                <select id="drpRightsUnit" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label>Location</label>
+                                                <select id="drpRightsLocation" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label>Role</label>
+                                                <select id="drpRightsRole" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label>User</label>
+                                                <select id="drpRightsUser" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                            </div>
+                                        </div>
 
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Masters</td>
-                                                <td>Country</td>
-                                                <td>
-                                                    <input type="checkbox" class="chkView" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkAdd" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkUpdate" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkDelete" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Masters</td>
-                                                <td>State</td>
-                                                <td>
-                                                    <input type="checkbox" class="chkView" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkAdd" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkUpdate" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkDelete" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Masters</td>
-                                                <td>City</td>
-                                                <td>
-                                                    <input type="checkbox" class="chkView" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkAdd" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkUpdate" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkDelete" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Masters</td>
-                                                <td>State</td>
-                                                <td>
-                                                    <input type="checkbox" class="chkView" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkAdd" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkUpdate" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkDelete" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Masters</td>
-                                                <td>City</td>
-                                                <td>
-                                                    <input type="checkbox" class="chkView" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkAdd" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkUpdate" /></td>
-                                                <td>
-                                                    <input type="checkbox" class="chkDelete" /></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>*@
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Status</label>
+                                                    <select id="drpRightsStatus" class="js-states col-sm-2" style="display: none; width: 100%"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Date1" id="LbDate1">Effective Date </label>
+                                                    &nbsp
+                                                    <input type="text" id="Date1" class="form-control date-picker">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    </br>
+                                                    
+                                                    <input type="checkbox" />Is Default?
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -480,7 +372,8 @@
     </div>
 </div>
 
-@section Scripts{
+@section Scripts
+    {
     <script src="~/Scripts/JS/CommonValidations.js"></script>
     <script src="~/Scripts/JS/Page/WhitelabelAccessRights.js"></script>
 }

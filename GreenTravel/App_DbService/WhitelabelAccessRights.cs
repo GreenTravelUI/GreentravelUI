@@ -123,25 +123,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", UM.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", UM.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", UM.Attribute10);
-                if (UM.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(UM.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", UM.EditedBy);
                 _cmd.Parameters.AddWithValue("@CreatedBy", UM.CreatedBy);
-
-                if (UM.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(UM.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", UM.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", UM.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", UM.TerminalBy);
@@ -240,7 +222,7 @@ namespace GreenTravel.App_DbService
             try
             {
                 _cn.Open();
-                SqlCommand _cmd = new SqlCommand("Sp_Grid_User_Details_Master", _cn);
+                SqlCommand _cmd = new SqlCommand("Sp_Grid_User__Details_Master", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 _cmd.Parameters.AddWithValue("@tablename", GP.tablename);
                 _cmd.Parameters.AddWithValue("@Corporate", GP.Corporate);
@@ -254,6 +236,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
                 _cmd.Parameters.AddWithValue("@type", GP.type);
                 _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
+                _cmd.Parameters.AddWithValue("@Field1", GP.Field1);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();
@@ -307,6 +290,93 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
+
+        /// <summary>
+        ///  Tab-4 Access right base & form - Load
+        /// </summary>
+        /// <param name="CFP"></param>
+        /// <returns></returns>
+        public DataSet BindDropdown_FormLoadAccessRights(CommanFieldPara CFP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CFP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CFP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CFP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CFP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CFP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CFP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CFP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CFP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CFP.Type);
+                _cmd.Parameters.AddWithValue("@Srno", CFP.Srno);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+        public DataSet BindDropdown_BaseAccessRights(CommanFieldConditionalPara CFCP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", CFCP.Module);
+                _cmd.Parameters.AddWithValue("@screen", CFCP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", CFCP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", CFCP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", CFCP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", CFCP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", CFCP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", CFCP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", CFCP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", CFCP.Type);
+                _cmd.Parameters.AddWithValue("@field1", CFCP.field1);
+                _cmd.Parameters.AddWithValue("@field2", CFCP.field2);
+                _cmd.Parameters.AddWithValue("@field3", CFCP.field3);
+                _cmd.Parameters.AddWithValue("@field4", CFCP.field4);
+                _cmd.Parameters.AddWithValue("@field5", CFCP.field5);
+                _cmd.Parameters.AddWithValue("@Control", CFCP.Control);
+                _cmd.Parameters.AddWithValue("@Srno", CFCP.Srno);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+
 
 
     }

@@ -53,6 +53,7 @@ function controlInputValidations(control) {
     control.removeClass('red-input');
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
+        
         if (control.val().trim().length == 0) {
             var attr = $(this).attr('data-reqmsg');
             var msg = 'This field is required.';
@@ -61,10 +62,12 @@ function controlInputValidations(control) {
                     msg = attr;
                 }
             }
+            
+            fillSummeryBox(control);
+
             control.after('<p class="red-error">' + msg + '</p>');
             control.addClass('red-input');
 
-            fillSummeryBox(control);
             return false;
         }
     }
@@ -171,11 +174,13 @@ function controlInputValidations(control) {
     fillSummeryBox(control)
     return true;
 }
+
 function controlSelectValidations(control) {
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
+    //console.log('req::' + control.hasClass('req'));
     if (control.hasClass('req')) {
-        console.log(control.attr('id') + ' :: ' + control.find('option:selected').val() + ' || ' + control.find('option').length);
+        //console.log(control.attr('id') + ' :: ' + control.find('option:selected').val() + ' || ' + control.find('option').length);
         if (control.find('option:selected').val() == '0' || control.find('option').length == 0) {
             var attr = control.attr('data-reqmsg');
             var msg = 'This field is required.';
@@ -191,23 +196,9 @@ function controlSelectValidations(control) {
     }
     return true;
 }
-//function controlSelectValidations(control) {
-//    var flag = true;
-//    control.next().removeClass('red-input');
-//    control.parent().find('p.red-error').remove();
-//    if (control.hasClass('req')) {
-//        if (control.find('option:selected').val() == '0' || control.find('option').length == 0) {
-//            control.next().after('<p class="red-error">This field is required.</p>');
-//            control.next().addClass('red-input');
-//            flag = false;
-//        }
-
-//    }
-//    return flag;
-//}
 
 function controlMultiSelectValidations(control) {
-    console.log(control.attr('id'));
+    //console.log(control.attr('id'));
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
@@ -260,10 +251,12 @@ function formInputValidations(frm) {
         if ($(this).parent().is(':visible')) {
             if (!controlInputValidations($(this))) {
                 console.log('txt: #' + $(this).attr('id'));
+                console.log($(this).parent().html());
                 inputFlag = false;
             }
         }
     });
+    console.log($('#txtMasterName').parent().html());
     return inputFlag;
 }
 
@@ -287,13 +280,13 @@ function formSelectValidations(frm) {
             var attr = $(this).attr('multiple');
             if (typeof attr !== typeof undefined && attr !== false) {
                 if (!controlMultiSelectValidations($(this))) {
-                    console.log('controlMultiSelectValidations:-> #' + $(this).attr('id'));
+                    //console.log('controlMultiSelectValidations:-> #' + $(this).attr('id'));
                     selectFlag = false;
                     $(this).focus();
                 }
             } else {
                 if (!controlSelectValidations($(this))) {
-                    console.log('controlSelectValidations: #' + $(this).attr('id'));
+                    //console.log('controlSelectValidations: #' + $(this).attr('id'));
                     selectFlag = false;
                     $(this).focus();
                 }
@@ -307,15 +300,15 @@ function formSelectValidations(frm) {
 function validateForm(frm) {
     var flag = true;
     if (!formInputValidations(frm)) {
-        console.log('formInputValidations');
+        //console.log('formInputValidations');
         flag = false;
     }
     if (!formTextareaValidations(frm)) {
-        console.log('formTextareaValidations');
+        //console.log('formTextareaValidations');
         flag = false;
     }
     if (!formSelectValidations(frm)) {
-        console.log('formSelectValidations');
+        //console.log('formSelectValidations');
         flag = false;
     }
     return flag;
@@ -336,4 +329,3 @@ function clearValidations(frm) {
         $(this).parent().find('p.red-error').remove();
     });
 }
-

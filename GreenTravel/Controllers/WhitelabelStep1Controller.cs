@@ -25,12 +25,21 @@ namespace GreenTravel.Controllers
             try
             {
                 DataSet ds = _objwl.insert_data(WR);
+
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
-                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                if (ds.Tables.Count < 2)
+                {
+                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Already Exist!" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                }
 
+                
             }
             catch (Exception)
             {
@@ -364,7 +373,7 @@ namespace GreenTravel.Controllers
                             Currency = dr["Currency"].ToString(),
                             SupportMode = dr["SupportMode"].ToString(),
                             FreeSupportPeriod = dr["FreeSupportPeriod"].ToString(),
-                            SupportCostPM = dr["SupportCostPM "].ToString(),
+                            SupportCostPM = dr["SupportCostPM"].ToString(),
 
 
                         });

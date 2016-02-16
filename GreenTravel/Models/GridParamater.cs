@@ -21,5 +21,11 @@ namespace GreenTravel.Models
         public string type { get; set; }
         public string Segment { get; set; }
         public string Role { get; set; }
+        public string Field1 { get; set; }
+        public string Field2 { get; set; }
+        public string Field3 { get; set; }
+        public string Field4 { get; set; }
+        public string Field5 { get; set; }
+       
     }
 }
