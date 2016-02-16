@@ -44,4 +44,42 @@ namespace GreenTravel.Models
         public string RowNumber { get; set; }
         public string srno { get; set; }
     }
+
+    public class ColumnView : CommanPara
+    {
+        public string srno { get; set; }
+        public string ViewCode { get; set; }
+        public string Corporate { get; set; }
+        public string ColumnCaption { get; set; }
+        public string ColumnName { get; set; }
+        public string FixedOrder { get; set; }
+        public string Visibility { get; set; }
+        public string ColumnUpdate { get; set; }
+        public string UpdateControl { get; set; }
+        public string UpdateQuery1 { get; set; }
+        public string UpdateQuery2 { get; set; }
+        public string UpdateQuery3 { get; set; }
+        public string UpdateQuery4 { get; set; }
+        public string UpdateQuery5 { get; set; }
+        public string Attribute1 { get; set; }
+        public string Attribute2 { get; set; }
+        public string Attribute3 { get; set; }
+        public string Attribute4 { get; set; }
+        public string Attribute5 { get; set; }
+        public string Attribute6 { get; set; }
+        public string Attribute7 { get; set; }
+        public string Attribute8 { get; set; }
+        public string Attribute9 { get; set; }
+        public string Attribute10 { get; set; }
+    }
+
+    public class ColumnGridDisplay
+    {
+        public string RowNumber { get; set; }
+        public string srno { get; set; }
+        public string ColumnCaption { get; set; }
+        public string ColumnName { get; set; }
+        public string UpdateControl { get; set; }
+    }
+
 }

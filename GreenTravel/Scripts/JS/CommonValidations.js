@@ -174,7 +174,6 @@ function controlInputValidations(control) {
 function controlSelectValidations(control) {
     control.next().removeClass('red-input');
     control.parent().find('p.red-error').remove();
-    console.log('req::' + control.hasClass('req'));
     if (control.hasClass('req')) {
         console.log(control.attr('id') + ' :: ' + control.find('option:selected').val() + ' || ' + control.find('option').length);
         if (control.find('option:selected').val() == '0' || control.find('option').length == 0) {
