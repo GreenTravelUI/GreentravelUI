@@ -550,7 +550,7 @@ $(document).ready(function () {
                     control.val(focusedCaption);
                     swal(
                       'Cancelled',
-                      'Your control is safe :)',
+                      'Your control is safe.',
                       'error'
                     );
                 }
@@ -934,6 +934,7 @@ function EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Ty
         if (hideControls) {
             HideControls();
         }
+        $(".Dropdown").find('option[value="' + Xmaster + '"]').remove();
         $("#SearchMaster").removeClass("active");
         $("#CreateMaster").addClass("active");
         $("#tab1").removeClass("active");

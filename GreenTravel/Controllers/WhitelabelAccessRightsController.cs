@@ -74,12 +74,90 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                DataSet ds = _objWhitelabelAccessRights.insert_data(UM);
+                DataSet result = _objWhitelabelAccessRights.insert_data(UM);
+                if (result != null)
+                {
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
+                    ViewBag.Srno = result.Tables[0].Rows[0]["SrNo"].ToString();
+                }
+                var result1 = ViewBag.Message;
+                var Srno = ViewBag.Srno;
+                return Json(new { success = result1, Event = ViewBag.Event, Srno = Srno }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public ActionResult BindGrid(GridParamater GP)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.BindGrid(GP);
+                List<UserMaster> items = new List<UserMaster>();
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new UserMaster
+                        {
+                            RowNumber = @dr["RowNumber"].ToString(),
+                            srno = @dr["srno"].ToString(),
+                            Email = @dr["Email"].ToString(),
+                            Name = @dr["Name"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                            Unit = @dr["Unit"].ToString(),
+                            Location = @dr["Location"].ToString(),
+                        });
+                    }
                 }
-                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public ActionResult Edit_Data(UserMaster UM)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.Edit_data(UM);
+                List<UserMaster> UserMaster = new List<UserMaster>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        UserMaster.Add(new UserMaster
+                        {
+                            srno = @dr["srno"].ToString(),
+                            FirstName = @dr["FirstName"].ToString(),
+                            LastName = @dr["LastName"].ToString(),
+                            Email = @dr["Email"].ToString(),
+                            Password = @dr["Password"].ToString(),
+                            Corporate = @dr["Corporate"].ToString(),
+                            Unit = @dr["Unit"].ToString(),
+                            Branch = @dr["Branch"].ToString(),
+                            Location = @dr["Location"].ToString(),
+                            BranchBy = @dr["BranchBy"].ToString(),
+                            CreatedBy = @dr["CreatedBy"].ToString(),
+                            UnitCorpBy = @dr["UnitCorpBy"].ToString(),
+
+                        });
+                    }
+                }
+                var result = UserMaster;
+
+                return Json(new { UserMasterresjs = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -88,5 +166,65 @@ namespace GreenTravel.Controllers
             }
         }
 
+
+        /// ~~~~~~~~~~~~~ tab-4 ~~~~~~~~~~~~~~~~~~~
+        public ActionResult BindDropdown_FormLoadAccessRights(CommanFieldPara CFP)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.BindDropdown_FormLoadAccessRights(CFP);
+
+                List<CommanDropdown> Corporate = new List<CommanDropdown>();
+                List<CommanDropdown> Status = new List<CommanDropdown>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Corporate.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.Status = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.Status.Rows)
+                    {
+                        Status.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+
+                var Corporatedrp = Corporate; var Status_Drp = Status;
+                return Json(new { Corp = Corporatedrp, Status = Status_Drp }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult BindDropdown_BaseAccessRights(CommanFieldConditionalPara CFP)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.BindDropdown_BaseAccessRights(CFP);
+                List<CommanDropdown> List = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        List.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+                var data = List;
+                return Json(new { data = List }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

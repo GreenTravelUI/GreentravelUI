@@ -370,8 +370,18 @@ $(document).ready(function () {
 
     $("table").delegate(".editor_feature", "click", function () {
         var Corporate = $(this).parent().parent().children(':eq(1)').text();
-        window.location.href = '/WhitelabelStep2/Index/?id=' + Corporate;
-
+        var srno = '';
+        $.ajax({
+            type: "POST",
+            url: "/WhitelabelStep1/Encry",
+            data: {
+                srno: srno, Corporate: Corporate
+            },
+            dataType: 'json',
+            success: function (response) {
+                window.location.href = '/WhitelabelStep2/Index/?id=' + response;
+            }
+        });
     });
 
     $("table").delegate(".editor_accessright", "click", function () {
