@@ -750,11 +750,10 @@ $(document).ready(function () {
                          // $("#drpSupportMode").val(dataarray);
                          console.log(dataarray.length);
 
-                         for (var i in dataarray) {
-                             var optionVal = dataarray[i];
-                             console.log(optionVal);
-                             setSelect2Value($('#drpSupportMode'), optionVal);
-                         }
+                         var values = dataarray;
+                         $.each(values.split(","), function (i, e) {
+                             $("#drpSupportMode option[value='" + e + "']").prop("selected", true);
+                         });
 
                          $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
                          $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
