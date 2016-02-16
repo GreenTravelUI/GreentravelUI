@@ -399,7 +399,7 @@
     }
 
     function BindAccessgrid() {
-        alert("h");
+       
         var tablename = 'dbo._UserRoleMaster';
         var Corporate = '2';
         var Segment = '';

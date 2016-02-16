@@ -58,26 +58,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", WR.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", WR.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", WR.Attribute10);
-
-                if (WR.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(WR.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", WR.EditedBy);
                 _cmd.Parameters.AddWithValue("@CretedBy", WR.CretedBy);
-
-                if (WR.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(WR.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", WR.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", WR.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", WR.TerminalBy);
