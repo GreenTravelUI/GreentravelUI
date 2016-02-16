@@ -65,7 +65,6 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (responsedata) {
-                // console.log(responsedata);
                 if (responsedata['Event'] == 'error') {
                     a = 1;
                     clearValidations($(this).parent());
@@ -377,7 +376,20 @@ $(document).ready(function () {
                     });
                 }
             }
-        }); //Ajax call End 
+        }).done(function () {
+            $('#btnsUpdate').show();
+            $('#btnDelete').hide();
+            $('#btnSaveMastersetup').hide();
+            
+            var tablename = 'dbo.ADMINMASTER';
+            var Corporate = '2';
+            var unit = '0';
+            var Formcode = '0';
+            var Formtabcode = '0';
+            var Xmaster = $('#txtMasterCode').val();
+            var Type = 'EditMode';
+            EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
+        }); //Ajax call End
     });
 
     $('#btnQuitform').click(function (e) {
@@ -477,7 +489,6 @@ $(document).ready(function () {
     });
 
     $('#modeldelete').click(function (e) {
-        //console.log(deletesrno);
         var Module = 0;
         var screen = 0;
         var FormCode = 0;
@@ -555,7 +566,6 @@ $(document).ready(function () {
                     );
                 }
             });
-
         }
     });
 });
@@ -890,7 +900,6 @@ function EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Ty
 
             //tooltip
             if (response['Atooltip'].length > 0) {
-                //console.log(response['AMaster'][0]['xmaster']);
                 $('#txtHelp1').val(response['Atooltip'][0]['Field3']);
                 $('#txtHelp2').val(response['Atooltip'][0]['Field4']);
                 $('#txtHelp3').val(response['Atooltip'][0]['Field5']);
@@ -946,9 +955,7 @@ function HideControls() {
     $('.control-caption').each(function () {
         if ($(this).val().trim() == '') {
             $(this).parent().parent().parent().hide();
-        } else {
-            console.log($(this).attr('id') + ' --- ' + $(this).val());
-        }
+        } 
     });
     RedefineSrNo();
 }
