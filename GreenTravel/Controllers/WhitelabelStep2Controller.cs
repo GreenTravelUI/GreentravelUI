@@ -14,7 +14,7 @@ namespace GreenTravel.Controllers
     public class WhitelabelStep2Controller : Controller
     {
         DbWhitelabelStep2 _objw2 = new DbWhitelabelStep2();
-      
+
         //
         // GET: /WhitelabelStep2/
 

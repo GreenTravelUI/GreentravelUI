@@ -1,11 +1,12 @@
-﻿using System;
+﻿using GreenTravel.Models.Comman;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace GreenTravel.Models
 {
-    public class Formsetup
+    public class Formsetup : CommanPara
     {
         public int id { get; set; }
         public string SrNo { get; set; }
@@ -27,14 +28,14 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchId { get; set; }
+        //public string CreatedBy { get; set; }
+        //public string EntryDatetime { get; set; }
+        //public string EditedBy { get; set; }
+        //public string EditDatetime { get; set; }
+        //public string CorpcentreBy { get; set; }
+        //public string UnitCorpBy { get; set; }
+        //public string TerminalBy { get; set; }
+        //public string BranchId { get; set; }
 
     }
 
@@ -49,7 +50,7 @@ namespace GreenTravel.Models
 
     }
 
-    public class FormTab
+    public class FormTab : CommanPara
     {
         public string SrNo { get; set; }
         public string Corporate { get; set; }
@@ -81,14 +82,7 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+       
     }
 
     public class GridFormTabparamater
@@ -105,7 +99,7 @@ namespace GreenTravel.Models
 
     }
 
-    public class StandardButton
+    public class StandardButton : CommanPara
     {
         public string srno { get; set; }
         public string CorporateId { get; set; }
@@ -146,18 +140,11 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+       
 
     }
 
-    public class Utility
+    public class Utility : CommanPara
     {
         public string srno { get; set; }
         public string CorporateId { get; set; }
@@ -174,17 +161,18 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+        //public string CreatedBy { get; set; }
+        //public string EntryDatetime { get; set; }
+        //public string EditedBy { get; set; }
+        //public string EditDatetime { get; set; }
+        //public string CorpcentreBy { get; set; }
+        //public string UnitCorpBy { get; set; }
+        //public string TerminalBy { get; set; }
+        //public string BranchBy { get; set; }
+        public string Rownumber { get; set; }
     }
 
-    public class Section_Master
+    public class Section_Master : CommanPara
     {
         public string srno { get; set; }
         public string CorporateId { get; set; }
@@ -201,18 +189,18 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+        //public string CreatedBy { get; set; }
+        //public string EntryDatetime { get; set; }
+        //public string EditedBy { get; set; }
+        //public string EditDatetime { get; set; }
+        //public string CorpcentreBy { get; set; }
+        //public string UnitCorpBy { get; set; }
+        //public string TerminalBy { get; set; }
+        //public string BranchBy { get; set; }
         public string rownumber { get; set; }
     }
 
-    public class Custom_Master
+    public class Custom_Master : CommanPara
     {
         public string srno { get; set; }
         public string Corporate { get; set; }
@@ -233,14 +221,14 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
-        public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
-        public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+        //public string CreatedBy { get; set; }
+        //public string EntryDatetime { get; set; }
+        //public string EditedBy { get; set; }
+        //public string EditDatetime { get; set; }
+        //public string CorpcentreBy { get; set; }
+        //public string UnitCorpBy { get; set; }
+        //public string TerminalBy { get; set; }
+        //public string BranchBy { get; set; }
         public string Rownumber { get; set; }
     }
 
