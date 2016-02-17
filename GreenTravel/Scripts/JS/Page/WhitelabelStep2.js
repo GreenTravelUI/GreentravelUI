@@ -280,7 +280,9 @@ function Loaddata() {
         success: function (data) {
             var html = '';
             if (data['HeaderList'].length > 0) {
-
+                $('#btnSave').show();
+                $('#btnUpdate').hide();
+                $('#btnClear').show();
                 for (var i = 0; i < data['HeaderList'].length; i++) {
                     if (html == '') {
                         html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
