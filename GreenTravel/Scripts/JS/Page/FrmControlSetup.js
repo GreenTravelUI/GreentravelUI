@@ -78,9 +78,9 @@ $(document).ready(function () {
              dataType: 'json',
              success: function (response) {
                  if (response != null && response.success) {
-                     // $('#btnUpdateControl').show();
-                     //$('#btnSaveControl').hide();
-                     swal('Good job!', 'Record Save Sucessfully!', 'success');
+                     Message = response.responseText;
+                     swal('Good job!', Message, 'success');
+                    // swal('Good job!', 'Record Save Sucessfully!', 'success');
                  }
              }
          }).done(function () {

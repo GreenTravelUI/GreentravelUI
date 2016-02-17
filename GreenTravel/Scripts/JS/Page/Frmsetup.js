@@ -345,6 +345,7 @@ $(document).ready(function () {
     });
     //editdata in  button ,custom button  ,utility
     $("table").delegate(".SectiontabButtonclass", "click", function () {
+        getUtility();
         Frmcode = 0;
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
@@ -472,19 +473,38 @@ $(document).ready(function () {
                  $("#btnCustomUpdate").hide();
                  if (response['ACustomMaster'].length > 0) {
                      html = '';
+
                      customID = response['ACustomMaster'].length + 1;
                      $("#btncustomsave").hide();
                      $("#btnCustomUpdate").show();
                      for (var i = 0; i < response['ACustomMaster'].length; i++) {
+                         var Customvisi = '';
+                         var CustomNoti = '';
+                         var CustomT = '';
+                         if (response['ACustomMaster'][i]['CustomVisibility'].toLowerCase() == 'true') {
+                             Customvisi = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                         } else {
+                             Customvisi = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
+                         }
 
+                         if (response['ACustomMaster'][i]['CustomNotification'].toLowerCase() == 'true') {
+                             CustomNoti = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                         } else {
+                             CustomNoti = '<div class="checker"> <span><input type="Checkbox" class="form-control"  /></span></div>';
+                         }
+                         if (response['ACustomMaster'][i]['CustomTask'].toLowerCase() == 'true') {
+                             CustomT = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                         } else {
+                             CustomT = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
+                         }
                          if (html == '') {
                              html = '<tr>' +
                                     '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
                                     '<td> <input type="text" class="form-control" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></td>' +
                                     '<td> <input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></td>' +
-                                    '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
-                                    '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
-                                    '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
+                                    '<td>' + Customvisi + '</td>' +
+                                    '<td>' + CustomNoti + '</td>' +
+                                    '<td>' + CustomT + '</td>' +
                                     '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
                                     '</tr>'
                          }
@@ -493,9 +513,9 @@ $(document).ready(function () {
                                     '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
                                     '<td> <input type="text" class="form-control" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></td>' +
                                     '<td> <input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></td>' +
-                                    '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
-                                    '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
-                                    '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
+                                    '<td>' + Customvisi + '</td>' +
+                                    '<td>' + CustomNoti + '</td>' +
+                                    '<td>' + CustomT + '</td>' +
                                     '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
                                     '</tr>'
                          }
@@ -516,9 +536,33 @@ $(document).ready(function () {
                      $(html).appendTo($("#tblModalIconCustom"))
                      customID++;
                  }
+                 //utility Edit Mode
+                 $("#UtilityFrom").find('.checker').each(function () {
+                     $(this).children().removeClass('checked');
+                     $(this).children().children().removeAttr('checked');
+                 });
+                 if (response['AUtility'].length > 0) {
+                     $('#btnutilityupdate').show();
+                     $('#btnutilitySave').hide();
+                     var data = response['AUtility'][0]['Utilities'];
+                     var arr = data.split(',');
+                     $.each(arr, function (i) {
+                         $("#UtilityFrom").find('.checker').each(function () {
+                             if (arr[i] == $(this).children().children().attr('id')) {
+                                 $(this).children().addClass('checked');
+                                 $(this).children().children().attr('checked', true);
+                                 return;
+                             }
+                         });
+                     });
+                 }
+                 else {
+                     $('#btnutilityupdate').hide();
+                     $('#btnutilitySave').show();
+                 }
              }
          });
-        getUtility();
+       
     });
     //Section In Editmode  
     $("table").delegate(".TabSection", "click", function () {
@@ -674,7 +718,7 @@ $(document).ready(function () {
         var flagsection = 0;
         var CorporateId = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
-        var FormCode = Frmcode;
+        var FormCode = $('#txtSrNo1').val();
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -729,26 +773,24 @@ $(document).ready(function () {
         var srno
         var Corporate = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
-        var FormCode = Frmcode;
-        var CreatedBy = 0;
-        var EntryDatetime = '';
-        var EditedBy = 0;
-        var EditDatetime = '';
-        var CorpcentreBy = 0;
-        var UnitCorpBy = 0;
-        var TerminalBy = 0;
-        var BranchBy = 0;
+        var FormCode = $('#txtSrNo1').val();
         $("#tblModalIconCustom tbody tr").each(function () {
             var CustomName = '';
             var CustomClass = '';
-            var CustomVisibility = '';
-            var CustomNotification = '';
-            var CustomTask = '';
+            var CustomVisibility = false;
+            var CustomNotification = false;
+            var CustomTask = false;
             CustomName = $(this).children(':eq(1)').find('input').val();
             CustomClass = $(this).children(':eq(2)').find('input').val();
-            CustomVisibility = false;
-            CustomNotification = false;
-            CustomTask = false;
+            if ($(this).children(':eq(3)').find('input').parent().hasClass('checked')) {
+                CustomVisibility = true;
+            }
+            if ($(this).children(':eq(4)').find('input').parent().hasClass('checked')) {
+                CustomNotification = true;
+            }
+            if ($(this).children(':eq(5)').find('input').parent().hasClass('checked')) {
+                CustomTask = true;
+            }
             var srno;
             if ($(this).children(':eq(6)').find('input').val().trim() != '') {
                 srno = $(this).children(':eq(6)').find('input').val();
@@ -763,9 +805,7 @@ $(document).ready(function () {
                    async: false,
                    data: {
                        "srno": srno, "Corporate": Corporate, "TabCode": TabCode, "FormCode": FormCode, "CustomName": CustomName,
-                       "CustomClass": CustomClass, "CustomVisibility": CustomVisibility, "CustomNotification": CustomNotification, "CustomTask": CustomTask,
-                       "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
-                       "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+                       "CustomClass": CustomClass, "CustomVisibility": CustomVisibility, "CustomNotification": CustomNotification, "CustomTask": CustomTask
                    },
                    dataType: 'json',
                    success: function (response) {
@@ -785,19 +825,22 @@ $(document).ready(function () {
         e.preventDefault();
         var Corporate = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
-        var FormCode = Frmcode;
-        var CreatedBy = 0;
-        var EntryDatetime = '';
-        var EditedBy = 0;
-        var EditDatetime = '';
-        var CorpcentreBy = 0;
-        var UnitCorpBy = 0;
-        var TerminalBy = 0;
-        var BranchBy = 0;
+        var FormCode = $('#txtSrNo1').val();
         var Utilities = '';
+        $("#UtilityFrom").find('.checker').each(function () {
+            if ($(this).children().hasClass('checked')) {
+                if (Utilities == '') {
+                    Utilities = $(this).children().children().attr('id');
+                }
+                else {
+                    Utilities += ',' + $(this).children().children().attr('id');
+                }
+            }
+        });
+        //  alert(Utilities);
         var srno;
-        if ($(this).children(':eq(6)').find('input').val().trim() != '') {
-            srno = $(this).children(':eq(6)').find('input').val();
+        if ($('#txtutilitysrno').val() != '') {
+            srno = $('#txtutilitysrno').val();
         }
         else {
             srno = 0;
@@ -808,14 +851,16 @@ $(document).ready(function () {
                url: "/FormSetup/InsertData_Utility",
                async: false,
                data: {
-                   "srno": srno, "Corporate": Corporate, "TabCode": TabCode, "FormCode": FormCode,
-                   "Utilities": Utilities, "CreatedBy": CreatedBy, "EntryDatetime": EntryDatetime, "EditedBy": EditedBy, "EditDatetime": EditDatetime, "CorpcentreBy": CorpcentreBy,
-                   "UnitCorpBy": UnitCorpBy, "TerminalBy": TerminalBy, "BranchBy": BranchBy
+                   "srno": srno, "CorporateId": Corporate, "TabCode": TabCode, "FormCode": FormCode,
+                   "Utilities": Utilities
                },
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       swal('Good job!', 'Record Save Sucessfully', 'success')
+                       Message = response.responseText;
+                       $('#btnutilityupdate').show();
+                       $('#btnutilitySave').hide();
+                       swal('Good job!', Message, 'success');
                    }
                }
            });
@@ -864,6 +909,26 @@ $(document).ready(function () {
         clearFormTAB();
     });
 
+    $("table").delegate(".checker", "click", function () {
+        if ($(this).children().hasClass('checked')) {
+            $(this).children().removeClass('checked');
+            $(this).children().children().removeAttr('checked');
+        } else {
+            $(this).children().addClass('checked');
+            $(this).children().children().attr('checked', true);
+        }
+    });
+
+    $("#UtilityFrom").delegate(".checker", "click", function () {
+        if ($(this).children().hasClass('checked')) {
+            $(this).children().removeClass('checked');
+            $(this).children().children().removeAttr('checked');
+        } else {
+            $(this).children().addClass('checked');
+            $(this).children().children().attr('checked', true);
+        }
+    });
+
 });
 function addRowCustom() {
     var html = '<tr>' +
@@ -877,6 +942,7 @@ function addRowCustom() {
                 '</tr>'
     $(html).appendTo($("#tblModalIconCustom"))
     customID++;
+
 };
 function addRow() {
     console.log(ID);
@@ -1080,6 +1146,7 @@ function getUtility() {
     $.ajax({
         url: "/FormSetup/BindUtility",
         type: "POST",
+        async: false,
         data: {
             Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
             unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
@@ -1089,23 +1156,23 @@ function getUtility() {
                 $("#UtilityFrom").html('');
                 for (var i = 0; i < response['GTUtility'].length; i++) {
                     if (htmlutility == '') {
-                        htmlutility = '<div class="col-md-4">    <div class="form-group"> <div class="col-md-12"> ' +
-                               '<input type="Checkbox"  id="' + response['GTUtility'][i]['Value'] + '"/>' +
+                        htmlutility = '<div class="col-md-4">    <div class="form-group">  ' +
+                               '<div class="checker"> <span><input type="Checkbox"   id="' + response['GTUtility'][i]['Value'] + '"/></span></div>' +
                                ' <label data-toggle="tooltip" data-placement="right" >' + response['GTUtility'][i]['Text'] + ' <span></span></label>' +
-                               '</div> </div></div>'
+                               '</div></div>'
                     }
                     else {
-                        htmlutility += '<div class="col-md-4">    <div class="form-group"> <div class="col-md-12">' +
-                               '<input type="Checkbox"  id="' + response['GTUtility'][i]['Value'] + '" />' +
+                        htmlutility += '<div class="col-md-4">    <div class="form-group"> ' +
+                               '<div class="checker"> <span><input type="Checkbox"  id="' + response['GTUtility'][i]['Value'] + '" /></span></div>' +
                                ' <label data-toggle="tooltip" data-placement="right" >' + response['GTUtility'][i]['Text'] + '<span></span> </label>' +
-                               '</div> </div> </div>'
+                               '</div> </div>'
                     }
                 }
                 $(htmlutility).appendTo($("#UtilityFrom"))
             }
 
         }
-    });
+    })
 }
 function Quitform() {
     $("#tab3").removeClass("active");

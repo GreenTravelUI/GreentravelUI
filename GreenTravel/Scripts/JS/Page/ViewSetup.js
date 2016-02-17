@@ -52,7 +52,11 @@ $(document).ready(function () {
         var ColumnQuery = $('#txtcolumnquery').val();
         var WhereQuery = $('#txtwherequery').val();
         var GroupQuery = $('#txtgropQuery').val();
-        var IsMasterView = $('#ismasterView').is(":checked");
+       // var IsMasterView = $('#ismasterView').is(":checked");
+        var IsMasterView = false;
+        if ($("#ismasterView").parent().hasClass('checked')) {
+            IsMasterView = true;
+        }
         var MasterTable = $('#drpMasterCreateView option:selected').val();
         var Attribute1 = '';
         var Attribute2 = '';
@@ -222,9 +226,21 @@ $(document).ready(function () {
         var Corporate = $('#drpCorporate option:selected').val();
         var ColumnCaption = $('#txtColumncaption').val();
         var ColumnName = $('#txtColumn').val();
-        var FixedOrder = $('#FixedOrder').is(":checked");;
-        var Visibility = $('#Visibility').is(":checked");;
-        var ColumnUpdate = $('#ColumnUpdate').is(":checked");
+        var FixedOrder = false;
+        if ($("#FixedOrder").parent().hasClass('checked')) {
+            FixedOrder = true;
+        }
+        var Visibility = false;
+        if ($("#Visibility").parent().hasClass('checked')) {
+            Visibility = true;
+        }
+        var ColumnUpdate = false;
+        if ($("#ColumnUpdate").parent().hasClass('checked')) {
+            ColumnUpdate = true;
+        }
+        //var FixedOrder = $('#FixedOrder').is(":checked");;
+        //var Visibility = $('#Visibility').is(":checked");;
+        //var ColumnUpdate = $('#ColumnUpdate').is(":checked");
         var UpdateControl = $('#drpUpdateControl option:selected').val();
         var UpdateQuery1 = $('#txtUPdateQuery1').val();
         var UpdateQuery2 = $('#txtUPdateQuery2').val();

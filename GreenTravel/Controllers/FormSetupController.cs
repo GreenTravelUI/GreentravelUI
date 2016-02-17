@@ -281,6 +281,7 @@ namespace GreenTravel.Controllers
                 DataSet ds = _objfs.Edit_data(EA);
                 List<StandardButton> frmStandardbtn = new List<StandardButton>();
                 List<Custom_Master> CustomMaster = new List<Custom_Master>();
+                List<Utility> _Utility = new List<Utility>();
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.Standardbtn = ds.Tables[1];
@@ -339,7 +340,24 @@ namespace GreenTravel.Controllers
                 }
                 var CustomMas = CustomMaster;
 
-                return Json(new { AFrmStandardbtn = FrmStandardbtn, ACustomMaster = CustomMas }, JsonRequestBehavior.AllowGet);
+
+                if (ds.Tables[3].Rows.Count > 0)
+                {
+                    ViewBag.Utility = ds.Tables[3];
+                    foreach (System.Data.DataRow dr in ViewBag.Utility.Rows)
+                    {
+                        _Utility.Add(new Utility
+                        {
+                            srno = dr["Srno"].ToString(),
+                            Utilities = dr["Utilities"].ToString(),
+                            Rownumber = dr["RowNumber"].ToString(),
+                        });
+                    }
+                }
+                var CustUtility = _Utility;
+
+
+                return Json(new { AFrmStandardbtn = FrmStandardbtn, ACustomMaster = CustomMas, AUtility = CustUtility }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

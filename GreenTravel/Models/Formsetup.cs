@@ -169,6 +169,7 @@ namespace GreenTravel.Models
         //public string UnitCorpBy { get; set; }
         //public string TerminalBy { get; set; }
         //public string BranchBy { get; set; }
+        public string Rownumber { get; set; }
     }
 
     public class Section_Master : CommanPara
