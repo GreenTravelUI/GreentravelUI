@@ -30,8 +30,9 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
                 }
-                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { srno = ViewBag.srno, success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -60,7 +61,7 @@ namespace GreenTravel.Controllers
                         });
                     }
                 }
-                 var result = items;
+                var result = items;
                 //int start = 1;
                 //int length = 1;
                 ////items = items.GetRange(1, Math.Min(length, list.Count - start));
@@ -161,8 +162,9 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Tabsrno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
                 }
-                return Json(new { Tab_srno = ViewBag.Tabsrno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { Tab_srno = ViewBag.Tabsrno, success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -223,12 +225,13 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                int result = _objfs.insertdata_Standardbutton(SB);
-                if (result == 1)
+                DataSet ds = _objfs.insertdata_Standardbutton(SB);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                  //  ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)
@@ -278,6 +281,7 @@ namespace GreenTravel.Controllers
                 DataSet ds = _objfs.Edit_data(EA);
                 List<StandardButton> frmStandardbtn = new List<StandardButton>();
                 List<Custom_Master> CustomMaster = new List<Custom_Master>();
+                List<Utility> _Utility = new List<Utility>();
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.Standardbtn = ds.Tables[1];
@@ -336,7 +340,24 @@ namespace GreenTravel.Controllers
                 }
                 var CustomMas = CustomMaster;
 
-                return Json(new { AFrmStandardbtn = FrmStandardbtn, ACustomMaster = CustomMas }, JsonRequestBehavior.AllowGet);
+
+                if (ds.Tables[3].Rows.Count > 0)
+                {
+                    ViewBag.Utility = ds.Tables[3];
+                    foreach (System.Data.DataRow dr in ViewBag.Utility.Rows)
+                    {
+                        _Utility.Add(new Utility
+                        {
+                            srno = dr["Srno"].ToString(),
+                            Utilities = dr["Utilities"].ToString(),
+                            Rownumber = dr["RowNumber"].ToString(),
+                        });
+                    }
+                }
+                var CustUtility = _Utility;
+
+
+                return Json(new { AFrmStandardbtn = FrmStandardbtn, ACustomMaster = CustomMas, AUtility = CustUtility }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -380,12 +401,13 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                int result = _objfs.insertdata_SectionMaster(SM);
-                if (result == 1)
+                DataSet ds = _objfs.insertdata_SectionMaster(SM);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    //ViewBag.Message = "Record Save Sucessfully !";
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)
@@ -401,12 +423,13 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                int result = _objfs.insertdata_CustomMaster(Custm);
-                if (result == 1)
+                DataSet ds = _objfs.insertdata_CustomMaster(Custm);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    //ViewBag.Message = "Record Save Sucessfully !";
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)
@@ -421,12 +444,13 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                int result = _objfs.insertdata_Utility(_Utility);
-                if (result == 1)
+                DataSet ds = _objfs.insertdata_Utility(_Utility);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewBag.Message = "Record Save Sucessfully !";
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    //ViewBag.Message = "Record Save Sucessfully !";
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)

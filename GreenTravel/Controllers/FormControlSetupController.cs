@@ -12,13 +12,14 @@ namespace GreenTravel.Controllers
 {
     public class FormControlSetupController : Controller
     {
+        DataSet ds = new DataSet();
         DBFromControlSetup _objDCFS = new DBFromControlSetup();
         //
         // GET: /FormControlSetup/
 
         public ActionResult Index()
         {
-            
+
             return View();
         }
 
@@ -27,16 +28,17 @@ namespace GreenTravel.Controllers
 
         //    return View();
         //}
-        
+
         public ActionResult Insert_Data(FrmControlSetup FCS)
         {
             try
             {
-                int result = _objDCFS.insert_data(FCS);
-                if (result == 1)
+                ds = _objDCFS.insert_data(FCS);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
                 }
-                return Json(new { success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

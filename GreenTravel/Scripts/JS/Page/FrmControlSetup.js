@@ -1,9 +1,9 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
+var deletesrno;
 $(document).ready(function () {
     $('select option').remove();
-    var deletesrno;
     Control_type();
     BindGrid();
     $('#searchcontrol').click(function (e) {
@@ -32,9 +32,17 @@ $(document).ready(function () {
         var ValidationCode = $('#txtValiadtioncode').val();
         var PlaceholderText = $('#txtPlaceholdertext').val();
         var TooltipHelpText = $('#txtTooltiptext').val();
-        var RequiredField = $('#reqfield').is(":checked");
+        //  var RequiredField = $('#reqfield').is(":checked");
+        var RequiredField = false;
+        if ($("#reqfield").parent().hasClass('checked')) {
+            RequiredField = true;
+        }
         var ReqValidationMsg = $('#txtreqValidationmessage').val();
-        var ReglarExField = $('#regfield').is(":checked");
+        // var ReglarExField = $('#regfield').is(":checked");
+        var ReglarExField = false;
+        if ($("#regfield").parent().hasClass('checked')) {
+            ReglarExField = true;
+        }
         var RegexValidationMsg = $('#txtRegvalidationmessage').val();
         var GuidedTourText = $('#txtGuidedTour').val();
         var GuidedTourStepNo = $('#txtGuidedtourStep').val();
@@ -55,14 +63,6 @@ $(document).ready(function () {
         var Attribute8 = '';
         var Attribute9 = '';
         var Attribute10 = '';
-        var CreatedBy = 0;
-        var EntryDatetime = '';
-        var EditedBy = 0;
-        var EditDatetime = '';
-        var CorpcentreBy = 0;
-        var UnitCorpBy = 0;
-        var TerminalBy = 0;
-        var BranchBy = 0;
         $.ajax(
          {
              type: "POST",
@@ -73,16 +73,14 @@ $(document).ready(function () {
                  ValidationCode: ValidationCode, PlaceholderText: PlaceholderText, TooltipHelpText: TooltipHelpText, RequiredField: RequiredField,
                  ReqValidationMsg: ReqValidationMsg, ReglarExField: ReglarExField, RegexValidationMsg: RegexValidationMsg, GuidedTourText: GuidedTourText,
                  GuidedTourStepNo: GuidedTourStepNo, FieldOrderNumber: FieldOrderNumber, FieldCaptionName: FieldCaptionName, ValidationMaxSize: ValidationMaxSize,
-                 ValidationDateType: ValidationDateType, InProcessValidation: InProcessValidation, Status: Status, Tags: Tags, CreatedBy: CreatedBy,
-                 EditedBy: EditedBy, CorpcentreBy: CorpcentreBy, UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
-
+                 ValidationDateType: ValidationDateType, InProcessValidation: InProcessValidation, Status: Status, Tags: Tags
              },
              dataType: 'json',
              success: function (response) {
                  if (response != null && response.success) {
-                    // $('#btnUpdateControl').show();
-                     //$('#btnSaveControl').hide();
-                     swal('Good job!', 'Record Save Sucessfully!', 'success');
+                     Message = response.responseText;
+                     swal('Good job!', Message, 'success');
+                    // swal('Good job!', 'Record Save Sucessfully!', 'success');
                  }
              }
          }).done(function () {
@@ -90,13 +88,13 @@ $(document).ready(function () {
              $('#btnSaveControl').hide();
          });
     });
-    FillDropdown(0, $('#txtFormcode').val(), '', 'drpTab');
+    FillDropdown(2, $('#txtFormcode').val(), '', 'drpTab');
     $("#drpTab").change(function () {
         FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
     });
+
     $("table").delegate(".editor_Step", "click", function () {
         clearValidations($(this).closest('form'));
-      
         var tablename = 'dbo._Form_Field_Master';
         var Corporate = '2';
         var unit = '0';
@@ -127,15 +125,22 @@ $(document).ready(function () {
                      $('#txtPlaceholdertext').val(response[0].PlaceholderText);
                      $('#txtTooltiptext').val(response[0].TooltipHelpText);
                      if (response[0].RequiredField.toLowerCase() == 'true') {
-                         $("#reqfield").attr('checked', 'checked');
+                         $("#reqfield").attr('checked', true);
                          $("#reqfield").parent().addClass('checked');
                      }
                      else {
-                         $("#reqfield").removeAttr('checked');
-                         $("#reqfield").parent().removeClass('checked');
+                         $('#reqfield').attr('checked', false);
+                         $('#reqfield').parent().removeClass('checked');
                      }
                      $('#txtreqValidationmessage').val(response[0].ReqValidationMsg);
-                     $('#regfield').is(":checked");
+                     if (response[0].ReglarExField.toLowerCase() == 'true') {
+                         $("#regfield").attr('checked', true);
+                         $("#regfield").parent().addClass('checked');
+                     }
+                     else {
+                         $('#regfield').attr('checked', false);
+                         $('#regfield').parent().removeClass('checked');
+                     }
                      $('#txtRegvalidationmessage').val(response[0].RegexValidationMsg);
                      $('#txtGuidedTour').val(response[0].GuidedTourText);
                      $('#txtGuidedtourStep').val(response[0].GuidedTourStepNo);
@@ -151,12 +156,14 @@ $(document).ready(function () {
              $('#btnSave').hide();
          });
     });
+
     $("table").delegate(".editor_Delte", "click", function () {
 
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(1)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
+
     $('#modeldelete').click(function (e) {
 
         var Module = 0;
@@ -199,6 +206,10 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+        $('#regfield').attr('checked', false);
+        $('#regfield').parent().removeClass('checked');
+        $('#reqfield').attr('checked', false);
+        $('#reqfield').parent().removeClass('checked');
     });
     $('#btnquitfrom').click(function (e) {
         e.preventDefault();
@@ -213,6 +224,10 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
+        $('#regfield').attr('checked', false);
+        $('#regfield').parent().removeClass('checked');
+        $('#reqfield').attr('checked', false);
+        $('#reqfield').parent().removeClass('checked');
         BindGrid();
     });
 });

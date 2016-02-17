@@ -256,7 +256,6 @@ function formInputValidations(frm) {
             }
         }
     });
-    console.log($('#txtMasterName').parent().html());
     return inputFlag;
 }
 

@@ -10,7 +10,7 @@ namespace GreenTravel.App_DbService
 {
     public class DBFromControlSetup : Base
     {
-        public int insert_data(FrmControlSetup FCS)
+        public DataSet insert_data(FrmControlSetup FCS)
         {
             try
             {
@@ -54,30 +54,16 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Tags", FCS.Tags);
 
                 _cmd.Parameters.AddWithValue("@CreatedBy", FCS.CreatedBy);
-                if (FCS.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(FCS.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", FCS.EditedBy);
-
-                if (FCS.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(FCS.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", FCS.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", FCS.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", FCS.TerminalBy);
                 //  _cmd.Parameters.AddWithValue("@Corporate", FCS.Corporate);
-                int i = _cmd.ExecuteNonQuery();
-                return i;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
             }
             catch
             {
@@ -90,7 +76,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
-        
+
         public DataSet BindDropDown(commanbaseParamater CBP)
         {
             try
@@ -133,7 +119,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-        
+
         public DataSet BindGrid(GridParamater GP)
         {
             try
