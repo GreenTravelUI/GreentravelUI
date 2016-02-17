@@ -129,6 +129,17 @@ function controlInputValidations(control) {
             }
         }
     }
+    if (control.hasClass('emailpassword')) {
+        if (control.val().trim().length > 0) {
+            //if (!control.val().match(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+            if (control.val().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+                control.after('<p class="red-error">Invalid Password Format.</p>');
+                control.addClass('red-input');
+                fillSummeryBox(control)
+                return false;
+            }
+        }
+    }
     if (control.hasClass('url')) {
         if (control.val().trim().length > 0) {
             if (!control.val().match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
