@@ -36,6 +36,11 @@ $(document).ready(function () {
               )
             return false;
         }
+        if (!ValidateControls()) {
+            swal('Inappropriate data found!', 'About to saving inappropriate data!', 'error')
+            return false;
+        }
+
         var Type = $('#type').val();
         var xmaster = $('#txtMasterCode').val();
         var xname = $('#txtMasterName').val();
@@ -75,9 +80,8 @@ $(document).ready(function () {
                     $('#txtMasterCode').attr("disabled", false)
 
                     $('#type').val('Save');
-                    swal('', responsedata['success'], responsedata['Event']);
-                }
-                else {
+                    swal(responsedata['success'], '', responsedata['Event']);
+                } else {
                     //caption
                     var xmastercaption = $('#txtMasterCode').val();
                     var SEGMENTcaption = $('#drpSegment option:selected').val();
@@ -374,28 +378,30 @@ $(document).ready(function () {
                             }
                         }
                     });
+                    var tablename = 'dbo.ADMINMASTER';
+                    var Corporate = '2';
+                    var unit = '0';
+                    var Formcode = '0';
+                    var Formtabcode = '0';
+                    var Xmaster = $('#txtMasterCode').val();
+                    var Type = 'EditMode';
+                    $('#btnsUpdate').show();
+                    $('#btnDelete').hide();
+                    $('#btnSaveMastersetup').hide();
+                    EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
                 }
             }
         }).done(function () {
-            $('#btnsUpdate').show();
-            $('#btnDelete').hide();
-            $('#btnSaveMastersetup').hide();
             
-            var tablename = 'dbo.ADMINMASTER';
-            var Corporate = '2';
-            var unit = '0';
-            var Formcode = '0';
-            var Formtabcode = '0';
-            var Xmaster = $('#txtMasterCode').val();
-            var Type = 'EditMode';
-            EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
+
+            
         }); //Ajax call End
     });
 
     $('#btnQuitform').click(function (e) {
         clearValidations($(this).parent());
 
-        $('#btnCancelMastersetup').trigger('click');
+        
 
         /* Hide/Show Tab */
         $("#SearchMaster").addClass("active");
@@ -403,11 +409,16 @@ $(document).ready(function () {
         $("#tab2").removeClass("active");
         $("#tab1").addClass("active");
 
+        $('#btnCancelMastersetup').trigger('click');
         e.preventDefault();
     });
 
     $('#btnCancelMastersetup').click(function (e) {
         var thisForm = $(this).closest('form');
+
+        $('#CreateMaster').children().find('span.tab-name').text('Create Master');
+        $('.tab-section-name').text('Create Master');
+
         $('#btnsUpdate').hide();
         $('#btnDelete').hide();
         $('#btnSaveMastersetup').show();
@@ -447,6 +458,9 @@ $(document).ready(function () {
         var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(2)').text();
         var Type = 'EditMode';
+        ShowControls();
+        $('#CreateMaster').children().find('span.tab-name').text('Update Master');
+        $('.tab-section-name').text('Update Master');
         EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, false);
     });
 
@@ -465,7 +479,11 @@ $(document).ready(function () {
         var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(2)').text();
         var Type = 'EditMode';
+        ShowControls();
+        $('#CreateMaster').children().find('span.tab-name').text('Update Master');
+        $('.tab-section-name').text('Update Master');
         EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
+        
         HideControls();
     });
 
@@ -602,6 +620,11 @@ function FillDropDown_Category() {
     $('#drpCorporate').append($('<option value="1">Flamingo</option>'));
     $('#drpCorporate').append($('<option value="2">Travels Unlimited</option>'));
 
+    $('#drpEntrylevel').html('');
+    $('#drpEntrylevel').append($('<option value="0">--None--</option>'));
+    $('#drpEntrylevel').append($('<option value="1">Admin</option>'));
+    $('#drpEntrylevel').append($('<option value="2">General</option>'));
+
     //var Module = '';
     //var screen = '';
     //var FormCode = '';
@@ -721,7 +744,7 @@ function getdata() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_edit" title="Add Control"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="edit_master" title="Edit Master"><i class="fa fa-pencil"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" title="Add Control"><i class="fa fa-plus-square"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="edit_master" title="Edit Master"><i class="fa fa-pencil-square-o"></i></a>'
             }
         ]
     });
@@ -737,11 +760,12 @@ function getdata() {
         ]
     });
     $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
+    //bind_dropdown();
 }
 
 function EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, hideControls) {
-    ShowControls();
-
+    
+    
     $.ajax({
         type: "POST",
         url: "/Masters/Edit_data",
@@ -759,7 +783,8 @@ function EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Ty
                 $('#txtMasterCode').val(response['AMaster'][0]['xmaster']);
                 $('#txtMasterName').val(response['AMaster'][0]['xname']);
                 $('#txtdrpCaption').val(response['AMaster'][0]['drpCaption']);
-                $('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
+                //$('#drpEntrylevel').find('option[value="' + response['AMaster'][0]['ENTRYCONTROL'] + '"]').attr('selected', true).change();
+                setSelect2Value($('#drpEntrylevel'), response['AMaster'][0]['ENTRYCONTROL']);
                 setSelect2ValueDisable($('#drpSegment'), response['AMaster'][0]['SEGMENT']);
                 setSelect2ValueDisable($('#drpCorporate'), response['AMaster'][0]['Corporate']);
                 bind_dropdown();
@@ -955,7 +980,7 @@ function HideControls() {
     $('.control-caption').each(function () {
         if ($(this).val().trim() == '') {
             $(this).parent().parent().parent().hide();
-        } 
+        }
     });
     RedefineSrNo();
 }
@@ -973,4 +998,45 @@ function RedefineSrNo() {
             row.find('.control-srno').text(srnoIndex++);
         }
     });
+}
+
+function ValidateControls() {
+    var flag = true;
+    $('.control-caption').each(function () {
+        var controlCaption = $(this);
+        var row = controlCaption.parent().parent();
+        if (row.children(':eq(2)').find('select').length > 0) {
+            if (controlCaption.val().toString().trim().length != 0 && (row.children(':eq(2)').find('select').val().toString().trim() != '0' && row.children(':eq(2)').find('select').val().toString().trim() != '')) {
+                //flag = true;
+            } else if (controlCaption.val().toString().trim().length == 0 && (row.children(':eq(2)').find('select').val().toString().trim() != '0' && row.children(':eq(2)').find('select').val().toString().trim() != '')) {
+                flag = false;
+            } else if (controlCaption.val().toString().trim().length != 0 && (row.children(':eq(2)').find('select').val().toString().trim() == '0' || row.children(':eq(2)').find('select').val().toString().trim() == '')) {
+                flag = false;
+            } else if (controlCaption.val().toString().trim().length == 0 && (row.children(':eq(2)').find('select').val().toString().trim() == '0' || row.children(':eq(2)').find('select').val().toString().trim() == '')) {
+                if (row.children(':eq(4)').find('input').val().toString().trim().length != 0) {
+                    flag = false;
+                }
+                if (row.children(':eq(5)').find('input').val().toString().trim().length != 0) {
+                    flag = false;
+                }
+                if (row.children(':eq(6)').find('input').val().toString().trim().length != 0) {
+                    flag = false;
+                }
+            }
+        } else {
+
+            if (controlCaption.val() == '') {
+                if (controlCaption.parent().parent().children(':eq(4)').find('input').val() != '') {
+                    flag = false;
+                }
+                if (controlCaption.parent().parent().children(':eq(5)').find('input').val() != '') {
+                    flag = false;
+                }
+                if (controlCaption.parent().parent().children(':eq(6)').find('input').val() != '') {
+                    flag = false;
+                }
+            }
+        }
+    });
+    return flag;
 }
