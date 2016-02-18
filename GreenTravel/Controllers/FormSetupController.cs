@@ -31,14 +31,19 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
                 }
-                return Json(new { srno = ViewBag.srno, success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { srno = ViewBag.srno, Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
         public ActionResult BindGridView(Gridformsetup GP)
         {
             try
@@ -62,16 +67,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = items;
-                //int start = 1;
-                //int length = 1;
-                ////items = items.GetRange(1, Math.Min(length, list.Count - start));
-                //items = items.GetRange(start, Math.Min(length, items.Count - start));
-                //DataTableData dataTableData = new DataTableData();
-                //dataTableData.draw = 1;
-                //dataTableData.recordsTotal = items.Count;
-                //dataTableData.data = items;
-                //dataTableData.recordsFiltered = items.Count;
-                //return Json(result, JsonRequestBehavior.AllowGet);
                 var rJson = Json(result, JsonRequestBehavior.AllowGet);
                 rJson.MaxJsonLength = int.MaxValue;
                 return rJson;
@@ -113,7 +108,6 @@ namespace GreenTravel.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -145,8 +139,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var Form = Forms;
-                //, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate
-
                 return Json(new { GTCorporate = Corporate, GTFrom = Form }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -154,6 +146,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult InsertData_Formtab(FormTab FT)
         {
             try
@@ -163,16 +156,20 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.Tabsrno = ds.Tables[0].Rows[0]["Srno"];
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
                 }
-                return Json(new { Tab_srno = ViewBag.Tabsrno, success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { Tab_srno = ViewBag.Tabsrno, Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
 
         }
+
         public ActionResult Edit_FormTab(Edit_AdminMaster EA)
         {
             try
@@ -204,8 +201,7 @@ namespace GreenTravel.Controllers
                             TrxTable7 = @dr["TrxTable7"].ToString(),
                             TrxTable8 = @dr["TrxTable8"].ToString(),
                             TrxTable9 = @dr["TrxTable9"].ToString(),
-                            TrxTable10 = @dr["TrxTable10"].ToString(),
-
+                            TrxTable10 = @dr["TrxTable10"].ToString()
                         });
                     }
                 }
@@ -214,7 +210,6 @@ namespace GreenTravel.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -228,18 +223,14 @@ namespace GreenTravel.Controllers
                 DataSet ds = _objfs.insertdata_Standardbutton(SB);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                  //  ViewBag.Message = "Record Save Sucessfully !";
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
                 }
                 return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         public ActionResult BindGridViewFormsetup(GridFormTab GP)
@@ -340,7 +331,6 @@ namespace GreenTravel.Controllers
                 }
                 var CustomMas = CustomMaster;
 
-
                 if (ds.Tables[3].Rows.Count > 0)
                 {
                     ViewBag.Utility = ds.Tables[3];
@@ -356,7 +346,6 @@ namespace GreenTravel.Controllers
                 }
                 var CustUtility = _Utility;
 
-
                 return Json(new { AFrmStandardbtn = FrmStandardbtn, ACustomMaster = CustomMas, AUtility = CustUtility }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -365,7 +354,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
 
         public ActionResult Edit_Data_Section(Edit_AdminMaster EA)
         {
@@ -392,7 +380,6 @@ namespace GreenTravel.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -405,19 +392,14 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
-                    //ViewBag.Message = "Record Save Sucessfully !";
                 }
                 return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
-
 
         public ActionResult InsertData_CustomMaster(Custom_Master Custm)
         {
@@ -427,17 +409,13 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
-                    //ViewBag.Message = "Record Save Sucessfully !";
                 }
                 return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         public ActionResult InsertData_Utility(Utility _Utility)
@@ -448,17 +426,13 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
-                    //ViewBag.Message = "Record Save Sucessfully !";
                 }
                 return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
         #endregion
 

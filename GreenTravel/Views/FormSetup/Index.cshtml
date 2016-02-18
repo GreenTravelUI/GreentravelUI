@@ -371,11 +371,10 @@
                                 <li role="presentation" class="active" id="Standanbutton"><a href="#tabs1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Standard Button </a></li>
                                 <li role="presentation" id="CustomButton"><a href="#tabs2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Custom Button </a></li>
                                 <li role="presentation" id="Utility"><a href="#tabs3Utility" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Utilities </a></li>
-
                             </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="tabs1">
-                                    <form>
+                                    <form id="frmStandardButton">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -504,13 +503,13 @@
                                     </form>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="tabs2">
-                                    <form>
+                                    <form id="frmCustomButton">
                                         <div class="table-responsive">
                                             <table id="tblModalIconCustom" class="display table" style="width: 100%; cellspacing: 0;">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Custom Name
+                                                        <th>Custom Name <span style="color: red;">*</span>
                                                         </th>
                                                         <th>Custom Class
                                                         </th>
@@ -522,13 +521,16 @@
                                                         </th>
                                                         <th>Srno
                                                         </th>
+                                                        <th>
+                                                             <a id="btnCustomsection" class="btn btn-success" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-plus"></i></a>
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
                                                         <th>
-                                                            <button id="btnCustomsection" class="btn btn-success" type="button">
-                                                                Add</button>
+                                                            @*<button id="btnCustomsection" class="btn btn-success" type="button">
+                                                                Add</button>*@
                                                         </th>
                                                         <th></th>
                                                         <th></th>
@@ -536,9 +538,10 @@
                                                         <th></th>
                                                         <th></th>
                                                         <th></th>
+                                                         <th></th>
                                                     </tr>
                                                 </tfoot>
-                                                <tbody>
+                                                @*<tbody>
                                                     <tr>
                                                         <td>1</td>
                                                         <td>
@@ -560,7 +563,7 @@
                                                             <input type="text" placeholder="Custom Class" class="form-control" />
                                                         </td>
                                                     </tr>
-                                                </tbody>
+                                                </tbody>*@
                                             </table>
                                         </div>
                                         <div class="col-md-12">
@@ -592,7 +595,6 @@
                     </div>
 
                 </div>
-
             </div>
         </div>
         <div class="modal fade modify-colum-model" id="myModalSection" role="dialog">
@@ -604,53 +606,55 @@
                         <h4 class="modal-title">Section</h4>
                     </div>
                     <div class="modal-body custom-model-body">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table id="tblModalSection" class="display table" style="width: 100%; cellspacing: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Section Name<span>*</span>
-                                            </th>
-                                            <th>Section Srno
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>
-                                                <button id="btnaddSection" class="btn btn-success" type="submit">
-                                                    Add</button>
-                                            </th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <input type="text" />
-                                            </td>
-                                            <td>
-                                                <input type="text" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row">
+                        <form>
                             <div class="col-md-12">
-                                <button type="submit" id="btnModalSectionSave" class="btn btn-success btnsavesection">SAVE</button>
-                                <button id="btnModalSectionUpdate" type="submit" class="btn btn-primary btnsavesection" style="display: none">
-                                    UPDATE</button>
+                                <div class="table-responsive">
+                                    <table id="tblModalSection" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Section Name <span style="color: red;">*</span>
+                                                </th>
+                                                <th>Section Srno
+                                                </th>
+                                                <th>
+                                                    <a id="btnaddSection" class="btn btn-success" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-plus"></i></a>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                        @*<tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <input type="text" class="req" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="req" />
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>*@
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" id="btnModalSectionSave" class="btn btn-success btnsavesection">SAVE</button>
+                                    <button id="btnModalSectionUpdate" type="submit" class="btn btn-primary btnsavesection" style="display: none">
+                                        UPDATE</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <div class="modal fade modify-colum-model" id="DeleteModel" role="dialog">
