@@ -4,28 +4,23 @@ $(window).unload(function () {
 });
 
 $(document).ready(function () {
-
     FillDropDown_Corporate();
-
     setSelect2Value($('#DrpLocationTab2'), '0');
-
     BindGrid();//Bind Grid
-
     $("#drpCorporate").change(function () {
 
-        $('#DrpLocationTab2').html('');// To Clear dropdown
+        $('#DrpLocationTab2').html('');
         setSelect2Value($('#DrpLocationTab2'), '0');
         FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
 
-    });
-
-
+    }); //--- tab-2 Corporate Drop-down Change
     $("#DrpUnitTab2").change(function () {
+
         FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
-    });
 
-
+    }); //---- tab-2 Unit Drop-down Change
     $('.usertab1gridclass').click(function (e) {
+
         $("#tab2").removeClass("active");
         $("#userlitab2").removeClass("active");
         $("#tab3").removeClass("active");
@@ -37,7 +32,6 @@ $(document).ready(function () {
         BindGrid();
 
     });
-
     $('.Usertab2').click(function (e) {
 
         $("#userlitab1").addClass("active");
@@ -50,8 +44,8 @@ $(document).ready(function () {
         $("#tab2").removeClass("active");
 
     });
-
     $('.btnclearuser').click(function (e) {
+
         e.preventDefault();
         clearValidations($(this).closest('form'));
         $('input[type="text"]').val('');
@@ -67,13 +61,12 @@ $(document).ready(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
-        // setSelect2Value($('#drpFeatureCategory'), '0');
 
     });
-
     $('.btnSaveuserclass').click(function (e) {
+
         e.preventDefault();
-        /* Form Validation */
+
         if (!validateForm($(this).parent())) {
             swal('Invalid data found!');
             return false;
@@ -128,7 +121,6 @@ $(document).ready(function () {
                success: function (response) {
                    if (response != null && response.success) {
                        swal('', response['success'], response['Event']);
-
                        $("#tab1").removeClass("active");
                        $("#userlitab1").removeClass("active");
                        $("#tab2").addClass("active");
@@ -146,7 +138,6 @@ $(document).ready(function () {
            });
 
     });
-
     $('#txtConfirmEmail').on('change', function () {
         var result = CompareValidation($('#txtEmail').val(), $('#txtConfirmEmail').val());
         if (result == true) {
@@ -155,8 +146,6 @@ $(document).ready(function () {
             $('#txtConfirmEmail').focus();
         }
     });
-
-
     $('#txtConfirmPassword').on('change', function () {
         var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
         if (result == true) {
@@ -165,12 +154,7 @@ $(document).ready(function () {
             $('#txtConfirmPassword').focus();
         }
     });
-
     $("table").delegate(".editor_Step", "click", function () {
-
-
-
-
         $("#userlitab1").removeClass("active");
         $("#userlitab2").addClass("active");
         $("#tab1").removeClass("active");
@@ -178,14 +162,12 @@ $(document).ready(function () {
         $('#btnUpdateUser').show();
         $('#btnCancelUser').show();
         $('#btnSaveUser').hide();
-
         var tablename = 'dbo._user_details_master';
         var Corporate = '2';
         var Unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
         var srno = $(this).parent().parent().children(':eq(1)').text();
-
         var Type = 'EditMode';
         $.ajax(
          {
@@ -196,9 +178,7 @@ $(document).ready(function () {
              },
              dataType: 'json',
              success: function (response) {
-
                  if (response['UserMasterresjs'].length > 0) {
-
                      $('#txtsrno').val(response['UserMasterresjs'][0]['srno']);
                      $('#txtFirstName').val(response['UserMasterresjs'][0]['FirstName']);
                      $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
@@ -229,37 +209,33 @@ $(document).ready(function () {
 
 
     });
-
-
     $('.quituserbtn').click(function (e) {
         $(".btnclearuser").click();
         $(".usertab1gridclass").click();
-
     });
 
-    // ( Tab-4)
+    // -------------------------------------------------------------------------        ( Tab-4)       -----------------------------------------------------------------------------------//
+
     $('.userlitab4class').click(function (e) {
         FillDropDown_RightsCorporate();
     });
-
     $("#drpRightsCorporate").change(function () {
 
-        $('#drpRightsUnit').html('');// To Clear dropdown
+        $('#drpRightsUnit').html('');// To Clear dropdown Unit
         setSelect2Value($('#drpRightsUnit'), '0');
 
-        $('#drpRightsLocation').html('');// To Clear dropdown
+        $('#drpRightsLocation').html('');// To Clear dropdown Location
         setSelect2Value($('#drpRightsLocation'), '0');
 
-        $('#drpRightsRole').html('');// To Clear dropdown
+        $('#drpRightsRole').html('');// To Clear dropdown Role
         setSelect2Value($('#drpRightsRole'), '0');
 
-        $('#drpRightsUser').html('');// To Clear dropdown
+        $('#drpRightsUser').html('');// To Clear dropdown User
         setSelect2Value($('#drpRightsUser'), '0');
 
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
-        Loaddata();
+        Load_screen_module();
     });
-
     $("#drpRightsUnit").change(function () {
 
         $('#drpRightsLocation').html('');// To Clear dropdown
@@ -274,7 +250,6 @@ $(document).ready(function () {
 
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
     });
-
     $("#drpRightsLocation").change(function () {
 
         $('#drpRightsRole').html('');// To Clear dropdown
@@ -285,26 +260,12 @@ $(document).ready(function () {
 
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
     });
-
     $("#drpRightsRole").change(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
     });
-
-    $("#partial").delegate(".checker", "click", function () {
-
-        if ($(this).attr("Class") == "checker All") {
-            if ($(this).children().hasClass('checked')) {
-                // alert($(this).is(':checked'))
-                alert("");
-                $(this).children().next().addClass('checked');;
-                //  $('#partial').find(".checker");
-
-            } else {
-                $(this).parent().next().find('input:checkbox').removeAttr('checked');
-            }
-        }
+    $("#drpRightsUser").change(function () {
+        Fill_Screen_Module_On_Edit();
     });
-
     $("#partial").delegate(".checker", "click", function () {
         if ($(this).children().hasClass('checked')) {
             $(this).children().removeClass('checked');
@@ -314,6 +275,99 @@ $(document).ready(function () {
             $(this).children().children().attr('checked', true);
         }
     });
+    $("#partial").delegate(".checker.delete", "click", function () {
+        if ($(this).parent().parent().find('.checker.delete').children().hasClass('checked')) {
+            $(this).parent().parent().find('.checker.view').attr('checked', true);
+            $(this).parent().parent().find('.checker.view').children().addClass('checked');
+            $(this).parent().parent().find('.checker.create').attr('checked', true);
+            $(this).parent().parent().find('.checker.create').children().addClass('checked');
+            $(this).parent().parent().find('.checker.update').attr('checked', true);
+            $(this).parent().parent().find('.checker.update').children().addClass('checked');
+        }
+        else { }
+
+    });
+    $("#partial").delegate(".checker.update", "click", function () {
+        // console.log($(this).parent().parent().find('.checker.update').children().hasClass('checked'));
+        if ($(this).parent().parent().find('.checker.update').children().hasClass('checked')) {
+            $(this).parent().parent().find('.checker.view').attr('checked', true);
+            $(this).parent().parent().find('.checker.view').children().addClass('checked');
+            $(this).parent().parent().find('.checker.create').attr('checked', true);
+            $(this).parent().parent().find('.checker.create').children().addClass('checked');
+        }
+        else {
+            $(this).parent().parent().find('.checker.delete').attr('checked', false);
+            $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
+        }
+
+    });
+    $("#partial").delegate(".checker.create", "click", function () {
+        // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
+        if ($(this).parent().parent().find('.checker.create').children().hasClass('checked')) {
+            $(this).parent().parent().find('.checker.view').attr('checked', true);
+            $(this).parent().parent().find('.checker.view').children().addClass('checked');
+        }
+        else {
+            $(this).parent().parent().find('.checker.update').attr('checked', false);
+            $(this).parent().parent().find('.checker.update').children().removeClass('checked');
+            $(this).parent().parent().find('.checker.delete').attr('checked', false);
+            $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
+        }
+
+    });
+    $("#partial").delegate(".checker.view", "click", function () {
+        // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
+        if ($(this).parent().parent().find('.checker.view').children().hasClass('checked')) {
+
+        }
+        else {
+            $(this).parent().parent().find('.checker.update').attr('checked', false);
+            $(this).parent().parent().find('.checker.update').children().removeClass('checked');
+            $(this).parent().parent().find('.checker.delete').attr('checked', false);
+            $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
+            $(this).parent().parent().find('.checker.create').attr('checked', false);
+            $(this).parent().parent().find('.checker.create').children().removeClass('checked');
+        }
+
+    });
+    $("#partial").delegate(".checker.All", "click", function () {
+        console.log($(this).parent().parent().find('.checker.All').children().html());
+        if ($(this).parent().parent().find('.checker.All').children().hasClass('checked')) {
+            $(this).parent().parent().find('tr').each(function () {
+                $(this).find('.checker.view').attr('checked', true);
+                $(this).find('.checker.view').children().addClass('checked');
+
+                $(this).find('.checker.create').attr('checked', true);
+                $(this).find('.checker.create').children().addClass('checked');
+
+                $(this).find('.checker.update').attr('checked', true);
+                $(this).find('.checker.update').children().addClass('checked');
+
+                $(this).find('.checker.delete').attr('checked', true);
+                $(this).find('.checker.delete').children().addClass('checked');
+
+            });
+
+        }
+        else {
+            $(this).parent().parent().find('tr').each(function () {
+                $(this).find('.checker.view').attr('checked', false);
+                $(this).find('.checker.view').children().removeClass('checked');
+
+                $(this).find('.checker.create').attr('checked', false);
+                $(this).find('.checker.create').children().removeClass('checked');
+
+                $(this).find('.checker.update').attr('checked', false);
+                $(this).find('.checker.update').children().removeClass('checked');
+
+                $(this).find('.checker.delete').attr('checked', false);
+                $(this).find('.checker.delete').children().removeClass('checked');
+
+            });
+        }
+
+    });
+
     $('.btnSaveTab4').click(function (e) {
         {
             var a = 0;
@@ -325,7 +379,7 @@ $(document).ready(function () {
             var ModuleAry = [];
             var ScreenAry = [];
             var srno = '';
-            var UserId = '';
+            var UserId = $('#drpRightsUser option:selected').val();
             var Corporate = $('#drpRightsCorporate option:selected').val();
             var Unit = $('#drpRightsUnit option:selected').val();
             var Location = $('#drpRightsLocation option:selected').val();
@@ -350,7 +404,6 @@ $(document).ready(function () {
             $('ul.grid div').find('li').each(function () {
                 var module = '';
                 module = ($(this).find('.lbmodulesrno').text().trim());
-
                 checkedInput = '';
                 var Feature = '';
                 $(this).find('table tbody tr').each(function () {
@@ -359,58 +412,48 @@ $(document).ready(function () {
                     var deletee = '';
                     var update = '';
                     var screen = '';
-
-                    if ($(this).find('.checker').attr("class") == 'checker view') {
-                        view = ($(this).find('.checker').children().hasClass('checked'));
-                        screen = ($(this).find('.checker').attr("id"));
-                    }
-                    if ($(this).find('.checker').attr("class") == 'checker create') {
-                        create = ($(this).find('.checker').children().hasClass('checked'));
-                    }
-                    if ($(this).find('.checker').attr("class") == 'checker update') {
-                        update = ($(this).find('.checker').children().hasClass('checked'));
-                    }
-                    if ($(this).find('.checker').attr("class") == 'checker delete') {
-                        deletee = ($(this).find('.checker').children().hasClass('checked'));
-                    }
-                    alert(screen);
+                    //screen = ($(this).find('label:eq(1)').attr("id"));
+                    // screen = ($(this).find('.checker').attr("id"));
+                    screen = (($(this).find('.checker').attr("id")));
+                    view = ($(this).find('.checker.view').children().hasClass('checked'));
+                    create = ($(this).find('.checker.create').children().hasClass('checked'));
+                    update = ($(this).find('.checker.update').children().hasClass('checked'));
+                    deletee = ($(this).find('.checker.delete').children().hasClass('checked'));
+                    ModuleAry.push({ 'Module': module, 'SCR': screen, 'view': view, 'create': create, 'update': update, 'deletee': deletee });
                 });
-
-
             });
+            console.log(ModuleAry);
 
+            var theIds1 = JSON.stringify(ModuleAry);
 
-            //$.ajax({
-            //    type: "POST",
-            //    url: "/WhitelabelStep2/Insert",
-            //    async: false,
-            //    data: {
-            //        srno: srno, Corporate: Corporate, FeaturesCategory: FeaturesCategory,
-            //        FeatureGroup: FeatureGroup, Feature: Feature, BranchBy: BranchBy, Attribute1: Attribute1,
-            //        Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
-            //        Attribute9: Attribute9, Attribute10: Attribute10, FeatureAry: theIds1, groupAry: theIds2
-            //    },
-            //    dataType: 'json',
-            //    success: function (response) {
-            //        if (response != null) {
-            //            flagsection = 1;
-            //            msg = response['success'];
-            //            event = response['Event'];
-            //            $('#txtSrNo').text(response['SrNo']);
-            //        }
-            //    }
-            //});
-            //if (flagsection == 1) {
-            //    swal('', msg, event);
-            //    $('#btnSave').hide();
-            //    $('#btnUpdate').show();
-            //}
+            $.ajax({
+                type: "POST",
+                url: "/WhitelabelAccessRights/Insert",
+                async: false,
+                data: {
+                    srno: srno, UserId: UserId, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, Role: Role, RoleType: RoleType, EffectiveDate: EffectiveDate,
+                    IsActive: IsActive, IsDefault: IsDefault, Status: Status, Attribute1: Attribute1, CreatedBy: CreatedBy,
+                    Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+                    Attribute9: Attribute9, Attribute10: Attribute10, GridAry: theIds1
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response != null) {
+                        flagsection = 1;
+                        msg = response['success'];
+                        event = response['Event'];
+                        $('#txtSrNo').text(response['SrNo']);
+                    }
+                }
+            });
+            if (flagsection == 1) {
+                swal('', msg, event);
+                $('#btnSave').hide();
+                $('#btnUpdate').show();
+            }
         }
     });
-
 })
-
-
 //( Tab - 1 & 2 )
 
 function FillDropDown_Corporate() {
@@ -446,7 +489,6 @@ function FillDropDown_Corporate() {
     });
 
 }
-
 function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
     var screen = '';
@@ -485,7 +527,6 @@ function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
         }
     });
 }
-
 function CompareValidation($attr1, $attr2) {
 
     if ($attr1 != $attr2) {
@@ -495,7 +536,6 @@ function CompareValidation($attr1, $attr2) {
         return true;
     }
 }
-
 function BindGrid() {
 
     var tablename = 'dbo._User_Details_Master';
@@ -545,7 +585,6 @@ function BindGrid() {
         ]
     });
 }
-
 function validatePass(sender, args) {
     var user_email = $('#txtEmail').val();
     var pass = args.Value;
@@ -568,7 +607,6 @@ function validatePass(sender, args) {
         ValidatorEnable(myVal, false);
     }
 }
-
 function validatenum(sender, args) {
     var num = ["123", "234", "345", "456", "567", "678", "789", "890", "321", "432", "543", "654", "765", "876", "987", "098"];
     var pass = args.Value;
@@ -586,7 +624,6 @@ function validatenum(sender, args) {
         return args.IsValid = false;
     }
 }
-
 function validatechar(sender, args) {
     var num = ["qwer", "wert", "erty", "rtyu", "tyui", "yuio", "uiop", "asdf", "sdfg", "dfgh", "fghj", "ghjk", "hjkl", "zxcv", "xcvb", "cvbn", "vbnm", "mnbv", "nbvc", "bvcx", "vcxz", "lkjh", "kjhg", "jhgf", "hgfd", "gfds", "fdsa", "poiu", "oiuy", "iuyt", "uytr", "ytre", "trew", "rewq"];
     var pass = args.Value;
@@ -606,6 +643,7 @@ function validatechar(sender, args) {
 
     }
 }
+
 //( Tab - 4 )
 
 function FillDropDown_RightsCorporate() {
@@ -655,7 +693,6 @@ function FillDropDown_RightsCorporate() {
     });
 
 }
-
 function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
     var screen = '';
@@ -694,8 +731,7 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
         }
     });
 }
-
-function Loaddata() {
+function Load_screen_module() {
 
     var Module = '';
     var screen = '';
@@ -778,8 +814,8 @@ function Loaddata() {
 
                     else {
                         html += '<li><figure><figcaption class="panel-body tab-itenaries">' +
-                                '<label style="display: none"   class="lbmodulesrno" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
-                                '<h3 style="margin-top: 0; text-align: center;" class="chk-heading"> <div class="checker"> <span ><input id="' + data['HeaderList'][i]['SrNo'] + '"  class="Allcheck"   type="checkbox" > </span></div> ' +
+                                '<label style="display: none" class="lbmodulesrno" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
+                                '<h3 style="margin-top: 0; text-align: center;" class="chk-heading"><div class="checker All"> <span><input id="' + data['HeaderList'][i]['SrNo'] + '"  class="Allcheck"   type="checkbox" > </span></div> ' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
                                 '<table class="table sampletable" style="margin-bottom: 0;">' +
                                 '<tbody>' +
@@ -813,6 +849,81 @@ function Loaddata() {
                     }
                 }
                 $(html).appendTo($("#partial"))
+            }
+        }
+    });
+}
+function Fill_Screen_Module_On_Edit() {
+
+    var tablename = '';
+    var Corporate = $('#drpRightsCorporate option:selected').val();
+    var unit = $('#drpRightsUnit option:selected').val();
+    var Location = $('#drpRightsLocation option:selected').val();
+    var Role = $('#drpRightsRole option:selected').val();
+    var UserId = $('#drpRightsUser option:selected').val();;
+    var Formcode = '';
+    var Formtabcode = '';
+    var srno = '';
+    var Type = 'EditUserRole';
+
+    $.ajax({
+        url: "/WhitelabelAccessRights/Edit_AccessRights",
+        type: "POST",
+        async: false,
+        data: {
+            tablename: tablename, Corporate: Corporate, unit: unit, Location: Location, Role: Role, UserId: UserId, Formcode: Formcode, Formtabcode: Formtabcode,
+            srno: srno, Type: Type
+        },
+        success: function (response) {
+            if (response['Grid'].length > 0) {
+                $.each(response['Grid'], function () {
+                    var tempModule = this['Module'].toString();
+                    var tempSCR = this['SCR'].toString();
+                    var tempview = this['view'].toString();
+                    var tempupdate = this['update'].toString();
+                    var tempdeletee = this['deletee'].toString();
+                    var tempcreate = this['create'].toString();
+                    $('ul.grid div').find('li').each(function () {
+                        if ($(this).find('.lbmodulesrno').text().trim() == tempModule) {
+                            $(this).find('table tbody tr').each(function () {
+                                // console.log($(this).find('.checker').attr("id") + ' -- ' + tempSCR);
+                                if ((($(this).find('.checker').attr("id"))) == tempSCR) {
+                                    // console.log(tempview);
+                                    if (tempview == 'True') {
+                                        $(this).find('.checker.view').attr('checked', true);
+                                        $(this).find('.checker.view').children().addClass('checked');
+                                    } else {
+                                        $(this).find('.checker.view').attr('checked', false);
+                                        $(this).find('.checker.view').children().removeClass('checked');
+                                    }
+
+                                    if (tempcreate == 'True') {
+                                        $(this).find('.checker.create').attr('checked', true);
+                                        $(this).find('.checker.create').children().addClass('checked');
+                                    } else {
+                                        $(this).find('.checker.create').attr('checked', false);
+                                        $(this).find('.checker.create').children().removeClass('checked');
+                                    }
+                                    if (tempupdate == 'True') {
+                                        $(this).find('.checker.update').attr('checked', true);
+                                        $(this).find('.checker.update').children().addClass('checked');
+                                    } else {
+                                        $(this).find('.checker.update').attr('checked', false);
+                                        $(this).find('.checker.update').children().removeClass('checked');
+                                    }
+                                    if (tempdeletee == 'True') {
+                                        $(this).find('.checker.delete').attr('checked', true);
+                                        $(this).find('.checker.delete').children().addClass('checked');
+                                    } else {
+                                        $(this).find('.checker.delete').attr('checked', false);
+                                        $(this).find('.checker.delete').children().removeClass('checked');
+                                    }
+                                }
+                            });
+                        }
+                    });
+
+                });
             }
         }
     });

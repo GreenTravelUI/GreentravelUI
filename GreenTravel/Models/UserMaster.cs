@@ -57,7 +57,8 @@ namespace GreenTravel.Models
         public string Formcode { get; set; }
         public string Formtabcode { get; set; }
         public string Location { get; set; }
-
+        public string Role { get; set; }
+        public string UserId { get; set; }
     }
 
     public class UserMaster_Formpara
@@ -194,10 +195,14 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
+        public string GridAry { get; set; }
         public List<GridHearderModule> GridHearder { get; set; }
         public List<GridColumnScreen> GridColumn { get; set; }
+        public string tablename { get; set; }
+        public string Formcode { get; set; }
+        public string Formtabcode { get; set; }
 
+        public string Type { get; set; }
     }
     public partial class GridRights
     {
@@ -215,7 +220,13 @@ namespace GreenTravel.Models
     {
         public string SrNo { get; set; } //xname
         public string xname { get; set; }
-        public string xlink { get; set; }
+        public string SCR { get; set; }
+        public string Module { get; set; }
+        public string view { get; set; }
+        public string update { get; set; }
+        public string deletee { get; set; }
+        public string create { get; set; }
+        public string screen { get; set; }
 
     }
 

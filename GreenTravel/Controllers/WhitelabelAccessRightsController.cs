@@ -292,6 +292,80 @@ namespace GreenTravel.Controllers
 
         }
 
+        public ActionResult Insert(UserWiseRights _objUserWiseRights)
+        {
+            try
+            {
+                ViewBag.Message = "";
+                ViewBag.Event = "";
+                ViewBag.SrNo = "";
+                DataSet result = _objWhitelabelAccessRights.Insert(_objUserWiseRights);
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    {
+                        ViewBag.Event = "success";
 
+                    }
+                    ViewBag.SrNo = result.Tables[0].Rows[0]["SrNo"].ToString();
+                }
+                var result1 = ViewBag.Message;
+                return Json(new { success = result1, Event = ViewBag.Event, SrNo = ViewBag.SrNo }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+
+        public ActionResult Edit_AccessRights(UserWiseRights _objUserWiseRights)
+        {
+            try
+            {
+                DataSet dsList = _objWhitelabelAccessRights.Edit_AccessRights(_objUserWiseRights);
+
+                UserMaster CV = new UserMaster();
+                GridRights _grid = new GridRights();
+                List<GridColumnScreen> GridColumnScreen = new List<GridColumnScreen>();
+                List<GridRights> lstGrid = new List<GridRights>();
+                ViewBag.OtherData = "";
+                
+                if (dsList.Tables[1] != null)
+                {
+                    ViewBag.GridColumnScreen = dsList.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.GridColumnScreen.Rows)
+                    {
+                        GridColumnScreen.Add(new GridColumnScreen
+                           {
+                               SrNo = @dr["Srno"].ToString(),
+                               SCR = @dr["Screencode"].ToString(),
+                               Module = @dr["Modulecode"].ToString(),
+                               view = @dr["Viewrights"].ToString(),
+                               update = @dr["Updaterights"].ToString(),
+                               deletee = @dr["Deleterights"].ToString(),
+                               create = @dr["Addrights"].ToString(),
+                               screen = @dr["Screencode"].ToString(),
+                           });
+                    }
+                }
+
+                if (dsList.Tables[0] != null)
+                {
+                    ViewBag.OtherData = "Test";
+                }
+               // ViewBag.Columns = GridColumnScreen.ToList();
+
+                return Json(new { Other = ViewBag.OtherData, Grid = GridColumnScreen.ToList() }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -548,7 +548,8 @@ $(document).ready(function () {
                      var arr = data.split(',');
                      $.each(arr, function (i) {
                          $("#UtilityFrom").find('.checker').each(function () {
-                             if (arr[i] == $(this).children().children().attr('id')) {
+                             if (arr[i] == $(this).children().children().attr('id'))
+                             {
                                  $(this).children().addClass('checked');
                                  $(this).children().children().attr('checked', true);
                                  return;
