@@ -237,7 +237,7 @@ namespace GreenTravel.Controllers
                 return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
