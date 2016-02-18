@@ -95,15 +95,15 @@ namespace GreenTravel.Controllers
                     {
                         frmset.Add(new Formsetup
                         {
-                            SrNo = @dr["SrNo"].ToString(),
-                            FormName = @dr["FormName"].ToString(),
-                            FormPrefixCode = @dr["FormPrefixCode"].ToString(),
-                            Corporate = @dr["Corporate"].ToString(),
-                            Module = @dr["Module"].ToString(),
-                            Screen = @dr["Screen"].ToString(),
-                            FeatureGroup = @dr["FeatureGroup"].ToString(),
-                            Header = @dr["Header"].ToString(),
-                            SubHeader = @dr["SubHeader"].ToString(),
+                            SrNo = dr["SrNo"].ToString(),
+                            FormName = dr["FormName"].ToString(),
+                            FormPrefixCode = dr["FormPrefixCode"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            //Module = dr["Module"].ToString(),
+                            Screen = dr["Screen"].ToString(),
+                            //FeatureGroup = dr["FeatureGroup"].ToString(),
+                            Header = dr["Header"].ToString(),
+                            SubHeader = dr["SubHeader"].ToString(),
 
                         });
                     }

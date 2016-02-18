@@ -86,7 +86,8 @@ namespace GreenTravel.Models.Comman
         public CommanPara()
         {
             CreatedBy = "1";
-            CorpcentreBy = "2";
+          //  CorpcentreBy = HttpContext.Current.Session["Corporate"].ToString();
+            CorpcentreBy ="2";
             UnitCorpBy = "1";
             BranchBy = "11";
             TerminalBy = "103.11.29.22";
