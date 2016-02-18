@@ -16,7 +16,7 @@ namespace GreenTravel.Controllers
     {
         Comman _objcomman = new Comman();
         DB_Login _objDBLogin = new DB_Login();
-
+     //   CommanPara _objCommanPara = new CommanPara();
         //Login _objlogin = new Login();
 
         FormValidationPara frm_para = new FormValidationPara();
@@ -137,6 +137,7 @@ namespace GreenTravel.Controllers
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
+                
             }
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables.Count > 0)
@@ -161,7 +162,7 @@ namespace GreenTravel.Controllers
         public ActionResult PageLoad(FormValidationPara _FormValidationPara)
         {
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
-            if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
             {
                 if (ds.Tables[0] != null)
                 {
@@ -173,11 +174,9 @@ namespace GreenTravel.Controllers
             return Content(lst, "application/json");
 
         }
-
-        public void LoadSessions(string Type, string url)
-        {
-            var load_sessions = _objDBLogin.GetUserData(Type, "", url, "");
-        }
-
+        //public void LoadSessions(string Type, string url)
+        //{
+        //    DataSet ds = _objDBLogin.GetLoginData(Type, "", url, "");
+        //}
     }
 }
