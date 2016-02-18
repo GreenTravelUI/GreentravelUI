@@ -207,7 +207,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@BillingCity", _Billing_maintanence.BillingCity);
                 _cmd.Parameters.AddWithValue("@BillingState", _Billing_maintanence.BillingState);
                 _cmd.Parameters.AddWithValue("@BillingCountry", _Billing_maintanence.BillingCountry);
-              
+
                 _cmd.Parameters.AddWithValue("@BillingZipCode", _Billing_maintanence.BillingZipCode);
                 _cmd.Parameters.AddWithValue("@BillingEmail", _Billing_maintanence.BillingEmail);
                 _cmd.Parameters.AddWithValue("@BillingPhone", _Billing_maintanence.BillingPhone);
@@ -562,7 +562,7 @@ namespace GreenTravel.App_DbService
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("sp_Edit_White_Register_MaintanenceSupport", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
-                _cmd.Parameters.AddWithValue("@tablename","_White_Register_MaintanenceSupport");
+                _cmd.Parameters.AddWithValue("@tablename", "_White_Register_MaintanenceSupport");
                 _cmd.Parameters.AddWithValue("@Corporate", BM.Corporate);
                 _cmd.Parameters.AddWithValue("@unit", "0");
                 _cmd.Parameters.AddWithValue("@Formcode", "0");
@@ -589,5 +589,87 @@ namespace GreenTravel.App_DbService
             }
         }
 
+
+        public DataSet Binddropdowntab3(WhitelabelReg WR)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_White_Register_Hosting", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+
+                _cmd.Parameters.AddWithValue("@Module", WR.Module);
+                _cmd.Parameters.AddWithValue("@screen", WR.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", WR.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", WR.unit);
+                _cmd.Parameters.AddWithValue("@Branch", WR.Branch);
+                _cmd.Parameters.AddWithValue("@userid", WR.userid);
+                _cmd.Parameters.AddWithValue("@Ip", WR.Ip);
+                _cmd.Parameters.AddWithValue("@Type", WR.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet Binddropdowntab3sec2(WhitelabelReg WR)
+        {
+            try
+            {
+                using (SqlConnection sconn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["gtcon"].ConnectionString))
+                {
+                   sconn.Open();
+                   
+                    using (SqlCommand _cmd = new SqlCommand("sp_Formload_White_Register_Subscription", sconn))
+                    {
+                        _cmd.CommandType = CommandType.StoredProcedure;
+
+                        _cmd.Parameters.AddWithValue("@Module", WR.Module);
+                        _cmd.Parameters.AddWithValue("@screen", WR.screen);
+                        _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
+                        _cmd.Parameters.AddWithValue("@TabCode", WR.TabCode);
+                        _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
+                        _cmd.Parameters.AddWithValue("@unit", WR.unit);
+                        _cmd.Parameters.AddWithValue("@Branch", WR.Branch);
+                        _cmd.Parameters.AddWithValue("@userid", WR.userid);
+                        _cmd.Parameters.AddWithValue("@Ip", WR.Ip);
+                        _cmd.Parameters.AddWithValue("@Type", WR.Type);
+                        _cmd.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                        DataSet _ds = new DataSet();
+                        _adp.Fill(_ds);
+                        _adp.Dispose();
+                        _cmd.Dispose();
+                        sconn.Close();
+                        sconn.Dispose();
+                        return _ds;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+               
+            }
+        
+        }
     }
 }
