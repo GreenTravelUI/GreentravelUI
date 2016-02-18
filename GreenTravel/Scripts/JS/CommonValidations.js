@@ -15,8 +15,13 @@ function SetValidation(valCode, control) {
     } else if (values[0].toLowerCase() == 'reg') {
         control.attr('data-reg', values[1].toString());
     } else if (values[0].toLowerCase() == 'req') {
-        var lblControl = control.parent().find('label');
-        lblControl.html(lblControl.text() + ' <span>*</span>');
+        if (control.parent().hasClass('bootstrap-timepicker')) {
+            var lblControl = control.parent().parent().find('label');
+            lblControl.html(lblControl.text() + ' <span>*</span>');
+        } else {
+            var lblControl = control.parent().find('label');
+            lblControl.html(lblControl.text() + ' <span>*</span>');
+        }
     }
 }
 
