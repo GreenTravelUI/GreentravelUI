@@ -42,7 +42,7 @@ $(document).ready(function () {
     });
     //save Form  Code --tab1
     $('.btnSave').click(function (e) {
-        
+
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
             swal(
@@ -77,23 +77,23 @@ $(document).ready(function () {
         var Header = $('#txtHeader').val();
         var SubHeader = $('#txtSubHeader').val();
         $.ajax({
-               type: "POST",
-               url: "/FormSetup/InsertData",
-               data: {
-                   "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen,
-                   "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2": Attribute2,
-                   "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7,
-                   "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
-               },
-               dataType: 'json',
-               success: function (data) {
-                   $('#txtSrNo1').val(data.srno)
-                   Message = data.responseText;
-                   $('#btnUpdateFS').show();
-                   $('#btnSavefs').hide();
-                   swal('Good job!', Message, 'success');
-               }
-           });
+            type: "POST",
+            url: "/FormSetup/InsertData",
+            data: {
+                "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen,
+                "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2": Attribute2,
+                "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7,
+                "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#txtSrNo1').val(data.srno)
+                Message = data.responseText;
+                $('#btnUpdateFS').show();
+                $('#btnSavefs').hide();
+                swal('Good job!', Message, 'success');
+            }
+        });
     });
     //save Tab data --tab 2
     $('.btnSaveformtab').click(function (e) {
@@ -231,7 +231,7 @@ $(document).ready(function () {
         if ($("#chkDeleteVisibility").parent().hasClass('checked')) {
             DeleteVisibility = true;
         }
-       
+
         var DeleteTask = false;
         var DeleteNotification = false;
         if ($("#chkNotification2").parent().hasClass('checked')) {
@@ -553,8 +553,7 @@ $(document).ready(function () {
                      var arr = data.split(',');
                      $.each(arr, function (i) {
                          $("#UtilityFrom").find('.checker').each(function () {
-                             if (arr[i] == $(this).children().children().attr('id'))
-                             {
+                             if (arr[i] == $(this).children().children().attr('id')) {
                                  $(this).children().addClass('checked');
                                  $(this).children().children().attr('checked', true);
                                  return;

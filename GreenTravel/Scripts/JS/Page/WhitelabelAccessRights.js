@@ -8,7 +8,6 @@ $(document).ready(function () {
     setSelect2Value($('#DrpLocationTab2'), '0');
     BindGrid();//Bind Grid
     $("#drpCorporate").change(function () {
-
         $('#DrpLocationTab2').html('');
         setSelect2Value($('#DrpLocationTab2'), '0');
         FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
@@ -214,13 +213,23 @@ $(document).ready(function () {
         $(".usertab1gridclass").click();
     });
 
+    function clearForm_TabWise() {
+        $('.inputformTab').val('');
+        $('.DropdownTab').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+    }
+
+
+
     // -------------------------------------------------------------------------        ( Tab-4)       -----------------------------------------------------------------------------------//
 
     $('.userlitab4class').click(function (e) {
+        e.preventDefault();
         FillDropDown_RightsCorporate();
     });
     $("#drpRightsCorporate").change(function () {
-
+        // e.preventDefault();
         $('#drpRightsUnit').html('');// To Clear dropdown Unit
         setSelect2Value($('#drpRightsUnit'), '0');
 
@@ -237,7 +246,7 @@ $(document).ready(function () {
         Load_screen_module();
     });
     $("#drpRightsUnit").change(function () {
-
+        // e.preventDefault();
         $('#drpRightsLocation').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsLocation'), '0');
 
@@ -251,7 +260,7 @@ $(document).ready(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
     });
     $("#drpRightsLocation").change(function () {
-
+        // e.preventDefault();
         $('#drpRightsRole').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsRole'), '0');
 
@@ -261,9 +270,11 @@ $(document).ready(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
     });
     $("#drpRightsRole").change(function () {
+        // e.preventDefault();
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
     });
     $("#drpRightsUser").change(function () {
+        // e.preventDefault();
         Fill_Screen_Module_On_Edit();
     });
     $("#partial").delegate(".checker", "click", function () {
@@ -284,7 +295,7 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.update').attr('checked', true);
             $(this).parent().parent().find('.checker.update').children().addClass('checked');
         }
-        else { }
+
 
     });
     $("#partial").delegate(".checker.update", "click", function () {
@@ -334,40 +345,39 @@ $(document).ready(function () {
         console.log($(this).parent().parent().find('.checker.All').children().html());
         if ($(this).parent().parent().find('.checker.All').children().hasClass('checked')) {
             $(this).parent().parent().find('tr').each(function () {
-                $(this).find('.checker.view').attr('checked', true);
-                $(this).find('.checker.view').children().addClass('checked');
+                $(this).find('.checker').attr('checked', true);
+                $(this).find('.checker').children().addClass('checked');
 
-                $(this).find('.checker.create').attr('checked', true);
-                $(this).find('.checker.create').children().addClass('checked');
+                //$(this).find('.checker.create').attr('checked', true);
+                //$(this).find('.checker.create').children().addClass('checked');
 
-                $(this).find('.checker.update').attr('checked', true);
-                $(this).find('.checker.update').children().addClass('checked');
+                //$(this).find('.checker.update').attr('checked', true);
+                //$(this).find('.checker.update').children().addClass('checked');
 
-                $(this).find('.checker.delete').attr('checked', true);
-                $(this).find('.checker.delete').children().addClass('checked');
+                //$(this).find('.checker.delete').attr('checked', true);
+                //$(this).find('.checker.delete').children().addClass('checked');
 
             });
 
         }
         else {
             $(this).parent().parent().find('tr').each(function () {
-                $(this).find('.checker.view').attr('checked', false);
-                $(this).find('.checker.view').children().removeClass('checked');
+                $(this).find('.checker').attr('checked', false);
+                $(this).find('.checker').children().removeClass('checked');
 
-                $(this).find('.checker.create').attr('checked', false);
-                $(this).find('.checker.create').children().removeClass('checked');
+                //$(this).find('.checker.create').attr('checked', false);
+                //$(this).find('.checker.create').children().removeClass('checked');
 
-                $(this).find('.checker.update').attr('checked', false);
-                $(this).find('.checker.update').children().removeClass('checked');
+                //$(this).find('.checker.update').attr('checked', false);
+                //$(this).find('.checker.update').children().removeClass('checked');
 
-                $(this).find('.checker.delete').attr('checked', false);
-                $(this).find('.checker.delete').children().removeClass('checked');
+                //$(this).find('.checker.delete').attr('checked', false);
+                //$(this).find('.checker.delete').children().removeClass('checked');
 
             });
         }
 
     });
-
     $('.btnSaveTab4').click(function (e) {
         {
             var a = 0;
@@ -378,7 +388,15 @@ $(document).ready(function () {
             }
             var ModuleAry = [];
             var ScreenAry = [];
-            var srno = '';
+            if ($('#lbSrnoTab4').val() == '') {
+                var srno = 0;
+            }
+            else {
+                var srno = $('#lbSrnoTab4').val();
+            }
+
+
+
             var UserId = $('#drpRightsUser option:selected').val();
             var Corporate = $('#drpRightsCorporate option:selected').val();
             var Unit = $('#drpRightsUnit option:selected').val();
@@ -442,19 +460,47 @@ $(document).ready(function () {
                         flagsection = 1;
                         msg = response['success'];
                         event = response['Event'];
-                        $('#txtSrNo').text(response['SrNo']);
+                        $('#lbSrnoTab4').text(response['SrNo']);
                     }
                 }
             });
             if (flagsection == 1) {
                 swal('', msg, event);
-                $('#btnSave').hide();
-                $('#btnUpdate').show();
+                $('#btnSavetab4').hide();
+                $('#btnupdatetab4').show();
             }
         }
     });
+
+    $('#btnQuittab4').click(function (e) {
+        $('.inputControl').val('');
+        $('.Dropdown').each(function () {
+            setSelect2Value($(this), '0');
+        });
+        clearValidations($(this).closest('form'));
+        $("#partial").html('');
+        $(".usertab1gridclass").click();
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
+    });
+
+    $('#btnCleartab4').click(function (e) {
+        e.preventDefault();
+        $('.inputControl').val('');
+        $('.Dropdown').each(function () {
+            setSelect2Value($(this), '0');
+        });
+        $("#partial").html('');
+        clearValidations($(this).closest('form'));
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
+        $('#Date1').val();;
+        //Date1
+    });
+
+
 })
-//( Tab - 1 & 2 )
+// -------------------------------------------------------------------------        ( Tab-1   &  Tab-2 --> Functions)       -----------------------------------------------------------------------------------//
 
 function FillDropDown_Corporate() {
     var Module = '';
@@ -644,7 +690,7 @@ function validatechar(sender, args) {
     }
 }
 
-//( Tab - 4 )
+// -------------------------------------------------------------------------        ( Tab-4 --> Functions)       -----------------------------------------------------------------------------------//
 
 function FillDropDown_RightsCorporate() {
     var Module = '';
@@ -767,13 +813,6 @@ function Load_screen_module() {
             var html = '';
             if (data['HeaderList'].length > 0) {
 
-                //if (response['ACustomMaster'][i]['CustomVisibility'].toLowerCase() == 'true') {
-                //    Customvisi = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
-                //} else {
-                //    Customvisi = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
-                //}
-
-
                 for (var i = 0; i < data['HeaderList'].length; i++) {
                     if (html == '') {
                         html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
@@ -848,7 +887,9 @@ function Load_screen_module() {
                         html = html.replace("[@Tbody]", Column);
                     }
                 }
-                $(html).appendTo($("#partial"))
+                $(html).appendTo($("#partial"));
+                $('#btnSavetab4').show();
+                $('#btnupdatetab4').hide();
             }
         }
     });
@@ -875,6 +916,8 @@ function Fill_Screen_Module_On_Edit() {
             srno: srno, Type: Type
         },
         success: function (response) {
+
+
             if (response['Grid'].length > 0) {
                 $.each(response['Grid'], function () {
                     var tempModule = this['Module'].toString();
@@ -888,43 +931,77 @@ function Fill_Screen_Module_On_Edit() {
                             $(this).find('table tbody tr').each(function () {
                                 // console.log($(this).find('.checker').attr("id") + ' -- ' + tempSCR);
                                 if ((($(this).find('.checker').attr("id"))) == tempSCR) {
-                                    // console.log(tempview);
+
+                                    $(this).find('.checker.view').attr('checked', false);
+                                    $(this).find('.checker.view').children().removeClass('checked');
+                                    $(this).find('.checker.create').attr('checked', false);
+                                    $(this).find('.checker.create').children().removeClass('checked');
+                                    $(this).find('.checker.update').attr('checked', false);
+                                    $(this).find('.checker.update').children().removeClass('checked');
+                                    $(this).find('.checker.delete').attr('checked', false);
+                                    $(this).find('.checker.delete').children().removeClass('checked');
+
                                     if (tempview == 'True') {
                                         $(this).find('.checker.view').attr('checked', true);
                                         $(this).find('.checker.view').children().addClass('checked');
-                                    } else {
-                                        $(this).find('.checker.view').attr('checked', false);
-                                        $(this).find('.checker.view').children().removeClass('checked');
                                     }
 
                                     if (tempcreate == 'True') {
                                         $(this).find('.checker.create').attr('checked', true);
                                         $(this).find('.checker.create').children().addClass('checked');
-                                    } else {
-                                        $(this).find('.checker.create').attr('checked', false);
-                                        $(this).find('.checker.create').children().removeClass('checked');
                                     }
+                                    //} else {
+                                    //    $(this).find('.checker.create').attr('checked', false);
+                                    //    $(this).find('.checker.create').children().removeClass('checked');
+                                    //}
                                     if (tempupdate == 'True') {
                                         $(this).find('.checker.update').attr('checked', true);
                                         $(this).find('.checker.update').children().addClass('checked');
-                                    } else {
-                                        $(this).find('.checker.update').attr('checked', false);
-                                        $(this).find('.checker.update').children().removeClass('checked');
                                     }
+                                    //else {
+                                    //    $(this).find('.checker.update').attr('checked', false);
+                                    //    $(this).find('.checker.update').children().removeClass('checked');
+                                    //}
                                     if (tempdeletee == 'True') {
                                         $(this).find('.checker.delete').attr('checked', true);
                                         $(this).find('.checker.delete').children().addClass('checked');
-                                    } else {
-                                        $(this).find('.checker.delete').attr('checked', false);
-                                        $(this).find('.checker.delete').children().removeClass('checked');
                                     }
+                                    //} else {
+                                    //    $(this).find('.checker.delete').attr('checked', false);
+                                    //    $(this).find('.checker.delete').children().removeClass('checked');
+                                    //}
                                 }
                             });
                         }
                     });
 
                 });
+
+                $('#btnSavetab4').hide();
+                $('#btnupdatetab4').show();
             }
+
+            if (response['IsActive'] != null) {
+                setSelect2Value($('#drpRightsStatus'), response['IsActive']);
+            }
+            if (response['EffectiveDate'] != null) {
+                $('#Date1').val(response['EffectiveDate']);
+            }
+            if (response['Srno'] != null) {
+                $('#lbSrnoTab4').val(response['Srno']);
+            }
+
+            if (response['Status'] != null) {
+
+                if (response['Status'].toLowerCase() == 'true') {
+                    $('#chkdefault').attr('checked', true);
+                    $('#chkdefault').parent().addClass('checked');
+                } else {
+                    $('#chkdefault').attr('checked', false);
+                    $('#chkdefault').parent().removeClass('checked');
+                }
+            }
+
         }
     });
 }
