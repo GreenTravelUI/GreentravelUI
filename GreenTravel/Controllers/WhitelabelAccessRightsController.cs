@@ -69,7 +69,6 @@ namespace GreenTravel.Controllers
             }
         }
 
-        // insert_Data
         public ActionResult insert_Data(UserMaster UM)
         {
             try
@@ -94,6 +93,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult BindGrid(GridParamater GP)
         {
             try
@@ -125,6 +125,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult Edit_Data(UserMaster UM)
         {
             try
@@ -166,8 +167,8 @@ namespace GreenTravel.Controllers
             }
         }
 
+        // -------------------->> Tab-4 ( Create Access Rights )
 
-        /// ~~~~~~~~~~~~~ tab-4 ~~~~~~~~~~~~~~~~~~~
         public ActionResult BindDropdown_FormLoadAccessRights(CommanFieldPara CFP)
         {
             try
@@ -226,5 +227,71 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult FillAll(CommanFieldConditionalPara CFP)
+        {
+            try
+            {
+
+                DataSet dsList = _objWhitelabelAccessRights.BindDropdown_BaseAccessRights(CFP);
+                WhitelabelStep2 CV = new WhitelabelStep2();
+                Grid _grid = new Grid();
+                List<GridHearder> GridHearder = new List<GridHearder>();
+                List<GridColumn> GridColumn = new List<GridColumn>();
+                List<Grid> lstGrid = new List<Grid>();
+                if (dsList.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.GridHearder = dsList.Tables[0];
+                    ViewBag.GridColumn = dsList.Tables[1];
+
+
+                    if (dsList.Tables[0] != null)
+                    {
+                        foreach (System.Data.DataRow dr in ViewBag.GridColumn.Rows)
+                        {
+                            GridColumn.Add(new GridColumn
+                            {
+                                xname = @dr["xname"].ToString(),
+                                SrNo = @dr["xcode"].ToString(),
+                                xlink = @dr["xlink"].ToString()
+                            });
+                        }
+                    }
+
+                    if (dsList.Tables[1] != null)
+                    {
+                        foreach (System.Data.DataRow dr in ViewBag.GridHearder.Rows)
+                        {
+                            GridHearder.Add(new GridHearder
+                            {
+                                xname = @dr["xname"].ToString(),
+                                SrNo = @dr["xcode"].ToString()
+
+                            });
+
+
+                        }
+                    }
+
+                }
+
+                _grid.GridColumn = GridColumn.ToList();
+                _grid.GridHearder = GridHearder.ToList();
+
+                lstGrid.Add(_grid);
+                return Json(new { ColumnList = _grid.GridColumn, HeaderList = _grid.GridHearder }, JsonRequestBehavior.AllowGet);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+
     }
 }

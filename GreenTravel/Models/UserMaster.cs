@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenTravel.Models.Comman;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -166,6 +167,55 @@ namespace GreenTravel.Models
         public string Add { get; set; }
         public string Update { get; set; }
         public string Delete { get; set; }
+
+    }
+
+    public class UserWiseRights : CommanPara
+    {
+        public string srno { get; set; }
+        public string UserId { get; set; }
+        public string Corporate { get; set; }
+        public string Unit { get; set; }
+        public string Location { get; set; }
+        public string Branch { get; set; }
+        public string Role { get; set; }
+        public string RoleType { get; set; }
+        public string EffectiveDate { get; set; }
+        public string IsActive { get; set; }
+        public string IsDefault { get; set; }
+        public string Status { get; set; }
+        public string Attribute1 { get; set; }
+        public string Attribute2 { get; set; }
+        public string Attribute3 { get; set; }
+        public string Attribute4 { get; set; }
+        public string Attribute5 { get; set; }
+        public string Attribute6 { get; set; }
+        public string Attribute7 { get; set; }
+        public string Attribute8 { get; set; }
+        public string Attribute9 { get; set; }
+        public string Attribute10 { get; set; }
+        public string CreatedBy { get; set; }
+        public List<GridHearderModule> GridHearder { get; set; }
+        public List<GridColumnScreen> GridColumn { get; set; }
+
+    }
+    public partial class GridRights
+    {
+        public List<GridHearderModule> GridHearder { get; set; }
+        public List<GridColumnScreen> GridColumn { get; set; }
+    }
+
+    public class GridHearderModule
+    {
+        public string SrNo { get; set; } //xname
+        public string xname { get; set; }
+
+    }
+    public class GridColumnScreen
+    {
+        public string SrNo { get; set; } //xname
+        public string xname { get; set; }
+        public string xlink { get; set; }
 
     }
 

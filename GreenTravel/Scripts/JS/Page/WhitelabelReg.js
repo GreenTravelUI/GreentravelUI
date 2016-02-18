@@ -116,6 +116,7 @@ $(document).ready(function () {
                        $("#tab1").removeClass("active");
                        $("#CreateMaster").addClass("active");
                        $("#Search").removeClass("active");
+                       BindGrid();
                    }
                }
            });
@@ -581,7 +582,7 @@ $(document).ready(function () {
         else {
             var srno = '';
         }
-        var Corporate = '0';
+        var Corporate = $("#hdfsrno").val();
         var UserId = '0';
         var GadgetPosition = $('#drpDashboardGadgetPosition option:selected').val();
         var pagerow = '10';
@@ -912,7 +913,7 @@ $(document).ready(function () {
         var Ip = '';
         var Type = 'ConditionalDropdown';
         var field1 = '';
-        var field2 = $('#drpbillingcountry option:selected').val();
+        var field2 = $('#drpbillingState option:selected').val();
         var field3 = '';
         var field4 = '';
         var field5 = '';

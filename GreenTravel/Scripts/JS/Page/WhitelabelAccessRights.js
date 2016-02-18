@@ -4,21 +4,22 @@ $(window).unload(function () {
 });
 
 $(document).ready(function () {
-    // To Fill Corporate drop - Down
+
     FillDropDown_Corporate();
+
     setSelect2Value($('#DrpLocationTab2'), '0');
+
     BindGrid();//Bind Grid
 
-    // Drop-down  Corporate selected Index change event
     $("#drpCorporate").change(function () {
-        // To Clear dropdown
-        $('#DrpLocationTab2').html('');
+
+        $('#DrpLocationTab2').html('');// To Clear dropdown
         setSelect2Value($('#DrpLocationTab2'), '0');
         FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
 
     });
 
-    // Drop-down Unit  selected Index change event
+
     $("#DrpUnitTab2").change(function () {
         FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
     });
@@ -31,12 +32,8 @@ $(document).ready(function () {
         $("#userlitab3").removeClass("active");
         $("#tab4").removeClass("active");
         $("#userlitab4").removeClass("active");
-
         $("#tab1").addClass("active");
         $("#userlitab1").addClass("active");
-
-
-
         BindGrid();
 
     });
@@ -49,9 +46,6 @@ $(document).ready(function () {
         $("#tab3").removeClass("active");
         $("#userlitab4").addClass("active");
         $("#tab4").removeClass("active");
-
-
-
         $("#userlitab2").addClass("active");
         $("#tab2").removeClass("active");
 
@@ -69,34 +63,28 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
-
         $('.drpdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
-
         $('select').next().find('ul li.select2-selection__choice').remove();
-
         // setSelect2Value($('#drpFeatureCategory'), '0');
 
     });
 
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
-
         /* Form Validation */
         if (!validateForm($(this).parent())) {
             swal('Invalid data found!');
             return false;
             return false;
         }
-
         if ($('#txtsrno').val() != "") {
             var srno = $('#txtsrno').val();
         }
         else {
             var srno = '0';
         }
-
         var Corporate = $('#drpCorporate option:selected').val();;
 
         var Unit = $('#DrpUnitTab2 option:selected').val();;
@@ -181,7 +169,7 @@ $(document).ready(function () {
     $("table").delegate(".editor_Step", "click", function () {
 
 
-        console.log($(this).parent().parent().children(':eq(1)').text());
+
 
         $("#userlitab1").removeClass("active");
         $("#userlitab2").addClass("active");
@@ -224,9 +212,18 @@ $(document).ready(function () {
                  }
              }
          }).done(function () {
+             clearValidations($(this).closest('form'));
              $("#userlitab1").removeClass("active");
-             $("#userlitab2").addClass("active");
              $("#tab1").removeClass("active");
+             $("#userlitab2").removeClass("active");
+             $("#tab2").removeClass("active");
+             $("#userlitab3").removeClass("active");
+             $("#tab3").removeClass("active");
+             $("#userlitab4").removeClass("active");
+             $("#tab4").removeClass("active");
+
+
+             $("#userlitab2").addClass("active");
              $("#tab2").addClass("active");
          });
 
@@ -240,32 +237,182 @@ $(document).ready(function () {
 
     });
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Tab- 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ( Tab-4)
     $('.userlitab4class').click(function (e) {
         FillDropDown_RightsCorporate();
     });
+
     $("#drpRightsCorporate").change(function () {
 
-        FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
+        $('#drpRightsUnit').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsUnit'), '0');
 
+        $('#drpRightsLocation').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsLocation'), '0');
+
+        $('#drpRightsRole').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsRole'), '0');
+
+        $('#drpRightsUser').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsUser'), '0');
+
+        FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
+        Loaddata();
     });
 
-    // Drop-down Unit  selected Index change event
     $("#drpRightsUnit").change(function () {
+
+        $('#drpRightsLocation').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsLocation'), '0');
+
+
+        $('#drpRightsRole').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsRole'), '0');
+
+        $('#drpRightsUser').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsUser'), '0');
+
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
     });
+
     $("#drpRightsLocation").change(function () {
+
+        $('#drpRightsRole').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsRole'), '0');
+
+        $('#drpRightsUser').html('');// To Clear dropdown
+        setSelect2Value($('#drpRightsUser'), '0');
+
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
     });
+
     $("#drpRightsRole").change(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
+    });
+
+    $("#partial").delegate(".checker", "click", function () {
+
+        if ($(this).attr("Class") == "checker All") {
+            if ($(this).children().hasClass('checked')) {
+                // alert($(this).is(':checked'))
+                alert("");
+                $(this).children().next().addClass('checked');;
+                //  $('#partial').find(".checker");
+
+            } else {
+                $(this).parent().next().find('input:checkbox').removeAttr('checked');
+            }
+        }
+    });
+
+    $("#partial").delegate(".checker", "click", function () {
+        if ($(this).children().hasClass('checked')) {
+            $(this).children().removeClass('checked');
+            $(this).children().children().removeAttr('checked');
+        } else {
+            $(this).children().addClass('checked');
+            $(this).children().children().attr('checked', true);
+        }
+    });
+    $('.btnSaveTab4').click(function (e) {
+        {
+            var a = 0;
+            e.preventDefault();
+            if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
+                swal('Invalid data found!');
+                return false;
+            }
+            var ModuleAry = [];
+            var ScreenAry = [];
+            var srno = '';
+            var UserId = '';
+            var Corporate = $('#drpRightsCorporate option:selected').val();
+            var Unit = $('#drpRightsUnit option:selected').val();
+            var Location = $('#drpRightsLocation option:selected').val();
+            var Branch = '0';
+            var Role = $('#drpRightsRole option:selected').val();
+            var RoleType = '0';
+            var EffectiveDate = $('#Date1').val();;
+            var IsActive = $('#drpRightsStatus option:selected').val();
+            var IsDefault = $("#chkdefault").is(":checked");
+            var Status = '';
+            var Attribute1 = '';
+            var Attribute2 = '';
+            var Attribute3 = '';
+            var Attribute4 = '';
+            var Attribute5 = '';
+            var Attribute6 = '';
+            var Attribute7 = '';
+            var Attribute8 = '';
+            var Attribute9 = '';
+            var Attribute10 = '';
+            var CreatedBy = '';
+            $('ul.grid div').find('li').each(function () {
+                var module = '';
+                module = ($(this).find('.lbmodulesrno').text().trim());
+
+                checkedInput = '';
+                var Feature = '';
+                $(this).find('table tbody tr').each(function () {
+                    var view = '';
+                    var create = '';
+                    var deletee = '';
+                    var update = '';
+                    var screen = '';
+
+                    if ($(this).find('.checker').attr("class") == 'checker view') {
+                        view = ($(this).find('.checker').children().hasClass('checked'));
+                        screen = ($(this).find('.checker').attr("id"));
+                    }
+                    if ($(this).find('.checker').attr("class") == 'checker create') {
+                        create = ($(this).find('.checker').children().hasClass('checked'));
+                    }
+                    if ($(this).find('.checker').attr("class") == 'checker update') {
+                        update = ($(this).find('.checker').children().hasClass('checked'));
+                    }
+                    if ($(this).find('.checker').attr("class") == 'checker delete') {
+                        deletee = ($(this).find('.checker').children().hasClass('checked'));
+                    }
+                    alert(screen);
+                });
+
+
+            });
+
+
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/WhitelabelStep2/Insert",
+            //    async: false,
+            //    data: {
+            //        srno: srno, Corporate: Corporate, FeaturesCategory: FeaturesCategory,
+            //        FeatureGroup: FeatureGroup, Feature: Feature, BranchBy: BranchBy, Attribute1: Attribute1,
+            //        Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+            //        Attribute9: Attribute9, Attribute10: Attribute10, FeatureAry: theIds1, groupAry: theIds2
+            //    },
+            //    dataType: 'json',
+            //    success: function (response) {
+            //        if (response != null) {
+            //            flagsection = 1;
+            //            msg = response['success'];
+            //            event = response['Event'];
+            //            $('#txtSrNo').text(response['SrNo']);
+            //        }
+            //    }
+            //});
+            //if (flagsection == 1) {
+            //    swal('', msg, event);
+            //    $('#btnSave').hide();
+            //    $('#btnUpdate').show();
+            //}
+        }
     });
 
 })
 
 
+//( Tab - 1 & 2 )
 
-//Contitional Dropdown fill
 function FillDropDown_Corporate() {
     var Module = '';
     var screen = '';
@@ -300,7 +447,6 @@ function FillDropDown_Corporate() {
 
 }
 
-//Contitional Dropdown fill
 function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
     var screen = '';
@@ -340,7 +486,6 @@ function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     });
 }
 
-//Comapare validation  
 function CompareValidation($attr1, $attr2) {
 
     if ($attr1 != $attr2) {
@@ -461,11 +606,8 @@ function validatechar(sender, args) {
 
     }
 }
+//( Tab - 4 )
 
-
-//************* Tab - 4 **********************
-
-// Fill Drop 
 function FillDropDown_RightsCorporate() {
     var Module = '';
     var screen = '';
@@ -514,8 +656,6 @@ function FillDropDown_RightsCorporate() {
 
 }
 
-
-//Contitional Dropdown fill
 function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
     var screen = '';
@@ -551,6 +691,129 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
                 $('#' + controlId + '').append(opt);
             }
             setSelect2Value($('#' + controlId + ''), '0');
+        }
+    });
+}
+
+function Loaddata() {
+
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var field1 = '';
+    var field2 = '';
+    var field3 = '';
+    var field4 = '';
+    var field5 = '';
+    var Control = '';
+    var Language = '';
+    var Type = 'ConditionalGrid';
+
+    var Srno = '';
+    $.ajax({
+        url: "/WhitelabelAccessRights/FillAll",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
+            Control: Control, Language: Language, Srno: Srno
+        },
+        success: function (data) {
+            $("#partial").html('');
+
+            var html = '';
+            if (data['HeaderList'].length > 0) {
+
+                //if (response['ACustomMaster'][i]['CustomVisibility'].toLowerCase() == 'true') {
+                //    Customvisi = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                //} else {
+                //    Customvisi = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
+                //}
+
+
+                for (var i = 0; i < data['HeaderList'].length; i++) {
+                    if (html == '') {
+                        html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
+                                '<label style="display: none" class="lbmodulesrno" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
+                                '<h3 style="margin-top: 0; text-align: center;" class="chk-heading"><div class="checker All"> <span><input id="' + data['HeaderList'][i]['SrNo'] + '"  class="Allcheck"   type="checkbox" > </span></div> ' +
+                                '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
+                                '<table class="table sampletable" style="margin-bottom: 0;">' +
+                                '<tbody>' +
+                                '[@Tbody]' +
+                                '</tbody></table></figcaption></figure></li>';
+                        var Column = '';
+                        for (var col = 0; col < data['ColumnList'].length; col++) {
+
+                            if (data['HeaderList'][i]['SrNo'] == data['ColumnList'][col]['xlink']) {
+                                if (Column == '') {
+                                    Column = ' <tr><td> <label style="float: left">' + data['ColumnList'][col]['xname'] + '</label>' +
+                                    '<label style="display: none" text="' + data['ColumnList'][col]['SrNo'] + '" ></label>' +
+                                    'V <div class="checker view" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'C <div class="checker create" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'U <div class="checker update" id="' + data['ColumnList'][col]['SrNo'] + '" > <span><input   type="checkbox" ></span></div>' +
+                                    'D <div class="checker delete" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    '</td></tr>'
+                                }
+                                else {
+                                    Column += ' <tr><td> <label style="float: left">' + data['ColumnList'][col]['xname'] + '</label>' +
+                                    '<label style="display: none" id="lb">' + data['ColumnList'][col]['SrNo'] + '</label>' +
+                                   'V <div class="checker view" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'C <div class="checker create" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'U <div class="checker update" id="' + data['ColumnList'][col]['SrNo'] + '" > <span><input   type="checkbox" ></span></div>' +
+                                    'D <div class="checker delete" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    '</td></tr>';
+                                }
+
+                            }
+                        }
+                        html = html.replace("[@Tbody]", Column);
+                    }
+
+                    else {
+                        html += '<li><figure><figcaption class="panel-body tab-itenaries">' +
+                                '<label style="display: none"   class="lbmodulesrno" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
+                                '<h3 style="margin-top: 0; text-align: center;" class="chk-heading"> <div class="checker"> <span ><input id="' + data['HeaderList'][i]['SrNo'] + '"  class="Allcheck"   type="checkbox" > </span></div> ' +
+                                '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
+                                '<table class="table sampletable" style="margin-bottom: 0;">' +
+                                '<tbody>' +
+                                '[@Tbody]' +
+                                '</tbody></table></figcaption></figure></li>';
+
+                        var Column = '';
+                        for (var col = 0; col < data['ColumnList'].length; col++) {
+                            if (data['HeaderList'][i]['SrNo'] == data['ColumnList'][col]['xlink']) {
+                                if (Column == '') {
+                                    Column = ' <tr><td> <label style="float: left">' + data['ColumnList'][col]['xname'] + '</label>' +
+                                    '<label style="display: none">' + data['ColumnList'][col]['SrNo'] + '</label>' +
+                                    'V <div class="checker view" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'C <div class="checker create" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'U <div class="checker update" id="' + data['ColumnList'][col]['SrNo'] + '" > <span><input   type="checkbox" ></span></div>' +
+                                    'D <div class="checker delete" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    '</td></tr>';
+                                }
+                                else {
+                                    Column += ' <tr><td> <label style="float: left">' + data['ColumnList'][col]['xname'] + '</label>' +
+                                    '<label style="float: left; display: none">' + data['ColumnList'][col]['SrNo'] + '</label>' +
+                                   'V <div class="checker view" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'C <div class="checker create" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    'U <div class="checker update" id="' + data['ColumnList'][col]['SrNo'] + '" > <span><input   type="checkbox" ></span></div>' +
+                                    'D <div class="checker delete" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
+                                    '</td></tr>';
+                                }
+                            }
+                        }
+                        html = html.replace("[@Tbody]", Column);
+                    }
+                }
+                $(html).appendTo($("#partial"))
+            }
         }
     });
 }
