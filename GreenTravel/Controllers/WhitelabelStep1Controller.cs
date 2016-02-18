@@ -520,5 +520,114 @@ namespace GreenTravel.Controllers
 
         }
 
+
+        public ActionResult Binddropdowntab3(WhitelabelReg WR)
+        {
+            try
+            {
+                DataSet ds = _objwl.Binddropdowntab3(WR);
+                List<CommanDropdown> itemcloudprovider = new List<CommanDropdown>();
+                List<CommanDropdown> itemcloudserver = new List<CommanDropdown>();
+                List<CommanDropdown> itemcndprovider = new List<CommanDropdown>();
+                List<CommanDropdown> itemcurrency = new List<CommanDropdown>();
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcloudprovider.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = itemcloudprovider;
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcloudserver.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result1 = itemcloudserver;
+
+                if (ds.Tables[2].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[2];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcndprovider.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result2 = itemcndprovider;
+
+                if (ds.Tables[3].Rows.Count > 0)
+               {
+                    ViewBag.fname = ds.Tables[3];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcurrency.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result3 = itemcurrency;
+
+
+                DataSet ds1 = _objwl.Binddropdowntab3sec2(WR);
+                List<CommanDropdown> itemcloudprovider1 = new List<CommanDropdown>();
+                List<CommanDropdown> itemcloudserver1 = new List<CommanDropdown>();
+                List<CommanDropdown> itemcndprovider1 = new List<CommanDropdown>();
+                List<CommanDropdown> itemcurrency1 = new List<CommanDropdown>();
+
+
+                if (ds1.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds1.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcloudprovider1.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result4 = itemcloudprovider1;
+
+                if (ds1.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds1.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcloudserver1.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result5 = itemcloudserver1;
+
+                if (ds1.Tables[2].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds1.Tables[2];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcndprovider1.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result6 = itemcndprovider1;
+
+                if (ds1.Tables[3].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds1.Tables[3];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemcurrency1.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result7 = itemcurrency1;
+
+
+
+                return Json(new { UPdrpc = result1, UPdrp = result, Ucountry = result2, Ucurrency = result3, UPdrpc4 = result4, UPdrp5 = result5, Ucountry6 = result6, Ucurrency7 = result7 }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

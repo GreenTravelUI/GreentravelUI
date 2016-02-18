@@ -292,6 +292,90 @@ namespace GreenTravel.Controllers
 
         }
 
+        public ActionResult Insert(UserWiseRights _objUserWiseRights)
+        {
+            try
+            {
+                ViewBag.Message = "";
+                ViewBag.Event = "";
+                ViewBag.SrNo = "";
+                DataSet result = _objWhitelabelAccessRights.Insert(_objUserWiseRights);
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    {
+                        ViewBag.Event = "success";
 
+                    }
+                    ViewBag.SrNo = result.Tables[0].Rows[0]["SrNo"].ToString();
+                }
+                var result1 = ViewBag.Message;
+                return Json(new { success = result1, Event = ViewBag.Event, SrNo = ViewBag.SrNo }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+
+        public ActionResult Edit_AccessRights(UserWiseRights _objUserWiseRights)
+        {
+            try
+            {
+                DataSet dsList = _objWhitelabelAccessRights.Edit_AccessRights(_objUserWiseRights);
+
+                UserMaster CV = new UserMaster();
+                GridRights _grid = new GridRights();
+                List<GridColumnScreen> GridColumnScreen = new List<GridColumnScreen>();
+                List<GridRights> lstGrid = new List<GridRights>();
+                ViewBag.OtherData = "";
+                if (dsList != null)
+                {
+                    if (dsList.Tables[1] != null)
+                    {
+                        if (dsList.Tables[1].Rows.Count > 0)
+                        {
+                            ViewBag.GridColumnScreen = dsList.Tables[1];
+                            foreach (System.Data.DataRow dr in ViewBag.GridColumnScreen.Rows)
+                            {
+                                GridColumnScreen.Add(new GridColumnScreen
+                                   {
+                                       SrNo = @dr["Srno"].ToString(),
+                                       SCR = @dr["Screencode"].ToString(),
+                                       Module = @dr["Modulecode"].ToString(),
+                                       view = @dr["Viewrights"].ToString(),
+                                       update = @dr["Updaterights"].ToString(),
+                                       deletee = @dr["Deleterights"].ToString(),
+                                       create = @dr["Addrights"].ToString(),
+                                       screen = @dr["Screencode"].ToString(),
+                                   });
+                            }
+                        }
+                    } if (dsList.Tables[0] != null)
+                    {
+                        if (dsList.Tables[0].Rows.Count > 0)
+                        {
+                            _objUserWiseRights.IsActive = dsList.Tables[0].Rows[0]["IsActive"].ToString();
+                            _objUserWiseRights.EffectiveDate = dsList.Tables[0].Rows[0]["EffectiveDate"].ToString();
+                            _objUserWiseRights.Status = dsList.Tables[0].Rows[0]["Isdefault"].ToString();
+                            _objUserWiseRights.srno = dsList.Tables[0].Rows[0]["SrNo"].ToString();
+                            //  ViewBag.OtherData = dsList.Tables[0];
+                        }
+                    }
+                }
+                // ViewBag.Columns = GridColumnScreen.ToList();
+
+                return Json(new { IsActive = _objUserWiseRights.IsActive, EffectiveDate = _objUserWiseRights.EffectiveDate, Status = _objUserWiseRights.Status, Grid = GridColumnScreen.ToList(), Srno = _objUserWiseRights.srno }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

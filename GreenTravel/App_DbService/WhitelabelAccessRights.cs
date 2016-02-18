@@ -375,9 +375,169 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+        public DataSet Insert(UserWiseRights _objUserWiseRights)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                if (dt.Columns.Count == 0)
+                {
+                    dt.Columns.Add("id", typeof(int));
+                    dt.Columns.Add("Srno", typeof(string));
+                    dt.Columns.Add("Modulecode", typeof(string));
+                    dt.Columns.Add("Screencode", typeof(string));
+                    dt.Columns.Add("Viewrights", typeof(string));
+                    dt.Columns.Add("Addrights", typeof(string));
+                    dt.Columns.Add("Updaterights", typeof(string));
+                    dt.Columns.Add("Deleterights", typeof(string));
+                    dt.Columns.Add("Attribute1", typeof(string));
+                    dt.Columns.Add("Attribute2", typeof(string));
+                    dt.Columns.Add("Attribute3", typeof(string));
+                    dt.Columns.Add("Attribute4", typeof(string));
+                    dt.Columns.Add("Attribute5", typeof(string));
+                    dt.Columns.Add("Attribute6", typeof(string));
+                    dt.Columns.Add("Attribute7", typeof(string));
+                    dt.Columns.Add("Attribute8", typeof(string));
+                    dt.Columns.Add("Attribute9", typeof(string));
+                    dt.Columns.Add("Attribute10", typeof(string));
+                    dt.Columns.Add("UnitCorpBy", typeof(string));
+                    dt.Columns.Add("BranchBy", typeof(string));
+                    dt.Columns.Add("CreatedBy", typeof(string));
+                    dt.Columns.Add("EditedBy", typeof(string));
+                    dt.Columns.Add("CorpcentreBy", typeof(string));
+                    dt.Columns.Add("TerminalBy", typeof(string));
+                }
+                string json = (_objUserWiseRights.GridAry);
+                var items = JsonConvert.DeserializeObject<List<GridColumnScreen>>(json);
+                var I = items.Count;
 
-    
+                foreach (GridColumnScreen item in items)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["Modulecode"] = item.Module.ToString();
+                    dr["Screencode"] = item.SCR.ToString();
+                    dr["Viewrights"] = item.view.ToString();
+                    dr["Addrights"] = item.create.ToString();
+                    dr["Updaterights"] = item.update.ToString();
+                    dr["Deleterights"] = item.deletee.ToString();
+                    dr["Attribute1"] = _objUserWiseRights.Attribute1;
+                    dr["Attribute2"] = _objUserWiseRights.Attribute2;
+                    dr["Attribute3"] = _objUserWiseRights.Attribute3;
+                    dr["Attribute4"] = _objUserWiseRights.Attribute4;
+                    dr["Attribute5"] = _objUserWiseRights.Attribute5;
+                    dr["Attribute6"] = _objUserWiseRights.Attribute6;
+                    dr["Attribute7"] = _objUserWiseRights.Attribute7;
+                    dr["Attribute8"] = _objUserWiseRights.Attribute8;
+                    dr["Attribute9"] = _objUserWiseRights.Attribute9;
+                    dr["Attribute10"] = _objUserWiseRights.Attribute10;
+                    dr["UnitCorpBy"] = _objUserWiseRights.UnitCorpBy;
+                    dr["BranchBy"] = _objUserWiseRights.BranchBy;
+                    dr["CreatedBy"] = _objUserWiseRights.CreatedBy;
+                    dr["EditedBy"] = _objUserWiseRights.CreatedBy;
+                    dr["CorpcentreBy"] = _objUserWiseRights.UnitCorpBy;
+                    dr["TerminalBy"] = _objUserWiseRights.UnitCorpBy;
+                    dt.Rows.Add(dr);
+                }
 
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@srno", _objUserWiseRights.srno);
+                _cmd.Parameters.AddWithValue("@UserId", _objUserWiseRights.UserId);
+                _cmd.Parameters.AddWithValue("@Corporate", _objUserWiseRights.Corporate);
+                _cmd.Parameters.AddWithValue("@Unit", _objUserWiseRights.Unit);
+                _cmd.Parameters.AddWithValue("@Location", _objUserWiseRights.Location);
+                _cmd.Parameters.AddWithValue("@Branch", _objUserWiseRights.Branch);
+                _cmd.Parameters.AddWithValue("@Role", _objUserWiseRights.Role);
+                _cmd.Parameters.AddWithValue("@RoleType", _objUserWiseRights.RoleType);
+                if (_objUserWiseRights.EffectiveDate == null)
+                {
+                    _cmd.Parameters.AddWithValue("@EffectiveDate", DBNull.Value);
+                }
+                else
+                {
+                    _cmd.Parameters.AddWithValue("@EffectiveDate", DateTime.ParseExact(_objUserWiseRights.EffectiveDate, "dd/MM/yyyy", null));
+                }
+                _cmd.Parameters.AddWithValue("@IsActive", (_objUserWiseRights.IsActive));
+                _cmd.Parameters.AddWithValue("@IsDefault", bool.Parse(_objUserWiseRights.IsDefault));
+                _cmd.Parameters.AddWithValue("@Status", _objUserWiseRights.Status);
+                _cmd.Parameters.AddWithValue("@Attribute1", _objUserWiseRights.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", _objUserWiseRights.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", _objUserWiseRights.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", _objUserWiseRights.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", _objUserWiseRights.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", _objUserWiseRights.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", _objUserWiseRights.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", _objUserWiseRights.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", _objUserWiseRights.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", _objUserWiseRights.Attribute10);
+                _cmd.Parameters.AddWithValue("@CreatedBy", _objUserWiseRights.CreatedBy);
+                _cmd.Parameters.AddWithValue("@EditedBy", _objUserWiseRights.CreatedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", _objUserWiseRights.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", _objUserWiseRights.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", _objUserWiseRights.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", _objUserWiseRights.BranchBy);
+                if (dt != null)
+                {
+                    SqlParameter parameter = new SqlParameter();
+                    parameter.ParameterName = "@TYPE";
+                    parameter.SqlDbType = System.Data.SqlDbType.Structured;
+                    parameter.Value = dt;
+                    _cmd.Parameters.Add(parameter);
+                }
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+        public DataSet Edit_AccessRights(UserWiseRights _objUserWiseRights)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_UserRoleMaster", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", _objUserWiseRights.tablename);
+                _cmd.Parameters.AddWithValue("@Corporate", _objUserWiseRights.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", _objUserWiseRights.Unit);
+                _cmd.Parameters.AddWithValue("@Location", _objUserWiseRights.Location);
+                _cmd.Parameters.AddWithValue("@Role", _objUserWiseRights.Role);
+                _cmd.Parameters.AddWithValue("@UserId", _objUserWiseRights.UserId);
+                _cmd.Parameters.AddWithValue("@Formcode", _objUserWiseRights.Formcode);
+                _cmd.Parameters.AddWithValue("@Formtabcode", _objUserWiseRights.Formtabcode);
+                _cmd.Parameters.AddWithValue("@srno", _objUserWiseRights.srno);
+                _cmd.Parameters.AddWithValue("@Type", "EditUserRole");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
     }
 }

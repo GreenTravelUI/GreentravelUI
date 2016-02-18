@@ -26,13 +26,13 @@ function SetValidation(valCode, control) {
 }
 
 $(document).ready(function () {
-    $('.form-group').on('blur', 'input', function () {
+    $('body').on('blur', 'input.form-control', function () {
         controlInputValidations($(this));
     });
-    $('.form-group').on('blur', 'textarea', function () {
+    $('body').on('blur', 'textarea', function () {
         controlTextareaValidations($(this));
     });
-    $('.form-group').on('select2:close', 'select.req', function () {
+    $('body').on('select2:close', 'select.req', function () {
         controlSelectValidations($(this));
     });
 });
