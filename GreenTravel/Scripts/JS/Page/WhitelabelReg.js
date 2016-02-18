@@ -6,7 +6,9 @@
 
 $(document).ready(function () {
 
+  
     BindGrid();
+       
     $('.btnSave').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
@@ -130,6 +132,7 @@ $(document).ready(function () {
     });
 
     $('.btnclearbasicclass').click(function (e) {
+        clearValidations($(this).parent());
         $('input[type="text"]').val('');
         $('input[type="password"]').val('');
         $('.chkCopyrightNotecs').removeAttr('checked');
@@ -719,8 +722,9 @@ $(document).ready(function () {
 
     $("#Tab4").click(function (e) {
         Bindtab4dropdown();
+       
 
-        if ($('#txtsrnotab4').val() != "") {
+        if ($('#txtsrno').val() != "") {
             $("#btnUpdateBilling").show();
             $("#btnSavebilling").hide();
 
@@ -950,6 +954,7 @@ $(document).ready(function () {
 
     $('.btnbillingclear').click(function (e) {
 
+        clearValidations($(this).parent());
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -968,5 +973,125 @@ $(document).ready(function () {
         $("#tab1").addClass("active");
         $("#Search").addClass("active");
     });
+
+    $("#Tab3").click(function (e) {
+        Binddropdowntab3();
+    });
+
+    function Binddropdowntab3() {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = '2';
+        var unit = '0';
+        var Branch = '0';
+        var userid = '0';
+        var Ip = '';
+        var Type = 'DropDown';
+        var html = "";
+        $.ajax({
+            url: "/WhitelabelStep1/Binddropdowntab3",
+            type: "POST",
+            async: false,
+            data: {
+                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+            },
+            success: function (response) {
+
+                if (response['UPdrp'].length > 0) {
+
+                    $('#drpCloudProvider').html('');
+                    for (var i = 0; i < response['UPdrp'].length; i++) {
+                        var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
+
+                        $('#drpCloudProvider').append(opt);
+                    }
+                    $('#drpCloudProvider option:first').attr('selected', 'selected').change();
+                }
+                if (response['UPdrpc'].length > 0) {
+
+                    $('#drpCloudServerIP').html('');
+                    for (var i = 0; i < response['UPdrpc'].length; i++) {
+                        var opt = new Option(response['UPdrpc'][i]['Text'], response['UPdrpc'][i]['Value']);
+
+                        $('#drpCloudServerIP').append(opt);
+                    }
+                    $('#drpCloudServerIP option:first').attr('selected', 'selected').change();
+                }
+
+                if (response['Ucountry'].length > 0) {
+
+                    $('#drpCDNProvider').html('');
+                    for (var i = 0; i < response['Ucountry'].length; i++) {
+                        var opt = new Option(response['Ucountry'][i]['Text'], response['Ucountry'][i]['Value']);
+
+                        $('#drpCDNProvider').append(opt);
+                    }
+                    $('#drpCDNProvider option:first').attr('selected', 'selected').change();
+                }
+
+                if (response['Ucurrency'].length > 0) {
+
+                    $('#drpCurrencytab3').html('');
+                    for (var i = 0; i < response['Ucurrency'].length; i++) {
+                        var opt = new Option(response['Ucurrency'][i]['Text'], response['Ucurrency'][i]['Value']);
+
+                        $('#drpCurrencytab3').append(opt);
+                    }
+                    $('#drpCurrencytab3 option:first').attr('selected', 'selected').change();
+                }
+
+
+                if (response['UPdrpc4'].length > 0) {
+
+                    $('#drpPaymentCurrency').html('');
+                    for (var i = 0; i < response['UPdrpc4'].length; i++) {
+                        var opt = new Option(response['UPdrpc4'][i]['Text'], response['UPdrpc4'][i]['Value']);
+
+                        $('#drpPaymentCurrency').append(opt);
+                    }
+                    $('#drpPaymentCurrency option:first').attr('selected', 'selected').change();
+                }
+                if (response['UPdrp5'].length > 0) {
+
+                    $('#drpPaymentMode').html('');
+                    for (var i = 0; i < response['UPdrp5'].length; i++) {
+                        var opt = new Option(response['UPdrp5'][i]['Text'], response['UPdrp5'][i]['Value']);
+
+                        $('#drpPaymentMode').append(opt);
+                    }
+                    $('#drpPaymentMode option:first').attr('selected', 'selected').change();
+                }
+
+                if (response['Ucountry6'].length > 0) {
+
+                    $('#drpBillingCycle').html('');
+                    for (var i = 0; i < response['Ucountry6'].length; i++) {
+                        var opt = new Option(response['Ucountry6'][i]['Text'], response['Ucountry6'][i]['Value']);
+
+                        $('#drpBillingCycle').append(opt);
+                    }
+                    $('#drpBillingCycle option:first').attr('selected', 'selected').change();
+                }
+
+                if (response['Ucurrency7'].length > 0) {
+
+                    $('#drpBillingFromCompany').html('');
+                    for (var i = 0; i < response['Ucurrency7'].length; i++) {
+                        var opt = new Option(response['Ucurrency7'][i]['Text'], response['Ucurrency7'][i]['Value']);
+
+                        $('#drpBillingFromCompany').append(opt);
+                    }
+                    $('#drpBillingFromCompany option:first').attr('selected', 'selected').change();
+                }
+
+
+            }
+        });
+
+
+    }
 
 });

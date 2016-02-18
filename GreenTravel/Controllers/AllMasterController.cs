@@ -12,13 +12,13 @@ namespace GreenTravel.Controllers
 {
     public class AllMasterController : Controller
     {
-        //
-        // GET: /AllMaster/
         DBCommanMaster _objCM = new DBCommanMaster();
+
         public ActionResult Index()
         {
             return View();
         }
+
         #region  Tab 2 Code
         public ActionResult BindDropDown(commanbaseParamater CBP)
         {
@@ -75,6 +75,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult BindDropDown_Multiselect(commanbaseParamater CBP)
         {
             try
@@ -111,6 +112,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult BindDropDownTab(commanbaseParamater CBP)
         {
             try
@@ -139,6 +141,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult FormLoad(commanbaseParamater CBP)
         {
             try
@@ -212,6 +215,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult FormLoadPlaceholder(commanbaseParamater CBP)
         {
             try
@@ -286,6 +290,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult FormLoadHelp(commanbaseParamater CBP)
         {
             try
@@ -359,6 +364,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult Insert_Data(CommanUserMaster CUH)
         {
             try
@@ -388,6 +394,7 @@ namespace GreenTravel.Controllers
 
 
         }
+
         public ActionResult BindGridUser(GridParamater GP)
         {
             try
@@ -416,6 +423,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult Edit_DataUser(Edit_UserMaster EA)
         {
             try
@@ -550,6 +558,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult ALL_Data_Field(commanbaseParamater CBP)
         {
             try
@@ -795,6 +804,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
         public ActionResult FillViewsControls(commanbaseParamater CBP)
         {
             try
@@ -885,8 +895,6 @@ namespace GreenTravel.Controllers
             lstGrid.Add(_grid);
             return PartialView(lstGrid);
         }
-
-
         #endregion
     }
 }

@@ -154,11 +154,8 @@ namespace GreenTravel.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
-
-
         }
 
         public ActionResult Edit(WhitelabelStep2 CBP)
@@ -197,9 +194,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 return Json(new { Dropdown = WhitelabelStep2, Grid = Obj_WhitelabelStep2 }, JsonRequestBehavior.AllowGet);
-                //var data = frmTab;
-                // return Json(data, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
@@ -250,8 +244,6 @@ namespace GreenTravel.Controllers
                                 SrNo = @dr["xcode"].ToString()
 
                             });
-
-                            //   var gf = GridColumn.Where(s => s.SrNo == dr["xcode"].ToString()).ToList();
                         }
                     }
 
@@ -259,11 +251,8 @@ namespace GreenTravel.Controllers
 
                 _grid.GridColumn = GridColumn.ToList();
                 _grid.GridHearder = GridHearder.ToList();
-
                 lstGrid.Add(_grid);
                 return Json(new { ColumnList = _grid.GridColumn, HeaderList = _grid.GridHearder }, JsonRequestBehavior.AllowGet);
-                //var data = frmTab;
-                //return Json(_grid, JsonRequestBehavior.AllowGet);
 
             }
             catch (Exception)

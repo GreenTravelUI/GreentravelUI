@@ -137,26 +137,22 @@ $(document).ready(function () {
                     var MultiSelect4caption = $('#txtCaption36').val();
                     var MultiSelect5caption = $('#txtCaption37').val();
 
-
-                    $.ajax(
-                        {
-                            type: "POST",
-                            url: "/Masters/Insert_Data_Caption",
-                            data: {
-                                xmastercaption: xmastercaption, SEGMENTcaption: SEGMENTcaption, Field1caption: Field1caption, Field2caption: Field2caption, Field3caption: Field3caption, Field4caption: Field4caption, Field5caption: Field5caption, Field6caption: Field6caption, Field7caption: Field7caption, Field8caption: Field8caption, Field9caption: Field9caption, Field10caption: Field10caption, Field11caption: Field11caption,
-                                Field12caption: Field12caption, Field13caption: Field13caption, Field14caption: Field14caption, Field15caption: Field15caption, Field16caption: Field16caption, Field17caption: Field17caption, Rating1caption: Rating1caption, Rating2caption: Rating2caption, Rating3caption: Rating3caption,
-                                Date1caption: Date1caption, Date2caption: Date2caption, Date3caption: Date3caption, Email1caption: Email1caption, Email2caption: Email2caption, Email3caption: Email3caption, Amountcaption: Amountcaption, Amount2caption: Amount2caption, Amount3caption: Amount3caption, Time1caption: Time1caption, Time2caption: Time2caption, Htmlcaption: Htmlcaption,
-                                Uploadcaption: Uploadcaption, TextAreacaption: TextAreacaption,
-                                MultiSelect1caption: MultiSelect1caption, MultiSelect2caption: MultiSelect2caption, MultiSelect3caption: MultiSelect3caption, MultiSelect4caption: MultiSelect4caption, MultiSelect5caption: MultiSelect5caption
-                            },
-                            dataType: 'json',
-                            success: function (response) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Masters/Insert_Data_Caption",
+                        data: {
+                            xmastercaption: xmastercaption, SEGMENTcaption: SEGMENTcaption, Field1caption: Field1caption, Field2caption: Field2caption, Field3caption: Field3caption, Field4caption: Field4caption, Field5caption: Field5caption, Field6caption: Field6caption, Field7caption: Field7caption, Field8caption: Field8caption, Field9caption: Field9caption, Field10caption: Field10caption, Field11caption: Field11caption,
+                            Field12caption: Field12caption, Field13caption: Field13caption, Field14caption: Field14caption, Field15caption: Field15caption, Field16caption: Field16caption, Field17caption: Field17caption, Rating1caption: Rating1caption, Rating2caption: Rating2caption, Rating3caption: Rating3caption,
+                            Date1caption: Date1caption, Date2caption: Date2caption, Date3caption: Date3caption, Email1caption: Email1caption, Email2caption: Email2caption, Email3caption: Email3caption, Amountcaption: Amountcaption, Amount2caption: Amount2caption, Amount3caption: Amount3caption, Time1caption: Time1caption, Time2caption: Time2caption, Htmlcaption: Htmlcaption,
+                            Uploadcaption: Uploadcaption, TextAreacaption: TextAreacaption,
+                            MultiSelect1caption: MultiSelect1caption, MultiSelect2caption: MultiSelect2caption, MultiSelect3caption: MultiSelect3caption, MultiSelect4caption: MultiSelect4caption, MultiSelect5caption: MultiSelect5caption
+                        },
+                        dataType: 'json',
+                        success: function (response) {
 
 
-                            }
-                        });
-
-
+                        }
+                    });
 
                     /*Place Holder*/
                     var xmaster = $('#txtMasterCode').val();
@@ -212,25 +208,22 @@ $(document).ready(function () {
                     var MultiSelect3 = $('#txtPlaceHolder35').val();
                     var MultiSelect4 = $('#txtPlaceHolder36').val();
                     var MultiSelect5 = $('#txtPlaceHolder37').val();
-                    $.ajax(
-                        {
-                            type: "POST",
-                            url: "/Masters/Insert_Data_PlaceHolder",
-                            data: {
-                                xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
-                                Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
-                                Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
-                                Upload: Upload, TextArea: TextArea,
-                                MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
-                            },
-                            success: function (response) {
-                                //if (response != null && response.success) {
-                                //    alert("Record Save Sucessfully!");
-                                //}
-                            }
-                        });
-
-
+                    $.ajax({
+                        type: "POST",
+                        url: "/Masters/Insert_Data_PlaceHolder",
+                        data: {
+                            xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
+                            Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
+                            Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
+                            Upload: Upload, TextArea: TextArea,
+                            MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
+                        },
+                        success: function (response) {
+                            //if (response != null && response.success) {
+                            //    alert("Record Save Sucessfully!");
+                            //}
+                        }
+                    });
 
                     /*Help*/
                     var xmaster = $('#txtMasterCode').val();
@@ -286,25 +279,22 @@ $(document).ready(function () {
                     var MultiSelect3 = $('#txtHelp35').val();
                     var MultiSelect4 = $('#txtHelp36').val();
                     var MultiSelect5 = $('#txtHelp37').val();
-                    $.ajax(
-                        {
-                            type: "POST",
-                            url: "/Masters/Insert_Data_Help",
-                            data: {
-                                xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
-                                Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
-                                Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
-                                Upload: Upload, TextArea: TextArea,
-                                MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
-                            },
-                            success: function (response) {
-                                //if (response != null && response.success) {
-                                //    alert("Record Save Sucessfully!");
-                                //}
-                            }
-                        });
-
-
+                    $.ajax({
+                        type: "POST",
+                        url: "/Masters/Insert_Data_Help",
+                        data: {
+                            xmaster: xmaster, Field1: Field1, Field2: Field2, Field3: Field3, Field4: Field4, Field5: Field5, Field6: Field6, Field7: Field7, Field8: Field8, Field9: Field9, Field10: Field10, Field11: Field11,
+                            Field12: Field12, Field13: Field13, Field14: Field14, Field15: Field15, Field16: Field16, Field17: Field17, Rating1: Rating1, Rating2: Rating2, Rating3: Rating3,
+                            Date1: Date1, Date2: Date2, Date3: Date3, Email1: Email1, Email2: Email2, Email3: Email3, Amount: Amount, Amount2: Amount2, Amount3: Amount3, Time1: Time1, Time2: Time2, Html: Html,
+                            Upload: Upload, TextArea: TextArea,
+                            MultiSelect1: MultiSelect1, MultiSelect2: MultiSelect2, MultiSelect3: MultiSelect3, MultiSelect4: MultiSelect4, MultiSelect5: MultiSelect5
+                        },
+                        success: function (response) {
+                            //if (response != null && response.success) {
+                            //    alert("Record Save Sucessfully!");
+                            //}
+                        }
+                    });
 
                     /*Validation*/
                     var xmaster = $('#txtMasterCode').val();
@@ -360,8 +350,7 @@ $(document).ready(function () {
                     var MultiSelect3 = $('#txtValidationCode35').val();
                     var MultiSelect4 = $('#txtValidationCode36').val();
                     var MultiSelect5 = $('#txtValidationCode37').val();
-                    $.ajax(
-                    {
+                    $.ajax({
                         type: "POST",
                         url: "/Masters/Insert_Data_Validation",
                         data: {
@@ -374,7 +363,8 @@ $(document).ready(function () {
                         success: function (response) {
                             if (response != null && response.success) {
                                 getdata();
-                                swal('Good job!', 'Record Save Sucessfully!', 'success');
+                                swal(responsedata['success'], '', responsedata['Event']);
+                                //swal('Good job!', 'Record Save Sucessfully!', 'success');
                             }
                         }
                     });
@@ -392,16 +382,16 @@ $(document).ready(function () {
                 }
             }
         }).done(function () {
-            
 
-            
+
+
         }); //Ajax call End
     });
 
     $('#btnQuitform').click(function (e) {
         clearValidations($(this).parent());
 
-        
+
 
         /* Hide/Show Tab */
         $("#SearchMaster").addClass("active");
@@ -483,7 +473,7 @@ $(document).ready(function () {
         $('#CreateMaster').children().find('span.tab-name').text('Update Master');
         $('.tab-section-name').text('Update Master');
         EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
-        
+
         HideControls();
     });
 
@@ -717,6 +707,7 @@ function getdata() {
     var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/Masters/BindGridView",
             "Type": "GET",
@@ -746,7 +737,11 @@ function getdata() {
                 className: "center",
                 defaultContent: '<a href="javascript:void(0);" class="editor_edit" title="Add Control"><i class="fa fa-plus-square"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="edit_master" title="Edit Master"><i class="fa fa-pencil-square-o"></i></a>'
             }
+        ],
+        columnDefs: [
+            { orderable: false, targets: 5 }
         ]
+
     });
     var tableTools = new $.fn.dataTable.TableTools(table, {
         'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
@@ -764,8 +759,8 @@ function getdata() {
 }
 
 function EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, hideControls) {
-    
-    
+
+
     $.ajax({
         type: "POST",
         url: "/Masters/Edit_data",
