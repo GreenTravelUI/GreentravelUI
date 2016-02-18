@@ -194,7 +194,7 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
+        //public string CreatedBy { get; set; }
         public List<GridHearderModule> GridHearder { get; set; }
         public List<GridColumnScreen> GridColumn { get; set; }
 

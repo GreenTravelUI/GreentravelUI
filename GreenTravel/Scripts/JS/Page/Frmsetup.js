@@ -16,11 +16,17 @@ $(document).ready(function () {
     $('#serachfrom').click(function (e) {
         getdata();
     });
+    ////Tab 1 Click  Event
+    //$('#Frmcreate').click(function (e) {
+    //    clearValidations($(this).closest('form'));
+    //});
     //Tab2 Click  Event  
     $('#frmtab').click(function (e) {
+        // clearValidations($(this).closest('form'));
         if ($('#txtSrNo1').val() == '') {
             swal('Please Edit Data');
-            Quitform();
+            // Quitform();
+
         }
         else {
             $('.tab3Formname').text($('#txtFormName').val())
@@ -28,17 +34,15 @@ $(document).ready(function () {
 
     });
     $("#drpCorporate1").change(function () {
-        FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
+        ClearDataoncorporate();
+        FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
     });
-    $("#drpFeatures").change(function () {
-
-        FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
-    });
-    $("#drpModule").change(function () {
-        FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
+    $("#drpScreen").change(function () {
+        claerdataonScreen();
     });
     //save Form  Code --tab1
     $('.btnSave').click(function (e) {
+        
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
             swal(
@@ -67,13 +71,12 @@ $(document).ready(function () {
         var FormName = $('#txtFormName').val();
         var FormPrefixCode = $('#txtFormPreFix').val();
         var Corporate = $('#drpCorporate1 option:selected').val();
-        var Module = $('#drpModule option:selected').val();
+        var Module = '0';
         var Screen = $('#drpScreen option:selected').val();
-        var FeatureGroup = $('#drpFeatures option:selected').val();
+        var FeatureGroup = '0';
         var Header = $('#txtHeader').val();
         var SubHeader = $('#txtSubHeader').val();
-        $.ajax(
-           {
+        $.ajax({
                type: "POST",
                url: "/FormSetup/InsertData",
                data: {
@@ -194,13 +197,14 @@ $(document).ready(function () {
             SaveVisibility = true;
         }
         var SaveNotification = false;
+        var SaveTask = false;
         if ($("#chkNotification").parent().hasClass('checked')) {
             SaveNotification = true;
+            SaveTask = true;
         }
-
-        var SaveTask = false;
         if ($("#chkTask").parent().hasClass('checked')) {
             SaveTask = true;
+            SaveNotification = true;
         }
 
         var UpdateName = $('#txtUpdateName').val();
@@ -210,15 +214,14 @@ $(document).ready(function () {
         if ($("#chkUpdateVisibility").parent().hasClass('checked')) {
             UpdateVisibility = true;
         }
-        //var UpdateVisibility = $("#chkUpdateVisibility").is(":checked");
-        // var UpdateNotification = $("#chkNotification1").is(":checked");
         var UpdateNotification = false;
+        var UpdateTask = false;
         if ($("#chkNotification1").parent().hasClass('checked')) {
             UpdateNotification = true;
+            UpdateTask = true;
         }
-        // var UpdateTask = $("#chkTask1").is(":checked");
-        var UpdateTask = false;
         if ($("#chkTask1").parent().hasClass('checked')) {
+            UpdateNotification = true;
             UpdateTask = true;
         }
         var DeleteName = $('#txtDeleteName').val();
@@ -228,15 +231,15 @@ $(document).ready(function () {
         if ($("#chkDeleteVisibility").parent().hasClass('checked')) {
             DeleteVisibility = true;
         }
-        // var DeleteVisibility = $("#chkDeleteVisibility").is(":checked");
-        // var DeleteNotification = $("#chkNotification2").is(":checked");
+       
+        var DeleteTask = false;
         var DeleteNotification = false;
         if ($("#chkNotification2").parent().hasClass('checked')) {
             DeleteNotification = true;
+            DeleteTask = true;
         }
-        //  var DeleteTask = $("#chkTask2").is(":checked");
-        var DeleteTask = false;
         if ($("#chkTask2").parent().hasClass('checked')) {
+            DeleteNotification = true;
             DeleteTask = true;
         }
         var ClearName = $('#txtClearName').val();
@@ -292,7 +295,7 @@ $(document).ready(function () {
     });
     //Edit Form  
     $("table").delegate(".editor_edit", "click", function () {
-        clearValidations($(this).closest('form'));
+        $('#btnClearFS').trigger('click');
         var tablename = 'dbo._Form_Master';
         var Corporate = '1';
         var unit = '0';
@@ -314,11 +317,11 @@ $(document).ready(function () {
                      $('#txtFormName').val(response[0].FormName);
                      $('#txtFormPreFix').val(response[0].FormPrefixCode);
                      setSelect2Value($('#drpCorporate1'), response[0].Corporate);
-                     FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpFeatures');
-                     setSelect2Value($('#drpFeatures'), response[0].FeatureGroup);
-                     FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
-                     setSelect2Value($('#drpModule'), response[0].Module);
-                     FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
+                     FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
+                     // setSelect2Value($('#drpFeatures'), response[0].FeatureGroup);
+                     //FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
+                     //setSelect2Value($('#drpModule'), response[0].Module);
+                     //FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
                      setSelect2Value($('#drpScreen'), response[0].Screen);
                      //  $('#drpCorporate1').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
                      // $('#drpFeatures').find('option[value="' + response[0].FeatureGroup + '"]').attr('selected', true).change();
@@ -345,6 +348,7 @@ $(document).ready(function () {
     });
     //editdata in  button ,custom button  ,utility
     $("table").delegate(".SectiontabButtonclass", "click", function () {
+        clearValidations($(this).closest('form'));
         getUtility();
         Frmcode = 0;
         FrmtabCode = '';
@@ -366,6 +370,7 @@ $(document).ready(function () {
              },
              dataType: 'json',
              success: function (response) {
+                 Modeltabactive();
                  clearButtonclass();
                  clearValidations($(this).closest('form'));
                  $("#tblModalIconCustom tbody").html('');
@@ -562,7 +567,7 @@ $(document).ready(function () {
                  }
              }
          });
-       
+
     });
     //Section In Editmode  
     $("table").delegate(".TabSection", "click", function () {
@@ -630,6 +635,7 @@ $(document).ready(function () {
     });
     //Edit tab Data 
     $("table").delegate(".EditTabData", "click", function () {
+        $('#btncleartab').trigger('click');
         $("#frmsection").removeClass("active");
         $("#frmtab").addClass("active");
         $("#tab5").removeClass("active");
@@ -787,8 +793,10 @@ $(document).ready(function () {
             }
             if ($(this).children(':eq(4)').find('input').parent().hasClass('checked')) {
                 CustomNotification = true;
+                CustomTask = true;
             }
             if ($(this).children(':eq(5)').find('input').parent().hasClass('checked')) {
+                CustomNotification = true;
                 CustomTask = true;
             }
             var srno;
@@ -874,6 +882,8 @@ $(document).ready(function () {
         clearForm();
         clearFormTAB();
         Quitform();
+        $('#btnUpdateFS').hide();
+        $('#btnSavefs').show();
     });
 
     $('#btnquittab').on('click', function (e) {
@@ -971,7 +981,8 @@ function getdatatab() {
         $('#Gridsectab').dataTable({
 
             "ServerSide": true,
-            destroy: true,
+            "destroy": true,
+            "autoWidth": false,
             "ajax": {
                 "url": "/FormSetup/BindGridViewFormsetup",
                 "Type": "GET",
@@ -1094,7 +1105,8 @@ function getdata() {
     $('#example1').dataTable({
 
         "ServerSide": true,
-        destroy: true,
+        "destroy": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/FormSetup/BindGridView",
             "Type": "GET",
@@ -1175,15 +1187,15 @@ function getUtility() {
     })
 }
 function Quitform() {
+    $("#tab1").addClass("active");
     $("#tab3").removeClass("active");
     $("#tab4").removeClass("active");
     $("#tab5").removeClass("active");
+
+    $("#serachfrom").addClass("active");
     $("#Frmcreate").removeClass("active");
     $("#frmtab").removeClass("active");
     $("#frmsection").removeClass("active");
-
-    $("#serachfrom").addClass("active");
-    $("#tab1").addClass("active");
     $("#serachfrom").trigger('click');
 }
 function clearForm() {
@@ -1218,7 +1230,7 @@ function FillDropdown(Corporate, Field1, Field2, controlId) {
     var userid = '';
     var Ip = '';
     var field1 = Field1;
-    var field2 = Field2;
+    var field2 = '';
     var field3 = '';
     var field4 = '';
     var field5 = '';
@@ -1245,7 +1257,6 @@ function FillDropdown(Corporate, Field1, Field2, controlId) {
         }
     });
 }
-
 function clearcheckbocstandardbutton() {
     $('#chkSaveVisibility').attr('checked', false);
     $('#chkSaveVisibility').parent().removeClass('checked');
@@ -1279,4 +1290,22 @@ function clearcheckbocstandardbutton() {
 
     $('#chkFormQuitVisibility').attr('checked', false);
     $('#chkFormQuitVisibility').parent().removeClass('checked');
+}
+function ClearDataoncorporate() {
+    $('#drpScreen').each(function () {
+        $(this).val($(this).find('option:first').val()).change();
+    });
+    $('.inputform').val('');
+}
+function claerdataonScreen() {
+    $('.inputform').val('');
+}
+function Modeltabactive() {
+    $("#Standanbutton").addClass("active");
+    $("#CustomButton").removeClass("active");
+    $("#Utility").removeClass("active");
+    $("#tabs1").addClass("active");
+    $("#tabs2").removeClass("active");
+    $("#tabs3Utility").removeClass("active");
+
 }

@@ -48,7 +48,7 @@ namespace GreenTravel.Models
         //public string CorpcentreBy { get; set; }
         //public string UnitCorpBy { get; set; }
         //public string TerminalBy { get; set; }
-        public string BranchBy { get; set; }
+        //public string BranchBy { get; set; }
         public object groupAry { get; set; }
         public object FeatureAry { get; set; }
 

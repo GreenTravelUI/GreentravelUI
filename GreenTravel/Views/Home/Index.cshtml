@@ -46,7 +46,7 @@
     <script>
         $(document).ready(function () {
             Load_data();
-            $('.page-content.login-body').css('background', '#000 url(@Session["BackgroundImg"].ToString()) no-repeat scroll center top');
+            $('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');
 
             $('#btnLogin').click(function () {
                 var Type = 'Password';
@@ -59,10 +59,9 @@
                     data: { Type: Type, Email: Email, url: url, Password: PassWord },
                     success: function (result) {
                         if (result == "1") {
-                            var urls = "/Dashboard/Index";
+                            var urls = "/Dashboard";
                             window.location.href = urls;
                         } else {
-                            //alert("Invalid user id and password.");
                             swal('Invalid user id and password.');
                         }
 

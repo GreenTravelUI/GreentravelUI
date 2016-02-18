@@ -34,16 +34,9 @@ $(document).ready(function () {
         var TooltipHelpText = $('#txtTooltiptext').val();
         //  var RequiredField = $('#reqfield').is(":checked");
         var RequiredField = false;
-        if ($("#reqfield").parent().hasClass('checked')) {
-            RequiredField = true;
-        }
-        var ReqValidationMsg = $('#txtreqValidationmessage').val();
-        // var ReglarExField = $('#regfield').is(":checked");
+        var ReqValidationMsg = '';
         var ReglarExField = false;
-        if ($("#regfield").parent().hasClass('checked')) {
-            ReglarExField = true;
-        }
-        var RegexValidationMsg = $('#txtRegvalidationmessage').val();
+        var RegexValidationMsg = '';
         var GuidedTourText = $('#txtGuidedTour').val();
         var GuidedTourStepNo = $('#txtGuidedtourStep').val();
         var FieldOrderNumber = $('#txtorder').val();
@@ -80,7 +73,7 @@ $(document).ready(function () {
                  if (response != null && response.success) {
                      Message = response.responseText;
                      swal('Good job!', Message, 'success');
-                    // swal('Good job!', 'Record Save Sucessfully!', 'success');
+                     // swal('Good job!', 'Record Save Sucessfully!', 'success');
                  }
              }
          }).done(function () {
@@ -94,7 +87,7 @@ $(document).ready(function () {
     });
 
     $("table").delegate(".editor_Step", "click", function () {
-        clearValidations($(this).closest('form'));
+        $('#btnclear').trigger('click');
         var tablename = 'dbo._Form_Field_Master';
         var Corporate = '2';
         var unit = '0';
@@ -124,24 +117,24 @@ $(document).ready(function () {
                      $('#txtValiadtioncode').val(response[0].ValidationCode);
                      $('#txtPlaceholdertext').val(response[0].PlaceholderText);
                      $('#txtTooltiptext').val(response[0].TooltipHelpText);
-                     if (response[0].RequiredField.toLowerCase() == 'true') {
-                         $("#reqfield").attr('checked', true);
-                         $("#reqfield").parent().addClass('checked');
-                     }
-                     else {
-                         $('#reqfield').attr('checked', false);
-                         $('#reqfield').parent().removeClass('checked');
-                     }
-                     $('#txtreqValidationmessage').val(response[0].ReqValidationMsg);
-                     if (response[0].ReglarExField.toLowerCase() == 'true') {
-                         $("#regfield").attr('checked', true);
-                         $("#regfield").parent().addClass('checked');
-                     }
-                     else {
-                         $('#regfield').attr('checked', false);
-                         $('#regfield').parent().removeClass('checked');
-                     }
-                     $('#txtRegvalidationmessage').val(response[0].RegexValidationMsg);
+                     //if (response[0].RequiredField.toLowerCase() == 'true') {
+                     //    $("#reqfield").attr('checked', true);
+                     //    $("#reqfield").parent().addClass('checked');
+                     //}
+                     //else {
+                     //    $('#reqfield').attr('checked', false);
+                     //    $('#reqfield').parent().removeClass('checked');
+                     //}
+                     //$('#txtreqValidationmessage').val(response[0].ReqValidationMsg);
+                     //if (response[0].ReglarExField.toLowerCase() == 'true') {
+                     //    $("#regfield").attr('checked', true);
+                     //    $("#regfield").parent().addClass('checked');
+                     //}
+                     //else {
+                     //    $('#regfield').attr('checked', false);
+                     //    $('#regfield').parent().removeClass('checked');
+                     //}
+                     //$('#txtRegvalidationmessage').val(response[0].RegexValidationMsg);
                      $('#txtGuidedTour').val(response[0].GuidedTourText);
                      $('#txtGuidedtourStep').val(response[0].GuidedTourStepNo);
                      $('#txtorder').val(response[0].FieldOrderNumber);
@@ -206,10 +199,10 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
-        $('#regfield').attr('checked', false);
-        $('#regfield').parent().removeClass('checked');
-        $('#reqfield').attr('checked', false);
-        $('#reqfield').parent().removeClass('checked');
+        //$('#regfield').attr('checked', false);
+        //$('#regfield').parent().removeClass('checked');
+        //$('#reqfield').attr('checked', false);
+        //$('#reqfield').parent().removeClass('checked');
     });
     $('#btnquitfrom').click(function (e) {
         e.preventDefault();
@@ -224,10 +217,10 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             $(this).val($(this).find('option:first').val()).change();
         });
-        $('#regfield').attr('checked', false);
-        $('#regfield').parent().removeClass('checked');
-        $('#reqfield').attr('checked', false);
-        $('#reqfield').parent().removeClass('checked');
+        //$('#regfield').attr('checked', false);
+        //$('#regfield').parent().removeClass('checked');
+        //$('#reqfield').attr('checked', false);
+        //$('#reqfield').parent().removeClass('checked');
         BindGrid();
     });
 });
@@ -240,8 +233,9 @@ function BindGrid() {
     var Formcode = $('#txtFormcode').val();
     var Formtabcode = '0';
     $('#fromcontrolsetup').dataTable({
-        destroy: true,
+        "destroy": true,
         "ServerSide": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/FormControlSetup/BindGridView",
             "Type": "GET",
