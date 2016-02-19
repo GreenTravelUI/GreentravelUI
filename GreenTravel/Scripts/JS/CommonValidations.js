@@ -15,19 +15,24 @@ function SetValidation(valCode, control) {
     } else if (values[0].toLowerCase() == 'reg') {
         control.attr('data-reg', values[1].toString());
     } else if (values[0].toLowerCase() == 'req') {
-        var lblControl = control.parent().find('label');
-        lblControl.html(lblControl.text() + ' <span>*</span>');
+        if (control.parent().hasClass('bootstrap-timepicker')) {
+            var lblControl = control.parent().parent().find('label');
+            lblControl.html(lblControl.text() + ' <span>*</span>');
+        } else {
+            var lblControl = control.parent().find('label');
+            lblControl.html(lblControl.text() + ' <span>*</span>');
+        }
     }
 }
 
 $(document).ready(function () {
-    $('.form-group').on('blur', 'input', function () {
+    $('body').on('blur', 'input.form-control', function () {
         controlInputValidations($(this));
     });
-    $('.form-group').on('blur', 'textarea', function () {
+    $('body').on('blur', 'textarea', function () {
         controlTextareaValidations($(this));
     });
-    $('.form-group').on('select2:close', 'select.req', function () {
+    $('body').on('select2:close', 'select.req', function () {
         controlSelectValidations($(this));
     });
 });
@@ -182,6 +187,18 @@ function controlInputValidations(control) {
             return false;
         }
     }
+
+    if (control.hasClass('datecompair')) {
+        var frmdt = new Date(control.data('datecom'));
+        var todt = new Date(control.val());
+        
+        if (frmdt>todt) {
+            control.after('<p class="red-error">Must be greater than subscription from date.</p>');
+            control.addClass('red-input');
+            return false;
+        }
+    }
+
     fillSummeryBox(control)
     return true;
 }
@@ -253,6 +270,8 @@ function controlTextareaValidations(control) {
             return false;
         }
     }
+
+   
     return true;
 }
 

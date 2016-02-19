@@ -6,9 +6,9 @@
 
 $(document).ready(function () {
 
-  
+
     BindGrid();
-       
+
     $('.btnSave').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
@@ -317,6 +317,7 @@ $(document).ready(function () {
                      $("#hdfsrno").val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrnouserpref').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
+                     $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
                      $('#txtCmpOfficeName').val(response['Whiteregjs'][0]['CorpCoOfficialName']);
                      $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
@@ -367,6 +368,10 @@ $(document).ready(function () {
                      $("#CreateMaster").addClass("active");
                      $("#Search").removeClass("active");
                      $("#CreateCorporate").addClass("active");
+
+                     billingedit();
+                     hostingedit();
+                     subcribedit();
                  }
              }
          });
@@ -721,72 +726,65 @@ $(document).ready(function () {
 
 
     $("#Tab4").click(function (e) {
-        Bindtab4dropdown();
-       
-
-        if ($('#txtsrno').val() != "") {
-            $("#btnUpdateBilling").show();
-            $("#btnSavebilling").hide();
-
-            var tablename = 'dbo._White_Register_MaintanenceSupport';
-            var Corporate = $("#hdfsrno").val();
-            var unit = '0';
-            var Formcode = '0';
-            var Formtabcode = '0';
-            var srno = $('#txtsrnotab4').val();
-            var Type = 'EditMode';
-            $.ajax(
-             {
-                 type: "POST",
-                 url: "/WhitelabelStep1/Edit_data_billing",
-
-                 data: {
-                     tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
-                 },
-                 dataType: 'json',
-                 success: function (response) {
-                     if (response['Whiteregjs'].length > 0) {
-                         console.log(response['Whiteregjs']);
-                         $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
-                         $('#txtBillingName').val(response['Whiteregjs'][0]['BillingName']);
-                         $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
-                         $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
-                         $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
-                         $('#drpbillingcountry').find('option[value="' + response['Whiteregjs'][0]['BillingCountry'] + '"]').attr('selected', true).change();
-                         $('#drpbillingState').find('option[value="' + response['Whiteregjs'][0]['BillingState'] + '"]').attr('selected', true).change();
-                         setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
-                         $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
-                         $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
-                         $('#txtBillingTelephone').val(response['Whiteregjs'][0]['BillingPhone']);
-                         $('#txtBillingCellPhone').val(response['Whiteregjs'][0]['BillingContactMobile']);
-                         // setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
-                         var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
-                         console.log(dataarray);
-                         // $("#drpSupportMode").val(dataarray);
-                         console.log(dataarray.length);
-
-                         //var values = dataarray;
-                         //$.each(values.split(","), function (i, e) {
-                         //    $("#drpSupportMode option[value='" + e + "']").prop("selected", true);
-                         //});
-
-                         $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
-                         $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
-                         setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
-
-                     }
-                 }
-             });
-
-
-        }
-        else {
-            $("#btnUpdateBilling").hide();
-            $("#btnSavebilling").show();
-        }
-
+          Bindtab4dropdown();
 
     });
+
+    function billingedit() {
+        Bindtab4dropdown();
+        $("#btnUpdateBilling").show();
+        $("#btnSavebilling").hide();
+
+        var tablename = 'dbo._White_Register_MaintanenceSupport';
+        var Corporate = $("#hdfsrno").val();
+        var unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var srno = $('#txtsrnotab4').val();
+        var Type = 'EditMode';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/WhitelabelStep1/Edit_data_billing",
+
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 if (response['Whiteregjs'].length > 0) {
+                     console.log(response['Whiteregjs']);
+                     $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
+                     $('#txtBillingName').val(response['Whiteregjs'][0]['BillingName']);
+                     $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
+                     $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
+                     $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
+                     $('#drpbillingcountry').find('option[value="' + response['Whiteregjs'][0]['BillingCountry'] + '"]').attr('selected', true).change();
+                     $('#drpbillingState').find('option[value="' + response['Whiteregjs'][0]['BillingState'] + '"]').attr('selected', true).change();
+                     setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
+                     $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
+                     $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
+                     $('#txtBillingTelephone').val(response['Whiteregjs'][0]['BillingPhone']);
+                     $('#txtBillingCellPhone').val(response['Whiteregjs'][0]['BillingContactMobile']);
+                     // setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
+                     var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
+                     console.log(dataarray);
+                     // $("#drpSupportMode").val(dataarray);
+                     console.log(dataarray.length);
+
+                     //var values = dataarray;
+                     //$.each(values.split(","), function (i, e) {
+                     //    $("#drpSupportMode option[value='" + e + "']").prop("selected", true);
+                     //});
+
+                     $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
+                     $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
+                     setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
+
+                 }
+             }
+         });
+    }
 
     $("#drpbillingcountry").change(function (e) {
         Bindbillingcountry();
@@ -975,7 +973,8 @@ $(document).ready(function () {
     });
 
     $("#Tab3").click(function (e) {
-        Binddropdowntab3();
+        // Binddropdowntab3();
+        
     });
 
     function Binddropdowntab3() {
@@ -1093,5 +1092,241 @@ $(document).ready(function () {
 
 
     }
+
+
+    $(".btnsavetab3class").click(function (e) {
+        e.preventDefault();
+        if (!validateForm($(this).parent())) {
+            swal('Invalid data found!')
+            return false;
+        }
+        if ($('#txtsrnotab3').val() != "") {
+            var srno = $('#txtsrnotab3').val();
+        }
+        else {
+            var srno = '';
+        }
+        var Corporate = $("#hdfsrno").val();
+        var CloudProvider = $('#drpCloudProvider option:selected').val();
+        var CloudServerIp = $('#drpCloudServerIP option:selected').val();
+        var CloudDiskSpace = $('#txtCloudDiskSpace').val();
+        var TransactionCount = $('#txtTrasactionCount').val();
+        var IpRestrictedAccess = $('#txtipristrictedaccess').val();
+        var CdnProvider = $('#drpCDNProvider option:selected').val();
+        var CdnSpace = $('#txtCDNSpace').val();
+        var HostingCost = $('#txtHostingCostPerMonth').val();
+        var CostPerMonth = $('#txtCostPerMonth').val();
+        var Currency = $('#drpCurrencytab3 option:selected').val();
+
+        var PlanName = $('#txtPlanName').val();
+        var SubscriptionType = '';
+        var FreeFlag = $('#chkfreeflag').val();
+        var NumberOfUsers = $('#txtNumberofUsers').val();
+        var SubscriptionFromDate = $('#txtSubscriptionFromDate').val();
+        var SubscriptionToDate = $('#txtSubscriptionToDate').val();
+        var BillingCycle = $('#drpBillingCycle option:selected').val();
+        var BillingFromCompany = $('#drpBillingFromCompany option:selected').val();
+        var PaymentCurrency = $('#drpPaymentCurrency option:selected').val();
+        var AmountPUPM = $('#txtAmountPerUserPerMonth').val();
+        var PaymentMode = $('#drpPaymentMode option:selected').val();
+        var FirstPayDate = $('#txtFirstPaymentDate').val();
+        var GracePeriod = $('#txtGracePeriod').val();
+
+        var Attribute1 = '';
+        var Attribute2 = '';
+        var Attribute3 = '';
+        var Attribute4 = '';
+        var Attribute5 = '';
+        var Attribute6 = '';
+        var Attribute7 = '';
+        var Attribute8 = '';
+        var Attribute9 = '';
+        var Attribute10 = '';
+        $.ajax(
+           {
+               type: "POST",
+               url: "/WhitelabelStep1/insert_Hosting",
+               data: {
+                   "srno": srno, "Corporate": Corporate,
+                   "CloudProvider": CloudProvider, "CloudServerIp": CloudServerIp, "CloudDiskSpace": CloudDiskSpace,
+                   "TransactionCount": TransactionCount, "IpRestrictedAccess": IpRestrictedAccess, "CdnProvider": CdnProvider,
+                   "CdnSpace": CdnSpace, "HostingCost": HostingCost, "CostPerMonth": CostPerMonth, "Currency": Currency,
+                   "PlanName": PlanName, "SubscriptionType": SubscriptionType, "FreeFlag": FreeFlag, "NumberOfUsers": NumberOfUsers,
+                   "SubscriptionFromDate": SubscriptionFromDate, "SubscriptionToDate": SubscriptionToDate, "BillingCycle": BillingCycle,
+                   "BillingFromCompany": BillingFromCompany, "PaymentCurrency": PaymentCurrency, "AmountPUPM": AmountPUPM,
+                   "PaymentMode": PaymentMode, "FirstPayDate": FirstPayDate, "GracePeriod": GracePeriod, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                   "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+               },
+               dataType: 'json',
+               success: function (response) {
+                   if (response != null && response.success) {
+                       swal('Good job!', 'Record Save Sucessfully!', 'success')
+                       $("#btnUpdatetab3").show();
+                       $("#btnSavetab3").hide();
+                   }
+               }
+           });
+
+    });
+
+    $("#btnQuittab3").click(function (e) {
+        $("#Search").addClass("active");
+        $("#tab1").addClass("active");
+        $("#tab3").removeClass("active");
+        $("#Tab3").removeClass("active");
+        BindGrid();
+    });
+
+    $("#btnCleartab3").click(function (e) {
+        clearValidations($(this).parent());
+        $('input[type="text"]').val('');
+        $('.chkCopyrightNotecs').removeAttr('checked');
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+        $("#btnUpdatetab3").hide();
+        $("#btnCanceltab3").hide();
+        $("#btnSavetab3").show();
+    });
+
+    function hostingedit() {
+
+       // Binddropdowntab3();
+        $("#btnUpdatetab3").show();
+        $("#btnCanceltab3").hide();
+        $("#btnSavetab3").hide();
+
+        var tablename = 'dbo._White_Register_Hosting';
+        var Corporate = $("#hdfsrno").val();
+        var unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var srno = $('#txtsrnotab3').val();
+        var Type = 'EditMode';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/WhitelabelStep1/Edit_data_hosting",
+
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 if (response['Whiteregjs'].length > 0) {
+                     console.log(response['Whiteregjs']);
+                     $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
+                     setSelect2Value($('#drpCloudProvider'), response['Whiteregjs'][0]['CloudProvider']);
+                     setSelect2Value($('#drpCloudServerIP'), response['Whiteregjs'][0]['CloudServerIp']);
+                     $('#txtCloudDiskSpace').val(response['Whiteregjs'][0]['CloudDiskSpace']);
+                     $('#txtTrasactionCount').val(response['Whiteregjs'][0]['TransactionCount']);
+                     $('#txtipristrictedaccess').val(response['Whiteregjs'][0]['IpRestrictedAccess']);
+                     setSelect2Value($('#drpCDNProvider'), response['Whiteregjs'][0]['CdnProvider']);
+                     $('#txtCDNSpace').val(response['Whiteregjs'][0]['CdnSpace']);
+                     $('#txtCostPerMonth').val(response['Whiteregjs'][0]['CostPerMonth']);
+                     setSelect2Value($('#drpCurrencytab3'), response['Whiteregjs'][0]['Currency']);
+                     // checkbox code remain
+                     //var chkcheck = response['Whiteregjs'][0]['BillingName'];
+                     //if (chkcheck == true)
+                     //{
+
+                     //}
+                     //else
+                     //{
+
+                     //}
+                     $('#txtHostingCostPerMonth').val(response['Whiteregjs'][0]['HostingCost']);
+
+                 }
+
+
+             }
+         });
+
+    }
+    function subcribedit() {
+
+        //Binddropdowntab3();
+
+        var tablename = 'dbo._White_Register_Subscription';
+        var Corporate = $("#hdfsrno").val();
+        var unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var srno = $('#txtsrnotab3').val();
+        var Type = 'EditMode';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/WhitelabelStep1/Edit_data_subcribe",
+
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                 if (response['Whiteregjs'].length > 0) {
+                     console.log(response['Whiteregjs']);
+                     $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
+                     $('#txtPlanName').val(response['Whiteregjs'][0]['PlanName']);
+                     $('#txtNumberofUsers').val(response['Whiteregjs'][0]['NumberOfUsers']);
+                     $('#txtSubscriptionFromDate').val(response['Whiteregjs'][0]['SubscriptionFromDate']);
+                     $('#txtSubscriptionToDate').val(response['Whiteregjs'][0]['SubscriptionToDate']);
+                     setSelect2Value($('#drpBillingCycle'), response['Whiteregjs'][0]['BillingCycle']);
+                     setSelect2Value($('#drpBillingFromCompany'), response['Whiteregjs'][0]['BillingFromCompany']);
+                     // checkbox code remain
+                     var chkcheck = response['Whiteregjs'][0]['FreeFlag'];
+                     if (chkcheck == "on")
+                     {
+                         $(chkfreeflag).prop('checked') == true;
+                     }
+                     else
+                     {
+                         $(chkfreeflag).prop('checked') == false;
+                     }
+                     setSelect2Value($('#drpPaymentCurrency'), response['Whiteregjs'][0]['PaymentCurrency']);
+                     $('#txtAmountPerUserPerMonth').val(response['Whiteregjs'][0]['AmountPUPM']);
+                     //enable false textbox
+                     setSelect2Value($('#drpPaymentMode'), response['Whiteregjs'][0]['PaymentMode']);
+                     $('#txtFirstPaymentDate').val(response['Whiteregjs'][0]['FirstPayDate']);
+                     $('#txtGracePeriod').val(response['Whiteregjs'][0]['GracePeriod']);
+
+
+                 }
+
+
+             }
+         });
+
+    }
+
+    $("#txtAmountPerUserPerMonth").change(function (e) {
+        if(($("#txtNumberofUsers").val()!=null) && ($("#txtAmountPerUserPerMonth").val()!=null))
+        {
+            // $("#txtTotalAmountPerMonth").val() = ($("txtNumberofUsers").val() * $("#txtAmountPerUserPerMonth").val());
+            var t1 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
+            
+            console.log(t1);
+            if (t1 != "Nan") {
+                $("#txtTotalAmountPerMonth").val(t1);
+            }
+        }
+
+    });
+
+    $("#txtNumberofUsers").change(function (e) {
+        if (($("#txtNumberofUsers").val() != null) && ($("#txtAmountPerUserPerMonth").val() != null)) {
+            //  $("#txtTotalAmountPerMonth").val() = ($("txtNumberofUsers").val() * $("#txtAmountPerUserPerMonth").val());
+            var t2 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
+            console.log(t2);
+            if (t2 != "Nan") {
+                $("#txtTotalAmountPerMonth").val(t2)
+            }
+        }
+
+    });
+
+   
+
 
 });

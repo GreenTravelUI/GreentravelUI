@@ -14,21 +14,13 @@ namespace GreenTravel.Controllers
     {
         DataSet ds = new DataSet();
         DBFromControlSetup _objDCFS = new DBFromControlSetup();
-        //
-        // GET: /FormControlSetup/
-
+        
         public ActionResult Index()
         {
 
             return View();
         }
-
-        //public ActionResult Index(int Formcode)
-        //{
-
-        //    return View();
-        //}
-
+        
         public ActionResult Insert_Data(FrmControlSetup FCS)
         {
             try
@@ -37,12 +29,15 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
                 }
-                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -70,6 +65,30 @@ namespace GreenTravel.Controllers
             }
         }
 
+        public ActionResult BindDropDownLoadColumn(CommanFieldPara _CBP)
+        {
+            try
+            {
+                DataSet ds = _objDCFS.BindDropDownLoad(_CBP);
+                List<CommanDropdown> items = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = items;
+                return Json(new { GTCorporate = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+  
+
         public ActionResult BindGridView(GridParamater GP)
         {
             try
@@ -92,7 +111,6 @@ namespace GreenTravel.Controllers
                             Section = @dr["Section"].ToString(),
                             Controls = @dr["Control"].ToString(),
                             Srno = @dr["Srno"].ToString()
-
                         });
                     }
                 }
@@ -144,7 +162,6 @@ namespace GreenTravel.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -171,6 +188,5 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
     }
 }

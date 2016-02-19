@@ -7,6 +7,29 @@ $(document).ready(function () {
     Dropdown_Bind_Tab1();
     Dropdown_Bind_Tab2();
     getdata();
+    //Tab Column Click
+    $('#Column').click(function (e) {
+        if ($('#txtsrno').val() == '') {
+            e.preventDefault();
+            swal('Please Edit Data');
+            QuitForm();
+            return false;
+        } else {
+            //$('.tab3Formname').text($('#txtFormName').val())
+        }
+    });
+    //Tab Column grid
+    $('#ColumnGrid').click(function (e) {
+        if ($('#txtsrno').val() == '') {
+            e.preventDefault();
+            swal('Please Edit Data');
+            QuitForm();
+            return false;
+        } else {
+            getdataColumn();
+        }
+    });
+
     //Module
     FillDropdown($('#drpCorporate option:selected').val(), '', '', '', '', 'drpFeatures');
     //screen
@@ -15,12 +38,12 @@ $(document).ready(function () {
     });
     //Form 
     $("#drpModuleCreateView").change(function () {
-        clearValidations($(this).closest('form'));
+   //     clearValidations($(this).closest('form'));
         FillDropdown($('#drpCorporate option:selected').val(), '', $('#drpModuleCreateView option:selected').val(), '', '', 'drpScreenCreateView');
     });
     //tab
     $("#drpScreenCreateView").change(function () {
-        clearValidations($(this).closest('form'));
+        //clearValidations($(this).closest('form'));
         FillDropdown($('#drpCorporate option:selected').val(), '', '', $('#drpScreenCreateView option:selected').val(), '', 'drpTabCreateView');
     });
 
@@ -166,6 +189,7 @@ $(document).ready(function () {
     });
 
     $('#ismasterView').click(function (e) {
+        setSelect2Value($('#drpMasterCreateView'), '0');
         if ($(this).prop("checked") == true) {
             $('#divMaster').show();
         }
@@ -175,14 +199,6 @@ $(document).ready(function () {
     });
 
     //**************************************************************Column  Tab 2***************************************************************************************
-
-    //Tab Click Event
-    $('#Column').click(function (e) {
-    });
-    //Tab ColumnSearch Click Event
-    $('#ColumnGrid').click(function (e) {
-        getdataColumn();
-    });
     //Clear Column Tab
     $('#btnClearColumn').click(function (e) {
         Claertab2();
@@ -468,7 +484,8 @@ function getdata() {
     var type = 'Grid';
     $('#CreateViewGrid').dataTable({
         "ServerSide": true,
-        destroy: true,
+        "destroy": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/ViewsSetup/BindGridView",
             "Type": "GET",
@@ -503,7 +520,7 @@ function getdata() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data"  ><i class="fa fa-pencil-square-o"></i></a>'
             }]
     });
 }
@@ -512,8 +529,11 @@ function cleartab1() {
     clearValidations($(this).closest('form'));
     $('.inputform').val('');
     $('.Dropdown').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
+        setSelect2Value($(this), '0');
+        //$(this).val($(this).find('option:first').val()).change();
     });
+    $('#FixedOrder').attr('checked', false);
+    $('#FixedOrder').parent().removeClass('checked');
 }
 
 function Claertab2() {
@@ -546,7 +566,8 @@ function getdataColumn() {
     var type = 'Grid';
     $('#ColumngridView').dataTable({
         "ServerSide": true,
-        destroy: true,
+        "destroy": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/ViewsSetup/BindGridViewColumn",
             "Type": "GET",
@@ -578,7 +599,14 @@ function getdataColumn() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_editColumn" ><i class="fa fa-pencil-square-o"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_editColumn" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>'
             }]
     });
+}
+
+function QuitForm() {
+    $("#SearchView").addClass("active");
+    $("#CreateView").removeClass("active");
+    $("#tab1").addClass("active");
+    $("#tab3").removeClass("active");
 }
