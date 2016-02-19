@@ -10,6 +10,7 @@ var Frmcode;
 var FrmtabCode
 
 $(document).ready(function () {
+
     Dropdown_Bind_Tab1();
 
     getdata();
@@ -308,10 +309,37 @@ $(document).ready(function () {
 
     //Redirect Form Control
     $("table").delegate(".editor_Control", "click", function () {
+        var tablename = 'dbo._Form_Tab_Master';
+        var Corporate = '2';
+        var unit = '';
+        var userid = '';
+        var WhereClause = '';
+        var Branch = '';
+        var PageNo = '1';
+        var RecordsPerPage = '10';
         var FormCode = $(this).parent().parent().children(':eq(1)').text();
-        window.location.href = '/FormControlSetup/Index/?id=' + FormCode;
-
-
+        var Formtabcode = '0';
+        var type = 'Grid';
+        var Segment = '';
+        $.ajax({
+            type: "POST",
+            url: "/FormSetup/BindGridViewFormsetup",
+            data: {
+                "tablename": tablename, "Corporate": Corporate, "unit": unit, "userid": userid, "WhereClause": WhereClause, "Branch": Branch, "PageNo": PageNo, "RecordsPerPage": RecordsPerPage,
+                "FormCode": FormCode, "Formtabcode": Formtabcode, "type": type, "Segment": Segment
+            },
+            dataType: 'json',
+            success: function (result) {
+                console.log(result.length);
+                if (result.length>0) {
+                    window.location.href = '/FormControlSetup/Index/?id=' + FormCode;
+                }
+                else {
+                    swal('', 'No Tab Found For This Form', 'error');
+                }
+            }
+        });
+        
     });
 
     //Edit Form  
@@ -618,13 +646,13 @@ $(document).ready(function () {
                         if (typeof html === typeof undefined && html === false || html == '') {
                             html = '<tr>' +
                                    '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
-                                   '<td><div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
+                                   '<td><div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
                                    '<td><div class="form-group"><input type="text" class="form-control req"  value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
                                    '</tr>';
                         } else {
                             html += '<tr>' +
                                 '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
-                                '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
+                                '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
                                 '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
                                 '</tr>';
                         }
@@ -634,7 +662,7 @@ $(document).ready(function () {
                     ID = response['ASectionMaster'].length + 1;
                     var html = '<tr>' +
                                '<td>' + ID + '</td>' +
-                               '<td> <div class="form-group"><input type="text" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
+                               '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" id="txtsection' + ID + '"/></div></td>' +
                                '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
                                '</tr>'
                     $(html).appendTo($("#tblModalSection"))
@@ -984,7 +1012,7 @@ function addRowCustom() {
 function addRow() {
     var html = '<tr>' +
                 '<td>' + ID + '</td>' +
-                '<td> <div class="form-group"><input type="text" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
+                '<td> <div class="form-group"><input type="text" placeholder="Section Name" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
                 '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalSection"))
@@ -1041,7 +1069,7 @@ function getdatatab() {
             {
                 data: null,
                 className: "center",
-                defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon" class="SectiontabButtonclass"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection" class="TabSection"><i class="fa fa-list-alt"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="EditTabData"><i class="fa fa-pencil-square-o"></i></a>'
+                defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon" rel="tooltip" title="Standand Button" class="SectiontabButtonclass"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection" class="TabSection" rel="tooltip" title="Add Section"><i class="fa fa-list-alt"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="EditTabData" rel="tooltip" title="Edit Data"><i class="fa fa-pencil-square-o"></i></a>'
             }
         ]
     });
@@ -1157,7 +1185,7 @@ function getdata() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"><i class="fa fa-anchor"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"  rel="tooltip" title="Add Form Control"><i class="fa fa-anchor"></i></a>'
             }]
     });
 }

@@ -132,6 +132,9 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objWhitelabelAccessRights.Edit_data(UM);
                 List<UserMaster> UserMaster = new List<UserMaster>();
+                List<UserWiseRights> UserWiseRights = new List<UserWiseRights>();
+
+
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -156,9 +159,29 @@ namespace GreenTravel.Controllers
                         });
                     }
                 }
-                var result = UserMaster;
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.UserWiseRights = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.UserWiseRights.Rows)
+                    {
+                        UserWiseRights.Add(new UserWiseRights
+                          {
+                              srno = @dr["srno"].ToString(),
+                              Corporate = @dr["Corporate"].ToString(),
+                              Unit = @dr["Unit"].ToString(),
+                              Branch = @dr["Branch"].ToString(),
+                              Location = @dr["Location"].ToString(),
+                              Role = @dr["Role"].ToString(),
+                              UserId = @dr["UserId"].ToString(),
+                          });
+                    }
+                }
 
-                return Json(new { UserMasterresjs = result }, JsonRequestBehavior.AllowGet);
+
+
+                var result = UserMaster;
+                var result2 = UserWiseRights;
+                return Json(new { UserMasterresjs = result, UserWiseRights = UserWiseRights }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -321,7 +344,6 @@ namespace GreenTravel.Controllers
 
 
         }
-
 
         public ActionResult Edit_AccessRights(UserWiseRights _objUserWiseRights)
         {

@@ -3,8 +3,8 @@
 });
 var deletesrno;
 $(document).ready(function () {
-    Control_type();
-
+    Formname();
+    FormLoadData();
     BindGrid();
 
     $('#searchcontrol').click(function (e) {
@@ -248,7 +248,7 @@ function BindGrid() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a>'
             }
         ]
     });
@@ -294,7 +294,72 @@ function FillDropdown(Corporate, Field1, Field2, controlId) {
 
 function Control_type() {
     $('#drpcontroltype').html('');
-    $('#drpcontroltype').append($('<option value="0">--None--</option>'));
+    $('#drpcontroltype').append($('<option value="0" select>--None--</option>'));
     $('#drpcontroltype').append($('<option value="1">Texobox</option>'));
     $('#drpcontroltype').append($('<option value="2">DropDown</option>'));
+}
+
+function Formname() {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '2';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var field1 = $('#txtFormcode').val();
+    var field2 = 0;
+    var field3 = '';
+    var field4 = '';
+    var field5 = '';
+    var Control = '';
+    var Language = '';
+    var Type = 'Formname';
+    var Srno = '';
+    $.ajax({
+        url: "/FormControlSetup/BindDropDown",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
+            Control: Control, Language: Language, Srno: Srno
+        },
+        success: function (result) {
+            $('.tabFormname').text(result[0]['Text']);
+        }
+    });
+}
+
+function FormLoadData() {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var Type = 'DropDown';
+    $.ajax({
+        url: "/FormControlSetup/BindDropDownLoadColumn",
+        type: "POST",
+        data: {
+            "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "Corporate": Corporate,
+            "unit": unit, "Branch": Branch, "userid": userid, "Ip": Ip, "Type": Type
+        },
+        success: function (response) {
+            if (response['GTCorporate'].length > 0) {
+                $('#drpcontroltype').html('');
+                for (var i = 0; i < response['GTCorporate'].length; i++) {
+                    var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
+                    $('#drpcontroltype').append(opt);
+                }
+                setSelect2Value($('#drpcontroltype'), '0');
+            }
+        }
+    });
 }
