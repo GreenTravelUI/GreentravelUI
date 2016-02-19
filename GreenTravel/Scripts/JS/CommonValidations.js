@@ -182,6 +182,18 @@ function controlInputValidations(control) {
             return false;
         }
     }
+
+    if (control.hasClass('datecompair')) {
+        var frmdt = new Date(control.data('datecom'));
+        var todt = new Date(control.val());
+        
+        if (frmdt>todt) {
+            control.after('<p class="red-error">Must be greater than subscription from date.</p>');
+            control.addClass('red-input');
+            return false;
+        }
+    }
+
     fillSummeryBox(control)
     return true;
 }
@@ -253,6 +265,8 @@ function controlTextareaValidations(control) {
             return false;
         }
     }
+
+   
     return true;
 }
 

@@ -169,4 +169,47 @@ namespace GreenTravel.Models
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
     }
+
+    public class Hosting_Subscription:CommanPara
+    {
+        public string srno { get; set; }
+        public string Corporate { get; set; }
+        public string CloudProvider { get; set; }
+        public string CloudServerIp { get; set; }
+        public string CloudDiskSpace { get; set; }
+        public string TransactionCount { get; set; }
+        public string IpRestrictedAccess { get; set; }
+        public string CdnProvider { get; set; }
+        public string CdnSpace { get; set; }
+        public string HostingCost { get; set; }
+        public string CostPerMonth { get; set; }
+        public string Currency { get; set; }
+
+        public string PlanName { get; set; }
+        public string SubscriptionType { get; set; }
+        public string FreeFlag { get; set; }
+        public string NumberOfUsers { get; set; }
+        public string SubscriptionFromDate { get; set; }
+        public string SubscriptionToDate { get; set; }
+        public string BillingCycle { get; set; }
+        public string BillingFromCompany { get; set; }
+        public string PaymentCurrency { get; set; }
+        public string AmountPUPM { get; set; }
+        public string PaymentMode { get; set; }
+        public string FirstPayDate { get; set; }
+        public string GracePeriod { get; set; }
+
+        public string Attribute1 { get; set; }
+        public string Attribute2 { get; set; }
+        public string Attribute3 { get; set; }
+        public string Attribute4 { get; set; }
+        public string Attribute5 { get; set; }
+        public string Attribute6 { get; set; }
+        public string Attribute7 { get; set; }
+        public string Attribute8 { get; set; }
+        public string Attribute9 { get; set; }
+        public string Attribute10 { get; set; }
+               
+    }
+
 }

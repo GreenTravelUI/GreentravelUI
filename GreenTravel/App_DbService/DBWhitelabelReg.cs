@@ -671,5 +671,227 @@ namespace GreenTravel.App_DbService
             }
         
         }
+
+        public DataSet insert_Hosting(Hosting_Subscription HS)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_White_Register_Hosting", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@srno", HS.srno);
+                _cmd.Parameters.AddWithValue("@Corporate", HS.Corporate);
+
+                _cmd.Parameters.AddWithValue("@CloudProvider", HS.CloudProvider);
+                _cmd.Parameters.AddWithValue("@CloudServerIp", HS.CloudServerIp);
+                _cmd.Parameters.AddWithValue("@CloudDiskSpace", HS.CloudDiskSpace);
+                _cmd.Parameters.AddWithValue("@TransactionCount", HS.TransactionCount);
+                _cmd.Parameters.AddWithValue("@IpRestrictedAccess", HS.IpRestrictedAccess);
+                _cmd.Parameters.AddWithValue("@CdnProvider", HS.CdnProvider);
+                _cmd.Parameters.AddWithValue("@CdnSpace", HS.CdnSpace);
+                _cmd.Parameters.AddWithValue("@HostingCost", HS.HostingCost);
+                _cmd.Parameters.AddWithValue("@CostPerMonth", HS.CostPerMonth);
+                _cmd.Parameters.AddWithValue("@Currency", HS.Currency);                
+
+                _cmd.Parameters.AddWithValue("@Attribute1", HS.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", HS.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", HS.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", HS.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", HS.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", HS.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", HS.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", HS.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", HS.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", HS.Attribute10);
+
+                _cmd.Parameters.AddWithValue("@CreatedBy", HS.CreatedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", HS.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", HS.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", HS.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", HS.BranchBy);
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+
+        }
+
+        public DataSet insert_Hosting_sub(Hosting_Subscription HS)
+        {
+            try
+            {
+                using (SqlConnection sconn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["gtcon"].ConnectionString))
+                {
+                    sconn.Open();
+
+                    using (SqlCommand _cmd = new SqlCommand("sp_save_White_Register_Subscription", sconn))
+                    {
+                        // _cn.Open();
+                        // SqlCommand _cmd = new SqlCommand("sp_save_White_Register_Subscription", _cn);
+                        _cmd.CommandType = CommandType.StoredProcedure;
+                        _cmd.Parameters.AddWithValue("@srno", HS.srno);
+                        _cmd.Parameters.AddWithValue("@Corporate", HS.Corporate);
+
+                        _cmd.Parameters.AddWithValue("@PlanName", HS.PlanName);
+                        _cmd.Parameters.AddWithValue("@SubscriptionType", HS.SubscriptionType);
+                        _cmd.Parameters.AddWithValue("@FreeFlag", HS.FreeFlag);
+                        _cmd.Parameters.AddWithValue("@NumberOfUsers", HS.NumberOfUsers);
+                        _cmd.Parameters.AddWithValue("@BillingCycle", HS.BillingCycle);
+                        _cmd.Parameters.AddWithValue("@BillingFromCompany", HS.BillingFromCompany);
+                        _cmd.Parameters.AddWithValue("@PaymentCurrency", HS.PaymentCurrency);
+                        _cmd.Parameters.AddWithValue("@AmountPUPM", HS.AmountPUPM);
+                        _cmd.Parameters.AddWithValue("@PaymentMode", HS.PaymentMode);
+
+                        _cmd.Parameters.AddWithValue("@GracePeriod", HS.GracePeriod);
+
+                        if (HS.SubscriptionFromDate == null)
+                        {
+                            _cmd.Parameters.AddWithValue("@SubscriptionFromDate", DBNull.Value);
+                        }
+                        else
+                        {
+                            _cmd.Parameters.AddWithValue("@SubscriptionFromDate", DateTime.ParseExact(HS.SubscriptionFromDate, "dd/MM/yyyy", null));
+                        }
+
+                        if (HS.SubscriptionToDate == null)
+                        {
+                            _cmd.Parameters.AddWithValue("@SubscriptionToDate", DBNull.Value);
+                        }
+                        else
+                        {
+                            _cmd.Parameters.AddWithValue("@SubscriptionToDate", DateTime.ParseExact(HS.SubscriptionToDate, "dd/MM/yyyy", null));
+                        }
+
+                        if (HS.FirstPayDate == null)
+                        {
+                            _cmd.Parameters.AddWithValue("@FirstPayDate", DBNull.Value);
+                        }
+                        else
+                        {
+                            _cmd.Parameters.AddWithValue("@FirstPayDate", DateTime.ParseExact(HS.FirstPayDate, "dd/MM/yyyy", null));
+                        }
+
+                        _cmd.Parameters.AddWithValue("@Attribute1", HS.Attribute1);
+                        _cmd.Parameters.AddWithValue("@Attribute2", HS.Attribute2);
+                        _cmd.Parameters.AddWithValue("@Attribute3", HS.Attribute3);
+                        _cmd.Parameters.AddWithValue("@Attribute4", HS.Attribute4);
+                        _cmd.Parameters.AddWithValue("@Attribute5", HS.Attribute5);
+                        _cmd.Parameters.AddWithValue("@Attribute6", HS.Attribute6);
+                        _cmd.Parameters.AddWithValue("@Attribute7", HS.Attribute7);
+                        _cmd.Parameters.AddWithValue("@Attribute8", HS.Attribute8);
+                        _cmd.Parameters.AddWithValue("@Attribute9", HS.Attribute9);
+                        _cmd.Parameters.AddWithValue("@Attribute10", HS.Attribute10);
+
+                        _cmd.Parameters.AddWithValue("@CreatedBy", HS.CreatedBy);
+                        _cmd.Parameters.AddWithValue("@CorpcentreBy", HS.CorpcentreBy);
+                        _cmd.Parameters.AddWithValue("@UnitCorpBy", HS.UnitCorpBy);
+                        _cmd.Parameters.AddWithValue("@TerminalBy", HS.TerminalBy);
+                        _cmd.Parameters.AddWithValue("@BranchBy", HS.BranchBy);
+                        SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                        DataSet ds = new DataSet();
+                        adp.Fill(ds);
+                        adp.Dispose();
+                        _cmd.Dispose();
+                        sconn.Close();
+                        sconn.Dispose();
+                        return ds;
+
+                    }
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                //_cn.Close();
+               // _cn.Dispose();
+            }
+
+        }
+
+        public DataSet Edit_data_hosting(Hosting_Subscription HS)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_White_Register_Hosting_Subscription", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", "dbo._White_Register_Hosting");
+                _cmd.Parameters.AddWithValue("@Corporate", HS.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", "0");
+                _cmd.Parameters.AddWithValue("@Formcode", "0");
+                _cmd.Parameters.AddWithValue("@Formtabcode", "0");
+                _cmd.Parameters.AddWithValue("@srno",HS.srno);
+                _cmd.Parameters.AddWithValue("@Type", "EditMode");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+        public DataSet Edit_data_subcribe(Hosting_Subscription HS)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_White_Register_Hosting_Subscription", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", "dbo._White_Register_Hosting");
+                _cmd.Parameters.AddWithValue("@Corporate", HS.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", "0");
+                _cmd.Parameters.AddWithValue("@Formcode", "0");
+                _cmd.Parameters.AddWithValue("@Formtabcode", "0");
+                _cmd.Parameters.AddWithValue("@srno", HS.srno);
+                //_cmd.Parameters.AddWithValue("@srno","0");
+                _cmd.Parameters.AddWithValue("@Type", "EditMode");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
     }
 }
