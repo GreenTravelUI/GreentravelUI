@@ -468,7 +468,8 @@ function getdata() {
     var type = 'Grid';
     $('#CreateViewGrid').dataTable({
         "ServerSide": true,
-        destroy: true,
+        "destroy": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/ViewsSetup/BindGridView",
             "Type": "GET",
@@ -546,7 +547,8 @@ function getdataColumn() {
     var type = 'Grid';
     $('#ColumngridView').dataTable({
         "ServerSide": true,
-        destroy: true,
+        "destroy": true,
+        "autoWidth": false,
         "ajax": {
             "url": "/ViewsSetup/BindGridViewColumn",
             "Type": "GET",

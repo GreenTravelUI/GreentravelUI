@@ -8,12 +8,13 @@ $(document).ready(function () {
     hide_div();
 
     $("#drpSegmenttab3").change(function () {
-
+        setSelect2Value($('#drpCorporateTab'), '0');
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
         if ($('#drpMasterTab3 option:first').is(':selected')) {
             hide_div();
             clearValidations($(this).closest('form'));
         }
+        
     });
 
     $("#drpCorporateTab").change(function () {
@@ -107,7 +108,7 @@ $(document).ready(function () {
         var UTime1 = $('#time1').val();
         var UTime2 = $('#time2').val();
 
-        var UHtml = $('#HTMlEditor1').val();
+        var UHtml = $('#HTMlEditor1').code();
         var UUpload = $('#photoUpload').val();
         var UTextArea = $('#Textarea1').val();
         var Mul = '';
@@ -200,9 +201,7 @@ $(document).ready(function () {
                  //Master
                  if (response['AMaster'].length > 0) {
                      hide_div();
-                     console.log("response['AMaster'][0]['SEGMENT']" + response['AMaster'][0]['SEGMENT']);
-                     console.log($('#drpSegmenttab3').html());
-
+                     
 
                      /* #drpSegmenttab3 */
                      //$('#drpSegmenttab3').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
@@ -258,7 +257,7 @@ $(document).ready(function () {
                      $('#Amount3Tab3').val(response['AUserMasterData'][0]['UAmount3']);
                      $('#time1').val(response['AUserMasterData'][0]['UTime1']);
                      $('#time2').val(response['AUserMasterData'][0]['UTime2']);
-                     $('#HTMlEditor1').val(response['AUserMasterData'][0]['UHtml']);
+                     $('#HTMlEditor1').code(response['AUserMasterData'][0]['UHtml']);
                      $('#photoUpload').val(response['AUserMasterData'][0]['UUpload']);
                      $('#Textarea1').val(response['AUserMasterData'][0]['UTextArea']);
 
@@ -684,173 +683,247 @@ function PageLoad_FilledAll() {
                 if (response['Atooltip'][0]['Field3'] != "--None--" && response['Atooltip'][0]['Field3'] != "" && response['Atooltip'][0]['Field3'] != null) {
                     $('#field6').attr("data-original-title", (response['Atooltip'][0]['Field3']));
                     $('#field6').show();
+                } else {
+                    $('#field6').hide();
                 }
                 if (response['Atooltip'][0]['Field4'] != "--None--" && response['Atooltip'][0]['Field4'] != "" && response['Atooltip'][0]['Field4'] != null) {
                     $('#field7').attr("data-original-title", (response['Atooltip'][0]['Field4']));
                     $('#field7').show();
+                } else {
+                    $('#field7').hide();
                 }
                 if (response['Atooltip'][0]['Field5'] != "--None--" && response['Atooltip'][0]['Field5'] != "" && response['Atooltip'][0]['Field5'] != null) {
                     $('#field8').attr("data-original-title", (response['Atooltip'][0]['Field5']));
                     $('#field8').show();
+                } else {
+                    $('#field8').hide();
                 }
                 if (response['Atooltip'][0]['Field6'] != "--None--" && response['Atooltip'][0]['Field6'] != "" && response['Atooltip'][0]['Field6'] != null) {
                     $('#field9').attr("data-original-title", (response['Atooltip'][0]['Field6']));
                     $('#field9').show();
+                } else {
+                    $('#field9').hide();
                 }
                 if (response['Atooltip'][0]['Field7'] != "--None--" && response['Atooltip'][0]['Field7'] != "" && response['Atooltip'][0]['Field7'] != null) {
                     $('#field10').attr("data-original-title", (response['Atooltip'][0]['Field7']));
                     $('#field10').show();
+                } else {
+                    $('#field10').hide();
                 }
                 if (response['Atooltip'][0]['Field8'] != "--None--" && response['Atooltip'][0]['Field8'] != "" && response['Atooltip'][0]['Field8'] != null) {
                     $('#field11').attr("data-original-title", (response['Atooltip'][0]['Field8']));
                     $('#field11').show();
+                } else {
+                    $('#field11').hide();
                 }
                 if (response['Atooltip'][0]['Field9'] != "--None--" && response['Atooltip'][0]['Field9'] != "" && response['Atooltip'][0]['Field9'] != null) {
                     $('#field12').attr("data-original-title", (response['Atooltip'][0]['Field9']));
                     $('#field12').show();
+                } else {
+                    $('#field12').hide();
                 }
                 if (response['Atooltip'][0]['Field10'] != "--None--" && response['Atooltip'][0]['Field10'] != "" && response['Atooltip'][0]['Field10'] != null) {
                     $('#field13').attr("data-original-title", (response['Atooltip'][0]['Field10']));
                     $('#field13').show();
+                } else {
+                    $('#field13').hide();
                 }
                 if (response['Atooltip'][0]['Field11'] != "--None--" && response['Atooltip'][0]['Field11'] != "" && response['Atooltip'][0]['Field11'] != null) {
                     $('#field14').attr("data-original-title", (response['Atooltip'][0]['Field11']));
                     $('#field14').show();
+                } else {
+                    $('#field14').hide();
                 }
                 if (response['Atooltip'][0]['Field12'] != "--None--" && response['Atooltip'][0]['Field12'] != "" && response['Atooltip'][0]['Field12'] != null) {
                     $('#field15').attr("data-original-title", (response['Atooltip'][0]['Field12']));
                     $('#field15').show();
+                } else {
+                    $('#field15').hide();
                 }
                 if (response['Atooltip'][0]['Field13'] != "--None--" && response['Atooltip'][0]['Field13'] != "" && response['Atooltip'][0]['Field13'] != null) {
                     $('#field16').attr("data-original-title", (response['Atooltip'][0]['Field13']));
                     $('#field16').show();
+                } else {
+                    $('#field16').hide();
                 }
                 if (response['Atooltip'][0]['Field14'] != "--None--" && response['Atooltip'][0]['Field14'] != "" && response['Atooltip'][0]['Field14'] != null) {
                     $('#field17').attr("data-original-title", (response['Atooltip'][0]['Field14']));
                     $('#field17').show();
+                } else {
+                    $('#field17').hide();
                 }
                 if (response['Atooltip'][0]['Field15'] != "--None--" && response['Atooltip'][0]['Field15'] != "" && response['Atooltip'][0]['Field15'] != null) {
                     $('#field18').attr("data-original-title", (response['Atooltip'][0]['Field15']));
                     $('#field18').show();
+                } else {
+                    $('#field18').hide();
                 }
                 if (response['Atooltip'][0]['Field16'] != "--None--" && response['Atooltip'][0]['Field16'] != "" && response['Atooltip'][0]['Field16'] != null) {
                     $('#field19').attr("data-original-title", (response['Atooltip'][0]['Field16']));
                     $('#field19').show();
+                } else {
+                    $('#field19').hide();
                 }
                 if (response['Atooltip'][0]['Field17'] != "--None--" && response['Atooltip'][0]['Field17'] != "" && response['Atooltip'][0]['Field17'] != null) {
 
                     $('#field20').attr("data-original-title", (response['Atooltip'][0]['Field17']));
                     $('#field20').show();
+                } else {
+                    $('#field20').hide();
                 }
                 if (response['Atooltip'][0]['Rating1'] != "--None--" && response['Atooltip'][0]['Rating1'] != "" && response['Atooltip'][0]['Rating1'] != null) {
 
                     $('#field21').attr("data-original-title", (response['Atooltip'][0]['Rating1']));
                     $('field21').show();
+                } else {
+                    $('#field21').hide();
                 }
                 if (response['Atooltip'][0]['Rating2'] != "--None--" && response['Atooltip'][0]['Rating2'] != "" && response['Atooltip'][0]['Rating2'] != null) {
 
                     $('#field22').attr("data-original-title", (response['Atooltip'][0]['Rating2']));
                     $('field22').show();
+                } else {
+                    $('#field22').hide();
                 }
                 if (response['Atooltip'][0]['Rating3'] != "--None--" && response['Atooltip'][0]['Rating3'] != "" && response['Atooltip'][0]['Rating3'] != null) {
 
                     $('#field23').attr("data-original-title", (response['Atooltip'][0]['Rating3']));
                     $('#field23').show();
+                } else {
+                    $('#field23').hide();
                 }
                 if (response['Atooltip'][0]['Date1'] != "--None--" && response['Atooltip'][0]['Date1'] != "" && response['Atooltip'][0]['Date1'] != null) {
 
                     $('#field24').attr("data-original-title", (response['Atooltip'][0]['Date1']));
                     $('#field24').show();
+                } else {
+                    $('#field24').hide();
                 }
                 if (response['Atooltip'][0]['Date2'] != "--None--" && response['Atooltip'][0]['Date2'] != "" && response['Atooltip'][0]['Date2'] != null) {
 
                     $('#field25').attr("data-original-title", (response['Atooltip'][0]['Date2']));
                     $('#field25').show();
+                } else {
+                    $('#field25').hide();
                 }
                 if (response['Atooltip'][0]['Date3'] != "--None--" && response['Atooltip'][0]['Date3'] != "" && response['Atooltip'][0]['Date3'] != null) {
 
                     $('#field26').attr("data-original-title", (response['Atooltip'][0]['Date3']));
                     $('#field26').show();
+                } else {
+                    $('#field26').hide();
                 }
                 if (response['Atooltip'][0]['Email1'] != "--None--" && response['Atooltip'][0]['Email1'] != "" && response['Atooltip'][0]['Email1'] != null) {
 
                     $('#field29').attr("data-original-title", (response['Atooltip'][0]['Email1']));
                     $('#field29').show();
+                } else {
+                    $('#field29').hide();
                 }
                 if (response['Atooltip'][0]['Email2'] != "--None--" && response['Atooltip'][0]['Email2'] != "" && response['Atooltip'][0]['Email2'] != null) {
 
                     $('#field30').attr("data-original-title", (response['Atooltip'][0]['Email2']));
                     $('#field30').show();
+                } else {
+                    $('#field30').hide();
                 }
                 if (response['Atooltip'][0]['Email3'] != "--None--" && response['Atooltip'][0]['Email3'] != "" && response['Atooltip'][0]['Email3'] != null) {
 
                     $('#field31').attr("data-original-title", (response['Atooltip'][0]['Email3']));
                     $('#field31').show();
+                } else {
+                    $('#field31').hide();
                 }
                 if (response['Atooltip'][0]['Amount'] != "--None--" && response['Atooltip'][0]['Amount'] != "" && response['Atooltip'][0]['Amount'] != null) {
 
                     $('#field32').attr("data-original-title", (response['Atooltip'][0]['Amount']));
                     $('#field32').show();
+                } else {
+                    $('#field32').hide();
                 }
                 if (response['Atooltip'][0]['Amount2'] != "--None--" && response['Atooltip'][0]['Amount2'] != "" && response['Atooltip'][0]['Amount2'] != null) {
 
                     $('#field33').attr("data-original-title", (response['Atooltip'][0]['Amount2']));
                     $('#field33').show();
+                } else {
+                    $('#field33').hide();
                 }
                 if (response['Atooltip'][0]['Amount3'] != "--None--" && response['Atooltip'][0]['Amount3'] != "" && response['Atooltip'][0]['Amount3'] != null) {
 
                     $('#field34').attr("data-original-title", (response['Atooltip'][0]['Amount3']));
                     $('#field34').show();
+                } else {
+                    $('#field34').hide();
                 }
                 if (response['Atooltip'][0]['Time1'] != "--None--" && response['Atooltip'][0]['Time1'] != "" && response['Atooltip'][0]['Time1'] != null) {
 
                     $('#field27').attr("data-original-title", (response['Atooltip'][0]['Time1']));
                     $('#field27').show();
+                } else {
+                    $('#field27').hide();
                 }
                 if (response['Atooltip'][0]['Time2'] != "--None--" && response['Atooltip'][0]['Time2'] != "" && response['Atooltip'][0]['Time2'] != null) {
 
                     $('#field28').attr("data-original-title", (response['Atooltip'][0]['Time2']));
                     $('#field28').show();
+                } else {
+                    $('#field28').hide();
                 }
                 if (response['Atooltip'][0]['Html'] != "--None--" && response['Atooltip'][0]['Html'] != "" && response['Atooltip'][0]['Html'] != null) {
 
                     $('#field36').attr("data-original-title", (response['Atooltip'][0]['Html']));
                     $('#field36').show();
+                } else {
+                    $('#field36').hide();
                 }
                 if (response['Atooltip'][0]['Upload'] != "--None--" && response['Atooltip'][0]['Upload'] != "" && response['Atooltip'][0]['Upload'] != null) {
 
                     $('#field37').attr("data-original-title", (response['Atooltip'][0]['Upload']));
                     $('#field37').show();
+                } else {
+                    $('#field37').hide();
                 }
                 if (response['Atooltip'][0]['TextArea'] != "--None--" && response['Atooltip'][0]['TextArea'] != "" && response['Atooltip'][0]['TextArea'] != null) {
 
                     $('#field35').attr("data-original-title", (response['Atooltip'][0]['TextArea']));
                     $('#field35').show();
+                } else {
+                    $('#field35').hide();
                 }
                 if (response['Atooltip'][0]['MultiSelect1'] != "--None--" && response['Atooltip'][0]['MultiSelect1'] != "" && response['Atooltip'][0]['MultiSelect1'] != null) {
 
                     $('#field38').attr("data-original-title", (response['Atooltip'][0]['MultiSelect1']));
                     $('#field38').show();
+                } else {
+                    $('#field38').hide();
                 }
                 if (response['Atooltip'][0]['MultiSelect2'] != "--None--" && response['Atooltip'][0]['MultiSelect2'] != "" && response['Atooltip'][0]['MultiSelect2'] != null) {
 
                     $('#field39').attr("data-original-title", (response['Atooltip'][0]['MultiSelect2']));
                     $('#field39').show();
+                } else {
+                    $('#field39').hide();
                 }
                 if (response['Atooltip'][0]['MultiSelect3'] != "--None--" && response['Atooltip'][0]['MultiSelect3'] != "" && response['Atooltip'][0]['MultiSelect3'] != null) {
 
                     $('#field40').attr("data-original-title", (response['Atooltip'][0]['MultiSelect3']));
                     $('#field40').show();
+                } else {
+                    $('#field40').hide();
                 }
                 if (response['Atooltip'][0]['MultiSelect4'] != "--None--" && response['Atooltip'][0]['MultiSelect4'] != "" && response['Atooltip'][0]['MultiSelect4'] != null) {
 
                     $('#field41').attr("data-original-title", (response['Atooltip'][0]['MultiSelect4']));
                     $('#field41').show();
+                } else {
+                    $('#field41').hide();
                 }
                 if (response['Atooltip'][0]['MultiSelect5'] != "--None--" && response['Atooltip'][0]['MultiSelect5'] != "" && response['Atooltip'][0]['MultiSelect5'] != null) {
 
                     $('#field42').attr("data-original-title", (response['Atooltip'][0]['MultiSelect5']));
                     $('#field42').show();
+                } else {
+                    $('#field42').hide();
                 }
             }
         }
@@ -1047,7 +1120,7 @@ function FillDropDown_Category() {
         },
         success: function (data) {
             if (data['Segment'].length > 0) {
-
+                $('#drpSegmenttab3').html('');
                 for (var i = 0; i < data['Segment'].length; i++) {
                     var opt = new Option(data['Segment'][i]['Text'], data['Segment'][i]['Value']);
                     $('#drpSegmenttab3').append(opt);
@@ -1057,7 +1130,7 @@ function FillDropDown_Category() {
             }
 
             if (data['Corporate'].length > 0) {
-
+                $('#drpCorporateTab').html();
                 for (var i = 0; i < data['Corporate'].length; i++) {
                     var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
                     $('#drpCorporateTab').append(opt);
@@ -1182,16 +1255,17 @@ function hide_Tooltip() {
 
 function getdata() {
     var tablename = 'dbo.usermaster';
-    var Corporate = '2';
-    var Segment = '1';
+    var Corporate = '0';
+    var Segment = '0';
     var PageNo = '1';
     var type = 'Grid';
     var Formcode = '0';
     var Formtabcode = '0';
-    var WhereClause = 'Country';
-    $('#example1').dataTable({
+    var WhereClause = 'ALLMSTERTSTNG';
+    var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,
+        "autoWidth": false,
         "ajax": {
             url: "/AllMaster/BindGridUser",
             "Type": "GET",
@@ -1225,4 +1299,16 @@ function getdata() {
 
         ]
     });
+    var tableTools = new $.fn.dataTable.TableTools(table, {
+        'sSwfPath': '//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
+        "aButtons": [
+            {
+                "sExtends": "xls",
+                "sFileName": "Masters" + new Date() + ".xls",
+                "aButtons": ["xls"],
+                "bFooter": false
+            }
+        ]
+    });
+    $(tableTools.fnContainer()).insertBefore('#example1_wrapper');
 }

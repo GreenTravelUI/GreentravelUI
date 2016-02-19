@@ -4,45 +4,55 @@
 var ID = 2;
 var customID = 2;
 var Message;
+var EventClass;
 var deletesrno;
 var Frmcode;
 var FrmtabCode
+
 $(document).ready(function () {
     Dropdown_Bind_Tab1();
+
     getdata();
+
     $('#frmsection').click(function (e) {
-        getdatatab();
+        if ($('#txtSrNo1').val() != '') {
+            getdatatab();
+        }
+        else {
+            e.preventDefault();
+            swal('Please Edit Data');
+            Quitform();
+            return false;
+        }
     });
+
     $('#serachfrom').click(function (e) {
         getdata();
     });
-    ////Tab 1 Click  Event
-    //$('#Frmcreate').click(function (e) {
-    //    clearValidations($(this).closest('form'));
-    //});
+
     //Tab2 Click  Event  
     $('#frmtab').click(function (e) {
-        // clearValidations($(this).closest('form'));
         if ($('#txtSrNo1').val() == '') {
+            e.preventDefault();
             swal('Please Edit Data');
-            // Quitform();
-
-        }
-        else {
+            Quitform();
+            return false;
+        } else {
             $('.tab3Formname').text($('#txtFormName').val())
         }
-
     });
+
     $("#drpCorporate1").change(function () {
         ClearDataoncorporate();
         FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
     });
+
     $("#drpScreen").change(function () {
         claerdataonScreen();
     });
+
     //save Form  Code --tab1
     $('.btnSave').click(function (e) {
-        
         e.preventDefault();
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
             swal(
@@ -77,24 +87,28 @@ $(document).ready(function () {
         var Header = $('#txtHeader').val();
         var SubHeader = $('#txtSubHeader').val();
         $.ajax({
-               type: "POST",
-               url: "/FormSetup/InsertData",
-               data: {
-                   "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen,
-                   "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2": Attribute2,
-                   "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7,
-                   "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
-               },
-               dataType: 'json',
-               success: function (data) {
-                   $('#txtSrNo1').val(data.srno)
-                   Message = data.responseText;
-                   $('#btnUpdateFS').show();
-                   $('#btnSavefs').hide();
-                   swal('Good job!', Message, 'success');
-               }
-           });
+            type: "POST",
+            url: "/FormSetup/InsertData",
+            data: {
+                "SrNo": SrNo, "FormName": FormName, "FormPrefixCode": FormPrefixCode, "Corporate": Corporate, "Module": Module, "Screen": Screen,
+                "FeatureGroup": FeatureGroup, "Header": Header, "SubHeader": SubHeader, "Attribute1": Attribute1, "Attribute2": Attribute2,
+                "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6, "Attribute7": Attribute7,
+                "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+            },
+            dataType: 'json',
+            success: function (data) {
+                Message = data.responseText;
+                EventClass = data.Event;
+                if (EventClass != 'error') {
+                    $('#txtSrNo1').val(data.srno)
+                    $('#btnUpdateFS').show();
+                    $('#btnSavefs').hide();
+                }
+                swal('Good job!', Message, EventClass);
+            }
+        });
     });
+
     //save Tab data --tab 2
     $('.btnSaveformtab').click(function (e) {
         e.preventDefault();
@@ -157,14 +171,19 @@ $(document).ready(function () {
                },
                dataType: 'json',
                success: function (data) {
-                   $('#btnUpdatetab').show();
-                   $('#btnSaveformtab').hide();
                    Message = data.responseText;
-                   swal('Good job!', Message, 'success');
+                   EventClass = '';
+                   EventClass = data.Event;
+                   if (EventClass != 'error') {
+                       $('#btnUpdatetab').show();
+                       $('#btnSaveformtab').hide();
+                   }
+                   swal('Good job!', Message, EventClass);
                }
            });
 
     });
+
     //model  Button  
     $('.btnSaveStandard').click(function (e) {
         e.preventDefault();
@@ -231,7 +250,7 @@ $(document).ready(function () {
         if ($("#chkDeleteVisibility").parent().hasClass('checked')) {
             DeleteVisibility = true;
         }
-       
+
         var DeleteTask = false;
         var DeleteNotification = false;
         if ($("#chkNotification2").parent().hasClass('checked')) {
@@ -286,6 +305,7 @@ $(document).ready(function () {
            });
 
     });
+
     //Redirect Form Control
     $("table").delegate(".editor_Control", "click", function () {
         var FormCode = $(this).parent().parent().children(':eq(1)').text();
@@ -293,6 +313,7 @@ $(document).ready(function () {
 
 
     });
+
     //Edit Form  
     $("table").delegate(".editor_edit", "click", function () {
         $('#btnClearFS').trigger('click');
@@ -303,52 +324,45 @@ $(document).ready(function () {
         var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
-        $.ajax(
-         {
-             type: "POST",
-             url: "/FormSetup/Edit_Data",
-             data: {
-                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
-             },
-             dataType: 'json',
-             success: function (response) {
-                 if (response.length > 0) {
-                     $('#txtSrNo1').val(response[0].SrNo);
-                     $('#txtFormName').val(response[0].FormName);
-                     $('#txtFormPreFix').val(response[0].FormPrefixCode);
-                     setSelect2Value($('#drpCorporate1'), response[0].Corporate);
-                     FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
-                     // setSelect2Value($('#drpFeatures'), response[0].FeatureGroup);
-                     //FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), 0, 'drpModule');
-                     //setSelect2Value($('#drpModule'), response[0].Module);
-                     //FillDropdown($('#drpCorporate1 option:selected').val(), $('#drpFeatures option:selected').val(), $('#drpModule option:selected').val(), 'drpScreen');
-                     setSelect2Value($('#drpScreen'), response[0].Screen);
-                     //  $('#drpCorporate1').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
-                     // $('#drpFeatures').find('option[value="' + response[0].FeatureGroup + '"]').attr('selected', true).change();
-                     // $('#drpModule').find('option[value="' + response[0].Module + '"]').attr('selected', true).change();
-                     //    $('#drpScreen').find('option[value="' + response[0].Screen + '"]').attr('selected', true).change();
-                     $('#txtHeader').val(response[0].Header);
-                     $('#txtSubHeader').val(response[0].SubHeader);
-                 }
-             }
-         }).done(function () {
-             $("#serachfrom").removeClass("active");
-             $("#Frmcreate").addClass("active");
-             $("#tab1").removeClass("active");
-             $("#tab3").addClass("active");
-             $('#btnUpdateFS').show();
-             $('#btnSavefs').hide();
-         });
+        $.ajax({
+            type: "POST",
+            url: "/FormSetup/Edit_Data",
+            data: {
+                tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.length > 0) {
+                    $('#txtSrNo1').val(response[0].SrNo);
+                    $('#txtFormName').val(response[0].FormName);
+                    $('#txtFormPreFix').val(response[0].FormPrefixCode);
+                    setSelect2Value($('#drpCorporate1'), response[0].Corporate);
+                    FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
+                    setSelect2Value($('#drpScreen'), response[0].Screen);
+                    $('#txtHeader').val(response[0].Header);
+                    $('#txtSubHeader').val(response[0].SubHeader);
+                }
+            }
+        }).done(function () {
+            $("#serachfrom").removeClass("active");
+            $("#Frmcreate").addClass("active");
+            $("#tab1").removeClass("active");
+            $("#tab3").addClass("active");
+            $('#btnUpdateFS').show();
+            $('#btnSavefs').hide();
+        });
     });
+
     //Delete form 
     $("table").delegate(".editor_Delte", "click", function () {
         deletesrno = '';
         deletesrno = $(this).parent().parent().children(':eq(1)').text()
         $("#lbldelete").text("Are You Sure Do You Want to Delete This Record ?");
     });
+
     //editdata in  button ,custom button  ,utility
     $("table").delegate(".SectiontabButtonclass", "click", function () {
-        clearValidations($(this).closest('form'));
+        clearValidations($('#frmStandardButton'));
         getUtility();
         Frmcode = 0;
         FrmtabCode = '';
@@ -361,216 +375,216 @@ $(document).ready(function () {
         var Xmaster = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
         var html = '';
-        $.ajax(
-         {
-             type: "POST",
-             url: "/FormSetup/Edit_Data_icon",
-             data: {
-                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
-             },
-             dataType: 'json',
-             success: function (response) {
-                 Modeltabactive();
-                 clearButtonclass();
-                 clearValidations($(this).closest('form'));
-                 $("#tblModalIconCustom tbody").html('');
-                 $('#btnstandardbutton').show();
-                 $('#btnSave22').hide();
-                 clearcheckbocstandardbutton();
-                 if (response['AFrmStandardbtn'].length > 0) {
-                     $('#btnstandardbutton').hide();
-                     $('#btnSave22').show();
-                     //   $('#txtMasterCode').val(response['AFrmStandardbtn'][0]['xmaster']);
-                     $('#txtSaveName').val(response['AFrmStandardbtn'][0]['SaveName']);
-                     $('#txtSaveClass').val(response['AFrmStandardbtn'][0]['SaveClass']);
-                     if (response['AFrmStandardbtn'][0]['SaveVisibility'].toLowerCase() == 'true') {
-                         $('#chkSaveVisibility').attr('checked', true);
-                         $('#chkSaveVisibility').parent().addClass('checked');
-                     } else {
-                         $('#chkSaveVisibility').attr('checked', false);
-                         $('#chkSaveVisibility').parent().removeClass('checked');
-                     }
-                     if (response['AFrmStandardbtn'][0]['SaveNotification'].toLowerCase() == 'true') {
-                         $('#chkNotification').attr('checked', true);
-                         $('#chkNotification').parent().addClass('checked');
-                     } else {
-                         $('#chkNotification').attr('checked', false);
-                         $('#chkNotification').parent().removeClass('checked');
-                     }
-                     if (response['AFrmStandardbtn'][0]['SaveTask'].toLowerCase() == 'true') {
-                         $('#chkTask').attr('checked', true);
-                         $('#chkTask').parent().addClass('checked');
-                     } else {
-                         $('#chkTask').attr('checked', false);
-                         $('#chkTask').parent().removeClass('checked');
-                     }
+        $.ajax({
+            type: "POST",
+            url: "/FormSetup/Edit_Data_icon",
+            data: {
+                tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
+            },
+            dataType: 'json',
+            success: function (response) {
+                Modeltabactive();
+                clearButtonclass();
+                //clearValidations($(this).closest('form'));
+                $("#tblModalIconCustom tbody").html('');
+                $('#btnstandardbutton').show();
+                $('#btnSave22').hide();
+                clearcheckbocstandardbutton();
+                if (response['AFrmStandardbtn'].length > 0) {
+                    $('#btnstandardbutton').hide();
+                    $('#btnSave22').show();
+                    //   $('#txtMasterCode').val(response['AFrmStandardbtn'][0]['xmaster']);
+                    $('#txtSaveName').val(response['AFrmStandardbtn'][0]['SaveName']);
+                    $('#txtSaveClass').val(response['AFrmStandardbtn'][0]['SaveClass']);
+                    if (response['AFrmStandardbtn'][0]['SaveVisibility'].toLowerCase() == 'true') {
+                        $('#chkSaveVisibility').attr('checked', true);
+                        $('#chkSaveVisibility').parent().addClass('checked');
+                    } else {
+                        $('#chkSaveVisibility').attr('checked', false);
+                        $('#chkSaveVisibility').parent().removeClass('checked');
+                    }
+                    if (response['AFrmStandardbtn'][0]['SaveNotification'].toLowerCase() == 'true') {
+                        $('#chkNotification').attr('checked', true);
+                        $('#chkNotification').parent().addClass('checked');
+                    } else {
+                        $('#chkNotification').attr('checked', false);
+                        $('#chkNotification').parent().removeClass('checked');
+                    }
+                    if (response['AFrmStandardbtn'][0]['SaveTask'].toLowerCase() == 'true') {
+                        $('#chkTask').attr('checked', true);
+                        $('#chkTask').parent().addClass('checked');
+                    } else {
+                        $('#chkTask').attr('checked', false);
+                        $('#chkTask').parent().removeClass('checked');
+                    }
 
-                     $('#txtUpdateName').val(response['AFrmStandardbtn'][0]['UpdateName']);
-                     $('#txtUpdateClass').val(response['AFrmStandardbtn'][0]['UpdateClass']);
-                     if (response['AFrmStandardbtn'][0]['UpdateVisibility'].toLowerCase() == 'true') {
-                         $('#chkUpdateVisibility').attr('checked', true);
-                         $('#chkUpdateVisibility').parent().addClass('checked');
-                     } else {
-                         $('#chkUpdateVisibility').attr('checked', false);
-                         $('#chkUpdateVisibility').parent().removeClass('checked');
-                     }
-                     if (response['AFrmStandardbtn'][0]['UpdateNotification'].toLowerCase() == 'true') {
-                         $('#chkNotification1').attr('checked', true);
-                         $('#chkNotification1').parent().addClass('checked');
-                     } else {
-                         $('#chkNotification1').attr('checked', false);
-                         $('#chkNotification1').parent().removeClass('checked');
-                     }
-                     if (response['AFrmStandardbtn'][0]['UpdateTask'].toLowerCase() == 'true') {
-                         $('#chkTask1').attr('checked', true);
-                         $('#chkTask1').parent().addClass('checked');
-                     } else {
-                         $('#chkTask1').attr('checked', false);
-                         $('#chkTask1').parent().removeClass('checked');
-                     }
-                     $('#txtDeleteName').val(response['AFrmStandardbtn'][0]['DeleteName']);
-                     $('#txtDeleteClass').val(response['AFrmStandardbtn'][0]['DeleteClass']);
-                     if (response['AFrmStandardbtn'][0]['DeleteVisibility'].toLowerCase() == 'true') {
-                         $('#chkDeleteVisibility').attr('checked', true);
-                         $('#chkDeleteVisibility').parent().addClass('checked');
-                     } else {
-                         $('#chkDeleteVisibility').attr('checked', false);
-                         $('#chkDeleteVisibility').parent().removeClass('checked');
-                     }
-                     if (response['AFrmStandardbtn'][0]['DeleteNotification'].toLowerCase() == 'true') {
-                         $('#chkNotification2').attr('checked', true);
-                         $('#chkNotification2').parent().addClass('checked');
-                     } else {
-                         $('#chkNotification2').attr('checked', false);
-                         $('#chkNotification2').parent().removeClass('checked');
-                     }
-                     if (response['AFrmStandardbtn'][0]['DeleteTask'].toLowerCase() == 'true') {
-                         $('#chkTask2').attr('checked', true);
-                         $('#chkTask2').parent().addClass('checked');
-                     } else {
-                         $('#chkTask2').attr('checked', false);
-                         $('#chkTask2').parent().removeClass('checked');
-                     }
+                    $('#txtUpdateName').val(response['AFrmStandardbtn'][0]['UpdateName']);
+                    $('#txtUpdateClass').val(response['AFrmStandardbtn'][0]['UpdateClass']);
+                    if (response['AFrmStandardbtn'][0]['UpdateVisibility'].toLowerCase() == 'true') {
+                        $('#chkUpdateVisibility').attr('checked', true);
+                        $('#chkUpdateVisibility').parent().addClass('checked');
+                    } else {
+                        $('#chkUpdateVisibility').attr('checked', false);
+                        $('#chkUpdateVisibility').parent().removeClass('checked');
+                    }
+                    if (response['AFrmStandardbtn'][0]['UpdateNotification'].toLowerCase() == 'true') {
+                        $('#chkNotification1').attr('checked', true);
+                        $('#chkNotification1').parent().addClass('checked');
+                    } else {
+                        $('#chkNotification1').attr('checked', false);
+                        $('#chkNotification1').parent().removeClass('checked');
+                    }
+                    if (response['AFrmStandardbtn'][0]['UpdateTask'].toLowerCase() == 'true') {
+                        $('#chkTask1').attr('checked', true);
+                        $('#chkTask1').parent().addClass('checked');
+                    } else {
+                        $('#chkTask1').attr('checked', false);
+                        $('#chkTask1').parent().removeClass('checked');
+                    }
+                    $('#txtDeleteName').val(response['AFrmStandardbtn'][0]['DeleteName']);
+                    $('#txtDeleteClass').val(response['AFrmStandardbtn'][0]['DeleteClass']);
+                    if (response['AFrmStandardbtn'][0]['DeleteVisibility'].toLowerCase() == 'true') {
+                        $('#chkDeleteVisibility').attr('checked', true);
+                        $('#chkDeleteVisibility').parent().addClass('checked');
+                    } else {
+                        $('#chkDeleteVisibility').attr('checked', false);
+                        $('#chkDeleteVisibility').parent().removeClass('checked');
+                    }
+                    if (response['AFrmStandardbtn'][0]['DeleteNotification'].toLowerCase() == 'true') {
+                        $('#chkNotification2').attr('checked', true);
+                        $('#chkNotification2').parent().addClass('checked');
+                    } else {
+                        $('#chkNotification2').attr('checked', false);
+                        $('#chkNotification2').parent().removeClass('checked');
+                    }
+                    if (response['AFrmStandardbtn'][0]['DeleteTask'].toLowerCase() == 'true') {
+                        $('#chkTask2').attr('checked', true);
+                        $('#chkTask2').parent().addClass('checked');
+                    } else {
+                        $('#chkTask2').attr('checked', false);
+                        $('#chkTask2').parent().removeClass('checked');
+                    }
 
-                     $('#txtClearName').val(response['AFrmStandardbtn'][0]['ClearName']);
-                     $('#txtClearClass').val(response['AFrmStandardbtn'][0]['ClearClass']);
-                     if (response['AFrmStandardbtn'][0]['ClearVisibility'].toLowerCase() == 'true') {
-                         $('#chkClearVisibility').attr('checked', true);
-                         $('#chkClearVisibility').parent().addClass('checked');
-                     } else {
-                         $('#chkClearVisibility').attr('checked', false);
-                         $('#chkClearVisibility').parent().removeClass('checked');
-                     }
-                     $('#txtFormQuitName').val(response['AFrmStandardbtn'][0]['FormQuitName']);
-                     $('#txtFormQuitClass').val(response['AFrmStandardbtn'][0]['FormQuitClass']);
-                     if (response['AFrmStandardbtn'][0]['FormQuitVisibility'].toLowerCase() == 'true') {
-                         $('#chkFormQuitVisibility').attr('checked', true);
-                         $('#chkFormQuitVisibility').parent().addClass('checked');
-                     } else {
-                         $('#chkFormQuitVisibility').attr('checked', false);
-                         $('#chkFormQuitVisibility').parent().removeClass('checked');
-                     }
+                    $('#txtClearName').val(response['AFrmStandardbtn'][0]['ClearName']);
+                    $('#txtClearClass').val(response['AFrmStandardbtn'][0]['ClearClass']);
+                    if (response['AFrmStandardbtn'][0]['ClearVisibility'].toLowerCase() == 'true') {
+                        $('#chkClearVisibility').attr('checked', true);
+                        $('#chkClearVisibility').parent().addClass('checked');
+                    } else {
+                        $('#chkClearVisibility').attr('checked', false);
+                        $('#chkClearVisibility').parent().removeClass('checked');
+                    }
+                    $('#txtFormQuitName').val(response['AFrmStandardbtn'][0]['FormQuitName']);
+                    $('#txtFormQuitClass').val(response['AFrmStandardbtn'][0]['FormQuitClass']);
+                    if (response['AFrmStandardbtn'][0]['FormQuitVisibility'].toLowerCase() == 'true') {
+                        $('#chkFormQuitVisibility').attr('checked', true);
+                        $('#chkFormQuitVisibility').parent().addClass('checked');
+                    } else {
+                        $('#chkFormQuitVisibility').attr('checked', false);
+                        $('#chkFormQuitVisibility').parent().removeClass('checked');
+                    }
 
-                     // $('#chkFormQuitVisibility').is(":checked");
-                 }
+                    // $('#chkFormQuitVisibility').is(":checked");
+                }
 
-                 $("#btncustomsave").show();
-                 $("#btnCustomUpdate").hide();
-                 if (response['ACustomMaster'].length > 0) {
-                     html = '';
+                $("#btncustomsave").show();
+                $("#btnCustomUpdate").hide();
+                clearValidations($('#frmCustomButton'));
+                if (response['ACustomMaster'].length > 0) {
+                    html = '';
+                    customID = response['ACustomMaster'].length + 1;
+                    $("#btncustomsave").hide();
+                    $("#btnCustomUpdate").show();
+                    for (var i = 0; i < response['ACustomMaster'].length; i++) {
+                        var Customvisi = '';
+                        var CustomNoti = '';
+                        var CustomT = '';
+                        if (response['ACustomMaster'][i]['CustomVisibility'].toLowerCase() == 'true') {
+                            Customvisi = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                        } else {
+                            Customvisi = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
+                        }
 
-                     customID = response['ACustomMaster'].length + 1;
-                     $("#btncustomsave").hide();
-                     $("#btnCustomUpdate").show();
-                     for (var i = 0; i < response['ACustomMaster'].length; i++) {
-                         var Customvisi = '';
-                         var CustomNoti = '';
-                         var CustomT = '';
-                         if (response['ACustomMaster'][i]['CustomVisibility'].toLowerCase() == 'true') {
-                             Customvisi = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
-                         } else {
-                             Customvisi = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
-                         }
-
-                         if (response['ACustomMaster'][i]['CustomNotification'].toLowerCase() == 'true') {
-                             CustomNoti = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
-                         } else {
-                             CustomNoti = '<div class="checker"> <span><input type="Checkbox" class="form-control"  /></span></div>';
-                         }
-                         if (response['ACustomMaster'][i]['CustomTask'].toLowerCase() == 'true') {
-                             CustomT = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
-                         } else {
-                             CustomT = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
-                         }
-                         if (html == '') {
-                             html = '<tr>' +
-                                    '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
-                                    '<td> <input type="text" class="form-control" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></td>' +
-                                    '<td> <input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></td>' +
-                                    '<td>' + Customvisi + '</td>' +
-                                    '<td>' + CustomNoti + '</td>' +
-                                    '<td>' + CustomT + '</td>' +
-                                    '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
-                                    '</tr>'
-                         }
-                         else {
-                             html += '<tr>' +
-                                    '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
-                                    '<td> <input type="text" class="form-control" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></td>' +
-                                    '<td> <input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></td>' +
-                                    '<td>' + Customvisi + '</td>' +
-                                    '<td>' + CustomNoti + '</td>' +
-                                    '<td>' + CustomT + '</td>' +
-                                    '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
-                                    '</tr>'
-                         }
-                     }
-                     $(html).appendTo($("#tblModalIconCustom"))
-                 }
-                 else {
-                     customID = response['ACustomMaster'].length + 1;
-                     var html = '<tr>' +
-                                '<td>' + customID + '</td>' +
-                                '<td><input type="text" placeholder="Custom Name"  class="form-control" /></td>' +
-                                '<td> <input type="text" placeholder="Custom Class"  class="form-control" /></td>' +
-                                '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
-                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
-                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
-                                '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
-                                '</tr>'
-                     $(html).appendTo($("#tblModalIconCustom"))
-                     customID++;
-                 }
-                 //utility Edit Mode
-                 $("#UtilityFrom").find('.checker').each(function () {
-                     $(this).children().removeClass('checked');
-                     $(this).children().children().removeAttr('checked');
-                 });
-                 if (response['AUtility'].length > 0) {
-                     $('#btnutilityupdate').show();
-                     $('#btnutilitySave').hide();
-                     var data = response['AUtility'][0]['Utilities'];
-                     var arr = data.split(',');
-                     $.each(arr, function (i) {
-                         $("#UtilityFrom").find('.checker').each(function () {
-                             if (arr[i] == $(this).children().children().attr('id')) {
-                                 $(this).children().addClass('checked');
-                                 $(this).children().children().attr('checked', true);
-                                 return;
-                             }
-                         });
-                     });
-                 }
-                 else {
-                     $('#btnutilityupdate').hide();
-                     $('#btnutilitySave').show();
-                 }
-             }
-         });
-
+                        if (response['ACustomMaster'][i]['CustomNotification'].toLowerCase() == 'true') {
+                            CustomNoti = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                        } else {
+                            CustomNoti = '<div class="checker"> <span><input type="Checkbox" class="form-control"  /></span></div>';
+                        }
+                        if (response['ACustomMaster'][i]['CustomTask'].toLowerCase() == 'true') {
+                            CustomT = '<div class="checker"> <span class="checked"><input type="Checkbox" class="form-control" checked="checked" /></span></div>';
+                        } else {
+                            CustomT = '<div class="checker"> <span ><input type="Checkbox" class="form-control"  /></span></div>';
+                        }
+                        if (html == '') {
+                            html = '<tr>' +
+                                   '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
+                                   '<td><div class="form-group"> <input type="text" class="form-control req" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></div></td>' +
+                                   '<td> <div class="form-group"><input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></div></td>' +
+                                   '<td>' + Customvisi + '</td>' +
+                                   '<td>' + CustomNoti + '</td>' +
+                                   '<td>' + CustomT + '</td>' +
+                                   '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
+                                   '</tr>'
+                        }
+                        else {
+                            html += '<tr>' +
+                                   '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
+                                   '<td><div class="form-group"> <input type="text" class="form-control req" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></div></td>' +
+                                   '<td><div class="form-group"> <input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></div></td>' +
+                                   '<td>' + Customvisi + '</td>' +
+                                   '<td>' + CustomNoti + '</td>' +
+                                   '<td>' + CustomT + '</td>' +
+                                   '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
+                                   '</tr>'
+                        }
+                    }
+                    $(html).appendTo($("#tblModalIconCustom"))
+                }
+                else {
+                    customID = response['ACustomMaster'].length + 1;
+                    var html = '<tr>' +
+                               '<td>' + customID + '</td>' +
+                               '<td><div class="form-group"><input type="text" placeholder="Custom Name"  class="form-control req" /></div></td>' +
+                               '<td><div class="form-group"> <input type="text" placeholder="Custom Class"  class="form-control" /></div></td>' +
+                               '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
+                               '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
+                               '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
+                               '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
+                               '</tr>'
+                    $(html).appendTo($("#tblModalIconCustom"))
+                    customID++;
+                }
+                //utility Edit Mode
+                $("#UtilityFrom").find('.checker').each(function () {
+                    $(this).children().removeClass('checked');
+                    $(this).children().children().removeAttr('checked');
+                });
+                if (response['AUtility'].length > 0) {
+                    $('#btnutilityupdate').show();
+                    $('#btnutilitySave').hide();
+                    var data = response['AUtility'][0]['Utilities'];
+                    var arr = data.split(',');
+                    $.each(arr, function (i) {
+                        $("#UtilityFrom").find('.checker').each(function () {
+                            if (arr[i] == $(this).children().children().attr('id')) {
+                                $(this).children().addClass('checked');
+                                $(this).children().children().attr('checked', true);
+                                return;
+                            }
+                        });
+                    });
+                }
+                else {
+                    $('#btnutilityupdate').hide();
+                    $('#btnutilitySave').show();
+                }
+            }
+        });
     });
+
     //Section In Editmode  
     $("table").delegate(".TabSection", "click", function () {
+        clearValidations($(this).closest('form'));
         Frmcode = 0;
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
@@ -582,57 +596,54 @@ $(document).ready(function () {
         var Xmaster = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
         var html = '';
-        $.ajax(
-         {
-             type: "POST",
-             url: "/FormSetup/Edit_Data_Section",
-             data: {
-                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
-             },
-             dataType: 'json',
-             success: function (response) {
-                 html = '';
-                 clearSectionNameTab();
-                 clearValidations($(this).closest('form'));
-                 $("#btnModalSectionSave").show();
-                 $("#btnModalSectionUpdate").hide();
-                 if (response['ASectionMaster'].length > 0) {
-                     $("#tblModalSection tbody").html('');
-                     ID = response['ASectionMaster'].length + 1;
-                     $("#btnModalSectionSave").hide();
-                     $("#btnModalSectionUpdate").show();
-                     for (var i = 0; i < response['ASectionMaster'].length; i++) {
-                         if (typeof html === typeof undefined && html === false || html == '') {
-
-                             html = '<tr>' +
-                                    '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
-                                    '<td> <input type="text"  value="' + response['ASectionMaster'][i]['SectionName'] + '" /></td>' +
-                                    '<td> <input type="text"  value="' + response['ASectionMaster'][i]['srno'] + '" /></td>' +
-                                    '</tr>';
-                         }
-                         else {
-                             html += '<tr>' +
-                                 '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
-                                 '<td> <input type="text"  value="' + response['ASectionMaster'][i]['SectionName'] + '" /></td>' +
-                                 '<td> <input type="text"  value="' + response['ASectionMaster'][i]['srno'] + '" /></td>' +
-                                 '</tr>';
-                         }
-                     }
-                     $(html).appendTo($("#tblModalSection"))
-                 }
-                 else {
-                     ID = response['ASectionMaster'].length + 1;
-                     var html = '<tr>' +
-                                '<td>' + ID + '</td>' +
-                                '<td> <input type="text" id="txtsection' + ID + '"/></td>' +
-                                '<td> <input type="text" /></td>' +
-                                '</tr>'
-                     $(html).appendTo($("#tblModalSection"))
-                     ID++;
-                 }
-             }
-         });
+        $.ajax({
+            type: "POST",
+            url: "/FormSetup/Edit_Data_Section",
+            data: {
+                tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, Xmaster: Xmaster, Type: Type
+            },
+            dataType: 'json',
+            success: function (response) {
+                html = '';
+                clearSectionNameTab();
+                clearValidations($(this).closest('form'));
+                $("#btnModalSectionSave").show();
+                $("#btnModalSectionUpdate").hide();
+                if (response['ASectionMaster'].length > 0) {
+                    $("#tblModalSection tbody").html('');
+                    ID = response['ASectionMaster'].length + 1;
+                    $("#btnModalSectionSave").hide();
+                    $("#btnModalSectionUpdate").show();
+                    for (var i = 0; i < response['ASectionMaster'].length; i++) {
+                        if (typeof html === typeof undefined && html === false || html == '') {
+                            html = '<tr>' +
+                                   '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
+                                   '<td><div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
+                                   '<td><div class="form-group"><input type="text" class="form-control req"  value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
+                                   '</tr>';
+                        } else {
+                            html += '<tr>' +
+                                '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
+                                '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
+                                '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
+                                '</tr>';
+                        }
+                    }
+                    $(html).appendTo($("#tblModalSection"))
+                } else {
+                    ID = response['ASectionMaster'].length + 1;
+                    var html = '<tr>' +
+                               '<td>' + ID + '</td>' +
+                               '<td> <div class="form-group"><input type="text" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
+                               '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
+                               '</tr>'
+                    $(html).appendTo($("#tblModalSection"))
+                    ID++;
+                }
+            }
+        });
     });
+
     //Edit tab Data 
     $("table").delegate(".EditTabData", "click", function () {
         $('#btncleartab').trigger('click');
@@ -666,8 +677,6 @@ $(document).ready(function () {
                      $('#txtTooltipHelpText').val(response[0].TooltipHelpText);
                      $('#txtTabMainTable').val(response[0].MasterTable);
                      $('#txtTabMainTablePrefix').val(response[0].MasterTablePrefix);
-                     //$('#drpCorporatetab').find('option[value="' + response[0].Corporate + '"]').attr('selected', true).change();
-                     //$('#drpFormCode').find('option[value="' + response[0].FormCode + '"]').attr('selected', true).change();
                      $('#txtTrxTable1').val(response[0].TrxTable1);
                      $('#txtTrxTable2').val(response[0].TrxTable2);
                      $('#txtTrxTable3').val(response[0].TrxTable3);
@@ -682,6 +691,7 @@ $(document).ready(function () {
              }
          });
     });
+
     //Delete Button  Click
     $('#modeldelete').click(function (e) {
         var Module = 0;
@@ -715,12 +725,23 @@ $(document).ready(function () {
             }
         });
     });
+
     //Tab 3 Grid
     $('#btnaddSection').click(function (e) {
         addRow();
     });
+
     //save Section 
-    $('.btnsavesection').on('click', function () {
+    $('.btnsavesection').on('click', function (e) {
+        e.preventDefault();
+        if (!validateForm($(this).closest('form'))) {  // Pass form control in parameter
+            swal(
+               'Invalid data found!',
+               '',
+               'error'
+             )
+            return false;
+        }
         var flagsection = 0;
         var CorporateId = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
@@ -746,35 +767,44 @@ $(document).ready(function () {
             else {
                 srno = 0;
             }
-            $.ajax(
-               {
-                   type: "POST",
-                   url: "/FormSetup/InsertData_SectionMaster",
-                   async: false,
-                   data: {
-                       "srno": srno, "CorporateId": CorporateId, "TabCode": TabCode, "FormCode": FormCode, "SectionName": SectionName,
-                       "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
-                       "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
-                   },
-                   dataType: 'json',
-                   success: function (response) {
-                       if (response["responseText"] != "") {
-                           flagsection = 1
-                       }
-                   }
-               });
+            $.ajax({
+                type: "POST",
+                url: "/FormSetup/InsertData_SectionMaster",
+                async: false,
+                data: {
+                    "srno": srno, "CorporateId": CorporateId, "TabCode": TabCode, "FormCode": FormCode, "SectionName": SectionName,
+                    "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                    "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response["responseText"] != "") {
+                        flagsection = 1
+                    }
+                }
+            });
         });
         if (flagsection == 1) {
             $("#myModalSection").modal('hide');
             swal('Good job!', 'Record Save Sucessfully', 'success');
         }
     });
+
     $('#btnCustomsection').on('click', function () {
         addRowCustom();
     });
+
     //save Custom  Button
     $('.btnsaveCustomButton').on('click', function (e) {
         e.preventDefault();
+        if (!validateForm($(this).closest('form'))) {  // Pass form control in parameter
+            swal(
+               'Invalid data found!',
+               '',
+               'error'
+             )
+            return false;
+        }
         var flag = 0;
         var srno
         var Corporate = $('#drpCorporate1 option:selected').val();
@@ -806,28 +836,28 @@ $(document).ready(function () {
             else {
                 srno = 0;
             }
-            $.ajax(
-               {
-                   type: "POST",
-                   url: "/FormSetup/InsertData_CustomMaster",
-                   async: false,
-                   data: {
-                       "srno": srno, "Corporate": Corporate, "TabCode": TabCode, "FormCode": FormCode, "CustomName": CustomName,
-                       "CustomClass": CustomClass, "CustomVisibility": CustomVisibility, "CustomNotification": CustomNotification, "CustomTask": CustomTask
-                   },
-                   dataType: 'json',
-                   success: function (response) {
-                       if (response != null && response.success) {
-                           flag = 1
-                       }
-                   }
-               });
+            $.ajax({
+                type: "POST",
+                url: "/FormSetup/InsertData_CustomMaster",
+                async: false,
+                data: {
+                    "srno": srno, "Corporate": Corporate, "TabCode": TabCode, "FormCode": FormCode, "CustomName": CustomName,
+                    "CustomClass": CustomClass, "CustomVisibility": CustomVisibility, "CustomNotification": CustomNotification, "CustomTask": CustomTask
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response != null && response.success) {
+                        flag = 1
+                    }
+                }
+            });
         });
         if (flag == 1) {
             $("#myModalIcon").modal('hide');
             swal('Good job!', 'Record Save Sucessfully', 'success');
         }
     });
+
     //Utility Save Button  
     $('.Utilitysavedata').on('click', function (e) {
         e.preventDefault();
@@ -839,43 +869,38 @@ $(document).ready(function () {
             if ($(this).children().hasClass('checked')) {
                 if (Utilities == '') {
                     Utilities = $(this).children().children().attr('id');
-                }
-                else {
+                } else {
                     Utilities += ',' + $(this).children().children().attr('id');
                 }
             }
         });
-        //  alert(Utilities);
         var srno;
         if ($('#txtutilitysrno').val() != '') {
             srno = $('#txtutilitysrno').val();
-        }
-        else {
+        } else {
             srno = 0;
         }
-        $.ajax(
-           {
-               type: "POST",
-               url: "/FormSetup/InsertData_Utility",
-               async: false,
-               data: {
-                   "srno": srno, "CorporateId": Corporate, "TabCode": TabCode, "FormCode": FormCode,
-                   "Utilities": Utilities
-               },
-               dataType: 'json',
-               success: function (response) {
-                   if (response != null && response.success) {
-                       Message = response.responseText;
-                       $('#btnutilityupdate').show();
-                       $('#btnutilitySave').hide();
-                       swal('Good job!', Message, 'success');
-                   }
-               }
-           });
-
+        $.ajax({
+            type: "POST",
+            url: "/FormSetup/InsertData_Utility",
+            async: false,
+            data: {
+                "srno": srno, "CorporateId": Corporate, "TabCode": TabCode, "FormCode": FormCode,
+                "Utilities": Utilities
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response != null && response.success) {
+                    swal('Good job!', response.responseText, 'success');
+                }
+            }
+        }).done(function () {
+            $('#btnutilityupdate').show();
+            $('#btnutilitySave').hide();
+        });
         $("#myModalIcon").modal('hide');
-
     });
+
     /*Quit Button*/
     $('.QuitForm').on('click', function () {
         clearValidations($(this).closest('form'));
@@ -911,6 +936,7 @@ $(document).ready(function () {
         $('#btnSavefs').show();
         clearForm();
     });
+
     $('#btncleartab').click(function (e) {
         e.preventDefault();
         clearValidations($(this).closest('form'));
@@ -938,13 +964,13 @@ $(document).ready(function () {
             $(this).children().children().attr('checked', true);
         }
     });
-
 });
+
 function addRowCustom() {
     var html = '<tr>' +
                 '<td>' + customID + '</td>' +
-                '<td><input type="text" placeholder="Custom Name"  class="form-control" /></td>' +
-                '<td> <input type="text" placeholder="Custom Class"  class="form-control" /></td>' +
+                '<td><div class="form-group"><input type="text" placeholder="Custom Name"  class="form-control req" /></div></td>' +
+                '<td><div class="form-group"> <input type="text" placeholder="Custom Class"  class="form-control" /></div></td>' +
                 '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
                 '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                 '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
@@ -954,80 +980,73 @@ function addRowCustom() {
     customID++;
 
 };
+
 function addRow() {
-    console.log(ID);
     var html = '<tr>' +
                 '<td>' + ID + '</td>' +
-                '<td> <input type="text" id="txtsection' + ID + '"/></td>' +
-                '<td> <input type="text" /></td>' +
+                '<td> <div class="form-group"><input type="text" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
+                '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalSection"))
     ID++;
 };
+
 function getdatatab() {
-    if ($('#txtSrNo1').val() != '') {
-        var tablename = 'dbo._Form_Tab_Master';
-        var Corporate = '2';
-        var unit = '';
-        var userid = '';
-        var WhereClause = '';
-        var Branch = '';
-        var PageNo = '1';
-        var RecordsPerPage = '10';
-        var Formcode = $('#txtSrNo1').val();
-        var Formtabcode = '0';
-        var type = 'Grid';
-        var Segment = '';
-        $('#Gridsectab').dataTable({
-
-            "ServerSide": true,
-            "destroy": true,
-            "autoWidth": false,
-            "ajax": {
-                "url": "/FormSetup/BindGridViewFormsetup",
-                "Type": "GET",
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "dataSrc": function (json) {
-                    return json;
-                },
-                "data": {
-                    "tablename": tablename,
-                    "Corporate": Corporate,
-                    "unit": unit,
-                    "userid": userid,
-                    "WhereClause": WhereClause,
-                    "Branch": Branch,
-                    "PageNo": PageNo,
-                    "RecordsPerPage": RecordsPerPage,
-                    "Formcode": Formcode,
-                    "Formtabcode": Formtabcode,
-                    "type": type,
-                    "Segment": Segment
-                }
+    var tablename = 'dbo._Form_Tab_Master';
+    var Corporate = '2';
+    var unit = '';
+    var userid = '';
+    var WhereClause = '';
+    var Branch = '';
+    var PageNo = '1';
+    var RecordsPerPage = '10';
+    var Formcode = $('#txtSrNo1').val();
+    var Formtabcode = '0';
+    var type = 'Grid';
+    var Segment = '';
+    $('#Gridsectab').dataTable({
+        "ServerSide": true,
+        "destroy": true,
+        "autoWidth": false,
+        "ajax": {
+            "url": "/FormSetup/BindGridViewFormsetup",
+            "Type": "GET",
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "dataSrc": function (json) {
+                return json;
+            },
+            "data": {
+                "tablename": tablename,
+                "Corporate": Corporate,
+                "unit": unit,
+                "userid": userid,
+                "WhereClause": WhereClause,
+                "Branch": Branch,
+                "PageNo": PageNo,
+                "RecordsPerPage": RecordsPerPage,
+                "Formcode": Formcode,
+                "Formtabcode": Formtabcode,
+                "type": type,
+                "Segment": Segment
             }
-            ,
-            "columns": [
-                { "data": "RowNumber" },
-                { "data": "FormCode" },
-                { "data": "TabSrNo" },
-                { "data": "Formname" },
-                { "data": "TabHeader" },
-                { "data": "TabClass" },
-                {
-                    data: null,
-                    className: "center",
-                    defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon" class="SectiontabButtonclass"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection" class="TabSection"><i class="fa fa-list-alt"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="EditTabData"><i class="fa fa-pencil-square-o"></i></a>'
-                }
-            ]
-        });
-    }
-    else {
-        Quitform();
-        swal('Please Edit Data');
-
-    }
+        },
+        "columns": [
+            { "data": "RowNumber" },
+            { "data": "FormCode" },
+            { "data": "TabSrNo" },
+            { "data": "Formname" },
+            { "data": "TabHeader" },
+            { "data": "TabClass" },
+            {
+                data: null,
+                className: "center",
+                defaultContent: ' <a href="#" data-toggle="modal" data-target="#myModalIcon" class="SectiontabButtonclass"><i class="fa fa-cloud-upload"></i></a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModalSection" class="TabSection"><i class="fa fa-list-alt"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="EditTabData"><i class="fa fa-pencil-square-o"></i></a>'
+            }
+        ]
+    });
 }
+
 function Dropdown_Bind_Tab1() {
     var Module = '';
     var screen = '';
@@ -1054,12 +1073,11 @@ function Dropdown_Bind_Tab1() {
                     $('.formcorporate').append(opt);
                 }
                 setSelect2Value($('#drpCorporate1'), '0');
-                // setSelect2Value($('#drpCorporatetab'), '0');
-
             }
         }
     });
 }
+
 function DropDownFormcode() {
     var Module = '';
     var screen = '';
@@ -1090,6 +1108,7 @@ function DropDownFormcode() {
         }
     });
 }
+
 function getdata() {
     var tablename = 'dbo._Form_Master';
     var Corporate = '2';
@@ -1103,7 +1122,6 @@ function getdata() {
     var Formtabcode = '0';
     var type = 'Grid';
     $('#example1').dataTable({
-
         "ServerSide": true,
         "destroy": true,
         "autoWidth": false,
@@ -1143,6 +1161,7 @@ function getdata() {
             }]
     });
 }
+
 function getUtility() {
     var htmlutility = '';
     var Module = '';
@@ -1186,6 +1205,7 @@ function getUtility() {
         }
     })
 }
+
 function Quitform() {
     $("#tab1").addClass("active");
     $("#tab3").removeClass("active");
@@ -1197,28 +1217,35 @@ function Quitform() {
     $("#frmtab").removeClass("active");
     $("#frmsection").removeClass("active");
     $("#serachfrom").trigger('click');
+    $("#tab1").focus();
 }
+
 function clearForm() {
     $('.inputform').val('');
     $('.Dropdown').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
+        setSelect2Value($(this), '0');
     });
 }
+
 function clearFormTAB() {
     $('.inputformTab').val('');
     $('.DropdownTab').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
+        setSelect2Value($(this), '0');
     });
 }
+
 function clearButtonclass() {
     $('.ButtonClassTab').val('');
 }
+
 function clearCustomButtonTab() {
     $("#tblModalIconCustom tbody").html('');
 }
+
 function clearSectionNameTab() {
     $("#tblModalSection tbody").html('');
 }
+
 function FillDropdown(Corporate, Field1, Field2, controlId) {
     var Module = '';
     var screen = '';
@@ -1257,6 +1284,7 @@ function FillDropdown(Corporate, Field1, Field2, controlId) {
         }
     });
 }
+
 function clearcheckbocstandardbutton() {
     $('#chkSaveVisibility').attr('checked', false);
     $('#chkSaveVisibility').parent().removeClass('checked');
@@ -1291,15 +1319,18 @@ function clearcheckbocstandardbutton() {
     $('#chkFormQuitVisibility').attr('checked', false);
     $('#chkFormQuitVisibility').parent().removeClass('checked');
 }
+
 function ClearDataoncorporate() {
     $('#drpScreen').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
+        setSelect2Value($(this), '0');
     });
     $('.inputform').val('');
 }
+
 function claerdataonScreen() {
     $('.inputform').val('');
 }
+
 function Modeltabactive() {
     $("#Standanbutton").addClass("active");
     $("#CustomButton").removeClass("active");
@@ -1307,5 +1338,4 @@ function Modeltabactive() {
     $("#tabs1").addClass("active");
     $("#tabs2").removeClass("active");
     $("#tabs3Utility").removeClass("active");
-
 }
