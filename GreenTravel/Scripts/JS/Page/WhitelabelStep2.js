@@ -195,7 +195,6 @@ function FillDropdown(controlId, type) {
         }
     });
 }
-
 // Function ( Edit Mode )
 function getdata() {
     var tablename = 'dbo._White_feature_mapping';
@@ -255,7 +254,6 @@ function getdata() {
         }
     });
 }
-
 function clearForm() {
     $('.inputform').val('');
     $('.Dropdown').each(function () {
@@ -263,7 +261,6 @@ function clearForm() {
     });
     $('#txtSrNo').val('0');
 }
-
 function Loaddata() {
     var tablename = 'dbo._White_feature_mapping';
     var Corporate = $('#txtCorporateID').val().toString();
