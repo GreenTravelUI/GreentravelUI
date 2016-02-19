@@ -677,12 +677,7 @@ function validatechar(sender, args) {
 
     }
 }
-function clearForm_TabWise() {
-    $('.inputformTab').val('');
-    $('.DropdownTab').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
-    });
-}
+
 // ============================================================================================================================== Function ( Tab-4)
 function FillDropDown_RightsCorporate() {
     var Module = '';

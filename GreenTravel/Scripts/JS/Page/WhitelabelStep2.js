@@ -1,41 +1,47 @@
-﻿$(document).ready(function () {
+﻿
+var grp = '';
+
+$(document).ready(function () {
     $('#txtSrNo').val('0');
-
-    //  Bind Drop-Down 
     FillDropdown('drpFeatureCategory', 'Dropdown');
-
-    // Function ( Bind Drop-Down )
     $('#btnSave').hide();
     $('#btnClear').hide();
     $('#btnUpdate').hide();
+    $("#partial").delegate(".checker", "click", function () {
+        if ($(this).children().hasClass('checked')) {
+            $(this).children().removeClass('checked');
+            $(this).children().children().removeAttr('checked');
+        } else {
+            $(this).children().addClass('checked');
+            $(this).children().children().attr('checked', true);
+        }
+    });//tab-4 checkbox - (check All)
 
-
-    // For Feature-Category Drop-Down Change
     $("#drpFeatureCategory").change(function () {
-
         var field1 = $('#drpFeatureCategory option:selected').val();
-
+       
         $("#partial").html('');
         $('#btnClear').hide();
         $('#btnSave').hide();
         $('#btnUpdate').hide();
-
-        if (field1 != '0' || field1 != '--None--') {
-            getdata();
+        if (field1 != '0' && field1 != '--None--') {
+            $('#btnSave').show();
+            $('#btnClear').show();
             clearValidations($(this).closest('form'));
             Loaddata();
+            getdata_new();
         }
-        else {
-
-
+        else
+        {
+            $('#btnClear').hide();
+            $('#btnSave').hide();
+            $('#btnUpdate').hide();
         }
-    });
+       
+    });// For Feature-Category Drop-Down Change
 
-
-    // For Save Button Click event
     $('.btnSaveStep2').click(function (e) {
         {
-
             var a = 0;
             e.preventDefault();
             if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
@@ -44,9 +50,8 @@
             }
 
             $('ul.grid div').find('li').each(function () {
-
                 $(this).find('table tbody tr').each(function () {
-                    if ($(this).find('input').is(':checked')) {
+                    if ($(this).find('.checker').children().hasClass('checked')) {
                         a = 1;
                     }
                 });
@@ -82,7 +87,6 @@
             var FeaturesCategory = '';
             var FeatureGroup = '';
             var Feature = '';
-
             $('ul.grid div').find('li').each(function () {
                 groupAry.push($(this).find('.myDiv h3').text().trim());
                 checkedInput = '';
@@ -90,15 +94,17 @@
                 FeaturesCategory = $('#drpFeatureCategory option:selected').val();
                 FeatureGroup = $(this).find('.myDiv h3').text().trim();
                 $(this).find('table tbody tr').each(function () {
-                    if ($(this).find('input').is(':checked')) {
+                    if ($(this).find('.checker').children().hasClass('checked')) {
                         if (i != 0) {
                             checkedInput += '||';
                         }
-                        checkedInput += $(this).find('input').attr('id');
+                        checkedInput += (($(this).find('.checker').attr("id")))
                         i += 1;
                     }
                 });
+
                 Feature = checkedInput;
+                console.log(Feature);
                 FeatureAry.push(Feature);
             });
 
@@ -130,13 +136,11 @@
                 $('#btnUpdate').show();
             }
         }
-    });
+    });// For Save Button Click event
 
-    // To Clear
     $("#btnClear").on('click', function (e) {
 
         e.preventDefault();
-
         $('.inputformTab').val('');
         $('.DropdownTab').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -147,13 +151,11 @@
         $('#btnSave').hide();
         $('#btnUpdate').hide();
         $('#btnClear').hide();
-    });
-
+    });// To Clear
 
     $("#btnQuit").on('click', function (e) {
-
         window.location.href = '/WhitelabelStep1/Index';
-    });
+    });// To Quit Button 
 
 });
 
@@ -190,11 +192,9 @@ function FillDropdown(controlId, type) {
                 $('#' + controlId + '').append(opt);
             }
             setSelect2Value($('#' + controlId + ''), '0');
-
         }
     });
 }
-
 
 // Function ( Edit Mode )
 function getdata() {
@@ -227,22 +227,28 @@ function getdata() {
                 $('#btnSave').hide();
                 $('#btnUpdate').show();
                 $('#btnClear').show();
-                //$('#txtSrNo').val() = response['Grid']['WhitelabelStep2']
-                $.each(response['Grid'], function () {
-                    var tempgroup = this;
+                $.each(response['Grid'], function (i) {
+                    var tempgroup = response['Grid'][i]['srno'];
                     var chkloop = this['Feature'].toString().split("||");
                     $.each(chkloop, function () {
                         var tempfeature = this;
+                        console.log($(this).html());
                         $('ul.grid div').find('li').each(function () {
-                            console.log($(this).html());
                             $(this).find('table tbody tr').each(function () {
-                                if ($(this).find("input").attr('id') == tempfeature) {
-                                    $(this).find("input").prop('checked', true);
+                                // if ($(this).find("input").attr('id') == tempfeature) {
+                                //   $(this).find("input").prop('checked', true);
+                                // console.log($(this).html());
+                                if ((($(this).find('.checker').attr("id"))) == tempfeature) {
+
+                                    $(this).find('.checker').attr('checked', true);
+                                    $(this).find('.checker').children().addClass('checked');
+                                }
+                                else {
+                                    $(this).find('.checker').attr('checked', false);
+                                    $(this).find('.checker').children().removeClass('checked');
                                 }
                             });
-
                         });
-
                     });
                 });
             }
@@ -250,15 +256,13 @@ function getdata() {
     });
 }
 
-
 function clearForm() {
     $('.inputform').val('');
     $('.Dropdown').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
+        setSelect2Value($('.Dropdown'), '0');
     });
     $('#txtSrNo').val('0');
 }
-
 
 function Loaddata() {
     var tablename = 'dbo._White_feature_mapping';
@@ -286,8 +290,9 @@ function Loaddata() {
                 for (var i = 0; i < data['HeaderList'].length; i++) {
                     if (html == '') {
                         html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
-
-                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
+                                '<div class="myDiv">' +
+                                '<h3 style="margin-top: 0; text-align: center;">' +
+                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label> </h3></div>' +
                                 '<h3 style="margin-top: 0; text-align: center;">' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
                                 '<table class="table sampletable" style="margin-bottom: 0;">' +
@@ -298,10 +303,10 @@ function Loaddata() {
                         for (var col = 0; col < data['ColumnList'].length; col++) {
                             if (data['HeaderList'][i]['SrNo'] == data['ColumnList'][col]['xlink']) {
                                 if (Column == '') {
-                                    Column = '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><input id="' + data['ColumnList'][col]['SrNo'] + '"  type="checkbox" ></td></tr>';
+                                    Column = '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><div class="checker" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div></td></tr>';
                                 }
                                 else {
-                                    Column += '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><input id="' + data['ColumnList'][col]['SrNo'] + '"  type="checkbox" ></td></tr>';
+                                    Column += '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><div class="checker" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div></td></tr>';
                                 }
                             }
                         }
@@ -310,8 +315,9 @@ function Loaddata() {
 
                     else {
                         html += '<li><figure><figcaption class="panel-body tab-itenaries">' +
-
-                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
+                                 '<div class="myDiv">' +
+                                '<h3 style="margin-top: 0; text-align: center;">' +
+                                '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label> </h3></div>' +
                                 '<h3 style="margin-top: 0; text-align: center;">' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
                                 '<table class="table sampletable" style="margin-bottom: 0;">' +
@@ -323,21 +329,68 @@ function Loaddata() {
                         for (var col = 0; col < data['ColumnList'].length; col++) {
                             if (data['HeaderList'][i]['SrNo'] == data['ColumnList'][col]['xlink']) {
                                 if (Column == '') {
-                                    Column = '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><input id="' + data['ColumnList'][col]['SrNo'] + '"  type="checkbox" ></td></tr>';
+                                    Column = '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><div class="checker" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div></td></tr>';
                                 }
                                 else {
-                                    Column += '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><input id="' + data['ColumnList'][col]['SrNo'] + '"  type="checkbox" ></td></tr>';
+                                    Column += '<tr><td>' + data['ColumnList'][col]['xname'] + '</td><td><div class="checker" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div></td></tr>';
                                 }
                             }
                         }
                         html = html.replace("[@Tbody]", Column);
-
                     }
-
-
-
                 }
                 $(html).appendTo($("#partial"))
+                $('#btnSave').show();
+                $('#btnClear').show();
+            }
+        }
+    });
+}
+function getdata_new() {
+    $('#txtSrNo').text('');
+    var tablename = 'dbo._White_feature_mapping';
+    var Corporate = $('#txtCorporateID').val().toString();
+    var unit = '0';
+    var Formcode = '0';
+    var Formtabcode = '';
+    var srno = $('#drpFeatureCategory option:selected').val();
+    var Type = 'EditMode';
+    $.ajax({
+        url: "/WhitelabelStep2/Edit",
+        type: "POST",
+        async: false,
+        data: {
+            tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type,
+        },
+        success: function (response) {
+            var i;
+            $('#txtSrNo').text('0');
+            
+            if (response['Dropdown'].length > 0) {
+                $('#txtSrNo').text(response['Dropdown'][0]['srno']);
+                $('#btnSave').hide();
+                $('#btnUpdate').show();
+                $('#btnClear').show();
+            }
+            if (response['Grid'].length > 0) {
+                console.log(response['Grid'].length);
+                $.each(response['Grid'], function (i) {
+                    var tempgroup = response['Grid'][i]['FeatureGroup'];
+                    var chkloop = response['Grid'][i]['Feature'].toString();
+                    var arr = chkloop.split('||');
+                    $.each(arr, function (j) {
+                        grp = arr[j];
+                        $('ul.grid div').find('li').each(function () {
+                            $(this).find('table tbody tr').each(function () {
+                                if ((($(this).find('.checker').attr("id"))) == grp) {
+                                    $(this).find('.checker').attr('checked', true);
+                                    $(this).find('.checker').children().addClass('checked');
+                                    return;
+                                }
+                            });
+                        });
+                    });
+                });
             }
         }
     });
