@@ -362,7 +362,7 @@ $(document).ready(function () {
                         },
                         success: function (response) {
                             if (response != null && response.success) {
-                                getdata();
+                                //getdata();
                                 swal(responsedata['success'], '', responsedata['Event']);
                                 //swal('Good job!', 'Record Save Sucessfully!', 'success');
                             }
@@ -378,7 +378,10 @@ $(document).ready(function () {
                     $('#btnsUpdate').show();
                     $('#btnDelete').hide();
                     $('#btnSaveMastersetup').hide();
+                    $('#CreateMaster').children().find('span.tab-name').text('Update Master');
+                    $('.tab-section-name').text('Update Master');
                     EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
+                    RedefineSrNo();
                 }
             }
         }).done(function () {
@@ -391,14 +394,12 @@ $(document).ready(function () {
     $('#btnQuitform').click(function (e) {
         clearValidations($(this).parent());
 
-
-
         /* Hide/Show Tab */
         $("#SearchMaster").addClass("active");
         $("#CreateMaster").removeClass("active");
         $("#tab2").removeClass("active");
         $("#tab1").addClass("active");
-
+        getdata();
         $('#btnCancelMastersetup').trigger('click');
         e.preventDefault();
     });
@@ -452,6 +453,7 @@ $(document).ready(function () {
         $('#CreateMaster').children().find('span.tab-name').text('Update Master');
         $('.tab-section-name').text('Update Master');
         EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, false);
+        RedefineSrNo();
     });
 
     $("table").delegate(".edit_master", "click", function () {
@@ -572,6 +574,7 @@ $(document).ready(function () {
                       'Your control is safe.',
                       'error'
                     );
+                    control.focus();
                 }
             });
         }
@@ -988,9 +991,12 @@ function ShowControls() {
 function RedefineSrNo() {
     var srnoIndex = 1;
     $('.control-caption').each(function () {
+        var control = $(this);
         var row = $(this).parent().parent().parent();
         if (row.is(':visible')) {
-            row.find('.control-srno').text(srnoIndex++);
+            console.log();
+            row.find('.control-srno').text(srnoIndex);
+            srnoIndex = srnoIndex + 1;
         }
     });
 }
