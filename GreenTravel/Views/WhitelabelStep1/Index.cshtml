@@ -26,7 +26,7 @@
                     <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hosting / Subscription </a></li>
                     <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Maintanence</a></li>
                     <li role="presentation" id="tabuserpreferance"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Preferance</a></li>
-                    <li role="presentation" id="tabpasswordauthentication"><a href="#tab6" role="tab" data-section="tab6" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Password Authentication</a></li>
+                    <li role="presentation" id="Tab6"><a href="#tab6" role="tab" data-section="tab6" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Password Authentication</a></li>
                 </ul>
                 <div class="tab-content">
                     <input type="hidden" id="hdfsrno" />
@@ -254,7 +254,7 @@
                                 <input type="text" class="form-control" id="txtsrnotab3" placeholder="Don't Enter Text">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        
+
                                         <label for="drpCloudProvider">Cloud Provider <span>*</span></label>
                                         <select id="drpCloudProvider" class="js-states form-control req" style="display: none; width: 100%">
                                             <option value="Test">Test</option>
@@ -300,7 +300,7 @@
                                     <div class="form-group">
                                         <label for="drpCurrencytab3">Currency </label>
                                         <select id="drpCurrencytab3" class="js-states form-control" style="display: none; width: 100%">
-                                         <option value="Test">Test</option>
+                                            <option value="Test">Test</option>
                                         </select>
                                     </div>
                                     <div class="form-group form-marings">
@@ -308,7 +308,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txtHostingCostPerMonth">Hosting Cost Per Month </label>
-                                        <input type="text" class="form-control" id="txtHostingCostPerMonth" placeholder="Hosting Cost Per Month">
+                                        <input type="text" class="form-control num" id="txtHostingCostPerMonth" placeholder="Hosting Cost Per Month">
                                     </div>
 
                                 </div>
@@ -385,9 +385,9 @@
                                 <br />
                                 <button id="btnSavetab3" type="submit" class="btn btn-success btnsavetab3class">
                                     SAVE</button>
-                                <button id="btnUpdatetab3" type="submit" style="display:none" class="btn btn-primary btnsavetab3class">
+                                <button id="btnUpdatetab3" type="submit" style="display: none" class="btn btn-primary btnsavetab3class">
                                     UPDATE</button>
-                                <button id="btnCanceltab3" type="button" style="display:none" class="btn btn-green">
+                                <button id="btnCanceltab3" type="button" style="display: none" class="btn btn-green">
                                     DELETE</button>
                                 <button id="btnCleartab3" type="button" class="btn btn-warning">
                                     CLEAR</button>
@@ -401,7 +401,7 @@
                             <div class="col-md-12">
 
                                 <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing</h3>
-                                <input type="text" class="form-control" style="display:none" id="txtsrnotab4" placeholder="Don't Enter Text">
+                                <input type="text" class="form-control" style="display: none" id="txtsrnotab4" placeholder="Don't Enter Text">
                                 <div class="col-md-6">
 
                                     <div class="form-group">
@@ -489,9 +489,9 @@
                             <br />
                             <button id="btnSavebilling" type="submit" class="btn btn-success btnSavebillingmain">
                                 SAVE</button>
-                            <button id="btnUpdateBilling" type="submit" style="display:none" class="btn btn-primary btnSavebillingmain">
+                            <button id="btnUpdateBilling" type="submit" style="display: none" class="btn btn-primary btnSavebillingmain">
                                 UPDATE</button>
-                            <button id="btnClearbilling" type="button" style="display:none" class="btn btn-warning btnbillingclear">
+                            <button id="btnClearbilling" type="button" style="display: none" class="btn btn-warning btnbillingclear">
                                 CLEAR</button>
                             <button id="btnQuitBilling" type="button" class="btn btn-info btnbillingquit">
                                 QUIT FORM</button>
@@ -503,39 +503,77 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane " id="tab5">
-                        <form>
+                        <form id="userprefform">
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="txtsrnouserpref" placeholder="SR">
                                 <div class="form-group">
                                     <label for="drpDashboardGadgetPosition">Dashboard Gadget Position <span>*</span></label>
-                                    <select id="drpDashboardGadgetPosition" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                    <select id="drpDashboardGadgetPosition" class="js-states form-control req Dropdown dropclear" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                
                                     <div class="row" id="userperferancechk">
-                                    </div>
+
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkgridcolas" value="chkgridcolas"  />Grid Column Rearrange
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkcustomgridview" value="chkcustomgridview" />Custom Grid View
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkfixedhdr" value="chkfixedhdr" />Fixed Header
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkfixedmenu" value="chkfixedmenu" />Fixed Menu Bar
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkhorizontalbar" value="chkhorizontalbar" />Horizontal Bar
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chktogglesidebar" value="chktogglesidebar" />Toggle Sidebar
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkcompactmenu" value="chkcompactmenu" />Compact Menu
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkhovermenu" value="chkhovermenu" />Hover Menu
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkboxlayout" value="chkboxlayout" />Box Layout
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkthemecolor"  value="chkthemecolor"/>Theme Color
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkformbasedsummery" value="chkformbasedsummery" />Form Based Summery
+                                        </div>
+                                        <div class="col-md-6 form-marings">
+                                            <input type="checkbox" id="chkutility" value="chkutility" />Utilities
+                                        </div>
+
+                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                            </div>
-                            <div class="col-md-12">
-                                <br />
-                                <button id="btnSaveuserpref" type="submit" class="btn btn-success btnSaveuserpref">
-                                    SAVE</button>
-                                <button id="btnUpdateuserpref" type="submit" class="btn btn-primary btnSaveuserpref">
-                                    UPDATE</button>
-                                <button id="btnCanceluserpref" type="button" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnclearuserpref" type="button" class="btn btn-warning btnClearuserpref">
-                                    CLEAR</button>
-                                <button id="btnquituserpref" type="button" class="btn btn-info">
-                                    QUIT FORM</button>
+                                
+                                <div class="col-md-12">
+                                    <br />
+                                    <button id="btnSaveuserpref" type="submit" class="btn btn-success btnSaveuserpref">
+                                        SAVE</button>
+                                    <button id="btnUpdateuserpref" type="submit" style="display: none" class="btn btn-primary btnSaveuserpref">
+                                        UPDATE</button>
+                                    <button id="btnCanceluserpref" type="button" style="display: none" class="btn btn-green btnCancel">
+                                        DELETE</button>
+                                    <button id="btnclearuserpref" type="button" class="btn btn-warning btnClearuserpref">
+                                        CLEAR</button>
+                                    <button id="btnquituserpref" type="button" class="btn btn-info">
+                                        QUIT FORM</button>
+                                </div>
                             </div>
                         </form>
                     </div>
 
                     <div role="tabpanel" class="tab-pane " id="tab6">
                         <form>
+                            <input type="text" class="form-control" id="txtsrnotab6" placeholder="SR">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtrequiredcapitalcharacters">Required Capital Characters</label>
@@ -595,9 +633,9 @@
                                 <br />
                                 <button id="btnSavepassword" type="submit" class="btn btn-success btnsavepasswordauth">
                                     SAVE</button>
-                                <button id="btnUpdatepassword" type="submit" class="btn btn-primary btnsavepasswordauth">
+                                <button id="btnUpdatepassword" type="submit" style="display:none" class="btn btn-primary btnsavepasswordauth">
                                     UPDATE</button>
-                                <button id="btnCancelpassword" type="button" class="btn btn-green">
+                                <button id="btnCancelpassword" type="button" style="display:none" class="btn btn-green">
                                     DELETE</button>
                                 <button id="btnclearpassword" type="button" class="btn btn-warning">
                                     CLEAR</button>

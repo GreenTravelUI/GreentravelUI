@@ -4,20 +4,22 @@ $(window).unload(function () {
 });
 
 $(document).ready(function () {
+
+    FillDropDown_RightsCorporate();
     FillDropDown_Corporate();
     setSelect2Value($('#DrpLocationTab2'), '0');
-    BindGrid();//Bind Grid
+    BindGrid();
+    // ==============================================================================================================================  ( Tab-1 && Tab-2)      //
     $("#drpCorporate").change(function () {
+
         $('#DrpLocationTab2').html('');
         setSelect2Value($('#DrpLocationTab2'), '0');
         FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
 
-    }); //--- tab-2 Corporate Drop-down Change
+    }); //--- tab-2 corporate drop-down change
     $("#DrpUnitTab2").change(function () {
-
         FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
-
-    }); //---- tab-2 Unit Drop-down Change
+    }); //---- tab-2 unit drop-down change
     $('.usertab1gridclass').click(function (e) {
 
         $("#tab2").removeClass("active");
@@ -29,8 +31,7 @@ $(document).ready(function () {
         $("#tab1").addClass("active");
         $("#userlitab1").addClass("active");
         BindGrid();
-
-    });
+    });//---tab-1 tab change event call
     $('.Usertab2').click(function (e) {
 
         $("#userlitab1").addClass("active");
@@ -41,11 +42,12 @@ $(document).ready(function () {
         $("#tab4").removeClass("active");
         $("#userlitab2").addClass("active");
         $("#tab2").removeClass("active");
-
-    });
+    });//---tab-2 tab change event call
     $('.btnclearuser').click(function (e) {
 
         e.preventDefault();
+        $("#txtEmail").prop('disabled', false);
+        $(".Editdisable").show();
         clearValidations($(this).closest('form'));
         $('input[type="text"]').val('');
         $('input[type="password"]').val('');
@@ -54,31 +56,24 @@ $(document).ready(function () {
         $('#btnCancelUser').hide();
         $('.inputform').val('');
         $('.Dropdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
+            setSelect2Value($(this), '0');
+            // $(this).val($(this).find('option:first').val()).change();
         });
         $('.drpdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
+            setSelect2Value($(this), '0');
+            // $(this).val($(this).find('option:first').val()).change();
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
-
-    });
+    });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
-
         e.preventDefault();
-
         if (!validateForm($(this).parent())) {
             swal('Invalid data found!');
             return false;
             return false;
         }
-        if ($('#txtsrno').val() != "") {
-            var srno = $('#txtsrno').val();
-        }
-        else {
-            var srno = '0';
-        }
-        var Corporate = $('#drpCorporate option:selected').val();;
-
+        if ($('#txtsrno').val() != "") { var srno = $('#txtsrno').val(); } else { var srno = '0'; }
+        var Corporate = $('#drpCorporate option:selected').val();
         var Unit = $('#DrpUnitTab2 option:selected').val();;
         var Location = $('#DrpLocationTab2 option:selected').val();;
         var FirstName = $('#txtFirstName').val();
@@ -97,46 +92,34 @@ $(document).ready(function () {
         var Attribute9 = '';
         var Attribute10 = '';
         var EntryDatetime = '';
-        var CretedBy = '0';
-        var EditedBy = '0';
-        var EditDatetime = '';
-        var CorpcentreBy = '0';
-        var UnitCorpBy = '0';
-        var TerminalBy = '0';
-        var BranchBy = '0';
-
-        $.ajax(
-           {
-               type: "POST",
-               url: "/WhitelabelAccessRights/insert_Data",
-               data: {
-                   srno: srno, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, FirstName: FirstName,
-                   LastName: LastName, Email: Email, Password: Password, Attribute1: Attribute1,
-                   Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
-                   Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CretedBy: CretedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
-                   UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
-               },
-               dataType: 'json',
-               success: function (response) {
-                   if (response != null && response.success) {
-                       swal('', response['success'], response['Event']);
-                       $("#tab1").removeClass("active");
-                       $("#userlitab1").removeClass("active");
-                       $("#tab2").addClass("active");
-                       $("#userlitab2").addClass("active");
-
-                       // For Srno  Fill in the edit Mode
-                       if (response['Event'] != 'error') {
-                           $('#txtsrno').val(response['Srno']);
-                           $('#btnSaveUser').hide();
-                           $('#btnUpdateUser').show();
-                           $('#btnCancelUser').hide();
-                       }
-                   }
-               }
-           });
-
-    });
+        $.ajax({
+            type: "POST",
+            url: "/WhitelabelAccessRights/insert_Data",
+            data: {
+                srno: srno, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, FirstName: FirstName,
+                LastName: LastName, Email: Email, Password: Password, Attribute1: Attribute1,
+                Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
+                Attribute9: Attribute9, Attribute10: Attribute10
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response != null && response.success) {
+                    swal('', response['success'], response['Event']);
+                    $("#tab1").removeClass("active");
+                    $("#userlitab1").removeClass("active");
+                    $("#tab2").addClass("active");
+                    $("#userlitab2").addClass("active");
+                    // For Srno  Fill in the edit Mode
+                    if (response['Event'] != 'error') {
+                        $('#txtsrno').val(response['Srno']);
+                        $('#btnSaveUser').hide();
+                        $('#btnUpdateUser').show();
+                        $('#btnCancelUser').hide();
+                    }
+                }
+            }
+        });
+    });//---tab-2 save button click
     $('#txtConfirmEmail').on('change', function () {
         var result = CompareValidation($('#txtEmail').val(), $('#txtConfirmEmail').val());
         if (result == true) {
@@ -144,7 +127,7 @@ $(document).ready(function () {
         else {
             $('#txtConfirmEmail').focus();
         }
-    });
+    });//---tab-2 email comparing 
     $('#txtConfirmPassword').on('change', function () {
         var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
         if (result == true) {
@@ -152,15 +135,9 @@ $(document).ready(function () {
         else {
             $('#txtConfirmPassword').focus();
         }
-    });
+    });//---tab-2 password comparing 
     $("table").delegate(".editor_Step", "click", function () {
-        $("#userlitab1").removeClass("active");
-        $("#userlitab2").addClass("active");
-        $("#tab1").removeClass("active");
-        $("#tab2").addClass("active");
-        $('#btnUpdateUser').show();
-        $('#btnCancelUser').show();
-        $('#btnSaveUser').hide();
+        Clear_tab_4();
         var tablename = 'dbo._user_details_master';
         var Corporate = '2';
         var Unit = '0';
@@ -168,83 +145,133 @@ $(document).ready(function () {
         var Formtabcode = '0';
         var srno = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
-        $.ajax(
-         {
-             type: "POST",
-             url: "/WhitelabelAccessRights/Edit_data",
-             data: {
-                 tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
-             },
-             dataType: 'json',
-             success: function (response) {
-                 if (response['UserMasterresjs'].length > 0) {
-                     $('#txtsrno').val(response['UserMasterresjs'][0]['srno']);
-                     $('#txtFirstName').val(response['UserMasterresjs'][0]['FirstName']);
-                     $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
-                     $('#txtEmail').val(response['UserMasterresjs'][0]['Email']);
-                     $('#txtConfirmEmail').val(response['UserMasterresjs'][0]['Email']);
-                     setSelect2Value($('#drpCorporate'), response['UserMasterresjs'][0]['Corporate']);
-                     FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
-                     setSelect2Value($('#DrpUnitTab2'), response['UserMasterresjs'][0]['Unit']);
-                     FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
-                     setSelect2Value($('#DrpLocationTab2'), response['UserMasterresjs'][0]['Location']);
-                 }
-             }
-         }).done(function () {
-             clearValidations($(this).closest('form'));
-             $("#userlitab1").removeClass("active");
-             $("#tab1").removeClass("active");
-             $("#userlitab2").removeClass("active");
-             $("#tab2").removeClass("active");
-             $("#userlitab3").removeClass("active");
-             $("#tab3").removeClass("active");
-             $("#userlitab4").removeClass("active");
-             $("#tab4").removeClass("active");
-
-
-             $("#userlitab2").addClass("active");
-             $("#tab2").addClass("active");
-         });
-
-
-    });
+        $.ajax({
+            type: "POST",
+            url: "/WhitelabelAccessRights/Edit_data",
+            data: {
+                tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response['UserMasterresjs'].length > 0) {
+                    $('#txtsrno').val(response['UserMasterresjs'][0]['srno']);
+                    $('#txtFirstName').val(response['UserMasterresjs'][0]['FirstName']);
+                    $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
+                    $('#txtEmail').val(response['UserMasterresjs'][0]['Email']);
+                    $('#txtConfirmEmail').val(response['UserMasterresjs'][0]['Email']);
+                    setSelect2Value($('#drpCorporate'), response['UserMasterresjs'][0]['Corporate']);
+                    FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
+                    setSelect2Value($('#DrpUnitTab2'), response['UserMasterresjs'][0]['Unit']);
+                    FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
+                    setSelect2Value($('#DrpLocationTab2'), response['UserMasterresjs'][0]['Location']);
+                }
+                if (response['UserWiseRights'].length > 0) {
+                    setSelect2Value($('#drpRightsCorporate'), response['UserWiseRights'][0]['Corporate']);
+                    Load_screen_module();
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
+                    setSelect2Value($('#drpRightsUnit'), response['UserWiseRights'][0]['Unit']);
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
+                    setSelect2Value($('#drpRightsLocation'), response['UserWiseRights'][0]['Location']);
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+                    setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
+                    setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
+                    Fill_Screen_Module_On_Edit();
+                }
+            }
+        }).done(function () {
+            clearValidations($('#tab2').find('form'));
+            $("#txtEmail").prop('disabled', true);
+            $(".Editdisable").hide();
+            $("#userlitab1").removeClass("active");
+            $("#tab1").removeClass("active");
+            $("#userlitab2").removeClass("active");
+            $("#tab2").removeClass("active");
+            $("#userlitab3").removeClass("active");
+            $("#tab3").removeClass("active");
+            $("#userlitab4").removeClass("active");
+            $("#tab4").removeClass("active");
+            $("#userlitab2").addClass("active");
+            $("#tab2").addClass("active");
+            $('#btnUpdateUser').show();
+            $('#btnCancelUser').hide();
+            $('#btnSaveUser').hide();
+        });
+    });//---tab-1 edit users button click
+    $("table").delegate(".editor_accessright", "click", function () {
+        var tablename = 'dbo._user_details_master';
+        var Corporate = '2';
+        var Unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var srno = $(this).parent().parent().children(':eq(1)').text();
+        var Type = 'EditMode';
+        $.ajax({
+            type: "POST",
+            url: "/WhitelabelAccessRights/Edit_data",
+            async: false,
+            data: {
+                tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response['UserWiseRights'].length > 0) {
+                    setSelect2Value($('#drpRightsCorporate'), response['UserWiseRights'][0]['Corporate']);
+                    Load_screen_module();
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
+                    setSelect2Value($('#drpRightsUnit'), response['UserWiseRights'][0]['Unit']);
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
+                    setSelect2Value($('#drpRightsLocation'), response['UserWiseRights'][0]['Location']);
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+                    setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
+                    setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
+                    Fill_Screen_Module_On_Edit();
+                }
+                if (response['UserMasterresjs'].length > 0) {
+                    $('#txtsrno').val(response['UserMasterresjs'][0]['srno']);
+                    $('#txtFirstName').val(response['UserMasterresjs'][0]['FirstName']);
+                    $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
+                    $('#txtEmail').val(response['UserMasterresjs'][0]['Email']);
+                    $('#txtConfirmEmail').val(response['UserMasterresjs'][0]['Email']);
+                    setSelect2Value($('#drpCorporate'), response['UserMasterresjs'][0]['Corporate']);
+                    FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
+                    setSelect2Value($('#DrpUnitTab2'), response['UserMasterresjs'][0]['Unit']);
+                    FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
+                    setSelect2Value($('#DrpLocationTab2'), response['UserMasterresjs'][0]['Location']);
+                }
+            }
+        }).done(function () {
+            clearValidations($('#tab4').find('form'));
+            $("#txtEmail").prop('disabled', true);
+            $(".Editdisable").hide();
+            $("#userlitab1").removeClass("active");
+            $("#tab1").removeClass("active");
+            $("#userlitab2").removeClass("active");
+            $("#tab2").removeClass("active");
+            $("#userlitab3").removeClass("active");
+            $("#tab3").removeClass("active");
+            $("#userlitab4").addClass("active");
+            $("#tab4").addClass("active");
+        });
+    });//---tab-1 edit access rights button click
     $('.quituserbtn').click(function (e) {
         $(".btnclearuser").click();
         $(".usertab1gridclass").click();
-    });
-
-    function clearForm_TabWise() {
-        $('.inputformTab').val('');
-        $('.DropdownTab').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
-        });
-    }
-
-
-
-    // -------------------------------------------------------------------------        ( Tab-4)       -----------------------------------------------------------------------------------//
-
-    $('.userlitab4class').click(function (e) {
-        e.preventDefault();
-        FillDropDown_RightsCorporate();
-    });
+    });//---tab-2 quit button
+    // ==============================================================================================================================  ( Tab-4) 
     $("#drpRightsCorporate").change(function () {
-        // e.preventDefault();
         $('#drpRightsUnit').html('');// To Clear dropdown Unit
         setSelect2Value($('#drpRightsUnit'), '0');
-
         $('#drpRightsLocation').html('');// To Clear dropdown Location
         setSelect2Value($('#drpRightsLocation'), '0');
-
         $('#drpRightsRole').html('');// To Clear dropdown Role
         setSelect2Value($('#drpRightsRole'), '0');
-
         $('#drpRightsUser').html('');// To Clear dropdown User
         setSelect2Value($('#drpRightsUser'), '0');
-
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
         Load_screen_module();
-    });
+    });//---tab-4 corporate selected index change event
     $("#drpRightsUnit").change(function () {
         // e.preventDefault();
         $('#drpRightsLocation').html('');// To Clear dropdown
@@ -258,7 +285,7 @@ $(document).ready(function () {
         setSelect2Value($('#drpRightsUser'), '0');
 
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
-    });
+    });//---tab-4 unit selected index change event
     $("#drpRightsLocation").change(function () {
         // e.preventDefault();
         $('#drpRightsRole').html('');// To Clear dropdown
@@ -268,15 +295,14 @@ $(document).ready(function () {
         setSelect2Value($('#drpRightsUser'), '0');
 
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
-    });
+    });//---tab-4 location selected index change event
     $("#drpRightsRole").change(function () {
-        // e.preventDefault();
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
-    });
+    });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
         // e.preventDefault();
         Fill_Screen_Module_On_Edit();
-    });
+    });//---tab-4 rights selected index change event
     $("#partial").delegate(".checker", "click", function () {
         if ($(this).children().hasClass('checked')) {
             $(this).children().removeClass('checked');
@@ -285,7 +311,7 @@ $(document).ready(function () {
             $(this).children().addClass('checked');
             $(this).children().children().attr('checked', true);
         }
-    });
+    });//tab-4 checkbox - (check All)
     $("#partial").delegate(".checker.delete", "click", function () {
         if ($(this).parent().parent().find('.checker.delete').children().hasClass('checked')) {
             $(this).parent().parent().find('.checker.view').attr('checked', true);
@@ -297,7 +323,7 @@ $(document).ready(function () {
         }
 
 
-    });
+    });//---tab-4 checkbox - (checker click)
     $("#partial").delegate(".checker.update", "click", function () {
         // console.log($(this).parent().parent().find('.checker.update').children().hasClass('checked'));
         if ($(this).parent().parent().find('.checker.update').children().hasClass('checked')) {
@@ -311,7 +337,7 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
         }
 
-    });
+    });//---tab-4 checkbox - (check update)
     $("#partial").delegate(".checker.create", "click", function () {
         // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
         if ($(this).parent().parent().find('.checker.create').children().hasClass('checked')) {
@@ -325,7 +351,7 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
         }
 
-    });
+    });//---tab-4 checkbox - (check create)
     $("#partial").delegate(".checker.view", "click", function () {
         // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
         if ($(this).parent().parent().find('.checker.view').children().hasClass('checked')) {
@@ -340,23 +366,13 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.create').children().removeClass('checked');
         }
 
-    });
+    });//---tab-4 checkbox - (check view)
     $("#partial").delegate(".checker.All", "click", function () {
         console.log($(this).parent().parent().find('.checker.All').children().html());
         if ($(this).parent().parent().find('.checker.All').children().hasClass('checked')) {
             $(this).parent().parent().find('tr').each(function () {
                 $(this).find('.checker').attr('checked', true);
                 $(this).find('.checker').children().addClass('checked');
-
-                //$(this).find('.checker.create').attr('checked', true);
-                //$(this).find('.checker.create').children().addClass('checked');
-
-                //$(this).find('.checker.update').attr('checked', true);
-                //$(this).find('.checker.update').children().addClass('checked');
-
-                //$(this).find('.checker.delete').attr('checked', true);
-                //$(this).find('.checker.delete').children().addClass('checked');
-
             });
 
         }
@@ -364,20 +380,10 @@ $(document).ready(function () {
             $(this).parent().parent().find('tr').each(function () {
                 $(this).find('.checker').attr('checked', false);
                 $(this).find('.checker').children().removeClass('checked');
-
-                //$(this).find('.checker.create').attr('checked', false);
-                //$(this).find('.checker.create').children().removeClass('checked');
-
-                //$(this).find('.checker.update').attr('checked', false);
-                //$(this).find('.checker.update').children().removeClass('checked');
-
-                //$(this).find('.checker.delete').attr('checked', false);
-                //$(this).find('.checker.delete').children().removeClass('checked');
-
             });
         }
 
-    });
+    });//---tab-4 checkbox - (check All)
     $('.btnSaveTab4').click(function (e) {
         {
             var a = 0;
@@ -394,9 +400,6 @@ $(document).ready(function () {
             else {
                 var srno = $('#lbSrnoTab4').val();
             }
-
-
-
             var UserId = $('#drpRightsUser option:selected').val();
             var Corporate = $('#drpRightsCorporate option:selected').val();
             var Unit = $('#drpRightsUnit option:selected').val();
@@ -406,7 +409,14 @@ $(document).ready(function () {
             var RoleType = '0';
             var EffectiveDate = $('#Date1').val();;
             var IsActive = $('#drpRightsStatus option:selected').val();
-            var IsDefault = $("#chkdefault").is(":checked");
+            // var IsDefault = $("#chkdefault").is(":checked");
+
+            var IsDefault = false;
+            if ($("#chkdefault").parent().hasClass('checked')) {
+                IsDefault = true;
+            }
+
+
             var Status = '';
             var Attribute1 = '';
             var Attribute2 = '';
@@ -470,38 +480,17 @@ $(document).ready(function () {
                 $('#btnupdatetab4').show();
             }
         }
-    });
-
+    });//---tab-2 save button click
     $('#btnQuittab4').click(function (e) {
-        $('.inputControl').val('');
-        $('.Dropdown').each(function () {
-            setSelect2Value($(this), '0');
-        });
-        clearValidations($(this).closest('form'));
-        $("#partial").html('');
+        Clear_tab_4();
         $(".usertab1gridclass").click();
-        $('#btnSavetab4').hide();
-        $('#btnupdatetab4').hide();
-    });
-
+    });//---tab-2 quit button click
     $('#btnCleartab4').click(function (e) {
         e.preventDefault();
-        $('.inputControl').val('');
-        $('.Dropdown').each(function () {
-            setSelect2Value($(this), '0');
-        });
-        $("#partial").html('');
-        clearValidations($(this).closest('form'));
-        $('#btnSavetab4').hide();
-        $('#btnupdatetab4').hide();
-        $('#Date1').val();;
-        //Date1
-    });
-
-
+        Clear_tab_4();
+    });//---tab-2 clear button click
 })
-// -------------------------------------------------------------------------        ( Tab-1   &  Tab-2 --> Functions)       -----------------------------------------------------------------------------------//
-
+// ============================================================================================================================== Function ( Tab-1 & Tab-2)
 function FillDropDown_Corporate() {
     var Module = '';
     var screen = '';
@@ -533,7 +522,6 @@ function FillDropDown_Corporate() {
             }
         },
     });
-
 }
 function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
@@ -574,7 +562,6 @@ function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     });
 }
 function CompareValidation($attr1, $attr2) {
-
     if ($attr1 != $attr2) {
         return false;
     }
@@ -583,7 +570,6 @@ function CompareValidation($attr1, $attr2) {
     }
 }
 function BindGrid() {
-
     var tablename = 'dbo._User_Details_Master';
     var Corporate = '2';
     var Segment = '';
@@ -592,9 +578,10 @@ function BindGrid() {
     var Formcode = '0';
     var Formtabcode = '0';
     var field1 = 'Client'
-
     $('#gridUser').dataTable({
         "ServerSide": true,
+        "destroy": true,
+        "autoWidth": false,
         destroy: true,
         "ajax": {
             "url": "/WhitelabelAccessRights/BindGrid",
@@ -612,7 +599,7 @@ function BindGrid() {
                 "type": type,
                 "Formcode": Formcode,
                 "Formtabcode": Formtabcode,
-                "field1": field1
+                "field1": field1,
             }
         },
         "columns": [
@@ -626,7 +613,8 @@ function BindGrid() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-trash-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
+                //defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-trash-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" rel="tooltip" title="Users Access Rights" class="editor_accessright"><i class="fa fa-key"></i></a>'
             }
         ]
     });
@@ -689,9 +677,13 @@ function validatechar(sender, args) {
 
     }
 }
-
-// -------------------------------------------------------------------------        ( Tab-4 --> Functions)       -----------------------------------------------------------------------------------//
-
+function clearForm_TabWise() {
+    $('.inputformTab').val('');
+    $('.DropdownTab').each(function () {
+        $(this).val($(this).find('option:first').val()).change();
+    });
+}
+// ============================================================================================================================== Function ( Tab-4)
 function FillDropDown_RightsCorporate() {
     var Module = '';
     var screen = '';
@@ -714,7 +706,6 @@ function FillDropDown_RightsCorporate() {
         },
         success: function (data) {
             if (data['Corp'].length > 0) {
-
                 if (data['Corp'].length > 0) {
                     $('#drpRightsCorporate').html('');
                     for (var i = 0; i < data['Corp'].length; i++) {
@@ -723,7 +714,6 @@ function FillDropDown_RightsCorporate() {
                     }
                     setSelect2Value($('#drpRightsCorporate'), '0');
                 }
-
                 if (data['Status'].length > 0) {
                     $('#drpRightsStatus').html('');
                     for (var i = 0; i < data['Status'].length; i++) {
@@ -732,12 +722,9 @@ function FillDropDown_RightsCorporate() {
                     }
                     setSelect2Value($('#drpRightsStatus'), '0');
                 }
-
-
             }
         },
     });
-
 }
 function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
@@ -778,7 +765,6 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
     });
 }
 function Load_screen_module() {
-
     var Module = '';
     var screen = '';
     var FormCode = '';
@@ -796,7 +782,6 @@ function Load_screen_module() {
     var Control = '';
     var Language = '';
     var Type = 'ConditionalGrid';
-
     var Srno = '';
     $.ajax({
         url: "/WhitelabelAccessRights/FillAll",
@@ -809,10 +794,8 @@ function Load_screen_module() {
         },
         success: function (data) {
             $("#partial").html('');
-
             var html = '';
             if (data['HeaderList'].length > 0) {
-
                 for (var i = 0; i < data['HeaderList'].length; i++) {
                     if (html == '') {
                         html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
@@ -845,12 +828,10 @@ function Load_screen_module() {
                                     'D <div class="checker delete" id="' + data['ColumnList'][col]['SrNo'] + '"> <span><input    type="checkbox" ></span></div>' +
                                     '</td></tr>';
                                 }
-
                             }
                         }
                         html = html.replace("[@Tbody]", Column);
                     }
-
                     else {
                         html += '<li><figure><figcaption class="panel-body tab-itenaries">' +
                                 '<label style="display: none" class="lbmodulesrno" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label>' +
@@ -860,7 +841,6 @@ function Load_screen_module() {
                                 '<tbody>' +
                                 '[@Tbody]' +
                                 '</tbody></table></figcaption></figure></li>';
-
                         var Column = '';
                         for (var col = 0; col < data['ColumnList'].length; col++) {
                             if (data['HeaderList'][i]['SrNo'] == data['ColumnList'][col]['xlink']) {
@@ -895,7 +875,6 @@ function Load_screen_module() {
     });
 }
 function Fill_Screen_Module_On_Edit() {
-
     var tablename = '';
     var Corporate = $('#drpRightsCorporate option:selected').val();
     var unit = $('#drpRightsUnit option:selected').val();
@@ -906,7 +885,6 @@ function Fill_Screen_Module_On_Edit() {
     var Formtabcode = '';
     var srno = '';
     var Type = 'EditUserRole';
-
     $.ajax({
         url: "/WhitelabelAccessRights/Edit_AccessRights",
         type: "POST",
@@ -916,8 +894,6 @@ function Fill_Screen_Module_On_Edit() {
             srno: srno, Type: Type
         },
         success: function (response) {
-
-
             if (response['Grid'].length > 0) {
                 $.each(response['Grid'], function () {
                     var tempModule = this['Module'].toString();
@@ -931,7 +907,6 @@ function Fill_Screen_Module_On_Edit() {
                             $(this).find('table tbody tr').each(function () {
                                 // console.log($(this).find('.checker').attr("id") + ' -- ' + tempSCR);
                                 if ((($(this).find('.checker').attr("id"))) == tempSCR) {
-
                                     $(this).find('.checker.view').attr('checked', false);
                                     $(this).find('.checker.view').children().removeClass('checked');
                                     $(this).find('.checker.create').attr('checked', false);
@@ -940,47 +915,30 @@ function Fill_Screen_Module_On_Edit() {
                                     $(this).find('.checker.update').children().removeClass('checked');
                                     $(this).find('.checker.delete').attr('checked', false);
                                     $(this).find('.checker.delete').children().removeClass('checked');
-
                                     if (tempview == 'True') {
                                         $(this).find('.checker.view').attr('checked', true);
                                         $(this).find('.checker.view').children().addClass('checked');
                                     }
-
                                     if (tempcreate == 'True') {
                                         $(this).find('.checker.create').attr('checked', true);
                                         $(this).find('.checker.create').children().addClass('checked');
                                     }
-                                    //} else {
-                                    //    $(this).find('.checker.create').attr('checked', false);
-                                    //    $(this).find('.checker.create').children().removeClass('checked');
-                                    //}
                                     if (tempupdate == 'True') {
                                         $(this).find('.checker.update').attr('checked', true);
                                         $(this).find('.checker.update').children().addClass('checked');
                                     }
-                                    //else {
-                                    //    $(this).find('.checker.update').attr('checked', false);
-                                    //    $(this).find('.checker.update').children().removeClass('checked');
-                                    //}
                                     if (tempdeletee == 'True') {
                                         $(this).find('.checker.delete').attr('checked', true);
                                         $(this).find('.checker.delete').children().addClass('checked');
                                     }
-                                    //} else {
-                                    //    $(this).find('.checker.delete').attr('checked', false);
-                                    //    $(this).find('.checker.delete').children().removeClass('checked');
-                                    //}
                                 }
                             });
                         }
                     });
-
                 });
-
                 $('#btnSavetab4').hide();
                 $('#btnupdatetab4').show();
             }
-
             if (response['IsActive'] != null) {
                 setSelect2Value($('#drpRightsStatus'), response['IsActive']);
             }
@@ -1001,7 +959,19 @@ function Fill_Screen_Module_On_Edit() {
                     $('#chkdefault').parent().removeClass('checked');
                 }
             }
-
         }
     });
+}
+function Clear_tab_4() {
+    $("#partial").html('');
+    $('#tab4.inputControl').val('');
+    $('#tab4').find('.Dropdown').each(function () {
+        setSelect2Value($(this), '0');
+    });
+    clearValidations($('#tab4').find('form'));
+    $('#Date1').val('');
+    $('#chkdefault').attr('checked', false);
+    $('#chkdefault').parent().removeClass('checked');
+    $('#btnSavetab4').hide();
+    $('#btnupdatetab4').hide();
 }

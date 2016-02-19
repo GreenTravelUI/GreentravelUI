@@ -10,6 +10,7 @@ var Frmcode;
 var FrmtabCode
 
 $(document).ready(function () {
+
     Dropdown_Bind_Tab1();
 
     getdata();

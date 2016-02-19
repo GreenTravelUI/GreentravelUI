@@ -166,7 +166,7 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
                     <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
-                    <li role="presentation" id="userlitab3"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights Role</a></li>
+                    <li role="presentation" id="userlitab3" style="display: none"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights Role</a></li>
                     <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights User</a></li>
                 </ul>
                 <div class="tab-content">
@@ -254,11 +254,15 @@
                                     <input type="text" class="form-control col-sm-5 textbox-control" id="txtsrno" placeholder="SrNo" style="display: none" data-label="lblFirstName">
                                     <label for="txtFirstName">Name <span>*</span></label>
                                     <div class="row">
+
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control req" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
+
+                                            <input type="text" class="form-control col-sm-6 textbox-control req" id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
                                         </div>
+
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control req" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
+                                            @* <label for="txtFirstName">Last Name <span>*</span></label>*@
+                                            <input type="text" class="form-control col-sm-6 textbox-control req" id="txtLastName" placeholder="Last Name" data-label="lblLastName">
                                         </div>
                                     </div>
                                 </div>
@@ -266,15 +270,15 @@
                                     <label for="txtEmail">Email <span>*</span></label>
                                     <input type="text" class="form-control textbox-control req email" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group Editdisable">
                                     <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
                                     <input type="text" class="form-control confirm req email" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group Editdisable">
                                     <label for="txtPassword">Password <span>*</span></label>
                                     <input type="Password" class="form-control req" id="txtPassword" placeholder="Password">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group Editdisable">
                                     <label for="txtConfirmPassword">Confirm Password <span>*</span></label>
                                     <input type="Password" class="form-control confirm req" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
                                 </div>
@@ -283,13 +287,12 @@
                                     SAVE</button>
                                 <button id="btnUpdateUser" type="submit" class="btn btn-primary btnSaveuserclass" style="display: none">
                                     UPDATE</button>
-                                <button id="btnCancelUser" type="button" class="btn btn-green" style="display: none">
-                                    DELETE</button>
+                                @*<button id="btnCancelUser" type="button" class="btn btn-green" style="display: none">
+                                    DELETE</button>*@
                                 <button id="btnclearuser" type="button" class="btn btn-warning btnclearuser">
                                     CLEAR</button>
                                 <button id="btnQuitUser" type="button" class="btn btn-info quituserbtn">
                                     QUIT FORM</button>
-
 
 
                             </form>
@@ -364,8 +367,8 @@
                                             SAVE</button>
                                         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
                                             UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
+                                        @* <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>*@
                                         <p>
                                             Inputs with <i class="cross">&nbsp;</i> mark are incorrect
                                         </p>
@@ -374,8 +377,8 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane " id="tab3">
-                        <div class="col-md-12">
+                    <div role="tabpanel" style="display: none" class="tab-pane " id="tab3">
+                        @*  <div class="col-md-12">
                             <form>
                                 <div class="table-responsive">
                                     <div class="dropdown table-custome-drop">
@@ -427,7 +430,7 @@
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
-                        </div>
+                        </div>*@
                     </div>
 
                     <div role="tabpanel" class="tab-pane " id="tab4">
@@ -475,12 +478,12 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                </br><div class="checker All">
+                                                </br><div class="checker">
                                                     <span>
-                                                        <input id="chkdefault" class="Allcheck" type="checkbox">
+                                                        <input id="chkdefault" type="checkbox">
                                                     </span>
                                                 </div>
-                                                @*<input type="checkbox" id="chkdefault" />*@Default?
+                                                @*<input type="checkbox" id="chkdefault" />*@Default ?
                                             </div>
                                         </div>
                                     </div>
@@ -514,7 +517,7 @@
                                     DELETE</button>
                                 <button id="btnCleartab4" type="button" class="btn btn-warning">
                                     CLEAR</button>
-                                <button id="btnQuittab4" type="button" class="btn btn-info quituserbtn">
+                                <button id="btnQuittab4" type="button" class="btn btn-info">
                                     QUIT FORM</button>
                             </form>
                         </div>
