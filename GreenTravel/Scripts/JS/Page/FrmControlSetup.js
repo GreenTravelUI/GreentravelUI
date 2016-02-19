@@ -15,7 +15,11 @@ $(document).ready(function () {
         e.preventDefault();
         /* OnSave validations */
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-            swal('Invalid data found!');
+            swal(
+               'Invalid data found!',
+               '',
+               'error'
+             )
             return false;
         }
         if ($('#txtTabsrno').val() == '') {

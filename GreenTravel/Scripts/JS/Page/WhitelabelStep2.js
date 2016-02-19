@@ -3,35 +3,24 @@
 
     //  Bind Drop-Down 
     FillDropdown('drpFeatureCategory', 'Dropdown');
-
     // Function ( Bind Drop-Down )
     $('#btnSave').hide();
     $('#btnClear').hide();
     $('#btnUpdate').hide();
 
-
     // For Feature-Category Drop-Down Change
     $("#drpFeatureCategory").change(function () {
-
         var field1 = $('#drpFeatureCategory option:selected').val();
-
         $("#partial").html('');
         $('#btnClear').hide();
         $('#btnSave').hide();
         $('#btnUpdate').hide();
-
         if (field1 != '0' || field1 != '--None--') {
             getdata();
             clearValidations($(this).closest('form'));
             Loaddata();
         }
-        else {
-
-
-        }
     });
-
-
     // For Save Button Click event
     $('.btnSaveStep2').click(function (e) {
         {
@@ -131,12 +120,9 @@
             }
         }
     });
-
     // To Clear
     $("#btnClear").on('click', function (e) {
-
         e.preventDefault();
-
         $('.inputformTab').val('');
         $('.DropdownTab').each(function () {
             $(this).val($(this).find('option:first').val()).change();
@@ -148,13 +134,9 @@
         $('#btnUpdate').hide();
         $('#btnClear').hide();
     });
-
-
     $("#btnQuit").on('click', function (e) {
-
         window.location.href = '/WhitelabelStep1/Index';
     });
-
 });
 
 function FillDropdown(controlId, type) {
@@ -180,8 +162,8 @@ function FillDropdown(controlId, type) {
         type: "POST",
         async: false,
         data: {
-            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
-            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
+            "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "Corporate": Corporate, "unit": unit, "Branch": "Branch", "userid": userid,
+            "Ip": Ip, "Type": Type, "field1": field1, "field2": field2, "field3": field3, "field4": field4, "field5": field5, "Control": Control, "Language": Language
         },
         success: function (data) {
             $('#' + controlId + '').html('');
@@ -195,8 +177,6 @@ function FillDropdown(controlId, type) {
     });
 }
 
-
-// Function ( Edit Mode )
 function getdata() {
     var tablename = 'dbo._White_feature_mapping';
     var Corporate = $('#txtCorporateID').val().toString();
@@ -250,7 +230,6 @@ function getdata() {
     });
 }
 
-
 function clearForm() {
     $('.inputform').val('');
     $('.Dropdown').each(function () {
@@ -258,7 +237,6 @@ function clearForm() {
     });
     $('#txtSrNo').val('0');
 }
-
 
 function Loaddata() {
     var tablename = 'dbo._White_feature_mapping';

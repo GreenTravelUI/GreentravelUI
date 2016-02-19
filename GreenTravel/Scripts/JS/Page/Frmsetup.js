@@ -17,6 +17,8 @@ $(document).ready(function () {
     $('#frmsection').click(function (e) {
         if ($('#txtSrNo1').val() != '') {
             getdatatab();
+            $('.tab3section1').show();
+            $('.tab3Formname').text($('#txtFormName').val());
         }
         else {
             e.preventDefault();
@@ -104,6 +106,8 @@ $(document).ready(function () {
                     $('#btnUpdateFS').show();
                     $('#btnSavefs').hide();
                 }
+                $('.tab3section1').show();
+                $('.tab3Formname').text($('#txtFormName').val());
                 swal('Good job!', Message, EventClass);
             }
         });
@@ -344,6 +348,8 @@ $(document).ready(function () {
     //Edit Form  
     $("table").delegate(".editor_edit", "click", function () {
         $('#btnClearFS').trigger('click');
+        $('#btncleartab').trigger('click');
+        clearValidations($('#tab4'));
         var tablename = 'dbo._Form_Master';
         var Corporate = '1';
         var unit = '0';
@@ -371,6 +377,8 @@ $(document).ready(function () {
                 }
             }
         }).done(function () {
+            $('.tab3section1').show();
+            $('.tab3Formname').text($('#txtFormName').val());
             $("#serachfrom").removeClass("active");
             $("#Frmcreate").addClass("active");
             $("#tab1").removeClass("active");
@@ -901,6 +909,14 @@ $(document).ready(function () {
                 }
             }
         });
+        if (Utilities == '') {
+            swal(
+              'Please Select Atleast One Checkbox',
+              '',
+              'error'
+            )
+            return false;
+        }
         var srno;
         if ($('#txtutilitysrno').val() != '') {
             srno = $('#txtutilitysrno').val();
@@ -961,6 +977,8 @@ $(document).ready(function () {
         clearValidations($(this).closest('form'));
         $('#btnUpdateFS').hide();
         $('#btnSavefs').show();
+        $('.tab3section1').hide();
+        $('.tab3Formname').text('');
         clearForm();
     });
 

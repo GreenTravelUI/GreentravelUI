@@ -12,7 +12,6 @@ namespace GreenTravel.Controllers
 {
     public class ViewsSetupController : Controller
     {
-        //
         // GET: /ViewsSetup/
         DBViewSetup _objDBViewSetup = new DBViewSetup();
         public ActionResult Index()
@@ -263,7 +262,7 @@ namespace GreenTravel.Controllers
                             UpdateQuery3 = dr["UpdateQuery3"].ToString(),
                             UpdateQuery4 = dr["UpdateQuery4"].ToString(),
                             UpdateQuery5 = dr["UpdateQuery5"].ToString(),
-
+                            Attribute1 = dr["Attribute1"].ToString()
                         });
                     }
                 }
