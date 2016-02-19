@@ -29,7 +29,6 @@ $(document).ready(function () {
             getdataColumn();
         }
     });
-
     //Module
     FillDropdown($('#drpCorporate option:selected').val(), '', '', '', '', 'drpFeatures');
     //screen
@@ -38,15 +37,12 @@ $(document).ready(function () {
     });
     //Form 
     $("#drpModuleCreateView").change(function () {
-   //     clearValidations($(this).closest('form'));
         FillDropdown($('#drpCorporate option:selected').val(), '', $('#drpModuleCreateView option:selected').val(), '', '', 'drpScreenCreateView');
     });
     //tab
     $("#drpScreenCreateView").change(function () {
-        //clearValidations($(this).closest('form'));
         FillDropdown($('#drpCorporate option:selected').val(), '', '', $('#drpScreenCreateView option:selected').val(), '', 'drpTabCreateView');
     });
-
     //Save Click Event Create View 
     $('.btnSave').click(function (e) {
         e.preventDefault();
@@ -75,7 +71,7 @@ $(document).ready(function () {
         var ColumnQuery = $('#txtcolumnquery').val();
         var WhereQuery = $('#txtwherequery').val();
         var GroupQuery = $('#txtgropQuery').val();
-       // var IsMasterView = $('#ismasterView').is(":checked");
+        // var IsMasterView = $('#ismasterView').is(":checked");
         var IsMasterView = false;
         if ($("#ismasterView").parent().hasClass('checked')) {
             IsMasterView = true;
@@ -91,33 +87,35 @@ $(document).ready(function () {
         var Attribute8 = '';
         var Attribute9 = '';
         var Attribute10 = '';
-        $.ajax(
-           {
-               type: "POST",
-               url: "/ViewsSetup/InsertData",
-               data: {
-                   "srno": srno, "Corporate": Corporate, "Module": Module, "Screen": Screen, "FormCode": FormCode, "TabCode": TabCode, "ViewName": ViewName,
-                   "RecordCountQuery": RecordCountQuery, "ColumnQuery": ColumnQuery, "WhereQuery": WhereQuery, "GroupQuery": GroupQuery, "IsMasterView": IsMasterView,
-                   "MasterTable": MasterTable, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5,
-                   "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
-               },
-               dataType: 'json',
-               success: function (data) {
-                   $('#txtsrno').val(data.srno)
-                   Message = data.responseText;
-                   $('#btnUpdateCreateView').show();
-                   $('#btnSaveCreateView').hide();
-                   swal('Good job!', Message, 'success');
-               }
-           });
+        $.ajax({
+            type: "POST",
+            url: "/ViewsSetup/InsertData",
+            data: {
+                "srno": srno, "Corporate": Corporate, "Module": Module, "Screen": Screen, "FormCode": FormCode, "TabCode": TabCode, "ViewName": ViewName,
+                "RecordCountQuery": RecordCountQuery, "ColumnQuery": ColumnQuery, "WhereQuery": WhereQuery, "GroupQuery": GroupQuery, "IsMasterView": IsMasterView,
+                "MasterTable": MasterTable, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5,
+                "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#txtsrno').val(data.srno)
+                Message = data.responseText;
+                $('.tab2section1').show();
+                $('.Viewnameclass').text($('#txtviewname').val());
+                $('#btnUpdateCreateView').show();
+                $('#btnSaveCreateView').hide();
+                swal('Good job!', Message, 'success');
+            }
+        });
     });
-
     //Clear Create View
     $('#btnclearCreateview').click(function (e) {
         clearValidations($(this).closest('form'));
         cleartab1();
         $('#btnUpdateCreateView').hide();
         $('#btnSaveCreateView').show();
+        $('.tab2section1').hide();
+        $('.Viewnameclass').text('');
     });
     //Quit  Create View
     $('#btnQuitCreateview').click(function (e) {
@@ -129,11 +127,15 @@ $(document).ready(function () {
         $("#tab3").removeClass("active");
         $('#btnUpdateCreateView').hide();
         $('#btnSaveCreateView').show();
+        $('.tab2section1').hide();
+        $('.Viewnameclass').text('');
         getdata();
     });
     //Edit Form  
     $("table").delegate(".editor_edit", "click", function () {
         cleartab1();
+        clearValidations($('#tab3'));
+        $('#btnClearColumn').trigger('click');
         var tablename = 'dbo._ViewSetup';
         var Corporate = '1';
         var unit = '0';
@@ -141,53 +143,53 @@ $(document).ready(function () {
         var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(1)').text();
         var Type = 'EditMode';
-        $.ajax(
-         {
-             type: "POST",
-             url: "/ViewsSetup/Edit_Data",
-             data: {
-                 "tablename": tablename, "Corporate": Corporate, "unit": unit, "Formcode": Formcode, "Formtabcode": Formtabcode, "Xmaster": Xmaster, "Type": Type
-             },
-             dataType: 'json',
-             success: function (response) {
-                 if (response.length > 0) {
-                     $('#txtsrno').val(response[0].srno);
-                     setSelect2Value($('#drpCorporate'), response[0].Corporate);
-                     setSelect2Value($('#drpFeatures'), response[0].Module);
-                     FillDropdown($('#drpCorporate option:selected').val(), $('#drpFeatures option:selected').val(), '', '', '', 'drpModuleCreateView');
-                     setSelect2Value($('#drpModuleCreateView'), response[0].Screen);
-                     FillDropdown($('#drpCorporate option:selected').val(), '', $('#drpModuleCreateView option:selected').val(), '', '', 'drpScreenCreateView');
-                     setSelect2Value($('#drpScreenCreateView'), response[0].FormCode);
-                     FillDropdown($('#drpCorporate option:selected').val(), '', '', $('#drpScreenCreateView option:selected').val(), '', 'drpTabCreateView');
-                     setSelect2Value($('#drpTabCreateView'), response[0].TabCode);
-                     $('#txtviewname').val(response[0].ViewName);
-                     $('#txtRecordCountQuery').val(response[0].RecordCountQuery);
-                     $('#txtcolumnquery').val(response[0].ColumnQuery);
-                     $('#txtwherequery').val(response[0].WhereQuery);
-                     $('#txtgropQuery').val(response[0].GroupQuery);
-                     if (response[0].IsMasterView.toLowerCase() == 'true') {
-                         $('#ismasterView').attr('checked', true);
-                         $('#ismasterView').parent().addClass('checked');
-                         $('#divMaster').show();
-                     } else {
-                         $('#ismasterView').attr('checked', false);
-                         $('#ismasterView').parent().removeClass('checked');
-                         $('#divMaster').hide();
-                     }
-                     setSelect2Value($('#drpMasterCreateView'), response[0].MasterTable);
-                 }
-             }
-         }).done(function () {
-             $("#SearchView").removeClass("active");
-             $("#CreateView").addClass("active");
-             $("#tab1").removeClass("active");
-             $("#tab3").addClass("active");
-             $('#btnUpdateCreateView').show();
-             $('#btnSaveCreateView').hide();
-         });
-        //  getdataColumn();
-    });
+        $.ajax({
+            type: "POST",
+            url: "/ViewsSetup/Edit_Data",
+            data: {
+                "tablename": tablename, "Corporate": Corporate, "unit": unit, "Formcode": Formcode, "Formtabcode": Formtabcode, "Xmaster": Xmaster, "Type": Type
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.length > 0) {
+                    $('#txtsrno').val(response[0].srno);
+                    setSelect2Value($('#drpCorporate'), response[0].Corporate);
+                    setSelect2Value($('#drpFeatures'), response[0].Module);
+                    FillDropdown($('#drpCorporate option:selected').val(), $('#drpFeatures option:selected').val(), '', '', '', 'drpModuleCreateView');
+                    setSelect2Value($('#drpModuleCreateView'), response[0].Screen);
+                    FillDropdown($('#drpCorporate option:selected').val(), '', $('#drpModuleCreateView option:selected').val(), '', '', 'drpScreenCreateView');
+                    setSelect2Value($('#drpScreenCreateView'), response[0].FormCode);
+                    FillDropdown($('#drpCorporate option:selected').val(), '', '', $('#drpScreenCreateView option:selected').val(), '', 'drpTabCreateView');
+                    setSelect2Value($('#drpTabCreateView'), response[0].TabCode);
+                    $('#txtviewname').val(response[0].ViewName);
+                    $('#txtRecordCountQuery').val(response[0].RecordCountQuery);
+                    $('#txtcolumnquery').val(response[0].ColumnQuery);
+                    $('#txtwherequery').val(response[0].WhereQuery);
+                    $('#txtgropQuery').val(response[0].GroupQuery);
+                    if (response[0].IsMasterView.toLowerCase() == 'true') {
+                        $('#ismasterView').attr('checked', true);
+                        $('#ismasterView').parent().addClass('checked');
+                        $('#divMaster').show();
+                    } else {
+                        $('#ismasterView').attr('checked', false);
+                        $('#ismasterView').parent().removeClass('checked');
+                        $('#divMaster').hide();
+                    }
+                    setSelect2Value($('#drpMasterCreateView'), response[0].MasterTable);
+                }
+            }
+        }).done(function () {
+            $("#SearchView").removeClass("active");
+            $("#CreateView").addClass("active");
+            $("#tab1").removeClass("active");
+            $("#tab3").addClass("active");
+            $('.tab2section1').show();
+            $('.Viewnameclass').text($('#txtviewname').val());
+            $('#btnUpdateCreateView').show();
+            $('#btnSaveCreateView').hide();
 
+        });
+    });
     $('#ismasterView').click(function (e) {
         setSelect2Value($('#drpMasterCreateView'), '0');
         if ($(this).prop("checked") == true) {
@@ -197,7 +199,6 @@ $(document).ready(function () {
             $('#divMaster').hide();
         }
     });
-
     //**************************************************************Column  Tab 2***************************************************************************************
     //Clear Column Tab
     $('#btnClearColumn').click(function (e) {
@@ -217,9 +218,7 @@ $(document).ready(function () {
         $('#btnUpdateColumn').hide();
         $('#btnsaveColumn').show();
         getdataColumn();
-        //getdata();
     });
-
     //Save Click Event Column
     $('.btnSaveColumns').click(function (e) {
         e.preventDefault();
@@ -254,16 +253,13 @@ $(document).ready(function () {
         if ($("#ColumnUpdate").parent().hasClass('checked')) {
             ColumnUpdate = true;
         }
-        //var FixedOrder = $('#FixedOrder').is(":checked");;
-        //var Visibility = $('#Visibility').is(":checked");;
-        //var ColumnUpdate = $('#ColumnUpdate').is(":checked");
         var UpdateControl = $('#drpUpdateControl option:selected').val();
         var UpdateQuery1 = $('#txtUPdateQuery1').val();
         var UpdateQuery2 = $('#txtUPdateQuery2').val();
         var UpdateQuery3 = $('#txtUPdateQuery3').val();
         var UpdateQuery4 = $('#txtUPdateQuery4').val();
         var UpdateQuery5 = $('#txtUPdateQuery5').val();
-        var Attribute1 = '';
+        var Attribute1 = $('#txttablename').val();
         var Attribute2 = '';
         var Attribute3 = '';
         var Attribute4 = '';
@@ -273,29 +269,29 @@ $(document).ready(function () {
         var Attribute8 = '';
         var Attribute9 = '';
         var Attribute10 = '';
-        $.ajax(
-           {
-               type: "POST",
-               url: "/ViewsSetup/InsertDataColumn",
-               data: {
-                   "srno": srno, "Corporate": Corporate, "ViewCode": ViewCode, "ColumnCaption": ColumnCaption, "ColumnName": ColumnName, "FixedOrder": FixedOrder, "Visibility": Visibility,
-                   "ColumnUpdate": ColumnUpdate, "UpdateControl": UpdateControl, "UpdateQuery1": UpdateQuery1, "UpdateQuery2": UpdateQuery2, "UpdateQuery3": UpdateQuery3,
-                   "UpdateQuery4": UpdateQuery4, "UpdateQuery5": UpdateQuery5, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5,
-                   "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
-               },
-               dataType: 'json',
-               success: function (data) {
-                   $('#txtsrnoColumn').val(data.srno)
-                   Message = data.responseText;
-                   $('#btnUpdateColumn').show();
-                   $('#btnsaveColumn').hide();
-                   swal('Good job!', Message, 'success');
-               }
-           });
+        $.ajax({
+            type: "POST",
+            url: "/ViewsSetup/InsertDataColumn",
+            data: {
+                "srno": srno, "Corporate": Corporate, "ViewCode": ViewCode, "ColumnCaption": ColumnCaption, "ColumnName": ColumnName, "FixedOrder": FixedOrder, "Visibility": Visibility,
+                "ColumnUpdate": ColumnUpdate, "UpdateControl": UpdateControl, "UpdateQuery1": UpdateQuery1, "UpdateQuery2": UpdateQuery2, "UpdateQuery3": UpdateQuery3,
+                "UpdateQuery4": UpdateQuery4, "UpdateQuery5": UpdateQuery5, "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute3": Attribute4, "Attribute5": Attribute5,
+                "Attribute6": Attribute6, "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#txtsrnoColumn').val(data.srno)
+                Message = data.responseText;
+                $('#btnUpdateColumn').show();
+                $('#btnsaveColumn').hide();
+                swal('Good job!', Message, 'success');
+            }
+        });
     });
     //Edit  Data 
     $("table").delegate(".editor_editColumn", "click", function () {
         Claertab2();
+        clearValidations($('#tab4'));
         var tablename = 'dbo._ViewSetup_Fields';
         var Corporate = '1';
         var unit = '0';
@@ -316,8 +312,6 @@ $(document).ready(function () {
                      $('#txtsrnoColumn').val(response[0].srno);
                      $('#txtColumncaption').val(response[0].ColumnCaption);
                      $('#txtColumn').val(response[0].ColumnName);
-                     // alert(response[0].FixedOrder);
-                     // if (response[0].RequiredField.toLowerCase() == 'true')
                      if (response[0].FixedOrder.toLowerCase() == 'true') {
                          $('#FixedOrder').attr('checked', true);
                          $('#FixedOrder').parent().addClass('checked');
@@ -345,6 +339,7 @@ $(document).ready(function () {
                      $('#txtUPdateQuery3').val(response[0].UpdateQuery3);
                      $('#txtUPdateQuery4').val(response[0].UpdateQuery4);
                      $('#txtUPdateQuery5').val(response[0].UpdateQuery5);
+                     $('#txttablename').val(response[0].Attribute1);
                  }
              }
          }).done(function () {
@@ -357,8 +352,6 @@ $(document).ready(function () {
          });
         //  getdataColumn();
     });
-
-
 });
 
 function FillDropdown(Corporate, Field1, Field2, Field3, Field4, controlId) {
@@ -520,11 +513,11 @@ function getdata() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data"  ><i class="fa fa-pencil-square-o"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data"><i class="fa fa-pencil-square-o"></i></a>'
             }]
     });
 }
-//&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel"><i class="fa fa-trash-o"></i></a> 
+
 function cleartab1() {
     clearValidations($(this).closest('form'));
     $('.inputform').val('');
@@ -543,8 +536,8 @@ function Claertab2() {
     });
     $('.inputformColumn').val('');
 
-    $('#FixedOrder').attr('checked', false);
-    $('#FixedOrder').parent().removeClass('checked');
+    $('#Visibility').attr('checked', false);
+    $('#Visibility').parent().removeClass('checked');
     $('#ColumnUpdate').attr('checked', false);
     $('#ColumnUpdate').parent().removeClass('checked');
     $('#FixedOrder').attr('checked', false);

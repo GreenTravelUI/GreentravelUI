@@ -36,7 +36,16 @@ namespace GreenTravel.Controllers
                 }
                 else
                 {
-                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                    var msgrcd = "";
+                    if(ds.Tables[2].Rows.Count>0)
+                    {
+                        msgrcd = ds.Tables[2].Rows[0]["msg"].ToString();
+                    }
+                    else
+                    {
+                        msgrcd = ds.Tables[2].Rows[0]["msg"].ToString();
+                    }
+                    return Json(new { srno = ViewBag.srno, success = true, responseText =msgrcd }, JsonRequestBehavior.AllowGet);
                 }
 
                 
@@ -750,6 +759,11 @@ namespace GreenTravel.Controllers
             }
         }
         #endregion
-        
+
+        #region password auth
+
+       
+
+        #endregion
     }
 }
