@@ -13,6 +13,7 @@ namespace GreenTravel.App_DbService
         /* insert Basic details
            ADMIN_MASTER
          */
+
         public DataSet insert_data(CommanMaster CM)
         {
             try
@@ -116,6 +117,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
         public int insert_data_Caption(CommanMasterCaption CMC)
         {
             try
@@ -216,6 +218,7 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
         public int insert_data_Placeholder(CommanMasterPlaceholder CMP)
         {
             try
@@ -314,6 +317,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public int insert_data_Validation(CommanMasterValidation CMV)
         {
             try
@@ -412,6 +416,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public int insert_data_help(CommanMasterHelp CMH)
         {
             try
@@ -767,6 +772,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public DataSet BindDropDownTab2(commanbaseParamater CBP)
         {
             try
@@ -809,6 +815,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public DataSet BindGrid(GridParamater GP)
         {
             try
@@ -1047,6 +1054,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
+
         public DataSet Edit_DataUser(Edit_UserMaster EA)
         {
             try
@@ -1205,7 +1213,5 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
-
     }
 }

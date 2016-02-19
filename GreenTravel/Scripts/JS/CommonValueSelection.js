@@ -31,7 +31,11 @@ function setSelect2ValueDisable(control, value) {
     control.find('option[value="' + value + '"]').prop('selected', true);
     var text = control.find(':selected').text();
     $('#select2-' + control.attr('id') + '-container').text(text).attr('title', text);
-    control.attr('disabled', 'disabled');
+    control.select2('destroy');
+    control.prop('disabled', true);
+    control.select2();
+    //control.attr('disabled', 'disabled');
+    //control.select2('disable');
 }
 
 function setValueAndDisable(control, value) {
