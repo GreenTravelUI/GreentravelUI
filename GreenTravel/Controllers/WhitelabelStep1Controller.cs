@@ -629,5 +629,127 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        #region hosting
+
+        public ActionResult insert_Hosting(Hosting_Subscription HS)
+        {
+            try
+            {
+                DataSet ds = _objwl.insert_Hosting(HS);
+
+                DataSet ds2 = _objwl.insert_Hosting_sub(HS);
+
+                if (ds.Tables[0].Rows.Count > 0 && ds2.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                }
+                if (ds.Tables.Count < 2)
+                {
+                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Already Exist!" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult Edit_data_hosting(Hosting_Subscription HS)
+        {
+            try
+            {
+                DataSet ds = _objwl.Edit_data_hosting(HS);
+                List<Hosting_Subscription> hosting = new List<Hosting_Subscription>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        hosting.Add(new Hosting_Subscription
+                        {
+                            srno = dr["srno"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            CloudProvider = dr["CloudProvider"].ToString(),
+                            CloudServerIp = dr["CloudServerIp"].ToString(),
+                            CloudDiskSpace = dr["CloudDiskSpace"].ToString(),
+                            TransactionCount = dr["TransactionCount"].ToString(),
+                            IpRestrictedAccess = dr["IpRestrictedAccess"].ToString(),
+                            CdnProvider = dr["CdnProvider"].ToString(),
+                            CdnSpace = dr["CdnSpace"].ToString(),
+                            HostingCost = dr["HostingCost"].ToString(),
+                            CostPerMonth = dr["CostPerMonth"].ToString(),
+                            Currency = dr["Currency"].ToString(),
+
+                          
+
+                        });
+                    }
+                }
+                var result = hosting;
+
+                return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult Edit_data_subcribe(Hosting_Subscription HS)
+        {
+            try
+            {
+                DataSet ds = _objwl.Edit_data_subcribe(HS);
+                List<Hosting_Subscription> hosting = new List<Hosting_Subscription>();
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        hosting.Add(new Hosting_Subscription
+                        {
+                            srno = dr["srno"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            PlanName = dr["PlanName"].ToString(),
+                            SubscriptionType = dr["SubscriptionType"].ToString(),
+                            FreeFlag = dr["FreeFlag"].ToString(),
+                            NumberOfUsers = dr["NumberOfUsers"].ToString(),
+                            SubscriptionFromDate = dr["SubscriptionFromDate"].ToString(),
+                            SubscriptionToDate = dr["SubscriptionToDate"].ToString(),
+                            BillingCycle = dr["BillingCycle"].ToString(),
+                            BillingFromCompany = dr["BillingFromCompany"].ToString(),
+                            PaymentCurrency = dr["PaymentCurrency"].ToString(),
+                            AmountPUPM = dr["AmountPUPM"].ToString(),
+                            PaymentMode = dr["PaymentMode"].ToString(),
+                            FirstPayDate = dr["FirstPayDate"].ToString(),
+                            GracePeriod = dr["GracePeriod"].ToString(),
+
+                            
+                        });
+                    }
+                }
+                var result = hosting;
+
+                return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
+        
     }
 }

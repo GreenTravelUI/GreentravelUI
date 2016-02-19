@@ -65,6 +65,30 @@ namespace GreenTravel.Controllers
             }
         }
 
+        public ActionResult BindDropDownLoadColumn(CommanFieldPara _CBP)
+        {
+            try
+            {
+                DataSet ds = _objDCFS.BindDropDownLoad(_CBP);
+                List<CommanDropdown> items = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = items;
+                return Json(new { GTCorporate = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+  
+
         public ActionResult BindGridView(GridParamater GP)
         {
             try
