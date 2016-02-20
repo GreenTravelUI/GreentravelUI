@@ -217,7 +217,23 @@ namespace GreenTravel.Models
         public string srno { get; set; }
         public string Corporate { get; set; }
 
-       
+        public string CapitalCharNumber { get; set; }
+        public string RequiredNumeric { get; set; }
+        public string SpecialCharNumber { get; set; }
+        public string EncriptionKey { get; set; }
+        public string PasswordMinLength { get; set; }
+        public string PasswordExpiryDays { get; set; }
+        public string UserLoginDay { get; set; }
+        public string NumberOfAttempts { get; set; }
+        public string NumberOfAttemptsTime { get; set; }
+        public string OTPExpiryTime { get; set; }
+        public string LastSamePassword { get; set; }
+        public string UnableCaptcha { get; set; }
+        public string AutoLockScreen { get; set; }
+
+        public string UserUnlockMinut { get; set; }
+        public string Continuenumber { get; set; }
+
 
         public string Attribute1 { get; set; }
         public string Attribute2 { get; set; }
