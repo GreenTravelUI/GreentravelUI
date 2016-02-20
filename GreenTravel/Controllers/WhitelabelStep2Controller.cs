@@ -39,6 +39,7 @@ namespace GreenTravel.Controllers
                         items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
                     }
                 }
+
                 var result = items;
                 return Json(result, JsonRequestBehavior.AllowGet);
                 // return Json(new SelectList(result, "Text", "Value"));
@@ -49,6 +50,34 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult BindDropDown_Corporate(WhitelabelStep2 CBP)
+        {
+            try
+            {
+                DataSet ds = _objw2.Base(CBP);
+                List<CommanDropdown> items = new List<CommanDropdown>();
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewBag.category = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.category.Rows)
+                    {
+                        items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                    }
+                }
+
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+                // return Json(new SelectList(result, "Text", "Value"));
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
 
         public ActionResult BindGridBase(WhitelabelStep2 CBP)
         {
@@ -162,8 +191,6 @@ namespace GreenTravel.Controllers
         {
             try
             {
-
-
                 DataSet result = _objw2.Edit(CBP);
                 List<WhitelabelStep2> WhitelabelStep2 = new List<WhitelabelStep2>();
                 if (result.Tables[0].Rows.Count > 0)

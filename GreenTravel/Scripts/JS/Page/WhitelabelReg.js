@@ -106,7 +106,7 @@ $(document).ready(function () {
                            $("#btnupdatebasic").hide();
                        }
                        else {
-                           swal('Good job!',response['responseText'], 'success')
+                           swal('Good job!', response['responseText'], 'success')
                            $("#btnupdatebasic").show();
                            $("#btnsavebasic").hide();
                        }
@@ -135,7 +135,7 @@ $(document).ready(function () {
     $('#CreateCorporate').click(function (e) {
         Dropdown_Bind_Tab1();
         Dropdown_Bind_user_preferance();
-       
+
         Dropdown_Bind_Userpreferance_Checkbox();
     });
 
@@ -169,8 +169,6 @@ $(document).ready(function () {
         $("#CreateCorporate").removeClass("active");
 
     });
-
-   
 
     $("table").delegate(".editor_Step", "click", function () {
         Dropdown_Bind_Tab1();
@@ -354,9 +352,9 @@ $(document).ready(function () {
     });
 
     $('#tabuserpreferance').click(function (e) {
-      
+
         if ($('#txtsrnouserpref').val() != '') {
-            
+
         }
         else {
             e.preventDefault();
@@ -365,12 +363,11 @@ $(document).ready(function () {
             return false;
         }
 
-      //  Dropdown_Bind_user_preferance();
-      //  Dropdown_Bind_Userpreferance_Checkbox();
-        
+        //  Dropdown_Bind_user_preferance();
+        //  Dropdown_Bind_Userpreferance_Checkbox();
+
     });
 
-   
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
         if ($('#txtsrnouserpref').val() != "") {
@@ -390,12 +387,12 @@ $(document).ready(function () {
                 if (index != 0) {
                     OtherPreferences = OtherPreferences + ',';
                 }
-                
+
                 OtherPreferences += $(this).val().trim();
                 index = 1;
             }
         });
-       
+
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -433,6 +430,7 @@ $(document).ready(function () {
             }
         });
     });
+
     $('#btnclearuserpref').click(function (e) {
         //$('input:checkbox').removeAttr('checked');
         //$(userperferancechk).attr('checked', false);
@@ -451,6 +449,7 @@ $(document).ready(function () {
         $("#Search").addClass("active");
 
     });
+
     $(".btnSavebillingmain").click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
@@ -515,21 +514,18 @@ $(document).ready(function () {
            });
     });
 
-
     $("#Tab4").click(function (e) {
-         
-        if ($('#txtsrnotab4').val() != '') {
-              Bindtab4dropdown();
-          }
-          else {
-              e.preventDefault();
-              swal('Please Edit Data');
-              Quitform();
-              return false;
-          }
-    });
 
-  
+        if ($('#txtsrnotab4').val() != '') {
+            Bindtab4dropdown();
+        }
+        else {
+            e.preventDefault();
+            swal('Please Edit Data');
+            Quitform();
+            return false;
+        }
+    });
 
     $("#drpbillingcountry").change(function (e) {
         Bindbillingcountry();
@@ -539,8 +535,6 @@ $(document).ready(function () {
     $("#drpbillingState").change(function (e) {
         Bindbillingstate();
     });
-   
-
 
     $('.btnbillingclear').click(function (e) {
 
@@ -576,9 +570,6 @@ $(document).ready(function () {
             return false;
         }
     });
-
-   
-
 
     $(".btnsavetab3class").click(function (e) {
         e.preventDefault();
@@ -675,14 +666,11 @@ $(document).ready(function () {
         $("#btnSavetab3").show();
     });
 
-   
-
     $("#txtAmountPerUserPerMonth").change(function (e) {
-        if(($("#txtNumberofUsers").val()!=null) && ($("#txtAmountPerUserPerMonth").val()!=null))
-        {
+        if (($("#txtNumberofUsers").val() != null) && ($("#txtAmountPerUserPerMonth").val() != null)) {
             // $("#txtTotalAmountPerMonth").val() = ($("txtNumberofUsers").val() * $("#txtAmountPerUserPerMonth").val());
             var t1 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
-            
+
             console.log(t1);
             if (t1 != "Nan") {
                 $("#txtTotalAmountPerMonth").val(t1);
@@ -702,9 +690,6 @@ $(document).ready(function () {
         }
 
     });
-
-   
-
 });
 
 function Dropdown_Bind_Tab1() {
@@ -787,6 +772,7 @@ function Dropdown_Bind_Tab1() {
         }
     });
 }
+
 function BindGrid() {
     var tablename = 'dbo._White_Register_Basic';
     var Corporate = '0';
@@ -857,7 +843,7 @@ function hostingedit() {
          dataType: 'json',
          success: function (response) {
              if (response['Whiteregjs'].length > 0) {
-                 
+
                  $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
                  setSelect2Value($('#drpCloudProvider'), response['Whiteregjs'][0]['CloudProvider']);
                  setSelect2Value($('#drpCloudServerIP'), response['Whiteregjs'][0]['CloudServerIp']);
@@ -887,6 +873,7 @@ function hostingedit() {
      });
 
 }
+
 function subcribedit() {
 
     //Binddropdowntab3();
@@ -909,7 +896,7 @@ function subcribedit() {
          dataType: 'json',
          success: function (response) {
              if (response['Whiteregjs'].length > 0) {
-                
+
                  $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
                  $('#txtPlanName').val(response['Whiteregjs'][0]['PlanName']);
                  $('#txtNumberofUsers').val(response['Whiteregjs'][0]['NumberOfUsers']);
@@ -964,21 +951,20 @@ function Dropdown_Bind_Userpreferance_Checkbox() {
         },
         success: function (response) {
             if (response['WRcheckbox'].length > 0) {
-            $("#userperferancechk").html('');
-           
-            for (var i = 0; i < response['WRcheckbox'].length; i++) {
-                if (html == '') {
-                    html = ' <div class="form-group"> <div class="col-md-7 form-marings">' +
-                            '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
-                            
-                }
-                else
-                {
-                    html = html + ' <div class="form-group"> <div class="col-md-7 form-marings">' +
-                            '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
-                            
+                $("#userperferancechk").html('');
 
-                }
+                for (var i = 0; i < response['WRcheckbox'].length; i++) {
+                    if (html == '') {
+                        html = ' <div class="form-group"> <div class="col-md-7 form-marings">' +
+                                '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
+
+                    }
+                    else {
+                        html = html + ' <div class="form-group"> <div class="col-md-7 form-marings">' +
+                                '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
+
+
+                    }
                 }
                 $(html).appendTo($("#userperferancechk"))
             }
@@ -988,6 +974,7 @@ function Dropdown_Bind_Userpreferance_Checkbox() {
         }
     });
 }
+
 function Dropdown_Bind_user_preferance() {
 
     var Module = '';
@@ -1090,6 +1077,7 @@ function Bindtab4dropdown() {
 
 
 }
+
 function Bindbillingcountry() {
     var srno = '0';
     var Module = '';
@@ -1136,6 +1124,7 @@ function Bindbillingcountry() {
     });
 
 }
+
 function Bindbillingstate() {
     var srno = '0';
     var Module = '';
@@ -1355,13 +1344,12 @@ function Binddropdowntab3() {
 
 }
 
-function Userprefedit()
-{
+function Userprefedit() {
     $('#btnUpdateuserpref').hide();
     $('#btnCanceluserpref').hide();
 
 
-   // Dropdown_Bind_Userpreferance_Checkbox();
+    // Dropdown_Bind_Userpreferance_Checkbox();
     Dropdown_Bind_user_preferance();
 
 
@@ -1385,12 +1373,12 @@ function Userprefedit()
              },
              dataType: 'json',
              success: function (response) {
-                
+
                  if (response['UserPreferancestep1js'].length > 0) {
                      $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['srno']);
                      //setSelect2Value($('#drpDashboardGadgetPosition'), response['UserPreferancestep1js'][0]['GadgetPosition']);
-                      $('#drpDashboardGadgetPosition').find('option[value="' + response['UserPreferancestep1js'][0]['GadgetPosition'] + '"]').attr('selected', true).change();
-                    // $("#userperferancechk").html('');
+                     $('#drpDashboardGadgetPosition').find('option[value="' + response['UserPreferancestep1js'][0]['GadgetPosition'] + '"]').attr('selected', true).change();
+                     // $("#userperferancechk").html('');
                      var chkloop = response['UserPreferancestep1js'][0]['OtherPreferences'].toString().split(",");
                      $.each(chkloop, function (i) {
                          $("#userprefform").find('.checker').each(function () {
@@ -1412,9 +1400,8 @@ function Userprefedit()
 
 }
 
-function Quitform()
-{
-    
+function Quitform() {
+
     $("#tab1").addClass("active");
     $("#CreateCorporate").removeClass("active");
     $("#Tab3").removeClass("active");
@@ -1428,10 +1415,10 @@ function Quitform()
     $("#tab4").removeClass("active");
     $("#tab5").removeClass("active");
     $("#tab6").removeClass("active");
-  
+
     $("#Search").focus();
     $("#Tab3").focusout();
-    
+
     BindGrid();
 
 }

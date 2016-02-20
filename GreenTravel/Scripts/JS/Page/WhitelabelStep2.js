@@ -1,9 +1,16 @@
 ﻿
 var grp = '';
-
+var corp = '0';
 $(document).ready(function () {
     $('#txtSrNo').val('0');
+
     FillDropdown('drpFeatureCategory', 'Dropdown');
+    FillDropdown_Corporate('drpCorporate', 'Dropdown');
+    if ($('#txtCorporateID').val().toString() != '0' && $('#txtCorporateID').val().toString() != '') {
+        corp = $('#txtCorporateID').val();
+        setSelect2Value($('#drpCorporate'), corp);
+        $("#drpCorporate").prop('disabled', true);
+    }
     $('#btnSave').hide();
     $('#btnClear').hide();
     $('#btnUpdate').hide();
@@ -17,9 +24,19 @@ $(document).ready(function () {
         }
     });//tab-4 checkbox - (check All)
 
+    $("#drpCorporate").change(function () {
+        var idcorp = ($('#drpCorporate option:selected').val());
+        $('#txtCorporateID').val(idcorp);
+        setSelect2Value($('#drpFeatureCategory'), '0');
+        $("#partial").html('');
+        $('#btnSave').hide();
+        $('#btnUpdate').hide();
+        $('#btnClear').hide();
+    });
+
     $("#drpFeatureCategory").change(function () {
         var field1 = $('#drpFeatureCategory option:selected').val();
-       
+
         $("#partial").html('');
         $('#btnClear').hide();
         $('#btnSave').hide();
@@ -31,13 +48,11 @@ $(document).ready(function () {
             Loaddata();
             getdata_new();
         }
-        else
-        {
+        else {
             $('#btnClear').hide();
             $('#btnSave').hide();
             $('#btnUpdate').hide();
         }
-       
     });// For Feature-Category Drop-Down Change
 
     $('.btnSaveStep2').click(function (e) {
@@ -195,7 +210,42 @@ function FillDropdown(controlId, type) {
         }
     });
 }
-
+function FillDropdown_Corporate(controlId, type) {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = $('#txtCorporateID').val().toString();
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var field1 = '0';
+    var field2 = '0';
+    var field3 = '';
+    var field4 = '';
+    var field5 = '';
+    var Control = controlId;
+    var Language = '';
+    var Type = type;
+    $.ajax({
+        url: "/WhitelabelStep2/BindDropDown_Corporate",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5, Control: Control, Language: Language
+        },
+        success: function (data) {
+            $('#' + controlId + '').html('');
+            for (var i = 0; i < data.length; i++) {
+                var opt = new Option(data[i]['Text'], data[i]['Value']);
+                $('#' + controlId + '').append(opt);
+            }
+            setSelect2Value($('#' + controlId + ''), '0');
+        }
+    });
+}
 // Function ( Edit Mode )
 function getdata() {
     var tablename = 'dbo._White_feature_mapping';
@@ -291,7 +341,7 @@ function Loaddata() {
                     if (html == '') {
                         html = '<li><figure><figcaption class="panel-body tab-itenaries">' +
                                 '<div class="myDiv">' +
-                                '<h3 style="margin-top: 0; text-align: center;">' +
+                                '<h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">' +
                                 '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label> </h3></div>' +
                                 '<h3 style="margin-top: 0; text-align: center;">' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
@@ -316,7 +366,7 @@ function Loaddata() {
                     else {
                         html += '<li><figure><figcaption class="panel-body tab-itenaries">' +
                                  '<div class="myDiv">' +
-                                '<h3 style="margin-top: 0; text-align: center;">' +
+                                '<h3 style="margin-top: 0; text-align: center ;border-bottom: 0px dotted #ccc;">' +
                                 '<label style="display: none" id="lbheadingName" >  ' + data['HeaderList'][i]['SrNo'] + ' </label> </h3></div>' +
                                 '<h3 style="margin-top: 0; text-align: center;">' +
                                 '<label id="lbheading">  ' + data['HeaderList'][i]['xname'] + '</label></h3>' +
@@ -365,7 +415,7 @@ function getdata_new() {
         success: function (response) {
             var i;
             $('#txtSrNo').text('0');
-            
+
             if (response['Dropdown'].length > 0) {
                 $('#txtSrNo').text(response['Dropdown'][0]['srno']);
                 $('#btnSave').hide();
