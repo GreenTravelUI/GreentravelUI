@@ -48,6 +48,12 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@OtherReference2", WR.OtherReference2);
                 _cmd.Parameters.AddWithValue("@Commision", WR.Commision);
 
+                _cmd.Parameters.AddWithValue("@Facebook", WR.Facebook);
+                _cmd.Parameters.AddWithValue("@Twitter", WR.Twitter);
+                _cmd.Parameters.AddWithValue("@GooglePlus", WR.GooglePlus);
+                _cmd.Parameters.AddWithValue("@WebPortal", WR.WebPortal);
+                _cmd.Parameters.AddWithValue("@BackgroundImg", WR.BackgroundImg);
+
                 _cmd.Parameters.AddWithValue("@Attribute1", WR.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", WR.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", WR.Attribute3);
@@ -947,16 +953,16 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@EncriptionKey", PA.EncriptionKey);
                 _cmd.Parameters.AddWithValue("@PasswordMinLength", PA.PasswordMinLength);
                 _cmd.Parameters.AddWithValue("@PasswordExpiryDays", PA.PasswordExpiryDays);
-              //  _cmd.Parameters.AddWithValue("@UserLoginDay", PA.UserLoginDay);      remove
+                _cmd.Parameters.AddWithValue("@UserLoginDay", PA.UserLoginDay);      
                 _cmd.Parameters.AddWithValue("@NumberOfAttempts", PA.NumberOfAttempts);
-              //  _cmd.Parameters.AddWithValue("@NumberOfAttemptsTime", PA.NumberOfAttemptsTime);   remove
+                _cmd.Parameters.AddWithValue("@NumberOfAttemptsTime", PA.NumberOfAttemptsTime);
                 _cmd.Parameters.AddWithValue("@OTPExpiryTime", PA.OTPExpiryTime);
                 _cmd.Parameters.AddWithValue("@LastSamePassword", PA.LastSamePassword);
                 _cmd.Parameters.AddWithValue("@UnableCaptcha", PA.UnableCaptcha);
-              //  _cmd.Parameters.AddWithValue("@AutoLockScreen", PA.AutoLockScreen);   remove
-                 
-              //  _cmd.Parameters.AddWithValue("@UserUnlockMinut", PA.UserUnlockMinut);
-              //  _cmd.Parameters.AddWithValue("@Continuenumber", PA.Continuenumber);
+                _cmd.Parameters.AddWithValue("@AutoLockScreen", PA.AutoLockScreen);
+
+                _cmd.Parameters.AddWithValue("@UserLockMinuts", PA.UserUnlockMinut);
+                _cmd.Parameters.AddWithValue("@Continuenumber", PA.Continuenumber);
 
                 _cmd.Parameters.AddWithValue("@Attribute1", PA.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", PA.Attribute2);

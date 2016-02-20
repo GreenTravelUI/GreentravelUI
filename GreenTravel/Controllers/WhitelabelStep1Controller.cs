@@ -218,6 +218,11 @@ namespace GreenTravel.Controllers
                             OtherReference2 = dr["OtherReference2"].ToString(),
                             Commision = dr["Commision"].ToString(),
                             OtherLanguage = dr["OtherLanguage"].ToString(),
+                            Facebook = dr["Facebook"].ToString(),
+                            Twitter = dr["Twitter"].ToString(),
+                            GooglePlus = dr["GooglePlus"].ToString(),
+                            WebPortal = dr["WebPortal"].ToString(),
+                            BackgroundImg = dr["BackgroundImg"].ToString(),
 
                         });
                     }
@@ -838,7 +843,7 @@ namespace GreenTravel.Controllers
                             UnableCaptcha = dr["UnableCaptcha"].ToString(),
                            // AutoLockScreen = dr["AutoLockScreen"].ToString(),
 
-                            UserUnlockMinut = dr["UserUnlockMinut"].ToString(),
+                            UserUnlockMinut = dr["UserLockMinuts"].ToString(),
                             Continuenumber = dr["Continuenumber"].ToString(),
                                                      
                         });

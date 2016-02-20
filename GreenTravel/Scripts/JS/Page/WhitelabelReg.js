@@ -63,6 +63,13 @@ $(document).ready(function () {
         var OtherReference1 = $('#txtOtherRefference1').val();
         var OtherReference2 = $('#txtOtherRefference2').val();
         var Commision = $('#txtCommision').val();
+
+        var Facebook = $('#txtfacebook').val();
+        var Twitter = $('#txttwitter').val();
+        var GooglePlus = $('#txtgoogleplus').val();
+        var WebPortal = $('#txtwebportal').val();
+        var BackgroundImg = $('#txtbackgroundimg').val();
+
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -91,7 +98,8 @@ $(document).ready(function () {
                    Services: Services, BusinessMode: BusinessMode, AdminUserName: AdminUserName, Password: Password, ApplicationTheme: ApplicationTheme, ApplicationUrl: ApplicationUrl,
                    WebTheme: WebTheme, WebUrl: WebUrl, BaseCurrency: BaseCurrency, BaseLanguage: BaseLanguage, OtherLanguage: OtherLanguage, Logo: Logo, Favicon: Favicon, OfficialEmail: OfficialEmail,
                    OfficialPhone: OfficialPhone, FullSemiWhiteLbl: FullSemiWhiteLbl, CopyrightNote: CopyrightNote, CopyrightNoteFlag: CopyrightNoteFlag, LoginFrmCaption: LoginFrmCaption,
-                   DefaultLogo: DefaultLogo, RefCorpCompany: RefCorpCompany, OtherReference1: OtherReference1, OtherReference2: OtherReference2, Commision: Commision, Attribute1: Attribute1,
+                   DefaultLogo: DefaultLogo, RefCorpCompany: RefCorpCompany, OtherReference1: OtherReference1, OtherReference2: OtherReference2, Commision: Commision,
+                   Facebook:Facebook,Twitter:Twitter,GooglePlus:GooglePlus,WebPortal:WebPortal,BackgroundImg:BackgroundImg,Attribute1: Attribute1,
                    Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
                    Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CretedBy: CretedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
                    UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
@@ -139,6 +147,7 @@ $(document).ready(function () {
         Binddropdowntab3();
         Dropdown_Bind_Userpreferance_Checkbox();
         Dropdown_Bind_user_preferance();
+        Binddropdowntab6();
     });
 
     $('.btnclearbasicclass').click(function (e) {
@@ -253,6 +262,12 @@ $(document).ready(function () {
                      $('#txtOtherRefference1').val(response['Whiteregjs'][0]['OtherReference1']);
                      $('#txtOtherRefference2').val(response['Whiteregjs'][0]['OtherReference2']);
                      $('#txtCommision').val(response['Whiteregjs'][0]['Commision']);
+                     $('#txtfacebook').val(response['Whiteregjs'][0]['Facebook']);
+                     $('#txttwitter').val(response['Whiteregjs'][0]['Twitter']);
+                     $('#txtgoogleplus').val(response['Whiteregjs'][0]['GooglePlus']);
+                     $('#txtwebportal').val(response['Whiteregjs'][0]['WebPortal']);
+                     $('#txtbackgroundimg').val(response['Whiteregjs'][0]['BackgroundImg']);
+
                      $("#SearchMaster").removeClass("active");
                      $("#CreateMaster").addClass("active");
                      $("#Search").removeClass("active");
@@ -262,6 +277,7 @@ $(document).ready(function () {
                      hostingedit();
                      subcribedit();
                      Userprefedit();
+                     PasswordEdit();
                  }
              }
          });
@@ -752,8 +768,8 @@ $(document).ready(function () {
         var UnableCaptcha = $('#txtcaptchaenableattempt').val();
         var AutoLockScreen = ''; // remove
 
-        var UserUnlockMinut = ''; // have to add db
-        var Continuenumber = ''; // have to add db
+        var UserUnlockMinut = $('#txtuserlockunlockminuts').val();
+        var Continuenumber = $('#txtcontinuenumber').val();
 
         var Attribute1 = '';
         var Attribute2 = '';
@@ -790,6 +806,28 @@ $(document).ready(function () {
            });
 
 
+    });
+
+    $("#btnclearpassword").click(function (e) {
+
+        $('input[type="text"]').val('');
+      
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+    });
+
+    $("#btnquitpassword").click(function (e) {
+        $("#tab6").removeClass("active");
+        $("#Tab6").removeClass("active");
+        $("#Search").addClass("active");
+        $("#tab1").addClass("active");
+
+        $("#btnUpdatepassword").hide();
+        $("#btnCancelpassword").hide();
+        $("#btnSavepassword").show();
+
+        BindGrid();
     });
 
 });
@@ -1518,7 +1556,7 @@ function Quitform()
 
 }
 
-function Dropdown_Bind_user_preferance() {
+function Binddropdowntab6() {
 
     var Module = '';
     var screen = '';
@@ -1608,8 +1646,8 @@ function PasswordEdit()
                      setSelect2Value($('#drpencryptkey'), response['UserPreferancestep1js'][0]['EncriptionKey']);
 
 
-                    // $('#txtuserlockunlockminuts').val(response['UserPreferancestep1js'][0]['UserUnlockMinut']);
-                    // $('#txtcontinuenumber').val(response['UserPreferancestep1js'][0]['Continuenumber']);
+                     $('#txtuserlockunlockminuts').val(response['UserPreferancestep1js'][0]['UserUnlockMinut']);
+                     $('#txtcontinuenumber').val(response['UserPreferancestep1js'][0]['Continuenumber']);
                  }
 
 

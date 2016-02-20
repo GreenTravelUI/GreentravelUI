@@ -39,6 +39,13 @@ namespace GreenTravel.Models
         public string OtherReference1 { get; set; }
         public string OtherReference2 { get; set; }
         public string Commision { get; set; }
+
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string GooglePlus { get; set; }
+        public string WebPortal { get; set; }
+        public string BackgroundImg { get; set; }
+
         public string Attribute1 { get; set; }
         public string Attribute2 { get; set; }
         public string Attribute3 { get; set; }
