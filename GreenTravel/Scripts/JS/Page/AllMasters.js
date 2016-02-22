@@ -1162,7 +1162,7 @@ function FillDropDown_Category() {
             swal('Something went wrong!', '', 'error');
         }
     });
-
+    FillDropdown('drpMasterTab3', 'ConditionalDropdown')
 }
 
 function DropdownSeletedValue(controlId) {
@@ -1266,7 +1266,7 @@ function getdata() {
     var type = 'Grid';
     var Formcode = '0';
     var Formtabcode = '0';
-    var WhereClause = 'TSTBYAMT';
+    var WhereClause = 'CONTROLTYPE';
     var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,
@@ -1300,8 +1300,6 @@ function getdata() {
                 className: "center",
                 defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
             }
-
-
         ]
     });
     var tableTools = new $.fn.dataTable.TableTools(table, {
