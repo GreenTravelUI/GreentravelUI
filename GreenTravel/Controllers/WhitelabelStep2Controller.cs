@@ -13,6 +13,10 @@ namespace GreenTravel.Controllers
 {
     public class WhitelabelStep2Controller : Controller
     {
+
+
+
+
         DbWhitelabelStep2 _objw2 = new DbWhitelabelStep2();
 
         //
@@ -22,8 +26,11 @@ namespace GreenTravel.Controllers
         {
             if (Session["CreatedBy"] == null)
             {
-                return RedirectToAction("index", "Home");
+
+                return RedirectToAction("Index", "Home", new { url = Request.Url.AbsolutePath.ToString() });
+
             }
+
             return View();
 
         }

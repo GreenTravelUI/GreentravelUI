@@ -22,8 +22,11 @@ namespace GreenTravel.Controllers
         {
             if (Session["CreatedBy"] == null)
             {
-                return RedirectToAction("index", "Home");
+
+                return RedirectToAction("Index", "Home", new { url = Request.Url.AbsolutePath.ToString() });
+
             }
+
             return View();
         }
         // -------------------->> Tab-4 ( Create Access Rights )
@@ -93,7 +96,7 @@ namespace GreenTravel.Controllers
             {
 
                 DataSet dsList = _objRoleRightsDb.BindDropdown_BaseAccessRights(CFP);
-                WhitelabelStep2 CV = new WhitelabelStep2();
+                // WhitelabelStep2 CV = new WhitelabelStep2();
                 Grid _grid = new Grid();
                 List<GridHearder> GridHearder = new List<GridHearder>();
                 List<GridColumn> GridColumn = new List<GridColumn>();
@@ -228,7 +231,7 @@ namespace GreenTravel.Controllers
                                 Branch = @dr["Branch"].ToString(),
                                 Location = @dr["Location"].ToString(),
                                 Role = @dr["Role"].ToString(),
-                               // UserId = @dr["UserId"].ToString(),
+                                // UserId = @dr["UserId"].ToString(),
                             });
                         }
                     }

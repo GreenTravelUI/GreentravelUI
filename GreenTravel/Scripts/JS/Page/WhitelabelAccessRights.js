@@ -176,7 +176,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsUnit'), response['UserWiseRights'][0]['Unit']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
                     setSelect2Value($('#drpRightsLocation'), response['UserWiseRights'][0]['Location']);
-                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
@@ -226,7 +226,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsUnit'), response['UserWiseRights'][0]['Unit']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
                     setSelect2Value($('#drpRightsLocation'), response['UserWiseRights'][0]['Location']);
-                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
@@ -265,6 +265,12 @@ $(document).ready(function () {
     });//---tab-2 quit button
     // ==============================================================================================================================  ( Tab-4) 
     $("#drpRightsCorporate").change(function () {
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
+        $("#partial").html('');
+
         $('#drpRightsUnit').html('');// To Clear dropdown Unit
         setSelect2Value($('#drpRightsUnit'), '0');
         $('#drpRightsLocation').html('');// To Clear dropdown Location
@@ -301,12 +307,16 @@ $(document).ready(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
     });//---tab-4 location selected index change event
     $("#drpRightsRole").change(function () {
+        $("#partial").html('');
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
         Load_screen_module();
 
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
-        // e.preventDefault();
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
         Load_screen_module();
         Fill_Screen_Module_On_Edit();
     });//---tab-4 rights selected index change event
