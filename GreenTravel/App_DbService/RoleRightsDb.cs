@@ -122,10 +122,12 @@ namespace GreenTravel.App_DbService
                     dt.Columns.Add("Attribute10", typeof(string));
                     dt.Columns.Add("UnitCorpBy", typeof(string));
                     dt.Columns.Add("BranchBy", typeof(string));
+                    
                     dt.Columns.Add("CreatedBy", typeof(string));
                     dt.Columns.Add("EditedBy", typeof(string));
                     dt.Columns.Add("CorpcentreBy", typeof(string));
                     dt.Columns.Add("TerminalBy", typeof(string));
+                   // dt.Columns.Add("LocationBy", typeof(string));
                 }
                 string json = (_objUserWiseRights.GridAry);
                 var items = JsonConvert.DeserializeObject<List<GridColumnScreen>>(json);
@@ -158,7 +160,8 @@ namespace GreenTravel.App_DbService
                     dr["CreatedBy"] = _objUserWiseRights.CreatedBy;
                     dr["EditedBy"] = _objUserWiseRights.CreatedBy;
                     dr["CorpcentreBy"] = _objUserWiseRights.UnitCorpBy;
-                    dr["TerminalBy"] = _objUserWiseRights.UnitCorpBy;
+                    dr["TerminalBy"] = _objUserWiseRights.TerminalBy;
+                   // dr["LocationBy"] = _objUserWiseRights.LocationBy;
                     dt.Rows.Add(dr);
                 }
 
@@ -200,6 +203,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", _objUserWiseRights.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", _objUserWiseRights.TerminalBy);
                 _cmd.Parameters.AddWithValue("@BranchBy", _objUserWiseRights.BranchBy);
+                _cmd.Parameters.AddWithValue("@LocationBy", _objUserWiseRights.LocationBy);
                 if (dt != null)
                 {
                     SqlParameter parameter = new SqlParameter();
@@ -234,7 +238,7 @@ namespace GreenTravel.App_DbService
                 SqlCommand _cmd = new SqlCommand("sp_Edit_RoleMaster", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 _cmd.Parameters.AddWithValue("@tablename", _objUserWiseRights.tablename);
-                _cmd.Parameters.AddWithValue("@Corporate", _objUserWiseRights.Corporate);
+                _cmd.Parameters.AddWithValue("@Corporate", _objUserWiseRights.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@unit", _objUserWiseRights.Unit);
                 _cmd.Parameters.AddWithValue("@Location", _objUserWiseRights.Location);
                 _cmd.Parameters.AddWithValue("@Role", _objUserWiseRights.Role);

@@ -28,12 +28,12 @@ namespace GreenTravel.Controllers
             frm_para.type = "Caption";
             frm_para.FormTabCode = "--None--";
             var form_val = _objcomman.GetFormData(frm_para);
-            //url = "https://agent.travelzunlimited.com/crm"
-            string url = Request.Url.ToString();
+            string url = "http://gt.techpure.co.uk";
+            //  string url = Request.Url.ToString();
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url="http://gt.techpure.co.uk"
+                url = "http://gt.techpure.co.uk"
             };
 
             Session["Logo"] = "assets/images/Logo-green.png";
