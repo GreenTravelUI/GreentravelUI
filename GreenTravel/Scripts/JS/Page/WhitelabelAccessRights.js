@@ -13,6 +13,7 @@ $(document).ready(function () {
     $("#drpCorporate").change(function () {
 
         $('#DrpLocationTab2').html('');
+        $('#DrpUnitTab2').html('');
         setSelect2Value($('#DrpLocationTab2'), '0');
         FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
 
@@ -115,6 +116,8 @@ $(document).ready(function () {
                         $('#btnSaveUser').hide();
                         $('#btnUpdateUser').show();
                         $('#btnCancelUser').hide();
+                        $("#txtEmail").prop('disabled', true);
+                        $(".Editdisable").hide();
                     }
                 }
             }
@@ -159,6 +162,7 @@ $(document).ready(function () {
                     $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
                     $('#txtEmail').val(response['UserMasterresjs'][0]['Email']);
                     $('#txtConfirmEmail').val(response['UserMasterresjs'][0]['Email']);
+                    $('#txtConfirmPassword').val(response['UserMasterresjs'][0]['Password'])
                     setSelect2Value($('#drpCorporate'), response['UserMasterresjs'][0]['Corporate']);
                     FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
                     setSelect2Value($('#DrpUnitTab2'), response['UserMasterresjs'][0]['Unit']);
@@ -270,7 +274,7 @@ $(document).ready(function () {
         $('#drpRightsUser').html('');// To Clear dropdown User
         setSelect2Value($('#drpRightsUser'), '0');
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
-        Load_screen_module();
+
     });//---tab-4 corporate selected index change event
     $("#drpRightsUnit").change(function () {
         // e.preventDefault();
@@ -294,10 +298,12 @@ $(document).ready(function () {
         $('#drpRightsUser').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsUser'), '0');
 
-        FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+        FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
     });//---tab-4 location selected index change event
     $("#drpRightsRole").change(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
+        Load_screen_module();
+
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
         // e.preventDefault();
@@ -390,7 +396,7 @@ $(document).ready(function () {
             var a = 0;
             e.preventDefault();
             if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-                swal('','Invalid data found!','error');
+                swal('', 'Invalid data found!', 'error');
                 return false;
             }
             var ModuleAry = [];
@@ -471,12 +477,12 @@ $(document).ready(function () {
                         flagsection = 1;
                         msg = response['success'];
                         event = response['Event'];
-                        $('#lbSrnoTab4').text(response['SrNo']);
+                        $('#lbSrnoTab4').val(response['SrNo']);
                     }
                 }
             });
             if (flagsection == 1) {
-                swal('', msg, event);
+                swal('Good Job!', msg, event);
                 $('#btnSavetab4').hide();
                 $('#btnupdatetab4').show();
             }
@@ -572,7 +578,7 @@ function CompareValidation($attr1, $attr2) {
 }
 function BindGrid() {
     var tablename = 'dbo._User_Details_Master';
-    var Corporate = '2';
+    var Corporate = '1';
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
@@ -735,7 +741,7 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
     var field1 = Field1;
     var field2 = Field2;
     var field3 = Field3;
-    var field4 = '';
+    var field4 = $('#drpRightsRole option:selected').val();
     var field5 = '';
     var Control = controlId;
     var Language = '';
