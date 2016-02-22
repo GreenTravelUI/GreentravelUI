@@ -572,7 +572,7 @@ function CompareValidation($attr1, $attr2) {
 }
 function BindGrid() {
     var tablename = 'dbo._User_Details_Master';
-    var Corporate = '2';
+    var Corporate = '1';
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
