@@ -28,6 +28,7 @@ namespace GreenTravel.Controllers
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
+                    
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
                 if (ds.Tables.Count < 2)
@@ -217,6 +218,11 @@ namespace GreenTravel.Controllers
                             OtherReference2 = dr["OtherReference2"].ToString(),
                             Commision = dr["Commision"].ToString(),
                             OtherLanguage = dr["OtherLanguage"].ToString(),
+                            Facebook = dr["Facebook"].ToString(),
+                            Twitter = dr["Twitter"].ToString(),
+                            GooglePlus = dr["GooglePlus"].ToString(),
+                            WebPortal = dr["WebPortal"].ToString(),
+                            BackgroundImg = dr["BackgroundImg"].ToString(),
 
                         });
                     }
@@ -762,8 +768,97 @@ namespace GreenTravel.Controllers
 
         #region password auth
 
-       
+        public ActionResult Binddropdowntab6(WhitelabelReg WR)
+        {
+            try
+            {
+                DataSet ds = _objwl.Binddropdowntab6(WR);
+                List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
 
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        itemsdrp.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
+                    }
+                }
+                var result = itemsdrp;
+
+                return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult insert_PasswordAuth(Password_Authentication PA)
+        {
+            try
+            {
+                DataSet ds = _objwl.insert_PasswordAuth(PA);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                }
+                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult Edit_data_password_authenticate(Password_Authentication PA)
+        {
+            try
+            {
+                DataSet ds = _objwl.Edit_data_password_authenticate(PA);
+                List<Password_Authentication> Password_Authentication1 = new List<Password_Authentication>();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        Password_Authentication1.Add(new Password_Authentication
+                        {
+                            srno = dr["srno"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            CapitalCharNumber = dr["CapitalCharNumber"].ToString(),
+                            RequiredNumeric = dr["RequiredNumeric"].ToString(),
+                            SpecialCharNumber = dr["SpecialCharNumber"].ToString(),
+                            EncriptionKey = dr["EncriptionKey"].ToString(),
+                            PasswordMinLength = dr["PasswordMinLength"].ToString(),
+                            PasswordExpiryDays = dr["PasswordExpiryDays"].ToString(),
+                          //  UserLoginDay = dr["UserLoginDay"].ToString(),
+                            NumberOfAttempts = dr["NumberOfAttempts"].ToString(),
+                          //  NumberOfAttemptsTime = dr["NumberOfAttemptsTime"].ToString(),
+                            OTPExpiryTime = dr["OTPExpiryTime"].ToString(),
+                            LastSamePassword = dr["LastSamePassword"].ToString(),
+                            UnableCaptcha = dr["UnableCaptcha"].ToString(),
+                           // AutoLockScreen = dr["AutoLockScreen"].ToString(),
+
+                            UserUnlockMinut = dr["UserLockMinuts"].ToString(),
+                            Continuenumber = dr["Continuenumber"].ToString(),
+                                                     
+                        });
+                    }
+                }
+                var result = Password_Authentication1;
+
+                return Json(new { UserPreferancestep1js = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         #endregion
     }
 }

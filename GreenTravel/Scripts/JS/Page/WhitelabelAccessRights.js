@@ -68,7 +68,7 @@ $(document).ready(function () {
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
-            swal('Invalid data found!');
+            swal('', 'Invalid data found!', 'error');
             return false;
             return false;
         }
@@ -301,6 +301,7 @@ $(document).ready(function () {
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
         // e.preventDefault();
+        Load_screen_module();
         Fill_Screen_Module_On_Edit();
     });//---tab-4 rights selected index change event
     $("#partial").delegate(".checker", "click", function () {
@@ -389,7 +390,7 @@ $(document).ready(function () {
             var a = 0;
             e.preventDefault();
             if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-                swal('Invalid data found!');
+                swal('','Invalid data found!','error');
                 return false;
             }
             var ModuleAry = [];
@@ -677,12 +678,7 @@ function validatechar(sender, args) {
 
     }
 }
-function clearForm_TabWise() {
-    $('.inputformTab').val('');
-    $('.DropdownTab').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
-    });
-}
+
 // ============================================================================================================================== Function ( Tab-4)
 function FillDropDown_RightsCorporate() {
     var Module = '';

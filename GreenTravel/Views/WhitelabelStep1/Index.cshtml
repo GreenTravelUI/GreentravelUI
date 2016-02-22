@@ -4,6 +4,12 @@
     ViewBag.PageTitle = "Green Travel Customers";
     
 }
+@*@{
+        if (Session["CreatedBy"] != null)
+        { }
+        else
+        { Response.Redirect(Url.Action("index", "Home")); }
+    }*@
 
 <style>
     .hide_cell
@@ -145,8 +151,6 @@
                                             <option value="#f3e395" data-class="color-f3e395">#f3e395</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="txtApplicationURL">Application URL <span>*</span></label>
                                         <input type="text" class="form-control req url" id="txtApplicationURL" placeholder="Application URL">
@@ -156,6 +160,9 @@
                                         <select id="drpBaseCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="drpBaseLanguage">Base Language <span>*</span></label>
                                         <select id="drpBaseLanguage" class="js-states form-control Language Dropdown req" style="display: none; width: 100%">
@@ -209,6 +216,27 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="txtCopyRights" placeholder="Copyright Note">
                                     </div>
+                                     <div class="form-group">
+                                        <label for="txtfacebook">Facebook</label>
+                                        <input type="text" class="form-control req url" id="txtfacebook" placeholder="Application URL">
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="txttwitter">Twitter</label>
+                                        <input type="text" class="form-control req url" id="txttwitter" placeholder="Application URL">
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="txtgoogleplus">Google Plus</label>
+                                        <input type="text" class="form-control req url" id="txtgoogleplus" placeholder="Application URL">
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="txtwebportal">Web Portal</label>
+                                        <input type="text" class="form-control req url" id="txtwebportal" placeholder="Application URL">
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="txtbackgroundimg">Background Image</label>
+                                        <input type="text" class="form-control req url" id="txtbackgroundimg" placeholder="Application URL">
+                                    </div>
+                                     
                                 </div>
                             </div>
                             <div class="col-md-12">
