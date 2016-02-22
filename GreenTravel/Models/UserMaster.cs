@@ -7,7 +7,7 @@ using System.Web;
 
 namespace GreenTravel.Models
 {
-    public class UserMaster
+    public class UserMaster : CommanPara
     {
         public string srno { get; set; }
         public string UserCode { get; set; }
@@ -39,15 +39,15 @@ namespace GreenTravel.Models
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
-        public string CreatedBy { get; set; }
+        //public string CreatedBy { get; set; }
         public string EntryDatetime { get; set; }
-        public string EditedBy { get; set; }
+        //public string EditedBy { get; set; }
         public string EditDatetime { get; set; }
-        public string CorpcentreBy { get; set; }
-        public string UnitCorpBy { get; set; }
-        public string TerminalBy { get; set; }
+        //public string CorpcentreBy { get; set; }
+        //public string UnitCorpBy { get; set; }
+        //public string TerminalBy { get; set; }
         public DataSet StoreAllData { get; set; }
-        public string BranchBy { get; set; }
+       // public string BranchBy { get; set; }
         public string RowNumber { get; set; }
         public string Name { get; set; }
         public string Corporate { get; set; }
@@ -56,7 +56,7 @@ namespace GreenTravel.Models
         public string tablename { get; set; }
         public string Formcode { get; set; }
         public string Formtabcode { get; set; }
-        public string Location { get; set; }
+        public string Locationdata { get; set; }
         public string Role { get; set; }
         public string UserId { get; set; }
     }

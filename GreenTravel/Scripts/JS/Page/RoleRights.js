@@ -1,7 +1,7 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
- var corp = $('#myHiddenVar').val();
+var corp = $('#myHiddenVar').val();
 $(document).ready(function () {
     BindGrid();
     FillDropDown_RightsCorporate();
@@ -59,6 +59,12 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.create').children().addClass('checked');
             $(this).parent().parent().find('.checker.update').attr('checked', true);
             $(this).parent().parent().find('.checker.update').children().addClass('checked');
+        }
+        else {
+            console.log($(this).parent().parent().parent().parent().parent().html());
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
+
         }
 
 
@@ -128,7 +134,8 @@ $(document).ready(function () {
             var a = 0;
             e.preventDefault();
             if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-                swal('', 'Invalid data found!', 'error');
+                //  swal('', 'Invalid data found!', 'error');
+                swal('Invalid data found!', '', 'error');
                 return false;
             }
             var ModuleAry = [];
@@ -214,7 +221,7 @@ $(document).ready(function () {
                             $('#lbSrnoTab4').val(sr);
                             $('#btnSavetab4').hide();
                             $('#btnupdatetab4').show();
-                            // alert($('#lbSrnoTab4').val());
+                            BindGrid();
                         }
                     }
                 }
@@ -586,6 +593,12 @@ function Load_screen_module() {
     });
 }
 
+//function Checked_All(html) {
+//    if ($(this).find(' tr .checker').children().hasClass('checked')) {
+
+//    }
+
+//}
 
 function Clear_tab_4() {
     $("#partial").html('');
@@ -601,5 +614,7 @@ function Clear_tab_4() {
     $('#chkdefault').parent().removeClass('checked');
     $('#btnSavetab4').hide();
     $('#btnupdatetab4').hide();
+    corp = $('#myHiddenVar').val();
+    setSelect2Value($('#drpRightsCorporate'), corp);
 
 }
