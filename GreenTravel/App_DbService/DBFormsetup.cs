@@ -36,7 +36,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", FS.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", FS.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", FS.Attribute10);
-
+                _cmd.Parameters.AddWithValue("@CreatedBy", FS.CreatedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", FS.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", FS.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", FS.TerminalBy);

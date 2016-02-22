@@ -28,9 +28,8 @@
     <link href="/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
-    @*<link href="/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>*@
     <link href="/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    
     <!-- Theme <style></style>s -->
     <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
@@ -42,50 +41,12 @@
 
     <script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
     <script src="~/assets/plugins/sweetalert/sweetalert2.min.js"></script>
-
-    <script>
+    <script src="~/Scripts/JS/Page/Login.js"></script>
+    @*<script>
         $(document).ready(function () {
-            Load_data();
             $('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');
-
-            $('#btnLogin').click(function () {
-                var Type = 'Password';
-                var Email = $('#txtUserName').val();
-                var url = 'https://agent.travelzunlimited.com/crm';
-                var PassWord = $('#txtPassword').val();
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/LoginUser",
-                    data: { Type: Type, Email: Email, url: url, Password: PassWord },
-                    success: function (result) {
-                        if (result == "1") {
-                            var urls = "/Dashboard";
-                            window.location.href = urls;
-                        } else {
-                            swal('Invalid user id and password.');
-                        }
-
-                    }
-                });
-            });
         });
-        function Load_data() {
-            var Type = 'PageLoad';
-            var url = 'https://agent.travelzunlimited.com/crm';
-            $.ajax({
-                type: "POST",
-                url: "/Home/PageLoad",
-                data: { Type: Type, url: url },
-                success: function (result) {
-                    console.log(result[0]['BackgroundImg']);
-                    $('.page-content.login-body').css('background', '#000 url("' + result[0]['BackgroundImg'] + '") no-repeat scroll center top');
-                    var img = '<img height="45" width="200" src="' + result[0]['Logo'] + '">';
-                    $('.logo-name').html(img);
-                }
-            });
-        }
-    </script>
-
+    </script>*@
 </head>
 <body class="page-login login-alt ">
     <main class="page-content login-body">
@@ -95,6 +56,7 @@
                             <div class="login-box panel panel-white">
                                 <div class="panel-body">
                                     <div class="row">
+                                        <input type="hidden" value="@Session["backgroundImage"]" id="myHiddenVar" /> 
                                         <div class="col-md-6">
                                             <a href="" class="logo-name text-lg"><img src="@Session["Logo"]" height="45" width="200" /></a>
                                             <p class="login-info">

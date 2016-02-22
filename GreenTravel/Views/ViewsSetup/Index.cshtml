@@ -4,6 +4,13 @@
     ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
 }
 
+@{
+    if (Session["CreatedBy"] != null)
+    { }
+    else
+    { Response.Redirect(Url.Action("index", "Home")); }
+}
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">

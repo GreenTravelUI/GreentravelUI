@@ -329,9 +329,11 @@ namespace GreenTravel.Controllers
                     if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
                     {
                         ViewBag.Event = "success";
-
                     }
-                    ViewBag.SrNo = result.Tables[0].Rows[0]["SrNo"].ToString();
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
+                    ViewBag.Srno = result.Tables[0].Rows[0]["SrNo"].ToString();
+                    //ViewBag.SrNo = result.Tables[0].Rows[0]["SrNo"].ToString();
                 }
                 var result1 = ViewBag.Message;
                 return Json(new { success = result1, Event = ViewBag.Event, SrNo = ViewBag.SrNo }, JsonRequestBehavior.AllowGet);
