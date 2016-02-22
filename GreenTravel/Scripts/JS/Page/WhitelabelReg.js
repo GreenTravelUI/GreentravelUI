@@ -5,7 +5,7 @@
 });
 
 $(document).ready(function () {
-
+    
 
     BindGrid();
 
@@ -63,6 +63,13 @@ $(document).ready(function () {
         var OtherReference1 = $('#txtOtherRefference1').val();
         var OtherReference2 = $('#txtOtherRefference2').val();
         var Commision = $('#txtCommision').val();
+
+        var Facebook = $('#txtfacebook').val();
+        var Twitter = $('#txttwitter').val();
+        var GooglePlus = $('#txtgoogleplus').val();
+        var WebPortal = $('#txtwebportal').val();
+        var BackgroundImg = $('#txtbackgroundimg').val();
+
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -91,7 +98,8 @@ $(document).ready(function () {
                    Services: Services, BusinessMode: BusinessMode, AdminUserName: AdminUserName, Password: Password, ApplicationTheme: ApplicationTheme, ApplicationUrl: ApplicationUrl,
                    WebTheme: WebTheme, WebUrl: WebUrl, BaseCurrency: BaseCurrency, BaseLanguage: BaseLanguage, OtherLanguage: OtherLanguage, Logo: Logo, Favicon: Favicon, OfficialEmail: OfficialEmail,
                    OfficialPhone: OfficialPhone, FullSemiWhiteLbl: FullSemiWhiteLbl, CopyrightNote: CopyrightNote, CopyrightNoteFlag: CopyrightNoteFlag, LoginFrmCaption: LoginFrmCaption,
-                   DefaultLogo: DefaultLogo, RefCorpCompany: RefCorpCompany, OtherReference1: OtherReference1, OtherReference2: OtherReference2, Commision: Commision, Attribute1: Attribute1,
+                   DefaultLogo: DefaultLogo, RefCorpCompany: RefCorpCompany, OtherReference1: OtherReference1, OtherReference2: OtherReference2, Commision: Commision,
+                   Facebook:Facebook,Twitter:Twitter,GooglePlus:GooglePlus,WebPortal:WebPortal,BackgroundImg:BackgroundImg,Attribute1: Attribute1,
                    Attribute2: Attribute2, Attribute3: Attribute3, Attribute4: Attribute4, Attribute5: Attribute5, Attribute6: Attribute6, Attribute7: Attribute7, Attribute8: Attribute8,
                    Attribute9: Attribute9, Attribute10: Attribute10, EntryDatetime: EntryDatetime, CretedBy: CretedBy, EditedBy: EditedBy, EditDatetime: EditDatetime, CorpcentreBy: CorpcentreBy,
                    UnitCorpBy: UnitCorpBy, TerminalBy: TerminalBy, BranchBy: BranchBy
@@ -106,7 +114,7 @@ $(document).ready(function () {
                            $("#btnupdatebasic").hide();
                        }
                        else {
-                           swal('Good job!', response['responseText'], 'success')
+                           swal('Good job!',response['responseText'], 'success')
                            $("#btnupdatebasic").show();
                            $("#btnsavebasic").hide();
                        }
@@ -122,6 +130,7 @@ $(document).ready(function () {
                        $('#txtsrnouserpref').val(response['srno']);
                        $('#txtsrnotab4').val(response['srno']);
                        $('#txtsrnotab3').val(response['srno']);
+                       $('#txtsrnotab6').val(response['srno']);
 
                        BindGrid();
                    }
@@ -135,8 +144,10 @@ $(document).ready(function () {
     $('#CreateCorporate').click(function (e) {
         Dropdown_Bind_Tab1();
         Dropdown_Bind_user_preferance();
-
+        Binddropdowntab3();
         Dropdown_Bind_Userpreferance_Checkbox();
+        Dropdown_Bind_user_preferance();
+        Binddropdowntab6();
     });
 
     $('.btnclearbasicclass').click(function (e) {
@@ -170,6 +181,8 @@ $(document).ready(function () {
 
     });
 
+   
+
     $("table").delegate(".editor_Step", "click", function () {
         Dropdown_Bind_Tab1();
         $("#SearchMaster").removeClass("active");
@@ -201,6 +214,8 @@ $(document).ready(function () {
                      $('#txtsrnouserpref').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
                      $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
+                     $('#txtsrnotab6').val(response['Whiteregjs'][0]['srno']);
+                     
                      $('#txtsrno').val(response['Whiteregjs'][0]['srno']);
                      $('#txtCmpOfficeName').val(response['Whiteregjs'][0]['CorpCoOfficialName']);
                      $('#drpcompanyIndustry').find('option[value="' + response['Whiteregjs'][0]['CorpCompanyIndust'] + '"]').attr('selected', true).change();
@@ -247,6 +262,12 @@ $(document).ready(function () {
                      $('#txtOtherRefference1').val(response['Whiteregjs'][0]['OtherReference1']);
                      $('#txtOtherRefference2').val(response['Whiteregjs'][0]['OtherReference2']);
                      $('#txtCommision').val(response['Whiteregjs'][0]['Commision']);
+                     $('#txtfacebook').val(response['Whiteregjs'][0]['Facebook']);
+                     $('#txttwitter').val(response['Whiteregjs'][0]['Twitter']);
+                     $('#txtgoogleplus').val(response['Whiteregjs'][0]['GooglePlus']);
+                     $('#txtwebportal').val(response['Whiteregjs'][0]['WebPortal']);
+                     $('#txtbackgroundimg').val(response['Whiteregjs'][0]['BackgroundImg']);
+
                      $("#SearchMaster").removeClass("active");
                      $("#CreateMaster").addClass("active");
                      $("#Search").removeClass("active");
@@ -256,6 +277,7 @@ $(document).ready(function () {
                      hostingedit();
                      subcribedit();
                      Userprefedit();
+                     PasswordEdit();
                  }
              }
          });
@@ -352,9 +374,9 @@ $(document).ready(function () {
     });
 
     $('#tabuserpreferance').click(function (e) {
-
+      
         if ($('#txtsrnouserpref').val() != '') {
-
+            
         }
         else {
             e.preventDefault();
@@ -363,11 +385,12 @@ $(document).ready(function () {
             return false;
         }
 
-        //  Dropdown_Bind_user_preferance();
-        //  Dropdown_Bind_Userpreferance_Checkbox();
-
+      //  Dropdown_Bind_user_preferance();
+      //  Dropdown_Bind_Userpreferance_Checkbox();
+        
     });
 
+   
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
         if ($('#txtsrnouserpref').val() != "") {
@@ -387,12 +410,12 @@ $(document).ready(function () {
                 if (index != 0) {
                     OtherPreferences = OtherPreferences + ',';
                 }
-
+                
                 OtherPreferences += $(this).val().trim();
                 index = 1;
             }
         });
-
+       
         var Attribute1 = '';
         var Attribute2 = '';
         var Attribute3 = '';
@@ -430,7 +453,6 @@ $(document).ready(function () {
             }
         });
     });
-
     $('#btnclearuserpref').click(function (e) {
         //$('input:checkbox').removeAttr('checked');
         //$(userperferancechk).attr('checked', false);
@@ -449,7 +471,6 @@ $(document).ready(function () {
         $("#Search").addClass("active");
 
     });
-
     $(".btnSavebillingmain").click(function (e) {
         e.preventDefault();
         if (!validateForm($(this).parent())) {
@@ -514,18 +535,21 @@ $(document).ready(function () {
            });
     });
 
-    $("#Tab4").click(function (e) {
 
+    $("#Tab4").click(function (e) {
+         
         if ($('#txtsrnotab4').val() != '') {
-            Bindtab4dropdown();
-        }
-        else {
-            e.preventDefault();
-            swal('Please Edit Data');
-            Quitform();
-            return false;
-        }
+              Bindtab4dropdown();
+          }
+          else {
+              e.preventDefault();
+              swal('Please Edit Data');
+              Quitform();
+              return false;
+          }
     });
+
+  
 
     $("#drpbillingcountry").change(function (e) {
         Bindbillingcountry();
@@ -535,6 +559,8 @@ $(document).ready(function () {
     $("#drpbillingState").change(function (e) {
         Bindbillingstate();
     });
+   
+
 
     $('.btnbillingclear').click(function (e) {
 
@@ -561,7 +587,7 @@ $(document).ready(function () {
     $("#Tab3").click(function (e) {
         // Binddropdowntab3();
         if ($('#txtsrnotab3').val() != '') {
-
+            Binddropdowntab3();
         }
         else {
             e.preventDefault();
@@ -570,6 +596,9 @@ $(document).ready(function () {
             return false;
         }
     });
+
+   
+
 
     $(".btnsavetab3class").click(function (e) {
         e.preventDefault();
@@ -666,11 +695,14 @@ $(document).ready(function () {
         $("#btnSavetab3").show();
     });
 
+   
+
     $("#txtAmountPerUserPerMonth").change(function (e) {
-        if (($("#txtNumberofUsers").val() != null) && ($("#txtAmountPerUserPerMonth").val() != null)) {
+        if(($("#txtNumberofUsers").val()!=null) && ($("#txtAmountPerUserPerMonth").val()!=null))
+        {
             // $("#txtTotalAmountPerMonth").val() = ($("txtNumberofUsers").val() * $("#txtAmountPerUserPerMonth").val());
             var t1 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
-
+            
             console.log(t1);
             if (t1 != "Nan") {
                 $("#txtTotalAmountPerMonth").val(t1);
@@ -690,6 +722,114 @@ $(document).ready(function () {
         }
 
     });
+
+    $("#Tab6").click(function (e) {
+
+        if ($('#txtsrnotab6').val() != '') {
+
+        }
+        else {
+            e.preventDefault();
+            swal('Please Edit Data');
+            Quitform();
+            return false;
+        }
+    });
+
+    $('.btnsavepasswordauth').click(function (e) {
+
+        e.preventDefault();
+        if (!validateForm($(this).parent())) {
+            swal('Invalid data found!')
+            return false;
+        }
+        if ($('#txtsrnotab6').val() != "") {
+            var srno = $('#txtsrnotab6').val();
+        }
+        else {
+            var srno = '';
+        }
+        var Corporate = $("#hdfsrno").val();
+       
+        var CapitalCharNumber = $('#txtrequiredcapitalcharacters').val();
+        var RequiredNumeric = $('#txtrequirednumeric').val();
+        var SpecialCharNumber = $('#txtrequiredspecialcharacter').val();
+        var EncriptionKey = $('#drpencryptkey option:selected').val();
+        var PasswordMinLength = $('#txtpasswordminimumlength').val();
+        var PasswordExpiryDays = $('#txtpasswordexpirydays').val();
+
+        var UserLoginDay = ''; // remove
+
+        var NumberOfAttempts = $('#txtnumberofattemptslock').val();
+        var NumberOfAttemptsTime = ''; //remove
+
+        var OTPExpiryTime = $('#txtotpexpirytime').val();
+        var LastSamePassword = $('#txtlastsamepassword').val();
+        var UnableCaptcha = $('#txtcaptchaenableattempt').val();
+        var AutoLockScreen = ''; // remove
+
+        var UserUnlockMinut = $('#txtuserlockunlockminuts').val();
+        var Continuenumber = $('#txtcontinuenumber').val();
+
+        var Attribute1 = '';
+        var Attribute2 = '';
+        var Attribute3 = '';
+        var Attribute4 = '';
+        var Attribute5 = '';
+        var Attribute6 = '';
+        var Attribute7 = '';
+        var Attribute8 = '';
+        var Attribute9 = '';
+        var Attribute10 = '';
+        $.ajax(
+           {
+               type: "POST",
+               url: "/WhitelabelStep1/insert_PasswordAuth",
+               data: {
+                   "srno": srno, "Corporate": Corporate,
+                   "CapitalCharNumber": CapitalCharNumber, "RequiredNumeric": RequiredNumeric, "SpecialCharNumber": SpecialCharNumber,
+                   "EncriptionKey": EncriptionKey, "PasswordMinLength": PasswordMinLength, "PasswordExpiryDays": PasswordExpiryDays,
+                   "UserLoginDay": UserLoginDay, "NumberOfAttempts": NumberOfAttempts, "NumberOfAttemptsTime": NumberOfAttemptsTime,
+                   "OTPExpiryTime": OTPExpiryTime, "LastSamePassword": LastSamePassword, "UnableCaptcha": UnableCaptcha,
+                   "AutoLockScreen":AutoLockScreen,"UserUnlockMinut":UserUnlockMinut,"Continuenumber":Continuenumber,
+                    "Attribute1": Attribute1, "Attribute2": Attribute2, "Attribute3": Attribute3, "Attribute4": Attribute4, "Attribute5": Attribute5, "Attribute6": Attribute6,
+                   "Attribute7": Attribute7, "Attribute8": Attribute8, "Attribute9": Attribute9, "Attribute10": Attribute10
+               },
+               dataType: 'json',
+               success: function (response) {
+                   if (response != null && response.success) {
+                       swal('Good job!', 'Record Save Sucessfully!', 'success')
+                       $("#btnUpdatepassword").show();
+                       $("#btnSavepassword").hide();
+                   }
+               }
+           });
+
+
+    });
+
+    $("#btnclearpassword").click(function (e) {
+
+        $('input[type="text"]').val('');
+      
+        $('.Dropdown').each(function () {
+            $(this).val($(this).find('option:first').val()).change();
+        });
+    });
+
+    $("#btnquitpassword").click(function (e) {
+        $("#tab6").removeClass("active");
+        $("#Tab6").removeClass("active");
+        $("#Search").addClass("active");
+        $("#tab1").addClass("active");
+
+        $("#btnUpdatepassword").hide();
+        $("#btnCancelpassword").hide();
+        $("#btnSavepassword").show();
+
+        BindGrid();
+    });
+
 });
 
 function Dropdown_Bind_Tab1() {
@@ -772,7 +912,6 @@ function Dropdown_Bind_Tab1() {
         }
     });
 }
-
 function BindGrid() {
     var tablename = 'dbo._White_Register_Basic';
     var Corporate = '0';
@@ -843,7 +982,7 @@ function hostingedit() {
          dataType: 'json',
          success: function (response) {
              if (response['Whiteregjs'].length > 0) {
-
+                 
                  $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
                  setSelect2Value($('#drpCloudProvider'), response['Whiteregjs'][0]['CloudProvider']);
                  setSelect2Value($('#drpCloudServerIP'), response['Whiteregjs'][0]['CloudServerIp']);
@@ -873,7 +1012,6 @@ function hostingedit() {
      });
 
 }
-
 function subcribedit() {
 
     //Binddropdowntab3();
@@ -896,7 +1034,7 @@ function subcribedit() {
          dataType: 'json',
          success: function (response) {
              if (response['Whiteregjs'].length > 0) {
-
+                
                  $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
                  $('#txtPlanName').val(response['Whiteregjs'][0]['PlanName']);
                  $('#txtNumberofUsers').val(response['Whiteregjs'][0]['NumberOfUsers']);
@@ -951,20 +1089,21 @@ function Dropdown_Bind_Userpreferance_Checkbox() {
         },
         success: function (response) {
             if (response['WRcheckbox'].length > 0) {
-                $("#userperferancechk").html('');
+            $("#userperferancechk").html('');
+           
+            for (var i = 0; i < response['WRcheckbox'].length; i++) {
+                if (html == '') {
+                    html = ' <div class="form-group"> <div class="col-md-7 form-marings">' +
+                            '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
+                            
+                }
+                else
+                {
+                    html = html + ' <div class="form-group"> <div class="col-md-7 form-marings">' +
+                            '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
+                            
 
-                for (var i = 0; i < response['WRcheckbox'].length; i++) {
-                    if (html == '') {
-                        html = ' <div class="form-group"> <div class="col-md-7 form-marings">' +
-                                '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
-
-                    }
-                    else {
-                        html = html + ' <div class="form-group"> <div class="col-md-7 form-marings">' +
-                                '<div class=""><span><input type="checkbox" id=="' + response['WRcheckbox'][i]['Value'] + '" value="' + response['WRcheckbox'][i]['Value'] + '"/></span>&nbsp;&nbsp;' + response['WRcheckbox'][i]['Text'] + '</div></div></div>'
-
-
-                    }
+                }
                 }
                 $(html).appendTo($("#userperferancechk"))
             }
@@ -974,7 +1113,6 @@ function Dropdown_Bind_Userpreferance_Checkbox() {
         }
     });
 }
-
 function Dropdown_Bind_user_preferance() {
 
     var Module = '';
@@ -1077,7 +1215,6 @@ function Bindtab4dropdown() {
 
 
 }
-
 function Bindbillingcountry() {
     var srno = '0';
     var Module = '';
@@ -1124,7 +1261,6 @@ function Bindbillingcountry() {
     });
 
 }
-
 function Bindbillingstate() {
     var srno = '0';
     var Module = '';
@@ -1209,15 +1345,10 @@ function billingedit() {
                  $('#txtBillingTelephone').val(response['Whiteregjs'][0]['BillingPhone']);
                  $('#txtBillingCellPhone').val(response['Whiteregjs'][0]['BillingContactMobile']);
                  // setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
-                 var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
-                 console.log(dataarray);
-                 // $("#drpSupportMode").val(dataarray);
-                 console.log(dataarray.length);
+                 //   var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
+                 alert(response['Whiteregjs'][0]['SupportMode']);
+                 $('#drpSupportMode').find('option[value="' + response['Whiteregjs'][0]['SupportMode'] + '"]').attr('selected', true).change();
 
-                 //var values = dataarray;
-                 //$.each(values.split(","), function (i, e) {
-                 //    $("#drpSupportMode option[value='" + e + "']").prop("selected", true);
-                 //});
 
                  $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
                  $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
@@ -1233,7 +1364,7 @@ function Binddropdowntab3() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '2';
+    var Corporate = '1';
     var unit = '0';
     var Branch = '0';
     var userid = '0';
@@ -1344,12 +1475,13 @@ function Binddropdowntab3() {
 
 }
 
-function Userprefedit() {
+function Userprefedit()
+{
     $('#btnUpdateuserpref').hide();
     $('#btnCanceluserpref').hide();
 
 
-    // Dropdown_Bind_Userpreferance_Checkbox();
+   // Dropdown_Bind_Userpreferance_Checkbox();
     Dropdown_Bind_user_preferance();
 
 
@@ -1373,6 +1505,7 @@ function Userprefedit() {
              },
              dataType: 'json',
              success: function (response) {
+                
 
                  if (response['UserPreferancestep1js'].length > 0) {
                      $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['srno']);
@@ -1392,16 +1525,16 @@ function Userprefedit() {
                          });
                      });
                  }
-
-
+                 
              }
          });
     }
 
 }
 
-function Quitform() {
-
+function Quitform()
+{
+    
     $("#tab1").addClass("active");
     $("#CreateCorporate").removeClass("active");
     $("#Tab3").removeClass("active");
@@ -1415,11 +1548,112 @@ function Quitform() {
     $("#tab4").removeClass("active");
     $("#tab5").removeClass("active");
     $("#tab6").removeClass("active");
-
+  
     $("#Search").focus();
     $("#Tab3").focusout();
-
+    
     BindGrid();
+
+}
+
+function Binddropdowntab6() {
+
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '0';
+    var unit = '0';
+    var Branch = '0';
+    var userid = '0';
+    var Ip = '';
+    var Type = 'DropDown';
+    var html = "";
+    $.ajax({
+        url: "/WhitelabelStep1/Binddropdowntab6",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+            unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type
+        },
+        success: function (response) {
+
+            if (response['UPdrp'].length > 0) {
+
+                $('#drpencryptkey').html('');
+                for (var i = 0; i < response['UPdrp'].length; i++) {
+                    var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
+
+                    $('#drpencryptkey').append(opt);
+                }
+                $('#drpencryptkey option:first').attr('selected', 'selected').change();
+            }
+
+
+        }
+    });
+
+}
+
+function PasswordEdit()
+{
+    $('#btnUpdatepassword').hide();
+    $('#btnCancelpassword').hide();
+
+
+   // Dropdown_Bind_Userpreferance_Checkbox();
+    Dropdown_Bind_user_preferance();
+
+
+    if ($('#txtsrnotab6').val() != "") {
+        var srno = $('#txtsrnotab6').val();
+        $('#btnUpdatepassword').show();
+        $('#btnCancelpassword').hide();
+        $('#btnSavepassword').hide();
+        var tablename = 'dbo._PasswordConfiguration';
+        var Corporate = $("#hdfsrno").val();
+        var unit = '0';
+        var Formcode = '0';
+        var Formtabcode = '0';
+        var Type = 'EditMode';
+        $.ajax(
+         {
+             type: "POST",
+             url: "/WhitelabelStep1/Edit_data_password_authenticate",
+             data: {
+                 tablename: tablename, Corporate: Corporate, unit: unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+             },
+             dataType: 'json',
+             success: function (response) {
+                
+
+                 if (response['UserPreferancestep1js'].length > 0) {
+                     $('#txtsrnotab6').val(response['UserPreferancestep1js'][0]['srno']);
+                     //$('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['Corporate']);
+                     $('#txtrequiredcapitalcharacters').val(response['UserPreferancestep1js'][0]['CapitalCharNumber']);
+                     $('#txtrequirednumeric').val(response['UserPreferancestep1js'][0]['RequiredNumeric']);
+                     $('#txtrequiredspecialcharacter').val(response['UserPreferancestep1js'][0]['SpecialCharNumber']);
+                     $('#txtpasswordminimumlength').val(response['UserPreferancestep1js'][0]['PasswordMinLength']);
+                     $('#txtpasswordexpirydays').val(response['UserPreferancestep1js'][0]['PasswordExpiryDays']);
+                     // $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['UserLoginDay']);
+                     $('#txtnumberofattemptslock').val(response['UserPreferancestep1js'][0]['NumberOfAttempts']);
+                     $('#txtuserlockunlockminuts').val(response['UserPreferancestep1js'][0]['NumberOfAttemptsTime']);
+                     $('#txtotpexpirytime').val(response['UserPreferancestep1js'][0]['OTPExpiryTime']);
+                     $('#txtlastsamepassword').val(response['UserPreferancestep1js'][0]['LastSamePassword']);
+                     // $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['UnableCaptcha']);
+                     // $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['AutoLockScreen']);
+                     setSelect2Value($('#drpencryptkey'), response['UserPreferancestep1js'][0]['EncriptionKey']);
+
+
+                     $('#txtuserlockunlockminuts').val(response['UserPreferancestep1js'][0]['UserUnlockMinut']);
+                     $('#txtcontinuenumber').val(response['UserPreferancestep1js'][0]['Continuenumber']);
+                 }
+
+
+             }
+         });
+    }
 
 }
 

@@ -48,6 +48,12 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@OtherReference2", WR.OtherReference2);
                 _cmd.Parameters.AddWithValue("@Commision", WR.Commision);
 
+                _cmd.Parameters.AddWithValue("@Facebook", WR.Facebook);
+                _cmd.Parameters.AddWithValue("@Twitter", WR.Twitter);
+                _cmd.Parameters.AddWithValue("@GooglePlus", WR.GooglePlus);
+                _cmd.Parameters.AddWithValue("@WebPortal", WR.WebPortal);
+                _cmd.Parameters.AddWithValue("@BackgroundImg", WR.BackgroundImg);
+
                 _cmd.Parameters.AddWithValue("@Attribute1", WR.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", WR.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", WR.Attribute3);
@@ -893,7 +899,141 @@ namespace GreenTravel.App_DbService
             }
         }
 
+        public DataSet Binddropdowntab6(WhitelabelReg WR)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Formload_PasswordConfiguration", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
 
+                _cmd.Parameters.AddWithValue("@Module", WR.Module);
+                _cmd.Parameters.AddWithValue("@screen", WR.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", WR.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", WR.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", WR.unit);
+                _cmd.Parameters.AddWithValue("@Branch", WR.Branch);
+                _cmd.Parameters.AddWithValue("@userid", WR.userid);
+                _cmd.Parameters.AddWithValue("@Ip", WR.Ip);
+                _cmd.Parameters.AddWithValue("@Type", WR.Type);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+
+
+        public DataSet insert_PasswordAuth(Password_Authentication PA)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_save_PasswordConfiguration", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@srno", PA.srno);
+                _cmd.Parameters.AddWithValue("@Corporate", PA.Corporate);
+
+                _cmd.Parameters.AddWithValue("@CapitalCharNumber", PA.CapitalCharNumber);
+                _cmd.Parameters.AddWithValue("@RequiredNumeric", PA.RequiredNumeric);
+                _cmd.Parameters.AddWithValue("@SpecialCharNumber", PA.SpecialCharNumber);
+                _cmd.Parameters.AddWithValue("@EncriptionKey", PA.EncriptionKey);
+                _cmd.Parameters.AddWithValue("@PasswordMinLength", PA.PasswordMinLength);
+                _cmd.Parameters.AddWithValue("@PasswordExpiryDays", PA.PasswordExpiryDays);
+                _cmd.Parameters.AddWithValue("@UserLoginDay", PA.UserLoginDay);      
+                _cmd.Parameters.AddWithValue("@NumberOfAttempts", PA.NumberOfAttempts);
+                _cmd.Parameters.AddWithValue("@NumberOfAttemptsTime", PA.NumberOfAttemptsTime);
+                _cmd.Parameters.AddWithValue("@OTPExpiryTime", PA.OTPExpiryTime);
+                _cmd.Parameters.AddWithValue("@LastSamePassword", PA.LastSamePassword);
+                _cmd.Parameters.AddWithValue("@UnableCaptcha", PA.UnableCaptcha);
+                _cmd.Parameters.AddWithValue("@AutoLockScreen", PA.AutoLockScreen);
+
+                _cmd.Parameters.AddWithValue("@UserLockMinuts", PA.UserUnlockMinut);
+                _cmd.Parameters.AddWithValue("@Continuenumber", PA.Continuenumber);
+
+                _cmd.Parameters.AddWithValue("@Attribute1", PA.Attribute1);
+                _cmd.Parameters.AddWithValue("@Attribute2", PA.Attribute2);
+                _cmd.Parameters.AddWithValue("@Attribute3", PA.Attribute3);
+                _cmd.Parameters.AddWithValue("@Attribute4", PA.Attribute4);
+                _cmd.Parameters.AddWithValue("@Attribute5", PA.Attribute5);
+                _cmd.Parameters.AddWithValue("@Attribute6", PA.Attribute6);
+                _cmd.Parameters.AddWithValue("@Attribute7", PA.Attribute7);
+                _cmd.Parameters.AddWithValue("@Attribute8", PA.Attribute8);
+                _cmd.Parameters.AddWithValue("@Attribute9", PA.Attribute9);
+                _cmd.Parameters.AddWithValue("@Attribute10", PA.Attribute10);
+
+                _cmd.Parameters.AddWithValue("@CreatedBy", PA.CreatedBy);
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", PA.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", PA.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", PA.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", PA.BranchBy);
+
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+
+        }
+
+        public DataSet Edit_data_password_authenticate(Password_Authentication PA)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Edit_PasswordConfiguration", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@tablename", "_PasswordConfiguration");
+                _cmd.Parameters.AddWithValue("@Corporate", PA.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", "0");
+                _cmd.Parameters.AddWithValue("@Formcode", "0");
+                _cmd.Parameters.AddWithValue("@Formtabcode", "0");
+                _cmd.Parameters.AddWithValue("@srno", PA.srno);
+                _cmd.Parameters.AddWithValue("@Type", "EditMode");
+                _cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                DataSet _ds = new DataSet();
+                _adp.Fill(_ds);
+                _adp.Dispose();
+                _cmd.Dispose();
+                return _ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
     
     }
 }

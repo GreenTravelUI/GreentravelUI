@@ -14,13 +14,11 @@ namespace GreenTravel.Controllers
     {
         DataSet ds = new DataSet();
         DBFromControlSetup _objDCFS = new DBFromControlSetup();
-        
+
         public ActionResult Index()
         {
-
             return View();
         }
-        
         public ActionResult Insert_Data(FrmControlSetup FCS)
         {
             try
@@ -41,7 +39,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult BindDropDown(commanbaseParamater CBP)
         {
             try
@@ -64,7 +61,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult BindDropDownLoadColumn(CommanFieldPara _CBP)
         {
             try
@@ -87,8 +83,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-  
-
         public ActionResult BindGridView(GridParamater GP)
         {
             try
@@ -122,7 +116,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult Edit_Data(Edit_AdminMaster EA)
         {
             try
@@ -165,7 +158,6 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult DeleteData(commanbaseParamater CBP)
         {
             try

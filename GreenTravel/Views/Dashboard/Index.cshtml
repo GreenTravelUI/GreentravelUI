@@ -3,6 +3,12 @@
     ViewBag.PageTitle = "Dashboard";
     
 }
+@{
+    if (Session["CreatedBy"] != null)
+    { }
+    else
+    { Response.Redirect(Url.Action("index", "Home")); }
+}
 <link href="/assets/css/daterangepicker.css" rel="stylesheet" />
 <link href="/assets/plugins/morris/morris.css" rel="stylesheet" />
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />

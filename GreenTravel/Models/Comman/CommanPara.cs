@@ -12,85 +12,52 @@ namespace GreenTravel.Models.Comman
         //public string _Corporate="2";
         //public string _Unit="1";
         //public string _Branch="11";
-
-
         public string CreatedBy
         {
             get;
             set;
-            //get
-            //{
-            //    return _Userid;
-            //}
-            //set
-            //{
-            //    _Userid = value;
-            //}
         }
-
         public string CorpcentreBy
         {
             get;
             set;
-            //get
-            //{
-            //    return _Corporate;
-            //}
-            //set
-            //{
-            //    _Corporate = value;
-            //}
         }
-
         public string UnitCorpBy
         {
             get;
             set;
-            //get
-            //{
-            //    return _Unit;
-            //}
-            //set
-            //{
-            //    _Unit = value;
-            //}
         }
-
         public string BranchBy
         {
             get;
             set;
-            //get
-            //{
-            //    return _Branch;
-            //}
-            //set
-            //{
-            //    _Branch = value;
-            //}
+
         }
         public string TerminalBy
         {
             get;
             set;
-            //get
-            //{
-            //    return _ip;
-            //}
-            //set
-            //{
-            //    _ip = value;
-            //}
         }
-
+        public string Location
+        {
+            get;
+            set;
+        }
         public CommanPara()
         {
-            CreatedBy = "1";
-          //  CorpcentreBy = HttpContext.Current.Session["Corporate"].ToString();
-            CorpcentreBy ="2";
-            UnitCorpBy = "1";
-            BranchBy = "11";
+            // CreatedBy = "1";
+            CreatedBy = HttpContext.Current.Session["CreatedBy"].ToString();
+            // CorpcentreBy ="2";
+            CorpcentreBy = HttpContext.Current.Session["Corporate"].ToString();
+            //UnitCorpBy = "1";
+            UnitCorpBy = HttpContext.Current.Session["UnitCorpBy"].ToString();
+            //BranchBy = "11";
+            BranchBy = HttpContext.Current.Session["BranchBy"].ToString();
             TerminalBy = "103.11.29.22";
+            Location = HttpContext.Current.Session["Location"].ToString();
+            //TerminalBy = HttpContext.Current.Session["TerminalBy"].ToString();
+
+
         }
 
     }

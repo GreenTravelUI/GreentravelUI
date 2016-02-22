@@ -20,7 +20,6 @@ namespace GreenTravel.Controllers
         {
             return View();
         }
-
         #region Tab FromSetup
         public ActionResult InsertData(Formsetup FS)
         {
