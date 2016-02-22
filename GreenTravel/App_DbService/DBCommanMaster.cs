@@ -683,30 +683,13 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@MultiSelect4", CUH.UMultiSelect4);
                 _cmd.Parameters.AddWithValue("@MultiSelect5", CUH.UMultiSelect5);
 
-                _cmd.Parameters.AddWithValue("@CreatedBy", CUH.UCreatedBy);
-                if (CUH.UEntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(CUH.UEntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", CUH.UEditedBy);
-
-                if (CUH.UEditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(CUH.UEditDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@CorpcentreBy", CUH.UCorpcentreBy);
-                _cmd.Parameters.AddWithValue("@UnitCorpBy", CUH.UUnitCorpBy);
-                _cmd.Parameters.AddWithValue("@TerminalBy", CUH.UTerminalBy);
-                _cmd.Parameters.AddWithValue("@BranchBy", CUH.UBranchBy);
-                _cmd.Parameters.AddWithValue("@UserId", CUH.UUserId);
+                _cmd.Parameters.AddWithValue("@CreatedBy", CUH.CreatedBy);
+                
+                _cmd.Parameters.AddWithValue("@CorpcentreBy", CUH.CorpcentreBy);
+                _cmd.Parameters.AddWithValue("@UnitCorpBy", CUH.UnitCorpBy);
+                _cmd.Parameters.AddWithValue("@TerminalBy", CUH.TerminalBy);
+                _cmd.Parameters.AddWithValue("@BranchBy", CUH.BranchBy);
+                _cmd.Parameters.AddWithValue("@UserId", CUH.CreatedBy);
 
                 // int i = _cmd.ExecuteNonQuery();
                 // return i;

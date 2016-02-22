@@ -358,3 +358,38 @@ function clearValidations(frm) {
         $(this).parent().find('p.red-error').remove();
     });
 }
+
+/* Clear All Validation Code From Given Form */
+function clearCodes(frm) {
+    frm.find('input').each(function () {
+        clearControlCode($(this));
+    });
+    frm.find('textarea').each(function () {
+        clearControlCode($(this));
+    });
+    frm.find('select').each(function () {
+        clearControlCode($(this));
+    });
+}
+
+function clearControlCode(control) {
+    control.removeClass('req');
+    control.removeClass('max');
+    control.removeAttr('data-max');
+    control.removeClass('min');
+    control.removeAttr('data-min');
+    control.removeClass('alphbet');
+    control.removeClass('alphnum');
+    control.removeClass('passwordcrite');
+    control.removeClass('num');
+    control.removeClass('email');
+    control.removeClass('emailpassword');
+    control.removeClass('url');
+    control.removeClass('amt');
+    control.removeClass('confirm');
+    control.removeAttr('data-confirm');
+    control.removeClass('reg');
+    control.removeAttr('data-reg');
+    control.removeClass('datecompair');
+    control.removeAttr('data-datecom');
+}

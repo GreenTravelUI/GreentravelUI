@@ -604,60 +604,60 @@ function preventEditedMasterSelection(control) {
 }
 
 function FillDropDown_Category() {
-    $('#drpSegment').html('');
-    $('#drpSegment').append($('<option value="0">--None--</option>'));
-    $('#drpSegment').append($('<option value="1">Travels</option>'));
+    //$('#drpSegment').html('');
+    //$('#drpSegment').append($('<option value="0">--None--</option>'));
+    //$('#drpSegment').append($('<option value="1">Travels</option>'));
 
-    $('#drpCorporate').html('');
-    $('#drpCorporate').append($('<option value="0">--None--</option>'));
-    $('#drpCorporate').append($('<option value="1">Flamingo</option>'));
-    $('#drpCorporate').append($('<option value="2">Travels Unlimited</option>'));
+    //$('#drpCorporate').html('');
+    //$('#drpCorporate').append($('<option value="0">--None--</option>'));
+    //$('#drpCorporate').append($('<option value="1">Flamingo</option>'));
+    //$('#drpCorporate').append($('<option value="2">Travels Unlimited</option>'));
 
-    $('#drpEntrylevel').html('');
-    $('#drpEntrylevel').append($('<option value="0">--None--</option>'));
-    $('#drpEntrylevel').append($('<option value="1">Admin</option>'));
-    $('#drpEntrylevel').append($('<option value="2">General</option>'));
+    //$('#drpEntrylevel').html('');
+    //$('#drpEntrylevel').append($('<option value="0">--None--</option>'));
+    //$('#drpEntrylevel').append($('<option value="1">Admin</option>'));
+    //$('#drpEntrylevel').append($('<option value="2">General</option>'));
 
-    //var Module = '';
-    //var screen = '';
-    //var FormCode = '';
-    //var TabCode = '';
-    //var Corporate = '0';
-    //var unit = '';
-    //var Branch = '';
-    //var userid = '';
-    //var Ip = '';
-    //var Language = '';
-    //var Type = 'DropDown';
-    //$.ajax({
-    //    url: "/AllMaster/BindDropDown",
-    //    type: "POST",
-    //    async: false,
-    //    dataType: "json",
-    //    data: {
-    //        Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
-    //        Ip: Ip, Language: Language, Type: Type
-    //    },
-    //    success: function (data) {
-    //        if (data['Segment'].length > 0) {
-    //            $('#drpSegment').html('');
-    //            for (var i = 0; i < data['Segment'].length; i++) {
-    //                var opt = new Option(data['Segment'][i]['Text'], data['Segment'][i]['Value']);
-    //                $('#drpSegment').append(opt);
-    //            }
-    //        }
-    //        if (data['Corporate'].length > 0) {
-    //            $('#drpCorporate').html('');
-    //            for (var i = 0; i < data['Corporate'].length; i++) {
-    //                var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
-    //                $('#drpCorporate').append(opt);
-    //            }
-    //        }
-    //    },
-    //    error: function (data) {
-    //        alert("error found");
-    //    }
-    //});
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '0';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var Language = '';
+    var Type = 'DropDown';
+    $.ajax({
+        url: "/AllMaster/BindDropDown",
+        type: "POST",
+        async: false,
+        dataType: "json",
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Language: Language, Type: Type
+        },
+        success: function (data) {
+            if (data['Segment'].length > 0) {
+                $('#drpSegment').html('');
+                for (var i = 0; i < data['Segment'].length; i++) {
+                    var opt = new Option(data['Segment'][i]['Text'], data['Segment'][i]['Value']);
+                    $('#drpSegment').append(opt);
+                }
+            }
+            if (data['Corporate'].length > 0) {
+                $('#drpCorporate').html('');
+                for (var i = 0; i < data['Corporate'].length; i++) {
+                    var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
+                    $('#drpCorporate').append(opt);
+                }
+            }
+        },
+        error: function (data) {
+            alert("error found");
+        }
+    });
 }
 
 function bind_dropdown() {

@@ -20,6 +20,10 @@ namespace GreenTravel.Controllers
 
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("index", "Home");
+            }
             return View();
         }
         // -------------------->> Tab-4 ( Create Access Rights )
