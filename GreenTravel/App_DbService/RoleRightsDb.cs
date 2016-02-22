@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Data;
 using GreenTravel.Models.Comman;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GreenTravel.App_DbService
 {
@@ -270,6 +271,7 @@ namespace GreenTravel.App_DbService
         {
             try
             {
+                _cn = new SqlConnection(ConfigurationManager.ConnectionStrings["gtcon"].ToString());
                 _cn.Open();
                 SqlCommand _cmd = new SqlCommand("Sp_Grid_RoleMaster", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;

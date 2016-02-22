@@ -2,12 +2,15 @@
 $(window).unload(function () {
     $('select option').remove();
 });
-
+var corp = $('#myHiddenVar').val();
 $(document).ready(function () {
 
     FillDropDown_RightsCorporate();
     FillDropDown_Corporate();
     setSelect2Value($('#DrpLocationTab2'), '0');
+    $("#drpCorporate").prop('disabled', true);
+    $("#drpRightsCorporate").prop('disabled', true);
+
     BindGrid();
     // ==============================================================================================================================  ( Tab-1 && Tab-2)      //
     $("#drpCorporate").change(function () {
@@ -65,6 +68,7 @@ $(document).ready(function () {
             // $(this).val($(this).find('option:first').val()).change();
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
+        setSelect2Value($('#drpCorporate'), corp);
     });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -535,7 +539,14 @@ function FillDropDown_Corporate() {
                     var opt = new Option(response['Corp'][i]['Text'], response['Corp'][i]['Value']);
                     $('.formcorporate').append(opt);
                 }
-                setSelect2Value($('#drpCorporate'), '0');
+                //setSelect2Value($('#drpCorporate'), '0');
+                setSelect2Value($('#drpCorporate'), corp);
+                $('#DrpLocationTab2').html('');
+                $('#DrpUnitTab2').html('');
+                setSelect2Value($('#DrpLocationTab2'), '0');
+                FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
+
+
             }
         },
     });
@@ -588,7 +599,7 @@ function CompareValidation($attr1, $attr2) {
 }
 function BindGrid() {
     var tablename = 'dbo._User_Details_Master';
-    var Corporate = '1';
+    var Corporate = corp;
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
@@ -701,7 +712,7 @@ function FillDropDown_RightsCorporate() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '0';
+    var Corporate = corp;
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -724,7 +735,8 @@ function FillDropDown_RightsCorporate() {
                         var opt = new Option(data['Corp'][i]['Text'], data['Corp'][i]['Value']);
                         $('#drpRightsCorporate').append(opt);
                     }
-                    setSelect2Value($('#drpRightsCorporate'), '0');
+                    setSelect2Value($('#drpRightsCorporate'), corp);
+                    $("#drpRightsCorporate").change();
                 }
                 if (data['Status'].length > 0) {
                     $('#drpRightsStatus').html('');
