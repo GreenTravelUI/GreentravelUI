@@ -2,6 +2,14 @@
     ViewBag.Title = "Form Control Set-Up";
     ViewBag.PageTitle = "Form Control Set-Up";
 }
+
+@{
+    if (Session["CreatedBy"] != null)
+    { }
+    else
+    { Response.Redirect(Url.Action("index", "Home")); }
+}
+
 @{ 
     var queryValue = Request.QueryString["id"];  
 }

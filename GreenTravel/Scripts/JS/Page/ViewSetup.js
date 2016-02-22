@@ -116,6 +116,7 @@ $(document).ready(function () {
         $('#btnSaveCreateView').show();
         $('.tab2section1').hide();
         $('.Viewnameclass').text('');
+       
     });
     //Quit  Create View
     $('#btnQuitCreateview').click(function (e) {
@@ -129,6 +130,7 @@ $(document).ready(function () {
         $('#btnSaveCreateView').show();
         $('.tab2section1').hide();
         $('.Viewnameclass').text('');
+       
         getdata();
     });
     //Edit Form  
@@ -525,8 +527,8 @@ function cleartab1() {
         setSelect2Value($(this), '0');
         //$(this).val($(this).find('option:first').val()).change();
     });
-    $('#FixedOrder').attr('checked', false);
-    $('#FixedOrder').parent().removeClass('checked');
+    $('#ismasterView').attr('checked', false);
+    $('#ismasterView').parent().removeClass('checked');
 }
 
 function Claertab2() {
@@ -603,3 +605,4 @@ function QuitForm() {
     $("#tab1").addClass("active");
     $("#tab3").removeClass("active");
 }
+

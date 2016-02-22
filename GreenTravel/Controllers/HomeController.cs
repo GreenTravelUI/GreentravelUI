@@ -16,7 +16,7 @@ namespace GreenTravel.Controllers
     {
         Comman _objcomman = new Comman();
         DB_Login _objDBLogin = new DB_Login();
-     //   CommanPara _objCommanPara = new CommanPara();
+        //   CommanPara _objCommanPara = new CommanPara();
         //Login _objlogin = new Login();
 
         FormValidationPara frm_para = new FormValidationPara();
@@ -28,12 +28,12 @@ namespace GreenTravel.Controllers
             frm_para.type = "Caption";
             frm_para.FormTabCode = "--None--";
             var form_val = _objcomman.GetFormData(frm_para);
-
+            //url = "https://agent.travelzunlimited.com/crm"
             string url = Request.Url.ToString();
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url = "https://agent.travelzunlimited.com/crm"
+                url="http://gt.techpure.co.uk"
             };
 
             Session["Logo"] = "assets/images/Logo-green.png";
@@ -137,13 +137,23 @@ namespace GreenTravel.Controllers
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
-                
+
             }
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables.Count > 0)
             {
                 if (ds.Tables[0].Rows[0]["NOS"].ToString() != "0")
                 {
+                    _FormValidationPara.type = "Session_Values";
+                    ds = _objDBLogin.GetSessionValue(_FormValidationPara);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Session["UserName"] = ds.Tables[0].Rows[0]["xname"].ToString();
+                        Session["CreatedBy"] = ds.Tables[0].Rows[0]["xcode"].ToString();
+                        Session["UnitCorpBy"] = ds.Tables[0].Rows[0]["Unit"].ToString();
+                        Session["BranchBy"] = ds.Tables[0].Rows[0]["branch"].ToString();
+                        Session["Location"] = ds.Tables[0].Rows[0]["Location"].ToString();
+                    }
                     return "1";
                 }
                 else
@@ -168,6 +178,7 @@ namespace GreenTravel.Controllers
                 {
                     Session["Corporate"] = ds.Tables[0].Rows[0]["Corporate"];
                     Session["Logo"] = ds.Tables[0].Rows[0]["Logo"];
+                    Session["TerminalBy"] = "1";
                 }
             }
             var lst = JsonConvert.SerializeObject(ds.Tables[0], Formatting.None, new JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });

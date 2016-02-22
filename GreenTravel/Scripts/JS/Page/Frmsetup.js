@@ -1245,6 +1245,7 @@ function getUtility() {
                                '</div> </div>'
                     }
                 }
+                
                 $(htmlutility).appendTo($("#UtilityFrom"))
             }
 
