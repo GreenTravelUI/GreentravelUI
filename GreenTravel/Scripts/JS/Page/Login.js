@@ -8,7 +8,7 @@ $(document).ready(function () {
     $('#btnLogin').click(function () {
         var Type = 'Password';
         var Email = $('#txtUserName').val();
-        var url = 'http://gt.techpure.co.uk';
+        var url = 'http://gt.techpure.co.uk1';
         var PassWord = $('#txtPassword').val();
         $.ajax({
             type: "POST",
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 function Load_data() {
     var Type = 'PageLoad';
-    var url = 'http://gt.techpure.co.uk';
+    var url = 'http://gt.techpure.co.uk1';
     $.ajax({
         type: "POST",
         url: "/Home/PageLoad",

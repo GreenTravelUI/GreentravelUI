@@ -13,11 +13,13 @@ namespace GreenTravel.Controllers
     public class WhitelabelStep1Controller : Controller
     {
         DBWhitelabelReg _objwl = new DBWhitelabelReg();
-        //
         // GET: /WhitelabelStep1/
-
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("Index", "Home", new { url = Request.Url.AbsolutePath.ToString() });
+            }
             return View();
         }
         public ActionResult insert_Data(WhitelabelReg WR)
@@ -25,35 +27,19 @@ namespace GreenTravel.Controllers
             try
             {
                 DataSet ds = _objwl.insert_data(WR);
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
                 }
-                if (ds.Tables.Count < 2)
-                {
-                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Already Exist!" }, JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    var msgrcd = "";
-                    if(ds.Tables[2].Rows.Count>0)
-                    {
-                        msgrcd = ds.Tables[2].Rows[0]["msg"].ToString();
-                    }
-                    else
-                    {
-                        msgrcd = ds.Tables[2].Rows[0]["msg"].ToString();
-                    }
-                    return Json(new { srno = ViewBag.srno, success = true, responseText =msgrcd }, JsonRequestBehavior.AllowGet);
-                }
-
-                
+                return Json(new { srno = ViewBag.srno, Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -69,7 +55,6 @@ namespace GreenTravel.Controllers
                 List<CommanDropdown> CURRENCY = new List<CommanDropdown>();
                 List<CommanDropdown> Language = new List<CommanDropdown>();
                 List<CommanDropdown> Corporate = new List<CommanDropdown>();
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -79,7 +64,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var Industrys = Industry;
-
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[1];
@@ -98,7 +82,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var service = itemservice;
-
                 if (ds.Tables[3].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[3];
@@ -108,7 +91,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var BussineMode = BMode;
-
                 if (ds.Tables[4].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[4];
@@ -118,7 +100,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var currency = CURRENCY;
-
                 if (ds.Tables[5].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[5];
@@ -128,7 +109,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var language = Language;
-
                 if (ds.Tables[6].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[6];
@@ -138,9 +118,7 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var corporate = Corporate;
-
-
-                return Json(new { GTINDUTRYS=Industrys, GTIndutry = result, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate }, JsonRequestBehavior.AllowGet);
+                return Json(new { GTINDUTRYS = Industrys, GTIndutry = result, GTservice = service, GTBmode = BussineMode, GTcurrency = currency, GTlanguage = language, GTCorporate = corporate }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -165,8 +143,7 @@ namespace GreenTravel.Controllers
                             CompanyIndustry = @dr["CompanyIndustry"].ToString(),
                             ApplicationURL = @dr["ApplicationURL"].ToString(),
                             RefferenceCompany = @dr["ReferenceCompany"].ToString(),
-                            Srno = @dr["Srno"].ToString(),
-
+                            Srno = @dr["Srno"].ToString()
                         });
                     }
                 }
@@ -184,7 +161,6 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objwl.Edit_data(WR);
                 List<WhitelabelReg> WhitelabelReg = new List<WhitelabelReg>();
-                              
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -223,22 +199,18 @@ namespace GreenTravel.Controllers
                             GooglePlus = dr["GooglePlus"].ToString(),
                             WebPortal = dr["WebPortal"].ToString(),
                             BackgroundImg = dr["BackgroundImg"].ToString(),
-
+                            LoginFrmCaption = dr["LoginFrmCaption"].ToString()
                         });
                     }
                 }
                 var result = WhitelabelReg;
-                                
                 return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
-
         #region tab4 billing/Maintanace
         public ActionResult insert_BillingMaintencae(Billing_maintanence _Billing_maintanence)
         {
@@ -250,15 +222,12 @@ namespace GreenTravel.Controllers
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
                 return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
         public ActionResult Bindtab4dropdown(WhitelabelReg WR)
         {
             try
@@ -267,8 +236,6 @@ namespace GreenTravel.Controllers
                 List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
                 List<CommanDropdown> itemsdrpcurrncy = new List<CommanDropdown>();
                 List<CommanDropdown> itemcountry = new List<CommanDropdown>();
-
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -278,7 +245,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = itemsdrp;
-
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[1];
@@ -288,7 +254,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result1 = itemsdrpcurrncy;
-
                 if (ds.Tables[2].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[2];
@@ -298,8 +263,7 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result2 = itemcountry;
-
-                return Json(new { UPdrpc = result1, UPdrp = result, Ucountry=result2 }, JsonRequestBehavior.AllowGet);
+                return Json(new { UPdrpc = result1, UPdrp = result, Ucountry = result2 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -312,7 +276,6 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objwl.Bindbillingcountry(WR);
                 List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
-              
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -322,8 +285,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = itemsdrp;
-
-               
                 return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -331,14 +292,12 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult Bindbillingstate(WhitelabelReg WR)
         {
             try
             {
                 DataSet ds = _objwl.Bindbillingstate(WR);
                 List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -348,8 +307,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = itemsdrp;
-
-
                 return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -357,14 +314,12 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         public ActionResult Edit_data_billing(Billing_maintanence BM)
         {
             try
             {
                 DataSet ds = _objwl.Edit_data_billing(BM);
                 List<Billing_maintanence> Billingmaintanence = new List<Billing_maintanence>();
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -389,13 +344,10 @@ namespace GreenTravel.Controllers
                             SupportMode = dr["SupportMode"].ToString(),
                             FreeSupportPeriod = dr["FreeSupportPeriod"].ToString(),
                             SupportCostPM = dr["SupportCostPM"].ToString(),
-
-
                         });
                     }
                 }
                 var result = Billingmaintanence;
-
                 return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -404,10 +356,7 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         #endregion
-
-
         #region user preferance
         public ActionResult BindDropDownUserpreferanceCheckbox(WhitelabelReg WR)
         {
@@ -415,8 +364,6 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objwl.BindDropDownUserpreferanceCheckbox(WR);
                 List<CommanDropdown> items = new List<CommanDropdown>();
-                
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -426,7 +373,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = items;
-              
                 return Json(new { WRcheckbox = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -441,8 +387,6 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objwl.BindDropDownUserpreferancedropdown(WR);
                 List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
-
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -452,7 +396,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = itemsdrp;
-
                 return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -471,23 +414,18 @@ namespace GreenTravel.Controllers
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
                 return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
-
         public ActionResult Edit_data_user_preferance(UserPreferancestep1 UP)
         {
             try
             {
                 DataSet ds = _objwl.Edit_data_user_preferance(UP);
                 List<UserPreferancestep1> UserPreferancestep1 = new List<UserPreferancestep1>();
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -499,24 +437,19 @@ namespace GreenTravel.Controllers
                             GadgetPosition = dr["GadgetPosition"].ToString(),
                             OtherPreferences = dr["OtherPreferences"].ToString(),
                             pagerow = dr["pagerow"].ToString(),
-                            Corporate = dr["Corporate"].ToString(),
-                                                     
+                            Corporate = dr["Corporate"].ToString()
                         });
                     }
                 }
                 var result = UserPreferancestep1;
-
                 return Json(new { UserPreferancestep1js = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
         #endregion
-
         public ActionResult Encry(WhitelabelStep2 CBP)
         {
             try
@@ -524,18 +457,12 @@ namespace GreenTravel.Controllers
                 EncryptionDecryption enc_dec = new EncryptionDecryption();
                 var data = HttpUtility.UrlEncode(enc_dec.UrlEncrypt(CBP.Corporate.ToString()));
                 return Json(data, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
-
         }
-
-
         public ActionResult Binddropdowntab3(WhitelabelReg WR)
         {
             try
@@ -545,8 +472,6 @@ namespace GreenTravel.Controllers
                 List<CommanDropdown> itemcloudserver = new List<CommanDropdown>();
                 List<CommanDropdown> itemcndprovider = new List<CommanDropdown>();
                 List<CommanDropdown> itemcurrency = new List<CommanDropdown>();
-
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -556,7 +481,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = itemcloudprovider;
-
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[1];
@@ -566,7 +490,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result1 = itemcloudserver;
-
                 if (ds.Tables[2].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[2];
@@ -576,9 +499,8 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result2 = itemcndprovider;
-
                 if (ds.Tables[3].Rows.Count > 0)
-               {
+                {
                     ViewBag.fname = ds.Tables[3];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
@@ -586,15 +508,11 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result3 = itemcurrency;
-
-
                 DataSet ds1 = _objwl.Binddropdowntab3sec2(WR);
                 List<CommanDropdown> itemcloudprovider1 = new List<CommanDropdown>();
                 List<CommanDropdown> itemcloudserver1 = new List<CommanDropdown>();
                 List<CommanDropdown> itemcndprovider1 = new List<CommanDropdown>();
                 List<CommanDropdown> itemcurrency1 = new List<CommanDropdown>();
-
-
                 if (ds1.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds1.Tables[0];
@@ -604,7 +522,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result4 = itemcloudprovider1;
-
                 if (ds1.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.fname = ds1.Tables[1];
@@ -614,7 +531,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result5 = itemcloudserver1;
-
                 if (ds1.Tables[2].Rows.Count > 0)
                 {
                     ViewBag.fname = ds1.Tables[2];
@@ -624,7 +540,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result6 = itemcndprovider1;
-
                 if (ds1.Tables[3].Rows.Count > 0)
                 {
                     ViewBag.fname = ds1.Tables[3];
@@ -634,9 +549,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result7 = itemcurrency1;
-
-
-
                 return Json(new { UPdrpc = result1, UPdrp = result, Ucountry = result2, Ucurrency = result3, UPdrpc4 = result4, UPdrp5 = result5, Ucountry6 = result6, Ucurrency7 = result7 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -644,17 +556,13 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
         #region hosting
-
         public ActionResult insert_Hosting(Hosting_Subscription HS)
         {
             try
             {
                 DataSet ds = _objwl.insert_Hosting(HS);
-
                 DataSet ds2 = _objwl.insert_Hosting_sub(HS);
-
                 if (ds.Tables[0].Rows.Count > 0 && ds2.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
@@ -667,23 +575,18 @@ namespace GreenTravel.Controllers
                 {
                     return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
                 }
-
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
         public ActionResult Edit_data_hosting(Hosting_Subscription HS)
         {
             try
             {
                 DataSet ds = _objwl.Edit_data_hosting(HS);
                 List<Hosting_Subscription> hosting = new List<Hosting_Subscription>();
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -703,30 +606,24 @@ namespace GreenTravel.Controllers
                             HostingCost = dr["HostingCost"].ToString(),
                             CostPerMonth = dr["CostPerMonth"].ToString(),
                             Currency = dr["Currency"].ToString(),
-
-                          
-
+                            HostingCostPM = dr["HostingCostPM"].ToString()
                         });
                     }
                 }
                 var result = hosting;
-
                 return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
         public ActionResult Edit_data_subcribe(Hosting_Subscription HS)
         {
             try
             {
                 DataSet ds = _objwl.Edit_data_subcribe(HS);
                 List<Hosting_Subscription> hosting = new List<Hosting_Subscription>();
-
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[1];
@@ -748,34 +645,26 @@ namespace GreenTravel.Controllers
                             AmountPUPM = dr["AmountPUPM"].ToString(),
                             PaymentMode = dr["PaymentMode"].ToString(),
                             FirstPayDate = dr["FirstPayDate"].ToString(),
-                            GracePeriod = dr["GracePeriod"].ToString(),
-
-                            
+                            GracePeriod = dr["GracePeriod"].ToString()
                         });
                     }
                 }
                 var result = hosting;
-
                 return Json(new { Whiteregjs = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
         #endregion
-
         #region password auth
-
         public ActionResult Binddropdowntab6(WhitelabelReg WR)
         {
             try
             {
                 DataSet ds = _objwl.Binddropdowntab6(WR);
                 List<CommanDropdown> itemsdrp = new List<CommanDropdown>();
-
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -785,7 +674,6 @@ namespace GreenTravel.Controllers
                     }
                 }
                 var result = itemsdrp;
-
                 return Json(new { UPdrp = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -804,22 +692,18 @@ namespace GreenTravel.Controllers
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                 }
                 return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
         public ActionResult Edit_data_password_authenticate(Password_Authentication PA)
         {
             try
             {
                 DataSet ds = _objwl.Edit_data_password_authenticate(PA);
                 List<Password_Authentication> Password_Authentication1 = new List<Password_Authentication>();
-
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.fname = ds.Tables[0];
@@ -835,27 +719,23 @@ namespace GreenTravel.Controllers
                             EncriptionKey = dr["EncriptionKey"].ToString(),
                             PasswordMinLength = dr["PasswordMinLength"].ToString(),
                             PasswordExpiryDays = dr["PasswordExpiryDays"].ToString(),
-                          //  UserLoginDay = dr["UserLoginDay"].ToString(),
+                            //  UserLoginDay = dr["UserLoginDay"].ToString(),
                             NumberOfAttempts = dr["NumberOfAttempts"].ToString(),
-                          //  NumberOfAttemptsTime = dr["NumberOfAttemptsTime"].ToString(),
+                            //  NumberOfAttemptsTime = dr["NumberOfAttemptsTime"].ToString(),
                             OTPExpiryTime = dr["OTPExpiryTime"].ToString(),
                             LastSamePassword = dr["LastSamePassword"].ToString(),
                             UnableCaptcha = dr["UnableCaptcha"].ToString(),
-                           // AutoLockScreen = dr["AutoLockScreen"].ToString(),
-
+                            // AutoLockScreen = dr["AutoLockScreen"].ToString(),
                             UserUnlockMinut = dr["UserLockMinuts"].ToString(),
-                            Continuenumber = dr["Continuenumber"].ToString(),
-                                                     
+                            Continuenumber = dr["Continuenumber"].ToString()
                         });
                     }
                 }
                 var result = Password_Authentication1;
-
                 return Json(new { UserPreferancestep1js = result }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

@@ -4,21 +4,11 @@
     ViewBag.PageTitle = "Green Travel Customers";
     
 }
-@*@{
-        if (Session["CreatedBy"] != null)
-        { }
-        else
-        { Response.Redirect(Url.Action("index", "Home")); }
-    }*@
-
 <style>
-    .hide_cell
-    {
+    .hide_cell {
         display: none;
     }
-
-    #errmsg
-    {
+    #errmsg {
         color: red;
     }
 </style>
@@ -93,7 +83,9 @@
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <form>
                             <div class="col-md-12">
-                                <h3 class="tab2section1"><span class="section-index">1</span>&nbsp;Basic Details</h3>
+                                <h3 class="tab2section1"><span class="section-index">1</span>&nbsp;Basic Details
+                                     <span class="text-danger tab3Formname" style="display: none"></span>
+                                </h3>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="txtsrno" placeholder="srno" style="display: none">
                                 </div>
@@ -160,14 +152,14 @@
                                         <select id="drpBaseCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
-                                    
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="drpBaseLanguage">Base Language <span>*</span></label>
                                         <select id="drpBaseLanguage" class="js-states form-control Language Dropdown req" style="display: none; width: 100%">
                                         </select>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+
                                     <div class="form-group">
                                         <label for="txtLogo">Logo <span>*</span> </label>
                                         <input type="text" class="form-control req" id="txtLogo" placeholder="Logo">
@@ -216,27 +208,31 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="txtCopyRights" placeholder="Copyright Note">
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="txtfacebook">Facebook</label>
-                                        <input type="text" class="form-control req url" id="txtfacebook" placeholder="Application URL">
+                                        <input type="text" class="form-control url" id="txtfacebook" placeholder="Facebook">
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="txttwitter">Twitter</label>
-                                        <input type="text" class="form-control req url" id="txttwitter" placeholder="Application URL">
+                                        <input type="text" class="form-control url" id="txttwitter" placeholder="Twitter">
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="txtgoogleplus">Google Plus</label>
-                                        <input type="text" class="form-control req url" id="txtgoogleplus" placeholder="Application URL">
+                                        <input type="text" class="form-control url" id="txtgoogleplus" placeholder="Google Plus">
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="txtwebportal">Web Portal</label>
-                                        <input type="text" class="form-control req url" id="txtwebportal" placeholder="Application URL">
+                                        <input type="text" class="form-control url" id="txtwebportal" placeholder="Web Portal">
                                     </div>
-                                     <div class="form-group">
-                                        <label for="txtbackgroundimg">Background Image</label>
-                                        <input type="text" class="form-control req url" id="txtbackgroundimg" placeholder="Application URL">
+                                    <div class="form-group">
+                                        <label for="txtbackgroundimg">Background Image <span>*</span> </label>
+                                        <input type="text" class="form-control req " id="txtbackgroundimg" placeholder="Background Image">
                                     </div>
-                                     
+                                    <div class="form-group">
+                                        <label for="txtLoginFrmCaption">Login Caption<span>*</span> </label>
+                                        <input type="text" class="form-control" id="txtLoginFrmCaption" placeholder="Login Caption">
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -278,20 +274,19 @@
                     <div role="tabpanel" class="tab-pane " id="tab3">
                         <form>
                             <div class="col-md-12">
-                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Hosting </h3>
-                                <input type="text" class="form-control" id="txtsrnotab3" placeholder="Don't Enter Text">
+                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Hosting
+                                    <span class="text-danger tab3Formname" style="display: none"></span>
+                                </h3>
+                                <input type="text" class="form-control" id="txtsrnotab3" placeholder="Don't Enter Text" style="display: none">
                                 <div class="col-md-6">
                                     <div class="form-group">
-
                                         <label for="drpCloudProvider">Cloud Provider <span>*</span></label>
-                                        <select id="drpCloudProvider" class="js-states form-control req" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <select id="drpCloudProvider" class="js-states form-control req Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="drpCloudServerIP">Cloud Server IP <span>*</span></label>
-                                        <select id="drpCloudServerIP" class="js-states form-control req" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <select id="drpCloudServerIP" class="js-states form-control req Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -306,15 +301,12 @@
                                         <label for="txtConfirmHotelUserPassword">IP Ristricted Access</label>
                                         <textarea rows="6" cols="50" placeholder="IP Ristricted Access" style="display: block; width: 100%" id="txtipristrictedaccess">
                                             </textarea>
-                                        @*<input type="text" class="form-control" id="txtIPRistrictedAccess" placeholder="IP Ristricted Access" aria-multiline="true">*@
                                     </div>
-
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="drpCDNProvider">CDN Provider </label>
-                                        <select id="drpCDNProvider" class="js-states form-control" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <select id="drpCDNProvider" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -327,8 +319,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="drpCurrencytab3">Currency </label>
-                                        <select id="drpCurrencytab3" class="js-states form-control" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <select id="drpCurrencytab3" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group form-marings">
@@ -362,17 +353,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="drpBillingCycle">Billing Cycle <span>*</span></label>
-                                        <select id="drpBillingCycle" class="js-states form-control req" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <select id="drpBillingCycle" class="js-states form-control req Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="drpBillingFromCompany">Billing From Company <span>*</span></label>
-                                        <select id="drpBillingFromCompany" class="js-states form-control req" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <label for="drpBillingFromCompany">Billing From Company <span></span></label>
+                                        <select id="drpBillingFromCompany" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
-
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-marings">
@@ -380,8 +368,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="drpPaymentCurrency">Payment Currency </label>
-                                        <select id="drpPaymentCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
+                                        <select id="drpPaymentCurrency" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -395,7 +382,6 @@
                                     <div class="form-group">
                                         <label for="drpPaymentMode">Payment Mode </label>
                                         <select id="drpPaymentMode" class="js-states form-control" style="display: none; width: 100%">
-                                            <option value="Test">Test</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -417,7 +403,7 @@
                                     UPDATE</button>
                                 <button id="btnCanceltab3" type="button" style="display: none" class="btn btn-green">
                                     DELETE</button>
-                                <button id="btnCleartab3" type="button" class="btn btn-warning">
+                                <button id="btnCleartab3" type="button" class="btn btn-warning" style="display:none">
                                     CLEAR</button>
                                 <button id="btnQuittab3" type="button" class="btn btn-info">
                                     QUIT FORM</button>
@@ -428,8 +414,10 @@
                         <form>
                             <div class="col-md-12">
 
-                                <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing</h3>
-                                <input type="text" class="form-control" style="display: none" id="txtsrnotab4" placeholder="Don't Enter Text">
+                                <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing
+                                    <span class="text-danger tab3Formname" style="display: none"></span>
+                                </h3>
+                                <input type="text" class="form-control" style="display: none" id="txtsrnotab4" placeholder="Don't Enter Text" style="display: none">
                                 <div class="col-md-6">
 
                                     <div class="form-group">
@@ -513,7 +501,6 @@
 
                                 </div>
                             </div>
-
                             <br />
                             <button id="btnSavebilling" type="submit" class="btn btn-success btnSavebillingmain">
                                 SAVE</button>
@@ -523,65 +510,62 @@
                                 CLEAR</button>
                             <button id="btnQuitBilling" type="button" class="btn btn-info btnbillingquit">
                                 QUIT FORM</button>
-
-
-
-
                         </form>
                     </div>
 
                     <div role="tabpanel" class="tab-pane " id="tab5">
                         <form id="userprefform">
+                            <h3 class="tab5section">User Preferance
+                                    <span class="text-danger tab3Formname" style="display: none"></span>
+                            </h3>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" id="txtsrnouserpref" placeholder="SR">
+                                <input type="text" class="form-control" id="txtsrnouserpref" placeholder="SR" style="display: none">
                                 <div class="form-group">
                                     <label for="drpDashboardGadgetPosition">Dashboard Gadget Position <span>*</span></label>
-                                    <select id="drpDashboardGadgetPosition" class="js-states form-control req Dropdown dropclear" style="display: none; width: 100%">
+                                    <select id="drpDashboardGadgetPosition" class="js-states form-control req dropclear" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                                
-                                    <div class="row" id="userperferancechk">
+                                <div class="row" id="userperferancechk">
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkgridcolas" value="chkgridcolas" />Grid Column Rearrange
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkcustomgridview" value="chkcustomgridview" />Custom Grid View
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkfixedhdr" value="chkfixedhdr" />Fixed Header
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkfixedmenu" value="chkfixedmenu" />Fixed Menu Bar
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkhorizontalbar" value="chkhorizontalbar" />Horizontal Bar
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chktogglesidebar" value="chktogglesidebar" />Toggle Sidebar
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkcompactmenu" value="chkcompactmenu" />Compact Menu
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkhovermenu" value="chkhovermenu" />Hover Menu
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkboxlayout" value="chkboxlayout" />Box Layout
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkthemecolor" value="chkthemecolor" />Theme Color
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkformbasedsummery" value="chkformbasedsummery" />Form Based Summery
+                                    </div>
+                                    <div class="col-md-6 form-marings">
+                                        <input type="checkbox" id="chkutility" value="chkutility" />Utilities
+                                    </div>
 
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkgridcolas" value="chkgridcolas"  />Grid Column Rearrange
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkcustomgridview" value="chkcustomgridview" />Custom Grid View
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkfixedhdr" value="chkfixedhdr" />Fixed Header
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkfixedmenu" value="chkfixedmenu" />Fixed Menu Bar
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkhorizontalbar" value="chkhorizontalbar" />Horizontal Bar
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chktogglesidebar" value="chktogglesidebar" />Toggle Sidebar
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkcompactmenu" value="chkcompactmenu" />Compact Menu
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkhovermenu" value="chkhovermenu" />Hover Menu
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkboxlayout" value="chkboxlayout" />Box Layout
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkthemecolor"  value="chkthemecolor"/>Theme Color
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkformbasedsummery" value="chkformbasedsummery" />Form Based Summery
-                                        </div>
-                                        <div class="col-md-6 form-marings">
-                                            <input type="checkbox" id="chkutility" value="chkutility" />Utilities
-                                        </div>
 
-                                    
                                 </div>
-                                
+
                                 <div class="col-md-12">
                                     <br />
                                     <button id="btnSaveuserpref" type="submit" class="btn btn-success btnSaveuserpref">
@@ -590,7 +574,7 @@
                                         UPDATE</button>
                                     <button id="btnCanceluserpref" type="button" style="display: none" class="btn btn-green btnCancel">
                                         DELETE</button>
-                                    <button id="btnclearuserpref" type="button" class="btn btn-warning btnClearuserpref">
+                                    <button id="btnclearuserpref" type="button" class="btn btn-warning btnClearuserpref" style="display:none">
                                         CLEAR</button>
                                     <button id="btnquituserpref" type="button" class="btn btn-info">
                                         QUIT FORM</button>
@@ -601,7 +585,10 @@
 
                     <div role="tabpanel" class="tab-pane " id="tab6">
                         <form>
-                            <input type="text" class="form-control" id="txtsrnotab6" placeholder="SR">
+                            <h3 class="tab6section">Password Authentication
+                                    <span class="text-danger tab3Formname" style="display: none"></span>
+                            </h3>
+                            <input type="text" class="form-control" id="txtsrnotab6" placeholder="SR" style="display: none">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtrequiredcapitalcharacters">Required Capital Characters</label>
@@ -661,9 +648,9 @@
                                 <br />
                                 <button id="btnSavepassword" type="submit" class="btn btn-success btnsavepasswordauth">
                                     SAVE</button>
-                                <button id="btnUpdatepassword" type="submit" style="display:none" class="btn btn-primary btnsavepasswordauth">
+                                <button id="btnUpdatepassword" type="submit" style="display: none" class="btn btn-primary btnsavepasswordauth">
                                     UPDATE</button>
-                                <button id="btnCancelpassword" type="button" style="display:none" class="btn btn-green">
+                                <button id="btnCancelpassword" type="button" style="display: none" class="btn btn-green">
                                     DELETE</button>
                                 <button id="btnclearpassword" type="button" class="btn btn-warning">
                                     CLEAR</button>

@@ -33,7 +33,7 @@ namespace GreenTravel.Controllers
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url="http://gt.techpure.co.uk"
+                url="http://gt.techpure.co.uk1"
             };
 
             Session["Logo"] = "assets/images/Logo-green.png";
