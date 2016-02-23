@@ -4,13 +4,12 @@ $(window).unload(function () {
 });
 var corp = $('#myHiddenVar').val();
 $(document).ready(function () {
-
     FillDropDown_RightsCorporate();
     FillDropDown_Corporate();
     setSelect2Value($('#DrpLocationTab2'), '0');
+    setSelect2Value($('#drpRightsCorporate'), corp);
     $("#drpCorporate").prop('disabled', true);
     $("#drpRightsCorporate").prop('disabled', true);
-
     BindGrid();
     // ==============================================================================================================================  ( Tab-1 && Tab-2)      //
     $("#drpCorporate").change(function () {
@@ -184,6 +183,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
+                    Fill_role($('#drpRightsRole option:selected').val());
                     Fill_Screen_Module_On_Edit();
                 }
             }
@@ -207,6 +207,7 @@ $(document).ready(function () {
         });
     });//---tab-1 edit users button click
     $("table").delegate(".editor_accessright", "click", function () {
+        Clear_tab_4();
         var tablename = 'dbo._user_details_master';
         var Corporate = '2';
         var Unit = '0';
@@ -234,6 +235,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
+                    Fill_role($('#drpRightsRole option:selected').val());
                     Fill_Screen_Module_On_Edit();
                 }
                 if (response['UserMasterresjs'].length > 0) {
@@ -314,6 +316,7 @@ $(document).ready(function () {
         $("#partial").html('');
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
         Load_screen_module();
+        Fill_role($('#drpRightsRole option:selected').val());
 
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
@@ -321,7 +324,7 @@ $(document).ready(function () {
         $('#chkdefault').attr('checked', false);
         $('#chkdefault').parent().removeClass('checked');
         setSelect2Value($('#drpRightsStatus'), '0');
-        Load_screen_module();
+
         Fill_Screen_Module_On_Edit();
     });//---tab-4 rights selected index change event
     $("#partial").delegate(".checker", "click", function () {
@@ -342,7 +345,8 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.update').attr('checked', true);
             $(this).parent().parent().find('.checker.update').children().addClass('checked');
         }
-
+        var control = $(this).parent().parent().parent();
+        Checked_All(control);
 
     });//---tab-4 checkbox - (checker click)
     $("#partial").delegate(".checker.update", "click", function () {
@@ -357,7 +361,8 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.delete').attr('checked', false);
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
         }
-
+        var control = $(this).parent().parent().parent();
+        Checked_All(control);
     });//---tab-4 checkbox - (check update)
     $("#partial").delegate(".checker.create", "click", function () {
         // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
@@ -371,7 +376,8 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.delete').attr('checked', false);
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
         }
-
+        var control = $(this).parent().parent().parent();
+        Checked_All(control);
     });//---tab-4 checkbox - (check create)
     $("#partial").delegate(".checker.view", "click", function () {
         // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
@@ -386,7 +392,8 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.create').attr('checked', false);
             $(this).parent().parent().find('.checker.create').children().removeClass('checked');
         }
-
+        var control = $(this).parent().parent().parent();
+        Checked_All(control);
     });//---tab-4 checkbox - (check view)
     $("#partial").delegate(".checker.All", "click", function () {
         console.log($(this).parent().parent().find('.checker.All').children().html());
@@ -539,7 +546,7 @@ function FillDropDown_Corporate() {
                     var opt = new Option(response['Corp'][i]['Text'], response['Corp'][i]['Value']);
                     $('.formcorporate').append(opt);
                 }
-                //setSelect2Value($('#drpCorporate'), '0');
+
                 setSelect2Value($('#drpCorporate'), corp);
                 $('#DrpLocationTab2').html('');
                 $('#DrpUnitTab2').html('');
@@ -958,6 +965,9 @@ function Fill_Screen_Module_On_Edit() {
                                 }
                             });
                         }
+
+                        var control = $(this).children().children().find('table').children();
+                        Checked_All(control);
                     });
                 });
                 $('#btnSavetab4').hide();
@@ -987,6 +997,7 @@ function Fill_Screen_Module_On_Edit() {
     });
 }
 function Clear_tab_4() {
+
     $("#partial").html('');
     $('#tab4.inputControl').val('');
     $('#tab4').find('.Dropdown').each(function () {
@@ -998,4 +1009,106 @@ function Clear_tab_4() {
     $('#chkdefault').parent().removeClass('checked');
     $('#btnSavetab4').hide();
     $('#btnupdatetab4').hide();
+    setSelect2Value($('#drpRightsCorporate'), corp);
+}
+
+function Fill_role(RoleId) {
+    var tablename = 'dbo._RoleTrx';
+    var Corporate = '0';
+    var Unit = '0';
+    var Formcode = '0';
+    var Formtabcode = '0';
+    var srno = RoleId;
+    var Type = 'EditMode';
+    $.ajax({
+        type: "POST",
+        url: "/RoleRights/Edit_AccessRights",
+        data: {
+            tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
+        },
+        dataType: 'json',
+        success: function (response) {
+            if (response['Grid'].length > 0) {
+                $.each(response['Grid'], function () {
+                    var tempModule = this['Module'].toString();
+                    var tempSCR = this['SCR'].toString();
+                    var tempview = this['view'].toString();
+                    var tempupdate = this['update'].toString();
+                    var tempdeletee = this['deletee'].toString();
+                    var tempcreate = this['create'].toString();
+                    $('ul.grid div').find('li').each(function () {
+                        if ($(this).find('.lbmodulesrno').text().trim() == tempModule) {
+                            $(this).find('table tbody tr').each(function () {
+                                if ((($(this).find('.checker').attr("id"))) == tempSCR) {
+                                    $(this).find('.checker.view').attr('checked', false);
+                                    $(this).find('.checker.view').children().removeClass('checked');
+                                    $(this).find('.checker.create').attr('checked', false);
+                                    $(this).find('.checker.create').children().removeClass('checked');
+                                    $(this).find('.checker.update').attr('checked', false);
+                                    $(this).find('.checker.update').children().removeClass('checked');
+                                    $(this).find('.checker.delete').attr('checked', false);
+                                    $(this).find('.checker.delete').children().removeClass('checked');
+                                    if (tempview == 'True') {
+                                        $(this).find('.checker.view').attr('checked', true);
+                                        $(this).find('.checker.view').children().addClass('checked');
+                                    }
+                                    if (tempcreate == 'True') {
+                                        $(this).find('.checker.create').attr('checked', true);
+                                        $(this).find('.checker.create').children().addClass('checked');
+                                    }
+                                    if (tempupdate == 'True') {
+                                        $(this).find('.checker.update').attr('checked', true);
+                                        $(this).find('.checker.update').children().addClass('checked');
+                                    }
+                                    if (tempdeletee == 'True') {
+                                        $(this).find('.checker.delete').attr('checked', true);
+                                        $(this).find('.checker.delete').children().addClass('checked');
+                                    }
+                                }
+                            });
+
+                            var control = $(this).children().children().find('table').children();
+
+                            Checked_All(control);
+                        }
+                    });
+                });
+            }
+
+
+        }
+    })
+}//---tab-1 edit users button click
+
+
+
+function Checked_All(control) {
+    var thisid = control;
+    var Count = '0';
+    (thisid).find('tr').each(function () {
+
+        if ($(this).find('.checker.view').children().hasClass('checked') == false) {
+            Count = '1';
+        }
+        if ($(this).find('.checker.create').children().hasClass('checked') == false) {
+            Count = '1';
+        }
+        if ($(this).find('.checker.update').children().hasClass('checked') == false) {
+            Count = '1';
+        }
+        if ($(this).find('.checker.delete').children().hasClass('checked') == false) {
+            Count = '1';
+        }
+    });
+
+    if (Count == '0') {
+
+        thisid.parent().prev().children().find('input').attr('checked', true);
+        thisid.parent().prev().children().children().addClass('checked');
+    }
+    else {
+        thisid.parent().prev().children().find('input').attr('checked', false);
+        thisid.parent().prev().children().children().removeClass('checked');
+    }
+
 }
