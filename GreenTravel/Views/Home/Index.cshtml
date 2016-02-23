@@ -35,6 +35,8 @@
     <link href="/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/cs-select.css" />
+    <link href="~/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
@@ -42,6 +44,8 @@
     <script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
     <script src="~/assets/plugins/sweetalert/sweetalert2.min.js"></script>
     <script src="~/Scripts/JS/Page/Login.js"></script>
+    <script src="~/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="~/assets/js/pages/form-select2.js"></script>
     @*<script>
         $(document).ready(function () {
             $('.page-content.login-body').css('background', '#000 url(@Session["BackgroundImg"].ToString()) no-repeat scroll center top');
@@ -65,9 +69,17 @@
                                             </p>
                                         </div>
                                         <div class="col-md-6">
-                                            <input id="hdfUrl" type="hidden" value="@ViewBag.RedirectUrl"/>
+                                            <input id="hdfRedirectUrl" type="hidden" value="@ViewBag.RedirectUrl"/>
+                                            <input id="hdfUrl" type="hidden" value=""/>
+
                                             <form>
-                                                
+                                                @*Remove After Testing Completed*@
+                                                <div class="form-group">
+                                                    <select id="drpAppURL" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                                                        <option value="http://gt.techpure.co.uk" selected="selected">Ambait</option>
+                                                        <option value="http://gt.techpure.co.uk1">Enterprice</option>
+                                                    </select>
+                                                </div>
                                                 <div class="form-group">
                                                     <input  id="txtUserName" type="email" class="form-control" placeholder="Email" required >
                                                 </div>

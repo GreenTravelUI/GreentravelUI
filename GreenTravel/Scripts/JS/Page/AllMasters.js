@@ -293,17 +293,11 @@ $(document).ready(function () {
                  }
              }
          }).done(function () {
-             alert(1);
              $("#MasterDataViews").removeClass("active");
-             alert(2);
              $("#MastersRecord").addClass("active");
-             alert(3);
-             $(".tab-pane").removeClass("active");
-             alert(4);
+             $("#tab4").removeClass("active");
              $("#tab3").addClass("active");
-             alert(5);
              $('#MastersRecord').children().find('span.tab-name').text('Update Master Record');
-             alert(6);
          });
     });
 
