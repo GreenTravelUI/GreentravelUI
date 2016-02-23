@@ -314,7 +314,7 @@ $(document).ready(function () {
     //Redirect Form Control
     $("table").delegate(".editor_Control", "click", function () {
         var tablename = 'dbo._Form_Tab_Master';
-        var Corporate = '2';
+        var Corporate = '5';
         var unit = '';
         var userid = '';
         var WhereClause = '';
@@ -352,7 +352,7 @@ $(document).ready(function () {
         $('#btncleartab').trigger('click');
         clearValidations($('#tab4'));
         var tablename = 'dbo._Form_Master';
-        var Corporate = '1';
+        var Corporate = '5';
         var unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
@@ -625,7 +625,7 @@ $(document).ready(function () {
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
         var tablename = 'dbo._Form_Master';
-        var Corporate = '2';
+        var Corporate = '5';
         var unit = '0';
         var Formcode = Frmcode;
         var Formtabcode = FrmtabCode;
@@ -1039,7 +1039,7 @@ function addRow() {
 
 function getdatatab() {
     var tablename = 'dbo._Form_Tab_Master';
-    var Corporate = '2';
+    var Corporate = '5';
     var unit = '';
     var userid = '';
     var WhereClause = '';
@@ -1157,7 +1157,7 @@ function DropDownFormcode() {
 
 function getdata() {
     var tablename = 'dbo._Form_Master';
-    var Corporate = '2';
+    var Corporate = '5';
     var unit = '';
     var userid = '';
     var WhereClause = '';
