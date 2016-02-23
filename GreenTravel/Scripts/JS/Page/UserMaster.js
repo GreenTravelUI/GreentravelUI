@@ -1,8 +1,14 @@
-﻿$(document).ready(function () {
+﻿
+$(window).unload(function () {
+    $('select option').remove();
+});
+var corp = $('#txtCorporateID').val();
+
+$(document).ready(function () {
     BindGrid();
     function BindGrid() {
         var tablename = 'dbo._User_Details_Master';
-        var Corporate = '1';
+        var Corporate = corp;
         var Segment = '';
         var PageNo = '1';
         var type = 'Grid';

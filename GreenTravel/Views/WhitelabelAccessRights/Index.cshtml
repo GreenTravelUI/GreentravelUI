@@ -1,8 +1,25 @@
-﻿@{
+﻿@using GreenTravel.Models.Comman;
+
+@{
     ViewBag.Title = "User";
     ViewBag.PageTitle = "User Master";
     ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
 }
+
+
+@{ 
+    EncryptionDecryption enc_dec = new EncryptionDecryption();
+    var queryValue = "";
+    if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+    {
+        queryValue = HttpUtility.UrlDecode(enc_dec.UrlDecrypt(Request.QueryString["id"].ToString()));
+    } 
+}
+
+
+
+
+
 <style>
     .hide_cell {
         display: none;
@@ -208,6 +225,7 @@
                             </div>
                         </form>
                     </div>
+                    <input type="text" class="form-control" style="display:none"  id="txtCorporateID" value="@queryValue" readonly="true">
                     <div role="tabpanel" class="tab-pane Usertab2" id="tab2">
                         <div class="col-md-7">
                             <form>
