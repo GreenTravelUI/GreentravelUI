@@ -1,14 +1,26 @@
 ﻿var Message;
 var EventClass;
+var duplicate = '';
 $(window).unload(function () {
     $('select option').remove();
 });
 
 $(document).ready(function () {
     BindGrid();
+    Dropdown_Bind_Tab1();
     //Basic Information save Button
     $('.btnSave').click(function (e) {
         e.preventDefault();
+        if (duplicate != "") {
+            swal(
+                'Same Record Already Exits',
+                '',
+                'error'
+              )
+            return false;
+        }
+
+
         if (!validateForm($(this).parent())) {
             swal(
                 'Invalid data found!',
@@ -178,11 +190,13 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                if (response != null && response.success) {
-                    swal('Good job!', 'Record Save Sucessfully', 'success')
+                Message = response.responseText;
+                EventClass = response.Event;
+                if (EventClass != 'error') {
                     $("#btnUpdateuserpref").show();
                     $("#btnSaveuserpref").hide();
                 }
+                swal('Good job!', Message, EventClass);
             }
         });
     });
@@ -239,11 +253,13 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                if (response != null && response.success) {
-                    swal('Good job!', 'Record Save Sucessfully!', 'success')
+                Message = response.responseText;
+                EventClass = response.Event;
+                if (EventClass != 'error') {
                     $("#btnUpdateBilling").show();
                     $("#btnSavebilling").hide();
                 }
+                swal('Good job!', Message, EventClass);
             }
         });
     });
@@ -301,11 +317,13 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                if (response != null && response.success) {
-                    swal('Good job!', 'Record Save Sucessfully!', 'success')
+                Message = response.responseText;
+                EventClass = response.Event;
+                if (EventClass != 'error') {
                     $("#btnUpdatepassword").show();
                     $("#btnSavepassword").hide();
                 }
+                swal('Good job!', Message, EventClass);
             }
         });
 
@@ -395,12 +413,6 @@ $(document).ready(function () {
         BindGrid();
     });
     $('#CreateCorporate').click(function (e) {
-        Dropdown_Bind_Tab1();
-        // Binddropdowntab3();
-        //Dropdown_Bind_user_preferance();
-        //Dropdown_Bind_Userpreferance_Checkbox();
-        //Dropdown_Bind_user_preferance();
-        //Binddropdowntab6();
     });
     $('#tabuserpreferance').click(function (e) {
         if ($('#txtsrnouserpref').val() != '') {
@@ -442,6 +454,7 @@ $(document).ready(function () {
     $("#Tab6").click(function (e) {
         if ($('#txtsrnotab6').val() != '') {
             Binddropdowntab6();
+            PasswordEdit();
         }
         else {
             e.preventDefault();
@@ -492,11 +505,14 @@ $(document).ready(function () {
         $('.tab3Formname').hide();
     });
     $("#btnquituserpref").click(function (e) {
+        $('input[type="text"]').val('');
         $("#tab1").addClass("active");
         $("#tabuserpreferance").removeClass("active");
         $("#tab5").removeClass("active");
         $("#Search").addClass("active");
         $('.tab3Formname').hide();
+        $('#btnupdatebasic').hide();
+        $('#btnsavebasic').show();
     });
     //Billing Clear and Quit
     $('.btnbillingclear').click(function (e) {
@@ -515,6 +531,9 @@ $(document).ready(function () {
         $("#tab1").addClass("active");
         $("#Search").addClass("active");
         $('.tab3Formname').hide();
+        $('input[type="text"]').val('');
+        $('#btnupdatebasic').hide();
+        $('#btnsavebasic').show();
     });
     //Hosting and  Subcri.
     $("#btnQuittab3").click(function (e) {
@@ -523,7 +542,9 @@ $(document).ready(function () {
         $("#tab3").removeClass("active");
         $("#Tab3").removeClass("active");
         $('.tab3Formname').hide();
-        BindGrid();
+        $('input[type="text"]').val('');
+        $('#btnupdatebasic').hide();
+        $('#btnsavebasic').show();
     });
     $("#btnCleartab3").click(function (e) {
         clearValidations($(this).parent());
@@ -558,7 +579,9 @@ $(document).ready(function () {
         $("#btnCancelpassword").hide();
         $("#btnSavepassword").show();
         $('.tab3Formname').hide();
-        BindGrid();
+        $('input[type="text"]').val('');
+        $('#btnupdatebasic').hide();
+        $('#btnsavebasic').show();
     });
     //Edit Data  
     $("table").delegate(".editor_Step", "click", function () {
@@ -694,6 +717,30 @@ $(document).ready(function () {
             if (t2 != "Nan") {
                 $("#txtTotalAmountPerMonth").val(t2)
             }
+        }
+    });
+    $("#txtUsername").change(function (e) {
+        duplicate = '';
+        Email_URl($("#txtUsername").val(), '')
+        console.log(duplicate);
+        if (duplicate != "") {
+            swal(
+                'Same Record Already Exits',
+                '',
+                'error'
+              )
+        }
+    });
+    $("#txtApplicationURL").change(function (e) {
+        duplicate = '';
+        Email_URl('', $("#txtApplicationURL").val())
+        console.log(duplicate);
+        if (duplicate != "") {
+            swal(
+               'Same Record Already Exits',
+               '',
+               'error'
+             )
         }
     });
 });
@@ -1000,7 +1047,7 @@ function Bindbillingstate() {
     var field3 = '';
     var field4 = '';
     var field5 = '';
-    var Control = 'drpModule';
+    var Control = 'drpCity';
     $.ajax({
         url: "/WhitelabelStep1/Bindbillingstate",
         type: "POST",
@@ -1165,15 +1212,10 @@ function Binddropdowntab6() {
 //Edit  Function  
 //Password Edit
 function PasswordEdit() {
-    $('#btnUpdatepassword').hide();
-    $('#btnCancelpassword').hide();
     // Dropdown_Bind_Userpreferance_Checkbox();
     Dropdown_Bind_user_preferance();
     if ($('#txtsrnotab6').val() != "") {
         var srno = $('#txtsrnotab6').val();
-        $('#btnUpdatepassword').show();
-        $('#btnCancelpassword').hide();
-        $('#btnSavepassword').hide();
         var tablename = 'dbo._PasswordConfiguration';
         var Corporate = $("#hdfsrno").val();
         var unit = '0';
@@ -1189,6 +1231,9 @@ function PasswordEdit() {
             dataType: 'json',
             success: function (response) {
                 if (response['UserPreferancestep1js'].length > 0) {
+                    $('#btnUpdatepassword').show();
+                    $('#btnCancelpassword').hide();
+                    $('#btnSavepassword').hide();
                     $('#txtsrnotab6').val(response['UserPreferancestep1js'][0]['srno']);
                     //$('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['Corporate']);
                     $('#txtrequiredcapitalcharacters').val(response['UserPreferancestep1js'][0]['CapitalCharNumber']);
@@ -1302,8 +1347,6 @@ function subcribedit() {
 }
 //User Preferance
 function Userprefedit() {
-    $('#btnUpdateuserpref').hide();
-    $('#btnCanceluserpref').hide();
     // Dropdown_Bind_Userpreferance_Checkbox();
     Dropdown_Bind_user_preferance();
     if ($('#txtsrnouserpref').val() != "") {
@@ -1352,8 +1395,7 @@ function Userprefedit() {
 function billingedit() {
     clearValidations($('#tab4'));
     Bindtab4dropdown();
-    $("#btnUpdateBilling").show();
-    $("#btnSavebilling").hide();
+   
     var tablename = 'dbo._White_Register_MaintanenceSupport';
     var Corporate = $("#hdfsrno").val();
     var unit = '0';
@@ -1370,7 +1412,8 @@ function billingedit() {
         dataType: 'json',
         success: function (response) {
             if (response['Whiteregjs'].length > 0) {
-                console.log(response['Whiteregjs']);
+                $("#btnUpdateBilling").show();
+                $("#btnSavebilling").hide();
                 $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
                 $('#txtBillingName').val(response['Whiteregjs'][0]['BillingName']);
                 $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
@@ -1393,6 +1436,40 @@ function billingedit() {
                 $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
                 setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
             }
+        }
+    });
+}
+//Duplicate Check  For Email and  URl
+function Email_URl(Field1, Field2) {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var field1 = Field1;
+    var field2 = Field2;
+    var Type = 'BaseDuplicate';
+    var Srno = '';
+    $.ajax({
+        url: "/WhitelabelStep1/CorporateBasicbasesp",
+        type: "POST",
+        async: false,
+        data: {
+            "Module": Module, "screen": screen, "FormCode": FormCode, "TabCode": TabCode, "unit": unit, "Branch": Branch, "userid": userid,
+            "Ip": Ip, "Type": Type, "field1": field1, "field2": field2, "Srno": Srno
+        },
+        success: function (response) {
+
+            if (response['Duplicate'] == "1") {
+                duplicate = "Done";
+            }
+            else {
+                duplicate = '';
+            }
+            //console.log('before');
         }
     });
 }
