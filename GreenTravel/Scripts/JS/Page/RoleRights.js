@@ -20,6 +20,7 @@ $(document).ready(function () {
     $("#drpRightsUnit").change(function () {
         // e.preventDefault();
         $('#drpRightsLocation').html('');// To Clear dropdown
+        $("#partial").html('');
         setSelect2Value($('#drpRightsLocation'), '0');
 
 
@@ -28,19 +29,25 @@ $(document).ready(function () {
 
         $('#drpRightsUser').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsUser'), '0');
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
 
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
     });//---tab-4 unit selected index change event
     $("#drpRightsLocation").change(function () {
         // e.preventDefault();
+        $("#partial").html('');
         $('#drpRightsRole').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsRole'), '0');
-
         $('#drpRightsUser').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsUser'), '0');
-
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
-        Load_screen_module();
+        var location = $('#drpRightsLocation option:selected').val();
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
+        if (location != '0') {
+            Load_screen_module();
+        }
 
 
     });//---tab-4 location selected index change event
@@ -139,7 +146,6 @@ $(document).ready(function () {
                 swal('Invalid data found!', '', 'error');
                 return false;
             }
-
             $('ul.grid div').find('li').each(function () {
                 $(this).find('table tbody tr').each(function () {
                     if ($(this).find('.checker').children().hasClass('checked')) {
@@ -152,9 +158,6 @@ $(document).ready(function () {
                 swal('', 'Please select atleast 1 records ', 'warning');
                 return false;
             }
-
-
-
             var ModuleAry = [];
             var ScreenAry = [];
             if ($('#lbSrnoTab4').val() == '') {
@@ -172,14 +175,10 @@ $(document).ready(function () {
             var RoleType = '0';
             var EffectiveDate = $('#Date1').val();;
             var IsActive = $('#drpRightsStatus option:selected').val();
-            // var IsDefault = $("#chkdefault").is(":checked");
-
             var IsDefault = false;
             if ($("#chkdefault").parent().hasClass('checked')) {
                 IsDefault = true;
             }
-
-
             var Status = '';
             var Attribute1 = '';
             var Attribute2 = '';
