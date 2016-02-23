@@ -1275,7 +1275,7 @@ function getdata() {
     var type = 'Grid';
     var Formcode = '0';
     var Formtabcode = '0';
-    var WhereClause = 'TSTBYAMT';
+    var WhereClause = 'BUSINESSMODE'; //'TSTBYAMT';
     var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,

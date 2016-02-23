@@ -1,7 +1,7 @@
 ﻿var BackgroundImg = '';
 $(document).ready(function () {
     $('#hdfUrl').val($('#drpAppURL').val());
-    setSelect2Value($('#drpAppURL'))
+    //setSelect2Value($('#drpAppURL'))
     $('#drpAppURL').on('change', function () {
         $('#hdfUrl').val($('#drpAppURL').val());
         window.location.href = "/Home/Index?appurl=" + $('#hdfUrl').val();
