@@ -58,7 +58,7 @@ function controlInputValidations(control) {
     control.removeClass('red-input');
     control.parent().find('p.red-error').remove();
     if (control.hasClass('req')) {
-        
+
         if (control.val().trim().length == 0) {
             var attr = $(this).attr('data-reqmsg');
             var msg = 'This field is required.';
@@ -67,7 +67,7 @@ function controlInputValidations(control) {
                     msg = attr;
                 }
             }
-            
+
             fillSummeryBox(control);
 
             control.after('<p class="red-error">' + msg + '</p>');
@@ -147,7 +147,8 @@ function controlInputValidations(control) {
     }
     if (control.hasClass('url')) {
         if (control.val().trim().length > 0) {
-            if (!control.val().match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
+            if (!control.val().match(/^(?:https?:\/\/(?:www\.)?|www\.)[a-z0-9]+(?:[-.][a-z0-9]+)*\.[a-z]{2,5}(?::[0-9]{1,5})?(?:\/\S*)?$/)) {
+                //if (!control.val().match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
                 //if (!control.val().match(/^(http:\/\/www\.|https:\/\/www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)) {
                 control.after('<p class="red-error">Invalid Url Format.</p>');
                 control.addClass('red-input');
@@ -191,8 +192,8 @@ function controlInputValidations(control) {
     if (control.hasClass('datecompair')) {
         var frmdt = new Date(control.data('datecom'));
         var todt = new Date(control.val());
-        
-        if (frmdt>todt) {
+
+        if (frmdt > todt) {
             control.after('<p class="red-error">Must be greater than subscription from date.</p>');
             control.addClass('red-input');
             return false;
@@ -271,7 +272,7 @@ function controlTextareaValidations(control) {
         }
     }
 
-   
+
     return true;
 }
 

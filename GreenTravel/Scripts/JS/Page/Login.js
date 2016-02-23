@@ -20,7 +20,7 @@ $(document).ready(function () {
                     //window.location.href = urls;
                     window.location.href = $('#hdfUrl').val()
                 } else {
-                    swal('Invalid user id and password.', '', 'error');
+                    swal('Invalid email or password.', '', 'error');
                 }
             }
         });

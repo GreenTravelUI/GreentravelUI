@@ -28,12 +28,13 @@ $(document).ready(function () {
     });
 
     $("#drpMasterTab3").change(function () {
-        clearValidations($(this).parent());
-        clearCodes($(this).closest('form'));
+        clearValidations($('#frmCreateMaster'));
+        clearCodes($('#frmCreateMaster'));
+        $('#btnSave').text('CREATE');
+        $('#btnSave').attr("class", "btn btn-success btnSave");
         hide_Tooltip();
         PageLoad_FilledAll();
-        $('#btnSave').text('SAVE');
-        $('#btnSave').attr("class", "btn btn-success btnSave");
+        
     });
 
     $('#btnSave').click(function (e) {
@@ -44,7 +45,7 @@ $(document).ready(function () {
             return false;
         }
         var USrno = '0';
-        if ($('#btnSave').text() != "Create") {
+        if ($('#btnSave').text() != "CREATE") {
             var USrno = $('#txtSrNoTab3').val();
         }
         var Uxmaster = $('#drpMasterTab3 option:selected').val();
@@ -166,6 +167,9 @@ $(document).ready(function () {
         $('select').next().find('ul li.select2-selection__choice').remove();
         setSelect2Value($('#drpSegmenttab3'), $('#hdfIndustry').val());
         setSelect2Value($('#drpCorporateTab'), $('#hdfCorporate').val());
+        $('#btnSave').text('CREATE');
+        $('#btnSave').attr("class", "btn btn-success btnSave");
+        $('#MastersRecord').children().find('span.tab-name').text('Create Master Record');
         e.preventDefault();
     });
 
@@ -188,6 +192,7 @@ $(document).ready(function () {
             //$(this).val($(this).find('option:first').val()).change();
             setSelect2Value($(this), '0');
         });
+        $('#btnCancel').trigger('click');
         //$('select').next().find('ul li.select2-selection__choice').remove();
     });
 
@@ -289,6 +294,7 @@ $(document).ready(function () {
              $("#MastersRecord").addClass("active");
              $(".tab-pane").removeClass("active");
              $("#tab3").addClass("active");
+             $('#MastersRecord').children().find('span.tab-name').text('Update Master Record');
          });
     });
 
