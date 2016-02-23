@@ -16,10 +16,13 @@ namespace GreenTravel.Controllers
 
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("Index", "Home", new { url = Request.Url.AbsolutePath.ToString() });
+            }
             return View();
         }
 
-        #region  Tab 2 Code
         public ActionResult BindDropDown(commanbaseParamater CBP)
         {
             try
@@ -506,15 +509,15 @@ namespace GreenTravel.Controllers
                             UAttribute9 = @dr["Attribute9"].ToString(),
                             UAttribute10 = @dr["Attribute10"].ToString(),
 
-                            UUserId = @dr["Userid"].ToString(),
-                            UCreatedBy = @dr["CreatedBy"].ToString(),
-                            UEntryDatetime = @dr["EntryDatetime"].ToString(),
-                            UEditedBy = @dr["EditedBy"].ToString(),
-                            UEditDatetime = @dr["EditDatetime"].ToString(),
-                            UCorpcentreBy = @dr["CorpcentreBy"].ToString(),
-                            // UUnitCorpBy = @dr["UnitCorpBy "].ToString(),
-                            //  UTerminalBy = @dr["TerminalBy"].ToString(),
-                            UBranchBy = @dr["BranchBy"].ToString(),
+                            //UUserId = @dr["Userid"].ToString(),
+                            //UCreatedBy = @dr["CreatedBy"].ToString(),
+                            //UEntryDatetime = @dr["EntryDatetime"].ToString(),
+                            //UEditedBy = @dr["EditedBy"].ToString(),
+                            //UEditDatetime = @dr["EditDatetime"].ToString(),
+                            //UCorpcentreBy = @dr["CorpcentreBy"].ToString(),
+                            //// UUnitCorpBy = @dr["UnitCorpBy "].ToString(),
+                            ////  UTerminalBy = @dr["TerminalBy"].ToString(),
+                            //UBranchBy = @dr["BranchBy"].ToString(),
 
                             URating1 = @dr["Rating1"].ToString(),
                             URating2 = @dr["Rating2"].ToString(),
@@ -895,6 +898,6 @@ namespace GreenTravel.Controllers
             lstGrid.Add(_grid);
             return PartialView(lstGrid);
         }
-        #endregion
+       
     }
 }

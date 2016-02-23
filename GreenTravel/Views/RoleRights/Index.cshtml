@@ -4,16 +4,6 @@
     ViewBag.PageTitle = "Role Rights";
     
 }
-@*@{
-    if (Session["CreatedBy"] != null)
-    { }
-    else
-    { Response.Redirect(Url.Action("index", "Home")); }
-}*@
-
-
-
-
 <link href="/assets/plugins/gridgallery/css/component.css" rel="stylesheet" type="text/css" />
 <style>
     .tab-itenaries > .col-md-1 > h4,
@@ -167,81 +157,6 @@
     }
 </style>
 
-@*<div class="col-md-12 form-detail">
-    <div class="panel panel-white">
-        <div class="panel-body">
-
-            <div class="row" id="tab4">
-                <form>
-                    <div class="col-md-12">
-                        <div class="row">
-                            <label id="lbSrnoTab4" style="display: none"></label>
-
-                            <div class="form-group col-md-4">
-                                <label>Corporate <span>*</span></label>
-                                <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Unit <span>*</span></label>
-                                <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Location <span>*</span></label>
-                                <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Role <span>*</span></label>
-                                    <input type="text" class="form-control textbox-control  req" id="txtRole" placeholder="Role" data-label="lblRole">
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div>
-                                <div id="grid-gallery" class="grid-gallery">
-                                    <section class="grid-wrap">
-                                        <ul class="grid">
-                                            <li class="grid-sizer"></li>
-                                            <div id="partial">
-                                            </div>
-                                        </ul>
-                                    </section>
-                                    <section class="slideshow">
-
-                                        <ul>
-                                            <li></li>
-                                        </ul>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br />
-                        <br />
-                        <button id="btnSavetab4" type="submit" class="btn btn-success btnSaveTab4" style="display: none">
-                            SAVE</button>
-                        <button id="btnupdatetab4" type="submit" class="btn btn-primary btnSaveTab4" style="display: none">
-                            UPDATE</button>
-                        <button id="btnDeletetab4" type="button" class="btn btn-green" style="display: none">
-                            DELETE</button>
-                        <button id="btnCleartab4" type="button" class="btn btn-warning">
-                            CLEAR</button>
-                        <button id="btnQuittab4" type="button" class="btn btn-info">
-                            QUIT FORM</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>*@
 
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
@@ -249,7 +164,7 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Role</a></li>
                     <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights User</a></li>
                 </ul>
                 <div class="tab-content">
@@ -313,71 +228,72 @@
 
 
                     <div role="tabpanel" class="tab-pane " id="tab4">
-                        <div class="col-md-12">
+                        <div>
                             <form>
-                                <div class="col-md-12">
-                                    <div class="row">
 
-                                        <input type="text" class="form-control inputform" id="lbSrnoTab4" style="display:none" placeholder="Sr No" readonly="true">
-                                        <div class="form-group col-md-4">
-                                            <label>Corporate <span>*</span></label>
-                                            <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Unit <span>*</span></label>
-                                            <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Location <span>*</span></label>
-                                            <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
-                                        </div>
+                                <div class="row">
 
+                                    <input type="text" class="form-control inputform" id="lbSrnoTab4" style="display: none" placeholder="Sr No" readonly="true">
+                                    <div class="form-group col-md-4">
+                                        <input type="hidden" value="@Session["Corporate"]" id="myHiddenVar" />
+                                        <label>Corporate <span>*</span></label>
+                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Unit <span>*</span></label>
+                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Location <span>*</span></label>
+                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Role <span>*</span></label>
-                                                <input type="text" class="form-control textbox-control  req" id="txtRole" placeholder="Role" data-label="lblRole">
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div>
-                                            <div id="grid-gallery" class="grid-gallery">
-                                                <section class="grid-wrap">
-                                                    <ul class="grid">
-                                                        <li class="grid-sizer"></li>
-                                                        <div id="partial">
-                                                        </div>
-                                                    </ul>
-                                                </section>
-                                                <section class="slideshow">
-
-                                                    <ul>
-                                                        <li></li>
-                                                    </ul>
-                                                </section>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <br />
-                                    <br />
-                                    <button id="btnSavetab4" type="submit" class="btn btn-success btnSaveTab4" style="display: none">
-                                        SAVE</button>
-                                    <button id="btnupdatetab4" type="submit" class="btn btn-primary btnSaveTab4" style="display: none">
-                                        UPDATE</button>
-                                    <button id="btnDeletetab4" type="button" class="btn btn-green" style="display: none">
-                                        DELETE</button>
-                                    <button id="btnCleartab4" type="button" class="btn btn-warning">
-                                        CLEAR</button>
-                                    <button id="btnQuittab4" type="button" class="btn btn-info">
-                                        QUIT FORM</button>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Role <span>*</span></label>
+                                            <input type="text" class="form-control textbox-control  req" id="txtRole" placeholder="Role" data-label="lblRole">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div>
+                                        <div id="grid-gallery" class="grid-gallery">
+                                            <section class="grid-wrap">
+                                                <ul class="grid">
+                                                    <li class="grid-sizer"></li>
+                                                    <div id="partial">
+                                                    </div>
+                                                </ul>
+                                            </section>
+                                            <section class="slideshow">
+
+                                                <ul>
+                                                    <li></li>
+                                                </ul>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <br />
+                                <button id="btnSavetab4" type="submit" class="btn btn-success btnSaveTab4" style="display: none">
+                                    SAVE</button>
+                                <button id="btnupdatetab4" type="submit" class="btn btn-primary btnSaveTab4" style="display: none">
+                                    UPDATE</button>
+                                <button id="btnDeletetab4" type="button" class="btn btn-green" style="display: none">
+                                    DELETE</button>
+                                <button id="btnCleartab4" type="button" class="btn btn-warning">
+                                    CLEAR</button>
+                                <button id="btnQuittab4" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+
                             </form>
                         </div>
                     </div>

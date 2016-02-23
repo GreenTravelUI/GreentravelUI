@@ -18,6 +18,10 @@ namespace GreenTravel.Controllers
 
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("Index", "Home", new { url = Request.Url.AbsolutePath.ToString() });
+            }
             return View();
         }
 

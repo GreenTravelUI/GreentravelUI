@@ -43,6 +43,12 @@ namespace GreenTravel.Models.Comman
             get;
             set;
         }
+        public string LocationBy
+        {
+            get;
+            set;
+        }
+
         public CommanPara()
         {
             // CreatedBy = "1";
@@ -55,6 +61,7 @@ namespace GreenTravel.Models.Comman
             BranchBy = HttpContext.Current.Session["BranchBy"].ToString();
             TerminalBy = "103.11.29.22";
             Location = HttpContext.Current.Session["Location"].ToString();
+            LocationBy = HttpContext.Current.Session["Location"].ToString();
             //TerminalBy = HttpContext.Current.Session["TerminalBy"].ToString();
 
 

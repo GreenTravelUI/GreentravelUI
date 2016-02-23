@@ -18,6 +18,10 @@ namespace GreenTravel.Controllers
 
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("index", "Home");
+            }
             return View();
         }
         #region Tab FromSetup

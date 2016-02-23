@@ -1,10 +1,11 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
-
+var corp = $('#myHiddenVar').val();
 $(document).ready(function () {
     BindGrid();
     FillDropDown_RightsCorporate();
+    $("#drpRightsCorporate").prop('disabled', true);
 
     $("#drpRightsCorporate").change(function () {
         $('#drpRightsUnit').html('');// To Clear dropdown Unit
@@ -14,7 +15,6 @@ $(document).ready(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
 
     });//---tab-4 corporate selected index change event
-
     $("#drpRightsUnit").change(function () {
         // e.preventDefault();
         $('#drpRightsLocation').html('');// To Clear dropdown
@@ -59,6 +59,12 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.create').children().addClass('checked');
             $(this).parent().parent().find('.checker.update').attr('checked', true);
             $(this).parent().parent().find('.checker.update').children().addClass('checked');
+        }
+        else {
+            console.log($(this).parent().parent().parent().parent().parent().html());
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
+
         }
 
 
@@ -128,7 +134,8 @@ $(document).ready(function () {
             var a = 0;
             e.preventDefault();
             if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
-                swal('', 'Invalid data found!', 'error');
+                //  swal('', 'Invalid data found!', 'error');
+                swal('Invalid data found!', '', 'error');
                 return false;
             }
             var ModuleAry = [];
@@ -214,7 +221,7 @@ $(document).ready(function () {
                             $('#lbSrnoTab4').val(sr);
                             $('#btnSavetab4').hide();
                             $('#btnupdatetab4').show();
-                           // alert($('#lbSrnoTab4').val());
+                            BindGrid();
                         }
                     }
                 }
@@ -333,7 +340,7 @@ $(document).ready(function () {
 
 function BindGrid() {
     var tablename = 'dbo._RoleMaster';
-    var Corporate = '1';
+    var Corporate = corp;
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
@@ -384,11 +391,12 @@ function BindGrid() {
 
 
 function FillDropDown_RightsCorporate() {
+    corp = $('#myHiddenVar').val();
     var Module = '';
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '0';
+    var Corporate = corp;
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -411,7 +419,16 @@ function FillDropDown_RightsCorporate() {
                         var opt = new Option(data['Corp'][i]['Text'], data['Corp'][i]['Value']);
                         $('#drpRightsCorporate').append(opt);
                     }
-                    setSelect2Value($('#drpRightsCorporate'), '0');
+                    corp = $('#myHiddenVar').val();
+                    setSelect2Value($('#drpRightsCorporate'), corp);
+
+                    $('#drpRightsUnit').html('');// To Clear dropdown Unit
+                    setSelect2Value($('#drpRightsUnit'), '0');
+                    $('#drpRightsLocation').html('');// To Clear dropdown Location
+                    setSelect2Value($('#drpRightsLocation'), '0');
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), 0, 0, 'drpRightsUnit');
+
+
                 }
                 if (data['Status'].length > 0) {
                     $('#drpRightsStatus').html('');
@@ -576,6 +593,12 @@ function Load_screen_module() {
     });
 }
 
+//function Checked_All(html) {
+//    if ($(this).find(' tr .checker').children().hasClass('checked')) {
+
+//    }
+
+//}
 
 function Clear_tab_4() {
     $("#partial").html('');
@@ -591,5 +614,7 @@ function Clear_tab_4() {
     $('#chkdefault').parent().removeClass('checked');
     $('#btnSavetab4').hide();
     $('#btnupdatetab4').hide();
-   
+    corp = $('#myHiddenVar').val();
+    setSelect2Value($('#drpRightsCorporate'), corp);
+
 }

@@ -48,7 +48,7 @@ namespace GreenTravel.App_DbService
                 {
                     _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(UM.EntryDatetime, "dd/MM/yyyy", null));
                 }
-                _cmd.Parameters.AddWithValue("@EditedBy", UM.EditedBy);
+                _cmd.Parameters.AddWithValue("@EditedBy", UM.CreatedBy);
                 _cmd.Parameters.AddWithValue("@CreatedBy", UM.CreatedBy);
 
                 if (UM.EditDatetime == null)

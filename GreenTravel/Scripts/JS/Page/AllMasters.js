@@ -13,8 +13,9 @@ $(document).ready(function () {
         if ($('#drpMasterTab3 option:first').is(':selected')) {
             hide_div();
             clearValidations($(this).closest('form'));
+            clearCodes($(this).closest('form'));
         }
-        
+
     });
 
     $("#drpCorporateTab").change(function () {
@@ -22,11 +23,13 @@ $(document).ready(function () {
         if ($('#drpMasterTab3 option:first').is(':selected')) {
             hide_div();
             clearValidations($(this).closest('form'));
+            clearCodes($(this).closest('form'));
         }
     });
 
     $("#drpMasterTab3").change(function () {
         clearValidations($(this).parent());
+        clearCodes($(this).closest('form'));
         hide_Tooltip();
         PageLoad_FilledAll();
         $('#btnSave').text('SAVE');
@@ -78,16 +81,16 @@ $(document).ready(function () {
         var UAttribute9 = ''
         var UAttribute10 = '';
 
-        var UUserId = '0';
-        var UCreatedBy = '';
-        var UEntryDatetime = '';
-        var UEditedBy = '';
-        var UEditDatetime = '';
-        var UCorpcentreBy = '2';
-        //var UCorpcentreBy = $('#drpCorporateTab option:selected').val();
-        var UUnitCorpBy = '2';
-        var UTerminalBy = '0';
-        var UBranchBy = '0';
+        //var UUserId = '0';
+        //var UCreatedBy = '';
+        //var UEntryDatetime = '';
+        //var UEditedBy = '';
+        //var UEditDatetime = '';
+        //var UCorpcentreBy = '2';
+        ////var UCorpcentreBy = $('#drpCorporateTab option:selected').val();
+        //var UUnitCorpBy = '2';
+        //var UTerminalBy = '0';
+        //var UBranchBy = '0';
 
         var URating1 = $('#Rating1 option:selected').val();
         var URating2 = $('#Rating2 option:selected').val();
@@ -119,53 +122,62 @@ $(document).ready(function () {
         var UMultiSelect4 = getMultiselectValue($("#Multiselect4"));
         var UMultiSelect5 = getMultiselectValue($("#Multiselect5"));
 
-        $.ajax(
-           {
-               type: "POST",
-               url: "/AllMaster/Insert_Data",
-               data: {
-                   USrno: USrno, Uxmaster: Uxmaster, Uxcode: Uxcode, Uxname: Uxname, UIsActive: UIsActive, URemark: URemark, Uxlink: Uxlink,
-                   Uxcross: Uxcross, Uxcross1: Uxcross1, Uxcross2: Uxcross2, Uxcross3: Uxcross3, Uxcross4: Uxcross4,
-                   Uxreference1: Uxreference1, Uxreference2: Uxreference2, Uxreference3: Uxreference3, Uxreference4: Uxreference4, Uxreference5: Uxreference5, Uxreference6: Uxreference6,
-                   Uxdetail: Uxdetail, URating1: URating1, URating2: URating2, URating3: URating3, UDate1: UDate1, UDate2: UDate2, UDate3: UDate3, UEmail1: UEmail1, UEmail2: UEmail2, UEmail3: UEmail3,
-                   UAmount: UAmount, UAmount2: UAmount2, UAmount3: UAmount3, UTime1: UTime1, UTime2: UTime2, UHtml: UHtml, UUpload: UUpload, UTextArea: UTextArea,
-                   UMultiSelect1: UMultiSelect1, UMultiSelect2: UMultiSelect2, UMultiSelect3: UMultiSelect3, UMultiSelect4: UMultiSelect4, UMultiSelect5: UMultiSelect5,
-                   UCreatedBy: UCreatedBy, UEntryDatetime: UEntryDatetime, UEditedBy: UEditedBy, UCorpcentreBy: UCorpcentreBy, UUnitCorpBy: UUnitCorpBy, UTerminalBy: UTerminalBy, UBranchBy: UBranchBy, UUserId: UUserId
-               },
-               dataType: 'json',
-               success: function (response) {
-                   if (response != null && response.success) {
-
-                       swal('', response['success'], response['Event']);
-                   }
-               }
-           });
+        $.ajax({
+            type: "POST",
+            url: "/AllMaster/Insert_Data",
+            data: {
+                USrno: USrno, Uxmaster: Uxmaster, Uxcode: Uxcode, Uxname: Uxname, UIsActive: UIsActive, URemark: URemark, Uxlink: Uxlink,
+                Uxcross: Uxcross, Uxcross1: Uxcross1, Uxcross2: Uxcross2, Uxcross3: Uxcross3, Uxcross4: Uxcross4,
+                Uxreference1: Uxreference1, Uxreference2: Uxreference2, Uxreference3: Uxreference3, Uxreference4: Uxreference4, Uxreference5: Uxreference5, Uxreference6: Uxreference6,
+                Uxdetail: Uxdetail, URating1: URating1, URating2: URating2, URating3: URating3, UDate1: UDate1, UDate2: UDate2, UDate3: UDate3, UEmail1: UEmail1, UEmail2: UEmail2, UEmail3: UEmail3,
+                UAmount: UAmount, UAmount2: UAmount2, UAmount3: UAmount3, UTime1: UTime1, UTime2: UTime2, UHtml: UHtml, UUpload: UUpload, UTextArea: UTextArea,
+                UMultiSelect1: UMultiSelect1, UMultiSelect2: UMultiSelect2, UMultiSelect3: UMultiSelect3, UMultiSelect4: UMultiSelect4, UMultiSelect5: UMultiSelect5
+                //UCreatedBy: UCreatedBy, UEntryDatetime: UEntryDatetime, UEditedBy: UEditedBy, UCorpcentreBy: UCorpcentreBy, UUnitCorpBy: UUnitCorpBy, UTerminalBy: UTerminalBy, UBranchBy: UBranchBy, UUserId: UUserId
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response != null && response.success) {
+                    swal('', response['success'], response['Event']);
+                }
+            }
+        }).done(function () {
+            $('#btnSave').text('UPDATE');
+            $('#btnSave').attr("class", "btn btn-primary btnSave");
+        });
 
     });
 
     $('#btnCancel').click(function (e) {
-        e.preventDefault();
+        hide_div();
         clearValidations($(this).parent());
-        $('input').val('');
+        clearCodes($(this).closest('form'));
+        $('input[type="text"]').val('');
         $('textarea').val('');
         $('.Dropdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
+            setSelect2Value($(this), '0');
+            //$(this).val($(this).find('option:first').val()).change();
         });
 
         $('.drpdown').each(function () {
-            $(this).val($(this).find('option:first').val()).change();
+            setSelect2Value($(this), '0');
+            //$(this).val($(this).find('option:first').val()).change();
         });
 
         $('select').next().find('ul li.select2-selection__choice').remove();
+        setSelect2Value($('#drpSegmenttab3'), $('#hdfIndustry').val());
+        setSelect2Value($('#drpCorporateTab'), $('#hdfCorporate').val());
+        e.preventDefault();
     });
 
     //Quit  Button  Click 
     $('#btnQuit').click(function (e) {
+        getdata();
         $("#MasterDataViews").addClass("active");
         $("#MastersRecord").removeClass("active");
         $("#tab3").removeClass("active");
         $("#tab4").addClass("active");
         clearValidations($(this).parent());
+        clearCodes($(this).closest('form'));
         $('input').val('');
         $('textarea').val('');
         $('.Dropdown').each(function () {
@@ -201,13 +213,14 @@ $(document).ready(function () {
                  //Master
                  if (response['AMaster'].length > 0) {
                      hide_div();
-                     
+
 
                      /* #drpSegmenttab3 */
                      //$('#drpSegmenttab3').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                      setSelect2Value($('#drpSegmenttab3'), response['AMaster'][0]['SEGMENT']);
                      hide_div();
                      clearValidations($(this).closest('form'));
+                     clearCodes($(this).closest('form'));
                      FillDropdown('drpMasterTab3', 'ConditionalDropdown')
                      /* #drpSegmenttab3 */
 
@@ -1124,21 +1137,24 @@ function FillDropDown_Category() {
                     var opt = new Option(data['Segment'][i]['Text'], data['Segment'][i]['Value']);
                     $('#drpSegmenttab3').append(opt);
                 }
-                DropdownSeletedValue(drpSegmenttab3);
+                setSelect2Value($('#drpSegmenttab3'), $('#hdfIndustry').val());
+                //DropdownSeletedValue(drpSegmenttab3);
             }
             if (data['Corporate'].length > 0) {
                 for (var i = 0; i < data['Corporate'].length; i++) {
                     var opt = new Option(data['Corporate'][i]['Text'], data['Corporate'][i]['Value']);
                     $('#drpCorporateTab').append(opt);
                 }
-                DropdownSeletedValue(drpCorporateTab);
+                setSelect2Value($('#drpCorporateTab'), $('#hdfCorporate').val());
+                //DropdownSeletedValue(drpCorporateTab);
             }
             if (data['Master'].length > 0) {
                 for (var i = 0; i < data['Master'].length; i++) {
                     var opt = new Option(data['Master'][i]['Text'], data['Master'][i]['Value']);
                     $('#drpMasterTab3').append(opt);
                 }
-                DropdownSeletedValue(drpCorporateTab);
+                setSelect2Value($('#drpMasterTab3'), '0');
+                //DropdownSeletedValue(drpCorporateTab);
             }
         },
         error: function (data) {
@@ -1146,7 +1162,7 @@ function FillDropDown_Category() {
             swal('Something went wrong!', '', 'error');
         }
     });
-
+    FillDropdown('drpMasterTab3', 'ConditionalDropdown')
 }
 
 function DropdownSeletedValue(controlId) {
@@ -1189,7 +1205,7 @@ function hide_div() {
     $('#divHtmleditor1').hide();
     $('#divphotoUpload1').hide();
     $('#divTextarea1').hide();
-    //$('#divActive').hide();
+    $('#divActive').hide();
     $('#divRemarks').hide();
 
     $('#divMultiselect1').hide();
@@ -1244,13 +1260,13 @@ function hide_Tooltip() {
 
 function getdata() {
     var tablename = 'dbo.usermaster';
-    var Corporate = '0';
-    var Segment = '0';
+    var Corporate = $('#hdfCorporate').val();
+    var Segment = $('#hdfIndustry').val();
     var PageNo = '1';
     var type = 'Grid';
     var Formcode = '0';
     var Formtabcode = '0';
-    var WhereClause = 'ALLMSTERTSTNG';
+    var WhereClause = 'CONTROLTYPE';
     var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,
@@ -1284,8 +1300,6 @@ function getdata() {
                 className: "center",
                 defaultContent: '<a href="javascript:void(0);" class="editor_edit" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
             }
-
-
         ]
     });
     var tableTools = new $.fn.dataTable.TableTools(table, {

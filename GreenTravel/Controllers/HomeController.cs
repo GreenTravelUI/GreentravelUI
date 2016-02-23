@@ -21,23 +21,39 @@ namespace GreenTravel.Controllers
 
         FormValidationPara frm_para = new FormValidationPara();
 
-        public ActionResult Index()
+        public ActionResult Index(string url = "")
         {
+            /* Uncomment it for already login case */
+            /*
+            if (Session["CreatedBy"] != null)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
+            */
+
             frm_para.FormType = "LoginPage"; //from_code
             frm_para.corporate = "--None--";
             frm_para.type = "Caption";
             frm_para.FormTabCode = "--None--";
             var form_val = _objcomman.GetFormData(frm_para);
             //url = "https://agent.travelzunlimited.com/crm"
-            string url = Request.Url.ToString();
+            //string url = Request.Url.ToString();
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
                 url="http://gt.techpure.co.uk1"
+                //url=Request.Url
             };
-
+            if (url == "")
+            {
+                ViewBag.RedirectUrl = "/Dashboard";
+            }
+            else
+            {
+                ViewBag.RedirectUrl = url;
+            }
             Session["Logo"] = "assets/images/Logo-green.png";
-            Session["backgroundImage"] = "/assets/images/login-bg.jpg";
+            Session["BackgroundImg"] = "/assets/images/login-bg.jpg";
             Session["Favicon"] = "assets/images/favicon.ico";
             DataSet ds = ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables[0] != null)
@@ -178,13 +194,15 @@ namespace GreenTravel.Controllers
                 {
                     Session["Corporate"] = ds.Tables[0].Rows[0]["Corporate"];
                     Session["Logo"] = ds.Tables[0].Rows[0]["Logo"];
-                    Session["TerminalBy"] = "1";
+                    Session["TerminalBy"] = Request.UserHostAddress.ToString();
+                    Session["Indsutry"] = ds.Tables[0].Rows[0]["corpCompanyIndust"];
                 }
             }
             var lst = JsonConvert.SerializeObject(ds.Tables[0], Formatting.None, new JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
             return Content(lst, "application/json");
 
         }
+
         //public void LoadSessions(string Type, string url)
         //{
         //    DataSet ds = _objDBLogin.GetLoginData(Type, "", url, "");

@@ -29,7 +29,7 @@
     <link href="/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
-    
+
     <!-- Theme <style></style>s -->
     <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
@@ -44,7 +44,7 @@
     <script src="~/Scripts/JS/Page/Login.js"></script>
     @*<script>
         $(document).ready(function () {
-            $('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');
+            $('.page-content.login-body').css('background', '#000 url(@Session["BackgroundImg"].ToString()) no-repeat scroll center top');
         });
     </script>*@
 </head>
@@ -56,7 +56,7 @@
                             <div class="login-box panel panel-white">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <input type="hidden" value="@Session["backgroundImage"]" id="myHiddenVar" /> 
+                                        <input type="hidden" value="@Session["BackgroundImg"]" id="myHiddenVar" /> 
                                         <div class="col-md-6">
                                             <a href="" class="logo-name text-lg"><img src="@Session["Logo"]" height="45" width="200" /></a>
                                             <p class="login-info">
@@ -65,7 +65,9 @@
                                             </p>
                                         </div>
                                         <div class="col-md-6">
-                                            <form >
+                                            <input id="hdfUrl" type="hidden" value="@ViewBag.RedirectUrl"/>
+                                            <form>
+                                                
                                                 <div class="form-group">
                                                     <input  id="txtUserName" type="email" class="form-control" placeholder="Email" required >
                                                 </div>
@@ -73,7 +75,7 @@
                                                     <input  id="txtPassword" type="password" class="form-control" placeholder="Password" required>
                                                 </div>
                                                 @*<button type="submit" class="btn btn-success btn-block">Login</button>*@
-                                                <input type="button" id="btnLogin" name="btnLogin" value="Login" class="btn btn-success btn-block" />
+                                                <input type="submit" id="btnLogin" name="btnLogin" value="Login" class="btn btn-success btn-block" />
                                                 <a href="#" class="display-block text-center m-t-md text-sm">Forgot Password?</a>
                                             </form>
                                         </div>

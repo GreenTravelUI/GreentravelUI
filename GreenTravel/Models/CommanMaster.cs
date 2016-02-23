@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenTravel.Models.Comman;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -347,7 +348,7 @@ namespace GreenTravel.Models
         public string BranchBy { get; set; }
     }
 
-    public class CommanUserMaster
+    public class CommanUserMaster : CommanPara
     {
         public string USrno { get; set; }
         public string Uxmaster { get; set; }
@@ -380,15 +381,15 @@ namespace GreenTravel.Models
         public string UAttribute9 { get; set; }
         public string UAttribute10 { get; set; }
 
-        public string UUserId { get; set; }
-        public string UCreatedBy { get; set; }
-        public string UEntryDatetime { get; set; }
-        public string UEditedBy { get; set; }
-        public string UEditDatetime { get; set; }
-        public string UCorpcentreBy { get; set; }
-        public string UUnitCorpBy { get; set; }
-        public string UTerminalBy { get; set; }
-        public string UBranchBy { get; set; }
+        //public string UUserId { get; set; }
+        //public string UCreatedBy { get; set; }
+        //public string UEntryDatetime { get; set; }
+        //public string UEditedBy { get; set; }
+        //public string UEditDatetime { get; set; }
+        //public string UCorpcentreBy { get; set; }
+        //public string UUnitCorpBy { get; set; }
+        //public string UTerminalBy { get; set; }
+        //public string UBranchBy { get; set; }
 
         public string URating1 { get; set; }
         public string URating2 { get; set; }
@@ -420,7 +421,7 @@ namespace GreenTravel.Models
         public string UMultiSelect5 { get; set; }
     }
 
-    public class commanbaseParamater
+    public class commanbaseParamater : CommanPara
     {
         public string Module { get; set; }
         public string screen { get; set; }

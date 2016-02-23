@@ -2,12 +2,15 @@
 $(window).unload(function () {
     $('select option').remove();
 });
-
+var corp = $('#myHiddenVar').val();
 $(document).ready(function () {
 
     FillDropDown_RightsCorporate();
     FillDropDown_Corporate();
     setSelect2Value($('#DrpLocationTab2'), '0');
+    $("#drpCorporate").prop('disabled', true);
+    $("#drpRightsCorporate").prop('disabled', true);
+
     BindGrid();
     // ==============================================================================================================================  ( Tab-1 && Tab-2)      //
     $("#drpCorporate").change(function () {
@@ -65,6 +68,7 @@ $(document).ready(function () {
             // $(this).val($(this).find('option:first').val()).change();
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
+        setSelect2Value($('#drpCorporate'), corp);
     });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -176,7 +180,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsUnit'), response['UserWiseRights'][0]['Unit']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
                     setSelect2Value($('#drpRightsLocation'), response['UserWiseRights'][0]['Location']);
-                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
@@ -226,7 +230,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsUnit'), response['UserWiseRights'][0]['Unit']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsLocation');
                     setSelect2Value($('#drpRightsLocation'), response['UserWiseRights'][0]['Location']);
-                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsRole');
+                    FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
@@ -265,6 +269,12 @@ $(document).ready(function () {
     });//---tab-2 quit button
     // ==============================================================================================================================  ( Tab-4) 
     $("#drpRightsCorporate").change(function () {
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
+        $("#partial").html('');
+
         $('#drpRightsUnit').html('');// To Clear dropdown Unit
         setSelect2Value($('#drpRightsUnit'), '0');
         $('#drpRightsLocation').html('');// To Clear dropdown Location
@@ -301,12 +311,16 @@ $(document).ready(function () {
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), $('#drpRightsLocation option:selected').val(), 'drpRightsRole');
     });//---tab-4 location selected index change event
     $("#drpRightsRole").change(function () {
+        $("#partial").html('');
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
         Load_screen_module();
 
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
-        // e.preventDefault();
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
         Load_screen_module();
         Fill_Screen_Module_On_Edit();
     });//---tab-4 rights selected index change event
@@ -525,7 +539,14 @@ function FillDropDown_Corporate() {
                     var opt = new Option(response['Corp'][i]['Text'], response['Corp'][i]['Value']);
                     $('.formcorporate').append(opt);
                 }
-                setSelect2Value($('#drpCorporate'), '0');
+                //setSelect2Value($('#drpCorporate'), '0');
+                setSelect2Value($('#drpCorporate'), corp);
+                $('#DrpLocationTab2').html('');
+                $('#DrpUnitTab2').html('');
+                setSelect2Value($('#DrpLocationTab2'), '0');
+                FillConditional_Base($('#drpCorporate option:selected').val(), 0, 0, 0, 'DrpUnitTab2');
+
+
             }
         },
     });
@@ -578,7 +599,7 @@ function CompareValidation($attr1, $attr2) {
 }
 function BindGrid() {
     var tablename = 'dbo._User_Details_Master';
-    var Corporate = '1';
+    var Corporate = corp;
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
@@ -691,7 +712,7 @@ function FillDropDown_RightsCorporate() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '0';
+    var Corporate = corp;
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -714,7 +735,8 @@ function FillDropDown_RightsCorporate() {
                         var opt = new Option(data['Corp'][i]['Text'], data['Corp'][i]['Value']);
                         $('#drpRightsCorporate').append(opt);
                     }
-                    setSelect2Value($('#drpRightsCorporate'), '0');
+                    setSelect2Value($('#drpRightsCorporate'), corp);
+                    $("#drpRightsCorporate").change();
                 }
                 if (data['Status'].length > 0) {
                     $('#drpRightsStatus').html('');

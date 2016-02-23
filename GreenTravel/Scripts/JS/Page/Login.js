@@ -1,11 +1,11 @@
-﻿var backgroundImage = '';
+﻿var BackgroundImg = '';
 $(document).ready(function () {
     Load_data();
-    //backgroundImage = $('#myHiddenVar').val();
-    //alert(backgroundImage)
-    $('.page-content.login-body').css('background', '#000 url(' + $('#myHiddenVar').val() + ') no-repeat scroll center top');
-    //$('.page-content.login-body').css('background', '#000 url(@Session["backgroundImage"].ToString()) no-repeat scroll center top');
-    $('#btnLogin').click(function () {
+    //BackgroundImg = $('#myHiddenVar').val();
+    //alert(BackgroundImg)
+    //$('.page-content.login-body').css('background', '#000 url(' + $('#myHiddenVar').val() + ') no-repeat scroll center top');
+    $('.page-content.login-body').css('background', '#000 url(@Session["BackgroundImg"].ToString()) no-repeat scroll center top');
+    $('#btnLogin').click(function (e) {
         var Type = 'Password';
         var Email = $('#txtUserName').val();
         var url = 'http://gt.techpure.co.uk1';
@@ -17,16 +17,14 @@ $(document).ready(function () {
             success: function (result) {
                 if (result == "1") {
                     var urls = "/Dashboard";
-                    window.location.href = urls;
+                    //window.location.href = urls;
+                    window.location.href = $('#hdfUrl').val()
                 } else {
-                    swal(
-                      'Invalid user id and password.',
-                       '',
-                       'error'
-                        )
+                    swal('Invalid user id and password.', '', 'error');
                 }
             }
         });
+        e.preventDefault();
     });
 });
 
@@ -38,10 +36,11 @@ function Load_data() {
         url: "/Home/PageLoad",
         data: { "Type": Type, "url": url },
         success: function (result) {
-            console.log(result[0]['BackgroundImg']);
-            $('.page-content.login-body').css('background', '#000 url("' + result[0]['BackgroundImg'] + '") no-repeat scroll center top');
-            var img = '<img height="45" width="200" src="' + result[0]['Logo'] + '">';
-            $('.logo-name').html(img);
+            if (result.length > 0) {
+                $('.page-content.login-body').css('background', '#000 url("' + result[0]['BackgroundImg'] + '") no-repeat scroll center top');
+                var img = '<img height="45" width="200" src="' + result[0]['Logo'] + '">';
+                $('.logo-name').html(img);
+            }
         }
     });
 }

@@ -17,6 +17,10 @@ namespace GreenTravel.Controllers
 
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("index", "Home");
+            }
             return View();
         }
         public ActionResult Insert_Data(FrmControlSetup FCS)
