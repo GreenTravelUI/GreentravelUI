@@ -47,13 +47,11 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@OtherReference1", WR.OtherReference1);
                 _cmd.Parameters.AddWithValue("@OtherReference2", WR.OtherReference2);
                 _cmd.Parameters.AddWithValue("@Commision", WR.Commision);
-
                 _cmd.Parameters.AddWithValue("@Facebook", WR.Facebook);
                 _cmd.Parameters.AddWithValue("@Twitter", WR.Twitter);
                 _cmd.Parameters.AddWithValue("@GooglePlus", WR.GooglePlus);
                 _cmd.Parameters.AddWithValue("@WebPortal", WR.WebPortal);
                 _cmd.Parameters.AddWithValue("@BackgroundImg", WR.BackgroundImg);
-
                 _cmd.Parameters.AddWithValue("@Attribute1", WR.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", WR.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", WR.Attribute3);
@@ -64,7 +62,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", WR.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", WR.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", WR.Attribute10);
-                _cmd.Parameters.AddWithValue("@CretedBy", WR.CretedBy);
+                _cmd.Parameters.AddWithValue("@CretedBy", WR.CreatedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", WR.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", WR.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", WR.TerminalBy);
@@ -88,7 +86,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
         public DataSet BindDropDown(CommanFieldPara CFP)
         {
             try
@@ -124,7 +121,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet BindGrid(GridParamater GP)
         {
             try
@@ -162,7 +158,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Edit_data(WhitelabelReg WR)
         {
             try
@@ -196,7 +191,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet insert_BillingMaintencae(Billing_maintanence _Billing_maintanence)
         {
             try
@@ -256,8 +250,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
-
         public DataSet BindDropDownUserpreferanceCheckbox(WhitelabelReg WR)
         {
             try
@@ -294,7 +286,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet BindDropDownUserpreferancedropdown(WhitelabelReg WR)
         {
             try
@@ -331,9 +322,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         // insert_Data_user_preferance
-
         public DataSet insert_Data_user_preferance(UserPreferancestep1 UP)
         {
             try
@@ -358,26 +347,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", UP.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", UP.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", UP.Attribute10);
-
-                if (UP.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(UP.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", UP.EditedBy);
                 _cmd.Parameters.AddWithValue("@CreatedBy", UP.CreatedBy);
-
-                if (UP.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(UP.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", UP.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", UP.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", UP.TerminalBy);
@@ -401,7 +371,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
         public DataSet Edit_data_user_preferance(UserPreferancestep1 UP)
         {
             try
@@ -435,7 +404,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Bindtab4dropdown(WhitelabelReg WR)
         {
             try
@@ -472,7 +440,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Bindbillingcountry(WhitelabelReg WR)
         {
             try
@@ -516,7 +483,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Bindbillingstate(WhitelabelReg WR)
         {
             try
@@ -560,7 +526,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Edit_data_billing(Billing_maintanence BM)
         {
             try
@@ -594,8 +559,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
-
         public DataSet Binddropdowntab3(WhitelabelReg WR)
         {
             try
@@ -632,7 +595,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Binddropdowntab3sec2(WhitelabelReg WR)
         {
             try
@@ -640,11 +602,9 @@ namespace GreenTravel.App_DbService
                 using (SqlConnection sconn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["gtcon"].ConnectionString))
                 {
                    sconn.Open();
-                   
                     using (SqlCommand _cmd = new SqlCommand("sp_Formload_White_Register_Subscription", sconn))
                     {
                         _cmd.CommandType = CommandType.StoredProcedure;
-
                         _cmd.Parameters.AddWithValue("@Module", WR.Module);
                         _cmd.Parameters.AddWithValue("@screen", WR.screen);
                         _cmd.Parameters.AddWithValue("@FormCode", WR.FormCode);
@@ -673,11 +633,8 @@ namespace GreenTravel.App_DbService
             }
             finally
             {
-               
             }
-        
         }
-
         public DataSet insert_Hosting(Hosting_Subscription HS)
         {
             try
@@ -687,7 +644,6 @@ namespace GreenTravel.App_DbService
                 _cmd.CommandType = CommandType.StoredProcedure;
                 _cmd.Parameters.AddWithValue("@srno", HS.srno);
                 _cmd.Parameters.AddWithValue("@Corporate", HS.Corporate);
-
                 _cmd.Parameters.AddWithValue("@CloudProvider", HS.CloudProvider);
                 _cmd.Parameters.AddWithValue("@CloudServerIp", HS.CloudServerIp);
                 _cmd.Parameters.AddWithValue("@CloudDiskSpace", HS.CloudDiskSpace);
@@ -698,7 +654,6 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@HostingCost", HS.HostingCost);
                 _cmd.Parameters.AddWithValue("@CostPerMonth", HS.CostPerMonth);
                 _cmd.Parameters.AddWithValue("@Currency", HS.Currency);                
-
                 _cmd.Parameters.AddWithValue("@Attribute1", HS.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", HS.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", HS.Attribute3);
@@ -709,7 +664,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", HS.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", HS.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", HS.Attribute10);
-
+                _cmd.Parameters.AddWithValue("@HostingCostPM", HS.HostingCostPM);
                 _cmd.Parameters.AddWithValue("@CreatedBy", HS.CreatedBy);
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", HS.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", HS.UnitCorpBy);
@@ -734,7 +689,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
         public DataSet insert_Hosting_sub(Hosting_Subscription HS)
         {
             try
@@ -829,7 +783,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
         public DataSet Edit_data_hosting(Hosting_Subscription HS)
         {
             try
@@ -863,7 +816,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Edit_data_subcribe(Hosting_Subscription HS)
         {
             try
@@ -898,7 +850,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
         public DataSet Binddropdowntab6(WhitelabelReg WR)
         {
             try
@@ -935,8 +886,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
-
         public DataSet insert_PasswordAuth(Password_Authentication PA)
         {
             try
@@ -1000,7 +949,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
         public DataSet Edit_data_password_authenticate(Password_Authentication PA)
         {
             try

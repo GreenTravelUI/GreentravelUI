@@ -19,6 +19,7 @@ namespace GreenTravel
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "GreenTravel.Controllers" }
             );
+            
         }
     }
 }

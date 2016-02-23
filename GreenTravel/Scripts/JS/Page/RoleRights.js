@@ -2,6 +2,7 @@
     $('select option').remove();
 });
 var corp = $('#myHiddenVar').val();
+
 $(document).ready(function () {
     BindGrid();
     FillDropDown_RightsCorporate();
@@ -60,12 +61,8 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.update').attr('checked', true);
             $(this).parent().parent().find('.checker.update').children().addClass('checked');
         }
-        else {
-            console.log($(this).parent().parent().parent().parent().parent().html());
-            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
-            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
-
-        }
+        var control = $(this).parent().parent().parent().parent().parent().html();
+        Checked_All(control);
 
 
     });//---tab-4 checkbox - (checker click)
@@ -80,6 +77,9 @@ $(document).ready(function () {
         else {
             $(this).parent().parent().find('.checker.delete').attr('checked', false);
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
+
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
         }
 
     });//---tab-4 checkbox - (check update)
@@ -94,6 +94,9 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.update').children().removeClass('checked');
             $(this).parent().parent().find('.checker.delete').attr('checked', false);
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
+
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
         }
 
     });//---tab-4 checkbox - (check create)
@@ -109,6 +112,9 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
             $(this).parent().parent().find('.checker.create').attr('checked', false);
             $(this).parent().parent().find('.checker.create').children().removeClass('checked');
+
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
+            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
         }
 
     });//---tab-4 checkbox - (check view)
@@ -238,6 +244,8 @@ $(document).ready(function () {
 
         $("#userlitab4").removeClass("active");
         $("#tab4").removeClass("active");
+        $('input[type="search"]').val('');
+        BindGrid();
     });//---tab-2 quit button click
     $('#btnCleartab4').click(function (e) {
         e.preventDefault();
@@ -383,7 +391,7 @@ function BindGrid() {
                 data: null,
                 className: "center",
                 //defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-trash-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
-                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" rel="tooltip" title="Users Access Rights" class="editor_accessright"><i class="fa fa-key"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;'
             }
         ]
     });
@@ -593,14 +601,45 @@ function Load_screen_module() {
     });
 }
 
-//function Checked_All(html) {
-//    if ($(this).find(' tr .checker').children().hasClass('checked')) {
+function Checked_All(control) {
+    var thisid = control;
+    var Count = '0';
+    console.log(thisid);
+    //$(this).find('.checker.All').attr('checked', false);
+    // $(this).find('.checker.All').children().removeClass('checked');
 
-//    }
+    $(thisid).find('tr').each(function () {
+       
+        if ($(this).find('.checker.view').children().hasClass('checked') == false) {
+            //alert("1");
+           
+        }
+        if ($(this).find('.checker.create').children().hasClass('checked') == false) {
+           
+            Count = '1';
+        }
+        if ($(this).find('.checker.update').children().hasClass('checked') == false) {
+          //  alert('3');
+            Count = '1';
+        }
+        if ($(this).find('.checker.delete').children().hasClass('checked') == false) {
+            
+            Count = '1';
+        }
+    });
+    
+  //  alert(Count);
+    console.log($(thisid).find('.checker.All').html());
+    if (Count == '0') {
+        $(thisid).find('.checker.All').attr('checked', false);
+        $(thisid).find('.checker.All').children().removeClass('checked');
+    }
 
-//}
+}
 
 function Clear_tab_4() {
+
+
     $("#partial").html('');
     $('.inputControl').val('');
     $('input[type="text"]').val('');
@@ -608,7 +647,7 @@ function Clear_tab_4() {
     $("#tab4").find('.Dropdown').each(function () {
         setSelect2Value($(this), '0');
     });
-    clearValidations($(this).find('form'));
+    clearValidations($('#tab4').find('form'));
     $('#Date1').val('');
     $('#chkdefault').attr('checked', false);
     $('#chkdefault').parent().removeClass('checked');

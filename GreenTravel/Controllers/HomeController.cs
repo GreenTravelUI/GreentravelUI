@@ -41,7 +41,7 @@ namespace GreenTravel.Controllers
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url="http://gt.techpure.co.uk1"
+                url="http://gt.techpure.co.uk"
                 //url=Request.Url
             };
             if (url == "")
