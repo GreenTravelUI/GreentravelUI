@@ -368,6 +368,8 @@ namespace GreenTravel.Controllers
 
         }
 
+        [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Insert_Data(CommanUserMaster CUH)
         {
             try

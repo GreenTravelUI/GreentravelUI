@@ -30,11 +30,12 @@ $(document).ready(function () {
     $("#drpMasterTab3").change(function () {
         clearValidations($('#frmCreateMaster'));
         clearCodes($('#frmCreateMaster'));
+        $('input[type="text"]').val('');
+        $('textarea').val('');
         $('#btnSave').text('CREATE');
         $('#btnSave').attr("class", "btn btn-success btnSave");
         hide_Tooltip();
         PageLoad_FilledAll();
-        
     });
 
     $('#btnSave').click(function (e) {
@@ -126,6 +127,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/AllMaster/Insert_Data",
+            cache: false,
             data: {
                 USrno: USrno, Uxmaster: Uxmaster, Uxcode: Uxcode, Uxname: Uxname, UIsActive: UIsActive, URemark: URemark, Uxlink: Uxlink,
                 Uxcross: Uxcross, Uxcross1: Uxcross1, Uxcross2: Uxcross2, Uxcross3: Uxcross3, Uxcross4: Uxcross4,
@@ -138,12 +140,13 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 if (response != null && response.success) {
-                    swal('', response['success'], response['Event']);
+                    swal(response['success'], '', response['Event']);
                 }
             }
         }).done(function () {
             $('#btnSave').text('UPDATE');
             $('#btnSave').attr("class", "btn btn-primary btnSave");
+            $('#MastersRecord').children().find('span.tab-name').text('Update Master Record');
         });
 
     });
@@ -167,6 +170,7 @@ $(document).ready(function () {
         $('select').next().find('ul li.select2-selection__choice').remove();
         setSelect2Value($('#drpSegmenttab3'), $('#hdfIndustry').val());
         setSelect2Value($('#drpCorporateTab'), $('#hdfCorporate').val());
+        $("#drpCorporateTab").trigger('change');
         $('#btnSave').text('CREATE');
         $('#btnSave').attr("class", "btn btn-success btnSave");
         $('#MastersRecord').children().find('span.tab-name').text('Create Master Record');
@@ -218,7 +222,6 @@ $(document).ready(function () {
                  //Master
                  if (response['AMaster'].length > 0) {
                      hide_div();
-
 
                      /* #drpSegmenttab3 */
                      //$('#drpSegmenttab3').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
@@ -290,11 +293,17 @@ $(document).ready(function () {
                  }
              }
          }).done(function () {
+             alert(1);
              $("#MasterDataViews").removeClass("active");
+             alert(2);
              $("#MastersRecord").addClass("active");
+             alert(3);
              $(".tab-pane").removeClass("active");
+             alert(4);
              $("#tab3").addClass("active");
+             alert(5);
              $('#MastersRecord').children().find('span.tab-name').text('Update Master Record');
+             alert(6);
          });
     });
 
@@ -1272,7 +1281,7 @@ function getdata() {
     var type = 'Grid';
     var Formcode = '0';
     var Formtabcode = '0';
-    var WhereClause = 'CONTROLTYPE';
+    var WhereClause = 'TSTBYAMT';
     var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,

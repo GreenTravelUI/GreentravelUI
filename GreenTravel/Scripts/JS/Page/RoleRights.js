@@ -1,6 +1,7 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
+
 var corp = $('#myHiddenVar').val();
 
 $(document).ready(function () {
@@ -61,9 +62,8 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.update').attr('checked', true);
             $(this).parent().parent().find('.checker.update').children().addClass('checked');
         }
-        var control = $(this).parent().parent().parent().parent().parent().html();
+        var control = $(this).parent().parent().parent();
         Checked_All(control);
-
 
     });//---tab-4 checkbox - (checker click)
     $("#partial").delegate(".checker.update", "click", function () {
@@ -77,14 +77,12 @@ $(document).ready(function () {
         else {
             $(this).parent().parent().find('.checker.delete').attr('checked', false);
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
-
-            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
-            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
         }
-
+        var control = $(this).parent().parent().parent();
+        Checked_All(control);
     });//---tab-4 checkbox - (check update)
     $("#partial").delegate(".checker.create", "click", function () {
-        // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
+
         if ($(this).parent().parent().find('.checker.create').children().hasClass('checked')) {
             $(this).parent().parent().find('.checker.view').attr('checked', true);
             $(this).parent().parent().find('.checker.view').children().addClass('checked');
@@ -94,16 +92,13 @@ $(document).ready(function () {
             $(this).parent().parent().find('.checker.update').children().removeClass('checked');
             $(this).parent().parent().find('.checker.delete').attr('checked', false);
             $(this).parent().parent().find('.checker.delete').children().removeClass('checked');
-
-            $(this).parent().parent().parent().parent().parent().find('.checker.All').attr('checked', false);
-            $(this).parent().parent().parent().parent().parent().find('.checker.All').children().removeClass('checked');
         }
-
+        var control = $(this).parent().parent().parent();
+        Checked_All(control);
     });//---tab-4 checkbox - (check create)
     $("#partial").delegate(".checker.view", "click", function () {
-        // console.log($(this).parent().parent().find('.checker.create').children().hasClass('checked'));
-        if ($(this).parent().parent().find('.checker.view').children().hasClass('checked')) {
 
+        if ($(this).parent().parent().find('.checker.view').children().hasClass('checked')) {
         }
         else {
             $(this).parent().parent().find('.checker.update').attr('checked', false);
@@ -144,6 +139,22 @@ $(document).ready(function () {
                 swal('Invalid data found!', '', 'error');
                 return false;
             }
+
+            $('ul.grid div').find('li').each(function () {
+                $(this).find('table tbody tr').each(function () {
+                    if ($(this).find('.checker').children().hasClass('checked')) {
+                        a = 1;
+                    }
+                });
+            });
+
+            if (a == 0) {
+                swal('', 'Please select atleast 1 records ', 'warning');
+                return false;
+            }
+
+
+
             var ModuleAry = [];
             var ScreenAry = [];
             if ($('#lbSrnoTab4').val() == '') {
@@ -228,13 +239,16 @@ $(document).ready(function () {
                             $('#btnSavetab4').hide();
                             $('#btnupdatetab4').show();
                             BindGrid();
+                            flagsection = 0;
                         }
                     }
                 }
             });
-            if (flagsection == 1) {
-                swal('', msg, event);
+            if (flagsection == 0) {
+                swal('Good Job!', msg, event);
             }
+            else { swal('', msg, event); }
+
         }
     });//---tab-2 save button click
     $('#btnQuittab4').click(function (e) {
@@ -252,8 +266,8 @@ $(document).ready(function () {
         Clear_tab_4();
     });//---tab-2 clear button click
     $("table").delegate(".editor_Step", "click", function () {
-        Clear_tab_4();
-        var tablename = 'dbo._user_details_master';
+
+        var tablename = 'dbo._RoleTrx';
         var Corporate = '0';
         var Unit = '0';
         var Formcode = '0';
@@ -320,6 +334,10 @@ $(document).ready(function () {
                                         }
                                     }
                                 });
+
+                                var control = $(this).children().children().find('table').children();
+
+                                Checked_All(control);
                             }
                         });
                     });
@@ -396,8 +414,6 @@ function BindGrid() {
         ]
     });
 }
-
-
 function FillDropDown_RightsCorporate() {
     corp = $('#myHiddenVar').val();
     var Module = '';
@@ -450,7 +466,6 @@ function FillDropDown_RightsCorporate() {
         },
     });
 }
-
 function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId) {
     var Module = '';
     var screen = '';
@@ -489,7 +504,6 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
         }
     });
 }
-
 function Load_screen_module() {
     var Module = '';
     var screen = '';
@@ -600,47 +614,35 @@ function Load_screen_module() {
         }
     });
 }
-
 function Checked_All(control) {
     var thisid = control;
     var Count = '0';
-    console.log(thisid);
-    //$(this).find('.checker.All').attr('checked', false);
-    // $(this).find('.checker.All').children().removeClass('checked');
-
-    $(thisid).find('tr').each(function () {
-       
+    (thisid).find('tr').each(function () {
         if ($(this).find('.checker.view').children().hasClass('checked') == false) {
-            //alert("1");
-           
+            Count = '1';
         }
         if ($(this).find('.checker.create').children().hasClass('checked') == false) {
-           
             Count = '1';
         }
         if ($(this).find('.checker.update').children().hasClass('checked') == false) {
-          //  alert('3');
             Count = '1';
         }
         if ($(this).find('.checker.delete').children().hasClass('checked') == false) {
-            
             Count = '1';
         }
     });
-    
-  //  alert(Count);
-    console.log($(thisid).find('.checker.All').html());
     if (Count == '0') {
-        $(thisid).find('.checker.All').attr('checked', false);
-        $(thisid).find('.checker.All').children().removeClass('checked');
+        thisid.parent().prev().children().find('input').attr('checked', true);
+        thisid.parent().prev().children().children().addClass('checked');
     }
-
+    else {
+        thisid.parent().prev().children().find('input').attr('checked', false);
+        thisid.parent().prev().children().children().removeClass('checked');
+    }
 }
-
 function Clear_tab_4() {
-
-
     $("#partial").html('');
+    $('#drpRightsLocation').html('');// To Clear dropdown
     $('.inputControl').val('');
     $('input[type="text"]').val('');
     $('#lbSrnoTab4').val('0');
