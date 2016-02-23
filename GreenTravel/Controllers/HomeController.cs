@@ -21,7 +21,7 @@ namespace GreenTravel.Controllers
 
         FormValidationPara frm_para = new FormValidationPara();
 
-        public ActionResult Index(string url = "")
+        public ActionResult Index(string url = "", string appurl = "")
         {
             /* Uncomment it for already login case */
             /*
@@ -41,7 +41,7 @@ namespace GreenTravel.Controllers
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url="http://gt.techpure.co.uk"
+                url = "http://gt.techpure.co.uk"
                 //url=Request.Url
             };
             if (url == "")

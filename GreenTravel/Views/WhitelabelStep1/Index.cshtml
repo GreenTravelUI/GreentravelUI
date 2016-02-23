@@ -229,7 +229,7 @@
                                         <input type="text" class="form-control req " id="txtbackgroundimg" placeholder="Background Image">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txtLoginFrmCaption">Login Caption<span>*</span> </label>
+                                        <label for="txtLoginFrmCaption">Login Caption<span></span> </label>
                                         <input type="text" class="form-control" id="txtLoginFrmCaption" placeholder="Login Caption">
                                     </div>
 
@@ -298,8 +298,8 @@
                                         <input type="text" class="form-control num max" id="txtTrasactionCount" data-max="100000" placeholder="Trasaction Count">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txtConfirmHotelUserPassword">IP Ristricted Access</label>
-                                        <textarea rows="6" cols="50" placeholder="IP Ristricted Access" style="display: block; width: 100%" id="txtipristrictedaccess">
+                                        <label for="txtConfirmHotelUserPassword">IP Restricted Access</label>
+                                        <textarea rows="6" cols="50" placeholder="IP Restricted Access Comma Separated " style="display: block; width: 100%" id="txtipristrictedaccess">
                                             </textarea>
                                     </div>
                                 </div>
@@ -506,7 +506,7 @@
                                 SAVE</button>
                             <button id="btnUpdateBilling" type="submit" style="display: none" class="btn btn-primary btnSavebillingmain">
                                 UPDATE</button>
-                            <button id="btnClearbilling" type="button" style="display: none" class="btn btn-warning btnbillingclear">
+                            <button id="btnClearbilling" type="button" style="display: none" class="btn btn-warning btnbillingclear" >
                                 CLEAR</button>
                             <button id="btnQuitBilling" type="button" class="btn btn-info btnbillingquit">
                                 QUIT FORM</button>
@@ -591,56 +591,57 @@
                             <input type="text" class="form-control" id="txtsrnotab6" placeholder="SR" style="display: none">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtrequiredcapitalcharacters">Required Capital Characters</label>
-                                    <input type="text" class="form-control" id="txtrequiredcapitalcharacters" placeholder="Capital Characters">
+                                    <label for="txtrequiredcapitalcharacters">Required Capital Characters<span>*</span></label>
+                                    <input type="text" class="form-control req num" id="txtrequiredcapitalcharacters" placeholder="Capital Characters">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtrequirednumeric">Required Numeric</label>
-                                    <input type="text" class="form-control" id="txtrequirednumeric" placeholder="Required Numeric">
+                                    <label for="txtrequirednumeric">Required Numeric<span>*</span></label>
+                                    <input type="text" class="form-control req num" id="txtrequirednumeric" placeholder="Required Numeric">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtrequiredspecialcharacter">Required Special Characters</label>
-                                    <input type="text" class="form-control" id="txtrequiredspecialcharacter" placeholder="Required Special Characters">
+                                    <label for="txtrequiredspecialcharacter">Required Special Characters<span>*</span></label>
+                                    <input type="text" class="form-control req num" id="txtrequiredspecialcharacter" placeholder="Required Special Characters">
                                 </div>
                                 <div class="form-group">
-                                    <label for="drpencryptkey">Encription Key</label>
-                                    <select id="drpencryptkey" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                    <label for="drpencryptkey">Encription Key<span>*</span></label>
+                                    <select id="drpencryptkey" class="js-states form-control  req" style="display: none; width: 100%">
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtpasswordminimumlength">Password Minimum Lenght</label>
-                                    <input type="text" class="form-control" id="txtpasswordminimumlength" placeholder="Password minimum Length">
+                                    <label for="txtpasswordminimumlength">Password Minimum Length <span>*</span></label>
+                                    <input type="text" class="form-control req num" id="txtpasswordminimumlength" placeholder="Password minimum Length">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="txtcontinuenumber">Continue Number<span>*</span></label>
+                                    <input type="text" class="form-control req " id="txtcontinuenumber" placeholder="Continue Number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="txtnumberofattemptslock">Number of Attempts Lock<span>*</span></label>
+                                    <input type="text" class="form-control req num" id="txtnumberofattemptslock" placeholder="Number of attempts">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtpasswordexpirydays">Password Expiry Days</label>
-                                    <input type="text" class="form-control" id="txtpasswordexpirydays" placeholder="Password Expiry Days">
+                                    <input type="text" class="form-control num" id="txtpasswordexpirydays" placeholder="Password Expiry Days">
                                 </div>
-
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtuserlockunlockminuts">User Lock/UnLock  Minuts</label>
                                     <input type="text" class="form-control" id="txtuserlockunlockminuts" placeholder="Lock/Unlock Minuts">
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtnumberofattemptslock">Number of Attempts Lock</label>
-                                    <input type="text" class="form-control" id="txtnumberofattemptslock" placeholder="Number of attempts">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="txtotpexpirytime">OTP Expiry Time</label>
                                     <input type="text" class="form-control" id="txtotpexpirytime" placeholder="OTP Expiry Time">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtlastsamepassword">Last Same Password</label>
-                                    <input type="text" class="form-control" id="txtlastsamepassword" placeholder="Last Same Password">
+                                    <input type="text" class="form-control num" id="txtlastsamepassword" placeholder="Last Same Password">
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtcontinuenumber">Continue Number</label>
-                                    <input type="text" class="form-control" id="txtcontinuenumber" placeholder="Continue Number">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="txtcaptchaenableattempt">Captch Enable Attempt</label>
-                                    <input type="text" class="form-control" id="txtcaptchaenableattempt" placeholder="Captch Enable Attempt">
+                                    <input type="text" class="form-control num" id="txtcaptchaenableattempt" placeholder="Captch Enable Attempt">
                                 </div>
 
                             </div>
@@ -652,7 +653,7 @@
                                     UPDATE</button>
                                 <button id="btnCancelpassword" type="button" style="display: none" class="btn btn-green">
                                     DELETE</button>
-                                <button id="btnclearpassword" type="button" class="btn btn-warning">
+                                <button id="btnclearpassword" type="button" class="btn btn-warning" style="display:none">
                                     CLEAR</button>
                                 <button id="btnquitpassword" type="button" class="btn btn-info">
                                     QUIT FORM</button>

@@ -1,5 +1,11 @@
 ﻿var BackgroundImg = '';
 $(document).ready(function () {
+    $('#hdfUrl').val($('#drpAppURL').val());
+    //setSelect2Value($('#drpAppURL'))
+    $('#drpAppURL').on('change', function () {
+        $('#hdfUrl').val($('#drpAppURL').val());
+        window.location.href = "/Home/Index?appurl=" + $('#hdfUrl').val();
+    });
     Load_data();
     //BackgroundImg = $('#myHiddenVar').val();
     //alert(BackgroundImg)
@@ -8,17 +14,17 @@ $(document).ready(function () {
     $('#btnLogin').click(function (e) {
         var Type = 'Password';
         var Email = $('#txtUserName').val();
-        var url = 'http://gt.techpure.co.uk';
+        //var url = 'http://gt.techpure.co.uk1';
         var PassWord = $('#txtPassword').val();
         $.ajax({
             type: "POST",
             url: "/Home/LoginUser",
-            data: { "Type": Type, "Email": Email, "url": url, "Password": PassWord },
+            data: { "Type": Type, "Email": Email, "url": $('#hdfUrl').val(), "Password": PassWord },
             success: function (result) {
                 if (result == "1") {
                     var urls = "/Dashboard";
                     //window.location.href = urls;
-                    window.location.href = $('#hdfUrl').val()
+                    window.location.href = $('#hdfRedirectUrl').val()
                 } else {
                     swal('Invalid email or password.', '', 'error');
                 }
@@ -30,7 +36,7 @@ $(document).ready(function () {
 
 function Load_data() {
     var Type = 'PageLoad';
-    var url = 'http://gt.techpure.co.uk';
+    var url = 'http://gt.techpure.co.uk1';
     $.ajax({
         type: "POST",
         url: "/Home/PageLoad",
