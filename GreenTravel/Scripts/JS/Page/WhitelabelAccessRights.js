@@ -98,7 +98,7 @@ $(document).ready(function () {
         var EntryDatetime = '';
         $.ajax({
             type: "POST",
-            url: "/WhitelabelAccessRights/insert_Data",
+            url: "/User/insert_Data",
             data: {
                 srno: srno, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, FirstName: FirstName,
                 LastName: LastName, Email: Email, Password: Password, Attribute1: Attribute1,
@@ -153,7 +153,7 @@ $(document).ready(function () {
         var Type = 'EditMode';
         $.ajax({
             type: "POST",
-            url: "/WhitelabelAccessRights/Edit_data",
+            url: "/User/Edit_data",
             data: {
                 tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
             },
@@ -217,7 +217,7 @@ $(document).ready(function () {
         var Type = 'EditMode';
         $.ajax({
             type: "POST",
-            url: "/WhitelabelAccessRights/Edit_data",
+            url: "/User/Edit_data",
             async: false,
             data: {
                 tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
@@ -484,7 +484,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/WhitelabelAccessRights/Insert",
+                url: "/User/Insert",
                 async: false,
                 data: {
                     srno: srno, UserId: UserId, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, Role: Role, RoleType: RoleType, EffectiveDate: EffectiveDate,
@@ -532,7 +532,7 @@ function FillDropDown_Corporate() {
     var Language = '';
     var Type = 'DropDown';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_Base",
+        url: "/User/BindDropdown_Base",
         type: "POST",
         dataType: "json",
         data: {
@@ -578,7 +578,7 @@ function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     var Type = 'ConditionalDropdown';
     var Srno = '';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_FormLoad",
+        url: "/User/BindDropdown_FormLoad",
         type: "POST",
         async: false,
         data: {
@@ -619,7 +619,7 @@ function BindGrid() {
         "autoWidth": false,
         destroy: true,
         "ajax": {
-            "url": "/WhitelabelAccessRights/BindGrid",
+            "url": "/User/BindGrid",
             "Type": "GET",
             "dataType": 'json',
             "contentType": "application/json; charset=utf-8",
@@ -727,7 +727,7 @@ function FillDropDown_RightsCorporate() {
     var Language = '';
     var Type = 'DropDown';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_FormLoadAccessRights",
+        url: "/User/BindDropdown_FormLoadAccessRights",
         type: "POST",
         dataType: "json",
         data: {
@@ -777,7 +777,7 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
     var Type = 'ConditionalDropdown';
     var Srno = '';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_BaseAccessRights",
+        url: "/User/BindDropdown_BaseAccessRights",
         type: "POST",
         async: false,
         data: {
@@ -815,7 +815,7 @@ function Load_screen_module() {
     var Type = 'ConditionalGrid';
     var Srno = '';
     $.ajax({
-        url: "/WhitelabelAccessRights/FillAll",
+        url: "/User/FillAll",
         type: "POST",
         async: false,
         data: {
@@ -917,7 +917,7 @@ function Fill_Screen_Module_On_Edit() {
     var srno = '';
     var Type = 'EditUserRole';
     $.ajax({
-        url: "/WhitelabelAccessRights/Edit_AccessRights",
+        url: "/User/Edit_AccessRights",
         type: "POST",
         async: false,
         data: {
