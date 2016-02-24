@@ -3,6 +3,7 @@ $(window).unload(function () {
     $('select option').remove();
 });
 var corp = $('#myHiddenVar').val();
+var user = '0';
 $(document).ready(function () {
     FillDropDown_RightsCorporate();
     FillDropDown_Corporate();
@@ -47,7 +48,6 @@ $(document).ready(function () {
         $("#tab2").removeClass("active");
     });//---tab-2 tab change event call
     $('.btnclearuser').click(function (e) {
-
         e.preventDefault();
         $("#txtEmail").prop('disabled', false);
         $(".Editdisable").show();
@@ -70,7 +70,8 @@ $(document).ready(function () {
         setSelect2Value($('#drpCorporate'), corp);
         setSelect2Value($('#drpRightsCorporate'), corp);
         $('#DrpLocationTab2').html('');// To Clear dropdown
-
+        $("#drpRightsUser").prop('disabled', false);
+        user = '0';
     });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -148,7 +149,7 @@ $(document).ready(function () {
     $("table").delegate(".editor_Step", "click", function () {
         Clear_tab_4();
         var tablename = 'dbo._user_details_master';
-        var Corporate = '2';
+        var Corporate = corp;
         var Unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
@@ -186,6 +187,10 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
+                    user = response['UserWiseRights'][0]['UserId'];
+
+                    $("#drpRightsUser").prop('disabled', true);
+
                     Fill_role($('#drpRightsRole option:selected').val());
                     Fill_Screen_Module_On_Edit();
                 }
@@ -252,6 +257,8 @@ $(document).ready(function () {
                     setSelect2Value($('#DrpUnitTab2'), response['UserMasterresjs'][0]['Unit']);
                     FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
                     setSelect2Value($('#DrpLocationTab2'), response['UserMasterresjs'][0]['Location']);
+                    $("#drpRightsUser").prop('disabled', true);
+                    user = response['UserWiseRights'][0]['UserId'];
                 }
             }
         }).done(function () {
@@ -271,6 +278,8 @@ $(document).ready(function () {
     $('.quituserbtn').click(function (e) {
         $(".btnclearuser").click();
         $(".usertab1gridclass").click();
+        $("#drpRightsUser").prop('disabled', false);
+        user = '0';
     });//---tab-2 quit button
     // ==============================================================================================================================  ( Tab-4) 
     $("#drpRightsCorporate").change(function () {
@@ -346,7 +355,7 @@ $(document).ready(function () {
         $('#chkdefault').parent().removeClass('checked');
         setSelect2Value($('#drpRightsStatus'), '0');
 
-        Fill_Screen_Module_On_Edit();
+        //  Fill_Screen_Module_On_Edit();
     });//---tab-4 rights selected index change event
     $("#partial").delegate(".checker", "click", function () {
         if ($(this).children().hasClass('checked')) {
@@ -499,7 +508,7 @@ $(document).ready(function () {
                     ModuleAry.push({ 'Module': module, 'SCR': screen, 'view': view, 'create': create, 'update': update, 'deletee': deletee });
                 });
             });
-            console.log(ModuleAry);
+            //  console.log(ModuleAry);
 
             var theIds1 = JSON.stringify(ModuleAry);
 
@@ -532,7 +541,10 @@ $(document).ready(function () {
     });//---tab-2 save button click
     $('#btnQuittab4').click(function (e) {
         Clear_tab_4();
+        $('.btnclearuser').click();
         $(".usertab1gridclass").click();
+        $("#drpRightsUser").prop('disabled', false);
+        user = '0';
     });//---tab-2 quit button click
     $('#btnCleartab4').click(function (e) {
         e.preventDefault();
@@ -733,7 +745,6 @@ function validatechar(sender, args) {
 
     }
 }
-
 // ============================================================================================================================== Function ( Tab-4)
 function FillDropDown_RightsCorporate() {
     var Module = '';
@@ -957,7 +968,7 @@ function Fill_Screen_Module_On_Edit() {
                     $('ul.grid div').find('li').each(function () {
                         if ($(this).find('.lbmodulesrno').text().trim() == tempModule) {
                             $(this).find('table tbody tr').each(function () {
-                                // console.log($(this).find('.checker').attr("id") + ' -- ' + tempSCR);
+                               // console.log($(this).find('.checker').attr("id") + ' -- ' + tempModule);
                                 if ((($(this).find('.checker').attr("id"))) == tempSCR) {
                                     $(this).find('.checker.view').attr('checked', false);
                                     $(this).find('.checker.view').children().removeClass('checked');
@@ -1018,8 +1029,6 @@ function Fill_Screen_Module_On_Edit() {
     });
 }
 function Clear_tab_4() {
-
-   
     $("#partial").html('');
     $('#tab4.inputControl').val('');
     $('#tab4').find('.Dropdown').each(function () {
@@ -1031,12 +1040,12 @@ function Clear_tab_4() {
     $('#chkdefault').parent().removeClass('checked');
     $('#btnSavetab4').hide();
     $('#btnupdatetab4').hide();
-    setSelect2Value($('#drpRightsCorporate'), corp);
     $("#drpRightsLocation").html('');
     $("#drpRightsRole").html('');
+    setSelect2Value($('#drpRightsCorporate'), corp);
+
 
 }
-
 function Fill_role(RoleId) {
     var tablename = 'dbo._RoleTrx';
     var Corporate = '0';
@@ -1104,9 +1113,6 @@ function Fill_role(RoleId) {
         }
     })
 }//---tab-1 edit users button click
-
-
-
 function Checked_All(control) {
     var thisid = control;
     var Count = '0';

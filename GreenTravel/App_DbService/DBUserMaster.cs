@@ -222,7 +222,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
                 _cmd.Parameters.AddWithValue("@type", GP.type);
                 _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
-                // _cmd.Parameters.AddWithValue("@Field1", GP.Field1);
+                 _cmd.Parameters.AddWithValue("@Field1", GP.Field1);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();

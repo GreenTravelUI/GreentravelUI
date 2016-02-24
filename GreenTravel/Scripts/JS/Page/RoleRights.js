@@ -8,7 +8,6 @@ $(document).ready(function () {
     BindGrid();
     FillDropDown_RightsCorporate();
     $("#drpRightsCorporate").prop('disabled', true);
-
     $("#drpRightsCorporate").change(function () {
         $('#drpRightsUnit').html('');// To Clear dropdown Unit
         setSelect2Value($('#drpRightsUnit'), '0');
@@ -246,7 +245,9 @@ $(document).ready(function () {
             if (flagsection == 0) {
                 swal('Good Job!', msg, event);
             }
-            else { swal('', msg, event); }
+            else if (flagsection == 1) {
+                swal('', msg, event);
+            }
 
         }
     });//---tab-2 save button click
