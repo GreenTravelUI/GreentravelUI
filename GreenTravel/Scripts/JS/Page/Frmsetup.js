@@ -109,7 +109,7 @@ $(document).ready(function () {
                 }
                 $('.tab3section1').show();
                 $('.tab3Formname').text($('#txtFormName').val());
-                swal('Good job!', Message, EventClass);
+                swal(Message, '', EventClass);
             }
         });
     });
@@ -183,7 +183,7 @@ $(document).ready(function () {
                        $('#btnUpdatetab').show();
                        $('#btnSaveformtab').hide();
                    }
-                   swal('Good job!', Message, EventClass);
+                   swal(Message, '', EventClass);
                }
            });
 
@@ -305,7 +305,8 @@ $(document).ready(function () {
                success: function (data) {
                    $("#myModalIcon").modal('hide');
                    Message = data.responseText;
-                   swal('Good job!', 'Save Record Successfully', 'success');
+                   //swal('Good job!', 'Save Record Successfully', 'success');
+                   swal(Message, '', 'success');
                }
            });
 
@@ -335,7 +336,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (result) {
                 console.log(result.length);
-                if (result.length>0) {
+                if (result.length > 0) {
                     window.location.href = '/FormControlSetup/Index/?id=' + FormCode;
                 }
                 else {
@@ -343,7 +344,7 @@ $(document).ready(function () {
                 }
             }
         });
-        
+
     });
 
     //Edit Form  
@@ -369,10 +370,12 @@ $(document).ready(function () {
                 if (response.length > 0) {
                     $('#txtSrNo1').val(response[0].SrNo);
                     $('#txtFormName').val(response[0].FormName);
-                    $('#txtFormPreFix').val(response[0].FormPrefixCode);
+                    //$('#txtFormPreFix').val(response[0].FormPrefixCode);
+                    setValueAndDisable($('#txtFormPreFix'), response[0].FormPrefixCode);
                     setSelect2Value($('#drpCorporate1'), response[0].Corporate);
                     FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
-                    setSelect2Value($('#drpScreen'), response[0].Screen);
+                    //setSelect2Value($('#drpScreen'), response[0].Screen);
+                    setValueAndDisable($('#drpScreen'), response[0].Screen);
                     $('#txtHeader').val(response[0].Header);
                     $('#txtSubHeader').val(response[0].SubHeader);
                 }
@@ -656,12 +659,14 @@ $(document).ready(function () {
                                    '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                    '<td><div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
                                    '<td><div class="form-group"><input type="text" class="form-control req"  value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
+                                   '<td></td>' +
                                    '</tr>';
                         } else {
                             html += '<tr>' +
                                 '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                 '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
                                 '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
+                                '<td><a id="btnDeleteSection" class="text-danger" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                                 '</tr>';
                         }
                     }
@@ -672,6 +677,7 @@ $(document).ready(function () {
                                '<td>' + ID + '</td>' +
                                '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" id="txtsection' + ID + '"/></div></td>' +
                                '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
+                               '<td></td>' +
                                '</tr>'
                     $(html).appendTo($("#tblModalSection"))
                     ID++;
@@ -756,7 +762,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (data.length > 0) {
-                    swal('Good job!', data['msg'], 'success');
+                    swal(data['msg'], '', 'success');
                 }
             }
         });
@@ -765,6 +771,28 @@ $(document).ready(function () {
     //Tab 3 Grid
     $('#btnaddSection').click(function (e) {
         addRow();
+    });
+
+    $("table").delegate('#btnDeleteSection', 'click', function () {
+        var control = $(this);
+        swal({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this data!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            closeOnConfirm: false
+        },
+        function () {
+            swal(
+              'Deleted!',
+              'Your data has been deleted.',
+              'success'
+            );
+            control.parent().parent().remove();
+        });
     });
 
     //save Section 
@@ -822,12 +850,35 @@ $(document).ready(function () {
         });
         if (flagsection == 1) {
             $("#myModalSection").modal('hide');
-            swal('Good job!', 'Record Save Sucessfully', 'success');
+            //swal('Good job!', 'Record Save Sucessfully', 'success');
+            swal('Record Save Sucessfully', '', 'success');
         }
     });
 
     $('#btnCustomsection').on('click', function () {
         addRowCustom();
+    });
+
+    $("table").delegate('#btnCloseCustomsection', 'click', function () {
+        var control = $(this);
+        swal({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this data!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            closeOnConfirm: false
+        },
+        function () {
+            swal(
+              'Deleted!',
+              'Your data has been deleted.',
+              'success'
+            );
+            control.parent().parent().remove();
+        });
     });
 
     //save Custom  Button
@@ -890,7 +941,7 @@ $(document).ready(function () {
         });
         if (flag == 1) {
             $("#myModalIcon").modal('hide');
-            swal('Good job!', 'Record Save Sucessfully', 'success');
+            swal('Record Save Sucessfully', '', 'success');
         }
     });
 
@@ -935,14 +986,15 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 if (response != null && response.success) {
-                    swal('Good job!', response.responseText, 'success');
+                    swal(response.responseText, '', 'success');
                 }
             }
         }).done(function () {
+            $("#myModalIcon").modal('hide');
             $('#btnutilityupdate').show();
             $('#btnutilitySave').hide();
         });
-        $("#myModalIcon").modal('hide');
+
     });
 
     /*Quit Button*/
@@ -1021,6 +1073,7 @@ function addRowCustom() {
                 '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                 '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                 '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
+                '<td><a id="btnCloseCustomsection" class="text-danger" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalIconCustom"))
     customID++;
@@ -1032,6 +1085,7 @@ function addRow() {
                 '<td>' + ID + '</td>' +
                 '<td> <div class="form-group"><input type="text" placeholder="Section Name" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
                 '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
+                '<td><a id="btnDeleteSection" class="text-danger" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalSection"))
     ID++;
@@ -1245,7 +1299,7 @@ function getUtility() {
                                '</div> </div>'
                     }
                 }
-                
+
                 $(htmlutility).appendTo($("#UtilityFrom"))
             }
 
@@ -1272,6 +1326,10 @@ function clearForm() {
     $('.Dropdown').each(function () {
         setSelect2Value($(this), '0');
     });
+    var thisForm = $('input').closest('form');
+    thisForm.find('input').removeAttr('disabled');
+    thisForm.find('input').val('');
+    thisForm.find('select').removeAttr('disabled');
 }
 
 function clearFormTAB() {
