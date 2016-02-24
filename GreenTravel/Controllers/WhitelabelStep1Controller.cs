@@ -575,18 +575,16 @@ namespace GreenTravel.Controllers
             {
                 DataSet ds = _objwl.insert_Hosting(HS);
                 DataSet ds2 = _objwl.insert_Hosting_sub(HS);
-                if (ds.Tables[0].Rows.Count > 0 && ds2.Tables[0].Rows.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
                 }
-                if (ds.Tables.Count < 2)
-                {
-                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Already Exist!" }, JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
-                }
+                return Json(new { srno = ViewBag.srno, Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
