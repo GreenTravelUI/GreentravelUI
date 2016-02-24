@@ -77,12 +77,19 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                DataSet ds = _obj_db_UM.insert_data(UM);
-                if (ds.Tables[0].Rows.Count > 0)
+                DataSet result = _obj_db_UM.insert_data(UM);
+                if (result != null)
                 {
-                    ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
+                    ViewBag.Message = result.Tables[0].Rows[0]["msg"].ToString();
+                    if (result.Tables[0].Rows[0]["Help"].ToString() == "Save" || result.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (result.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
+                    ViewBag.Srno = result.Tables[0].Rows[0]["SrNo"].ToString();
                 }
-                return Json(new { srno = ViewBag.srno, success = true, responseText = "Record Save Sucessfully!" }, JsonRequestBehavior.AllowGet);
+                var result1 = ViewBag.Message;
+                var Srno = ViewBag.Srno;
+                return Json(new { success = result1, Event = ViewBag.Event, Srno = Srno }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

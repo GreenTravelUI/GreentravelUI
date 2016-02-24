@@ -51,19 +51,15 @@ $(document).ready(function () {
         });
     }
     $('.usertab1gridclass').click(function (e) {
-        //$(this).parent().parent().find('li').removeClass('active');
-        //$(this).parent().addClass('active');
-        //$('.tab-pane').removeClass('active');
-        //$('' + $(this).parent().attr('href')).addClass('active');
-
-        $("#tab1").addClass("active");
-        $("#tab2").removeClass("active");
-        $("#userlitab1").addClass("active");
-        $("#userlitab2").removeClass("active");
-        $("#tab3").removeClass("active");
-        $("#userlitab3").removeClass("active");
 
         BindGrid();
+        $("#tab2").removeClass("active");
+        $("#userlitab2").removeClass("active");
+       
+        $("#tab1").addClass("active");
+        $("#userlitab1").addClass("active");
+     
+
 
     });
     $('.Usertab2').click(function (e) {
@@ -75,23 +71,17 @@ $(document).ready(function () {
 
     });
     $('.btnclearuser').click(function (e) {
+        e.preventDefault();
         $('input[type="text"]').val('');
         $('input[type="password"]').val('');
-        $('#btnSaveUser').show();
-        $('#btnUpdateUser').hide();
-        $('#btnCancelUser').hide();
-
-        e.preventDefault();
         $("#txtEmail").prop('disabled', false);
         $(".Editdisable").show();
         clearValidations($(this).closest('form'));
-        $('input[type="text"]').val('');
-        $('input[type="password"]').val('');
         $('#btnSaveUser').show();
         $('#btnUpdateUser').hide();
         $('#btnCancelUser').hide();
         $('.inputform').val('');
-        $('select').next().find('ul li.select2-selection__choice').remove();
+      
     });
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -151,17 +141,21 @@ $(document).ready(function () {
                dataType: 'json',
                success: function (response) {
                    if (response != null && response.success) {
-                       swal('Good job!', 'Record Save Sucessfully!', 'success')
-                       $("#tab2").addClass("active");
+                       swal('', response['success'], response['Event']);
                        $("#tab1").removeClass("active");
-                       $("#userlitab2").addClass("active");
                        $("#userlitab1").removeClass("active");
-                       $('input[type="text"]').val('');
-                       $('input[type="password"]').val('');
-                       $('#btnSaveUser').show();
-                       $('#btnUpdateUser').hide();
-                       $('#btnCancelUser').hide();
-
+                       $("#tab2").addClass("active");
+                       $("#userlitab2").addClass("active");
+                       // For Srno  Fill in the edit Mode
+                       if (response['Event'] != 'error') {
+                           $('#txtsrno').val(response['Srno']);
+                           $('#btnSaveUser').hide();
+                           $('#btnUpdateUser').show();
+                           $('#btnCancelUser').hide();
+                           $("#txtEmail").prop('disabled', true);
+                           $(".Editdisable").hide();
+                           BindGrid();
+                       }
                    }
                }
            });
@@ -193,8 +187,24 @@ $(document).ready(function () {
     });
 
     $('.quituserbtn').click(function (e) {
-        $(".btnclearuser").click();
-        $(".usertab1gridclass").click();
+        $("#tab2").removeClass("active");
+        $("#userlitab2").removeClass("active");
+
+
+        $('input[type="text"]').val('');
+        $('input[type="password"]').val('');
+        $("#txtEmail").prop('disabled', false);
+        $(".Editdisable").show();
+        clearValidations($(this).closest('form'));
+        $('#btnSaveUser').show();
+        $('#btnUpdateUser').hide();
+        $('#btnCancelUser').hide();
+
+       
+
+        $("#tab1").addClass("active");
+        $("#userlitab1").addClass("active");
+
     });//---tab-2 quit button
     ////Comapare validation  
     function CompareValidation($attr1, $attr2) {
@@ -213,10 +223,7 @@ $(document).ready(function () {
         return regex.test(email);
     }
     $("table").delegate(".editor_Step", "click", function () {
-
-
         console.log($(this).parent().parent().children(':eq(1)').text());
-
         $("#userlitab1").removeClass("active");
         $("#userlitab2").addClass("active");
         $("#tab1").removeClass("active");
@@ -224,7 +231,6 @@ $(document).ready(function () {
         $('#btnUpdateUser').show();
         $('#btnCancelUser').show();
         $('#btnSaveUser').hide();
-
         var tablename = 'dbo._user_details_master';
         var Corporate = '0';
         var Unit = '0';
@@ -244,7 +250,6 @@ $(document).ready(function () {
              success: function (response) {
 
                  if (response['UserMasterresjs'].length > 0) {
-
                      $('#txtsrno').val(response['UserMasterresjs'][0]['srno']);
                      $('#txtFirstName').val(response['UserMasterresjs'][0]['FirstName']);
                      $('#txtLastName').val(response['UserMasterresjs'][0]['LastName']);
@@ -252,8 +257,6 @@ $(document).ready(function () {
                      $('#txtConfirmEmail').val(response['UserMasterresjs'][0]['Email']);
                      $('#txtPassword').val(response['UserMasterresjs'][0]['Password']);
                      $('#txtConfirmPassword').val(response['UserMasterresjs'][0]['Password']);
-
-
                      $("#userlitab1").removeClass("active");
                      $("#userlitab2").addClass("active");
                      $("#tab1").removeClass("active");
@@ -262,26 +265,33 @@ $(document).ready(function () {
 
                  }
              }
+         }).done(function () {
+             clearValidations($('#tab2').find('form'));
+             $("#txtEmail").prop('disabled', true);
+             $(".Editdisable").hide();
+             $("#userlitab1").removeClass("active");
+             $("#tab1").removeClass("active");
+             $("#userlitab2").removeClass("active");
+             $("#tab2").removeClass("active");
+             $("#userlitab3").removeClass("active");
+             $("#tab3").removeClass("active");
+             $("#userlitab4").removeClass("active");
+             $("#tab4").removeClass("active");
+             $("#userlitab2").addClass("active");
+             $("#tab2").addClass("active");
+             $('#btnUpdateUser').show();
+             $('#btnCancelUser').hide();
+             $('#btnSaveUser').hide();
          });
     });
     $('.quituserbtn').click(function (e) {
 
+        $(".btnclearuser").click();
         $(".usertab1gridclass").click();
-        $("#tab1").addClass("active");
-        $("#tab2").removeClass("active");
-        $("#userlitab1").addClass("active");
-        $("#userlitab2").removeClass("active");
-        $("#tab3").removeClass("active");
-        $("#userlitab3").removeClass("active");
+     
 
     });
-    $('.userlitab3class').click(function (e) {
-
-        BindDropdownUnit();
-        BindDropdownLocation();
-        BindDropdownUserrole();
-        BindAccessgrid();
-    });
+   
     function BindDropdownUnit() {
         var Module = '';
         var screen = '';
