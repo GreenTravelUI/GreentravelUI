@@ -6,6 +6,7 @@ $(window).unload(function () {
 });
 
 $(document).ready(function () {
+    var abc = 0;
     BindGrid();
     Dropdown_Bind_Tab1();
     //Basic Information save Button
@@ -137,6 +138,7 @@ $(document).ready(function () {
         if (!validateForm($(this).closest('form'))) {
             swal('Invalid data found!')
             return false;
+
         }
         if ($('#txtsrnouserpref').val() != "") {
             var srno = $('#txtsrnouserpref').val();
@@ -332,10 +334,19 @@ $(document).ready(function () {
     //Hosting / Subscription
     $(".btnsavetab3class").click(function (e) {
         e.preventDefault();
+        if (abc == 1) {
+            $("#txtSubscriptionToDate").after('<p class="red-error">To date should be greater than From date.</p>');
+            $("#txtSubscriptionToDate").addClass('red-input');
+
+            return false;
+        }
+
         if (!validateForm($(this).closest('form'))) {
             swal('Invalid data found!')
             return false;
         }
+
+
         if ($('#txtsrnotab3').val() != "") {
             var srno = $('#txtsrnotab3').val();
         }
@@ -400,10 +411,19 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                if (response != null && response.success) {
-                    swal('Good job!', 'Record Save Sucessfully!', 'success')
-                    $("#btnUpdatetab3").show();
-                    $("#btnSavetab3").hide();
+                
+                if (response != null) {
+                   
+                    Message = response.responseText;
+                    EventClass = response.Event;
+                    if (EventClass != 'error') {
+                        $("#btnUpdatetab3").show();
+                        $("#btnSavetab3").hide();
+                    }
+                    swal('Good job!', Message, EventClass);
+
+                  //  swal('Good job!', 'Record Save Sucessfully!', 'success')
+                   
                 }
             }
         });
@@ -468,7 +488,9 @@ $(document).ready(function () {
         clearValidations($(this).parent());
         $('input[type="text"]').val('');
         $('input[type="password"]').val('');
-        $('.chkCopyrightNotecs').removeAttr('checked');
+        //$('.chkCopyrightNotecs').removeAttr('checked');
+        $('.chkCopyrightNotecs').parent().removeClass("checked");
+        $('.chkCopyrightNotecs').removeProp("checked");
         $('.Dropdown').each(function () {
             setSelect2Value($(this), "0");
         });
@@ -483,6 +505,7 @@ $(document).ready(function () {
 
     });
     $('#btnQuitbasic').click(function (e) {
+        $('.btnclearbasicclass').trigger("click");
         $('input[type="text"]').val('');
         $('#btnupdatebasic').hide();
         $('#btnsavebasic').show();
@@ -495,9 +518,11 @@ $(document).ready(function () {
         $("#tab2").removeClass("active");
         $("#CreateCorporate").removeClass("active");
         $('.tab3Formname').hide();
+
     });
     //User Prefernce Clear and Quit 
     $('#btnclearuserpref').click(function (e) {
+        clearValidations($(this));
         $('#userperferancechk').children().children().children().removeClass('checked');
         $('.dropclear').each(function () {
             setSelect2Value($(this), '0');
@@ -505,6 +530,7 @@ $(document).ready(function () {
         $('.tab3Formname').hide();
     });
     $("#btnquituserpref").click(function (e) {
+        clearValidations($(this).closest("form"));
         $('input[type="text"]').val('');
         $("#tab1").addClass("active");
         $("#tabuserpreferance").removeClass("active");
@@ -519,13 +545,19 @@ $(document).ready(function () {
         clearValidations($(this).parent());
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
-            setSelect2Value($(this), '0');
+            var attr = $(this).attr('multiple');
+            if (typeof attr !== typeof undefined && attr !== false) {
+                resetMultiselectValues($(this));
+            } else {
+                setSelect2Value($(this), '0');
+            }
         });
         $("#btnUpdateBilling").hide();
         $("#btnSavebilling").show();
         $('.tab3Formname').hide();
     });
     $('.btnbillingquit').click(function (e) {
+        $('.btnbillingclear').trigger("click");
         $("#Tab4").removeClass("active");
         $("#tab4").removeClass("active");
         $("#tab1").addClass("active");
@@ -537,6 +569,8 @@ $(document).ready(function () {
     });
     //Hosting and  Subcri.
     $("#btnQuittab3").click(function (e) {
+        clearValidations($(this).parent().parent());
+
         $("#Search").addClass("active");
         $("#tab1").addClass("active");
         $("#tab3").removeClass("active");
@@ -547,7 +581,7 @@ $(document).ready(function () {
         $('#btnsavebasic').show();
     });
     $("#btnCleartab3").click(function (e) {
-        clearValidations($(this).parent());
+        clearValidations($(this).parent().parent());
         $('input[type="text"]').val('');
         $('#chkfreeflag').attr('checked', false);
         $('#chkfreeflag').parent().removeClass('checked');
@@ -611,6 +645,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response['Whiteregjs'].length > 0) {
                     $("#hdfsrno").val(response['Whiteregjs'][0]['srno']);
+                    $('#drpRefferenceCorporateCompany option[value="' + response['Whiteregjs'][0]['srno'] + '"]').remove();
                     $('#txtsrnouserpref').val(response['Whiteregjs'][0]['srno']);
                     $('#txtsrnotab4').val(response['Whiteregjs'][0]['srno']);
                     $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
@@ -666,7 +701,7 @@ $(document).ready(function () {
                     $("#CreateCorporate").addClass("active");
                     $('.tab3Formname').show();
                     //$('.tab3Formname').text($('#txtCmpOfficeName').val());
-                    $('.tab3Formname').text('-' + $('#txtCmpOfficeName').val());
+                    $('.tab3Formname').text('- ' + $('#txtCmpOfficeName').val());
                     // billingedit();
                     // hostingedit();
                     //subcribedit();
@@ -760,24 +795,13 @@ $(document).ready(function () {
              )
         }
     });
-    
-
-    $("#txtSubscriptionFromDate").change(function (e){
- 
+    $("#txtSubscriptionFromDate").focusout(function (e) {
+        //  DateCheck();
     });
+    $("#txtSubscriptionToDate").focusout(function (e) {
+        DateCheck();
 
-    //$("#txtSubscriptionToDate").change(function(e){
-    //    var dt1 = $("#txtSubscriptionFromDate").val();
-    //    var dt2 = $("#txtSubscriptionToDate").val();
-    //      if(dt1>dt2)
-    //    {
-
-    //        alert("big date");
-    //    }
-
-    //});
-
-
+    });
 
 });
 
@@ -971,7 +995,7 @@ function Dropdown_Bind_user_preferance() {
                     var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
                     $('#drpDashboardGadgetPosition').append(opt);
                 }
-                setSelect2Value($('#drpDashboardGadgetPosition'), '0');
+                //   setSelect2Value($('#drpDashboardGadgetPosition'), '0');
             }
         }
     });
@@ -982,7 +1006,7 @@ function Bindtab4dropdown() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '0';
+    var Corporate = $("#hdfsrno").val();
     var unit = '0';
     var Branch = '0';
     var userid = '0';
@@ -1004,7 +1028,7 @@ function Bindtab4dropdown() {
                     var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
                     $('#drpSupportMode').append(opt);
                 }
-                setSelect2Value($('#drpSupportMode'), '0');
+                //setSelect2Value($('#drpSupportMode'), '0');
             }
             if (response['UPdrpc'].length > 0) {
                 $('#drpmaINCurrency').html('');
@@ -1415,7 +1439,7 @@ function Userprefedit() {
                     $('#btnSaveuserpref').hide();
                     $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['srno']);
                     setSelect2Value($('#drpDashboardGadgetPosition'), response['UserPreferancestep1js'][0]['GadgetPosition']);
-                    //$('#drpDashboardGadgetPosition').find('option[value="' + response['UserPreferancestep1js'][0]['GadgetPosition'] + '"]').attr('selected', true).change();
+
                     // $("#userperferancechk").html('');
                     var chkloop = response['UserPreferancestep1js'][0]['OtherPreferences'].toString().split(",");
                     $.each(chkloop, function (i) {
@@ -1426,7 +1450,7 @@ function Userprefedit() {
                                 return;
                             }
 
-                            // $("input[value='" + this + "']").prop('checked', true);
+
                         });
                     });
                 }
@@ -1472,9 +1496,10 @@ function billingedit() {
                 $('#txtBillingTelephone').val(response['Whiteregjs'][0]['BillingPhone']);
                 $('#txtBillingCellPhone').val(response['Whiteregjs'][0]['BillingContactMobile']);
                 // setSelect2Value($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode']);
-                //   var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
-                // alert(response['Whiteregjs'][0]['SupportMode']);
-                $('#drpSupportMode').find('option[value="' + response['Whiteregjs'][0]['SupportMode'] + '"]').attr('selected', true).change();
+                // var dataarray = response['Whiteregjs'][0]['SupportMode'].split(",");
+                //alert(response['Whiteregjs'][0]['SupportMode']);
+                setMultiselectValues($('#drpSupportMode'), response['Whiteregjs'][0]['SupportMode'])
+                //$('#drpSupportMode').find('option[value="' + response['Whiteregjs'][0]['SupportMode'] + '"]').attr('selected', true).change();
                 $('#txtFreeSupportPeriod').val(response['Whiteregjs'][0]['FreeSupportPeriod']);
                 $('#txtSupportCostPerMonth').val(response['Whiteregjs'][0]['SupportCostPM']);
                 setSelect2Value($('#drpmaINCurrency'), response['Whiteregjs'][0]['Currency']);
@@ -1516,3 +1541,38 @@ function Email_URl(Field1, Field2) {
         }
     });
 }
+//Date Compare
+function DateCheck() {
+
+    try {
+        var d1 = iForm.txtSubscriptionFromDate.value.substr(0, 2);
+        var m1 = iForm.txtSubscriptionFromDate.value.substr(3, 2);
+        var y1 = iForm.txtSubscriptionFromDate.value.substr(6, 4);
+        var StrDate = m1 + "/" + d1 + "/" + y1;
+
+        var d2 = iForm.txtSubscriptionToDate.value.substr(0, 2);
+        var m2 = iForm.txtSubscriptionToDate.value.substr(3, 2);
+        var y2 = iForm.txtSubscriptionToDate.value.substr(6, 4);
+        var EndDate = m2 + "/" + d2 + "/" + y2;
+
+        var startDate = new Date(StrDate);
+        var endDate = new Date(EndDate);
+        if (startDate > endDate) {
+
+            $("#txtSubscriptionToDate").after('<p class="red-error">To date should be greater than From date.</p>');
+            $("#txtSubscriptionToDate").addClass('red-input');
+            
+            abc = 1;
+            return false;
+
+        }
+        else {
+            abc = 0;
+        }
+
+    }
+    catch (e) { }
+
+    return true;
+}
+
