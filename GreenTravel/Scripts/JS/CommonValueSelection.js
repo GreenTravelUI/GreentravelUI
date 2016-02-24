@@ -19,6 +19,15 @@
     return selectValue;
 }
 
+function setMultiselectValues(control, value) {
+    var splitedVal = value.split(',');
+    control.select2('val', splitedVal);
+}
+
+function resetMultiselectValues(control) {
+    control.select2('val', '');
+}
+
 function setSelect2Value(control, value) {
     control.find('option').removeProp('selected');
     control.find('option[value="' + value + '"]').prop('selected', true);

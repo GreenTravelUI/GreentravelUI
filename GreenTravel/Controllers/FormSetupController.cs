@@ -437,6 +437,41 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult Base_Form_Custom_Button(CommanFieldConditionalPara _CFCP)
+        {
+            try
+            {
+                DataSet ds = _objfs.BaseFormCustomButton(_CFCP);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                }
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult Base_Form_Section_Master(CommanFieldConditionalPara _CFCP)
+        {
+            try
+            {
+                DataSet ds = _objfs.BaseFormSectionMaster(_CFCP);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                }
+                return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+       
         #endregion
 
         public ActionResult BindDropDownbase(commanbaseParamater CBP)
