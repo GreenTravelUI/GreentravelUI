@@ -594,6 +594,88 @@ namespace GreenTravel.App_DbService
 
         }
 
-    }
+        public DataSet BaseFormCustomButton(CommanFieldConditionalPara _CFCP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_Form_CustomButtons_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", _CFCP.Module);
+                _cmd.Parameters.AddWithValue("@screen", _CFCP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", _CFCP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", _CFCP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", _CFCP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", _CFCP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", _CFCP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", _CFCP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", _CFCP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", _CFCP.Type);
+                _cmd.Parameters.AddWithValue("@field1", _CFCP.field1);
+                _cmd.Parameters.AddWithValue("@field2", _CFCP.field2);
+                _cmd.Parameters.AddWithValue("@field3", _CFCP.field3);
+                _cmd.Parameters.AddWithValue("@field4", _CFCP.field4);
+                _cmd.Parameters.AddWithValue("@field5", _CFCP.field5);
+                _cmd.Parameters.AddWithValue("@Control", _CFCP.Control);
+                _cmd.Parameters.AddWithValue("@srno", _CFCP.Srno);
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
 
+        public DataSet BaseFormSectionMaster(CommanFieldConditionalPara _CFCP)
+        {
+            try
+            {
+                _cn.Open();
+                SqlCommand _cmd = new SqlCommand("sp_Base_Form_Section_Master", _cn);
+                _cmd.CommandType = CommandType.StoredProcedure;
+                _cmd.Parameters.AddWithValue("@Module", _CFCP.Module);
+                _cmd.Parameters.AddWithValue("@screen", _CFCP.screen);
+                _cmd.Parameters.AddWithValue("@FormCode", _CFCP.FormCode);
+                _cmd.Parameters.AddWithValue("@TabCode", _CFCP.TabCode);
+                _cmd.Parameters.AddWithValue("@Corporate", _CFCP.Corporate);
+                _cmd.Parameters.AddWithValue("@unit", _CFCP.unit);
+                _cmd.Parameters.AddWithValue("@Branch", _CFCP.Branch);
+                _cmd.Parameters.AddWithValue("@userid", _CFCP.userid);
+                _cmd.Parameters.AddWithValue("@Ip", _CFCP.Ip);
+                _cmd.Parameters.AddWithValue("@Type", _CFCP.Type);
+                _cmd.Parameters.AddWithValue("@field1", _CFCP.field1);
+                _cmd.Parameters.AddWithValue("@field2", _CFCP.field2);
+                _cmd.Parameters.AddWithValue("@field3", _CFCP.field3);
+                _cmd.Parameters.AddWithValue("@field4", _CFCP.field4);
+                _cmd.Parameters.AddWithValue("@field5", _CFCP.field5);
+                _cmd.Parameters.AddWithValue("@Control", _CFCP.Control);
+                _cmd.Parameters.AddWithValue("@srno", _CFCP.Srno);
+                SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                adp.Dispose();
+                _cmd.Dispose();
+                return ds;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                _cn.Close();
+                _cn.Dispose();
+            }
+        }
+    }
 }

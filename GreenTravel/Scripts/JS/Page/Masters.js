@@ -1,4 +1,5 @@
 ﻿var focusedCaption = '';
+var focusedValidation = '';
 
 $(window).unload(function () {
     $('select option').remove();
@@ -28,6 +29,12 @@ $(document).ready(function () {
         e.preventDefault();
         var a = 0;
         /* Form Validation */
+
+        if (!checkReqValidation($('#txtValidationCode1'))) {
+            swal('', 'Cannot save first field without required(REQ) code.', 'error')
+            return false;
+        }
+
         if (!validateForm($(this).parent())) {
             swal(
                 'Invalid data found!',
@@ -579,6 +586,35 @@ $(document).ready(function () {
             });
         }
     });
+
+    $('#tab1ExportExcel').on('click', function () {
+        $('#example1').tableExport({
+            type: 'excel',
+            escape: 'false',
+            ignoreColumn: [5]
+        });
+    });
+
+    $('#tab1ExportPdf').on('click', function () {
+        $('#example1').tableExport({
+            type: 'pdf',
+            escape: 'true',
+            pdfFontSize: 7,
+            pdfLeftMargin: 20,
+            ignoreColumn: [5]
+        });
+    });
+
+    $('#txtValidationCode1').on('focus', function () {
+        focusedValidation = $(this).val();
+    });
+
+    $('#txtValidationCode1').on('blur', function () {
+        if (!checkReqValidation($('#txtValidationCode1'))) {
+            swal('', 'Cannot save first field without required(REQ) code.', 'error')
+            $(this).val(focusedValidation);
+        }
+    });
 });
 
 function preventAlreadySelectedMaster(control) {
@@ -1040,4 +1076,8 @@ function ValidateControls() {
         }
     });
     return flag;
+}
+
+function checkReqValidation(control) {
+    return control.val().trim().toLowerCase().contains('req');
 }

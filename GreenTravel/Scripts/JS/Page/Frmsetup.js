@@ -564,8 +564,7 @@ $(document).ready(function () {
                                    '<td>' + CustomT + '</td>' +
                                    '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
                                    '</tr>'
-                        }
-                        else {
+                        } else {
                             html += '<tr>' +
                                    '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
                                    '<td><div class="form-group"> <input type="text" class="form-control req" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></div></td>' +
@@ -574,6 +573,7 @@ $(document).ready(function () {
                                    '<td>' + CustomNoti + '</td>' +
                                    '<td>' + CustomT + '</td>' +
                                    '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
+                                   '<td><a id="btnCloseCustomsection" class="text-danger in-editmode" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                                    '</tr>'
                         }
                     }
@@ -589,6 +589,7 @@ $(document).ready(function () {
                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                                '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
+                               '<td></td>' +
                                '</tr>'
                     $(html).appendTo($("#tblModalIconCustom"))
                     customID++;
@@ -666,7 +667,7 @@ $(document).ready(function () {
                                 '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                 '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
                                 '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
-                                '<td><a id="btnDeleteSection" class="text-danger" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
+                                '<td><a id="btnDeleteSection" class="text-danger in-editmode" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                                 '</tr>';
                         }
                     }
@@ -786,9 +787,34 @@ $(document).ready(function () {
             closeOnConfirm: false
         },
         function () {
+            var msg = 'Your data has been deleted.';
+            if (control.hasClass('in-editmode')) {
+                var srno;
+                if (control.parent().parent().children(':eq(2)').find('input').val().trim() != '') {
+                    srno = control.parent().parent().children(':eq(2)').find('input').val();
+                }
+                else {
+                    srno = 0;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/FormSetup/Base_Form_Section_Master",
+                    async: false,
+                    data: {
+                        "srno": srno, "Type": "Delete"
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response != null && response.success) {
+                            msg = response.responseText;
+                            flag = 1
+                        }
+                    }
+                });
+            }
             swal(
               'Deleted!',
-              'Your data has been deleted.',
+              msg,
               'success'
             );
             control.parent().parent().remove();
@@ -872,9 +898,36 @@ $(document).ready(function () {
             closeOnConfirm: false
         },
         function () {
+            var msg = 'Your data has been deleted.';
+            if (control.hasClass('in-editmode')) {
+                var srno;
+                if (control.parent().parent().children(':eq(6)').find('input').val().trim() != '') {
+                    srno = control.parent().parent().children(':eq(6)').find('input').val();
+                }
+                else {
+                    srno = 0;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/FormSetup/Base_Form_Custom_Button",
+                    async: false,
+                    data: {
+                        "srno": srno, "Type": "Delete"
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response != null && response.success) {
+                            msg = response.responseText;
+                            flag = 1
+                        }
+                    }
+                });
+            }
+            
             swal(
               'Deleted!',
-              'Your data has been deleted.',
+              msg,
               'success'
             );
             control.parent().parent().remove();
@@ -1078,7 +1131,7 @@ function addRowCustom() {
     $(html).appendTo($("#tblModalIconCustom"))
     customID++;
 
-};
+}
 
 function addRow() {
     var html = '<tr>' +
@@ -1089,7 +1142,7 @@ function addRow() {
                 '</tr>'
     $(html).appendTo($("#tblModalSection"))
     ID++;
-};
+}
 
 function getdatatab() {
     var tablename = 'dbo._Form_Tab_Master';
