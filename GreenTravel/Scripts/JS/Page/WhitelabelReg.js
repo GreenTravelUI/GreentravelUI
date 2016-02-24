@@ -760,6 +760,25 @@ $(document).ready(function () {
              )
         }
     });
+    
+
+    $("#txtSubscriptionFromDate").change(function (e){
+ 
+    });
+
+    //$("#txtSubscriptionToDate").change(function(e){
+    //    var dt1 = $("#txtSubscriptionFromDate").val();
+    //    var dt2 = $("#txtSubscriptionToDate").val();
+    //      if(dt1>dt2)
+    //    {
+
+    //        alert("big date");
+    //    }
+
+    //});
+
+
+
 });
 
 function Dropdown_Bind_Tab1() {
@@ -1358,6 +1377,13 @@ function subcribedit() {
                 setSelect2Value($('#drpPaymentMode'), response['Whiteregjs'][0]['PaymentMode']);
                 $('#txtFirstPaymentDate').val(response['Whiteregjs'][0]['FirstPayDate']);
                 $('#txtGracePeriod').val(response['Whiteregjs'][0]['GracePeriod']);
+
+                if (($("#txtNumberofUsers").val() != null) && ($("#txtAmountPerUserPerMonth").val() != null)) {
+                    var t2 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
+                    if (t2 != "Nan") {
+                        $("#txtTotalAmountPerMonth").val(t2)
+                    }
+                }
             }
         }
     });
@@ -1388,8 +1414,8 @@ function Userprefedit() {
                     $('#btnCanceluserpref').hide();
                     $('#btnSaveuserpref').hide();
                     $('#txtsrnouserpref').val(response['UserPreferancestep1js'][0]['srno']);
-                    //setSelect2Value($('#drpDashboardGadgetPosition'), response['UserPreferancestep1js'][0]['GadgetPosition']);
-                    $('#drpDashboardGadgetPosition').find('option[value="' + response['UserPreferancestep1js'][0]['GadgetPosition'] + '"]').attr('selected', true).change();
+                    setSelect2Value($('#drpDashboardGadgetPosition'), response['UserPreferancestep1js'][0]['GadgetPosition']);
+                    //$('#drpDashboardGadgetPosition').find('option[value="' + response['UserPreferancestep1js'][0]['GadgetPosition'] + '"]').attr('selected', true).change();
                     // $("#userperferancechk").html('');
                     var chkloop = response['UserPreferancestep1js'][0]['OtherPreferences'].toString().split(",");
                     $.each(chkloop, function (i) {
