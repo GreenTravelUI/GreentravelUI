@@ -171,9 +171,10 @@
         <div class="panel-body">
             <div role="tabpanel">
                 <!-- Nav tabs -->
+                <input type="text" class="form-control" style="display:none"  id="txtCorporateID" value="@queryValue" readonly="true">
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
-                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User </a></li>
-                    <li role="presentation" id="userlitab2" class=""><a href="#tab2" role="tab" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
+                    <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
                     <li role="presentation" id="userlitab3" style="display: none" class="userlitab3class"><a href="#tab3" role="tab" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Access Rights </a></li>
                 </ul>
                 <div class="tab-content">
@@ -225,7 +226,7 @@
                             </div>
                         </form>
                     </div>
-                    <input type="text" class="form-control" style="display:none"  id="txtCorporateID" value="@queryValue" readonly="true">
+
                     <div role="tabpanel" class="tab-pane Usertab2" id="tab2">
                         <div class="col-md-7">
                             <form>
@@ -245,16 +246,17 @@
                                     <label for="txtEmail">Email <span>*</span></label>
                                     <input type="text" class="form-control textbox-control req email" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
                                 </div>
-                                <div class="form-group">
+
+                                <div class="form-group Editdisable">
                                     <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
                                     <input type="text" class="form-control confirm req email" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group Editdisable">
                                     <label for="txtPassword">Password <span>*</span></label>
                                     <input type="Password" class="form-control req" id="txtPassword" placeholder="Password">
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtConfirmPassword">Confirm Password</label>
+                                <div class="form-group Editdisable">
+                                    <label for="txtConfirmPassword">Confirm Password <span>*</span></label>
                                     <input type="Password" class="form-control confirm req" id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
                                 </div>
                                 <br />
@@ -350,6 +352,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div role="tabpanel" class="tab-pane" id="tab3">
                         <form>
                             <div class="table-responsive">

@@ -68,6 +68,9 @@ $(document).ready(function () {
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
         setSelect2Value($('#drpCorporate'), corp);
+        setSelect2Value($('#drpRightsCorporate'), corp);
+        $('#DrpLocationTab2').html('');// To Clear dropdown
+
     });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -290,6 +293,14 @@ $(document).ready(function () {
     });//---tab-4 corporate selected index change event
     $("#drpRightsUnit").change(function () {
         // e.preventDefault();
+        $("#partial").html('');
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
+
         $('#drpRightsLocation').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsLocation'), '0');
 
@@ -304,6 +315,13 @@ $(document).ready(function () {
     });//---tab-4 unit selected index change event
     $("#drpRightsLocation").change(function () {
         // e.preventDefault();
+        $("#partial").html('');
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
         $('#drpRightsRole').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsRole'), '0');
 
@@ -315,8 +333,11 @@ $(document).ready(function () {
     $("#drpRightsRole").change(function () {
         $("#partial").html('');
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
-        Load_screen_module();
-        Fill_role($('#drpRightsRole option:selected').val());
+        var roleId = $('#drpRightsCorporate option:selected').val();
+        if (roleId != '0') {
+            Load_screen_module();
+            Fill_role($('#drpRightsRole option:selected').val());
+        }
 
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
@@ -998,6 +1019,7 @@ function Fill_Screen_Module_On_Edit() {
 }
 function Clear_tab_4() {
 
+   
     $("#partial").html('');
     $('#tab4.inputControl').val('');
     $('#tab4').find('.Dropdown').each(function () {
@@ -1010,6 +1032,9 @@ function Clear_tab_4() {
     $('#btnSavetab4').hide();
     $('#btnupdatetab4').hide();
     setSelect2Value($('#drpRightsCorporate'), corp);
+    $("#drpRightsLocation").html('');
+    $("#drpRightsRole").html('');
+
 }
 
 function Fill_role(RoleId) {
