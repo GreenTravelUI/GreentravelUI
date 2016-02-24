@@ -694,8 +694,25 @@ $(document).ready(function () {
     });
     //Access Right  Rediret
     $("table").delegate(".editor_accessright", "click", function () {
+        // var Corporate = $(this).parent().parent().children(':eq(1)').text();
+        //window.location.href = '/WhitelabelAccessRights/Index/?id=' + Corporate;
+
         var Corporate = $(this).parent().parent().children(':eq(1)').text();
-        window.location.href = '/WhitelabelAccessRights/Index/?id=' + Corporate;
+        var srno = '';
+        $.ajax({
+            type: "POST",
+            url: "/WhitelabelStep1/Encry",
+            data: {
+                srno: srno, Corporate: Corporate
+            },
+            dataType: 'json',
+            success: function (response) {
+                window.location.href = '/WhitelabelAccessRights/Index/?id=' + response;
+            }
+        });
+
+
+
     });
     $("#drpbillingcountry").change(function (e) {
         Bindbillingcountry();
@@ -1421,7 +1438,7 @@ function Userprefedit() {
 function billingedit() {
     clearValidations($('#tab4'));
     Bindtab4dropdown();
-   
+
     var tablename = 'dbo._White_Register_MaintanenceSupport';
     var Corporate = $("#hdfsrno").val();
     var unit = '0';

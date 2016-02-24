@@ -24,11 +24,11 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Corporate", UM.Corporate);
                 _cmd.Parameters.AddWithValue("@Unit", UM.Unit);
                 _cmd.Parameters.AddWithValue("@Branch", UM.Branch);
+                _cmd.Parameters.AddWithValue("@Location", UM.Location);
                 _cmd.Parameters.AddWithValue("@FirstName", UM.FirstName);
                 _cmd.Parameters.AddWithValue("@LastName", UM.LastName);
                 _cmd.Parameters.AddWithValue("@Email", UM.Email);
                 _cmd.Parameters.AddWithValue("@Password", UM.Password);
-
                 _cmd.Parameters.AddWithValue("@Attribute1", UM.Attribute1);
                 _cmd.Parameters.AddWithValue("@Attribute2", UM.Attribute2);
                 _cmd.Parameters.AddWithValue("@Attribute3", UM.Attribute3);
@@ -39,26 +39,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Attribute8", UM.Attribute8);
                 _cmd.Parameters.AddWithValue("@Attribute9", UM.Attribute9);
                 _cmd.Parameters.AddWithValue("@Attribute10", UM.Attribute10);
-
-                if (UM.EntryDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(UM.EntryDatetime, "dd/MM/yyyy", null));
-                }
-                _cmd.Parameters.AddWithValue("@EditedBy", UM.CreatedBy);
                 _cmd.Parameters.AddWithValue("@CreatedBy", UM.CreatedBy);
-
-                if (UM.EditDatetime == null)
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
-                }
-                else
-                {
-                    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(UM.EditDatetime, "dd/MM/yyyy", null));
-                }
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", UM.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", UM.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", UM.TerminalBy);
@@ -69,7 +50,6 @@ namespace GreenTravel.App_DbService
                 adp.Dispose();
                 _cmd.Dispose();
                 return ds;
-
             }
             catch
             {
@@ -82,6 +62,76 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
+        //public DataSet insert_data(UserMaster UM)
+        //{
+        //    try
+        //    {
+        //        _cn.Open();
+        //        SqlCommand _cmd = new SqlCommand("sp_save_user_details_master", _cn);
+        //        _cmd.CommandType = CommandType.StoredProcedure;
+        //        _cmd.Parameters.AddWithValue("@srno", UM.srno);
+        //        _cmd.Parameters.AddWithValue("@Corporate", UM.Corporate);
+        //        _cmd.Parameters.AddWithValue("@Unit", UM.Unit);
+        //        _cmd.Parameters.AddWithValue("@Branch", UM.Branch);
+        //        _cmd.Parameters.AddWithValue("@FirstName", UM.FirstName);
+        //        _cmd.Parameters.AddWithValue("@LastName", UM.LastName);
+        //        _cmd.Parameters.AddWithValue("@Email", UM.Email);
+        //        _cmd.Parameters.AddWithValue("@Password", UM.Password);
+
+        //        _cmd.Parameters.AddWithValue("@Attribute1", UM.Attribute1);
+        //        _cmd.Parameters.AddWithValue("@Attribute2", UM.Attribute2);
+        //        _cmd.Parameters.AddWithValue("@Attribute3", UM.Attribute3);
+        //        _cmd.Parameters.AddWithValue("@Attribute4", UM.Attribute4);
+        //        _cmd.Parameters.AddWithValue("@Attribute5", UM.Attribute5);
+        //        _cmd.Parameters.AddWithValue("@Attribute6", UM.Attribute6);
+        //        _cmd.Parameters.AddWithValue("@Attribute7", UM.Attribute7);
+        //        _cmd.Parameters.AddWithValue("@Attribute8", UM.Attribute8);
+        //        _cmd.Parameters.AddWithValue("@Attribute9", UM.Attribute9);
+        //        _cmd.Parameters.AddWithValue("@Attribute10", UM.Attribute10);
+
+        //        //if (UM.EntryDatetime == null)
+        //        //{
+        //        //    _cmd.Parameters.AddWithValue("@EntryDatetime", DBNull.Value);
+        //        //}
+        //        //else
+        //        //{
+        //        //    _cmd.Parameters.AddWithValue("@EntryDatetime", DateTime.ParseExact(UM.EntryDatetime, "dd/MM/yyyy", null));
+        //        //}
+        //        // _cmd.Parameters.AddWithValue("@EditedBy", UM.CreatedBy);
+        //        _cmd.Parameters.AddWithValue("@CreatedBy", UM.CreatedBy);
+
+        //        //if (UM.EditDatetime == null)
+        //        //{
+        //        //    _cmd.Parameters.AddWithValue("@EditDatetime", DBNull.Value);
+        //        //}
+        //        //else
+        //        //{
+        //        //    _cmd.Parameters.AddWithValue("@EditDatetime", DateTime.ParseExact(UM.EditDatetime, "dd/MM/yyyy", null));
+        //        //}
+        //        _cmd.Parameters.AddWithValue("@CorpcentreBy", UM.CorpcentreBy);
+        //        _cmd.Parameters.AddWithValue("@UnitCorpBy", UM.UnitCorpBy);
+        //        _cmd.Parameters.AddWithValue("@TerminalBy", UM.TerminalBy);
+        //        _cmd.Parameters.AddWithValue("@BranchBy", UM.BranchBy);
+        //        SqlDataAdapter adp = new SqlDataAdapter(_cmd);
+        //        DataSet ds = new DataSet();
+        //        adp.Fill(ds);
+        //        adp.Dispose();
+        //        _cmd.Dispose();
+        //        return ds;
+
+        //    }
+        //    catch
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        _cn.Close();
+        //        _cn.Dispose();
+        //    }
+
+        //}
 
         public DataSet RetrieveAllUserData(UserMaster_Formpara UMFRM)
         {
@@ -172,6 +222,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Formtabcode", GP.Formtabcode);
                 _cmd.Parameters.AddWithValue("@type", GP.type);
                 _cmd.Parameters.AddWithValue("@Segment", GP.Segment);
+                // _cmd.Parameters.AddWithValue("@Field1", GP.Field1);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();
@@ -202,7 +253,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@tablename", UM.tablename);
                 _cmd.Parameters.AddWithValue("@Corporate", UM.Corporate);
                 _cmd.Parameters.AddWithValue("@unit", UM.Unit);
-                _cmd.Parameters.AddWithValue("@Formcode",UM.Formcode);
+                _cmd.Parameters.AddWithValue("@Formcode", UM.Formcode);
                 _cmd.Parameters.AddWithValue("@Formtabcode", UM.Formtabcode);
                 _cmd.Parameters.AddWithValue("@srno", UM.srno);
                 _cmd.Parameters.AddWithValue("@Type", "EditMode");
@@ -244,12 +295,12 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@userid", CFP.userid);
                 _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
                 _cmd.Parameters.AddWithValue("@Type", CFP.Type);
-                _cmd.Parameters.AddWithValue("@field1","");
-                _cmd.Parameters.AddWithValue("@field2","");
-                _cmd.Parameters.AddWithValue("@field3","");
-                _cmd.Parameters.AddWithValue("@field4","");
-                _cmd.Parameters.AddWithValue("@field5","");
-                _cmd.Parameters.AddWithValue("@Control","DrpUnit");
+                _cmd.Parameters.AddWithValue("@field1", "");
+                _cmd.Parameters.AddWithValue("@field2", "");
+                _cmd.Parameters.AddWithValue("@field3", "");
+                _cmd.Parameters.AddWithValue("@field4", "");
+                _cmd.Parameters.AddWithValue("@field5", "");
+                _cmd.Parameters.AddWithValue("@Control", "DrpUnit");
                 _cmd.Parameters.AddWithValue("@Srno", CFP.Srno);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
@@ -287,7 +338,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@userid", CFP.userid);
                 _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
                 _cmd.Parameters.AddWithValue("@Type", CFP.Type);
-                _cmd.Parameters.AddWithValue("@field1","UNIT-2-0-1");
+                _cmd.Parameters.AddWithValue("@field1", "UNIT-2-0-1");
                 _cmd.Parameters.AddWithValue("@field2", "");
                 _cmd.Parameters.AddWithValue("@field3", "");
                 _cmd.Parameters.AddWithValue("@field4", "");
@@ -330,7 +381,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@userid", CFP.userid);
                 _cmd.Parameters.AddWithValue("@Ip", CFP.Ip);
                 _cmd.Parameters.AddWithValue("@Type", CFP.Type);
-               
+
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();

@@ -68,6 +68,9 @@ $(document).ready(function () {
         });
         $('select').next().find('ul li.select2-selection__choice').remove();
         setSelect2Value($('#drpCorporate'), corp);
+        setSelect2Value($('#drpRightsCorporate'), corp);
+        $('#DrpLocationTab2').html('');// To Clear dropdown
+
     });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -98,7 +101,7 @@ $(document).ready(function () {
         var EntryDatetime = '';
         $.ajax({
             type: "POST",
-            url: "/WhitelabelAccessRights/insert_Data",
+            url: "/User/insert_Data",
             data: {
                 srno: srno, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, FirstName: FirstName,
                 LastName: LastName, Email: Email, Password: Password, Attribute1: Attribute1,
@@ -153,7 +156,7 @@ $(document).ready(function () {
         var Type = 'EditMode';
         $.ajax({
             type: "POST",
-            url: "/WhitelabelAccessRights/Edit_data",
+            url: "/User/Edit_data",
             data: {
                 tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
             },
@@ -217,7 +220,7 @@ $(document).ready(function () {
         var Type = 'EditMode';
         $.ajax({
             type: "POST",
-            url: "/WhitelabelAccessRights/Edit_data",
+            url: "/User/Edit_data",
             async: false,
             data: {
                 tablename: tablename, Corporate: Corporate, Unit: Unit, Formcode: Formcode, Formtabcode: Formtabcode, srno: srno, Type: Type
@@ -290,6 +293,14 @@ $(document).ready(function () {
     });//---tab-4 corporate selected index change event
     $("#drpRightsUnit").change(function () {
         // e.preventDefault();
+        $("#partial").html('');
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
+
         $('#drpRightsLocation').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsLocation'), '0');
 
@@ -304,6 +315,13 @@ $(document).ready(function () {
     });//---tab-4 unit selected index change event
     $("#drpRightsLocation").change(function () {
         // e.preventDefault();
+        $("#partial").html('');
+        $('#Date1').val('');
+        $('#chkdefault').attr('checked', false);
+        $('#chkdefault').parent().removeClass('checked');
+        setSelect2Value($('#drpRightsStatus'), '0');
+        $('#btnSavetab4').hide();
+        $('#btnupdatetab4').hide();
         $('#drpRightsRole').html('');// To Clear dropdown
         setSelect2Value($('#drpRightsRole'), '0');
 
@@ -315,8 +333,11 @@ $(document).ready(function () {
     $("#drpRightsRole").change(function () {
         $("#partial").html('');
         FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
-        Load_screen_module();
-        Fill_role($('#drpRightsRole option:selected').val());
+        var roleId = $('#drpRightsCorporate option:selected').val();
+        if (roleId != '0') {
+            Load_screen_module();
+            Fill_role($('#drpRightsRole option:selected').val());
+        }
 
     });//---tab-4 role selected index change event
     $("#drpRightsUser").change(function () {
@@ -484,7 +505,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/WhitelabelAccessRights/Insert",
+                url: "/User/Insert",
                 async: false,
                 data: {
                     srno: srno, UserId: UserId, Corporate: Corporate, Unit: Unit, Location: Location, Branch: Branch, Role: Role, RoleType: RoleType, EffectiveDate: EffectiveDate,
@@ -532,7 +553,7 @@ function FillDropDown_Corporate() {
     var Language = '';
     var Type = 'DropDown';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_Base",
+        url: "/User/BindDropdown_Base",
         type: "POST",
         dataType: "json",
         data: {
@@ -578,7 +599,7 @@ function FillConditional_Base(Corporate, Field1, Field2, Field3, controlId) {
     var Type = 'ConditionalDropdown';
     var Srno = '';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_FormLoad",
+        url: "/User/BindDropdown_FormLoad",
         type: "POST",
         async: false,
         data: {
@@ -619,7 +640,7 @@ function BindGrid() {
         "autoWidth": false,
         destroy: true,
         "ajax": {
-            "url": "/WhitelabelAccessRights/BindGrid",
+            "url": "/User/BindGrid",
             "Type": "GET",
             "dataType": 'json',
             "contentType": "application/json; charset=utf-8",
@@ -727,7 +748,7 @@ function FillDropDown_RightsCorporate() {
     var Language = '';
     var Type = 'DropDown';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_FormLoadAccessRights",
+        url: "/User/BindDropdown_FormLoadAccessRights",
         type: "POST",
         dataType: "json",
         data: {
@@ -777,7 +798,7 @@ function FillConditional_RightsBase(Corporate, Field1, Field2, Field3, controlId
     var Type = 'ConditionalDropdown';
     var Srno = '';
     $.ajax({
-        url: "/WhitelabelAccessRights/BindDropdown_BaseAccessRights",
+        url: "/User/BindDropdown_BaseAccessRights",
         type: "POST",
         async: false,
         data: {
@@ -815,7 +836,7 @@ function Load_screen_module() {
     var Type = 'ConditionalGrid';
     var Srno = '';
     $.ajax({
-        url: "/WhitelabelAccessRights/FillAll",
+        url: "/User/FillAll",
         type: "POST",
         async: false,
         data: {
@@ -917,7 +938,7 @@ function Fill_Screen_Module_On_Edit() {
     var srno = '';
     var Type = 'EditUserRole';
     $.ajax({
-        url: "/WhitelabelAccessRights/Edit_AccessRights",
+        url: "/User/Edit_AccessRights",
         type: "POST",
         async: false,
         data: {
@@ -998,6 +1019,7 @@ function Fill_Screen_Module_On_Edit() {
 }
 function Clear_tab_4() {
 
+   
     $("#partial").html('');
     $('#tab4.inputControl').val('');
     $('#tab4').find('.Dropdown').each(function () {
@@ -1010,6 +1032,9 @@ function Clear_tab_4() {
     $('#btnSavetab4').hide();
     $('#btnupdatetab4').hide();
     setSelect2Value($('#drpRightsCorporate'), corp);
+    $("#drpRightsLocation").html('');
+    $("#drpRightsRole").html('');
+
 }
 
 function Fill_role(RoleId) {
