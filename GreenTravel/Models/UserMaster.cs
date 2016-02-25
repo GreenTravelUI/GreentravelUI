@@ -47,7 +47,7 @@ namespace GreenTravel.Models
         //public string UnitCorpBy { get; set; }
         //public string TerminalBy { get; set; }
         public DataSet StoreAllData { get; set; }
-       // public string BranchBy { get; set; }
+        // public string BranchBy { get; set; }
         public string RowNumber { get; set; }
         public string Name { get; set; }
         public string Corporate { get; set; }
@@ -173,6 +173,9 @@ namespace GreenTravel.Models
 
     public class UserWiseRights : CommanPara
     {
+
+
+        public string RowNumber { get; set; }
         public string srno { get; set; }
         public string UserId { get; set; }
         public string Corporate { get; set; }

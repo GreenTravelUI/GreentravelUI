@@ -6,70 +6,16 @@ var corp = $('#txtCorporateID').val();
 
 $(document).ready(function () {
     BindGrid();
-    function BindGrid() {
-        var tablename = 'dbo._User_Details_Master';
-        var Corporate = corp;
-        var Segment = '';
-        var PageNo = '1';
-        var type = 'Grid';
-        var Formcode = '0';
-        var Formtabcode = '0';
-        $('#gridUser').dataTable({
-            "ServerSide": true,
-            "destroy": true,
-            "autoWidth": false,
-            destroy: true,
-            "ajax": {
-                "url": "/WhitelabelAccessRights/BindGridView",
-                "Type": "GET",
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "dataSrc": function (json) {
-                    return json;
-                },
-                "data": {
-                    "tablename": tablename,
-                    "Corporate": Corporate,
-                    "Segment": Segment,
-                    "PageNo": PageNo,
-                    "type": type,
-                    "Formcode": Formcode,
-                    "Formtabcode": Formtabcode
-                }
-            },
-            "columns": [
-                { "data": "RowNumber" },
-                { "data": "srno", className: "hide_cell" },
-                 { "data": "Name" },
-                { "data": "Email" },
-                {
-                    data: null,
-                    className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;'
-                }
-            ]
-        });
-    }
-    $('.usertab1gridclass').click(function (e) {
 
-        BindGrid();
-        $("#tab2").removeClass("active");
-        $("#userlitab2").removeClass("active");
-       
-        $("#tab1").addClass("active");
-        $("#userlitab1").addClass("active");
-     
+    //$('.Usertab2').click(function (e) {
 
+    //    $("#userlitab2").addClass("active");
+    //    $("#tab1").removeClass("active");
+    //    $("#userlitab2").addClass("active");
+    //    $("#tab1").removeClass("active");
 
-    });
-    $('.Usertab2').click(function (e) {
+    //});
 
-        $("#userlitab2").addClass("active");
-        $("#tab1").removeClass("active");
-        $("#userlitab2").addClass("active");
-        $("#tab1").removeClass("active");
-
-    });
     $('.btnclearuser').click(function (e) {
         e.preventDefault();
         $('input[type="text"]').val('');
@@ -81,8 +27,9 @@ $(document).ready(function () {
         $('#btnUpdateUser').hide();
         $('#btnCancelUser').hide();
         $('.inputform').val('');
-      
+
     });
+
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
 
@@ -108,7 +55,7 @@ $(document).ready(function () {
         var Email = $('#txtConfirmEmail').val();
         var Password = $('#txtConfirmPassword').val();
 
-        var Attribute1 = 'Customer';
+        var Attribute1 = 'Admin';
         var Attribute2 = '';
         var Attribute3 = '';
         var Attribute4 = '';
@@ -161,6 +108,7 @@ $(document).ready(function () {
            });
 
     });
+
     $('#txtConfirmEmail').on('change', function () {
         var result = CompareValidation($('#txtEmail').val(), $('#txtConfirmEmail').val());
         //  alert(result);
@@ -173,6 +121,7 @@ $(document).ready(function () {
 
         }
     });
+
     $('#txtConfirmPassword').on('change', function () {
         // alert('ConFirm Password');
         var result = CompareValidation($('#txtPassword').val(), $('#txtConfirmPassword').val());
@@ -186,42 +135,13 @@ $(document).ready(function () {
         }
     });
 
-    $('.quituserbtn').click(function (e) {
-        $("#tab2").removeClass("active");
-        $("#userlitab2").removeClass("active");
-
-
-        $('input[type="text"]').val('');
-        $('input[type="password"]').val('');
-        $("#txtEmail").prop('disabled', false);
-        $(".Editdisable").show();
-        clearValidations($(this).closest('form'));
-        $('#btnSaveUser').show();
-        $('#btnUpdateUser').hide();
-        $('#btnCancelUser').hide();
-
-       
-
-        $("#tab1").addClass("active");
-        $("#userlitab1").addClass("active");
-
+    $('#btnQuitUser').click(function (e) {
+        e.preventDefault();
+        $("#userlitab1").find('a').trigger('click');
+        $('.btnclearuser').trigger('click');
+        BindGrid();
     });//---tab-2 quit button
-    ////Comapare validation  
-    function CompareValidation($attr1, $attr2) {
-        // alert($attr1);
-        //alert($attr2);
-        if ($attr1 != $attr2) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-    //email  validation
-    function isEmail(email) {
-        var regex = '/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
-        return regex.test(email);
-    }
+    
     $("table").delegate(".editor_Step", "click", function () {
         console.log($(this).parent().parent().children(':eq(1)').text());
         $("#userlitab1").removeClass("active");
@@ -284,180 +204,239 @@ $(document).ready(function () {
              $('#btnSaveUser').hide();
          });
     });
-    $('.quituserbtn').click(function (e) {
-
-        $(".btnclearuser").click();
-        $(".usertab1gridclass").click();
-     
-
-    });
-   
-    function BindDropdownUnit() {
-        var Module = '';
-        var screen = '';
-        var FormCode = '';
-        var TabCode = '';
-        var Corporate = '2';
-        var unit = '';
-        var Branch = '';
-        var userid = '';
-        var Ip = '';
-        var Type = 'ConditionalDropdown';
-        var Srno = '';
-        $.ajax({
-            url: "/WhitelabelAccessRights/BindDropdownUnit",
-            type: "POST",
-            async: false,
-            data: {
-                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
-                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
-            },
-            success: function (response) {
-                if (response['UNITDRPJS'].length > 0) {
-                    $('#drpUnitCompany').html('');
-                    for (var i = 0; i < response['UNITDRPJS'].length; i++) {
-                        var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
-                        $('#drpUnitCompany').append(opt);
-                    }
-                    $('#drpUnitCompany option:first').attr('selected', 'selected').change();
-                }
-
-
-
-            }
-        });
-
-    }
-    function BindDropdownLocation() {
-        var Module = '';
-        var screen = '';
-        var FormCode = '';
-        var TabCode = '';
-        var Corporate = '2';
-        var unit = '';
-        var Branch = '';
-        var userid = '';
-        var Ip = '';
-        var Type = 'ConditionalDropdown';
-        var Srno = '';
-        $.ajax({
-            url: "/WhitelabelAccessRights/BindDropdownLocation",
-            type: "POST",
-            async: false,
-            data: {
-                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
-                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
-            },
-            success: function (response) {
-                if (response['UNITDRPJS'].length > 0) {
-                    $('#drpLocation').html('');
-                    for (var i = 0; i < response['UNITDRPJS'].length; i++) {
-                        var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
-                        $('#drpLocation').append(opt);
-                    }
-                    $('#drpLocation option:first').attr('selected', 'selected').change();
-                }
-
-
-
-            }
-        });
-
-    }
-    function BindDropdownUserrole() {
-        var Module = '';
-        var screen = '';
-        var FormCode = '';
-        var TabCode = '';
-        var Corporate = '2';
-        var unit = '';
-        var Branch = '';
-        var userid = '';
-        var Ip = '';
-        var Type = 'DropDown';
-        var Srno = '';
-        $.ajax({
-            url: "/WhitelabelAccessRights/BindDropdownUserrole",
-            type: "POST",
-            async: false,
-            data: {
-                Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
-                unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
-            },
-            success: function (response) {
-                if (response['UNITDRPJS'].length > 0) {
-                    $('#drpRole').html('');
-                    for (var i = 0; i < response['UNITDRPJS'].length; i++) {
-                        var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
-                        $('#drpRole').append(opt);
-                    }
-                    $('#drpRole option:first').attr('selected', 'selected').change();
-                }
-
-                if (response['USERDRPJS'].length > 0) {
-                    $('#drpUser').html('');
-                    for (var i = 0; i < response['USERDRPJS'].length; i++) {
-                        var opt = new Option(response['USERDRPJS'][i]['Text'], response['USERDRPJS'][i]['Value']);
-                        $('#drpUser').append(opt);
-                    }
-                    $('#drpUser option:first').attr('selected', 'selected').change();
-                }
-
-
-
-            }
-        });
-
-    }
-    function BindAccessgrid() {
-        var tablename = 'dbo._UserRoleMaster';
-        var Corporate = '2';
-        var Segment = '';
-        var PageNo = '1';
-        var type = 'Grid';
-        var Formcode = '0';
-        var Formtabcode = '0';
-        var Role = "";
-        var Unit = "";
-        var Branch = "";
-        var Userid = "";
-
-        $('.accessrightul').dataTable({
-            "ServerSide": true,
-            destroy: true,
-            "ajax": {
-                "url": "/WhitelabelAccessRights/BindAccessgrid",
-                "Type": "GET",
-
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "dataSrc": function (json) {
-                    return json;
-                },
-                "data": {
-                    "tablename": tablename,
-                    "Corporate": Corporate,
-                    "Segment": Segment,
-                    "PageNo": PageNo,
-                    "type": type,
-                    "Formcode": Formcode,
-                    "Formtabcode": Formtabcode,
-
-                }
-            },
-            "columns": [
-
-                { "data": "srno", className: "hide_cell" },
-
-
-                {
-                    data: null,
-                    className: "center",
-                    defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-cubes"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
-                }
-            ]
-        });
-
-    }
-
+    
 });
+
+function BindGrid() {
+    var tablename = 'dbo._User_Details_Master';
+    var Corporate = corp;
+    var Segment = '';
+    var PageNo = '1';
+    var type = 'Grid';
+    var Formcode = '0';
+    var Formtabcode = '0';
+    var Field1 = 'Admin';
+    $('#gridUser').dataTable({
+        "ServerSide": true,
+        "destroy": true,
+        "autoWidth": false,
+        destroy: true,
+        "ajax": {
+            "url": "/WhitelabelAccessRights/BindGridView",
+            "Type": "GET",
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "dataSrc": function (json) {
+                return json;
+            },
+            "data": {
+                "tablename": tablename,
+                "Corporate": Corporate,
+                "Segment": Segment,
+                "PageNo": PageNo,
+                "type": type,
+                "Formcode": Formcode,
+                "Formtabcode": Formtabcode,
+                "Field1": Field1,
+            }
+        },
+        "columns": [
+            { "data": "RowNumber" },
+            { "data": "srno", className: "hide_cell" },
+             { "data": "Name" },
+            { "data": "Email" },
+            {
+                data: null,
+                className: "center",
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;'
+            }
+        ]
+    });
+}
+////Comapare validation  
+function CompareValidation($attr1, $attr2) {
+    // alert($attr1);
+    //alert($attr2);
+    if ($attr1 != $attr2) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+//email  validation
+function isEmail(email) {
+    var regex = '/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
+    return regex.test(email);
+}
+
+function BindDropdownUnit() {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '2';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var Type = 'ConditionalDropdown';
+    var Srno = '';
+    $.ajax({
+        url: "/WhitelabelAccessRights/BindDropdownUnit",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+            unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
+        },
+        success: function (response) {
+            if (response['UNITDRPJS'].length > 0) {
+                $('#drpUnitCompany').html('');
+                for (var i = 0; i < response['UNITDRPJS'].length; i++) {
+                    var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
+                    $('#drpUnitCompany').append(opt);
+                }
+                $('#drpUnitCompany option:first').attr('selected', 'selected').change();
+            }
+
+
+
+        }
+    });
+
+}
+
+function BindDropdownLocation() {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '2';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var Type = 'ConditionalDropdown';
+    var Srno = '';
+    $.ajax({
+        url: "/WhitelabelAccessRights/BindDropdownLocation",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+            unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
+        },
+        success: function (response) {
+            if (response['UNITDRPJS'].length > 0) {
+                $('#drpLocation').html('');
+                for (var i = 0; i < response['UNITDRPJS'].length; i++) {
+                    var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
+                    $('#drpLocation').append(opt);
+                }
+                $('#drpLocation option:first').attr('selected', 'selected').change();
+            }
+
+
+
+        }
+    });
+
+}
+
+function BindDropdownUserrole() {
+    var Module = '';
+    var screen = '';
+    var FormCode = '';
+    var TabCode = '';
+    var Corporate = '2';
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var Type = 'DropDown';
+    var Srno = '';
+    $.ajax({
+        url: "/WhitelabelAccessRights/BindDropdownUserrole",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate,
+            unit: unit, Branch: Branch, userid: userid, Ip: Ip, Type: Type, Srno: Srno
+        },
+        success: function (response) {
+            if (response['UNITDRPJS'].length > 0) {
+                $('#drpRole').html('');
+                for (var i = 0; i < response['UNITDRPJS'].length; i++) {
+                    var opt = new Option(response['UNITDRPJS'][i]['Text'], response['UNITDRPJS'][i]['Value']);
+                    $('#drpRole').append(opt);
+                }
+                $('#drpRole option:first').attr('selected', 'selected').change();
+            }
+
+            if (response['USERDRPJS'].length > 0) {
+                $('#drpUser').html('');
+                for (var i = 0; i < response['USERDRPJS'].length; i++) {
+                    var opt = new Option(response['USERDRPJS'][i]['Text'], response['USERDRPJS'][i]['Value']);
+                    $('#drpUser').append(opt);
+                }
+                $('#drpUser option:first').attr('selected', 'selected').change();
+            }
+
+
+
+        }
+    });
+
+}
+
+function BindAccessgrid() {
+    var tablename = 'dbo._UserRoleMaster';
+    var Corporate = '2';
+    var Segment = '';
+    var PageNo = '1';
+    var type = 'Grid';
+    var Formcode = '0';
+    var Formtabcode = '0';
+    var Role = "";
+    var Unit = "";
+    var Branch = "";
+    var Userid = "";
+
+    $('.accessrightul').dataTable({
+        "ServerSide": true,
+        destroy: true,
+        "ajax": {
+            "url": "/WhitelabelAccessRights/BindAccessgrid",
+            "Type": "GET",
+
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "dataSrc": function (json) {
+                return json;
+            },
+            "data": {
+                "tablename": tablename,
+                "Corporate": Corporate,
+                "Segment": Segment,
+                "PageNo": PageNo,
+                "type": type,
+                "Formcode": Formcode,
+                "Formtabcode": Formtabcode,
+
+            }
+        },
+        "columns": [
+
+            { "data": "srno", className: "hide_cell" },
+
+
+            {
+                data: null,
+                className: "center",
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-cubes"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
+            }
+        ]
+    });
+
+}
