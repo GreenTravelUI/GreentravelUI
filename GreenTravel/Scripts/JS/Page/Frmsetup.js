@@ -1144,7 +1144,6 @@ function addRow() {
     ID++;
 }
 
-
 function getdatatab() {
     var tablename = 'dbo._Form_Tab_Master';
     var Corporate = '5';

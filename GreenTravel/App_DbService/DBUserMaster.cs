@@ -242,7 +242,6 @@ namespace GreenTravel.App_DbService
             }
         }
 
-
         public DataSet Edit_data(UserMaster UM)
         {
             try
@@ -276,7 +275,6 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-
 
         public DataSet BindDropdownUnit(CommanFieldPara CFP)
         {
