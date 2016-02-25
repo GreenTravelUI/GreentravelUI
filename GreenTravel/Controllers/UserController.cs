@@ -634,7 +634,37 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
-
+        public ActionResult BindGrid_Role(CommanFieldConditionalPara CFP)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.BindDropdown_FormLoad(CFP);
+                List<UserWiseRights> items = new List<UserWiseRights>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new UserWiseRights
+                        {
+                            RowNumber = @dr["RowNumber"].ToString(),
+                            srno = @dr["srno"].ToString(),
+                            Unit = @dr["Unit"].ToString(),
+                            Location = @dr["Location"].ToString(),
+                            Role = @dr["Role"].ToString(),
+                            IsDefault = @dr["Isdefault"].ToString(),
+                            Status = @dr["IsActive"].ToString(),
+                        });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
 
     }

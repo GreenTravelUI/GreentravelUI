@@ -244,9 +244,11 @@ $(document).ready(function () {
             });
             if (flagsection == 0) {
                 swal('Good Job!', msg, event);
+               // swal('Good Job!', msg, event);
             }
             else if (flagsection == 1) {
                 swal('', msg, event);
+               // swal('', msg, event);
             }
 
         }
@@ -356,6 +358,8 @@ $(document).ready(function () {
 
             $("#userlitab4").addClass("active");
             $("#tab4").addClass("active");
+            $("#drpRightsUnit").prop('disabled', true);
+            $("#drpRightsLocation").prop('disabled', true);
 
             $('#btnUpdateUser').show();
             $('#btnCancelUser').hide();
@@ -657,5 +661,6 @@ function Clear_tab_4() {
     $('#btnupdatetab4').hide();
     corp = $('#myHiddenVar').val();
     setSelect2Value($('#drpRightsCorporate'), corp);
-
+    $("#drpRightsUnit").prop('disabled', false);
+    $("#drpRightsLocation").prop('disabled', false);
 }

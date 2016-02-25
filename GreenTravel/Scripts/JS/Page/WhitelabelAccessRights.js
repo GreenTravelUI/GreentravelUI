@@ -3,7 +3,7 @@ $(window).unload(function () {
     $('select option').remove();
 });
 var corp = $('#myHiddenVar').val();
-var user = '0';
+var user_ID_Temp = '0';
 $(document).ready(function () {
     FillDropDown_RightsCorporate();
     FillDropDown_Corporate();
@@ -71,7 +71,7 @@ $(document).ready(function () {
         setSelect2Value($('#drpRightsCorporate'), corp);
         $('#DrpLocationTab2').html('');// To Clear dropdown
         $("#drpRightsUser").prop('disabled', false);
-        user = '0';
+        user_ID_Temp = '0';
     });//---tab-2 clear button click
     $('.btnSaveuserclass').click(function (e) {
         e.preventDefault();
@@ -112,7 +112,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 if (response != null && response.success) {
-                    swal('', response['success'], response['Event']);
+                    swal('Good Job!', response['success'], response['Event']);
                     $("#tab1").removeClass("active");
                     $("#userlitab1").removeClass("active");
                     $("#tab2").addClass("active");
@@ -187,7 +187,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
-                    user = response['UserWiseRights'][0]['UserId'];
+                    user_ID_Temp = $('#drpRightsUser option:selected').val();
 
                     $("#drpRightsUser").prop('disabled', true);
 
@@ -258,7 +258,7 @@ $(document).ready(function () {
                     FillConditional_Base($('#drpCorporate option:selected').val(), $('#DrpUnitTab2 option:selected').val(), 0, 0, 'DrpLocationTab2');
                     setSelect2Value($('#DrpLocationTab2'), response['UserMasterresjs'][0]['Location']);
                     $("#drpRightsUser").prop('disabled', true);
-                    user = response['UserWiseRights'][0]['UserId'];
+                    user_ID_Temp = $('#drpRightsUser option:selected').val();
                 }
             }
         }).done(function () {
@@ -279,8 +279,69 @@ $(document).ready(function () {
         $(".btnclearuser").click();
         $(".usertab1gridclass").click();
         $("#drpRightsUser").prop('disabled', false);
-        user = '0';
+        user_ID_Temp = '0';
     });//---tab-2 quit button
+    $("table").delegate(".editor_Role", "click", function () {
+        var Module = '';
+        var screen = '';
+        var FormCode = '';
+        var TabCode = '';
+        var Corporate = $('#drpCorporate option:selected').val();
+        var unit = '';
+        var Branch = '';
+        var userid = '';
+        var Ip = '';
+        var field1 = '';
+        var field2 = '';
+        var field3 = '';
+        var field4 = '';
+        var field5 = $(this).parent().parent().children(':eq(1)').text();
+        var Control = controlId;
+        var Language = '';
+        var Type = 'GridRole';
+        var Srno = '';
+        $('#gridRole').dataTable({
+            "ServerSide": true,
+            "destroy": true,
+            "autoWidth": false,
+            destroy: true,
+            "ajax": {
+                "url": "/User/BindGrid_Role",
+                "Type": "GET",
+                "dataType": 'json',
+                "contentType": "application/json; charset=utf-8",
+                "dataSrc": function (json) {
+                    return json;
+                },
+                "data": {
+                    "tablename": tablename,
+                    "Corporate": Corporate,
+                    "Segment": Segment,
+                    "PageNo": PageNo,
+                    "type": type,
+                    "Formcode": Formcode,
+                    "Formtabcode": Formtabcode,
+                    "field1": field1,
+                }
+            },
+            "columns": [
+                { "data": "RowNumber" },
+                { "data": "srno", className: "hide_cell" },
+                { "data": "Corporate" },
+                { "data": "Unit" },
+                { "data": "Location" },
+                 { "data": "Name" },
+                { "data": "Email" },
+                {
+                    data: null,
+                    className: "center",
+                    defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#myModalIcon" rel="tooltip" title="Users Access Rights" class="editor_Role"><i class="fa fa-key"></i></a>'
+                }
+            ]
+        });
+        $("#myModalSection").modal('show');
+
+    });//---tab-1 edit access rights button click
     // ==============================================================================================================================  ( Tab-4) 
     $("#drpRightsCorporate").change(function () {
         $('#Date1').val('');
@@ -544,7 +605,7 @@ $(document).ready(function () {
         $('.btnclearuser').click();
         $(".usertab1gridclass").click();
         $("#drpRightsUser").prop('disabled', false);
-        user = '0';
+        user_ID_Temp = '0';
     });//---tab-2 quit button click
     $('#btnCleartab4').click(function (e) {
         e.preventDefault();
@@ -682,7 +743,7 @@ function BindGrid() {
                 data: null,
                 className: "center",
                 //defaultContent: '<a href="javascript:void(0);" class="editor_Step" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_feature"><i class="text-primary fa fa-trash-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_accessright"><i class="fa fa-key"></i></a>'
-                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a href="javascript:void(0);" rel="tooltip" title="Users Access Rights" class="editor_accessright"><i class="fa fa-key"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;<a data-toggle="modal" data-target="#myModalIcon" rel="tooltip" title="Users Access Rights" class="editor_Role"><i class="fa fa-key"></i></a>'
             }
         ]
     });
@@ -968,7 +1029,7 @@ function Fill_Screen_Module_On_Edit() {
                     $('ul.grid div').find('li').each(function () {
                         if ($(this).find('.lbmodulesrno').text().trim() == tempModule) {
                             $(this).find('table tbody tr').each(function () {
-                               // console.log($(this).find('.checker').attr("id") + ' -- ' + tempModule);
+                                // console.log($(this).find('.checker').attr("id") + ' -- ' + tempModule);
                                 if ((($(this).find('.checker').attr("id"))) == tempSCR) {
                                     $(this).find('.checker.view').attr('checked', false);
                                     $(this).find('.checker.view').children().removeClass('checked');
@@ -1143,3 +1204,4 @@ function Checked_All(control) {
     }
 
 }
+
