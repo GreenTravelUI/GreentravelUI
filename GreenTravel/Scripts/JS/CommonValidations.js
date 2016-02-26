@@ -190,15 +190,34 @@ function controlInputValidations(control) {
     }
 
     if (control.hasClass('datecompair')) {
-        var frmdt = new Date(control.data('datecom'));
-        var todt = new Date(control.val());
+        var frmdt = $('#' + control.data('datecom')).val();
+        var todt = control.val();
+       
+        var d1 = frmdt.substr(0, 2);
+        var m1 = frmdt.substr(3, 2);
+        var y1 = frmdt.substr(6, 4);
+        var StrDate = m1 + "/" + d1 + "/" + y1;
+        
+        var d2 = todt.substr(0, 2);
+        var m2 = todt.substr(3, 2);
+        var y2 = todt.substr(6, 4);
+        var EndDate = m2 + "/" + d2 + "/" + y2;
 
-        if (frmdt > todt) {
-            control.after('<p class="red-error">Must be greater than subscription from date.</p>');
+        var startDate = new Date(StrDate);
+        var endDate = new Date(EndDate);
+        if (startDate > endDate) {
+            
+            control.after('<p class="red-error">Must be greater than Subscription From date.</p>');
             control.addClass('red-input');
             return false;
+
         }
+
+
     }
+
+
+
 
     fillSummeryBox(control)
     return true;

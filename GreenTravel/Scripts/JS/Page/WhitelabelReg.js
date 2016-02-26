@@ -1,16 +1,20 @@
 ﻿var Message;
 var EventClass;
 var duplicate = '';
+var abc = 0;
 $(window).unload(function () {
     $('select option').remove();
 });
 
 $(document).ready(function () {
-    var abc = 0;
+    
     BindGrid();
+
     Dropdown_Bind_Tab1();
+
     //Basic Information save Button
     $('.btnSave').click(function (e) {
+       
         e.preventDefault();
         if (duplicate != "") {
             swal(
@@ -22,7 +26,7 @@ $(document).ready(function () {
         }
 
 
-        if (!validateForm($(this).parent())) {
+        if (!validateForm($(this).closest("form"))) {
             swal(
                 'Invalid data found!',
                 '',
@@ -121,7 +125,7 @@ $(document).ready(function () {
                 }
                 $('.tab3Formname').show();
                 $('.tab3Formname').text('-' + $('#txtCmpOfficeName').val());
-                swal('Good job!', Message, EventClass);
+                swal(Message,'', EventClass);
 
             }
         }).done(function () {
@@ -130,8 +134,10 @@ $(document).ready(function () {
             $("#CreateMaster").addClass("active");
             $("#Search").removeClass("active");
             BindGrid();
+          //  Dropdown_Bind_Tab1();
         });
     });
+
     //User Preference
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
@@ -198,10 +204,11 @@ $(document).ready(function () {
                     $("#btnUpdateuserpref").show();
                     $("#btnSaveuserpref").hide();
                 }
-                swal('Good job!', Message, EventClass);
+                swal( Message,'', EventClass);
             }
         });
     });
+
     //Billing/Maintanence
     $(".btnSavebillingmain").click(function (e) {
         e.preventDefault();
@@ -261,10 +268,11 @@ $(document).ready(function () {
                     $("#btnUpdateBilling").show();
                     $("#btnSavebilling").hide();
                 }
-                swal('Good job!', Message, EventClass);
+                swal(Message,'', EventClass);
             }
         });
     });
+
     // Password Authentication 
     $('.btnsavepasswordauth').click(function (e) {
         e.preventDefault();
@@ -325,28 +333,21 @@ $(document).ready(function () {
                     $("#btnUpdatepassword").show();
                     $("#btnSavepassword").hide();
                 }
-                swal('Good job!', Message, EventClass);
+                swal(Message,'', EventClass);
             }
         });
 
 
     });
+
     //Hosting / Subscription
     $(".btnsavetab3class").click(function (e) {
         e.preventDefault();
-        if (abc == 1) {
-            $("#txtSubscriptionToDate").after('<p class="red-error">To date should be greater than From date.</p>');
-            $("#txtSubscriptionToDate").addClass('red-input');
-
-            return false;
-        }
-
+             
         if (!validateForm($(this).closest('form'))) {
             swal('Invalid data found!')
             return false;
         }
-
-
         if ($('#txtsrnotab3').val() != "") {
             var srno = $('#txtsrnotab3').val();
         }
@@ -419,21 +420,24 @@ $(document).ready(function () {
                     if (EventClass != 'error') {
                         $("#btnUpdatetab3").show();
                         $("#btnSavetab3").hide();
+                    
                     }
-                    swal('Good job!', Message, EventClass);
+                    swal(Message,'', EventClass);
 
-                  //  swal('Good job!', 'Record Save Sucessfully!', 'success')
-                   
                 }
             }
         });
     });
+
     //Tab  Click
     $('#Search').click(function (e) {
+        clearalltab();
         BindGrid();
     });
+
     $('#CreateCorporate').click(function (e) {
     });
+
     $('#tabuserpreferance').click(function (e) {
         if ($('#txtsrnouserpref').val() != '') {
             Dropdown_Bind_user_preferance();
@@ -446,6 +450,7 @@ $(document).ready(function () {
             return false;
         }
     });
+
     $("#Tab3").click(function (e) {
         if ($('#txtsrnotab3').val() != '') {
             Binddropdowntab3();
@@ -459,6 +464,7 @@ $(document).ready(function () {
             return false;
         }
     });
+
     $("#Tab4").click(function (e) {
         if ($('#txtsrnotab4').val() != '') {
             Bindtab4dropdown();
@@ -471,6 +477,7 @@ $(document).ready(function () {
             return false;
         }
     });
+
     $("#Tab6").click(function (e) {
         if ($('#txtsrnotab6').val() != '') {
             Binddropdowntab6();
@@ -483,9 +490,10 @@ $(document).ready(function () {
             return false;
         }
     });
+
     //Clear  Button 
     $('.btnclearbasicclass').click(function (e) {
-        clearValidations($(this).parent());
+        clearValidations($(this).closest("form"));
         $('input[type="text"]').val('');
         $('input[type="password"]').val('');
         //$('.chkCopyrightNotecs').removeAttr('checked');
@@ -494,16 +502,17 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             setSelect2Value($(this), "0");
         });
-        $("#tab2").addClass("active");
-        $("#tab1").removeClass("active");
-        $("#CreateMaster").addClass("active");
-        $("#Search").removeClass("active");
+        //$("#tab2").addClass("active");
+       // $("#tab1").removeClass("active");
+       // $("#CreateMaster").addClass("active");
+       // $("#Search").removeClass("active");
         $('#btnupdatebasic').hide();
         $('#btndeltebasic').hide();
         $('#btnsavebasic').show();
         $('.tab3Formname').hide();
 
     });
+
     $('#btnQuitbasic').click(function (e) {
         $('.btnclearbasicclass').trigger("click");
         $('input[type="text"]').val('');
@@ -513,6 +522,7 @@ $(document).ready(function () {
         $('.Dropdown').each(function () {
             setSelect2Value($(this), "0");
         });
+        BindGrid();
         $("#Search").addClass("active");
         $("#tab1").addClass("active");
         $("#tab2").removeClass("active");
@@ -520,18 +530,28 @@ $(document).ready(function () {
         $('.tab3Formname').hide();
 
     });
+
     //User Prefernce Clear and Quit 
     $('#btnclearuserpref').click(function (e) {
-        clearValidations($(this));
+        clearValidations($(this).closest("form"));
         $('#userperferancechk').children().children().children().removeClass('checked');
         $('.dropclear').each(function () {
             setSelect2Value($(this), '0');
         });
         $('.tab3Formname').hide();
     });
+
     $("#btnquituserpref").click(function (e) {
         clearValidations($(this).closest("form"));
+        $('.btnclearbasicclass').trigger("click");
+        $('#userperferancechk').children().children().children().removeClass('checked');
+        $('.dropclear').each(function () {
+            setSelect2Value($(this), '0');
+        });
+
         $('input[type="text"]').val('');
+
+        BindGrid();
         $("#tab1").addClass("active");
         $("#tabuserpreferance").removeClass("active");
         $("#tab5").removeClass("active");
@@ -540,9 +560,10 @@ $(document).ready(function () {
         $('#btnupdatebasic').hide();
         $('#btnsavebasic').show();
     });
+
     //Billing Clear and Quit
     $('.btnbillingclear').click(function (e) {
-        clearValidations($(this).parent());
+        clearValidations($(this).closest("form"));
         $('input[type="text"]').val('');
         $('.Dropdown').each(function () {
             var attr = $(this).attr('multiple');
@@ -556,37 +577,59 @@ $(document).ready(function () {
         $("#btnSavebilling").show();
         $('.tab3Formname').hide();
     });
+
     $('.btnbillingquit').click(function (e) {
         $('.btnbillingclear').trigger("click");
+        $('.btnclearbasicclass').trigger("click");
         $("#Tab4").removeClass("active");
         $("#tab4").removeClass("active");
         $("#tab1").addClass("active");
         $("#Search").addClass("active");
         $('.tab3Formname').hide();
         $('input[type="text"]').val('');
+        BindGrid();
         $('#btnupdatebasic').hide();
         $('#btnsavebasic').show();
     });
     //Hosting and  Subcri.
     $("#btnQuittab3").click(function (e) {
-        clearValidations($(this).parent().parent());
-
-        $("#Search").addClass("active");
-        $("#tab1").addClass("active");
+        clearValidations($(this).closest("form"));
+        $('.btnclearbasicclass').trigger("click");
         $("#tab3").removeClass("active");
         $("#Tab3").removeClass("active");
         $('.tab3Formname').hide();
         $('input[type="text"]').val('');
+
+        //$('#chkfreeflag').parent().removeClass("checked");
+        //$('#chkfreeflag').removeProp("checked");
+        //$('#chkhostingcostnotincluded').parent().removeClass("checked");
+        //$('#chkhostingcostnotincluded').removeProp("checked");
+        
+        $('#chkfreeflag').attr('checked', false);
+
+        BindGrid();
+        $('#chkfreeflag').parent().removeClass('checked');
+        $('#chkhostingcostnotincluded').attr('checked', false);
+        $('#chkhostingcostnotincluded').parent().removeClass('checked');
+        $('#txtipristrictedaccess').val('');
+
         $('#btnupdatebasic').hide();
+        
+        $("#Search").addClass("active");
         $('#btnsavebasic').show();
+        $("#tab1").addClass("active");
+        
     });
+
     $("#btnCleartab3").click(function (e) {
-        clearValidations($(this).parent().parent());
+        clearValidations($(this).closest("form"));
         $('input[type="text"]').val('');
         $('#chkfreeflag').attr('checked', false);
         $('#chkfreeflag').parent().removeClass('checked');
         $('#chkhostingcostnotincluded').attr('checked', false);
         $('#chkhostingcostnotincluded').parent().removeClass('checked');
+
+        $('#txtipristrictedaccess').val('');
 
         $('.Dropdownhost').each(function () {
             setSelect2Value($(this), '0');
@@ -596,15 +639,20 @@ $(document).ready(function () {
         $("#btnSavetab3").show();
         $('.tab3Formname').hide();
     });
+
     //PassWord Clear and  Quit
     $("#btnclearpassword").click(function (e) {
+        clearValidations($(this).closest("form"));
         $('input[type="text"]').val('');
-        $('.Dropdown').each(function () {
+        $('.Dropdownpass').each(function () {
             setSelect2Value($(this), '0');
         });
         $('.tab3Formname').hide();
     });
+
     $("#btnquitpassword").click(function (e) {
+        $('.btnclearbasicclass').trigger("click");
+        clearValidations($(this).closest("form"));
         $("#tab6").removeClass("active");
         $("#Tab6").removeClass("active");
         $("#Search").addClass("active");
@@ -614,9 +662,14 @@ $(document).ready(function () {
         $("#btnSavepassword").show();
         $('.tab3Formname').hide();
         $('input[type="text"]').val('');
+        $('.Dropdownpass').each(function () {
+            setSelect2Value($(this), '0');
+        });
+        BindGrid();
         $('#btnupdatebasic').hide();
         $('#btnsavebasic').show();
     });
+
     //Edit Data  
     $("table").delegate(".editor_Step", "click", function () {
         clearValidations($('#tab2'));
@@ -711,6 +764,7 @@ $(document).ready(function () {
             }
         });
     });
+
     //White Label Step  2
     $("table").delegate(".editor_feature", "click", function () {
         var Corporate = $(this).parent().parent().children(':eq(1)').text();
@@ -727,6 +781,7 @@ $(document).ready(function () {
             }
         });
     });
+
     //Access Right  Rediret
     $("table").delegate(".editor_accessright", "click", function () {
         // var Corporate = $(this).parent().parent().children(':eq(1)').text();
@@ -749,12 +804,15 @@ $(document).ready(function () {
 
 
     });
+
     $("#drpbillingcountry").change(function (e) {
         Bindbillingcountry();
     });
+
     $("#drpbillingState").change(function (e) {
         Bindbillingstate();
     });
+
     $("#txtAmountPerUserPerMonth").change(function (e) {
         if (($("#txtNumberofUsers").val() != null) && ($("#txtAmountPerUserPerMonth").val() != null)) {
             var t1 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
@@ -763,6 +821,7 @@ $(document).ready(function () {
             }
         }
     });
+
     $("#txtNumberofUsers").change(function (e) {
         if (($("#txtNumberofUsers").val() != null) && ($("#txtAmountPerUserPerMonth").val() != null)) {
             var t2 = (parseInt($("#txtNumberofUsers").val()) * parseInt($("#txtAmountPerUserPerMonth").val()));
@@ -771,7 +830,8 @@ $(document).ready(function () {
             }
         }
     });
-    $("#txtUsername").change(function (e) {
+
+    $("#txtUsername").blur(function (e) {
         duplicate = '';
         Email_URl($("#txtUsername").val(), '')
         console.log(duplicate);
@@ -783,6 +843,7 @@ $(document).ready(function () {
               )
         }
     });
+
     $("#txtApplicationURL").change(function (e) {
         duplicate = '';
         Email_URl('', $("#txtApplicationURL").val())
@@ -795,11 +856,13 @@ $(document).ready(function () {
              )
         }
     });
+
     $("#txtSubscriptionFromDate").focusout(function (e) {
         //  DateCheck();
     });
+
     $("#txtSubscriptionToDate").focusout(function (e) {
-        DateCheck();
+       // DateCheck();
 
     });
 
@@ -885,6 +948,7 @@ function Dropdown_Bind_Tab1() {
         }
     });
 }
+
 function BindGrid() {
     var tablename = 'dbo._White_Register_Basic';
     var Corporate = '0';
@@ -930,6 +994,7 @@ function BindGrid() {
         ]
     });
 }
+
 function Dropdown_Bind_Userpreferance_Checkbox() {
     var Module = '';
     var screen = '';
@@ -968,6 +1033,7 @@ function Dropdown_Bind_Userpreferance_Checkbox() {
         }
     });
 }
+
 function Dropdown_Bind_user_preferance() {
     var Module = '';
     var screen = '';
@@ -1001,6 +1067,7 @@ function Dropdown_Bind_user_preferance() {
     });
 
 }
+
 function Bindtab4dropdown() {
     var Module = '';
     var screen = '';
@@ -1051,6 +1118,7 @@ function Bindtab4dropdown() {
 
 
 }
+
 function Bindbillingcountry() {
     var srno = '0';
     var Module = '';
@@ -1090,6 +1158,7 @@ function Bindbillingcountry() {
         }
     });
 }
+
 function Bindbillingstate() {
     var srno = '0';
     var Module = '';
@@ -1129,6 +1198,7 @@ function Bindbillingstate() {
         }
     });
 }
+
 function Binddropdowntab3() {
     var Module = '';
     var screen = '';
@@ -1220,6 +1290,7 @@ function Binddropdowntab3() {
         }
     });
 }
+
 function Quitform() {
     $("#tab1").addClass("active");
     $("#CreateCorporate").removeClass("active");
@@ -1237,6 +1308,7 @@ function Quitform() {
     $("#Tab3").focusout();
     BindGrid();
 }
+
 function Binddropdowntab6() {
     var Module = '';
     var screen = '';
@@ -1269,11 +1341,13 @@ function Binddropdowntab6() {
         }
     });
 }
+
 //Edit  Function  
 //Password Edit
 function PasswordEdit() {
     // Dropdown_Bind_Userpreferance_Checkbox();
     Dropdown_Bind_user_preferance();
+    clearValidations($('#tab6'));
     if ($('#txtsrnotab6').val() != "") {
         var srno = $('#txtsrnotab6').val();
         var tablename = 'dbo._PasswordConfiguration';
@@ -1319,6 +1393,7 @@ function PasswordEdit() {
 //Hosting Edit
 function hostingedit() {
     // Binddropdowntab3();
+    clearValidations($('#tab3'));
     var tablename = 'dbo._White_Register_Hosting';
     var Corporate = $("#hdfsrno").val();
     var unit = '0';
@@ -1336,7 +1411,6 @@ function hostingedit() {
         success: function (response) {
             if (response['Whiteregjs'].length > 0) {
                 $("#btnUpdatetab3").show();
-                $("#btnCanceltab3").hide();
                 $("#btnSavetab3").hide();
                 $('#txtsrnotab3').val(response['Whiteregjs'][0]['srno']);
                 setSelect2Value($('#drpCloudProvider'), response['Whiteregjs'][0]['CloudProvider']);
@@ -1364,6 +1438,7 @@ function hostingedit() {
 //SubCri. Edit
 function subcribedit() {
     //Binddropdowntab3();
+    clearValidations($('#tab3'));
     var tablename = 'dbo._White_Register_Subscription';
     var Corporate = $("#hdfsrno").val();
     var unit = '0';
@@ -1415,12 +1490,14 @@ function subcribedit() {
 //User Preferance
 function Userprefedit() {
     // Dropdown_Bind_Userpreferance_Checkbox();
+    clearValidations($('#tab5'));
     Dropdown_Bind_user_preferance();
     if ($('#txtsrnouserpref').val() != "") {
         var srno = $('#txtsrnouserpref').val();
 
         var tablename = 'dbo._White_Register_UserPreferences';
         var Corporate = $("#hdfsrno").val();
+        
         var unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
@@ -1449,7 +1526,6 @@ function Userprefedit() {
                                 $(this).children().children().attr('checked', true);
                                 return;
                             }
-
 
                         });
                     });
@@ -1533,9 +1609,11 @@ function Email_URl(Field1, Field2) {
 
             if (response['Duplicate'] == "1") {
                 duplicate = "Done";
+                $("#txtUsername").val('');
             }
             else {
                 duplicate = '';
+               
             }
             //console.log('before');
         }
@@ -1545,34 +1623,41 @@ function Email_URl(Field1, Field2) {
 function DateCheck() {
 
     try {
-        var d1 = iForm.txtSubscriptionFromDate.value.substr(0, 2);
-        var m1 = iForm.txtSubscriptionFromDate.value.substr(3, 2);
-        var y1 = iForm.txtSubscriptionFromDate.value.substr(6, 4);
+        var d1 = this.txtSubscriptionFromDate.value.substr(0, 2);
+        var m1 = this.txtSubscriptionFromDate.value.substr(3, 2);
+        var y1 = this.txtSubscriptionFromDate.value.substr(6, 4);
         var StrDate = m1 + "/" + d1 + "/" + y1;
 
-        var d2 = iForm.txtSubscriptionToDate.value.substr(0, 2);
-        var m2 = iForm.txtSubscriptionToDate.value.substr(3, 2);
-        var y2 = iForm.txtSubscriptionToDate.value.substr(6, 4);
+        var d2 = this.txtSubscriptionToDate.value.substr(0, 2);
+        var m2 = this.txtSubscriptionToDate.value.substr(3, 2);
+        var y2 = this.txtSubscriptionToDate.value.substr(6, 4);
         var EndDate = m2 + "/" + d2 + "/" + y2;
 
         var startDate = new Date(StrDate);
         var endDate = new Date(EndDate);
         if (startDate > endDate) {
-
-            $("#txtSubscriptionToDate").after('<p class="red-error">To date should be greater than From date.</p>');
-            $("#txtSubscriptionToDate").addClass('red-input');
-            
             abc = 1;
-            return false;
+         
+           // return false;
 
         }
         else {
+         
             abc = 0;
         }
-
+        
     }
     catch (e) { }
 
     return true;
+}
+//Clear All Tab
+function clearalltab()
+{
+    $('.btnclearbasicclass').trigger("click");
+    $('#btnclearuserpref').trigger("click");
+    $('.btnbillingclear').trigger("click");
+    $("#btnCleartab3").trigger("click");
+    $("#btnclearpassword").trigger("click");
 }
 

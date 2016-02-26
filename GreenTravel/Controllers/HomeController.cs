@@ -16,8 +16,6 @@ namespace GreenTravel.Controllers
     {
         Comman _objcomman = new Comman();
         DB_Login _objDBLogin = new DB_Login();
-        //   CommanPara _objCommanPara = new CommanPara();
-        //Login _objlogin = new Login();
 
         FormValidationPara frm_para = new FormValidationPara();
 
@@ -31,6 +29,13 @@ namespace GreenTravel.Controllers
             }
             */
 
+            //string newurl = "gt.techpure.co.uk/login";
+
+            ////string newurl1 = new Uri(newurl).Host.ToString();
+            //string newurl1 = (new Uri(Request.Url.AbsoluteUri).GetLeftPart(UriPartial.Authority));
+
+            //return View();
+
             frm_para.FormType = "LoginPage"; //from_code
             frm_para.corporate = "--None--";
             frm_para.type = "Caption";
@@ -41,8 +46,8 @@ namespace GreenTravel.Controllers
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url = "http://tu.techpure.co.uk"
-                //url=Request.Url
+                url="http://gt.techpure.co.uk"
+                //url = (new Uri(Request.Url.AbsoluteUri).GetLeftPart(UriPartial.Authority))
             };
             if (url == "")
             {
@@ -150,8 +155,6 @@ namespace GreenTravel.Controllers
 
         public string LoginUser(FormValidationPara _FormValidationPara)
         {
-            Session["Corporate"] = "1";
-
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();

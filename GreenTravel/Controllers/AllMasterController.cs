@@ -836,7 +836,7 @@ namespace GreenTravel.Controllers
                 }
 
                 var result = Mul;
-                return Json(new { AMul = result }, JsonRequestBehavior.AllowGet); ;
+                return Json(new { Views = result }, JsonRequestBehavior.AllowGet); ;
             }
             catch (Exception)
             {
