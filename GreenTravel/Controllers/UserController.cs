@@ -354,6 +354,8 @@ namespace GreenTravel.Controllers
                             Corporate = @dr["Corporate"].ToString(),
                             Unit = @dr["Unit"].ToString(),
                             Location = @dr["Location"].ToString(),
+                            NoCount = @dr["NoCount"].ToString(),
+
                         });
                     }
                 }
@@ -638,7 +640,7 @@ namespace GreenTravel.Controllers
         {
             try
             {
-                DataSet ds = _objWhitelabelAccessRights.BindDropdown_FormLoad(CFP);
+                DataSet ds = _objWhitelabelAccessRights.BindDropdown_BaseAccessRights(CFP);
                 List<UserWiseRights> items = new List<UserWiseRights>();
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -649,11 +651,13 @@ namespace GreenTravel.Controllers
                         {
                             RowNumber = @dr["RowNumber"].ToString(),
                             srno = @dr["srno"].ToString(),
+                            UserId = @dr["UserId"].ToString(),
                             Unit = @dr["Unit"].ToString(),
                             Location = @dr["Location"].ToString(),
                             Role = @dr["Role"].ToString(),
                             IsDefault = @dr["Isdefault"].ToString(),
                             Status = @dr["IsActive"].ToString(),
+                            Name = @dr["Name"].ToString(),
                         });
                     }
                 }
@@ -665,6 +669,40 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+        public ActionResult Check_defaultRole(CommanFieldConditionalPara CFP)
+        {
+            try
+            {
+                DataSet ds = _objWhitelabelAccessRights.BindDropdown_BaseAccessRights(CFP);
+                List<UserWiseRights> items = new List<UserWiseRights>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new UserWiseRights
+                        {
+                            RowNumber = @dr["RowNumber"].ToString(),
+                            srno = @dr["srno"].ToString(),
+                            UserId = @dr["UserId"].ToString(),
+                            Unit = @dr["Unit"].ToString(),
+                            Location = @dr["Location"].ToString(),
+                            Role = @dr["Role"].ToString(),
+                            IsDefault = @dr["Isdefault"].ToString(),
+                            Status = @dr["IsActive"].ToString(),
+                            Name = @dr["Name"].ToString(),
+                        });
+                    }
+                }
+                var result = items;
+                return Json(new { data = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
 
     }
