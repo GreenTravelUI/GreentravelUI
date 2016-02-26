@@ -148,21 +148,22 @@ $(document).ready(function () {
                     if (response['Event'] == 'success') {
                         flag = true;
                         $('#hdfSrNo').val(response['SrNo']);
+                        USrno = response['SrNo'];
                     }
                     swal(response['success'], '', response['Event']);
                 }
             }
         }).done(function () {
             if (flag) {
-                var tablename = 'dbo.UserMaster';
-                var Corporate = $('#hdfCorporate').val();
-                var unit = '0';
-                var Formcode = '0';
-                var Formtabcode = '0';
-                var Xmaster = $(this).parent().parent().children(':eq(2)').text();
-                var Type = 'EditMode';
-                var SrNo = $(this).parent().parent().children(':eq(1)').text();
-                EditData(Xmaster, SrNo);
+                //var tablename = 'dbo.UserMaster';
+                //var Corporate = $('#hdfCorporate').val();
+                //var unit = '0';
+                //var Formcode = '0';
+                //var Formtabcode = '0';
+                //var Xmaster = Uxmaster;
+                //var Type = 'EditMode';
+                //var SrNo = $('#hdfSrNo').val();
+                EditData(Uxmaster, USrno);
 
                 $('#btnSave').text('UPDATE');
                 $('#btnSave').attr("class", "btn btn-primary btnSave");
@@ -216,13 +217,13 @@ $(document).ready(function () {
     });
 
     $("table").delegate(".editor_edit", "click", function () {
-        var tablename = 'dbo.UserMaster';
-        var Corporate = $('#hdfCorporate').val();
-        var unit = '0';
-        var Formcode = '0';
-        var Formtabcode = '0';
+        //var tablename = 'dbo.UserMaster';
+        //var Corporate = $('#hdfCorporate').val();
+        //var unit = '0';
+        //var Formcode = '0';
+        //var Formtabcode = '0';
         var Xmaster = $(this).parent().parent().children(':eq(2)').text();
-        var Type = 'EditMode';
+        //var Type = 'EditMode';
         var SrNo = $(this).parent().parent().children(':eq(1)').text();
         EditData(Xmaster, SrNo);
         //$.ajax(
@@ -359,6 +360,7 @@ function EditData(pXmaster, pSrNo) {
     var Xmaster = pXmaster; //$(this).parent().parent().children(':eq(2)').text();
     var Type = 'EditMode';
     var SrNo = pSrNo; //$(this).parent().parent().children(':eq(1)').text();
+    alert(SrNo);
     $.ajax(
      {
          type: "POST",
@@ -395,6 +397,7 @@ function EditData(pXmaster, pSrNo) {
                  $('#drpMasterTab3').find('option[value="' + response['AMaster'][0]['xmaster'] + '"]').attr('selected', true).change();
              }
              if (response['AUserMasterData'].length > 0) {
+                 //alert(response['AUserMasterData'][0]['Uxname'])
                  $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
                  //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                  $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
