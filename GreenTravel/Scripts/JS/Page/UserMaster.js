@@ -46,7 +46,7 @@ $(document).ready(function () {
             var srno = '0';
         }
 
-        var Corporate = '0';
+        var Corporate = corp;
 
         var Unit = '0';
         var Branch = '0';
@@ -152,7 +152,7 @@ $(document).ready(function () {
         $('#btnCancelUser').show();
         $('#btnSaveUser').hide();
         var tablename = 'dbo._user_details_master';
-        var Corporate = '0';
+        var Corporate = corp;
         var Unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
@@ -275,7 +275,7 @@ function BindDropdownUnit() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '2';
+    var Corporate = corp;
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -312,7 +312,7 @@ function BindDropdownLocation() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '2';
+    var Corporate = corp;
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -349,7 +349,7 @@ function BindDropdownUserrole() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '2';
+    var Corporate = corp;
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -392,7 +392,7 @@ function BindDropdownUserrole() {
 
 function BindAccessgrid() {
     var tablename = 'dbo._UserRoleMaster';
-    var Corporate = '2';
+    var Corporate = corp;
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
