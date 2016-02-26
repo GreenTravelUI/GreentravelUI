@@ -255,7 +255,7 @@ namespace GreenTravel.App_DbService
                 _cn.Dispose();
             }
         }
-     
+
 
         public DataSet Edit_data(UserMaster UM)
         {
@@ -271,6 +271,8 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@Formtabcode", UM.Formtabcode);
                 _cmd.Parameters.AddWithValue("@srno", UM.srno);
                 _cmd.Parameters.AddWithValue("@Type", "EditMode");
+                _cmd.Parameters.AddWithValue("@Field1", UM.Field1);
+                _cmd.Parameters.AddWithValue("@Field2", UM.Field2);
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();

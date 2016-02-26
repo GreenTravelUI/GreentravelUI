@@ -191,6 +191,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th style="display: none">srno</th>
+                                                <th style="display: none">NoCount</th>
                                                 <th>Corporate
                                                 </th>
                                                 <th>Unit
@@ -210,6 +211,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th style="display: none">srno</th>
+                                                <th style="display: none">NoCount</th>
                                                 <th>Corporate
                                                 </th>
                                                 <th>Unit
@@ -448,19 +450,19 @@
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label>Unit <span>*</span></label>
-                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
+                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights req" style="display: none; width: 100%"></select>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label>Location <span>*</span></label>
-                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
+                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights req" style="display: none; width: 100%"></select>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label>Role <span>*</span></label>
-                                        <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
+                                        <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights req" style="display: none; width: 100%"></select>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label>User <span>*</span></label>
-                                        <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown  req" style="display: none; width: 100%"></select>
+                                        <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights req" style="display: none; width: 100%"></select>
                                     </div>
                                 </div>
 
@@ -537,7 +539,7 @@
                         <h4 class="modal-title">User Role</h4>
                     </div>
                     <div class="modal-body custom-model-body">
-                        
+
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <form id="frmRoleGrid">
@@ -547,9 +549,8 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th style="display: none">srno</th>
-                                                    <th>User 
-                                                    </th>
-                                                    <th>Corporate
+                                                    <th style="display: none">UserId</th>
+                                                    <th>UserName 
                                                     </th>
                                                     <th>Unit
                                                     </th>
@@ -557,7 +558,7 @@
                                                     </th>
                                                     <th>Role
                                                     </th>
-                                                     <th>Default?
+                                                    <th>Default
                                                     </th>
                                                     <th>Status
                                                     </th>
@@ -568,11 +569,10 @@
                                             </thead>
                                             <tfoot>
                                                 <tr>
-                                                   <th>#</th>
+                                                    <th>#</th>
                                                     <th style="display: none">srno</th>
-                                                    <th>User 
-                                                    </th>
-                                                    <th>Corporate
+                                                    <th style="display: none">UserId</th>
+                                                    <th>UserName 
                                                     </th>
                                                     <th>Unit
                                                     </th>
@@ -580,7 +580,7 @@
                                                     </th>
                                                     <th>Role
                                                     </th>
-                                                     <th>Default? 
+                                                    <th>Default 
                                                     </th>
                                                     <th>Status
                                                     </th>
@@ -595,6 +595,36 @@
                                 </form>
                             </div>
                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bs-example-modal-lg in" id="DeleteModel" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">System Message</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <form>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label id="lbldelete"></label>
+                                        </br>
+                                        <label id="lblRole"></label>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
+                                <button type="button" class="btn btn-info modeldeleteclose" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
                     </div>
 
                 </div>

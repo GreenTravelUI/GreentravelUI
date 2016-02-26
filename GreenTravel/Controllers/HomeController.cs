@@ -41,7 +41,7 @@ namespace GreenTravel.Controllers
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url="http://gt.techpure.co.uk"
+                url = "http://tu.techpure.co.uk"
                 //url=Request.Url
             };
             if (url == "")
@@ -150,6 +150,8 @@ namespace GreenTravel.Controllers
 
         public string LoginUser(FormValidationPara _FormValidationPara)
         {
+            Session["Corporate"] = "1";
+
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();

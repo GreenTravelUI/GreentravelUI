@@ -59,6 +59,9 @@ namespace GreenTravel.Models
         public string Locationdata { get; set; }
         public string Role { get; set; }
         public string UserId { get; set; }
+        public string NoCount { get; set; }
+        public string Field1 { get; set; }
+        public string Field2 { get; set; }
     }
 
     public class UserMaster_Formpara
@@ -188,6 +191,7 @@ namespace GreenTravel.Models
         public string IsActive { get; set; }
         public string IsDefault { get; set; }
         public string Status { get; set; }
+        public string Name { get; set; }
         public string Attribute1 { get; set; }
         public string Attribute2 { get; set; }
         public string Attribute3 { get; set; }

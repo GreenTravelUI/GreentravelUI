@@ -924,7 +924,7 @@ $(document).ready(function () {
                     }
                 });
             }
-            
+
             swal(
               'Deleted!',
               msg,
