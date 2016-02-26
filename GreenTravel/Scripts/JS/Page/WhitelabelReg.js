@@ -34,6 +34,7 @@ $(document).ready(function () {
               )
             return false;
         }
+        
         if ($('#txtsrno').val() != "") {
             var srno = $('#txtsrno').val();
         }
@@ -113,6 +114,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 $("#hdfsrno").val(response['srno']);
+                $('#txtsrno').val(response['srno']);
+                
                 $('#txtsrnouserpref').val(response['srno']);
                 $('#txtsrnotab4').val(response['srno']);
                 $('#txtsrnotab3').val(response['srno']);
@@ -672,6 +675,7 @@ $(document).ready(function () {
 
     //Edit Data  
     $("table").delegate(".editor_Step", "click", function () {
+        duplicate = '';
         clearValidations($('#tab2'));
         Dropdown_Bind_Tab1();
         $("#SearchMaster").removeClass("active");
@@ -831,7 +835,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#txtUsername").blur(function (e) {
+    $("#txtUsername").change(function (e) {
         duplicate = '';
         Email_URl($("#txtUsername").val(), '')
         console.log(duplicate);
@@ -1562,10 +1566,11 @@ function billingedit() {
                 $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
                 $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
                 $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
-                Bindbillingcountry();
+                
                 setSelect2Value($('#drpbillingcountry'), response['Whiteregjs'][0]['BillingCountry']);
-                Bindbillingstate();
+                Bindbillingcountry();
                 setSelect2Value($('#drpbillingState'), response['Whiteregjs'][0]['BillingState']);
+                Bindbillingstate();
                 setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
                 $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
                 $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
@@ -1610,6 +1615,7 @@ function Email_URl(Field1, Field2) {
             if (response['Duplicate'] == "1") {
                 duplicate = "Done";
                 $("#txtUsername").val('');
+                
             }
             else {
                 duplicate = '';
@@ -1659,5 +1665,6 @@ function clearalltab()
     $('.btnbillingclear').trigger("click");
     $("#btnCleartab3").trigger("click");
     $("#btnclearpassword").trigger("click");
+    duplicate = '';
 }
 
