@@ -16,9 +16,10 @@ namespace GreenTravel.Controllers
     {
         Comman _objcomman = new Comman();
         DB_Login _objDBLogin = new DB_Login();
-
+        DataSet ds = new DataSet();
         FormValidationPara frm_para = new FormValidationPara();
-
+        List<Module> Module = new List<Module>();
+        List<Screen> Screen = new List<Screen>();
         public ActionResult Index(string url = "")
         {
             /* Uncomment it for already login case */
@@ -29,12 +30,13 @@ namespace GreenTravel.Controllers
             }
             */
 
-            //string newurl = "gt.techpure.co.uk/login";
-
-            ////string newurl1 = new Uri(newurl).Host.ToString();
-            //string newurl1 = (new Uri(Request.Url.AbsoluteUri).GetLeftPart(UriPartial.Authority));
-
-            //return View();
+            #region Get Form Data
+            ViewBag.CurrentURL = Request.Url.Scheme + "://" + Request.Url.Authority;
+            if (ViewBag.CurrentURL == "http://localhost:9359")
+            {
+                //ViewBag.CurrentURL = "http://gt.techpure.co.uk";
+                ViewBag.CurrentURL = "http://gt.techpure.co.uk";
+            }
 
             frm_para.FormType = "LoginPage"; //from_code
             frm_para.corporate = "--None--";
@@ -46,8 +48,8 @@ namespace GreenTravel.Controllers
             FormValidationPara _FormValidationPara = new FormValidationPara()
             {
                 type = "PageLoad",
-                url="http://gt.techpure.co.uk"
-                //url = (new Uri(Request.Url.AbsoluteUri).GetLeftPart(UriPartial.Authority))
+                //url = "http://gt.techpure.co.uk"
+                url = ViewBag.CurrentURL
             };
             if (url == "")
             {
@@ -57,9 +59,6 @@ namespace GreenTravel.Controllers
             {
                 ViewBag.RedirectUrl = url;
             }
-            Session["Logo"] = "assets/images/Logo-green.png";
-            Session["BackgroundImg"] = "/assets/images/login-bg.jpg";
-            Session["Favicon"] = "assets/images/favicon.ico";
             DataSet ds = ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables[0] != null)
             {
@@ -120,12 +119,24 @@ namespace GreenTravel.Controllers
                     {
                         if (ds.Tables[0].Rows[0]["BackgroundImg"].ToString() != "" && ds.Tables[0].Rows[0]["BackgroundImg"].ToString() != "--None--")
                             Session["BackgroundImg"] = ds.Tables[0].Rows[0]["BackgroundImg"];
+                        else
+                            Session["BackgroundImg"] = "/assets/images/login-bg.jpg";
+                    }
+                    else
+                    {
+                        Session["BackgroundImg"] = "/assets/images/login-bg.jpg";
                     }
 
                     if (ds.Tables[0].Rows[0]["Logo"] != null)
                     {
                         if (ds.Tables[0].Rows[0]["Logo"].ToString() != "" && ds.Tables[0].Rows[0]["Logo"].ToString() != "--None--")
                             Session["Logo"] = ds.Tables[0].Rows[0]["Logo"];
+                        else
+                            Session["Logo"] = "/assets/images/Logo-green.png";
+                    }
+                    else
+                    {
+                        Session["Logo"] = "/assets/images/Logo-green.png";
                     }
 
                     if (ds.Tables[0].Rows[0]["LoginFrmCaption"] != null)
@@ -144,11 +155,23 @@ namespace GreenTravel.Controllers
                     {
                         if (ds.Tables[0].Rows[0]["Favicon"].ToString() != "" && ds.Tables[0].Rows[0]["Favicon"].ToString() != "--None--")
                             Session["Favicon"] = ds.Tables[0].Rows[0]["Favicon"];
+                        else
+                            Session["Favicon"] = "/assets/images/favicon.ico";
+                    }
+                    else
+                    {
+                        Session["Favicon"] = "/assets/images/favicon.ico";
                     }
 
+                    Session["Corporate"] = ds.Tables[0].Rows[0]["Corporate"];
+                    //Session["Logo"] = ds.Tables[0].Rows[0]["Logo"];
+                    Session["TerminalBy"] = Request.UserHostAddress.ToString();
+                    Session["Indsutry"] = ds.Tables[0].Rows[0]["corpCompanyIndust"];
 
                 }
             }
+            #endregion
+
             return View(form_val);
             //return View();
         }
@@ -158,7 +181,6 @@ namespace GreenTravel.Controllers
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
-
             }
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables.Count > 0)
@@ -174,6 +196,7 @@ namespace GreenTravel.Controllers
                         Session["UnitCorpBy"] = ds.Tables[0].Rows[0]["Unit"].ToString();
                         Session["BranchBy"] = ds.Tables[0].Rows[0]["branch"].ToString();
                         Session["Location"] = ds.Tables[0].Rows[0]["Location"].ToString();
+                        setmenu();
                     }
                     return "1";
                 }
@@ -208,10 +231,53 @@ namespace GreenTravel.Controllers
             return Content(lst, "application/json");
 
         }
+        public void setmenu()
+        {
+            frm_para.corporate = Session["Corporate"].ToString();
+            frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
+            frm_para.type = "menu";
+            ds = _objDBLogin.GetMenuValue(frm_para);
+            if (ds.Tables[0] != null)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    //ViewBag.Menus = ds.Tables[0];
+                    //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    //{
+                    //    Module.Add(new Module
+                    //    {
+                    //        ModuleCode = @dr["modulecode"].ToString(),
+                    //        ModuleName = @dr["module"].ToString()
+                    //    });
+                    //}
+                    Session["Menu"] = ds.Tables[0];
+                    var list = Session["Menu"] as List<object>;
+                }
+            }
+        }
 
-        //public void LoadSessions(string Type, string url)
-        //{
-        //    DataSet ds = _objDBLogin.GetLoginData(Type, "", url, "");
-        //}
+        public void setScreen()
+        {
+            frm_para.corporate = Session["Corporate"].ToString();
+            frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
+            frm_para.type = "screen";
+            ds = _objDBLogin.GetLoginData(frm_para);
+            if (ds.Tables[0] != null)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    //ViewBag.Screens = ds.Tables[0];
+                    //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    //{
+                    //    Screens.Add(new Module
+                    //    {
+                    //        ModuleCode = @dr["modulecode"].ToString(),
+                    //        ModuleName = @dr["module"].ToString()
+                    //    });
+                    //}
+                    Session["Screen"] = ds.Tables[0];
+                }
+            }
+        }
     }
 }

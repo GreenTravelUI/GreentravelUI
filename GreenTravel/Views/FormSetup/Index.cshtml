@@ -16,7 +16,6 @@
     #tblModalIconCustom td {
         text-align: center;
     }
-
 </style>
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
@@ -29,6 +28,7 @@
                     <li role="presentation" id="frmsection"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon fa fa-magic"></span>&nbsp;&nbsp;&nbsp;&nbsp;Form Tab List </a></li>
                 </ul>
                 <div class="tab-content">
+                    
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
                             <div class="table-responsive">
@@ -100,7 +100,7 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group" style="@(Session["Corporate"].ToString() != "0" ? "display: none" : "")">
                                             <label for="drpCorporate1">Corporate <span>*</span></label>
                                             <select id="drpCorporate1" data-reqmsg="Select Corporate" class="js-states form-control formcorporate req Dropdown" style="display: none; width: 100%">
                                             </select>

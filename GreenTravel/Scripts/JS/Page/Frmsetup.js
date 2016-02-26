@@ -1,6 +1,7 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
+
 var ID = 2;
 var customID = 2;
 var Message;
@@ -83,7 +84,7 @@ $(document).ready(function () {
         }
         var FormName = $('#txtFormName').val();
         var FormPrefixCode = $('#txtFormPreFix').val();
-        var Corporate = $('#drpCorporate1 option:selected').val();
+        var Corporate = $('#hdfCorporate').val();
         var Module = '0';
         var Screen = $('#drpScreen option:selected').val();
         var FeatureGroup = '0';
@@ -315,7 +316,7 @@ $(document).ready(function () {
     //Redirect Form Control
     $("table").delegate(".editor_Control", "click", function () {
         var tablename = 'dbo._Form_Tab_Master';
-        var Corporate = '5';
+        var Corporate = $('#hdfCorporate').val()
         var unit = '';
         var userid = '';
         var WhereClause = '';
@@ -353,7 +354,7 @@ $(document).ready(function () {
         $('#btncleartab').trigger('click');
         clearValidations($('#tab4'));
         var tablename = 'dbo._Form_Master';
-        var Corporate = '5';
+        var Corporate = $('#hdfCorporate').val()
         var unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
@@ -372,7 +373,7 @@ $(document).ready(function () {
                     $('#txtFormName').val(response[0].FormName);
                     //$('#txtFormPreFix').val(response[0].FormPrefixCode);
                     setValueAndDisable($('#txtFormPreFix'), response[0].FormPrefixCode);
-                    setSelect2Value($('#drpCorporate1'), response[0].Corporate);
+                    setValueAndDisable($('#drpCorporate1'), response[0].Corporate);
                     FillDropdown($('#drpCorporate1 option:selected').val(), '', '', 'drpScreen');
                     //setSelect2Value($('#drpScreen'), response[0].Screen);
                     setValueAndDisable($('#drpScreen'), response[0].Screen);
@@ -407,7 +408,7 @@ $(document).ready(function () {
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
         var tablename = 'dbo._Form_Master';
-        var Corporate = $('#drpCorporate1 option:selected').val();
+        var Corporate = $('#hdfCorporate').val()
         var unit = '0';
         var Formcode = Frmcode;
         var Formtabcode = FrmtabCode;
@@ -629,7 +630,7 @@ $(document).ready(function () {
         FrmtabCode = '';
         FrmtabCode = $(this).parent().parent().children(':eq(2)').text()
         var tablename = 'dbo._Form_Master';
-        var Corporate = '5';
+        var Corporate = $('#hdfCorporate').val()
         var unit = '0';
         var Formcode = Frmcode;
         var Formtabcode = FrmtabCode;
@@ -697,7 +698,7 @@ $(document).ready(function () {
         $('#btnUpdatetab').show();
         $('#btnSaveformtab').hide();
         var tablename = 'dbo._Form_Tab_Master';
-        var Corporate = '0';
+        var Corporate = $('#hdfCorporate').val()
         var unit = '0';
         var Formcode = '0';
         var Formtabcode = '0';
@@ -833,7 +834,7 @@ $(document).ready(function () {
             return false;
         }
         var flagsection = 0;
-        var CorporateId = $('#drpCorporate1 option:selected').val();
+        var CorporateId = $('#hdfCorporate').val()
         var TabCode = FrmtabCode;
         var FormCode = $('#txtSrNo1').val();
         var Attribute1 = '';
@@ -924,7 +925,7 @@ $(document).ready(function () {
                     }
                 });
             }
-            
+
             swal(
               'Deleted!',
               msg,
@@ -947,7 +948,7 @@ $(document).ready(function () {
         }
         var flag = 0;
         var srno
-        var Corporate = $('#drpCorporate1 option:selected').val();
+        var Corporate = $('#hdfCorporate').val()
         var TabCode = FrmtabCode;
         var FormCode = $('#txtSrNo1').val();
         $("#tblModalIconCustom tbody tr").each(function () {
@@ -1001,7 +1002,7 @@ $(document).ready(function () {
     //Utility Save Button  
     $('.Utilitysavedata').on('click', function (e) {
         e.preventDefault();
-        var Corporate = $('#drpCorporate1 option:selected').val();
+        var Corporate = $('#hdfCorporate').val()
         var TabCode = FrmtabCode;
         var FormCode = $('#txtSrNo1').val();
         var Utilities = '';
@@ -1146,7 +1147,7 @@ function addRow() {
 
 function getdatatab() {
     var tablename = 'dbo._Form_Tab_Master';
-    var Corporate = '5';
+    var Corporate = $('#hdfCorporate').val();
     var unit = '';
     var userid = '';
     var WhereClause = '';
@@ -1225,7 +1226,11 @@ function Dropdown_Bind_Tab1() {
                     var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
                     $('.formcorporate').append(opt);
                 }
-                setSelect2Value($('#drpCorporate1'), '0');
+                //setSelect2Value($('#drpCorporate1'), '0');
+                setSelect2Value($('.formcorporate'), $('#hdfCorporate').val());
+                if ($('#hdfCorporate').val() != '0') {
+                    $("#drpCorporate1").trigger('change');
+                }
             }
         }
     });
@@ -1264,7 +1269,7 @@ function DropDownFormcode() {
 
 function getdata() {
     var tablename = 'dbo._Form_Master';
-    var Corporate = '5';
+    var Corporate = $('#hdfCorporate').val();
     var unit = '';
     var userid = '';
     var WhereClause = '';
@@ -1310,7 +1315,9 @@ function getdata() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"  rel="tooltip" title="Add Form Control"><i class="fa fa-anchor"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> '+
+                    //'&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a> '+
+                    '&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"  rel="tooltip" title="Add Form Control"><i class="fa fa-anchor"></i></a>'
             }]
     });
 }

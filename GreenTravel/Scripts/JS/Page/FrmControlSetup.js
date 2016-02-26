@@ -89,7 +89,7 @@ $(document).ready(function () {
         });
     });
 
-    FillDropdown(2, $('#txtFormcode').val(), '', 'drpTab');
+    FillDropdown(0, $('#txtFormcode').val(), '', 'drpTab');
 
     $("#drpTab").change(function () {
         FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
@@ -308,7 +308,7 @@ function Formname() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = '2';
+    var Corporate = '';
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -332,7 +332,8 @@ function Formname() {
             Control: Control, Language: Language, Srno: Srno
         },
         success: function (result) {
-            $('.tabFormname').text(result[0]['Text']);
+            if (result.length > 0)
+                $('.tabFormname').text(result[0]['Text']);
         }
     });
 }

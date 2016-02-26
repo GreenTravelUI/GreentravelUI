@@ -8,7 +8,12 @@ $(document).ready(function () {
     $('#btnLogin').click(function (e) {
         var Type = 'Password';
         var Email = $('#txtUserName').val();
-        var url = 'http://gt.techpure.co.uk';
+        //var url = document.location.protocol + '//' + document.location.host;
+        ////var url = 'http://gt.techpure.co.uk';
+        //if (url == 'http://localhost:9359') {
+        //    url = 'http://gt.techpure.co.uk';
+        //}
+        var url = $('#hdfCurrentURL').val();
         var PassWord = $('#txtPassword').val();
         $.ajax({
             type: "POST",
@@ -29,18 +34,23 @@ $(document).ready(function () {
 });
 
 function Load_data() {
-    var Type = 'PageLoad';
-    var url = 'http://gt.techpure.co.uk';
-    $.ajax({
-        type: "POST",
-        url: "/Home/PageLoad",
-        data: { "Type": Type, "url": url },
-        success: function (result) {
-            if (result.length > 0) {
-                $('.page-content.login-body').css('background', '#000 url("' + result[0]['BackgroundImg'] + '") no-repeat scroll center top');
-                var img = '<img height="45" width="200" src="' + result[0]['Logo'] + '">';
-                $('.logo-name').html(img);
-            }
-        }
-    });
+
+    //var Type = 'PageLoad';
+    ////var url = 'http://gt.techpure.co.uk';
+    //var url = document.location.protocol + '//' + document.location.host;
+    //if (url == 'http://localhost:9359') {
+    //    url = 'http://gt.techpure.co.uk';
+    //}
+    //$.ajax({
+    //    type: "POST",
+    //    url: "/Home/PageLoad",
+    //    data: { "Type": Type, "url": url },
+    //    success: function (result) {
+    //        if (result.length > 0) {
+    //            $('.page-content.login-body').css('background', '#000 url("' + result[0]['BackgroundImg'] + '") no-repeat scroll center top');
+    //            var img = '<img height="45" width="200" src="' + result[0]['Logo'] + '">';
+    //            $('.logo-name').html(img);
+    //        }
+    //    }
+    //});
 }
