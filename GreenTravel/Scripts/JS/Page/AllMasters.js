@@ -4,7 +4,9 @@
 
 $(document).ready(function () {
     FillDropDown_Category();
+
     getdata();
+
     hide_div();
 
     $("#drpSegmenttab3").change(function () {
@@ -16,7 +18,6 @@ $(document).ready(function () {
             clearCodes($(this).closest('form'));
             $('#drpMasterTab3').addClass('req');
         }
-
     });
 
     $("#drpCorporateTab").change(function () {
@@ -147,8 +148,9 @@ $(document).ready(function () {
                 if (response != null && response.success) {
                     if (response['Event'] == 'success') {
                         flag = true;
-                        $('#hdfSrNo').val(response['SrNo']);
-                        USrno = response['SrNo'];
+                        
+                        $('#hdfSrNo').val(response['srno']);
+                        USrno = response['srno'];
                     }
                     swal(response['success'], '', response['Event']);
                 }
@@ -360,7 +362,7 @@ function EditData(pXmaster, pSrNo) {
     var Xmaster = pXmaster; //$(this).parent().parent().children(':eq(2)').text();
     var Type = 'EditMode';
     var SrNo = pSrNo; //$(this).parent().parent().children(':eq(1)').text();
-    alert(SrNo);
+    
     $.ajax(
      {
          type: "POST",
@@ -397,7 +399,7 @@ function EditData(pXmaster, pSrNo) {
                  $('#drpMasterTab3').find('option[value="' + response['AMaster'][0]['xmaster'] + '"]').attr('selected', true).change();
              }
              if (response['AUserMasterData'].length > 0) {
-                 //alert(response['AUserMasterData'][0]['Uxname'])
+                 
                  $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
                  //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                  $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
@@ -1316,7 +1318,7 @@ function FillDropDown_Category() {
             }
         },
         error: function (data) {
-            //alert("error found");
+            
             swal('Something went wrong!', '', 'error');
         }
     });
