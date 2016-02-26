@@ -16,9 +16,10 @@ namespace GreenTravel.Controllers
     {
         Comman _objcomman = new Comman();
         DB_Login _objDBLogin = new DB_Login();
-
+        DataSet ds = new DataSet();
         FormValidationPara frm_para = new FormValidationPara();
-
+        List<Module> Module = new List<Module>();
+        List<Screen> Screen = new List<Screen>();
         public ActionResult Index(string url = "")
         {
             /* Uncomment it for already login case */
@@ -34,7 +35,7 @@ namespace GreenTravel.Controllers
             if (ViewBag.CurrentURL == "http://localhost:9359")
             {
                 //ViewBag.CurrentURL = "http://gt.techpure.co.uk";
-                ViewBag.CurrentURL = "http://tu.techpure.co.uk";
+                ViewBag.CurrentURL = "http://gt.techpure.co.uk";
             }
 
             frm_para.FormType = "LoginPage"; //from_code
@@ -58,9 +59,6 @@ namespace GreenTravel.Controllers
             {
                 ViewBag.RedirectUrl = url;
             }
-
-
-
             DataSet ds = ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables[0] != null)
             {
@@ -183,7 +181,6 @@ namespace GreenTravel.Controllers
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
-
             }
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables.Count > 0)
@@ -199,6 +196,7 @@ namespace GreenTravel.Controllers
                         Session["UnitCorpBy"] = ds.Tables[0].Rows[0]["Unit"].ToString();
                         Session["BranchBy"] = ds.Tables[0].Rows[0]["branch"].ToString();
                         Session["Location"] = ds.Tables[0].Rows[0]["Location"].ToString();
+                        setmenu();
                     }
                     return "1";
                 }
@@ -233,10 +231,53 @@ namespace GreenTravel.Controllers
             return Content(lst, "application/json");
 
         }
+        public void setmenu()
+        {
+            frm_para.corporate = Session["Corporate"].ToString();
+            frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
+            frm_para.type = "menu";
+            ds = _objDBLogin.GetMenuValue(frm_para);
+            if (ds.Tables[0] != null)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    //ViewBag.Menus = ds.Tables[0];
+                    //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    //{
+                    //    Module.Add(new Module
+                    //    {
+                    //        ModuleCode = @dr["modulecode"].ToString(),
+                    //        ModuleName = @dr["module"].ToString()
+                    //    });
+                    //}
+                    Session["Menu"] = ds.Tables[0];
+                    var list = Session["Menu"] as List<object>;
+                }
+            }
+        }
 
-        //public void LoadSessions(string Type, string url)
-        //{
-        //    DataSet ds = _objDBLogin.GetLoginData(Type, "", url, "");
-        //}
+        public void setScreen()
+        {
+            frm_para.corporate = Session["Corporate"].ToString();
+            frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
+            frm_para.type = "screen";
+            ds = _objDBLogin.GetLoginData(frm_para);
+            if (ds.Tables[0] != null)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    //ViewBag.Screens = ds.Tables[0];
+                    //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    //{
+                    //    Screens.Add(new Module
+                    //    {
+                    //        ModuleCode = @dr["modulecode"].ToString(),
+                    //        ModuleName = @dr["module"].ToString()
+                    //    });
+                    //}
+                    Session["Screen"] = ds.Tables[0];
+                }
+            }
+        }
     }
 }
