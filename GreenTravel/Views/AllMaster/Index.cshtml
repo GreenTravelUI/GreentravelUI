@@ -18,6 +18,15 @@
     .field-name {
         padding-right: 15px;
     }
+
+    .modal-header h4 {
+        border-bottom: 1px dotted #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .modal-footer {
+        text-align: left;
+    }
 </style>
 
 
@@ -53,22 +62,23 @@
                                             <span class="icon-grid"></span>
                                         </a>
                                         <ul class="dropdown-menu cate-drop-menu">
-                                            <li><a href="#" style="color: #000">Default View</a></li>
-                                            <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header" data-toggle="modal" data-target="#myModal"><a href="#">Change View</a> </li>
+                                            <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                            <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header" ><a id="btnShowPopupChangeView" href="javascript:void(0);">Change View</a> </li>
                                         </ul>
                                         <div class="modal fade modify-colum-model" id="myModal" role="dialog">
                                             <div class="modal-dialog">
                                                 <!-- Modal content-->
                                                 <div class="modal-content">
-                                                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title">Change View</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">Change View</h4>
                                                     </div>
                                                     <div class="modal-body">
+                                                        <br />
                                                         <div class="model-left-columns">
                                                             <div class="field-name">
                                                                 <h3>View <a href="#"></a></h3>
-                                                                <ul class="field-list slimscroll">
+                                                                <ul id="ulViewList" class="field-list slimscroll">
                                                                     <li><a href="#">View 1</a></li>
                                                                     <li><a href="#">View 2</a></li>
                                                                     <li><a href="#">View 3</a></li>
@@ -114,43 +124,36 @@
                                                                 <div class="cf nestable-lists">
                                                                     <ol class="sortable">
                                                                         <li id="list_1">
-                                                                            <div><span class="disclose"><span></span></span>Item 1</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 1<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_4">
-                                                                            <div><span class="disclose"><span></span></span>Item 2</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 2<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_5">
-                                                                            <div><span class="disclose"><span></span></span>Item 3</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 3<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_9">
-                                                                            <div><span class="disclose"><span></span></span>Item 4</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 4<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_10">
-                                                                            <div><span class="disclose"><span></span></span>Item 5</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 5<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_11">
-                                                                            <div><span class="disclose"><span></span></span>Item 6</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 6<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_12">
-                                                                            <div><span class="disclose"><span></span></span>Item 7</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 7<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                         <li id="list_13">
-                                                                            <div><span class="disclose"><span></span></span>Item 8</div>
+                                                                            <div><span class="disclose"><span></span></span>Gadget 8<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                         </li>
                                                                     </ol>
                                                                 </div>
                                                             </section>
                                                         </div>
-                                                        <div class="button-part-columns">
-                                                            <p>
-                                                                <input type="checkbox" name="set" />
-                                                                Save this set of column
-                                                            </p>
-                                                            <p>
-                                                                <input type="text" placeholder="" />
-                                                            </p>
-                                                            <button type="button" class="btn-success">Apply</button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success ">Apply</button>
                                                     </div>
                                                 </div>
                                             </div>

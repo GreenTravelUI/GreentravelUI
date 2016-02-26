@@ -304,6 +304,33 @@ $(document).ready(function () {
     $("table").delegate(".editor_Delte", "click", function () {
 
     });
+
+    $('#btnShowPopupChangeView').on('click', function () {
+        var Corporate = $('#drpCorporateTab option:selected').val();
+        $.ajax({
+            type: "POST",
+            url: "/AllMaster/FillViewsControls",
+            cache: false,
+            data: {
+                FormCode: 'FORM-5-0-3',
+                Corporate: Corporate,
+                Type: 'ConditionalDropdown',
+                Control: 'ViewsList'
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response != null) {
+                    $('#ulViewList').html('');
+                    $.each(response['Views'], function (i,data) {
+                        $('#ulViewList').append('<li><a href="javascript:void(0);" class="" data-id="' + data.Value + '">' + data.Text + '</a></li>')
+                    });
+                }
+            }
+        }).done(function () {
+
+        });
+        $('#myModal').modal('show');
+    });
 });
 
 function PageLoad_FilledAll() {

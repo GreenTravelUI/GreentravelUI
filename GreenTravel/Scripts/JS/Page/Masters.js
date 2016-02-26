@@ -382,12 +382,14 @@ $(document).ready(function () {
                     var Formtabcode = '0';
                     var Xmaster = $('#txtMasterCode').val();
                     var Type = 'EditMode';
+
+                    EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
                     $('#btnsUpdate').show();
                     $('#btnDelete').hide();
                     $('#btnSaveMastersetup').hide();
                     $('#CreateMaster').children().find('span.tab-name').text('Update Master');
                     $('.tab-section-name').text('Update Master');
-                    EditData(tablename, Corporate, unit, Formcode, Formtabcode, Xmaster, Type, true);
+
                     RedefineSrNo();
                 }
             }
@@ -1079,5 +1081,9 @@ function ValidateControls() {
 }
 
 function checkReqValidation(control) {
-    return control.val().trim().toLowerCase().contains('req');
+    var flag = false;
+    if (control.val().trim().toLowerCase().indexOf('req') >= 0) {
+        flag = true;
+    }
+    return flag;
 }
