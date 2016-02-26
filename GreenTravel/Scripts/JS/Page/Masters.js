@@ -29,18 +29,12 @@ $(document).ready(function () {
         e.preventDefault();
         var a = 0;
         /* Form Validation */
-
-        if (!checkReqValidation($('#txtValidationCode1'))) {
-            swal('', 'Cannot save first field without required(REQ) code.', 'error')
+        if (!validateForm($(this).parent())) {
+            swal('Invalid data found!','','error')
             return false;
         }
-
-        if (!validateForm($(this).parent())) {
-            swal(
-                'Invalid data found!',
-                '',
-                'error'
-              )
+        if (!checkReqValidation($('#txtValidationCode1'))) {
+            swal('', 'Cannot save first field without required(REQ) code.', 'error')
             return false;
         }
         if (!ValidateControls()) {

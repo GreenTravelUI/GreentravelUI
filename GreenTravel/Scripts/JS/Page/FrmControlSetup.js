@@ -332,7 +332,8 @@ function Formname() {
             Control: Control, Language: Language, Srno: Srno
         },
         success: function (result) {
-            $('.tabFormname').text(result[0]['Text']);
+            if (result.length > 0)
+                $('.tabFormname').text(result[0]['Text']);
         }
     });
 }

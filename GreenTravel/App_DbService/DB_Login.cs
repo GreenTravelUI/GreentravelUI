@@ -92,7 +92,8 @@ namespace GreenTravel.App_DbService
         {
             try
             {
-                _cn.Open();
+                if (_cn.State == ConnectionState.Closed)
+                    _cn.Open();
                 SqlCommand _cmd = new SqlCommand("SP_Login", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
 
@@ -178,7 +179,7 @@ namespace GreenTravel.App_DbService
                     sconn.Open();
                     using (SqlCommand _cmd = new SqlCommand("SP_Login", sconn))
                     {
-                        
+
                         _cmd.CommandType = CommandType.StoredProcedure;
                         _cmd.Parameters.AddWithValue("@Type", _FormValidationPara.type);
                         if (_FormValidationPara.Password != null && _FormValidationPara.Password != "")

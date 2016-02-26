@@ -14,6 +14,7 @@ $(document).ready(function () {
             hide_div();
             clearValidations($(this).closest('form'));
             clearCodes($(this).closest('form'));
+            $('#drpMasterTab3').addClass('req');
         }
 
     });
@@ -24,12 +25,14 @@ $(document).ready(function () {
             hide_div();
             clearValidations($(this).closest('form'));
             clearCodes($(this).closest('form'));
+            $('#drpMasterTab3').addClass('req');
         }
     });
 
     $("#drpMasterTab3").change(function () {
         clearValidations($('#frmCreateMaster'));
         clearCodes($('#frmCreateMaster'));
+        $('#drpMasterTab3').addClass('req');
         $('input[type="text"]').val('');
         $('textarea').val('');
         $('#btnSave').text('CREATE');
@@ -41,7 +44,7 @@ $(document).ready(function () {
     $('#btnSave').click(function (e) {
         e.preventDefault();
         /* Form Validation */
-        if (!validateForm($(this).parent())) {
+        if (!validateForm($(this).closest('form'))) {
             swal('Invalid data found!');
             return false;
         }
@@ -155,6 +158,7 @@ $(document).ready(function () {
         hide_div();
         clearValidations($(this).parent());
         clearCodes($(this).closest('form'));
+        $('#drpMasterTab3').addClass('req');
         $('input[type="text"]').val('');
         $('textarea').val('');
         $('.Dropdown').each(function () {
@@ -168,7 +172,9 @@ $(document).ready(function () {
         });
 
         $('select').next().find('ul li.select2-selection__choice').remove();
+        
         setSelect2Value($('#drpSegmenttab3'), $('#hdfIndustry').val());
+        
         setSelect2Value($('#drpCorporateTab'), $('#hdfCorporate').val());
         $("#drpCorporateTab").trigger('change');
         $('#btnSave').text('CREATE');
@@ -186,18 +192,9 @@ $(document).ready(function () {
         $("#tab4").addClass("active");
         clearValidations($(this).parent());
         clearCodes($(this).closest('form'));
-        $('input').val('');
-        $('textarea').val('');
-        $('.Dropdown').each(function () {
-            //$(this).val($(this).find('option:first').val()).change();
-            setSelect2Value($(this), '0');
-        });
-        $('.drpdown').each(function () {
-            //$(this).val($(this).find('option:first').val()).change();
-            setSelect2Value($(this), '0');
-        });
+        $('#drpMasterTab3').addClass('req');
+        
         $('#btnCancel').trigger('click');
-        //$('select').next().find('ul li.select2-selection__choice').remove();
     });
 
     $("table").delegate(".editor_edit", "click", function () {
@@ -229,6 +226,7 @@ $(document).ready(function () {
                      hide_div();
                      clearValidations($(this).closest('form'));
                      clearCodes($(this).closest('form'));
+                     $('#drpMasterTab3').addClass('req');
                      FillDropdown('drpMasterTab3', 'ConditionalDropdown')
                      /* #drpSegmenttab3 */
 
@@ -1046,13 +1044,13 @@ function FillDropdown(controlId, type) {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = $('#drpCorporateTab option:selected').val();
+    var Corporate = $('#hdfCorporate').val(); //$('#drpCorporateTab option:selected').val();
     var unit = '';
     var Branch = '';
     var userid = '';
     var Ip = '';
     //var field1 = '1';
-    var field1 = $('#drpSegmenttab3 option:selected').val();
+    var field1 = $('#hdfIndustry').val(); //$('#drpSegmenttab3 option:selected').val();
     var field2 = $('#drpMasterTab3 option:selected').val();
     var field3 = '';
     var field4 = '';
