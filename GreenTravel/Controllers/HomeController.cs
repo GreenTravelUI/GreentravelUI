@@ -180,6 +180,8 @@ namespace GreenTravel.Controllers
 
         public string LoginUser(FormValidationPara _FormValidationPara)
         {
+            Session["Corporate"] = "5";
+
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
