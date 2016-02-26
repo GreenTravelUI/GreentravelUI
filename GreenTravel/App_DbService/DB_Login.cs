@@ -29,27 +29,6 @@ namespace GreenTravel.App_DbService
                 url = url
             }).ToList();
         }
-
-        //public List<GeneralCorporateValues> GetPageLoad(string type, string Email, string url, string Password)
-        //{
-        //    _petaDB.EnableAutoSelect = false;
-
-        //    return _petaDB.Query<GeneralCorporateValues>("Exec SP_Login @Type,@Password,@Email,@module,@control,@corporate,@Unit,@Role,@userid,@ip,@url", new
-        //    {
-        //        Type = type,
-        //        Password = Password,
-        //        Email = Email,
-        //        module = "null",
-        //        control = "null",
-        //        corporate = "null",
-        //        Unit = "null",
-        //        Role = "null",
-        //        userid = "null",
-        //        ip = "null",
-        //        url = url
-        //    }).ToList();
-        //}
-
         public DataSet GetPageLoad(string type, string Email, string url, string Password)
         {
             try
@@ -96,9 +75,7 @@ namespace GreenTravel.App_DbService
                     _cn.Open();
                 SqlCommand _cmd = new SqlCommand("SP_Login", _cn);
                 _cmd.CommandType = CommandType.StoredProcedure;
-
                 _cmd.Parameters.AddWithValue("@Type", _FormValidationPara.type);
-
                 if (_FormValidationPara.Password != null && _FormValidationPara.Password != "")
                     _cmd.Parameters.AddWithValue("@Password", _FormValidationPara.Password);
                 else
@@ -127,7 +104,6 @@ namespace GreenTravel.App_DbService
                     _cmd.Parameters.AddWithValue("@Unit", _FormValidationPara.Unit);
                 else
                     _cmd.Parameters.AddWithValue("@Unit", DBNull.Value);
-
                 if (_FormValidationPara.Role != null && _FormValidationPara.Role != "")
                     _cmd.Parameters.AddWithValue("@Role", _FormValidationPara.Role);
                 else
@@ -147,7 +123,6 @@ namespace GreenTravel.App_DbService
                     _cmd.Parameters.AddWithValue("@url", _FormValidationPara.url);
                 else
                     _cmd.Parameters.AddWithValue("@url", DBNull.Value);
-
                 _cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
                 DataSet _ds = new DataSet();
@@ -169,7 +144,6 @@ namespace GreenTravel.App_DbService
             }
 
         }
-
         public DataSet GetSessionValue(FormValidationPara _FormValidationPara)
         {
             try
@@ -179,7 +153,6 @@ namespace GreenTravel.App_DbService
                     sconn.Open();
                     using (SqlCommand _cmd = new SqlCommand("SP_Login", sconn))
                     {
-
                         _cmd.CommandType = CommandType.StoredProcedure;
                         _cmd.Parameters.AddWithValue("@Type", _FormValidationPara.type);
                         if (_FormValidationPara.Password != null && _FormValidationPara.Password != "")
@@ -230,6 +203,56 @@ namespace GreenTravel.App_DbService
                             _cmd.Parameters.AddWithValue("@url", _FormValidationPara.url);
                         else
                             _cmd.Parameters.AddWithValue("@url", DBNull.Value);
+
+                        _cmd.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+                        DataSet _ds = new DataSet();
+                        _adp.Fill(_ds);
+                        _adp.Dispose();
+                        _cmd.Dispose();
+                        sconn.Close();
+                        sconn.Dispose();
+                        return _ds;
+                    }
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+            }
+
+        }
+        public DataSet GetMenuValue(FormValidationPara _FormValidationPara)
+        {
+            try
+            {
+                using (SqlConnection sconn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["gtcon"].ConnectionString))
+                {
+                    sconn.Open();
+                    using (SqlCommand _cmd = new SqlCommand("SP_Login", sconn))
+                    {
+                        _cmd.CommandType = CommandType.StoredProcedure;
+                        _cmd.Parameters.AddWithValue("@Type", _FormValidationPara.type);
+                        if (_FormValidationPara.Password != null && _FormValidationPara.Password != "")
+                            _cmd.Parameters.AddWithValue("@Password", _FormValidationPara.Password);
+                        else
+                            _cmd.Parameters.AddWithValue("@Password", DBNull.Value);
+                        if (_FormValidationPara.Email != null && _FormValidationPara.Email != "")
+                            _cmd.Parameters.AddWithValue("@Email", _FormValidationPara.Email);
+                        else
+                            _cmd.Parameters.AddWithValue("@Email", DBNull.Value);
+
+                        if (_FormValidationPara.corporate != null && _FormValidationPara.corporate != "")
+                            _cmd.Parameters.AddWithValue("@corporate", _FormValidationPara.corporate);
+                        else
+                            _cmd.Parameters.AddWithValue("@corporate", DBNull.Value);
+                        if (_FormValidationPara.userid != 0)
+                            _cmd.Parameters.AddWithValue("@userid", _FormValidationPara.userid);
+                        else
+                            _cmd.Parameters.AddWithValue("@userid", DBNull.Value);
 
                         _cmd.CommandType = CommandType.StoredProcedure;
                         SqlDataAdapter _adp = new SqlDataAdapter(_cmd);

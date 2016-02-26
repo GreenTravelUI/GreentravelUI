@@ -69,7 +69,7 @@ $(document).ready(function () {
         var CretedBy = '0';
         var EditedBy = '0';
         var EditDatetime = '';
-        var CorpcentreBy = '0';
+        var CorpcentreBy = corp;
         var UnitCorpBy = '0';
         var TerminalBy = '0';
         var BranchBy = '0';
