@@ -17,7 +17,7 @@ $(document).ready(function () {
        
         e.preventDefault();
         if (duplicate != "") {
-            swal(
+           swal(
                 'Same Record Already Exits',
                 '',
                 'error'
