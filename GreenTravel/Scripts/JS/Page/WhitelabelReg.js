@@ -1406,6 +1406,8 @@ function PasswordEdit() {
                     setSelect2Value($('#drpencryptkey'), response['UserPreferancestep1js'][0]['EncriptionKey']);
                     $('#txtuserlockunlockminuts').val(response['UserPreferancestep1js'][0]['UserUnlockMinut']);
                     $('#txtcontinuenumber').val(response['UserPreferancestep1js'][0]['Continuenumber']);
+                    $('#txtcaptchaenableattempt').val(response['UserPreferancestep1js'][0]['UnableCaptcha']);
+                    
                 }
             }
         });
