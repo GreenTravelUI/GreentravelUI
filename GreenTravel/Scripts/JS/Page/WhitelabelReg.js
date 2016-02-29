@@ -144,10 +144,13 @@ $(document).ready(function () {
     //User Preference
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
-
         }
         if ($('#txtsrnouserpref').val() != "") {
             var srno = $('#txtsrnouserpref').val();
@@ -215,8 +218,12 @@ $(document).ready(function () {
     //Billing/Maintanence
     $(".btnSavebillingmain").click(function (e) {
         e.preventDefault();
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         if ($('#txtsrnotab4').val() != "") {
@@ -279,8 +286,12 @@ $(document).ready(function () {
     // Password Authentication 
     $('.btnsavepasswordauth').click(function (e) {
         e.preventDefault();
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         if ($('#txtsrnotab6').val() != "") {
@@ -347,8 +358,12 @@ $(document).ready(function () {
     $(".btnsavetab3class").click(function (e) {
         e.preventDefault();
              
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         if ($('#txtsrnotab3').val() != "") {
@@ -555,6 +570,8 @@ $(document).ready(function () {
         $('input[type="text"]').val('');
 
         BindGrid();
+        $('#btnUpdateuserpref').hide();
+        $('#btnSaveuserpref').show();
         $("#tab1").addClass("active");
         $("#tabuserpreferance").removeClass("active");
         $("#tab5").removeClass("active");
@@ -1515,6 +1532,7 @@ function Userprefedit() {
             dataType: 'json',
             success: function (response) {
                 if (response['UserPreferancestep1js'].length > 0) {
+                    
                     $('#btnUpdateuserpref').show();
                     $('#btnCanceluserpref').hide();
                     $('#btnSaveuserpref').hide();
@@ -1566,10 +1584,12 @@ function billingedit() {
                 $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
                 $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
                 $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
-                Bindbillingcountry();
+                
                 setSelect2Value($('#drpbillingcountry'), response['Whiteregjs'][0]['BillingCountry']);
-                Bindbillingstate();
+                Bindbillingcountry();
+                
                 setSelect2Value($('#drpbillingState'), response['Whiteregjs'][0]['BillingState']);
+                Bindbillingstate();
                 setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
                 $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
                 $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
