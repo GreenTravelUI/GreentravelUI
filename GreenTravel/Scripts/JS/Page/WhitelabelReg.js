@@ -1566,11 +1566,10 @@ function billingedit() {
                 $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
                 $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
                 $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
-                
-                setSelect2Value($('#drpbillingcountry'), response['Whiteregjs'][0]['BillingCountry']);
                 Bindbillingcountry();
-                setSelect2Value($('#drpbillingState'), response['Whiteregjs'][0]['BillingState']);
+                setSelect2Value($('#drpbillingcountry'), response['Whiteregjs'][0]['BillingCountry']);
                 Bindbillingstate();
+                setSelect2Value($('#drpbillingState'), response['Whiteregjs'][0]['BillingState']);
                 setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
                 $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
                 $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
