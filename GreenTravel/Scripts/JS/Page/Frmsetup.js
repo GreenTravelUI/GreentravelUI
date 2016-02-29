@@ -84,7 +84,7 @@ $(document).ready(function () {
         }
         var FormName = $('#txtFormName').val();
         var FormPrefixCode = $('#txtFormPreFix').val();
-        var Corporate = $('#hdfCorporate').val();
+        var Corporate = $('#drpCorporate1 option:selected').val();
         var Module = '0';
         var Screen = $('#drpScreen option:selected').val();
         var FeatureGroup = '0';
@@ -1002,7 +1002,7 @@ $(document).ready(function () {
     //Utility Save Button  
     $('.Utilitysavedata').on('click', function (e) {
         e.preventDefault();
-        var Corporate = $('#hdfCorporate').val()
+        var Corporate = $('#drpCorporate1 option:selected').val();
         var TabCode = FrmtabCode;
         var FormCode = $('#txtSrNo1').val();
         var Utilities = '';
