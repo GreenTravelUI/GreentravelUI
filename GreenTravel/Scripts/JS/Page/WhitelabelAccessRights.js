@@ -89,6 +89,7 @@ $(document).ready(function () {
         { var srno = $('#txtsrno').val(); }
         else { var srno = '0'; }
 
+
         var Corporate = $('#drpCorporate option:selected').val();
         var Unit = $('#DrpUnitTab2 option:selected').val();;
         var Location = $('#DrpLocationTab2 option:selected').val();;
@@ -596,6 +597,20 @@ $(document).ready(function () {
             else {
                 var srno = $('#lbSrnoTab4').val();
             }
+
+            $('ul.grid div').find('li').each(function () {
+                $(this).find('table tbody tr').each(function () {
+                    if ($(this).find('.checker').children().hasClass('checked')) {
+                        a = 1;
+                    }
+                });
+            });
+
+            if (a == 0) {
+                swal('', 'Please select atleast 1 records ', 'warning');
+                return false;
+            }
+
             var UserId = $('#drpRightsUser option:selected').val();
             var Corporate = $('#drpRightsCorporate option:selected').val();
             var Unit = $('#drpRightsUnit option:selected').val();
