@@ -28,7 +28,7 @@ $(document).ready(function () {
         else {
             var Srno = $('#txtTabsrno').val();
         }
-        var Corporate = 2;
+        var Corporate = $('#txtcorporate').val();
         var FormCode = $('#txtFormcode').val();
         var TabCode = $('#drpTab option:selected').val();
         var SectionCode = $('#drpSection option:selected').val();
@@ -82,14 +82,15 @@ $(document).ready(function () {
                     $('#btnUpdateControl').show();
                     $('#btnSaveControl').hide();
                 }
-                swal('Good job!', Message, EventClass);
+                swal(Message, '', EventClass);
+                //swal('Good job!', Message, EventClass);
             }
         }).done(function () {
 
         });
     });
 
-    FillDropdown(0, $('#txtFormcode').val(), '', 'drpTab');
+    FillDropdown($('#hdfCorporate').val(), $('#txtFormcode').val(), '', 'drpTab');
 
     $("#drpTab").change(function () {
         FillDropdown(0, '', $('#drpTab option:selected').val(), 'drpSection');
@@ -211,7 +212,7 @@ $(document).ready(function () {
 
 function BindGrid() {
     var tablename = 'dbo._Form_Field_Master';
-    var Corporate = '2';
+    var Corporate = $('#hdfCorporate').val();
     var Segment = '';
     var PageNo = '1';
     var type = 'Grid';
@@ -241,7 +242,7 @@ function BindGrid() {
         },
         "columns": [
             { "data": "RowNumber" },
-             { "data": "Srno" },
+             { "data": "Srno", className: "hide_cell" },
             { "data": "corporate" },
             { "data": "Features" },
             { "data": "Module" },
@@ -252,10 +253,12 @@ function BindGrid() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a>'
+                defaultContent: '<a href="javascript:void(0);" class="editor_Step" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> &nbsp;&nbsp;'
             }
         ]
     });
+    //Delete Button Code
+    //<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a>
 }
 
 function FillDropdown(Corporate, Field1, Field2, controlId) {
@@ -323,7 +326,7 @@ function Formname() {
     var Type = 'Formname';
     var Srno = '';
     $.ajax({
-        url: "/FormControlSetup/BindDropDown",
+        url: "/FormControlSetup/FromName_Corporate",
         type: "POST",
         async: false,
         data: {
@@ -333,7 +336,9 @@ function Formname() {
         },
         success: function (result) {
             if (result.length > 0)
+                
                 $('.tabFormname').text(result[0]['Text']);
+                $('#txtcorporate').val(result[0]['Value']);
         }
     });
 }
