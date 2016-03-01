@@ -1096,6 +1096,8 @@ $(document).ready(function () {
         clearForm();
         clearFormTAB();
         Quitform();
+        $('.tab3section1').hide();
+        $('.tab3Formname').text('');
         $('#btnUpdateFS').hide();
         $('#btnSavefs').show();
     });
@@ -1450,7 +1452,7 @@ function getdata() {
 }
 
 function getUtility() {
-    
+    htmlutility = '';
     var Module = '';
     var screen = '';
     var FormCode = '';
