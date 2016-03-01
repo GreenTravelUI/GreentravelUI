@@ -31,12 +31,15 @@ namespace GreenTravel.Controllers
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    ViewBag.Srno = ds.Tables[0].Rows[0]["srno"];
+
                     if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
                     { ViewBag.Event = "success"; }
                     else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
                     { ViewBag.Event = "error"; }
+
                 }
-                return Json(new { Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { Srno = ViewBag.Srno, Event = ViewBag.Event, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
