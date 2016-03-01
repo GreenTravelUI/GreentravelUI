@@ -216,6 +216,16 @@ function controlInputValidations(control) {
 
     }
 
+    if (control.hasClass('negnum')) {
+        var nn = control.data('negnum');
+        if (control.val().match('-')) {
+            control.after('<p class="red-error">Invalid Data.</p>');
+            control.addClass('red-input');
+            fillSummeryBox(control)
+            return false;
+        }
+    }
+
 
 
 
@@ -412,4 +422,6 @@ function clearControlCode(control) {
     control.removeAttr('data-reg');
     control.removeClass('datecompair');
     control.removeAttr('data-datecom');
+    control.removeClass('negnum');
+   
 }

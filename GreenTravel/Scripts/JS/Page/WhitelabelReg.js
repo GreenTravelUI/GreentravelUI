@@ -144,6 +144,7 @@ $(document).ready(function () {
     //User Preference
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
+      
         if (!validateForm($(this).closest("form"))) {
             swal(
                 'Invalid data found!',
@@ -1082,7 +1083,7 @@ function Dropdown_Bind_user_preferance() {
                     var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
                     $('#drpDashboardGadgetPosition').append(opt);
                 }
-                //   setSelect2Value($('#drpDashboardGadgetPosition'), '0');
+                   setSelect2Value($('#drpDashboardGadgetPosition'), '0');
             }
         }
     });
