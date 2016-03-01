@@ -180,7 +180,6 @@ namespace GreenTravel.Controllers
         public string LoginUser(FormValidationPara _FormValidationPara)
         {
             //Session["Corporate"] = "5";
-
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
@@ -212,13 +211,9 @@ namespace GreenTravel.Controllers
             {
                 return "0";
             }
-
-
         }
-
         public ActionResult PageLoad(FormValidationPara _FormValidationPara)
         {
-
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -279,6 +274,7 @@ namespace GreenTravel.Controllers
             }
             foreach (var item in Module)
             {
+                MenuString += "<li><a href='/Dashboard' class='waves-effect waves-button'><span class='menu-icon glyphicon glyphicon-home'></span><p>Dashboard</p></a></li>";
                 string Default_icon = "glyphicon glyphicon-home";
                 List<Screen> _screen = Screen.Where(m => m.ModuleCode == item.ModuleCode).ToList();
                 if (_screen.Count() > 1)
@@ -305,54 +301,6 @@ namespace GreenTravel.Controllers
             }
             Session["menuString"] = MenuString;
         }
-
-        //public void setmenu()
-        //{
-        //    frm_para.corporate = Session["Corporate"].ToString();
-        //    frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
-        //    frm_para.type = "menu";
-        //    ds = _objDBLogin.GetMenuValue(frm_para);
-        //    if (ds.Tables[0] != null)
-        //    {
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            //ViewBag.Menus = ds.Tables[0];
-        //            //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-        //            //{
-        //            //    Module.Add(new Module
-        //            //    {
-        //            //        ModuleCode = @dr["modulecode"].ToString(),
-        //            //        ModuleName = @dr["module"].ToString()
-        //            //    });
-        //            //}
-        //            Session["Menu"] = ds.Tables[0];
-        //            var list = Session["Menu"] as List<object>;
-        //        }
-        //    }
-        //}
-
-        //public void setScreen()
-        //{
-        //    frm_para.corporate = Session["Corporate"].ToString();
-        //    frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
-        //    frm_para.type = "screen";
-        //    ds = _objDBLogin.GetLoginData(frm_para);
-        //    if (ds.Tables[0] != null)
-        //    {
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            //ViewBag.Screens = ds.Tables[0];
-        //            //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-        //            //{
-        //            //    Screens.Add(new Module
-        //            //    {
-        //            //        ModuleCode = @dr["modulecode"].ToString(),
-        //            //        ModuleName = @dr["module"].ToString()
-        //            //    });
-        //            //}
-        //            Session["Screen"] = ds.Tables[0];
-        //        }
-        //    }
-        //}
+       
     }
 }

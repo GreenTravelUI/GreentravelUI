@@ -656,7 +656,6 @@ $(document).ready(function () {
                         $('#btnutilitySave').show();
                         $('#btnutilityupdate').hide();
                     }
-                   
                 }
             }
         });
@@ -1086,11 +1085,9 @@ $(document).ready(function () {
                 }
             }
         }).done(function () {
-            $("#myModalIcon").modal('hide');
-            //$('#btnutilityupdate').show();
             $('#btnutilitySave').hide();
+            $("#myModalIcon").modal('hide');
         });
-
     });
 
     /*Quit Button*/
@@ -1453,7 +1450,7 @@ function getdata() {
 }
 
 function getUtility() {
-    var htmlutility = '';
+    
     var Module = '';
     var screen = '';
     var FormCode = '';
