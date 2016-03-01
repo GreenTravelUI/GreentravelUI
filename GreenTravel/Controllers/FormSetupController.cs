@@ -471,6 +471,33 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult Base_Form_Tab_Master(CommanFieldConditionalPara _CFCP)
+        {
+            try
+            {
+                DataSet ds = _objfs.BaseFormTabMaster(_CFCP);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.ComapanyName = "1";
+                }
+                else
+                {
+                    ViewBag.ComapanyName = "0";
+                }
+                var result = ViewBag.ComapanyName;
+                return Json(new { Duplicate = result }, JsonRequestBehavior.AllowGet);
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                //    ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                //}
+                //return Json(new { success = true, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
        
         #endregion
 

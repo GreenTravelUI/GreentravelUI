@@ -19,6 +19,8 @@ namespace GreenTravel.Models
     }
     public class Screen : CommanPara
     {
+        public string ModuleCode { get; set; }
+        public string ModuleName { get; set; }
         public string ScreenName { get; set; }
         public string Screencode { get; set; }
         public string VieWright { get; set; }
