@@ -55,6 +55,8 @@ $(document).ready(function () {
     $('.btnclearuser').click(function (e) {
         e.preventDefault();
         $("#txtEmail").prop('disabled', false);
+        $("#DrpUnitTab2").prop('disabled', false);
+        $("#DrpLocationTab2").prop('disabled', false);
         $(".Editdisable").show();
         clearValidations($(this).closest('form'));
         $('#tab2').find('input[type="text"]').val('');
@@ -207,6 +209,8 @@ $(document).ready(function () {
         }).done(function () {
             clearValidations($('#tab2').find('form'));
             $("#txtEmail").prop('disabled', true);
+            $("#DrpUnitTab2").prop('disabled', true);
+            $("#DrpLocationTab2").prop('disabled', true);
             $(".Editdisable").hide();
             $("#userlitab1").removeClass("active");
             $("#tab1").removeClass("active");
@@ -589,14 +593,6 @@ $(document).ready(function () {
                 swal('', 'Invalid data found!', 'error');
                 return false;
             }
-            var ModuleAry = [];
-            var ScreenAry = [];
-            if ($('#lbSrnoTab4').val() == '') {
-                var srno = 0;
-            }
-            else {
-                var srno = $('#lbSrnoTab4').val();
-            }
 
             $('ul.grid div').find('li').each(function () {
                 $(this).find('table tbody tr').each(function () {
@@ -609,6 +605,14 @@ $(document).ready(function () {
             if (a == 0) {
                 swal('', 'Please select atleast 1 records ', 'warning');
                 return false;
+            }
+            var ModuleAry = [];
+            var ScreenAry = [];
+            if ($('#lbSrnoTab4').val() == '') {
+                var srno = 0;
+            }
+            else {
+                var srno = $('#lbSrnoTab4').val();
             }
 
             var UserId = $('#drpRightsUser option:selected').val();
@@ -681,15 +685,27 @@ $(document).ready(function () {
                         flagsection = 1;
                         msg = response['success'];
                         event = response['Event'];
-                        $('#lbSrnoTab4').val(response['SrNo']);
+                        if (event != 'error') {
+                            var sr = response['SrNo'];
+                            $('#lbSrnoTab4').val(response['SrNo']);
+                            BindGrid();
+                            flagsection = 0;
+                        }
                     }
                 }
             });
-            if (flagsection == 1) {
+            if (flagsection == 0) {
                 swal('Good Job!', msg, event);
                 $('#btnSavetab4').hide();
                 $('#btnupdatetab4').show();
+                // swal('Good Job!', msg, event);
             }
+            else if (flagsection == 1) {
+                swal('', msg, event);
+                // swal('', msg, event);
+            }
+
+
         }
     });//---tab-2 save button click
     $('#btnQuittab4').click(function (e) {
