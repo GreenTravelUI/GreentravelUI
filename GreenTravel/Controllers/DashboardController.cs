@@ -17,30 +17,13 @@ namespace GreenTravel.Controllers
         DB_Login _objDBLogin = new DB_Login();
         DataSet ds = new DataSet();
         FormValidationPara _FormValidationPara = new FormValidationPara();
-       
         // GET: /Dashboard/
-
         public ActionResult Index()
         {
-            //_FormValidationPara.corporate = Session["Corporate"].ToString();
-            //_FormValidationPara.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
-            //_FormValidationPara.type="menu";
-            //ds = _objDBLogin.GetLoginData(_FormValidationPara);
-            //if (ds.Tables[0] != null)
-            //{
-            //    if (ds.Tables[0].Rows.Count > 0)
-            //    {
-            //        ViewBag.Menus = ds.Tables[0];
-            //        foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-            //        {
-            //            Module.Add(new Module
-            //            {
-            //                ModuleCode = @dr["modulecode"].ToString(),
-            //                ModuleName = @dr["module"].ToString()
-            //            });
-            //        }
-            //    }
-            //}
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("index", "Home");
+            }
             return View();
         }
 

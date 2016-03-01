@@ -136,6 +136,11 @@ $(document).ready(function () {
                         $('#btnCancelUser').hide();
                         $("#txtEmail").prop('disabled', true);
                         $(".Editdisable").hide();
+                       // $("#txtEmail").prop('disabled', true);
+                       // $("#txtEmail").prop('disabled', true);
+
+                        $("#DrpUnitTab2").prop('disabled', true);
+                        $("#DrpLocationTab2").prop('disabled', true);
                     }
                 }
             }
