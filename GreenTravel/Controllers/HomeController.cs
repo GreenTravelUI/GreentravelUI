@@ -34,8 +34,8 @@ namespace GreenTravel.Controllers
             ViewBag.CurrentURL = Request.Url.Scheme + "://" + Request.Url.Authority;
             if (ViewBag.CurrentURL == "http://localhost:9359")
             {
-                //ViewBag.CurrentURL = "http://gt.techpure.co.uk";
                 ViewBag.CurrentURL = "http://gt.techpure.co.uk";
+                //ViewBag.CurrentURL = "http://tu.techpure.co.uk";
             }
 
             frm_para.FormType = "LoginPage"; //from_code
@@ -178,7 +178,7 @@ namespace GreenTravel.Controllers
 
         public string LoginUser(FormValidationPara _FormValidationPara)
         {
-            //Session["Corporate"] = "5";
+           // Session["Corporate"] = "5";
 
             if (Session["Corporate"].ToString() != String.Empty)
             {
