@@ -11,7 +11,7 @@ var Frmcode;
 var FrmtabCode
 var standardButton = '';
 var duplicate = '';
-
+var htmlutility = '';
 $(document).ready(function () {
 
     Dropdown_Bind_Tab1();
@@ -648,8 +648,15 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    $('#btnutilityupdate').hide();
-                    $('#btnutilitySave').show();
+                    if (htmlutility == '') {
+                        $('#btnutilityupdate').hide();
+                        $('#btnutilitySave').hide();
+                    }
+                    else {
+                        $('#btnutilitySave').show();
+                        $('#btnutilityupdate').hide();
+                    }
+                   
                 }
             }
         });
@@ -1080,7 +1087,7 @@ $(document).ready(function () {
             }
         }).done(function () {
             $("#myModalIcon").modal('hide');
-            $('#btnutilityupdate').show();
+            //$('#btnutilityupdate').show();
             $('#btnutilitySave').hide();
         });
 
