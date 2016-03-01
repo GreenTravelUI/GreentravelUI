@@ -1450,7 +1450,7 @@ function getdata() {
 }
 
 function getUtility() {
-    
+    htmlutility = '';
     var Module = '';
     var screen = '';
     var FormCode = '';

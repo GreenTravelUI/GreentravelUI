@@ -93,6 +93,7 @@
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Pay</a></li>
                     <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Sell</a></li>
                     <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Accounts</a></li>
+                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Margin</a></li>
                     <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Ledger</a></li>
                 </ul>
                 <div class="tab-content">
@@ -434,7 +435,7 @@
                                             <label for="txtSupplierName">Credit Limit</label>
                                             <input type="text" class="form-control req" id="txtCreditLimit" value="10000" placeholder="Credit Limit">
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <label for="drpOperatingCurrency">Credit Limit Currency </label>
                                             <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">THB</option>
@@ -442,6 +443,10 @@
                                                 <option>AUD</option>
                                                 <option>USD</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <label>&nbsp;</label>
+                                            <a class="btn btn-success" rel="tooltip" title="View / Change History" style="padding: 7px 12px 5px 12px;"><span class="fa fa-bars"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -733,21 +738,25 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="drpDesignation">Department <span>*</span></label>
-                                    <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
-                                        <option>Room Service</option>
-                                        <option>Reception</option>
-                                        <option selected="selected">Transfer</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpDesignation">Designation <span>*</span></label>
-                                    <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
-                                        <option>Admin</option>
-                                        <option>Receptionist</option>
-                                        <option selected="selected">Manager</option>
-                                        <option>Chef</option>
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpDesignation">Department <span>*</span></label>
+                                            <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Room Service</option>
+                                                <option>Reception</option>
+                                                <option selected="selected">Transfer</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpDesignation">Designation <span>*</span></label>
+                                            <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Admin</option>
+                                                <option>Receptionist</option>
+                                                <option selected="selected">Manager</option>
+                                                <option>Chef</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
@@ -1018,9 +1027,13 @@
                                             <label for="drpCountry">Billing Code</label>
                                             <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="col-md-8">
                                             <label for="txtCellPhone">Billing Cell Phone</label>
                                             <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Fax</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingFax" placeholder="Billing Fax">
                                         </div>
                                     </div>
                                 </div>
@@ -1459,7 +1472,7 @@
                     <div role="tabpanel" class="tab-pane" id="tab5">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab5section1"><span class="section-index ">1</span>&nbsp;Sell - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab5section1">Sell - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtAddressLine1">Natinality Set <span>*</span></label>
                                     <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
@@ -1533,68 +1546,6 @@
                                     <label for="txtRemarksInternal">Remarks (Internal)</label>
                                     <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
                                 </div>
-
-                                <h3 class="section-headers tab5section2"><span class="section-index ">2</span>&nbsp;Margin - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpTypeOfAgent">FIT/Group</label>
-                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">FIT</option>
-                                                <option>Group</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="drpTypeOfAgent">Agent Type</label>
-                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">A</option>
-                                                <option>A+</option>
-                                                <option>A++</option>
-                                                <option>B</option>
-                                                <option>B+</option>
-                                                <option>B++</option>
-                                                <option>C</option>
-                                                <option>C+</option>
-                                                <option>C++</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpTypeOfAgent">Margin For</label>
-                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">Accommodation</option>
-                                                <option>Coach</option>
-                                                <option>Guide</option>
-                                                <option>Driver</option>
-                                                <option>Meal</option>
-                                                <option>Transport</option>
-                                                <option>Sightseeing</option>
-                                                <option>Agent</option>
-                                                <option>Other</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="drpTypeOfAgent">Margin Type</label>
-                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">Amount</option>
-                                                <option>Percentage</option>
-                                                <option>Amount / Room / Night</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpTypeOfAgent">Value</label>
-                                    <input type="text" class="form-control" id="txtValue" placeholder="Value">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtEffectiveDate">Effective From Date</label>
-                                    <input type="text" class="form-control date-picker" id="txtEffectiveFromDate" value="07/07/2005" placeholder="Effective From Date">
-                                </div>
-
 
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1812,6 +1763,84 @@
                     <div role="tabpanel" class="tab-pane" id="tab6">
                         <div class="col-md-7">
                             <form>
+                            </form>
+                        </div>
+                    </div>
+                    @*Set Margin*@
+                    <div role="tabpanel" class="tab-pane" id="tab8">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab5section2">Set Margin - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">FIT/Group</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">FIT</option>
+                                                <option>Group</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Agent Type</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">A</option>
+                                                <option>A+</option>
+                                                <option>A++</option>
+                                                <option>B</option>
+                                                <option>B+</option>
+                                                <option>B++</option>
+                                                <option>C</option>
+                                                <option>C+</option>
+                                                <option>C++</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Margin For</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Accommodation</option>
+                                                <option>Coach</option>
+                                                <option>Guide</option>
+                                                <option>Driver</option>
+                                                <option>Meal</option>
+                                                <option>Transport</option>
+                                                <option>Sightseeing</option>
+                                                <option>Agent</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Margin Type</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Amount</option>
+                                                <option>Percentage</option>
+                                                <option>Amount / Room / Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpTypeOfAgent">Value</label>
+                                    <input type="text" class="form-control" id="txtValue" placeholder="Value">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEffectiveDate">Effective From Date</label>
+                                    <input type="text" class="form-control date-picker" id="txtEffectiveFromDate" value="07/07/2005" placeholder="Effective From Date">
+                                </div>
+
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
                             </form>
                         </div>
                     </div>
@@ -2408,8 +2437,5 @@
         <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
         <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Bank">2</a>
     </div>
-    <div class="floating-section-buttons tab5" style="display: none">
-        <a class="btn btn-default" data-section="tab5section1" rel="tooltip" title="Sell">1</a>
-        <a class="btn btn-default" data-section="tab5section2" rel="tooltip" title="Margin">2</a>
-    </div>
+
 }
