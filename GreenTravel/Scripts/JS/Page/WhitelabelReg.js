@@ -7,7 +7,7 @@ $(window).unload(function () {
 });
 
 $(document).ready(function () {
-    
+
     BindGrid();
 
     Dropdown_Bind_Tab1();
@@ -859,10 +859,11 @@ $(document).ready(function () {
         console.log(duplicate);
         if (duplicate != "") {
             swal(
-                'Same Record Already Exits',
+                'Same Record Already Exists',
                 '',
                 'error'
               )
+            $("#txtUsername").val('');
         }
     });
 
@@ -872,10 +873,12 @@ $(document).ready(function () {
         console.log(duplicate);
         if (duplicate != "") {
             swal(
-               'Same Record Already Exits',
+               'Same Record Already Exists',
                '',
                'error'
              )
+            $("#txtApplicationURL").val('');
+
         }
     });
 
@@ -1636,8 +1639,7 @@ function Email_URl(Field1, Field2) {
 
             if (response['Duplicate'] == "1") {
                 duplicate = "Done";
-                $("#txtUsername").val('');
-                
+                                
             }
             else {
                 duplicate = '';
