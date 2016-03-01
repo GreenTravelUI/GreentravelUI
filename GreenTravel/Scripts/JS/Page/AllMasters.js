@@ -4,25 +4,26 @@
 
 $(document).ready(function () {
     FillDropDown_Category();
+
     getdata();
-    hide_div();
+
+    hide_div(); console.log('hide_div 10');
 
     $("#drpSegmenttab3").change(function () {
         setSelect2Value($('#drpCorporateTab'), '0');
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
         if ($('#drpMasterTab3 option:first').is(':selected')) {
-            hide_div();
+            hide_div(); console.log('hide_div 16');
             clearValidations($(this).closest('form'));
             clearCodes($(this).closest('form'));
             $('#drpMasterTab3').addClass('req');
         }
-
     });
 
     $("#drpCorporateTab").change(function () {
         FillDropdown('drpMasterTab3', 'ConditionalDropdown')
         if ($('#drpMasterTab3 option:first').is(':selected')) {
-            hide_div();
+            //hide_div(); console.log('hide_div 26');
             clearValidations($(this).closest('form'));
             clearCodes($(this).closest('form'));
             $('#drpMasterTab3').addClass('req');
@@ -143,12 +144,13 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 if (response != null && response.success) {
                     if (response['Event'] == 'success') {
                         flag = true;
-                        $('#hdfSrNo').val(response['SrNo']);
-                        USrno = response['SrNo'];
+                        
+                        $('#hdfSrNo').val(response['srno']);
+                        USrno = response['srno'];
                     }
                     swal(response['success'], '', response['Event']);
                 }
@@ -163,6 +165,7 @@ $(document).ready(function () {
                 //var Xmaster = Uxmaster;
                 //var Type = 'EditMode';
                 //var SrNo = $('#hdfSrNo').val();
+                //hide_div();
                 EditData(Uxmaster, USrno);
 
                 $('#btnSave').text('UPDATE');
@@ -174,7 +177,7 @@ $(document).ready(function () {
     });
 
     $('#btnCancel').click(function (e) {
-        hide_div();
+        hide_div(); console.log('hide_div 180');
         clearValidations($(this).parent());
         clearCodes($(this).closest('form'));
         $('#drpMasterTab3').addClass('req');
@@ -225,6 +228,7 @@ $(document).ready(function () {
         var Xmaster = $(this).parent().parent().children(':eq(2)').text();
         //var Type = 'EditMode';
         var SrNo = $(this).parent().parent().children(':eq(1)').text();
+        hide_div();
         EditData(Xmaster, SrNo);
         //$.ajax(
         // {
@@ -360,7 +364,7 @@ function EditData(pXmaster, pSrNo) {
     var Xmaster = pXmaster; //$(this).parent().parent().children(':eq(2)').text();
     var Type = 'EditMode';
     var SrNo = pSrNo; //$(this).parent().parent().children(':eq(1)').text();
-    alert(SrNo);
+    
     $.ajax(
      {
          type: "POST",
@@ -373,12 +377,12 @@ function EditData(pXmaster, pSrNo) {
          success: function (response) {
              //Master
              if (response['AMaster'].length > 0) {
-                 hide_div();
+                 //hide_div();
 
                  /* #drpSegmenttab3 */
                  //$('#drpSegmenttab3').find('option[value="' + response['AMaster'][0]['SEGMENT'] + '"]').attr('selected', true).change();
                  setSelect2Value($('#drpSegmenttab3'), response['AMaster'][0]['SEGMENT']);
-                 hide_div();
+                 //hide_div();
                  clearValidations($(this).closest('form'));
                  clearCodes($(this).closest('form'));
                  $('#drpMasterTab3').addClass('req');
@@ -388,16 +392,14 @@ function EditData(pXmaster, pSrNo) {
                  /* #drpCorporateTab */
                  $('#drpCorporateTab').find('option[value="' + response['AMaster'][0]['Corporate'] + '"]').attr('selected', true).change();
                  FillDropdown('drpMasterTab3', 'ConditionalDropdown')
-                 if ($('#drpMasterTab3 option:first').is(':selected')) {
-                     hide_div();
-                 }
+                 
                  /* #drpCorporateTab */
 
 
                  $('#drpMasterTab3').find('option[value="' + response['AMaster'][0]['xmaster'] + '"]').attr('selected', true).change();
              }
              if (response['AUserMasterData'].length > 0) {
-                 //alert(response['AUserMasterData'][0]['Uxname'])
+                 
                  $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
                  //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                  $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
@@ -451,13 +453,16 @@ function EditData(pXmaster, pSrNo) {
          $("#MastersRecord").addClass("active");
          $("#tab4").removeClass("active");
          $("#tab3").addClass("active");
+         if ($('#drpMasterTab3 option:first').is(':selected')) {
+             hide_div(); console.log('hide_div 457');
+         }
          $('#MastersRecord').children().find('span.tab-name').text('Update Master Record');
      });
 }
 
 function PageLoad_FilledAll() {
     masterchangehide();
-    hide_div();
+    //hide_div(); console.log('hide_div 465');
     var field1 = $('#drpSegmenttab3 option:selected').val();
     var field2 = $('#drpMasterTab3 option:selected').val();
 
@@ -1316,7 +1321,7 @@ function FillDropDown_Category() {
             }
         },
         error: function (data) {
-            //alert("error found");
+            
             swal('Something went wrong!', '', 'error');
         }
     });

@@ -7,15 +7,6 @@ var corp = $('#txtCorporateID').val();
 $(document).ready(function () {
     BindGrid();
 
-    //$('.Usertab2').click(function (e) {
-
-    //    $("#userlitab2").addClass("active");
-    //    $("#tab1").removeClass("active");
-    //    $("#userlitab2").addClass("active");
-    //    $("#tab1").removeClass("active");
-
-    //});
-
     $('.btnclearuser').click(function (e) {
         e.preventDefault();
         $('input[type="text"]').val('');
@@ -35,7 +26,10 @@ $(document).ready(function () {
 
         /* Form Validation */
         if (!validateForm($(this).parent())) {
-            alert('Invalid data found!');
+            // alert('Invalid data found!');
+
+            swal('Invalid data found!','', 'error' )
+
             return false;
         }
 
@@ -69,7 +63,7 @@ $(document).ready(function () {
         var CretedBy = '0';
         var EditedBy = '0';
         var EditDatetime = '';
-        var CorpcentreBy = '0';
+        var CorpcentreBy = corp;
         var UnitCorpBy = '0';
         var TerminalBy = '0';
         var BranchBy = '0';

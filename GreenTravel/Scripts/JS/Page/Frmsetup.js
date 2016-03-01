@@ -131,7 +131,9 @@ $(document).ready(function () {
             return false;
         }
         else {
-            if ($('#txtSrNo').val() == "") {
+            //if ($('#txtSrNo').val() == "") {
+                TabDuplication($('#drpCorporate1 option:selected').val(), '', $("#txtTabNumber").val())
+                TabDuplication($('#drpCorporate1 option:selected').val(), $("#txtTabHeader").val(), '')
                 TabDuplication($('#drpCorporate1 option:selected').val(), $("#txtTabHeader").val(), $("#txtTabNumber").val())
                 if (duplicate != "") {
                     swal(
@@ -141,7 +143,7 @@ $(document).ready(function () {
                       )
                     return false;
                 }
-            }
+            //}
         }
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
             swal(
@@ -1193,7 +1195,7 @@ function TabDuplication(Corporate, Field1, Field2) {
     var Ip = '';
     var field1 = Field1;
     var field2 = Field2;
-    var field3 = '';
+    var field3 = $('#txtSrNo').val();//TAbSRno
     var field4 = '';
     var field5 = '';
     var Control = '';

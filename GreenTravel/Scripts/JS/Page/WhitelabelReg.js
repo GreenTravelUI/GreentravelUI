@@ -17,7 +17,7 @@ $(document).ready(function () {
        
         e.preventDefault();
         if (duplicate != "") {
-            swal(
+           swal(
                 'Same Record Already Exits',
                 '',
                 'error'
@@ -34,6 +34,7 @@ $(document).ready(function () {
               )
             return false;
         }
+        
         if ($('#txtsrno').val() != "") {
             var srno = $('#txtsrno').val();
         }
@@ -113,6 +114,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 $("#hdfsrno").val(response['srno']);
+                $('#txtsrno').val(response['srno']);
+                
                 $('#txtsrnouserpref').val(response['srno']);
                 $('#txtsrnotab4').val(response['srno']);
                 $('#txtsrnotab3').val(response['srno']);
@@ -141,10 +144,14 @@ $(document).ready(function () {
     //User Preference
     $('.btnSaveuserpref').click(function (e) {
         e.preventDefault();
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+      
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
-
         }
         if ($('#txtsrnouserpref').val() != "") {
             var srno = $('#txtsrnouserpref').val();
@@ -212,8 +219,12 @@ $(document).ready(function () {
     //Billing/Maintanence
     $(".btnSavebillingmain").click(function (e) {
         e.preventDefault();
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         if ($('#txtsrnotab4').val() != "") {
@@ -276,8 +287,12 @@ $(document).ready(function () {
     // Password Authentication 
     $('.btnsavepasswordauth').click(function (e) {
         e.preventDefault();
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         if ($('#txtsrnotab6').val() != "") {
@@ -344,8 +359,12 @@ $(document).ready(function () {
     $(".btnsavetab3class").click(function (e) {
         e.preventDefault();
              
-        if (!validateForm($(this).closest('form'))) {
-            swal('Invalid data found!')
+        if (!validateForm($(this).closest("form"))) {
+            swal(
+                'Invalid data found!',
+                '',
+                'error'
+              )
             return false;
         }
         if ($('#txtsrnotab3').val() != "") {
@@ -552,6 +571,8 @@ $(document).ready(function () {
         $('input[type="text"]').val('');
 
         BindGrid();
+        $('#btnUpdateuserpref').hide();
+        $('#btnSaveuserpref').show();
         $("#tab1").addClass("active");
         $("#tabuserpreferance").removeClass("active");
         $("#tab5").removeClass("active");
@@ -672,6 +693,7 @@ $(document).ready(function () {
 
     //Edit Data  
     $("table").delegate(".editor_Step", "click", function () {
+        duplicate = '';
         clearValidations($('#tab2'));
         Dropdown_Bind_Tab1();
         $("#SearchMaster").removeClass("active");
@@ -831,7 +853,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#txtUsername").blur(function (e) {
+    $("#txtUsername").change(function (e) {
         duplicate = '';
         Email_URl($("#txtUsername").val(), '')
         console.log(duplicate);
@@ -1061,7 +1083,7 @@ function Dropdown_Bind_user_preferance() {
                     var opt = new Option(response['UPdrp'][i]['Text'], response['UPdrp'][i]['Value']);
                     $('#drpDashboardGadgetPosition').append(opt);
                 }
-                //   setSelect2Value($('#drpDashboardGadgetPosition'), '0');
+                   setSelect2Value($('#drpDashboardGadgetPosition'), '0');
             }
         }
     });
@@ -1385,6 +1407,8 @@ function PasswordEdit() {
                     setSelect2Value($('#drpencryptkey'), response['UserPreferancestep1js'][0]['EncriptionKey']);
                     $('#txtuserlockunlockminuts').val(response['UserPreferancestep1js'][0]['UserUnlockMinut']);
                     $('#txtcontinuenumber').val(response['UserPreferancestep1js'][0]['Continuenumber']);
+                    $('#txtcaptchaenableattempt').val(response['UserPreferancestep1js'][0]['UnableCaptcha']);
+                    
                 }
             }
         });
@@ -1511,6 +1535,7 @@ function Userprefedit() {
             dataType: 'json',
             success: function (response) {
                 if (response['UserPreferancestep1js'].length > 0) {
+                    
                     $('#btnUpdateuserpref').show();
                     $('#btnCanceluserpref').hide();
                     $('#btnSaveuserpref').hide();
@@ -1562,10 +1587,12 @@ function billingedit() {
                 $('#txtBillingContactPerson').val(response['Whiteregjs'][0]['BillingContactPerson']);
                 $('#txtBillingAddressLine1').val(response['Whiteregjs'][0]['BillingAddress1']);
                 $('#txtBillingAddressLine2').val(response['Whiteregjs'][0]['BillingAddress2']);
-                Bindbillingcountry();
+                
                 setSelect2Value($('#drpbillingcountry'), response['Whiteregjs'][0]['BillingCountry']);
-                Bindbillingstate();
+                Bindbillingcountry();
+                
                 setSelect2Value($('#drpbillingState'), response['Whiteregjs'][0]['BillingState']);
+                Bindbillingstate();
                 setSelect2Value($('#drpbillingCity'), response['Whiteregjs'][0]['BillingCity']);
                 $('#txtBillingZipCode').val(response['Whiteregjs'][0]['BillingZipCode']);
                 $('#txtBillingEmail').val(response['Whiteregjs'][0]['BillingEmail']);
@@ -1610,6 +1637,7 @@ function Email_URl(Field1, Field2) {
             if (response['Duplicate'] == "1") {
                 duplicate = "Done";
                 $("#txtUsername").val('');
+                
             }
             else {
                 duplicate = '';
@@ -1659,5 +1687,6 @@ function clearalltab()
     $('.btnbillingclear').trigger("click");
     $("#btnCleartab3").trigger("click");
     $("#btnclearpassword").trigger("click");
+    duplicate = '';
 }
 

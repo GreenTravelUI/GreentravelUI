@@ -275,5 +275,56 @@ namespace GreenTravel.App_DbService
             }
 
         }
+
+        //public DataSet GetMenuValue(FormValidationPara _FormValidationPara)
+        //{
+        //    try
+        //    {
+        //        using (SqlConnection sconn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["gtcon"].ConnectionString))
+        //        {
+        //            sconn.Open();
+        //            using (SqlCommand _cmd = new SqlCommand("SP_Login", sconn))
+        //            {
+        //                _cmd.CommandType = CommandType.StoredProcedure;
+        //                _cmd.Parameters.AddWithValue("@Type", _FormValidationPara.type);
+        //                if (_FormValidationPara.Password != null && _FormValidationPara.Password != "")
+        //                    _cmd.Parameters.AddWithValue("@Password", _FormValidationPara.Password);
+        //                else
+        //                    _cmd.Parameters.AddWithValue("@Password", DBNull.Value);
+        //                if (_FormValidationPara.Email != null && _FormValidationPara.Email != "")
+        //                    _cmd.Parameters.AddWithValue("@Email", _FormValidationPara.Email);
+        //                else
+        //                    _cmd.Parameters.AddWithValue("@Email", DBNull.Value);
+
+        //                if (_FormValidationPara.corporate != null && _FormValidationPara.corporate != "")
+        //                    _cmd.Parameters.AddWithValue("@corporate", _FormValidationPara.corporate);
+        //                else
+        //                    _cmd.Parameters.AddWithValue("@corporate", DBNull.Value);
+        //                if (_FormValidationPara.userid != 0)
+        //                    _cmd.Parameters.AddWithValue("@userid", _FormValidationPara.userid);
+        //                else
+        //                    _cmd.Parameters.AddWithValue("@userid", DBNull.Value);
+
+        //                _cmd.CommandType = CommandType.StoredProcedure;
+        //                SqlDataAdapter _adp = new SqlDataAdapter(_cmd);
+        //                DataSet _ds = new DataSet();
+        //                _adp.Fill(_ds);
+        //                _adp.Dispose();
+        //                _cmd.Dispose();
+        //                sconn.Close();
+        //                sconn.Dispose();
+        //                return _ds;
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //    }
+
+        //}
     }
 }

@@ -1,0 +1,2533 @@
+﻿@{
+    ViewBag.Title = "Agent";
+    ViewBag.PageTitle = "Agent Account";
+    ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Agent Code: <span>HOTLE-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
+}
+
+<style>
+    .modal-lg {
+        width: 95%;
+    }
+
+    .modal-header h4 {
+        border-bottom: 1px dashed #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover {
+        background-color: #22baa0;
+        border-color: #22baa0;
+        border-left: 0 none #22baa0;
+        color: #fff;
+    }
+
+    #wrapper, .wrapper {
+        width: 200%;
+        transform: translate3d(0, 0, 0);
+        transition: transform .5s ease-in-out;
+        padding-left: 0;
+    }
+
+    .content {
+        float: left;
+        width: 50%;
+        min-height: 200px;
+        white-space: normal;
+        background-repeat: no-repeat;
+    }
+
+    li.content {
+        list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
+    }
+
+        li.content .libody {
+            transition-timing-function: linear;
+        }
+
+    .summery-uitilities-detail {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    .summery-nav-btn {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+        .summery-nav-btn.active {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .libody.summery-body {
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Agent </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Agent</a></li>
+                    <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank</a></li>
+                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Pay</a></li>
+                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Sell</a></li>
+                    <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Discount</a></li>
+                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Commission</a></li>
+                    <li role="presentation"><a href="#tab10" role="tab" data-toggle="tab" data-section="tab10" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Accounts</a></li>
+                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Ledger</a></li>
+                </ul>
+                <div class="tab-content">
+                    @*Search Agent*@
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="txtTagSearch">Tag Search</label>
+                                        <input type="text" id="txtTagSearch" class="form-control" placeholder="Tag Search" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtTagSearch">Criteria</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">None</option>
+                                            <option>At</option>
+                                            <option>Between</option>
+                                            <option>Less than</option>
+                                            <option>Less than or equal</option>
+                                            <option>At Month</option>
+                                            <option>Between Month</option>
+                                            <option>More than</option>
+                                            <option>More than or equal</option>
+                                            <option>At Quater</option>
+                                            <option>Between Quater</option>
+                                            <option>At Year</option>
+                                            <option>Between Year</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtTagSearch">Search By</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Created date</option>
+                                            <option>Updated date</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="txtTagSearch">From</label>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">2016</option>
+                                                    <option>2015</option>
+                                                    <option>2014</option>
+                                                    <option>2013</option>
+                                                    <option>2012</option>
+                                                    <option>2011</option>
+                                                    <option>2010</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">January</option>
+                                                    <option>February</option>
+                                                    <option>March</option>
+                                                    <option>April</option>
+                                                    <option>May</option>
+                                                    <option>June</option>
+                                                    <option>July</option>
+                                                    <option>August</option>
+                                                    <option>September</option>
+                                                    <option>October</option>
+                                                    <option>November</option>
+                                                    <option>December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound">200 Records found</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" aria-expanded="false">
+                                            <span class="icon-grid"></span>
+                                        </a>
+                                        <ul class="dropdown-menu cate-drop-menu">
+                                            <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                            <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-target="#myModal" data-toggle="modal">Change View</a> </li>
+                                        </ul>
+                                        <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <br />
+                                                        <div class="model-left-columns">
+                                                            <div class="field-name">
+                                                                <h3>View <a href="#"></a></h3>
+                                                                <ul id="ulViewList" class="field-list slimscroll">
+                                                                    <li><a href="#">View 1</a></li>
+                                                                    <li><a href="#">View 2</a></li>
+                                                                    <li><a href="#">View 3</a></li>
+                                                                    <li><a href="#">View 4</a></li>
+                                                                    <li><a href="#">View 5</a></li>
+                                                                    <li><a href="#">View 6</a></li>
+                                                                    <li><a href="#">View 7</a></li>
+                                                                    <li><a href="#">View 8</a></li>
+                                                                    <li><a href="#">View 9</a></li>
+                                                                    <li><a href="#">View 10</a></li>
+                                                                    <li><a href="#">View 11</a></li>
+                                                                    <li><a href="#">View 12</a></li>
+                                                                    <li><a href="#">View 13</a></li>
+                                                                    <li><a href="#">View 14</a></li>
+                                                                    <li><a href="#">View 15</a></li>
+                                                                    <li><a href="#">View 16</a></li>
+                                                                    <li><a href="#">View 17</a></li>
+                                                                    <li><a href="#">View 18</a></li>
+                                                                    <li><a href="#">View 19</a></li>
+                                                                    <li><a href="#">View 20</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="field-name">
+                                                                <h3>Field Name <a href="#">Add all</a></h3>
+                                                                <div class="field-list slimscroll">
+                                                                    <ul>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                        <li><a href="#">Field 1</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="drag-drop-right">
+                                                            <section>
+                                                                <h2>Drag and drop reorder</h2>
+                                                                <div class="cf nestable-lists">
+                                                                    <ol class="sortable">
+                                                                        <li id="list_1">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 1<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_4">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 2<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_5">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 3<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_9">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 4<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_10">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 5<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_11">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 6<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_12">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 7<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                        <li id="list_13">
+                                                                            <div><span class="disclose"><span></span></span>Gadget 8<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                        </li>
+                                                                    </ol>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success ">Apply</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Agent Name</th>
+                                            <th>Type of Agent</th>
+                                            <th>Star Rating</th>
+                                            <th>Updated By</th>
+                                            <th>Updated Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Agent Name</th>
+                                            <th>Type of Agent</th>
+                                            <th>Star Rating</th>
+                                            <th>Updated By</th>
+                                            <th>Updated Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th colspan="2">
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 4%">1</td>
+                                            <td style="width: 20%"><span>Amari Ocean Pattaya </span></td>
+                                            <td style="width: 15%"><span>Agent</span></td>
+                                            <td style="width: 10%"><span>4.2</span></td>
+                                            <td style="width: 10%"><span>Barry Alen</span></td>
+                                            <td style="width: 10%"><span>26-02-2016</span></td>
+                                            <td style="width: 10%"><span class="label label-success Agentstatus" data-value="Active" data-source="[{value:'1',text:'Active'},{value:'2',text:'Inactive'}]" data-type="select">Active</span></td>
+                                            <td style="width: 21%;">
+                                                <a href="#" rel="tooltip" title="FOC Rules"><i class="fa fa-pencil-square-o text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    @*Create Agent*@
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="col-md-8">
+                            <form>
+                                <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Basic Details - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtAgentName">Agent Code </label>
+                                            <input type="text" class="form-control req" id="txtAgentName" readonly value="HOTLE-5-0-1" placeholder="Agent Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAgentName">Operating Branch</label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Pattaya</option>
+                                                <option>Bangkok</option>
+                                                <option>Phuket</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAgentName">Agent Name <span>*</span></label>
+                                    <input type="text" class="form-control req" id="txtAgentName" value="Amari Ocean Pattaya" placeholder="Agent Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="drpTypeOfAgent">Agent Category<span>*</span></label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Company</option>
+                                                <option>Person</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpTypeOfAgent">Agent Type<span>*</span></label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">A</option>
+                                                <option>A+</option>
+                                                <option>A++</option>
+                                                <option>B</option>
+                                                <option>B+</option>
+                                                <option>B++</option>
+                                                <option>C</option>
+                                                <option>C+</option>
+                                                <option>C++</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpStarRating">Star Rating </label>
+                                            <select id="drpStarRating" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpOperatingCurrency">Operating Currency </label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">THB</option>
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtAgentName">Credit Limit</label>
+                                            <input type="text" class="form-control req" id="txtCreditLimit" value="10000" placeholder="Credit Limit">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="drpOperatingCurrency">Credit Limit Currency </label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">THB</option>
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtEffectiveDate">Effective Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <label>&nbsp;</label>
+                                            <a class="btn btn-success" rel="tooltip" title="View / Change History" style="padding: 7px 12px 5px 12px;"><span class="fa fa-bars"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkDifferentAddress">Credit Limit Monthly?
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtAgentName">Invoice Genration Currency</label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" multiple style="display: none; width: 100%">
+                                                <option selected="selected">THB</option>
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtAgentName">Applicable Bank Fee</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control" id="timepicker4">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtAgentName">Cancel Days</label>
+                                            <input type="text" class="form-control req" id="txtCancelDays" value="2" placeholder="Cancel Days">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
+                                    <input type="text" class="form-control req email" id="txtOfficialEmail" value="info@amarioceanpattaya.com" placeholder="Official Email(s)">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code<span>*</span></label>
+                                            <input type="text" class="form-control col-sm-5" value="+66" id="txtCountryCode" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label for="txtOfficialPhone">Official Phone <span>*</span></label>
+                                            <input type="text" class="form-control col-sm-5" id="txtOfficialPhone" value="38418418" placeholder="Official Phone">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label for="txtFax">Fax</label>
+                                            <input type="text" class="form-control" id="txtFax" placeholder="Fax">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtLogo">Logo </label>
+                                    <input type="text" class="form-control" id="txtLogo" placeholder="Logo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtWebsite">Website </label>
+                                    <input type="text" class="form-control" value="http://www.amari.com/ocean-pattaya/" id="txtWebsite" placeholder="Website">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtPrimaryContactPerson">Primary Contact Person </label>
+                                            <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Status</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Active</option>
+                                                <option>Inactive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtRemarks">Remarks </label>
+                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                </div>
+
+                                <h3 class="section-headers tab2section4"><span class="section-index">2</span>&nbsp;Agent Overview</h3>
+                                <div class="form-group">
+                                    <label for="txtNumberOfLocation"># Of Location</label>
+                                    <input type="text" class="form-control" id="txtNumberOfLocation" placeholder="# Of Location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpCompanySize">Company Size</label>
+                                    <select id="drpCompanySize" class="form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtCompanyDescription">Company Description</label>
+                                    <input type="text" class="form-control" id="txtCompanyDescription" placeholder="Number Of Location">
+                                </div>
+
+                                <h3 class="section-headers tab2section2"><span class="section-index">3</span>&nbsp;Agent Address - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtAgentLocation">Agent Location (Landmark) </label>
+                                    <input type="text" class="form-control" id="txtAgentLocation" value="Pattaya Beach Road" placeholder="Agent Location (Landmark)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Address Line 1 </label>
+                                    <input type="text" class="form-control" id="txtAddressLine1" value="240 Moo 5" placeholder="Address Line 1 ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine2">Address Line 2 </label>
+                                    <input type="text" class="form-control" id="txtAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Address Line 2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtCity">City </label>
+                                            <input type="text" class="form-control" value="Chonburi" id="txtCity" placeholder="City">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtState">State</label>
+                                            <input type="text" class="form-control" value="Pattaya Central" id="txtState" placeholder="State">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtCountry">Country</label>
+                                            <input type="text" class="form-control" value="Thailand" id="txtCountry" placeholder="Country">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtZipCode">Zip/Postal Code</label>
+                                            <input type="text" class="form-control" id="txtZipCode" value="20150" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-headers tab2section3"><span class="section-index">4</span>&nbsp;Auto-Email On Event - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox" checked="checked" id="chkQuote">Quote
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox" checked="checked" id="chkBook">Book
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox" id="chkConfirm">Confirm
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox" checked="checked" id="chkReconfirm">Reconfirm
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox" checked="checked" id="chkInvoiceGeneration">Invoice Generation
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox" checked="checked" id="chkAmendments">Amendments
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <h3 class="section-headers tab2section4"><span class="section-index">5</span>&nbsp;Whitelabel Criterias</h3>
+                                <div class="form-group">
+                                    <label for="txtAgentName">Whitelabel</label>
+                                    <select id="drpWhitelabel" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">--None--</option>
+                                        <option>Full Whitelabel</option>
+                                        <option>Semi Whitelabel</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Quotation
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Vouchers
+                                        </div>
+                                        <div class="col-md-4 form-marings">
+                                            <input type="checkbox">Tour Itenaries
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSaveCreateAgent" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnUpdateCreateAgent" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancelCreateAgent" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnClearCreateAgent" type="button" class="btn btn-warning btnSave">
+                                    CREATE NEW</button>
+                                <button id="btnQuitCreateAgent" type="button" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-4  summery-detail summery-uitilities-detail summerytab2">
+                            <ul class="wrapper">
+                                <li class="content utilities">
+                                    <h4 class="panel-title-summery">Utilities <span class="summery-nav-btn active next fa fa-chevron-right"></span>&nbsp;<span class="summery-nav-btn prev fa fa-chevron-left"></span></h4>
+                                    <div class="libody">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="summery-body  utility-panel  ">
+                                                    <ul class="utility-list">
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="task">&nbsp;</i><br />
+                                                                Task
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="noti">&nbsp;</i><br />
+                                                                Notifications
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="cal">&nbsp;</i><br />
+                                                                Calendar
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="e-mail">&nbsp;</i><br />
+                                                                Email
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="sms">&nbsp;</i><br />
+                                                                SMS
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="notes">&nbsp;</i><br />
+                                                                Notes
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="tages">&nbsp;</i><br />
+                                                                Tags
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="help-video">&nbsp;</i><br />
+                                                                Help Video
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="guided-tour">&nbsp;</i><br />
+                                                                Guided Tour
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="copy">&nbsp;</i><br />
+                                                                Copy
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="print">&nbsp;</i><br />
+                                                                Print
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="updates">&nbsp;</i><br />
+                                                                Updates
+                                                            </a>
+                                                        </li>
+                                                        <li>
+
+                                                            <a href="#">
+                                                                <i class="screns">&nbsp;</i><br />
+                                                                Screenshot
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="content summery">
+                                    <h4 class="panel-title-summery">Summery <span class="summery-nav-btn next  fa fa-chevron-right"></span>&nbsp;<span class="summery-nav-btn active prev  fa fa-chevron-left"></span></h4>
+                                    <div class="libody summery-body">
+                                        <div class="summ-lis-height ">
+                                            <ul class="summery-list slimscroll" style="padding: 10px;">
+                                                <li>Corporate Company Official Name:<br />
+                                                    <a href="#" class="invalid-red">Lorem Ipsum <i>&nbsp;</i></a>
+                                                </li>
+                                                <li>Agent Name :<br />
+                                                    <a href="javascript:void(0);" class="invalid-red">@*  / valid-green *@
+                                                        <label id="lblAgentName" for="txtAgentName">Agent Name</label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Type Of Agent :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="valid-green">@* invalid-red /  *@
+                                                        <label id="lblTypeOfAgent" for="drpTypeOfAgent">Type Of Agent</label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Star Rating :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblStarRating" for="drpStarRating"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Operating Currency :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="summery-buttons" style="margin: 0 10px;">
+                                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                SAVE</button>
+                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                UPDATE</button>
+                                            <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                DELETE</button>
+                                            <p>
+                                                Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    @*User*@
+                    <div role="tabpanel" class="tab-pane" id="tab9">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab9section1">User - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtFirstName">Name <span>*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Sarawut" placeholder="First Name" data-label="lblFirstName">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Engchawadechasilp" placeholder="Last Name" data-label="lblLastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpDesignation">Department <span>*</span></label>
+                                    <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Room Service</option>
+                                        <option>Reception</option>
+                                        <option selected="selected">Transfer</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpDesignation">Designation <span>*</span></label>
+                                    <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Admin</option>
+                                        <option>Receptionist</option>
+                                        <option selected="selected">Manager</option>
+                                        <option>Chef</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label for="txtAgentUserEmail">Email (User Name) <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtAgentUserEmail" value="sarawut.engchawadechasilp@gmail.com" placeholder="Email(User Name)">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <label for="txtAgentUserEmail">&nbsp;</label>
+                                                <div class="col-md-12 form-marings">
+                                                    <input type="checkbox" checked="checked" id="chkQuote">Create System User
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAgentUserPassword">Password <span>*</span></label>
+                                    <input type="Password" class="form-control " value="test@123" id="txtAgentUserPassword" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtConfirmAgentUserPassword">Confirm Password</label>
+                                    <input type="Password" class="form-control" value="test@123" id="txtConfirmAgentUserPassword" placeholder="Confirm Password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCountry" value="+66" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label for="txtTelephone">Telephone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtTelephone" value="38645465" placeholder="Telephone">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtExtn">Extn.</label>
+                                            <input type="text" class="form-control" id="txtExtn" placeholder="Extn">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label for="txtCellPhone">Cell Phone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtCellPhone" placeholder="Cell Phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtFaxCode" placeholder="Code">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label for="txtCellPhone">Fax</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtUserFax" placeholder="Fax">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPicture">Picture </label>
+                                    <input type="text" class="form-control" id="txtPicture" placeholder="Picture">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpStatus">Status </label>
+                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Active</option>
+                                        <option>Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarks">Remarks </label>
+                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab9">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>First Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAgentName" for="txtAgentName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Last Name :<br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAgentName" for="txtAgentName"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Email (User Name) :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblTypeOfAgent" for="drpTypeOfAgent"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+                                                    <li>Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Designation :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Billing / Bank*@
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Billing - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtBillingName">Billing Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtBillingName" value="Amari Pattaya" placeholder="Billing Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
+                                    <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Billing Address Line 1 </label>
+                                    <input type="text" class="form-control" id="txtBillingAddressLine1" value="240 Moo 5" placeholder="Billing Address Line 1 ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAddressLine2">Billing Address Line 2 </label>
+                                    <input type="text" class="form-control" id="txtBillingAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Billing Address Line 2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtBillingCity">Billing City </label>
+                                            <input type="text" class="form-control" id="txtBillingCity" value="Chonburi" placeholder="Billing City">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingState">Billing State</label>
+                                            <input type="text" class="form-control" id="txtBillingState" value="Pattaya Central" placeholder="Billing State">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingCountry">Billing Country</label>
+                                            <input type="text" class="form-control" id="txtBillingCountry" value="Thailand" placeholder="Billing Country">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
+                                            <input type="text" class="form-control" id="txtBillingZipCode" value="20150" placeholder="Billing Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Billing Email </label>
+                                    <input type="text" class="form-control" id="txtBillingEmail" value="billing@amarioceanpattaya.com" placeholder="Billing Email">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" value="+66" placeholder="Billing Code">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label for="txtTelephone">Billing Telephone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingTelephone" value="38418418" placeholder="Billing Telephone">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtExtn">Billing Extn.</label>
+                                            <input type="text" class="form-control" id="txtBillingExtn" placeholder="Billing Extn">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="drpCountry">Billing Code</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label for="txtCellPhone">Billing Cell Phone</label>
+                                            <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarks">Remarks </label>
+                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                </div>
+
+                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Bank - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Type </label>
+                                    <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Saving</option>
+                                        <option>Current</option>
+                                        <option>None</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Number </label>
+                                    <input type="text" class="form-control" id="txtAccountNumber" placeholder="Account Number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Account Name </label>
+                                    <input type="text" class="form-control" id="txtAccountName" placeholder="Account Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Bank Name </label>
+                                            <input type="text" class="form-control" value="Bangkok Bank" id="txtBankName" placeholder="Bank Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBillingEmail">Bank Branch </label>
+                                            <input type="text" class="form-control" value="Banglamung Branch" id="txtBankBranch" placeholder="Bank Branch">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Bank Address </label>
+                                    <textarea class="form-control" cols="5" id="txtBankAddress">44, Naklua Road 44 Moo 5 North Pattaya</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtBillingEmail">Swift Code / Sort Code </label>
+                                    <input type="text" class="form-control" id="txtSwiftCode" value="BKKBTHBKTRD" placeholder="Swift Code / Sort Code">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarks">Remarks </label>
+                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab3">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Billing Name 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Contact Person  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Address Line 1 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing City :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing State :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblState" for="txtState"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+
+                                                    <li>Billing Country :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCountry" for="txtCountry"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Zip/Postal Code :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblZipCode" for="txtZipCode"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Email :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Pay*@
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab4section1">Pay - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Natinality Set</label>
+                                    <select id="drpOperatingCurrency" class="js-states form-control" multiple style="display: none; width: 100%">
+                                        <option selected="selected">Asian</option>
+                                        <option>Austrailian</option>
+                                        <option>Europian</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtBillingContactPerson">Credit Days</label>
+                                            <input type="text" class="form-control" id="txtCreaditDays" placeholder="Creadit Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtAddressLine1">Currency</label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">THB</option>
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtAddressLine1">Payment Type</label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Bank Transfer</option>
+                                                <option>Cash</option>
+                                                <option>Credit Card</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingName">VAT Type <span>*</span></label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Include</option>
+                                                <option selected="selected">Excluded</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine2">Tax (%) </label>
+                                            <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine1">Withholding Tax</label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Include</option>
+                                                <option selected="selected">Excluded</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine2">Tax (%) </label>
+                                            <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarks">Remarks </label>
+                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyPayGrid">SEARCH</a>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab3">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Billing Name 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Contact Person  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Address Line 1 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing City :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing State :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblState" for="txtState"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+
+                                                    <li>Billing Country :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCountry" for="txtCountry"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Zip/Postal Code :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblZipCode" for="txtZipCode"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Email :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Sell*@
+                    <div role="tabpanel" class="tab-pane" id="tab5">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab4section2">&nbsp;Sell - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtAddressLine1">Natinality Set</label>
+                                    <select id="drpOperatingCurrency" class="js-states form-control" multiple style="display: none; width: 100%">
+                                        <option selected="selected">Asian</option>
+                                        <option>Austrailian</option>
+                                        <option>Europian</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="txtBillingContactPerson">Credit Days</label>
+                                            <input type="text" class="form-control" id="txtCreaditDays" placeholder="Creadit Days">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtAddressLine1">Currency</label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">THB</option>
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="txtAddressLine1">Payment Type</label>
+                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Bank Transfer</option>
+                                                <option>Cash</option>
+                                                <option>Credit Card</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtBillingName">VAT Type <span>*</span></label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Include</option>
+                                                <option selected="selected">Excluded</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine2">Tax (%) </label>
+                                            <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine1">Withholding Tax</label>
+                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                                <option>Include</option>
+                                                <option selected="selected">Excluded</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine2">Tax (%) </label>
+                                            <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarks">Remarks </label>
+                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MySellGrid">SEARCH</a>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab3">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
+                                            <div class="summ-list-div">
+                                                <div class="summ-list-left">
+                                                    <li>Billing Name 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Contact Person  :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Address Line 1 
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing City :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCity" for="txtCity"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing State :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblState" for="txtState"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="summ-list-right">
+
+                                                    <li>Billing Country :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblCountry" for="txtCountry"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Zip/Postal Code :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblZipCode" for="txtZipCode"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Email :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblStarRating" for="drpStarRating"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Telephone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                    <li>Billing Cell Phone :
+                                                    <br />
+                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
+                                                            <i>&nbsp;</i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <ul class="summery-list slimscroll">
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Ledger*@
+                    <div role="tabpanel" class="tab-pane" id="tab6">
+                        <div class="col-md-7">
+                            <form>
+                            </form>
+                        </div>
+                    </div>
+                    @*Discount*@
+                    <div role="tabpanel" class="tab-pane" id="tab7">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab2section1">Discount - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Discount For</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Accommodation</option>
+                                                <option>Coach</option>
+                                                <option>Guide</option>
+                                                <option>Driver</option>
+                                                <option>Meal</option>
+                                                <option>Transport</option>
+                                                <option>Sightseeing</option>
+                                                <option>Agent</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Discount Type</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Amount</option>
+                                                <option>Percentage</option>
+                                                <option>Amount / Room / Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpTypeOfAgent">Value</label>
+                                    <input type="text" class="form-control" id="txtValue" placeholder="Value">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEffectiveDate">Effective Date</label>
+                                    <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                            </form>
+                        </div>
+                    </div>
+                    @*Commission*@
+                    <div role="tabpanel" class="tab-pane" id="tab8">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab2section1">Commission - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Commission For</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Accommodation</option>
+                                                <option>Coach</option>
+                                                <option>Guide</option>
+                                                <option>Driver</option>
+                                                <option>Meal</option>
+                                                <option>Transport</option>
+                                                <option>Sightseeing</option>
+                                                <option>Agent</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">Commission Type</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Amount</option>
+                                                <option>Percentage</option>
+                                                <option>Amount / Room / Night</option>
+                                                <option>Amount / File</option>
+                                                <option>Amount / Pax / File</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="drpTypeOfAgent">Value</label>
+                                    <input type="text" class="form-control" id="txtValue" placeholder="Value">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEffectiveDate">Effective Date</label>
+                                    <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                            </form>
+                        </div>
+                    </div>
+                    @*Accounts*@
+                    <div role="tabpanel" class="tab-pane" id="tab10">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab7section1">&nbsp;Accounts - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtAccountingGroup">Accounting Group </label>
+                                    <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtCreditorAccountNonVAT">Creditor Account (Non-VAT) </label>
+                                            <input type="text" class="form-control" id="txtCreditorAccountNonVAT" placeholder="Creditor Account (Non-VAT)" readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtCreditorAccountVAT">Creditor Account (VAT)</label>
+                                            <input type="text" class="form-control" id="txtCreditorAccountVAT" placeholder="Creditor Account (VAT)" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtPayDepositAccount">Pay Deposit Account </label>
+                                            <input type="text" class="form-control" id="txtPayDepositAccount" placeholder="Pay Deposit Account" readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtPayDRNAccount">Pay DRN Account</label>
+                                            <input type="text" class="form-control" id="txtPayDRNAccount" placeholder="Pay DRN Account" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtTaxRegistrationNumber">Tax Registration Number </label>
+                                            <input type="text" class="form-control col-sm-5" id="txtTaxRegistrationNumber" placeholder="Tax Registration Number">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtEffectiveDate">Effective Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
+                                    <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Add FOC Rules*@
+<div class="modal fade" id="MyModalFOCRules" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">FOC Rules</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label># of Pax From</label>
+                    <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Users">
+                </div>
+                <div class="form-group">
+                    <label># of Pax To</label>
+                    <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Users">
+                </div>
+                <div class="form-group">
+                    <label># of FOC Pax</label>
+                    <input type="text" class="form-control" id="txtModalAnyOther" placeholder="Any Other">
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="chkDifferentAddress">Breakfast Charges Applicable?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*User Grid*@
+<div class="modal fade" id="MyUserGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email (Username)</th>
+                                <th>Designation </th>
+                                <th>Status </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email (Username)</th>
+                                <th>Designation </th>
+                                <th>Status </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Sarawut Engchawadechasilp</td>
+                                <td>sarawut.engchawadechasilp@gmail.com</td>
+                                <td>Manager</td>
+                                <td><span class="label label-success Agentstatus">Active</span></td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Room Grid*@
+<div class="modal fade" id="MyRoomGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Room</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Accommodation Type</th>
+                                <th>Room Type</th>
+                                <th>Max Pax</th>
+                                <th># of Rooms</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Accommodation Type</th>
+                                <th>Room Type</th>
+                                <th>Max Pax</th>
+                                <th># of Rooms</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Twin Room</td>
+                                <td>Deluxe Twin Room with Sea View </td>
+                                <td>4</td>
+                                <td>26</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                            @*<tr>
+                                <td>2</td>
+                                <td>Double Room</td>
+                                <td>Double Room</td>
+                                <td>4</td>
+                                <td>26</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>*@
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Function Room Grid*@
+<div class="modal fade" id="MyFunctionRoomGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Function Room</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Function Room Name </th>
+                                <th>Function Type </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Function Room Name </th>
+                                <th>Function Type </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Meetings & Events</td>
+                                <td>Half Day AM, Half Day PM</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Restaurant Grid*@
+<div class="modal fade" id="MyRestaurantGrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Restaurant</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Restaturant Name</th>
+                                <th>Meal Types</th>
+                                <th>Break Fast Time</th>
+                                <th>Lunch Time </th>
+                                <th>Dinner Time </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Restaturant Name</th>
+                                <th>Meal Types</th>
+                                <th>Break Fast Time</th>
+                                <th>Lunch Time </th>
+                                <th>Dinner Time </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mantra Restaurant & Bar</td>
+                                <td>Veg., Vegan, Jain</td>
+                                <td>08:00 AM - 09:00 AM</td>
+                                <td>11:00 AM - 02:00 PM</td>
+                                <td>07:00 PM - 11:00 PM</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Pay Grid*@
+<div class="modal fade" id="MyPayGrid" tabindex="-1" role="dialog" aria-labelledby="myPayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myPayModalLabel">Search Pay</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Natinality Set</th>
+                                <th>Credit Days</th>
+                                <th>Currency </th>
+                                <th>Payment Type </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Natinality Set</th>
+                                <th>Credit Days</th>
+                                <th>Currency </th>
+                                <th>Payment Type </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Asia, Austrailian</td>
+                                <td>2</td>
+                                <td>THB</td>
+                                <td>Bank Transfer</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Sell Grid*@
+<div class="modal fade" id="MySellGrid" tabindex="-1" role="dialog" aria-labelledby="mySellModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="mySellModalLabel">Search Sell</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <div class="dropdown table-custome-drop">
+                        <div class="btn-group">
+                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Excel</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Natinality Set</th>
+                                <th>Credit Days</th>
+                                <th>Currency </th>
+                                <th>Payment Type </th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <a href="#">
+                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Natinality Set</th>
+                                <th>Credit Days</th>
+                                <th>Currency </th>
+                                <th>Payment Type </th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Asia, Europian</td>
+                                <td>4</td>
+                                <td>THB</td>
+                                <td>Case</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.Agentstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+            $('.next').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().next().show();
+                    //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
+                }
+            });
+            $('.prev').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().prev().show();
+                    //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
+                }
+            });
+        });
+    </script>
+}
+
+@section floatingsection{
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Basic Details">1</a>
+        @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Agent Overview">2</a>
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Agent Address">3</a>
+        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Auto-Email On Event">4</a>
+        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Whitelable Criterias">5</a>
+    </div>
+    <div class="floating-section-buttons tab3" style="display: none">
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Bank">2</a>
+    </div>
+}
