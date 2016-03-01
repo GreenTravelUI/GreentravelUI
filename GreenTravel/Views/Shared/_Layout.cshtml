@@ -200,7 +200,7 @@
                     </a>
                 </div>
                 <div class="logo-box">
-                    <a href="index.html" class="logo-text"><img src="/assets/images/logo.png" class="main-logo" height="60" width="200" />
+                    <a href="/Dashboard" class="logo-text"><img src="/assets/images/logo.png" class="main-logo" height="60" width="200" />
                     <img src="/assets/images/logo-small.png" height="60" width="200" class="res-logo" /></a>
                 </div><!-- Logo Box -->
                 <div class="search-button">
@@ -208,7 +208,7 @@
                 </div>
                 <div class="topmenu-outer">
                     <div class="top-menu">
-                        <ul class="nav navbar-nav navbar-left">
+                        <ul class="nav navbar-nav navbar-left" style="display:none">
                             <li>		
                                 <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
                             </li>
@@ -393,7 +393,7 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <span class="user-name">David<i class="fa fa-angle-down"></i></span>
+                                        <span class="user-name">@Session["UserName"] <i class="fa fa-angle-down"></i></span>
                                         <img class="img-circle avatar" src="/assets/images/avatar1.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
@@ -402,7 +402,7 @@
                                          <li role="presentation"><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox <span class="badge badge-success"> 4</span></a></li>
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
-                                        <li role="presentation"><a href="login.html"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                        <li role="presentation"><a href="Dashboard/LogOut"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -445,6 +445,12 @@
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab11">
+                             @*<ul class="menu accordion-menu">
+                                @if (Session["menuString"] != null)
+                                {
+                                   @Html.Raw(Session["menuString"].ToString())
+                                }
+                            </ul>*@
                             <ul class="menu accordion-menu">
                                 <li><a href="@Url.Action("Index", "Dashboard")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span>
                                     <p>Dashboard</p>

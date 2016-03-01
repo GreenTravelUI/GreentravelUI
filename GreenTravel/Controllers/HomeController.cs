@@ -20,6 +20,7 @@ namespace GreenTravel.Controllers
         FormValidationPara frm_para = new FormValidationPara();
         List<Module> Module = new List<Module>();
         List<Screen> Screen = new List<Screen>();
+        string MenuString = "";
         public ActionResult Index(string url = "")
         {
             /* Uncomment it for already login case */
@@ -34,8 +35,8 @@ namespace GreenTravel.Controllers
             ViewBag.CurrentURL = Request.Url.Scheme + "://" + Request.Url.Authority;
             if (ViewBag.CurrentURL == "http://localhost:9359")
             {
+                //ViewBag.CurrentURL = "http://gt.techpure.co.uk";
                 ViewBag.CurrentURL = "http://gt.techpure.co.uk";
-                //ViewBag.CurrentURL = "http://tu.techpure.co.uk";
             }
 
             frm_para.FormType = "LoginPage"; //from_code
@@ -178,8 +179,7 @@ namespace GreenTravel.Controllers
 
         public string LoginUser(FormValidationPara _FormValidationPara)
         {
-           // Session["Corporate"] = "5";
-
+            //Session["Corporate"] = "5";
             if (Session["Corporate"].ToString() != String.Empty)
             {
                 _FormValidationPara.corporate = Session["Corporate"].ToString();
@@ -198,7 +198,7 @@ namespace GreenTravel.Controllers
                         Session["UnitCorpBy"] = ds.Tables[0].Rows[0]["Unit"].ToString();
                         Session["BranchBy"] = ds.Tables[0].Rows[0]["branch"].ToString();
                         Session["Location"] = ds.Tables[0].Rows[0]["Location"].ToString();
-                        setmenu();
+                        //setmenu();
                     }
                     return "1";
                 }
@@ -211,13 +211,9 @@ namespace GreenTravel.Controllers
             {
                 return "0";
             }
-
-
         }
-
         public ActionResult PageLoad(FormValidationPara _FormValidationPara)
         {
-
             DataSet ds = _objDBLogin.GetLoginData(_FormValidationPara);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -233,8 +229,10 @@ namespace GreenTravel.Controllers
             return Content(lst, "application/json");
 
         }
+
         public void setmenu()
         {
+            Session["menuString"] = "";
             frm_para.corporate = Session["Corporate"].ToString();
             frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
             frm_para.type = "menu";
@@ -243,43 +241,66 @@ namespace GreenTravel.Controllers
             {
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    //ViewBag.Menus = ds.Tables[0];
-                    //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-                    //{
-                    //    Module.Add(new Module
-                    //    {
-                    //        ModuleCode = @dr["modulecode"].ToString(),
-                    //        ModuleName = @dr["module"].ToString()
-                    //    });
-                    //}
-                    Session["Menu"] = ds.Tables[0];
-                    var list = Session["Menu"] as List<object>;
+                    ViewBag.Menus = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.Menus.Rows)
+                    {
+                        Module.Add(new Module
+                        {
+                            ModuleName = dr["module"].ToString(),
+                            ModuleCode = dr["modulecode"].ToString(),
+                            Role = dr["Role"].ToString(),
+                        });
+                    }
                 }
-            }
-        }
-
-        public void setScreen()
-        {
-            frm_para.corporate = Session["Corporate"].ToString();
-            frm_para.userid = Convert.ToInt32(Session["CreatedBy"].ToString());
-            frm_para.type = "screen";
-            ds = _objDBLogin.GetLoginData(frm_para);
-            if (ds.Tables[0] != null)
-            {
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds.Tables[1].Rows.Count > 0)
                 {
-                    //ViewBag.Screens = ds.Tables[0];
-                    //foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
-                    //{
-                    //    Screens.Add(new Module
-                    //    {
-                    //        ModuleCode = @dr["modulecode"].ToString(),
-                    //        ModuleName = @dr["module"].ToString()
-                    //    });
-                    //}
-                    Session["Screen"] = ds.Tables[0];
+                    ViewBag.Screens = ds.Tables[1];
+                    foreach (System.Data.DataRow dr in ViewBag.Screens.Rows)
+                    {
+                        Screen.Add(new Screen
+                        {
+                            ModuleCode = dr["modulecode"].ToString(),
+                            ModuleName = dr["ModuleName"].ToString(),
+                            ScreenName = dr["ScreenName"].ToString(),
+                            Screencode = dr["screencode"].ToString(),
+                            VieWright = dr["viewrights"].ToString(),
+                            AddRights = dr["addrights"].ToString(),
+                            updaterights = dr["updaterights"].ToString(),
+                            Deleterights = dr["deleterights"].ToString(),
+                            Roletype = dr["roletype"].ToString()
+                        });
+                    }
                 }
             }
+            foreach (var item in Module)
+            {
+                MenuString += "<li><a href='/Dashboard' class='waves-effect waves-button'><span class='menu-icon glyphicon glyphicon-home'></span><p>Dashboard</p></a></li>";
+                string Default_icon = "glyphicon glyphicon-home";
+                List<Screen> _screen = Screen.Where(m => m.ModuleCode == item.ModuleCode).ToList();
+                if (_screen.Count() > 1)
+                {
+                    MenuString += "<li class=\"droplink\" ><a href=\"javascript:void(0);\" class=\"waves-effect waves-button\"><span class=\"menu-icon " + Default_icon + " \"></span><p>" + item.ModuleName + "</p></a>   <ul class=\"sub-menu\">";
+
+                    foreach (var scn in _screen)
+                    {
+                        MenuString += "<li><a  href='/FormSetup' > " + scn.ScreenName + "</a>"
+                                      + "<input value=" + scn.Screencode + " id=" + scn.ScreenName + " type='hidden'>"
+                                      + "<input value=" + scn.VieWright + " id=" + scn.ScreenName + " type='hidden'>"
+                                      + "<input value=" + scn.AddRights + " id=" + scn.ScreenName + " type='hidden'>"
+                                      + "<input value=" + scn.updaterights + " id=" + scn.ScreenName + " type='hidden'>"
+                                      + "<input value=" + scn.Deleterights + " id=" + scn.ScreenName + " type='hidden'>"
+                                      + "</li>";
+                    }
+                    MenuString += "</ul><input value=" + item.ModuleCode + " id=" + item.ModuleName + " type='hidden'></li>";
+                }
+                else
+                {
+                    MenuString += "<li><a href=\"/Dashboard \" class=\"waves-effect waves-button\"><span class=\"menu-icon " + Default_icon + "\"></span><p>" + _screen[0].ModuleName + "</p></a>"
+                                  + " <input value=" + _screen[0].ModuleCode + " id=" + _screen[0].ModuleName + " type='hidden'></li>";
+                }
+            }
+            Session["menuString"] = MenuString;
         }
+       
     }
 }

@@ -11,7 +11,7 @@ var Frmcode;
 var FrmtabCode
 var standardButton = '';
 var duplicate = '';
-
+var htmlutility = '';
 $(document).ready(function () {
 
     Dropdown_Bind_Tab1();
@@ -648,8 +648,14 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    $('#btnutilityupdate').hide();
-                    $('#btnutilitySave').show();
+                    if (htmlutility == '') {
+                        $('#btnutilityupdate').hide();
+                        $('#btnutilitySave').hide();
+                    }
+                    else {
+                        $('#btnutilitySave').show();
+                        $('#btnutilityupdate').hide();
+                    }
                 }
             }
         });
@@ -1079,11 +1085,9 @@ $(document).ready(function () {
                 }
             }
         }).done(function () {
-            $("#myModalIcon").modal('hide');
-            $('#btnutilityupdate').show();
             $('#btnutilitySave').hide();
+            $("#myModalIcon").modal('hide');
         });
-
     });
 
     /*Quit Button*/
@@ -1092,6 +1096,8 @@ $(document).ready(function () {
         clearForm();
         clearFormTAB();
         Quitform();
+        $('.tab3section1').hide();
+        $('.tab3Formname').text('');
         $('#btnUpdateFS').hide();
         $('#btnSavefs').show();
     });
@@ -1446,7 +1452,7 @@ function getdata() {
 }
 
 function getUtility() {
-    var htmlutility = '';
+    htmlutility = '';
     var Module = '';
     var screen = '';
     var FormCode = '';
