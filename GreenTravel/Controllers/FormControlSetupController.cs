@@ -54,7 +54,7 @@ namespace GreenTravel.Controllers
                     ViewBag.fname = ds.Tables[0];
                     foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
                     {
-                        items.Add(new CommanDropdown { Text = @dr["xname"].ToString(), Value = @dr["xcode"].ToString() });
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["xcode"].ToString() });
                     }
                 }
                 var result = items;
@@ -65,6 +65,30 @@ namespace GreenTravel.Controllers
                 throw;
             }
         }
+
+        public ActionResult FromName_Corporate(commanbaseParamater CBP)
+        {
+            try
+            {
+                DataSet ds = _objDCFS.BindDropDown(CBP);
+                List<CommanDropdown> items = new List<CommanDropdown>();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.fname = ds.Tables[0];
+                    foreach (System.Data.DataRow dr in ViewBag.fname.Rows)
+                    {
+                        items.Add(new CommanDropdown { Text = dr["xname"].ToString(), Value = dr["Corporate"].ToString() });
+                    }
+                }
+                var result = items;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public ActionResult BindDropDownLoadColumn(CommanFieldPara _CBP)
         {
             try
@@ -100,15 +124,15 @@ namespace GreenTravel.Controllers
                     {
                         items.Add(new GridFromControlDisplay
                         {
-                            RowNumber = @dr["RowNumber"].ToString(),
-                            corporate = @dr["corporate"].ToString(),
-                            Features = @dr["Features"].ToString(),
-                            Module = @dr["Module"].ToString(),
-                            Form = @dr["Form"].ToString(),
-                            Tab = @dr["Tab"].ToString(),
-                            Section = @dr["Section"].ToString(),
-                            Controls = @dr["Control"].ToString(),
-                            Srno = @dr["Srno"].ToString()
+                            RowNumber = dr["RowNumber"].ToString(),
+                            corporate = dr["corporate"].ToString(),
+                            Features = dr["Features"].ToString(),
+                            Module = dr["Module"].ToString(),
+                            Form = dr["Form"].ToString(),
+                            Tab = dr["Tab"].ToString(),
+                            Section = dr["Section"].ToString(),
+                            Controls = dr["Control"].ToString(),
+                            Srno = dr["Srno"].ToString()
                         });
                     }
                 }
@@ -133,24 +157,24 @@ namespace GreenTravel.Controllers
                     {
                         frmsetup.Add(new FrmControlSetup
                         {
-                            TabCode = @dr["TabCode"].ToString(),
-                            SectionCode = @dr["SectionCode"].ToString(),
-                            Corporate = @dr["Corporate"].ToString(),
-                            FieldControlLabel = @dr["FieldControlLabel"].ToString(),
-                            ControlId = @dr["ControlId"].ToString(),
-                            FieldControlType = @dr["FieldControlType"].ToString(),
-                            ValidationCode = @dr["ValidationCode"].ToString(),
-                            PlaceholderText = @dr["PlaceholderText"].ToString(),
-                            TooltipHelpText = @dr["TooltipHelpText"].ToString(),
-                            RequiredField = @dr["RequiredField"].ToString(),
-                            ReqValidationMsg = @dr["ReqValidationMsg"].ToString(),
-                            ReglarExField = @dr["ReglarExField"].ToString(),
-                            RegexValidationMsg = @dr["RegexValidationMsg"].ToString(),
-                            GuidedTourText = @dr["GuidedTourText"].ToString(),
-                            GuidedTourStepNo = @dr["GuidedTourStepNo"].ToString(),
-                            FieldOrderNumber = @dr["FieldOrderNumber"].ToString(),
-                            FieldCaptionName = @dr["FieldCaptionName"].ToString(),
-                            Srno = @dr["Srno"].ToString()
+                            TabCode = dr["TabCode"].ToString(),
+                            SectionCode = dr["SectionCode"].ToString(),
+                            Corporate = dr["Corporate"].ToString(),
+                            FieldControlLabel = dr["FieldControlLabel"].ToString(),
+                            ControlId = dr["ControlId"].ToString(),
+                            FieldControlType = dr["FieldControlType"].ToString(),
+                            ValidationCode = dr["ValidationCode"].ToString(),
+                            PlaceholderText = dr["PlaceholderText"].ToString(),
+                            TooltipHelpText = dr["TooltipHelpText"].ToString(),
+                            RequiredField = dr["RequiredField"].ToString(),
+                            ReqValidationMsg = dr["ReqValidationMsg"].ToString(),
+                            ReglarExField = dr["ReglarExField"].ToString(),
+                            RegexValidationMsg = dr["RegexValidationMsg"].ToString(),
+                            GuidedTourText = dr["GuidedTourText"].ToString(),
+                            GuidedTourStepNo = dr["GuidedTourStepNo"].ToString(),
+                            FieldOrderNumber = dr["FieldOrderNumber"].ToString(),
+                            FieldCaptionName = dr["FieldCaptionName"].ToString(),
+                            Srno = dr["Srno"].ToString()
                         });
                     }
                 }

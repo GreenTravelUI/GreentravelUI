@@ -9,6 +9,7 @@ var EventClass;
 var deletesrno;
 var Frmcode;
 var FrmtabCode
+var standardButton = '';
 
 $(document).ready(function () {
 
@@ -19,8 +20,8 @@ $(document).ready(function () {
     $('#frmsection').click(function (e) {
         if ($('#txtSrNo1').val() != '') {
             getdatatab();
-            $('.tab3section1').show();
-            $('.tab3Formname').text($('#txtFormName').val());
+            //$('.tab3section1').show();
+            //$('.tab3Formname').text($('#txtFormName').val());
         }
         else {
             e.preventDefault();
@@ -42,7 +43,7 @@ $(document).ready(function () {
             Quitform();
             return false;
         } else {
-            $('.tab3Formname').text($('#txtFormName').val())
+            // $('.tab3Formname').text($('#txtFormName').val());
         }
     });
 
@@ -110,6 +111,7 @@ $(document).ready(function () {
                 }
                 $('.tab3section1').show();
                 $('.tab3Formname').text($('#txtFormName').val());
+
                 swal(Message, '', EventClass);
             }
         });
@@ -212,6 +214,9 @@ $(document).ready(function () {
         var Attribute9 = '';
         var Attribute10 = '';
         var srno = '';
+        if (standardButton == "Edit") {
+            srno = FrmtabCode;
+        }
         var CorporateId = $('#drpCorporate1 option:selected').val();
         var FormCode = $('#txtSrNo1').val();
         var TabCode = FrmtabCode;
@@ -285,7 +290,6 @@ $(document).ready(function () {
         }
         var FormQuitNotification = false;
         var FormQuitTask = false;
-
         $.ajax(
            {
                type: "POST",
@@ -429,10 +433,12 @@ $(document).ready(function () {
                 $("#tblModalIconCustom tbody").html('');
                 $('#btnstandardbutton').show();
                 $('#btnSave22').hide();
+                standardButton = '';
                 clearcheckbocstandardbutton();
                 if (response['AFrmStandardbtn'].length > 0) {
                     $('#btnstandardbutton').hide();
                     $('#btnSave22').show();
+                    standardButton = "Edit";
                     //   $('#txtMasterCode').val(response['AFrmStandardbtn'][0]['xmaster']);
                     $('#txtSaveName').val(response['AFrmStandardbtn'][0]['SaveName']);
                     $('#txtSaveClass').val(response['AFrmStandardbtn'][0]['SaveClass']);
@@ -558,23 +564,23 @@ $(document).ready(function () {
                         if (html == '') {
                             html = '<tr>' +
                                    '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
-                                   '<td><div class="form-group"> <input type="text" class="form-control req" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></div></td>' +
-                                   '<td> <div class="form-group"><input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></div></td>' +
+                                   '<td><div class="form-group"> <input type="text" class="form-control req" placeholder="Custom Name" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></div></td>' +
+                                   '<td> <div class="form-group"><input type="text" class="form-control" placeholder="Custom Class"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></div></td>' +
                                    '<td>' + Customvisi + '</td>' +
                                    '<td>' + CustomNoti + '</td>' +
                                    '<td>' + CustomT + '</td>' +
-                                   '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
+                                   '<td style="display: none"> <input type="text" placeholder="Custom Class" class="form-control"  value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
                                    '</tr>'
                         } else {
                             html += '<tr>' +
                                    '<td>' + response['ACustomMaster'][i]['Rownumber'] + '</td>' +
                                    '<td><div class="form-group"> <input type="text" class="form-control req" value="' + response['ACustomMaster'][i]['CustomName'] + '" /></div></td>' +
-                                   '<td><div class="form-group"> <input type="text" class="form-control"  value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></div></td>' +
+                                   '<td><div class="form-group"> <input type="text" class="form-control" placeholder="Custom Class"   value="' + response['ACustomMaster'][i]['CustomClass'] + '" /></div></td>' +
                                    '<td>' + Customvisi + '</td>' +
                                    '<td>' + CustomNoti + '</td>' +
                                    '<td>' + CustomT + '</td>' +
-                                   '<td> <input type="text" placeholder="Custom Class" class="form-control" value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
-                                   '<td><a id="btnCloseCustomsection" class="text-danger in-editmode" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
+                                   '<td style="display: none"> <input type="text" placeholder="Custom Class" class="form-control"  value="' + response['ACustomMaster'][i]['srno'] + '" /></td>' +
+                                   '<td><a id="btnCloseCustomsection" class="text-danger in-editmode btnCloseCustomsection" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                                    '</tr>'
                         }
                     }
@@ -583,13 +589,13 @@ $(document).ready(function () {
                 else {
                     customID = response['ACustomMaster'].length + 1;
                     var html = '<tr>' +
-                               '<td>' + customID + '</td>' +
+                               '<td class="tdrearrenage">' + customID + '</td>' +
                                '<td><div class="form-group"><input type="text" placeholder="Custom Name"  class="form-control req" /></div></td>' +
                                '<td><div class="form-group"> <input type="text" placeholder="Custom Class"  class="form-control" /></div></td>' +
                                '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                                '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
-                               '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
+                               '<td style="display: none"> <input type="text" placeholder="Custom Class" class="form-control"  /></td>' +
                                '<td></td>' +
                                '</tr>'
                     $(html).appendTo($("#tblModalIconCustom"))
@@ -660,15 +666,15 @@ $(document).ready(function () {
                             html = '<tr>' +
                                    '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                    '<td><div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
-                                   '<td><div class="form-group"><input type="text" class="form-control req"  value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
+                                   '<td style="display: none"><div class="form-group"><input type="text" class="form-control "  value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
                                    '<td></td>' +
                                    '</tr>';
                         } else {
                             html += '<tr>' +
                                 '<td>' + response['ASectionMaster'][i]['rownumber'] + '</td>' +
                                 '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" value="' + response['ASectionMaster'][i]['SectionName'] + '" /></div></td>' +
-                                '<td> <div class="form-group"><input type="text" class="form-control req" value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
-                                '<td><a id="btnDeleteSection" class="text-danger in-editmode" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
+                                '<td style="display: none" > <div class="form-group"><input type="text" class="form-control " value="' + response['ASectionMaster'][i]['srno'] + '" /></div></td>' +
+                                '<td><a id="btnDeleteSection" class="text-danger in-editmode btnDeleteSection" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                                 '</tr>';
                         }
                     }
@@ -678,7 +684,7 @@ $(document).ready(function () {
                     var html = '<tr>' +
                                '<td>' + ID + '</td>' +
                                '<td> <div class="form-group"><input type="text" placeholder="Section Name"  class="form-control req" id="txtsection' + ID + '"/></div></td>' +
-                               '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
+                               '<td  style="display: none"> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
                                '<td></td>' +
                                '</tr>'
                     $(html).appendTo($("#tblModalSection"))
@@ -775,7 +781,7 @@ $(document).ready(function () {
         addRow();
     });
 
-    $("table").delegate('#btnDeleteSection', 'click', function () {
+    $("table").delegate('.btnDeleteSection', 'click', function () {
         var control = $(this);
         swal({
             title: 'Are you sure?',
@@ -819,6 +825,7 @@ $(document).ready(function () {
               'success'
             );
             control.parent().parent().remove();
+            RearrangeSection();
         });
     });
 
@@ -886,7 +893,7 @@ $(document).ready(function () {
         addRowCustom();
     });
 
-    $("table").delegate('#btnCloseCustomsection', 'click', function () {
+    $("table").delegate('.btnCloseCustomsection', 'click', function () {
         var control = $(this);
         swal({
             title: 'Are you sure?',
@@ -932,6 +939,7 @@ $(document).ready(function () {
               'success'
             );
             control.parent().parent().remove();
+            addRowRearrange();
         });
     });
 
@@ -1116,33 +1124,60 @@ $(document).ready(function () {
             $(this).children().children().attr('checked', true);
         }
     });
+
+    $("#txtTabNumber").change(function () {
+
+    });
+    $("#txtTabHeader").change(function () {
+
+    });
+
 });
 
+
+function tabsrno_Header() {
+
+}
+
 function addRowCustom() {
+    customID = $('#tblModalIconCustom').find('tbody tr').length + 1;
     var html = '<tr>' +
-                '<td>' + customID + '</td>' +
+                '<td class="tdrearrenage">' + customID + '</td>' +
                 '<td><div class="form-group"><input type="text" placeholder="Custom Name"  class="form-control req" /></div></td>' +
                 '<td><div class="form-group"> <input type="text" placeholder="Custom Class"  class="form-control" /></div></td>' +
                 '<td> <div class="checker"> <span><input type="Checkbox" class="form-control" /></span></div></td>' +
                 '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
                 '<td><div class="checker"> <span> <input type="Checkbox" class="form-control" /></span></div></td>' +
-                '<td> <input type="text" placeholder="Custom Class" class="form-control" /></td>' +
-                '<td><a id="btnCloseCustomsection" class="text-danger" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
+                '<td style="display: none"> <input type="text" placeholder="Custom Class" class="form-control"  /></td>' +
+                '<td><a id="btnCloseCustomsection" class="text-danger btnCloseCustomsection" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalIconCustom"))
-    customID++;
+  //  customID++;
 
 }
 
+function addRowRearrange() {
+    $('#tblModalIconCustom').find('tbody tr').each(function (index) {
+        $(this).children(':eq(0)').text(index+1);
+    }); 
+}
+
 function addRow() {
+    ID = $('#tblModalSection').find('tbody tr').length + 1;
     var html = '<tr>' +
                 '<td>' + ID + '</td>' +
                 '<td> <div class="form-group"><input type="text" placeholder="Section Name" class="form-control req" id="txtsection' + ID + '"/></div></td>' +
-                '<td> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
-                '<td><a id="btnDeleteSection" class="text-danger" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
+                '<td style="display: none"> <div class="form-group"><input type="text"  class="form-control " /></div></td>' +
+                '<td><a id="btnDeleteSection" class="text-danger btnDeleteSection" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalSection"))
-    ID++;
+   // ID++;
+}
+
+function RearrangeSection() {
+    $('#tblModalSection').find('tbody tr').each(function (index) {
+        $(this).children(':eq(0)').text(index + 1);
+    });
 }
 
 function getdatatab() {
@@ -1187,11 +1222,11 @@ function getdatatab() {
         },
         "columns": [
             { "data": "RowNumber" },
-            { "data": "FormCode" },
-            { "data": "TabSrNo" },
+            { "data": "FormCode", className: "hide_cell" },
+            { "data": "TabSrNo", className: "hide_cell" },
             { "data": "Formname" },
             { "data": "TabHeader" },
-            { "data": "TabClass" },
+            { "data": "TabClass", className: "hide_cell" },
             {
                 data: null,
                 className: "center",
@@ -1226,9 +1261,9 @@ function Dropdown_Bind_Tab1() {
                     var opt = new Option(response['GTCorporate'][i]['Text'], response['GTCorporate'][i]['Value']);
                     $('.formcorporate').append(opt);
                 }
-                //setSelect2Value($('#drpCorporate1'), '0');
-                setSelect2Value($('.formcorporate'), $('#hdfCorporate').val());
+                setSelect2Value($('#drpCorporate1'), '0');
                 if ($('#hdfCorporate').val() != '0') {
+                    setSelect2Value($('.formcorporate'), $('#hdfCorporate').val());
                     $("#drpCorporate1").trigger('change');
                 }
             }
@@ -1307,7 +1342,7 @@ function getdata() {
         },
         "columns": [
             { "data": "RowNumber" },
-            { "data": "srno" },
+            { "data": "srno", className: "hide_cell" },
             { "data": "Corporate" },
             { "data": "FeatureGroup" },
             { "data": "Module" },
@@ -1315,7 +1350,7 @@ function getdata() {
             {
                 data: null,
                 className: "center",
-                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> '+
+                defaultContent: '<a href="javascript:void(0);" class="editor_edit" rel="tooltip" title="Edit Data" ><i class="fa fa-pencil-square-o"></i></a> ' +
                     //'&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Delte" data-toggle="modal" data-target="#DeleteModel" rel="tooltip" title="Delete Data"><i class="fa fa-trash-o"></i></a> '+
                     '&nbsp;&nbsp;<a href="javascript:void(0);" class="editor_Control"  rel="tooltip" title="Add Form Control"><i class="fa fa-anchor"></i></a>'
             }]
@@ -1328,7 +1363,7 @@ function getUtility() {
     var screen = '';
     var FormCode = '';
     var TabCode = '';
-    var Corporate = $('#drpCorporate1 option:selected').val();
+    var Corporate = $('#hdfCorporate').val();
     var unit = '';
     var Branch = '';
     var userid = '';
@@ -1361,6 +1396,12 @@ function getUtility() {
                 }
 
                 $(htmlutility).appendTo($("#UtilityFrom"))
+                if (htmlutility == '') {
+                    $('#btnutilitySave').hide();
+                }
+                else {
+                    $('#btnutilitySave').show();
+                }
             }
 
         }
@@ -1390,6 +1431,7 @@ function clearForm() {
     thisForm.find('input').removeAttr('disabled');
     thisForm.find('input').val('');
     thisForm.find('select').removeAttr('disabled');
+    standardButton = '';
 }
 
 function clearFormTAB() {
@@ -1397,18 +1439,22 @@ function clearFormTAB() {
     $('.DropdownTab').each(function () {
         setSelect2Value($(this), '0');
     });
+    standardButton = '';
 }
 
 function clearButtonclass() {
     $('.ButtonClassTab').val('');
+    standardButton = '';
 }
 
 function clearCustomButtonTab() {
     $("#tblModalIconCustom tbody").html('');
+    standardButton = '';
 }
 
 function clearSectionNameTab() {
     $("#tblModalSection tbody").html('');
+    standardButton = '';
 }
 
 function FillDropdown(Corporate, Field1, Field2, controlId) {
@@ -1490,6 +1536,7 @@ function ClearDataoncorporate() {
         setSelect2Value($(this), '0');
     });
     $('.inputform').val('');
+    standardButton = '';
 }
 
 function claerdataonScreen() {
