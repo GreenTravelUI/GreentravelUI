@@ -92,6 +92,7 @@
                     <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank</a></li>
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Pay</a></li>
                     <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Sell</a></li>
+                    <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Accounts</a></li>
                     <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Ledger</a></li>
                 </ul>
                 <div class="tab-content">
@@ -486,57 +487,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="txtAccountingGroup">Accounting Group </label>
-                                    <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
-                                </div>
 
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpDebitorAccount">Creditor Account (Non-VAT) </label>
-                                            <select id="drpDebitorAccount" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="drpDebitorAccountVat">Creditor Account (VAT)</label>
-                                            <select id="drpDebitorAccountVat" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpReceiveddepositamt">Pay Deposit Account </label>
-                                            <select id="drpReceiveddepositamt" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="drpReceivedAccount">Pay DRN Account</label>
-                                            <select id="drpReceivedAccount" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtTaxRegistrationNumber">Tax Registration Number </label>
-                                            <input type="text" class="form-control col-sm-5" id="txtTaxRegistrationNumber" placeholder="Tax Registration Number">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtEffectiveDate">Effective Date</label>
-                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
-                                    <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
-                                </div>
                                 <div class="form-group">
                                     <label for="txtRemarks">Remarks </label>
                                     <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
@@ -1732,6 +1683,70 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    @*Accounts*@
+                    <div role="tabpanel" class="tab-pane" id="tab7">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab7section1">&nbsp;Accounts - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <label for="txtAccountingGroup">Accounting Group </label>
+                                    <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtCreditorAccountNonVAT">Creditor Account (Non-VAT) </label>
+                                            <input type="text" class="form-control" id="txtCreditorAccountNonVAT" placeholder="Creditor Account (Non-VAT)" readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtCreditorAccountVAT">Creditor Account (VAT)</label>
+                                            <input type="text" class="form-control" id="txtCreditorAccountVAT" placeholder="Creditor Account (VAT)" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtPayDepositAccount">Pay Deposit Account </label>
+                                            <input type="text" class="form-control" id="txtPayDepositAccount" placeholder="Pay Deposit Account" readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtPayDRNAccount">Pay DRN Account</label>
+                                            <input type="text" class="form-control" id="txtPayDRNAccount" placeholder="Pay DRN Account" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtTaxRegistrationNumber">Tax Registration Number </label>
+                                            <input type="text" class="form-control col-sm-5" id="txtTaxRegistrationNumber" placeholder="Tax Registration Number">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtEffectiveDate">Effective Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
+                                    <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
                         </div>
                     </div>
                     @*Ledger*@

@@ -78,6 +78,7 @@ $(document).ready(function () {
                 Message = data.responseText;
                 var EventClass = '';
                 EventClass = data.Event;
+                $('#txtTabsrno').val(data.Srno)
                 if (EventClass != 'error') {
                     $('#btnUpdateControl').show();
                     $('#btnSaveControl').hide();

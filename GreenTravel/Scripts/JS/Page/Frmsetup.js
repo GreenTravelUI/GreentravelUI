@@ -10,6 +10,7 @@ var deletesrno;
 var Frmcode;
 var FrmtabCode
 var standardButton = '';
+var duplicate = '';
 
 $(document).ready(function () {
 
@@ -120,6 +121,30 @@ $(document).ready(function () {
     //save Tab data --tab 2
     $('.btnSaveformtab').click(function (e) {
         e.preventDefault();
+
+        if (duplicate != "") {
+            swal(
+                'Same Record Already Exits',
+                '',
+                'error'
+              )
+            return false;
+        }
+        else {
+            //if ($('#txtSrNo').val() == "") {
+                TabDuplication($('#drpCorporate1 option:selected').val(), '', $("#txtTabNumber").val())
+                TabDuplication($('#drpCorporate1 option:selected').val(), $("#txtTabHeader").val(), '')
+                TabDuplication($('#drpCorporate1 option:selected').val(), $("#txtTabHeader").val(), $("#txtTabNumber").val())
+                if (duplicate != "") {
+                    swal(
+                        'Same Record Already Exits',
+                        '',
+                        'error'
+                      )
+                    return false;
+                }
+            //}
+        }
         if (!validateForm($(this).parent().parent())) {  // Pass form control in parameter
             swal(
                'Invalid data found!',
@@ -182,6 +207,7 @@ $(document).ready(function () {
                    Message = data.responseText;
                    EventClass = '';
                    EventClass = data.Event;
+                   $('#txtSrNo').val(data.Tab_srno)
                    if (EventClass != 'error') {
                        $('#btnUpdatetab').show();
                        $('#btnSaveformtab').hide();
@@ -696,6 +722,7 @@ $(document).ready(function () {
 
     //Edit tab Data 
     $("table").delegate(".EditTabData", "click", function () {
+        duplicate = '';
         $('#btncleartab').trigger('click');
         $("#frmsection").removeClass("active");
         $("#frmtab").addClass("active");
@@ -1070,6 +1097,7 @@ $(document).ready(function () {
     });
 
     $('#btnquittab').on('click', function (e) {
+        duplicate = '';
         clearValidations($(this).closest('form'));
         clearFormTAB();
         $('#btnUpdatetab').hide();
@@ -1098,6 +1126,7 @@ $(document).ready(function () {
     });
 
     $('#btncleartab').click(function (e) {
+        duplicate = '';
         e.preventDefault();
         clearValidations($(this).closest('form'));
         $('#btnUpdatetab').hide();
@@ -1126,14 +1155,73 @@ $(document).ready(function () {
     });
 
     $("#txtTabNumber").change(function () {
-
+        duplicate = '';
+        TabDuplication($('#drpCorporate1 option:selected').val(), '', $("#txtTabNumber").val())
+        //console.log(duplicate);
+        if (duplicate != "") {
+            //  $("#txtTabNumber").val('');
+            swal(
+                'Same Record Already Exits',
+                '',
+                'error'
+              )
+        }
     });
     $("#txtTabHeader").change(function () {
-
+        duplicate = '';
+        TabDuplication($('#drpCorporate1 option:selected').val(), $("#txtTabHeader").val(), '')
+        //console.log(duplicate);
+        if (duplicate != "") {
+            //  $("#txtTabHeader").val('');
+            swal(
+                'Same Record Already Exits',
+                '',
+                'error'
+              )
+        }
     });
 
 });
 
+function TabDuplication(Corporate, Field1, Field2) {
+    var Module = '';
+    var screen = '';
+    var FormCode = $('#txtSrNo1').val();
+    var TabCode = '';
+    var Corporate = Corporate;
+    var unit = '';
+    var Branch = '';
+    var userid = '';
+    var Ip = '';
+    var field1 = Field1;
+    var field2 = Field2;
+    var field3 = $('#txtSrNo').val();//TAbSRno
+    var field4 = '';
+    var field5 = '';
+    var Control = '';
+    var Language = '';
+    var Type = 'BaseDuplicate';
+    var Srno = '';
+    $.ajax({
+        url: "/FormSetup/Base_Form_Tab_Master",
+        type: "POST",
+        async: false,
+        data: {
+            Module: Module, screen: screen, FormCode: FormCode, TabCode: TabCode, Corporate: Corporate, unit: unit, Branch: Branch, userid: userid,
+            Ip: Ip, Type: Type, field1: field1, field2: field2, field3: field3, field4: field4, field5: field5,
+            Control: Control, Language: Language, Srno: Srno
+        },
+        success: function (data) {
+            if (data['Duplicate'] == "1") {
+                duplicate = "Done";
+            }
+            else {
+                duplicate = '';
+            }
+            console.log(duplicate);
+        }
+    });
+}
 
 function tabsrno_Header() {
 
@@ -1152,14 +1240,14 @@ function addRowCustom() {
                 '<td><a id="btnCloseCustomsection" class="text-danger btnCloseCustomsection" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalIconCustom"))
-  //  customID++;
+    //  customID++;
 
 }
 
 function addRowRearrange() {
     $('#tblModalIconCustom').find('tbody tr').each(function (index) {
-        $(this).children(':eq(0)').text(index+1);
-    }); 
+        $(this).children(':eq(0)').text(index + 1);
+    });
 }
 
 function addRow() {
@@ -1171,7 +1259,7 @@ function addRow() {
                 '<td><a id="btnDeleteSection" class="text-danger btnDeleteSection" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-times"></i></a></td>' +
                 '</tr>'
     $(html).appendTo($("#tblModalSection"))
-   // ID++;
+    // ID++;
 }
 
 function RearrangeSection() {
