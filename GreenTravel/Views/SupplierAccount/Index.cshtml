@@ -92,7 +92,7 @@
                     <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank</a></li>
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Payment Criteria</a></li>
                     <li role="presentation"><a href="#tabcreditlimit" role="tab" data-toggle="tab" data-section="tabcreditlimit" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Credit Limit</a></li>
-                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Margin</a></li>
+                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Margin</a></li>
                     <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Accounts</a></li>
 
 
@@ -1018,7 +1018,13 @@
                                             <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                             <div class="row">
+                                                <label for="txtSupplierUserEmail">&nbsp;</label>
+                                                <div class="col-md-12 form-marings">
+                                                   <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1058,11 +1064,11 @@
 
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <label for="drpCountry">Billing Code</label>
                                             <input type="text" class="form-control col-sm-5" id="txtBillingCountry" value="+66" placeholder="Billing Code">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label for="txtTelephone">Billing Telephone</label>
                                             <input type="text" class="form-control col-sm-5" id="txtBillingTelephone" value="38418418" placeholder="Billing Telephone">
                                         </div>
@@ -1074,11 +1080,11 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <label for="drpCountry">Billing Code</label>
                                             <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label for="txtCellPhone">Billing Cell Phone</label>
                                             <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
                                         </div>
@@ -1327,11 +1333,11 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <label for="txtBillingContactPerson">Credit Days</label>
                                             <input type="text" class="form-control" id="txtCreaditDays" placeholder="Creadit Days">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label for="txtAddressLine1">Currency <span>*</span></label>
                                             <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">THB</option>
@@ -1546,16 +1552,16 @@
                     </div>
                     @*Credit limit*@
                     <div role="tabpanel" class="tab-pane" id="tabcreditlimit">
-                        <div class="col-md-12">
+                        <div class="col-md-7">
                             <form>
                                 <h3 class="tabcreditlimit">Credit Limit - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <label for="txtCreditLimit">Total Credit Limit </label>
                                             <input type="text" class="form-control req" id="txtCreditLimit" value="50000" placeholder="Credit Limit">
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <label for="drpcreditlimitcurrency">Credit Limit Currency </label>
                                             <select id="drpcreditlimitcurrency" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">THB</option>
@@ -1564,11 +1570,13 @@
                                                 <option>USD</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <label for="txtEffectiveDate">Effective Date</label>
                                             <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <label for="txtlastupdatedDate">Last Updated Date</label>
                                             <input type="text" class="form-control date-picker" id="txtlastupdatedDate" value="07/07/2005" placeholder="Last Update Date" readonly>
                                         </div>
@@ -1576,37 +1584,51 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtaction">Action </label>
+                                            <label for="txtaction">Last Updated Action </label>
                                             <input type="text" class="form-control req" id="txtaction" value="Assigned" placeholder="Credit Limit" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtutilized">Utilized  </label>
-                                            <input type="text" class="form-control req" id="txtutilized" value="20000" placeholder="Credit Limit" readonly>
+
+
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control req" id="txtutilized" value="20000" placeholder="Credit Limit" readonly><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtavalableforutilized">Available For Utilization </label>
-                                            <input type="text" class="form-control req" id="txtavalableforutilized" value="30000" placeholder="Credit Limit" readonly>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control req" id="txtavalableforutilized" value="30000" placeholder="Credit Limit" readonly>
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txttotaloutstanding">Total Outstanding Payment </label>
-                                            <input type="text" class="form-control req" id="txttotaloutstanding" value="3000 USD" placeholder="Credit Limit" readonly>
+                                            <label for="txttotaloutstanding">Total Outstanding Reciept </label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control req" id="txttotaloutstanding" value="3000 USD" placeholder="Credit Limit" readonly>
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <br />
+
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     ASSIGN</button>
                                 <a href="javascript:void(0);" class="btn btn-primary btnSave" data-toggle="modal" data-target="#MyincreseGrid">INCRESE</a>
                                 <a href="javascript:void(0);" class="btn btn-green btnSave" data-toggle="modal" data-target="#MydecreseGrid">DECRESE</a>
-                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MycreditGrid">VIEW CHANGE HISTORY</a>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    VIEW CHANGE HISTORY</button>
+
                             </form>
                         </div>
                     </div>
@@ -1614,7 +1636,7 @@
                     <div role="tabpanel" class="tab-pane" id="tab8">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab5section2">Override Margin - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab5section2">Margin - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -1741,9 +1763,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
                                     <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
                                     <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
                                 </div>
+                                        </div>
+                                    </div>
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -2480,80 +2506,41 @@
 
 @*Increse*@
 <div class="modal fade" id="MyincreseGrid" tabindex="-1" role="dialog" aria-labelledby="myMyincreseGridModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg ">
+    <div class="modal-dialog modal-">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myMyincreseGridModal">Increse Credit Limit</h4>
             </div>
             <div class="modal-body">
-                <div class="table-responsive">
-                    <div class="dropdown table-custome-drop">
-                        <div class="btn-group">
-                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span class="glyphicon glyphicon-download-alt"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Excel</a></li>
-                                <li><a href="#">PDF</a></li>
-                                <li><a href="#">Email</a></li>
-                            </ul>
+                <div class="form group">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <label for="txtIncreseby">Increse By</label>
+                           <div class="input-group input-append bootstrap-timepicker">
+                                              <input type="text" class="form-control req" id="txtIncreseby" value="2000" placeholder="Cancel Days">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
                         </div>
                     </div>
-                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Increse By </th>
-                                <th>Currency</th>
-                                <th>Effective Date</th>
-                                <th>Action</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th>
-                                    <input type="text" />
-                                </th>
-                                <th>
-                                    <input type="text" />
-                                </th>
-                                <th>
-                                    <input type="text" />
-                                </th>
+                    
+                    <label for="txtEffectiveDate">&nbsp;</label>
+                    <div class="row">
+                        <div class="col-md-4">
 
-                                <th>
-                                    <a href="#">
-                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                            <img src="assets/images/close.png" height="15" width="15" /></a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>#</th>
-                                <th>Increse By </th>
-                                <th>Currency</th>
-                                <th>Effective Date</th>
-                                <th>
-                                    <button id="btnSave" type="button" class="btn btn-success btnSave">
-                                        INCRESE</button></th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>50000</td>
-                                <td>USD</td>
-                                <td>07/07/2005</td>
+                            <label for="txtEffectiveDate">Effective Date</label>
+                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                        </div>
+                    </div>
+                    <label for="txtEffectiveDate">&nbsp;</label>
+                    <div class="row">
+                        <div class="col-md-4">
 
-                                <td>
-                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                    &nbsp;&nbsp;
-                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                INCRESE</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2562,80 +2549,41 @@
 
 @*Decrese*@
 <div class="modal fade" id="MydecreseGrid" tabindex="-1" role="dialog" aria-labelledby="myMydecreseGridModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg ">
+    <div class="modal-dialog modal-">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myMydecreseGridModal">Decrese Credit Limit</h4>
             </div>
             <div class="modal-body">
-                <div class="table-responsive">
-                    <div class="dropdown table-custome-drop">
-                        <div class="btn-group">
-                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span class="glyphicon glyphicon-download-alt"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Excel</a></li>
-                                <li><a href="#">PDF</a></li>
-                                <li><a href="#">Email</a></li>
-                            </ul>
+                 <div class="form group">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <label for="txtDecreseby">Decrese By</label>
+                           <div class="input-group input-append bootstrap-timepicker">
+                                              <input type="text" class="form-control req" id="txtIncreseby" value="2000" placeholder="Cancel Days">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
                         </div>
                     </div>
-                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Decrese By </th>
-                                <th>Currency</th>
-                                <th>Effective Date</th>
-                                <th>Action</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th>
-                                    <input type="text" />
-                                </th>
-                                <th>
-                                    <input type="text" />
-                                </th>
-                                <th>
-                                    <input type="text" />
-                                </th>
+                   
+                    <label for="txtEffectiveDate">&nbsp;</label>
+                    <div class="row">
+                        <div class="col-md-4">
 
-                                <th>
-                                    <a href="#">
-                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                            <img src="assets/images/close.png" height="15" width="15" /></a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>#</th>
-                                <th>Decrese By </th>
-                                <th>Currency</th>
-                                <th>Effective Date</th>
-                                <th>
-                                    <button id="btnSave" type="button" class="btn btn-success btnSave">
-                                        DECRESE</button></th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>50000</td>
-                                <td>USD</td>
-                                <td>07/07/2005</td>
+                            <label for="txtEffectiveDate">Effective Date</label>
+                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
+                        </div>
+                    </div>
+                    <label for="txtEffectiveDate">&nbsp;</label>
+                    <div class="row">
+                        <div class="col-md-4">
 
-                                <td>
-                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                    &nbsp;&nbsp;
-                                    <a href="#"><i class="fa fa-trash-o"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                DECRESE</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
