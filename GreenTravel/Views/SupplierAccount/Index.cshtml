@@ -13,31 +13,36 @@
 }
 
 <style>
-    .modal-lg {
+    .modal-lg
+    {
         width: 95%;
     }
 
-    .modal-header h4 {
+    .modal-header h4
+    {
         border-bottom: 1px dashed #ccc;
         font-size: 20px;
         font-weight: normal;
     }
 
-    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover {
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover
+    {
         background-color: #22baa0;
         border-color: #22baa0;
         border-left: 0 none #22baa0;
         color: #fff;
     }
 
-    #wrapper, .wrapper {
+    #wrapper, .wrapper
+    {
         width: 200%;
         transform: translate3d(0, 0, 0);
         transition: transform .5s ease-in-out;
         padding-left: 0;
     }
 
-    .content {
+    .content
+    {
         float: left;
         width: 50%;
         min-height: 200px;
@@ -45,23 +50,27 @@
         background-repeat: no-repeat;
     }
 
-    li.content {
+    li.content
+    {
         list-style: outside none none;
         transition: 1s;
         border: 1px solid #22BAA0;
     }
 
-        li.content .libody {
+        li.content .libody
+        {
             transition-timing-function: linear;
         }
 
-    .summery-uitilities-detail {
+    .summery-uitilities-detail
+    {
         width: 33.3333%;
         overflow: hidden;
         padding-right: 0;
     }
 
-    .summery-nav-btn {
+    .summery-nav-btn
+    {
         background-color: #ccc;
         color: #22baa0;
         cursor: not-allowed;
@@ -71,12 +80,14 @@
         float: right;
     }
 
-        .summery-nav-btn.active {
+        .summery-nav-btn.active
+        {
             background-color: #fff;
             cursor: pointer;
         }
 
-    .libody.summery-body {
+    .libody.summery-body
+    {
     }
 </style>
 
@@ -90,11 +101,11 @@
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Supplier</a></li>
                     <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
                     <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank</a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Pay</a></li>
-                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Sell</a></li>
+                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Payment Criteria</a></li>
+                    
                     <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Accounts</a></li>
-                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Margin</a></li>
-                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Ledger</a></li>
+                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Margin</a></li>
+                    
                 </ul>
                 <div class="tab-content">
                     @*Search Supplier*@
@@ -377,7 +388,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtSupplierName">Supplier Name <span>*</span></label>
+                                    <label for="txtSupplierName">Supplier Company Name <span>*</span></label>
                                     <input type="text" class="form-control req" id="txtSupplierName" value="Amari Ocean Pattaya" placeholder="Supplier Name">
                                 </div>
                                 <div class="form-group">
@@ -449,8 +460,20 @@
                                             <a class="btn btn-success" rel="tooltip" title="View / Change History" style="padding: 7px 12px 5px 12px;"><span class="fa fa-bars"></span></a>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Current Used: </label><label id="currentusevalue">500$</label>
+                                </div>
+                                        </div>
+                                    <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Current Available: </label><label id="currentavailablevalue">500$</label>
+                                </div>
+                                        </div>
+                                    </div>
                                 <div class="form-group">
                                     <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
                                     <input type="text" class="form-control req email" id="txtOfficialEmail" value="info@amarioceanpattaya.com" placeholder="Official Email(s)">
@@ -567,6 +590,8 @@
                                     DELETE</button>
                                 <button id="btnClearCreateSupplier" type="button" class="btn btn-warning btnSave">
                                     CREATE NEW</button>
+                                <button id="btnSaveCreateAgent" type="submit" class="btn btn-lightgreen btnSave">
+                                    CREATE AGENT</button>
                                 <button id="btnQuitCreateSupplier" type="button" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
@@ -1245,7 +1270,7 @@
                     <div role="tabpanel" class="tab-pane" id="tab4">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab4section1">Pay - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab4section1">Payment Criteria - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="txtAddressLine1">Natinality Set <span>*</span></label>
                                     <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
@@ -1468,233 +1493,7 @@
                             </div>
                         </div>
                     </div>
-                    @*Sell*@
-                    <div role="tabpanel" class="tab-pane" id="tab5">
-                        <div class="col-md-7">
-                            <form>
-                                <h3 class="tab5section1">Sell - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label for="txtAddressLine1">Natinality Set <span>*</span></label>
-                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                        <option selected="selected">Asian</option>
-                                        <option>Austrailian</option>
-                                        <option>Europian</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtBillingContactPerson">Credit Days</label>
-                                            <input type="text" class="form-control" id="txtCreaditDays" placeholder="Creadit Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtAddressLine1">Currency <span>*</span></label>
-                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">THB</option>
-                                                <option>INR</option>
-                                                <option>AUD</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtAddressLine1">Payment Type <span>*</span></label>
-                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">Bank Transfer</option>
-                                                <option>Cash</option>
-                                                <option>Credit Card</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtBillingName">VAT Type</label>
-                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                                <option>Include</option>
-                                                <option selected="selected">Excluded</option>
-                                                <option>None</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtAddressLine2">Tax (%) </label>
-                                            <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtAddressLine1">Withholding Tax</label>
-                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                                <option>Include</option>
-                                                <option selected="selected">Excluded</option>
-                                                <option>None</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtAddressLine2">Tax (%) </label>
-                                            <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtRemarks">Remarks </label>
-                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
-                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
-                                </div>
-
-                                <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                    UPDATE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
-                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MySellGrid">SEARCH</a>
-                            </form>
-                        </div>
-                        <div class="col-md-5 summery-detail summerytab3">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-                                        <ul class="summery-list slimscroll">
-                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>Billing Name 
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Contact Person  :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Address Line 1 
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing City :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing State :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblState" for="txtState"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-
-                                                    <li>Billing Country :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCountry" for="txtCountry"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Zip/Postal Code :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblZipCode" for="txtZipCode"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Email :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblStarRating" for="drpStarRating"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Telephone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Cell Phone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                        <ul class="summery-list slimscroll">
-                                        </ul>
-                                    </div>
-                                    <div class="summery-buttons">
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     @*Accounts*@
                     <div role="tabpanel" class="tab-pane" id="tab7">
                         <div class="col-md-7">
@@ -1759,18 +1558,12 @@
                             </form>
                         </div>
                     </div>
-                    @*Ledger*@
-                    <div role="tabpanel" class="tab-pane" id="tab6">
-                        <div class="col-md-7">
-                            <form>
-                            </form>
-                        </div>
-                    </div>
+                   
                     @*Set Margin*@
                     <div role="tabpanel" class="tab-pane" id="tab8">
                         <div class="col-md-7">
                             <form>
-                                <h3 class="tab5section2">Set Margin - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab5section2">Override Margin - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
