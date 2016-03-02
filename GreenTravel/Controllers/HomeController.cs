@@ -36,7 +36,7 @@ namespace GreenTravel.Controllers
             if (ViewBag.CurrentURL == "http://localhost:9359")
             {
                 //ViewBag.CurrentURL = "http://gt.techpure.co.uk";
-                ViewBag.CurrentURL = "http://gt.techpure.co.uk";
+                ViewBag.CurrentURL = "http://tu.techpure.co.uk";
             }
 
             frm_para.FormType = "LoginPage"; //from_code
