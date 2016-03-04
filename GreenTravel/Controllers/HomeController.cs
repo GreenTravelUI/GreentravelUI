@@ -198,7 +198,7 @@ namespace GreenTravel.Controllers
                         Session["UnitCorpBy"] = ds.Tables[0].Rows[0]["Unit"].ToString();
                         Session["BranchBy"] = ds.Tables[0].Rows[0]["branch"].ToString();
                         Session["Location"] = ds.Tables[0].Rows[0]["Location"].ToString();
-                        //setmenu();
+                       // setmenu();
                     }
                     return "1";
                 }
@@ -276,6 +276,7 @@ namespace GreenTravel.Controllers
             {
                 MenuString += "<li><a href='/Dashboard' class='waves-effect waves-button'><span class='menu-icon glyphicon glyphicon-home'></span><p>Dashboard</p></a></li>";
                 string Default_icon = "glyphicon glyphicon-home";
+                                
                 List<Screen> _screen = Screen.Where(m => m.ModuleCode == item.ModuleCode).ToList();
                 if (_screen.Count() > 1)
                 {
