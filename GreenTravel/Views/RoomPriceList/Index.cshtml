@@ -11,8 +11,8 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Room Price List </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Room Price List</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Override Standard Margin Rule For FIT</a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Room Price List (Net Rates)</a></li>
+
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -41,21 +41,21 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nationality</th>
+                                                <th>Costing</th>
                                                 <th>Travel Date </th>
-                                                <th>Accommodation Type </th>
-                                                <th>Room Type </th>
+                                                <th>Supplier Type </th>
+                                                <th>Room Category </th>
                                                 <th>Max Pax </th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Nationality</th>
+                                                 <th>#</th>
+                                                <th>Costing</th>
                                                 <th>Travel Date </th>
-                                                <th>Accommodation Type </th>
-                                                <th>Room Type </th>
+                                                <th>Supplier Type </th>
+                                                <th>Room Category </th>
                                                 <th>Max Pax </th>
                                                 <th>Action</th>
                                             </tr>
@@ -86,9 +86,9 @@
                                             </tr>
                                             <tr>
                                                 <td>1</td>
-                                                <td><span>Asian - Indian</span></td>
+                                                <td><span>Set-1</span></td>
                                                 <td><span>01/01/2016</span> - <span>31/12/2016</span></td>
-                                                <td><span>Single Room</span></td>
+                                                <td><span>Accommondation</span></td>
                                                 <td><span>Standard</span></td>
                                                 <td><span>12</span></td>
                                                 <td>
@@ -98,12 +98,13 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
-                                                <td><span>European </span></td>
-                                                <td><span>01/01/2016</span> - <span>31/12/2016</span></td>
-                                                <td><span>Single Room</span></td>
-                                                <td><span>Super Deluxe</span></td>
-                                                <td><span>12</span></td>
+                                               <td>2</td>
+                                                <td><span>Set-2</span></td>
+                                                <td><span>01/10/2016</span> - <span>31/12/2016</span></td>
+                                                <td><span>Coach</span></td>
+                                                <td><span>Delux</span></td>
+                                                <td><span>10</span></td>
+                                                
                                                 <td>
                                                     <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                     &nbsp;&nbsp;
@@ -118,146 +119,192 @@
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab2">
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                             <form>
-                                <h3 class="tab9section1">Create Room Price List - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab9section1">Create Room Price List (Net Rates)- <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+
                                 <div class="form-group">
-                                    <label for="drpNationalitySet">Nationality Set </label>
-                                    <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
-                                        <option selected="selected">Asian - Indian</option>
-                                        <option>Affrican</option>
-                                        <option>Europen</option>
-                                        <option>Austrailian</option>
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpCostingSet">Costing Set </label>
+                                            <select id="drpCostingSet" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Set1</option>
+                                                <option>Set2</option>
+                                                <option>Set3</option>
+                                                <option>Set4</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">FIT/Group</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">FIT</option>
+                                                <option>Group</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtFromValidityDate">From Travel Date </label>
-                                            <input type="text" class="form-control date-picker" id="txtFromValidityDate" value="01/07/2016" placeholder="From Validity">
+                                            <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
+                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Accommodation</option>
+                                                <option>Coach</option>
+                                                <option>Guide</option>
+                                                <option>Driver</option>
+                                                <option>Meal</option>
+                                                <option>Transport</option>
+                                                <option>Sightseeing</option>
+                                                <option>Supplier</option>
+                                                <option>Other</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="txtToValidityDate">To Travel Date </label>
-                                            <input type="text" class="form-control date-picker" id="txtToValidityDate" value="04/20/2016" placeholder="To Validity">
+                                        <div class="col-md-3">
+                                            <label for="drpSupplier">Supplier </label>
+                                            <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Abc Supplier</option>
+                                                <option>Xyz Supplier</option>
+                                            </select>
+                                        </div>
+                                         <div class="col-md-3">
+                                            <label for="drpHotel">Hotel </label>
+                                            <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Abc Hotel</option>
+                                                <option>Xyz Hotel</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpRoomType">Room Type </label>
-                                            <select id="drpRoomType" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Superior Twin Room with Garden View </option>
-                                                <option>Room Selected at Check In </option>
-                                                <option selected="selected">Deluxe Twin Room </option>
-                                                <option>Superior Double Room with Garden View </option>
-                                                <option>Deluxe Double Room with Garden View </option>
+                                        <div class="col-md-3">
+                                            <label for="txtFromDate">From Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtFromDate" value="01/07/2016" placeholder="From Validity">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTodate">To Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtTodate" value="04/20/2016" placeholder="To Validity">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpRoomCategory">Room Category </label>
+                                            <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Standerd </option>
+                                                <option>Delux </option>
+                                                <option>Supirior</option>
+
                                             </select>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <label for="txtMaxPax">Max Pax</label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="3" readonly placeholder="Max Pax">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group" style="display: none;">
-                                    <label for="drpMealPlan">Meal Plan </label>
-                                    <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpMealPlan">Included Services</label>
-                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
-                                        <option selected="selected">With Breakfast</option>
-                                        <option>Without Breakfast</option>
-                                        <option selected="selected">With Lunch</option>
-                                        <option>Without Lunch</option>
-                                        <option selected="selected">Airport Shuttle</option>
-                                        <option>ATM on site</option>
-                                        <option>Laundry</option>
-                                        <option>Hair/Beauty Salon</option>
-                                        <option>VIP Room Facilities</option>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Additional Service</th>
-                                                            <th>Price</th>
-                                                            <th>Applied</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th colspan="4">
-                                                                <button id="btnadd" class="btn btn-success btnSave" type="submit">
-                                                                    Add</button>
-                                                            </th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                </select>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-append bootstrap-timepicker">
-                                                                    <input type="text" class="form-control" id="timepicker4">
-                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                    <option>Per Person</option>
-                                                                    <option>Flat</option>
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                </select>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-append bootstrap-timepicker">
-                                                                    <input type="text" class="form-control" id="timepicker4">
-                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                    <option>Per Person</option>
-                                                                    <option>Flat</option>
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <label for="lblinc">&nbsp;</label>
+                                                <div class="col-md-12 form-marings">
+                                                    <input type="checkbox" checked>Incl. ABF
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtminstay">Min Stay (Days)</label>
+                                            <input type="text" class="form-control" id="txtminstay" value="3" placeholder="Max Pax">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpBoardType">Board Type </label>
+                                            <select id="drpBoardType" class="js-states form-control" style="display: none; width: 100%">
+                                                <option value="None">None</option>
+                                                <option value="Full Board" selected>Full Board</option>
+                                                <option value="Half Board">Half Board</option>
+
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="lbloperatingweekday">Operating Week Days </label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="checkbox">Sun &nbsp &nbsp
+                                           <input type="checkbox" checked>Mon &nbsp &nbsp
+                                           <input type="checkbox">Tue &nbsp &nbsp
+                                           <input type="checkbox" checked>Wed &nbsp &nbsp
+                                           <input type="checkbox" checked>Thu &nbsp &nbsp
+                                           <input type="checkbox">Fri &nbsp &nbsp
+                                           <input type="checkbox">Set &nbsp &nbsp 
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <br />
+                                <br />
+                                <br />
+                                <h3 class="tab9section1">Rate</h3>
+                                <br />
+
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
+                                            <label for="drpNationalityset">Nationality Set </label>
+                                            <select id="drpNationalityset" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Asian-Indian</option>
+                                                <option>Affrican</option>
+                                                <option>Europian</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="drpcurrency">Currency</label>
+                                            <select id="drpcurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">THB</option>
+                                                <option>INR</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="txtexchangerate">Exchange Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtexchangerate" value="1" placeholder="Single Room Rate">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-md-3">
                                             <label for="txtSingleRoomRate">Single Room Rate</label>
                                             <div class="input-group input-append">
                                                 <input type="text" class="form-control" id="txtSingleRoomRate" value="4200" placeholder="Single Room Rate">
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <label for="txtDoubleTwinRoomRate">Double / Twin Room Rate </label>
                                             <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtDoubleTwinRoomRate" value="4000" placeholder="Double / Twin Room Rate">
+                                                <input type="text" class="form-control" id="txtDoubleTwinRoomRate" value="8400" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtextrabedadultrate">Extra Bed Adult Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtextrabedadultrate" value="400" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtExtraBedChildRate">Extra Bed Child Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtExtraBedChildRate" value="200" placeholder="Single Room Rate">
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
@@ -265,41 +312,104 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+
                                         <div class="col-md-3">
-                                            <label for="txtExtraAdultRate">Extra Adult Rate </label>
+                                            <label for="txtChildNoBedRate">Child No Bed Rate</label>
                                             <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtExtraAdultRate" value="2500" placeholder="Extra Adult Rate">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtExtraCWBRate">Extra CWB Rate </label>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtExtraCWBRate" value="2100" placeholder="Extra CWB Rate">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtExtraCNBRate">Extra CNB Rate </label>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtExtraCNBRate" value="1800" placeholder="Extra CNB Rate">
+                                                <input type="text" class="form-control" id="txtChildNoBedRate" value="100" placeholder="Single Room Rate">
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="txtInfantRate">Infant Rate </label>
                                             <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtInfantRate" value="1000" placeholder="Infant Rate">
+                                                <input type="text" class="form-control" id="txtInfantRate" value="100" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtQuadrate">Quad Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtQuadrate" value="400" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtJoinceRate">Joince Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtJoinceRate" value="400" placeholder="Single Room Rate">
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="drpStatus">Status</label>
-                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <label for="txtABFAdultrate">ABF Adult Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtABFAdultrate" value="4200" placeholder="Single Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtABFchildrate">ABF Child Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtABFchildrate" value="2500" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtLunchadultrate">Lunch Adult Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtLunchadultrate" value="1500" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtlunchchildrate">Lunch Child Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtlunchchildrate" value="800" placeholder="Single Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <label for="txtDinneradultrate">Dinner Adult Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtDinneradultrate" value="2000" placeholder="Single Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDinnerchildRate">Dinner Child Rate </label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtDinnerchildRate" value="900" placeholder="Double / Twin Room Rate">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtRemarks">Remarks </label>
+                                            <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                            <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -314,7 +424,7 @@
                                     QUIT FORM</button>
                             </form>
                         </div>
-                        <div class="col-md-5 summery-detail summerytab2">
+                        <div class="col-md-4 summery-detail summerytab2">
                             <div class="panel panel-white">
                                 <h4 class="panel-title-summery">Summary </h4>
                                 <ul class="utilitis-drop ">
@@ -404,49 +514,7 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="tab3">
-                        <form>
-                            <div class="col-md-12">
 
-
-                                <h3 class="tab9section1">Override Standard Margin Rule For FIT - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="table-responsive">
-                                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Agent Type</th>
-                                                <th>Margin(%)</th>
-                                                <th>Margin Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Agent Type</th>
-                                                <th>Margin(%)</th>
-                                                <th>Margin Amount</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Gold</td>
-                                                <td><span class="spaneditable">12</span></td>
-                                                <td><span class="spaneditable"></span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Silver</td>
-                                                <td><span class="spaneditable"></span></td>
-                                                <td><span class="spaneditable">120</span> THB</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
