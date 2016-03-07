@@ -1,6 +1,15 @@
 ﻿@{
     ViewBag.Title = "Sightseeing Price List";
     ViewBag.PageTitle = "Sightseeing Price List";
+     ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+     ViewBag.Breadcurmb += "<li>Sightseeing Code: <span>SS-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
+
 }
 
 
@@ -93,138 +102,102 @@
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-7">
                             <form>
+
+                                 <h3 class="tab9section1">Create Sightseeing Price List - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="drpSightseeing">Sightseeing Company</label>
-                                    <select id="drpSightseeingCompany" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpSightseeing">Sightseeing</label>
-                                    <select id="drpSightseeing" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpNationalitySet">Nationality Set </label>
-                                    <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpCostingSet">Costing Set </label>
+                                            <select id="drpCostingSet" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Set1</option>
+                                                <option>Set2</option>
+                                                <option>Set3</option>
+                                                <option>Set4</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">FIT/Group</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">FIT</option>
+                                                <option>Group</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtFromVisitingDate">From Visiting Date </label>
-                                            <input type="text" class="form-control date-picker" id="txtFromVisitingDate" placeholder="From Visiting Date">
+                                            <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
+                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Accommodation</option>
+                                                <option>Coach</option>
+                                                <option>Guide</option>
+                                                <option>Driver</option>
+                                                <option>Meal</option>
+                                                <option>Transport</option>
+                                                <option>Sightseeing</option>
+                                                <option>Supplier</option>
+                                                <option>Other</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="txtToVisitingDate">To Visiting Date </label>
-                                            <input type="text" class="form-control date-picker" id="txtToVisitingDate" placeholder="To Visiting Date">
+                                        <div class="col-md-3">
+                                            <label for="drpSupplier">Supplier </label>
+                                            <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Abc Supplier</option>
+                                                <option>Xyz Supplier</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpHotel">Sighseeing </label>
+                                            <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Akshardham</option>
+                                                <option>Adalaj Stepwell</option>
+                                            </select>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="drpEntranceName">Entrance Name</label>
-                                    <select id="drpEntranceName" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="drpAvailableAddons">Included Services</label>
-                                    <select id="drpAvailableAddons" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtAdultTicketRate">Adult Ticket Rate </label>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtAdultTicketRate" placeholder="Adult Ticket Rate">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
+                                            <label for="txtFromDate">From Visit Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtFromDate" value="01/07/2016" placeholder="From Validity">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txtChildTicketRate">Child Ticket Rate</label>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" id="txtChildTicketRate" placeholder="Child Ticket Rate">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
+                                            <label for="txtTodate">To Visit Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtTodate" value="04/20/2016" placeholder="To Validity">
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="lbloperatingweekday">Operating Week Days </label>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Additional Service</th>
-                                                            <th style="width: 20%;">Price</th>
-                                                            <th>Applied</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr> 
-                                                            <th colspan="4">
-                                                                <button id="btnadd" class="btn btn-success btnSave" type="submit">
-                                                                    Add</button>
-                                                            </th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                </select>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-append bootstrap-timepicker">
-                                                                    <input type="text" class="form-control" id="timepicker4">
-                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                    <option>Per Person</option>
-                                                                    <option>Flat</option>
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                </select>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-append bootstrap-timepicker">
-                                                                    <input type="text" class="form-control" id="timepicker4">
-                                                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                    <option>Per Person</option>
-                                                                    <option>Flat</option>
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                            <input type="checkbox">Sun &nbsp &nbsp
+                                           <input type="checkbox" checked>Mon &nbsp &nbsp
+                                           <input type="checkbox">Tue &nbsp &nbsp
+                                           <input type="checkbox" checked>Wed &nbsp &nbsp
+                                           <input type="checkbox" checked>Thu &nbsp &nbsp
+                                           <input type="checkbox">Fri &nbsp &nbsp
+                                           <input type="checkbox">Set &nbsp &nbsp 
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                            </select>
+
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="drpStatus">Status</label>
-                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-
-
-                                <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
                                 <button id="btnSave" type="submit" class="btn btn-primary btnSave">
@@ -235,6 +208,340 @@
                                     CLEAR</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+                                <br />
+                                <br />
+                                <br />
+
+                                 <h3 class="tab9section1">Rate </h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Rate</a></li>
+                                    <li role="presentation"><a href="#tab2-2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Rates</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-1">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Nationality Set</th>
+                                                        <th>Costing Type</th>
+                                                        <th>Rate </th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Nationality Set</th>
+                                                        <th>Costing Type</th>
+                                                        <th>Rate </th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Asian-Indian</span></td>
+                                                        <td><span>Service Per Day</span></td>
+                                                        <td>
+                                                        4200
+                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                    <div role="tabpanel" class="tab-pane" id="tab2-2">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="drpNationalitySet">Nationality Set </label>
+                                                    <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Asian - Indian</option>
+                                                        <option>Affrican</option>
+                                                        <option>Europen</option>
+                                                        <option>Austrailian</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="drpCostingType">Costing Type</label>
+                                                    <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                                                   <option selected="selected">Service Per Day</option>
+                                                        <option>Per Pax</option>
+                                                         </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                 <div class="col-md-12">
+                                                    <label for="drpEntrance">Entrance</label>
+                                                    <select id="drpEntrance"  multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                                   <option selected="selected">Entrance 1</option>
+                                                        <option>Entrance 2</option>
+                                                         </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpMealPlan">Included Services</label>
+                                                    <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Dinner</option>
+                                                        <option>LCD Projector</option>
+                                                        <option>Soda Included For 1 Hr</option>
+                                                        <option>Soda Included For 2 Hr</option>
+                                                        <option>Soda Included For 3 Hr</option>
+                                                        <option>Soda Included For 4 Hr</option>
+                                                        <option>Soda Included For 5 Hr</option>
+                                                        <option>Soda Included For 6 Hr</option>
+                                                        <option>Soft Drink Included For 1 Hr</option>
+                                                        <option>Soft Drink Included For 2 Hr</option>
+                                                        <option>Soft Drink Included For 3 Hr</option>
+                                                        <option>Soft Drink Included For 4 Hr</option>
+                                                        <option>Soft Drink Included For 5 Hr</option>
+                                                        <option>Soft Drink Included For 6 Hr</option>
+                                                        <option>Juice Included For 1 Hr</option>
+                                                        <option>Juice Included For 2 Hr</option>
+                                                        <option>Juice Included For 3 Hr</option>
+                                                        <option>Juice Included For 4 Hr</option>
+                                                        <option>Juice Included For 5 Hr</option>
+                                                        <option>Juice Included For 6 Hr</option>
+                                                        <option>1 Starter</option>
+                                                        <option>2 Starter</option>
+                                                        <option>3 Starter</option>
+                                                        <option>4 Starter</option>
+                                                        <option>5 Starter</option>
+                                                        <option>6 Starter</option>
+                                                        <option>7 Starter</option>
+                                                        <option>8 Starter</option>
+                                                        <option>9 Starter</option>
+                                                        <option>10 Starter</option>
+                                                        <option>Airport Shuttle</option>
+                                                        <option>ATM on site</option>
+                                                        <option>VIP Room Facilities</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                               <div class="col-md-3">
+                                                    <label for="drpCurrency">Currency</label>
+                                                    <select id="drpCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                   <option selected="selected">THB</option>
+                                                        <option>USD</option>
+                                                        <option>INR</option>
+                                                         </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                   <label for="txtExchangerate">Exchange Rate</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtExchangerate" value="1" placeholder="Exchange Rate">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="txtServiceCost">Service Cost </label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtServiceCost" value="1500" placeholder="Service Cost ">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="txtAdultticketrate">Adult Ticket Rate </label>
+                                                     <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtAdultticketrate" value="2000" placeholder="Adult Ticket Rate ">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="txtChildTicketrate">Child Ticket Rate</label>
+                                                     <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtChildTicketrate" value="900" placeholder="Child Ticket Rate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                       
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CLEAR</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+                                <h6 class="tab9section1">&nbsp;</h6>
+                                <h3 class="tab9section1">Additional Services </h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-3" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Additional Services</a></li>
+                                    <li role="presentation"><a href="#tab2-4" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Additional Services</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-3">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Additional Services</th>
+                                                        <th>Currency</th>
+                                                        <th>Exchange Rate </th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Additional Services</th>
+                                                        <th>Currency</th>
+                                                        <th>Exchange Rate </th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Abc Service</span></td>
+                                                        <td><span>THB</span></td>
+                                                        <td>
+                                                       1                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab2-4">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpAdditional">&nbsp;</label>
+                                                    <select id="drpAdditional" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Service Per Day</option>
+                                                        <option> Per Pax</option>
+                                                       
+                                                    </select>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpAdditionalService">Additional Services</label>
+                                                    <select id="drpAdditionalService" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Additinal Service 1</option>
+                                                        <option> Additinal Service 2</option>
+                                                        <option>Additinal Service 3</option>
+                                                       
+                                                    </select>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                  <div class="col-md-3">
+                                                    <label for="drpCurrencyadd">Currency</label>
+                                                    <select id="drpCurrencyadd" class="js-states form-control" style="display: none; width: 100%">
+                                                   <option selected="selected">THB</option>
+                                                        <option>USD</option>
+                                                        <option>INR</option>
+                                                         </select>
+                                                </div>
+                                               <div class="col-md-3">
+                                                   <label for="txtExchangerateadd">Exchange Rate</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtExchangerateadd" value="1" placeholder="Exchange Rate">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="txtServiceCostadd">Service Cost </label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtServiceCostadd" value="1500" placeholder="Service Cost ">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CLEAR</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+
                             </form>
                         </div>
                         <div class="col-md-5 summery-detail summerytab2">

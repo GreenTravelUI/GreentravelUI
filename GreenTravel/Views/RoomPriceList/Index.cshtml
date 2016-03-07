@@ -2,6 +2,14 @@
     ViewBag.Title = "Room Price List";
     ViewBag.PageTitle = "Room Price List";
     ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Hotel Code: <span>HOTEL-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
 }
 
 <div class="col-md-12 form-detail">
@@ -14,8 +22,8 @@
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Room Price List (Net Rates)</a></li>
                     <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-times-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;Cancellation Policy</a></li>
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Policy</a></li>
-                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-suitcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;Surcharge</a></li>
-                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-ticket"></span>&nbsp;&nbsp;&nbsp;&nbsp;Mandatory</a></li>
+                    <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-suitcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;Additional Surcharge</a></li>
+                    <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-ticket"></span>&nbsp;&nbsp;&nbsp;&nbsp;Mandatory Inclusions</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -218,7 +226,7 @@
                                             <label for="txtminstay">Min Stay (Days)</label>
                                             <input type="text" class="form-control" id="txtminstay" value="3" placeholder="Max Pax">
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <label for="drpBoardType">Board Type </label>
                                             <select id="drpBoardType" class="js-states form-control" style="display: none; width: 100%">
                                                 <option value="None">None</option>
@@ -227,6 +235,17 @@
 
                                             </select>
                                         </div>
+
+                                        <div class="col-md-3">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                           <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                                 </select>
+
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -640,13 +659,22 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <label for="drpRoomCategory">Room Category </label>
                                             <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                 <option>Standerd </option>
                                                 <option>Delux </option>
                                                 <option>Supirior</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                            </select>
+
                                         </div>
                                         <div class="col-md-3">
                                             <label for="txtFromDate">From Date </label>
@@ -745,8 +773,8 @@
                                                         <option selected="selected">None</option>
                                                         <option>Amount</option>
                                                         <option>Percent</option>
-                                                        <option>Full and Night</option>
-                                                        <option>Room</option>
+                                                        <option>Full</option>
+                                                        <option>Night Per Room</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-4">
@@ -844,13 +872,22 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <label for="drpRoomCategory">Room Category </label>
                                             <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                 <option>Standerd </option>
                                                 <option>Delux </option>
                                                 <option>Supirior</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                           <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                                 </select>
+
                                         </div>
                                         <div class="col-md-3">
                                             <label for="txtFromDate">From Date </label>
@@ -1001,25 +1038,22 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Count</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtCount" value="1" placeholder="Count">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Free</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtFree" value="1" placeholder="Free">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Limit</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtLimit" value="1" placeholder="Limit">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1072,25 +1106,22 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Count</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtCount" value="1" placeholder="Count">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Free</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtFree" value="1" placeholder="Free">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Limit</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtLimit" value="1" placeholder="Limit">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1130,7 +1161,7 @@
                     <div role="tabpanel" class="tab-pane " id="tab5">
                         <div class="col-md-8">
                             <form>
-                                <h3 class="tab9section1">Surcharge - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab9section1">Additional Surcharge - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -1175,15 +1206,23 @@
                                             </select>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="drpHotel">Surcharge Type </label>
+                                            <label for="drpHotel">Hotel </label>
                                             <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Abc Hotel</option>
+                                                <option>Xyz Hotel</option>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
+                                            <label for="drpHotel">Surcharge Type </label>
+                                            <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
                                             <label for="drpRoomCategory">Room Category </label>
                                             <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                 <option>Standerd </option>
@@ -1215,6 +1254,19 @@
                                            <input type="checkbox">Set &nbsp &nbsp 
                                         </div>
 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                            </select>
+
+                                        </div>
                                     </div>
                                 </div>
                                 <br />
@@ -1318,21 +1370,21 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Cost</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtCount" value="1" placeholder="Cost">
                                                         <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Adult Cost</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtFree" value="1" placeholder="Adult Cost">
                                                         <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Child Cost</label>
                                                     <div class="input-group input-append">
                                                         <input type="text" class="form-control" id="txtLimit" value="1" placeholder="Child Cost">
@@ -1387,7 +1439,7 @@
                     <div role="tabpanel" class="tab-pane " id="tab6">
                         <div class="col-md-8">
                             <form>
-                                <h3 class="tab9section1">Mandatory - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab9section1">Mandatory Inclusions - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -1432,15 +1484,23 @@
                                             </select>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="drpHotel">Mandatory Type </label>
+                                            <label for="drpHotel">Hotel </label>
                                             <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Abc Hotel</option>
+                                                <option>Xyz Hotel</option>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
+                                            <label for="drpHotel">Mandatory Type </label>
+                                            <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
                                             <label for="drpRoomCategory">Room Category </label>
                                             <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                 <option>Standerd </option>
@@ -1472,6 +1532,20 @@
                                            <input type="checkbox">Set &nbsp &nbsp 
                                         </div>
 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                             <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                            </select>
+
+
+                                        </div>
                                     </div>
                                 </div>
                                 <br />

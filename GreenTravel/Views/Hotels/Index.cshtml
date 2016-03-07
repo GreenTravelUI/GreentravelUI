@@ -108,6 +108,74 @@
                     @*Search Hotel*@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="txtTagSearch">Tag Search</label>
+                                        <input type="text" id="txtTagSearch" class="form-control" placeholder="Tag Search" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtTagSearch">Criteria</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">None</option>
+                                            <option>At</option>
+                                            <option>Between</option>
+                                            <option>Less than</option>
+                                            <option>Less than or equal</option>
+                                            <option>At Month</option>
+                                            <option>Between Month</option>
+                                            <option>More than</option>
+                                            <option>More than or equal</option>
+                                            <option>At Quater</option>
+                                            <option>Between Quater</option>
+                                            <option>At Year</option>
+                                            <option>Between Year</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtTagSearch">Search By</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Created date</option>
+                                            <option>Updated date</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="txtTagSearch">From</label>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">2016</option>
+                                                    <option>2015</option>
+                                                    <option>2014</option>
+                                                    <option>2013</option>
+                                                    <option>2012</option>
+                                                    <option>2011</option>
+                                                    <option>2010</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">January</option>
+                                                    <option>February</option>
+                                                    <option>March</option>
+                                                    <option>April</option>
+                                                    <option>May</option>
+                                                    <option>June</option>
+                                                    <option>July</option>
+                                                    <option>August</option>
+                                                    <option>September</option>
+                                                    <option>October</option>
+                                                    <option>November</option>
+                                                    <option>December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound">200 Records found</h4>
+                            </div>
                             <div class="table-responsive">
                                 <div class="dropdown table-custome-drop">
                                     <div class="btn-group">
@@ -243,12 +311,12 @@
                                             <label for="txtHotelName">Hotel Name <span>*</span></label>
                                             <input type="text" class="form-control req" id="txtHotelName" value="Amari Ocean Pattaya" placeholder="Hotel Name">
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                         <div class="col-md-6">
+                                        <div class="col-md-6">
                                             <label for="drpTypeOfHotel">Type Of Hotel <span>*</span></label>
                                             <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Hotel</option>
@@ -274,7 +342,7 @@
                                                 <option>10</option>
                                             </select>
                                         </div>
-                                       
+
 
                                     </div>
                                 </div>
@@ -306,7 +374,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                                              
+
                                 <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Hotel Address - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
@@ -647,8 +715,8 @@
 
                                         <div class="col-md-6">
 
-                                            <label for="txtRoomType">Room Type <span>*</span></label>
-                                            <input type="text" class="form-control" value="Deluxe Twin Room with Sea View " id="txtRoomType" placeholder="Room Type ">
+                                            <label for="txtRoomCategory">Room Category <span>*</span></label>
+                                            <input type="text" class="form-control" value="Deluxe Twin Room with Sea View " id="txtRoomCategory" placeholder="Room Type ">
                                         </div>
                                         <div class="col-md-3">
                                             <label for="txtNumberofRooms"># of Rooms <span>*</span></label>
@@ -669,11 +737,11 @@
                                             <input type="text" class="form-control" id="txtMaxPax" value="3" placeholder="Max Adult ">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtMaxPax">Max CWB<span>*</span></label>
+                                            <label for="txtMaxPax">Max Child With Extra Bed<span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="1" placeholder="Max CWB ">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtMaxPax">Max CNB<span>*</span></label>
+                                            <label for="txtMaxPax">Max Child With No Bed<span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="1" placeholder="Max CNB ">
                                         </div>
                                         <div class="col-md-3">
@@ -693,7 +761,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtDescription">Room Facilities </label>
                                     <div class="row">
+
                                         <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Air Conditioning
                                         </div>
@@ -849,7 +919,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                               @* <div class="row">
                                     <div class="col-md-12">
                                         <div class="table-responsive">
                                             <table id="" class="display table" style="width: 100%; cellspacing: 0;">
@@ -910,16 +980,20 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="txtConferenceRoomDescription">Conference Room Description </label>
                                                 <textarea id="txtConferenceRoomDescription" class="form-control" placeholder="Conference Room Description">Room have central A/C. And free wifi.</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="txtRestrictions">Restrictions  </label>
                                                 <textarea id="txtRestrictions" class="form-control" placeholder="Restrictions">No camera.</textarea>
@@ -928,6 +1002,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtDescription">Function Room Facilities </label>
                                     <div class="row">
                                         <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Projector
@@ -971,7 +1046,109 @@
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyFunctionRoomGrid">SEARCH</a>
-                            </form>
+                           
+                                
+                                 <h6 class="tab9section1">&nbsp;</h6>
+                                <h3 class="tab9section1">Setup Style</h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-3" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Setup Style</a></li>
+                                    <li role="presentation"><a href="#tab2-4" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Setup Style</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-3">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Setup Style</th>
+                                                        <th>Capacity</th>
+                                                        <th>Total Tables</th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>1</th>
+                                                        <th>20</th>
+                                                        <th>1</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Abc Service</span></td>
+                                                        <td><span>THB</span></td>
+                                                        <td>
+                                                       1                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab2-4">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="txtSetupStyle">Setup Style</label>
+                                                   <input type="text" class="form-control" id="txtSetupStyle" value="1" placeholder="Setup Style">
+                                                </div>
+                                                
+                                       
+                                                <div class="col-md-4">
+                                                    <label for="txtCapacity">Capacity</label>
+                                                   <input type="text" class="form-control" id="txtCapacity" value="20" placeholder="Setup Style">
+                                                </div>
+                                                
+                                           
+                                                  <div class="col-md-4">
+                                                    <label for="txtTotalTables">Total Tables</label>
+                                                    <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CLEAR</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+                                 </form>
+
+
                         </div>
                         <div class="col-md-5 summery-detail summerytab6">
                             <div class="panel panel-white">
@@ -1196,14 +1373,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtDinnerToTime">Menu Attechment</label>
-                                    <div class="input-group input-append">
-                                        <input type="text" class="form-control" id="txtDinnerToTime" placeholder="Menu Attechment">
-                                        <a href="javascript:void(0);" class="input-group-addon add-on addbtn" data-toggle="modal" data-target="#MySelectSightseeing" rel="tooltip" title="Add Menu Attachment"><span class="fa fa-plus"></span></a>
-                                    </div>
-                                </div>
-
+                                
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -1214,6 +1384,95 @@
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
                                     CLEAR</button>
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRestaurantGrid">SEARCH</a>
+                            
+                            
+                             <h6 class="tab9section1">&nbsp;</h6>
+                                <h3 class="tab9section1">Menu Attechment </h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-5" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Menu Attachment</a></li>
+                                    <li role="presentation"><a href="#tab2-6" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Menu Attachment</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-5">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Menu Title</th>
+                                                        <th>>Menu Attechment</th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                       <th>Menu Title</th>
+                                                        <th>Menu Attechment</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Continatle</span></td>
+                                                        <td><span></span></td>
+                                                        <td>
+                                                       1                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab2-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="txtmenutitle">Menu Title</label>
+                                                     <input type="text" class="form-control" id="txtmenutitle" placeholder="Menu Title">
+                                                </div>
+                                            
+                                                <div class="col-md-6">
+                                                    <label for="txtmenuattachment">Menu Attachment</label>
+                                                    <input type="text" class="form-control" id="txtmenuattachment" placeholder="Menu Attechment">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CLEAR</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+
+
                             </form>
                         </div>
                         <div class="col-md-4 summery-detail summerytab7">
