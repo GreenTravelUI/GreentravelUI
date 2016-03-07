@@ -90,7 +90,7 @@ $(document).ready(function() {
     
     $('#example').dataTable();
     $('#example-editable').DataTable();
-    $('.datatable').DataTable();
+    $('.datatable').DataTable({ "autoWidth": false });
     
     var table = $('#example2').DataTable({
         "columnDefs": [
