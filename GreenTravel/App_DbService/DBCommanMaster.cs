@@ -568,36 +568,43 @@ namespace GreenTravel.App_DbService
                 }
                 else { _cmd.Parameters.AddWithValue("@xcross4", "0"); }
 
+
                 if (CUH.Uxreference1 != null)
                 {
                     _cmd.Parameters.AddWithValue("@xreference1 ", CUH.Uxreference1);
                 }
-                else { _cmd.Parameters.AddWithValue("@xreference1", "0"); }
+                else { _cmd.Parameters.AddWithValue("@xreference1", ""); }
+
+
                 if (CUH.Uxreference2 != null)
                 {
                     _cmd.Parameters.AddWithValue("@xreference2 ", CUH.Uxreference2);
                 }
-                else { _cmd.Parameters.AddWithValue("@xreference2", "0"); }
+                else { _cmd.Parameters.AddWithValue("@xreference2", ""); }
+
                 if (CUH.Uxreference3 != null)
                 {
                     _cmd.Parameters.AddWithValue("@xreference3 ", CUH.Uxreference3);
                 }
-                else { _cmd.Parameters.AddWithValue("@xreference3", "0"); }
+                else { _cmd.Parameters.AddWithValue("@xreference3", ""); }
+
                 if (CUH.Uxreference4 != null)
                 {
                     _cmd.Parameters.AddWithValue("@xreference4 ", CUH.Uxreference4);
                 }
-                else { _cmd.Parameters.AddWithValue("@xreference4", "0"); }
+                else { _cmd.Parameters.AddWithValue("@xreference4", ""); }
+
                 if (CUH.Uxreference5 != null)
                 {
                     _cmd.Parameters.AddWithValue("@xreference5 ", CUH.Uxreference5);
                 }
-                else { _cmd.Parameters.AddWithValue("@xreference5", "0"); }
+                else { _cmd.Parameters.AddWithValue("@xreference5", ""); }
+
                 if (CUH.Uxreference6 != null)
                 {
                     _cmd.Parameters.AddWithValue("@xreference6 ", CUH.Uxreference6);
                 }
-                else { _cmd.Parameters.AddWithValue("@xreference6", "0"); }
+                else { _cmd.Parameters.AddWithValue("@xreference6", ""); }
 
 
                 _cmd.Parameters.AddWithValue("@xdetail ", CUH.Uxdetail);
@@ -684,7 +691,7 @@ namespace GreenTravel.App_DbService
                 _cmd.Parameters.AddWithValue("@MultiSelect5", CUH.UMultiSelect5);
 
                 _cmd.Parameters.AddWithValue("@CreatedBy", CUH.CreatedBy);
-                
+
                 _cmd.Parameters.AddWithValue("@CorpcentreBy", CUH.CorpcentreBy);
                 _cmd.Parameters.AddWithValue("@UnitCorpBy", CUH.UnitCorpBy);
                 _cmd.Parameters.AddWithValue("@TerminalBy", CUH.TerminalBy);
