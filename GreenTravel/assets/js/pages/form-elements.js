@@ -1,15 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('.summernote').summernote({
-	  height: 350
-	});
-    
+        height: 350
+    });
+
     $('.date-picker').datepicker({
         orientation: "top auto",
-        autoclose: true
+        autoclose: true,
+
     }).on('hide', function () {
         if (!this.firstHide) {
             if (!$(this).is(":focus")) {
-                //this.firstHide = true;
+                this.firstHide = true;
                 // this will inadvertently call show (we're trying to hide!)
                 this.focus();
             }
@@ -22,11 +23,11 @@ $(document).ready(function() {
             $(this).datepicker('hide');
         }
     });
-    
+
     $('#cp1').colorpicker({
         format: 'hex'
     });
     $('#cp2').colorpicker();
-    
+
     $('#timepicker1').timepicker();
 });
