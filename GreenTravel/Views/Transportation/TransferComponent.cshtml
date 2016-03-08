@@ -1,0 +1,312 @@
+﻿@{
+    ViewBag.Title = "TransferComponent";
+    ViewBag.PageTitle = "Transfer Component";
+    ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Component Code: <span>CMP-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
+}
+
+
+<style>
+    .modal-lg
+    {
+        width: 95%;
+    }
+
+    .modal-header h4
+    {
+        border-bottom: 1px dashed #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover
+    {
+        background-color: #22baa0;
+        border-color: #22baa0;
+        border-left: 0 none #22baa0;
+        color: #fff;
+    }
+
+    #wrapper, .wrapper
+    {
+        width: 200%;
+        transform: translate3d(0, 0, 0);
+        transition: transform .5s ease-in-out;
+        padding-left: 0;
+    }
+
+    .content
+    {
+        float: left;
+        width: 50%;
+        min-height: 200px;
+        white-space: normal;
+        background-repeat: no-repeat;
+    }
+
+    li.content
+    {
+        list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
+    }
+
+        li.content .libody
+        {
+            transition-timing-function: linear;
+        }
+
+    .summery-uitilities-detail
+    {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    .summery-nav-btn
+    {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+        .summery-nav-btn.active
+        {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .libody.summery-body
+    {
+    }
+</style>
+
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transfer Component</a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-map-signs"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transfer Component</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>FIT / Group</th>
+                                            <th>Component Title</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>FIT / Group</th>
+                                            <th>Component Title</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>FIT</td>
+                                            <td>ABC</td>
+
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab2section1">Transfer Component</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpTypeOfAgent">FIT/Group</label>
+                                            <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">FIT</option>
+                                                <option>Group</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="txtComponentType">Component Title</label>
+                                            <input type="text" class="form-control" id="txtComponentType" value="" placeholder="Component Title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="txtRemarks">Component Description</label>
+                                            <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CREATE NEW</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab2">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="~/assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list slimscroll">
+                                            <div class="summ-list-left">
+                                                <li>Transportation Company Name :<br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblHotelName" for="txtHotelName"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                               
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.Agentstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+            $('.next').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().next().show();
+                    //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
+                }
+            });
+            $('.prev').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().prev().show();
+                    //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
+                }
+            });
+        });
+    </script>
+}
+
+@section floatingsection{
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Basic Details">1</a>
+        @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Agent Overview">2</a>
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Agent Address">3</a>
+        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Auto-Email On Event">4</a>
+        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Whitelable Criterias">5</a>
+    </div>
+    <div class="floating-section-buttons tab3" style="display: none">
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Bank">2</a>
+    </div>
+}

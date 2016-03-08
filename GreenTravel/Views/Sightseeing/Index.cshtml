@@ -2,6 +2,14 @@
     
     ViewBag.Title = "Sightseeing";
     ViewBag.PageTitle = "Sightseeing Master";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Sightseeing Code: <span>SS-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
 }
 
 <style>
@@ -107,20 +115,24 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEntranceName">Entrance Name</label>
-                                    <div class="input-group input-append">
-                                        <input type="text" data-role="tagsinput" class="form-control" id="txtEntranceName" placeholder="Entrance Name">
-                                        <a href="javascript:void(0);" class="input-group-addon add-on" data-toggle="modal" data-target="#MySelectSightseeing" rel="tooltip" title="Add Entrance"><span class="fa fa-plus"></span></a>
-                                    </div>
+                                    <input type="text" data-role="tagsinput" class="form-control" value="Entrance1,Entrance2,Entrance3" id="txtentrancename" placeholder="Entrance Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Optional Services</label>
+                                    <input type="text" data-role="tagsinput" class="form-control" value="Soda Include, Starter,Soda For 2hr" id="txtoptionalservice" placeholder="Optional Services">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
 
                                             <label for="txtEntranceDescription">Sightseeing Description </label>
                                             <textarea id="txtEntranceDescription" rows="4" style="display: block; width: 100%"> </textarea>
                                         </div>
-                                        @*  <div class="form-group">
+                                    </div>
+                                </div>
+
+                                @*  <div class="form-group">
                                     <label>Included Services</label>
                                     <input type="text" data-role="tagsinput" class="form-control" value="" id="txtTags" placeholder="Included Services">
                                 </div>
@@ -128,7 +140,9 @@
                                     <label>Additional Services</label>
                                     <input type="text" data-role="tagsinput" class="form-control" value="" id="txtTags" placeholder="Additional Services">
                                 </div>*@
-                                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <label for="txtRestriction">Restriction </label>
                                             <textarea id="txtRestriction" rows="4" style="display: block; width: 100%"></textarea>
                                         </div>
@@ -171,69 +185,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Show Time - <span class="text-danger">Grand Palace - Pattaya</span></h3>
-
-                                <div class="table-responsive">
-                                    <table id="exampleeditable" class="display table" style="width: 100%; cellspacing: 0;">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Show Time
-                                                </th>
-                                                <th>SIC Pickup Time
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>
-                                                    <button id="btnadd" class="btn btn-success btnSave" type="submit">
-                                                        Add</button>
-                                                </th>
-                                                <th></th>
-
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control" id="timepicker1">
-                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control" id="timepicker2">
-                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control" id="timepicker3">
-                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control" id="timepicker4">
-                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
                                 <button id="btnSave" type="submit" class="btn btn-primary btnSave">
@@ -241,99 +192,187 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
-                        </div>
-                        <div class="col-md-5 summery-detail summerytab2">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-                                        <ul class="summery-list slimscroll">
-                                            <div class="summ-list-left">
-                                                <li>Sightseeing Name
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblHotelName" for="txtHotelName"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                            </div>
-                                            <div class="summ-list-right">
-                                            </div>
-                                        </ul>
+
+                            <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Show Time - <span class="text-danger">Grand Palace - Pattaya</span></h3>
+                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#tab2-1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Show Time</a></li>
+                                <li role="presentation"><a href="#tab2-2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-bed "></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="tab2-1">
+                                    <div class="table-responsive">
+                                        <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Show Time </th>
+                                                    <th>SIC Pickup Time</th>
+                                                    <th style="width: 15%;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Show Time </th>
+                                                    <th>SIC Pickup Time</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>
+                                                        <input type="text" />
+                                                    </th>
+                                                    <th>
+                                                        <input type="text" />
+                                                    </th>
+                                                    <th>
+                                                        <a href="#">
+                                                            <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td><span>10:30</span></td>
+                                                    <td><span>10:00</span></td>
+
+                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
-                                    <div class="summery-buttons">
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="tab2-2">
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="timepicker1">Show Time<span>*</span></label>
+                                                    <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control" id="timepicker1">
+                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label for="timepicker2">SIC Pickup Time <span>*</span></label>
+                                                    <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control" id="timepicker2">
+                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                             SAVE</button>
                                         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
                                             UPDATE</button>
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
-                                    </div>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </form>
+
+
                                 </div>
                             </div>
+
                         </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="tab6">
-                        <div class="col-md-12">
-                            <form>
-                            </form>
-                        </div>
+                          <div class="col-md-5 summery-detail summerytab2">
+                                    <div class="panel panel-white">
+                                        <h4 class="panel-title-summery">Summary </h4>
+                                        <ul class="utilitis-drop ">
+                                            <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                                <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                        Task </a></li>
+                                                    <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                        Notifications </a></li>
+                                                    <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                        Calendar </a></li>
+                                                    <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                        Email </a></li>
+                                                    <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                        SMS </a></li>
+                                                    <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                        Notes </a></li>
+                                                    <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                        Tags </a></li>
+                                                    <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                        Help Video </a></li>
+                                                    <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                        Guided Tour </a></li>
+                                                    <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                        Copy </a></li>
+                                                    <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                        Print </a></li>
+                                                    <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                        Updates </a></li>
+                                                    <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                        Screenshot </a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                            <div class="summ-lis-height">
+                                                <ul class="summery-list slimscroll">
+                                                    <div class="summ-list-left">
+                                                        <li>Sightseeing Name
+                                                    <br />
+                                                            <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                                <label id="lblHotelName" for="txtHotelName"></label>
+                                                                <i>&nbsp;</i>
+                                                            </a>
+                                                        </li>
+                                                    </div>
+                                                    <div class="summ-list-right">
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                            <div class="summery-buttons">
+                                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                    SAVE</button>
+                                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                    UPDATE</button>
+                                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                    DELETE</button>
+                                                <p>
+                                                    Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-@section floatingsection{
-    <div class="floating-section-buttons tab2" style="display: none">
-        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Sightseeing">1</a>
-        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Sightseeing Address">2</a>
-        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Show Time ">3</a>
-    </div>
-    <div class="floating-section-buttons tab6" style="display: none">
-        <a class="btn btn-default" data-section="tab6section1" rel="tooltip" title="Show Time">1</a>
-        <a class="btn btn-default" data-section="tab6section2" rel="tooltip" title="Cancellation Policies">2</a>
-    </div>
-}
+    @section floatingsection{
+        <div class="floating-section-buttons tab2" style="display: none">
+            <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Sightseeing">1</a>
+            <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Sightseeing Address">2</a>
+            <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Show Time ">3</a>
+        </div>
+        <div class="floating-section-buttons tab6" style="display: none">
+            <a class="btn btn-default" data-section="tab6section1" rel="tooltip" title="Show Time">1</a>
+            <a class="btn btn-default" data-section="tab6section2" rel="tooltip" title="Cancellation Policies">2</a>
+        </div>
+    }

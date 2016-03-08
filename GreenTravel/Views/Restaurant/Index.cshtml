@@ -2,6 +2,13 @@
     ViewBag.Title = "Restaurant";
     ViewBag.PageTitle = "Restaurant Master";
     ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Restaurant Code: <span>RST-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
 }
 
 <div class="col-md-12 form-detail">
@@ -12,8 +19,8 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Restaurant </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-spoon"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Restaurant</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
-                    <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank / Tax</a></li>
+                    @*<li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>*@
+                    @*<li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank / Tax</a></li>*@
                     <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-cutlery"></span>&nbsp;&nbsp;&nbsp;&nbsp;Meal Details</a></li>
                 </ul>
                 @*<ul class="nav nav-tabs form-basic-tab" role="tablist">
@@ -101,10 +108,7 @@
                                     <label for="txtRestaurantName">Restaurant Name <span>*</span></label>
                                     <input type="text" class="form-control" id="txtRestaurantName" value="Mantra Restaurant & Bar" placeholder="Restaurant Name">
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtRestaurantName">Restaurant Company Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtRestaurantCompanyName" value="Mantra Restaurant & Bar" placeholder="Restaurant Name">
-                                </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -113,60 +117,42 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="drpTypeOfRestaurant">Status <span>*</span></label>
-                                            <select id="drpTypeOfRestaurant" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
+                                            <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Official Email(s)">
                                         </div>
+
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtOfficialEmail" placeholder="Official Email(s)">
-                                </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <label for="drpCountry">Code<span>*</span></label>
                                             <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <label for="txtOfficialPhone">Official Phone <span>*</span></label>
                                             <input type="text" class="form-control col-sm-5" id="txtOfficialPhone" placeholder="Official Phone">
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <label for="txtFax">Fax</label>
                                             <input type="text" class="form-control" id="txtFax" placeholder="Fax">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtWebsite">Website </label>
-                                    <input type="text" class="form-control" id="txtWebsite" placeholder="Website">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtPrimaryContactPerson">Primary Contact Person </label>
-                                    <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAccountingGroup">Accounting Group </label>
-                                    <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
-                                </div>
-                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtTaxRegistrationNumber">Tax Registration Number </label>
-                                            <input type="text" class="form-control col-sm-5" id="txtTaxRegistrationNumber" placeholder="Tax Registration Number">
+                                            <label for="txtWebsite">Website </label>
+                                            <input type="text" class="form-control" id="txtWebsite" placeholder="Website">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txtEffectiveDate">Effective Date</label>
-                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" placeholder="Effective Date">
+                                            <label for="txtPrimaryContactPerson">Primary Contact Person </label>
+                                            <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
-                                    <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
-                                </div>
+
 
                                 <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Address - <span class="text-danger">Mantra Restaurant & Bar - Pattaya</span></h3>
                                 <div class="form-group">
@@ -174,12 +160,16 @@
                                     <input type="text" class="form-control" id="txtRestaurantLocation" placeholder="Restaurant Location (Landmark)">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtAddressLine1">Address Line 1 </label>
-                                    <input type="text" class="form-control" id="txtAddressLine1" placeholder="Address Line 1 ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAddressLine2">Address Line 2 </label>
-                                    <input type="text" class="form-control" id="txtAddressLine2" placeholder="Address Line 2">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine1">Address Line 1 </label>
+                                            <input type="text" class="form-control" id="txtAddressLine1" placeholder="Address Line 1 ">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine2">Address Line 2 </label>
+                                            <input type="text" class="form-control" id="txtAddressLine2" placeholder="Address Line 2">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
@@ -205,43 +195,52 @@
                                 <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Facilities - <span class="text-danger">Mantra Restaurant & Bar - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Home Delivery
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Bar  Available
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Air Conditioned
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Wifi 
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Smokking Area
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Pet Friendly
                                         </div>
 
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Dining
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Outdoor Seating
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Parking
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Wheel Chair
                                         </div>
 
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Parking
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Pet Friendly
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Optional Services</label>
+                                                <input type="text" data-role="tagsinput" class="form-control" value="Soda Include, Starter,Soda For 2hr" id="txtoptionalservice" placeholder="Optional Services">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -262,31 +261,7 @@
 
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="drpHolidays">Holidays</label>
-                                    <select id="drpHolidays" class="js-states form-control" style="display: none; width: 100%">
-                                    </select>
-                                </div>
-
-                                <h3 class="section-headers tab2section5"><span class="section-index">5</span>&nbsp;Included Services - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label>Included Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="With Breakfast,Without Breakfast,With Lunch, Without Lunch" id="txtTags" placeholder="Additional Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Other Included Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="Airport Shuttle,ATM on site,Laundry,Hair/Beauty Salon,VIP Room Facilities" id="txtTags" placeholder="Other Additional Services">
-                                </div>
-
-                                <h3 class="section-headers tab2section6"><span class="section-index">6</span>&nbsp;Additional Services - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label>Additional Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="With Breakfast,Without Breakfast,With Lunch, Without Lunch" id="txtTags" placeholder="Additional Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Other Additional Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="Airport Shuttle,ATM on site,Laundry,Hair/Beauty Salon,VIP Room Facilities" id="txtTags" placeholder="Other Additional Services">
-                                </div>
+                                
 
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -296,7 +271,7 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
@@ -545,7 +520,7 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
                             </form>
                         </div>
@@ -800,7 +775,7 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
@@ -964,7 +939,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtRestaturantName">Services</label>
+                                    <label for="txtRestaturantName">Board Type</label>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <input type="checkbox">Break Fast
@@ -1032,45 +1007,38 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtDinnerToTime">Menu Type</label>
                                     <div class="row">
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">French
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Chinese
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Thai
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Mexican
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Italian
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Spanish
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Japanese
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Greek
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Indian
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="txtDinnerToTime">Menu Attechment</label>
-                                    <input type="text" class="form-control" id="txtDinnerToTime" placeholder="Menu Attechment">
-                                </div>
-                                <div class="form-group">
-                                    <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                        ADD</button>
-                                </div>
 
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1080,9 +1048,96 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+
+
+                                  <h6 class="tab9section1">&nbsp;</h6>
+                                <h3 class="tab9section1">Menu Attechment </h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-5" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Menu Attachment</a></li>
+                                    <li role="presentation"><a href="#tab2-6" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Menu Attachment</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-5">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Menu Title</th>
+                                                        <th>Menu Attechment</th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                       <th>Menu Title</th>
+                                                        <th>Menu Attechment</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Continatle</span></td>
+                                                        <td><span></span></td>
+                                                        <td>
+                                                       1                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab2-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="txtmenutitle">Menu Title</label>
+                                                     <input type="text" class="form-control" id="txtmenutitle" placeholder="Menu Title">
+                                                </div>
+                                            
+                                                <div class="col-md-6">
+                                                    <label for="txtmenuattachment">Menu Attachment</label>
+                                                    <input type="text" class="form-control" id="txtmenuattachment" placeholder="Menu Attechment">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
