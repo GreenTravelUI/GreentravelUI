@@ -22,6 +22,7 @@
                     <li role="presentation" class="active" id="Search"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Company </a></li>
                     <li role="presentation" id="CreateCorporate"><a href="#tab2" role="tab" data-section="tab2" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create White Label</a></li>
                     <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Subscription / Hosting</a></li>
+                    <li role="presentation" id="Tab7"><a href="#tab7" role="tab" data-section="tab7" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Database</a></li>
                     <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Support</a></li>
                     <li role="presentation" id="tabuserpreferance"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;UI Preference</a></li>
                     <li role="presentation" id="Tab6"><a href="#tab6" role="tab" data-section="tab6" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Password Authentication Preference</a></li>
@@ -50,7 +51,7 @@
                                             <th>Company Name</th>
                                             <th>Company Industry</th>
                                             <th>Application URL  </th>
-                                            <th>Refference Company </th>
+                                            <th>Primary Contact Person </th>
                                             <th>Action</th>
                                         </tr>
                                         <tr>
@@ -76,7 +77,7 @@
                                             <th>Company Name</th>
                                             <th>Company Industry</th>
                                             <th>Application URL  </th>
-                                            <th>Refference Company </th>
+                                            <th>Primary Contact Person </th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -86,7 +87,7 @@
                                             <td>Sarawut Engchawadechasilp</td>
                                             <td>Tours & Travels</td>
                                             <td>Sarawut.co.in</td>
-                                            <td>Flamingo</td>
+                                            <td>Sarawut Sarawut</td>
                                             <td>
                                                 <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                 &nbsp;&nbsp;
@@ -100,7 +101,7 @@
                                             <td>Sarawut Engchawadechasilp</td>
                                             <td>Tours & Travels</td>
                                             <td>Sarawut.co.in</td>
-                                            <td>Flamingo</td>
+                                            <td>Nirav Sarawut</td>
                                             <td>
                                                 <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                 &nbsp;&nbsp;
@@ -195,29 +196,36 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtOfficialEmail">Official Email <span>*</span></label>
-                                            <input type="text" class="form-control  email" id="txtOfficialEmail" placeholder="Official Email">
+                                            <label for="txtContactPerson">Primary Contact Person   <span>*</span></label>
+                                            <input type="text" class="form-control  email" id="txtContactPerson" placeholder=" Primary Contact Person ">
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtOfficialEmail">Official Email <span>*</span></label>
+                                            <input type="text" class="form-control  email" id="txtOfficialEmail" placeholder="Official Email">
+                                        </div>
+                                    </div>
                                     <div class="col-md-2">
-                                        <label for="txtfacebook">Official Phone Code</label>
-                                        <input type="text" class="form-control url" id="txtPhoneCode" placeholder="Facebook">
+                                        <label for="txtOfficialPhoneCode">Official Phone Code</label>
+                                        <input type="text" class="form-control url" id="txtOfficialPhoneCode" placeholder="Official Phone Code">
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="txtfacebook">Official Phone</label>
-                                        <input type="text" class="form-control url" id="txtPhone" placeholder="Facebook">
+                                        <label for="txtOfficialPhone">Official Phone</label>
+                                        <input type="text" class="form-control url" id="txtOfficialPhone" placeholder="Official Phone">
                                     </div>
+
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtfacebook">Facebook</label>
                                             <input type="text" class="form-control url" id="txtfacebook" placeholder="Facebook">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txttwitter">Twitter</label>
@@ -225,14 +233,15 @@
                                         </div>
                                     </div>
 
+
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtgoogleplus">Google Plus</label>
                                             <input type="text" class="form-control url" id="txtgoogleplus" placeholder="Google Plus">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtwebportal">Website</label>
@@ -241,6 +250,19 @@
                                     </div>
 
                                 </div>
+
+                                <br />
+                                <button id="btnSaveTab2Sec1" type="submit" class="btn btn-success btnSaveuserpref">
+                                    SAVE</button>
+                                <button id="btnUpdateTab2Sec1" type="submit" class="btn btn-primary btnSaveuserpref">
+                                    UPDATE</button>
+                                <button id="btnCancelTab2Sec1" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab2Sec1" type="button" class="btn btn-warning btnClearuserpref">
+                                    CLEAR</button>
+                                <button id="btnquitTab2Sec1" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                                </br>
                             </div>
 
                             <div class="col-md-12">
@@ -316,7 +338,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             </br>
                                             <div class="cd-pricing-switcher">
@@ -331,6 +353,15 @@
                                         </div>
 
                                     </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            </br></br>
+                                              <input type="checkbox" id="chkPoweredByTechPure" class="form-marings chkCopyrightNotecs">Powered By TechPure
+                                        </div>
+                                    </div>
+
+
+
 
                                     <div class="col-md-2">
                                         <div class="form-group">
@@ -346,6 +377,21 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <br />
+                                <button id="btnSaveTab2Sec2" type="submit" class="btn btn-success btnSaveuserpref">
+                                    SAVE</button>
+                                <button id="btnUpdateTab2Sec2" type="submit" class="btn btn-primary btnSaveuserpref">
+                                    UPDATE</button>
+                                <button id="btnCancelTab2Sec2" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab2Sec2" type="button" class="btn btn-warning btnClearuserpref">
+                                    CLEAR</button>
+                                <button id="btnquitTab2Sec2" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                                </br>
+
+
 
                             </div>
                             <div class="col-md-12">
@@ -374,7 +420,7 @@
                                         <div class="form-group">
                                             <label for="drpBaseLanguage">Base Language <span>*</span></label>
                                             <select id="drpBaseLanguage" class="js-states form-control Language Dropdown req" style="display: none; width: 100%">
-                                                <option>-- Select Base Language--</option>
+                                                <option>English</option>
                                                 <option>Russian</option>
                                                 <option>Arabic</option>
                                                 <option>Portuguese</option>
@@ -431,14 +477,28 @@
 
                                 </div>
 
+                                <br />
+                                <button id="btnSaveTab2Sec3" type="submit" class="btn btn-success btnSaveuserpref">
+                                    SAVE</button>
+                                <button id="btnUpdateTab2Sec3" type="submit" class="btn btn-primary btnSaveuserpref">
+                                    UPDATE</button>
+                                <button id="btnCancelTab2Sec3" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab2Sec3" type="button" class="btn btn-warning btnClearuserpref">
+                                    CLEAR</button>
+                                <button id="btnquitTab2Sec3" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                                </br>
+
+
                             </div>
                             <div class="col-md-12">
-                                <h3 class="section-headers tab2section4"><span class="section-index">4</span>&nbsp;Referal Details</h3>
+                                <h3 class="section-headers tab2section4"><span class="section-index">4</span>&nbsp;Referral Details</h3>
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="drpRefferenceCorporateCompany">Refference Corporate Company </label>
+                                            <label for="drpRefferenceCorporateCompany">Referring Corporate Company </label>
                                             <select id="drpRefferenceCorporateCompany" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option>-- Select Refference Corporate Company--</option>
                                                 <option>Flamingo</option>
@@ -449,8 +509,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtOtherRefference2">Other Refference 2</label>
-                                            <input type="text" class="form-control" id="txtOtherRefference2" placeholder="Other Refference 2">
+                                            <label for="txtOtherRefference2">Other Refference 1</label>
+                                            <input type="text" class="form-control" id="txtOtherRefference2" placeholder="Other Refference 1">
                                         </div>
                                     </div>
 
@@ -458,31 +518,87 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtOtherRefference1">Other Refference 1</label>
-                                            <input type="text" class="form-control" id="txtOtherRefference1" placeholder="Other Refference 1">
+                                            <label for="txtOtherRefference1">Other Refference 2</label>
+                                            <input type="text" class="form-control" id="txtOtherRefference1" placeholder="Other Refference 2">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtAddressLine2">Commision % </label>
-                                            <input type="text" class="form-control num" id="txtCommision" placeholder="Commision">
+                                            <input type="text" class="form-control num" id="txtCommision" placeholder="Commision %">
                                         </div>
                                     </div>
 
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtAddressLine2">Commision Amount </label>
+                                            <input type="text" class="form-control num" id="txtCommisionAmount" placeholder="Commision Amount">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="drpBaseCurrency">Commision Currency <span>*</span></label>
+                                            <select id="drpBaseCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            </br>
+                                            <div class="cd-pricing-switcher">
+                                                <p class="fieldset">
+                                                    <input type="radio" class="no-uniform" name="duration-1" value="monthly" id="rdo1Time" checked>
+                                                    <label for="rdo1Time">One Time</label>
+                                                    <input type="radio" class="no-uniform" name="duration-1" value="yearly" id="rdoRecurring">
+                                                    <label for="rdoRecurring">Recurring</label>
+                                                    <span class="cd-switch"></span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtAddressLine2">Recurring Period</label>
+                                            <select id="drpRecurringPeriod" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option>-- Select Recurring Period --</option>
+                                                <option>Monthly</option>
+                                                <option>Every 6 month</option>
+                                                <option>Yearly</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-12">
 
-                                <button id="btnsavebasic" type="submit" class="btn btn-success btnSave">
+                                <br />
+                                <button id="btnSaveTab2Sec4" type="submit" class="btn btn-success btnSaveuserpref">
                                     SAVE</button>
-                                <button id="btnupdatebasic" type="submit" class="btn btn-primary btnSave" style="display: none">
+                                <button id="btnUpdateTab2Sec4" type="submit" class="btn btn-primary btnSaveuserpref">
                                     UPDATE</button>
-                                <button id="btndeltebasic" type="Button" class="btn btn-green btnCancel" style="display: none">
+                                <button id="btnCancelTab2Sec4" type="button" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnclearbasic" type="Button" class="btn btn-warning btnclearbasicclass">
+                                <button id="btnclearTab2Sec4" type="button" class="btn btn-warning btnClearuserpref">
                                     CLEAR</button>
-                                <button id="btnQuitbasic" type="Button" class="btn btn-info">
+                                <button id="btnquitTab2Sec4" type="button" class="btn btn-info">
                                     QUIT FORM</button>
+                                </br>
 
                             </div>
                         </form>
@@ -495,13 +611,13 @@
                                      <span class="text-danger tab3Formname" style="display: none"></span>
                                 </h3>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtPlanName">Plan Name <span>*</span></label>
                                             <input type="text" class="form-control " id="txtPlanName" placeholder="Plan Name">
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <div class="form-group form-marings">
                                                 </br></br>
@@ -512,22 +628,59 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="txtNumberofUsers">Number of Users <span>*</span></label>
+                                            <input type="text" class="form-control  num" id="txtNumberofUsers" placeholder="Number of Users">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtSubscriptionFromDate">Subscription From Date</label>
+                                            <input type="text" class="form-control date-picker" id="txtSubscriptionFromDate" placeholder="dd/MM/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtSubscriptionToDate">Subscription To Date</label>
+                                            <input type="text" class="form-control date-picker datecompair" id="txtSubscriptionToDate" data-datecom="txtSubscriptionFromDate" placeholder="dd/MM/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="drpBillingCycle">Billing Cycle <span>*</span></label>
+                                            <select id="drpBillingCycle" class="js-states form-control  Dropdownhost" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="drpmaINCurrency">Currency</label>
+                                            <select id="drpmaINCurrency" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>USD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="drpBillingFromCompany">Billing From Company <span></span></label>
+                                            <select id="drpBillingFromCompany" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
                                             <label for="txtAmountPerUserPerMonth">Amount Per User Per Month <span></span></label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control req" id="txtutilized" placeholder="Amount Per User Per Month "><span class="input-group-addon add-on"><span>GBP</span></span>
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtNumberofUsers">Number of Users <span>*</span></label>
-                                            <input type="text" class="form-control  num" id="txtNumberofUsers" placeholder="Number of Users">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtTotalAmountPerMonth">Total Amount Per Month <span></span></label>
                                             <div class="input-group input-append bootstrap-timepicker">
@@ -535,16 +688,11 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
+
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtSubscriptionFromDate">Subscription From Date</label>
-                                            <input type="text" class="form-control date-picker" id="txtSubscriptionFromDate" placeholder="dd/MM/yyyy">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtTotalAmountPerMonth">Discount Per Month <span></span></label>
                                             <div class="input-group input-append bootstrap-timepicker">
@@ -552,16 +700,7 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtSubscriptionToDate">Subscription To Date</label>
-                                            <input type="text" class="form-control date-picker datecompair" id="txtSubscriptionToDate" data-datecom="txtSubscriptionFromDate" placeholder="dd/MM/yyyy">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtTotalAmountPerMonth">Final Amount Per Month <span></span></label>
                                             <div class="input-group input-append bootstrap-timepicker">
@@ -570,15 +709,7 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="drpBillingCycle">Billing Cycle <span>*</span></label>
-                                            <select id="drpBillingCycle" class="js-states form-control  Dropdownhost" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="drpPaymentMode">Payment Mode </label>
@@ -598,31 +729,39 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="drpBillingFromCompany">Billing From Company <span></span></label>
-                                            <select id="drpBillingFromCompany" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtFirstPaymentDate">First Payment Date <span></span></label>
                                             <input type="text" class="form-control date-picker datecompair" id="txtFirstPaymentDate" data-datecom="txtSubscriptionFromDate" placeholder="First Payment Date">
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtGracePeriod">Grace Period (Days)</label>
                                             <input type="text" class="form-control num" id="txtGracePeriod" placeholder="Grace Period">
                                         </div>
                                     </div>
-
                                 </div>
+
+                                <br />
+                                <button id="btnSaveTab3Sec1" type="submit" class="btn btn-success btnSaveuserpref">
+                                    SAVE</button>
+                                <button id="btnUpdateTab3Sec1" type="submit" class="btn btn-primary btnSaveuserpref">
+                                    UPDATE</button>
+                                <button id="btnCancelTab3Sec1" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab3Sec1" type="button" class="btn btn-warning btnClearuserpref">
+                                    CLEAR</button>
+                                <button id="btnquitTab3Sec1" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                                <br />
+                                <br />
+
+
+
+
+
 
                             </div>
                             <div class="col-md-12">
@@ -632,43 +771,82 @@
                                 <input type="text" class="form-control" id="txtsrnotab3" placeholder="Don't Enter Text" style="display: none">
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="drpProvider">Cloud Provider <span>*</span></label>
+                                            <select id="drpProvider" class="js-states form-control  Dropdownhost" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="drpCloudServerIP">Cloud Server IP <span>*</span></label>
                                             <select id="drpCloudServerIP" class="js-states form-control  Dropdownhost" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCloudDiskSpace">Allocate Cloud Disk Space <span>*</span></label>
+                                            <input type="text" class="form-control " id="txtCloudDiskSpace" placeholder="Allocate Cloud Disk Space">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCDNSpace">CDN Space <span></span></label>
+                                            <input type="text" class="form-control" id="txtCDNSpace" placeholder="CDN Space">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="drpCDNProvider">CDN Provider </label>
                                             <select id="drpCDNProvider" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtCloudDiskSpace">Cloud Disk Space <span>*</span></label>
-                                            <input type="text" class="form-control " id="txtCloudDiskSpace" placeholder="Cloud Disk Space">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtCDNSpace">CDN Space <span></span></label>
-                                            <input type="text" class="form-control" id="txtCDNSpace" placeholder="CDN Space">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtTrasactionCount">Trasaction Count</label>
                                             <input type="text" class="form-control num max" id="txtTrasactionCount" data-max="100000" placeholder="Trasaction Count">
                                         </div>
                                     </div>
+
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group form-marings">
+                                            </br>
+                                        <input type="checkbox" id="chkhostingcostnotincluded">CDN Cost Not Included
+                                        
+                                        </div>
+                                        </br>
+                                    
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-marings">
+                                            </br>
+                                        <input type="checkbox" id="chkhostingcostnotincluded">Hosting Cost Not Included
+                                        
+                                        </div>
+                                        </br>
+                                    
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
                                     <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label for="txtConfirmHotelUserPassword">IP Restricted Access</label>
+                                            @* <textarea rows="2" cols="50" placeholder="IP Restricted Access" style="display: block; width: 100%" id="txtipristrictedaccess"></textarea>*@
+                                            <input type="text" class="form-control " id="txtipristrictedaccess" placeholder="IP Restricted Access">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtCostPerMonth">CDN Cost Per Month </label>
 
@@ -677,45 +855,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtConfirmHotelUserPassword">IP Restricted Access</label>
-                                            <textarea rows="6" cols="50" placeholder="IP Restricted Access" style="display: block; width: 100%" id="txtipristrictedaccess"></textarea>
-
+                                            <label for="txtHostingCostPerMonth">Hosting Cost Per Month </label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control req" id="txtutilized" value="20000" placeholder="Hosting Cost Per Month "><span class="input-group-addon add-on"><span>GBP</span></span>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group form-marings">
-                                            </br>
-                                        <input type="checkbox" id="chkhostingcostnotincluded">Hosting Cost Not Included
-                                        
-                                        </div>
-                                        </br>
-                                    <div class="form-group">
-                                        <label for="txtHostingCostPerMonth">Hosting Cost Per Month </label>
-                                        <div class="input-group input-append bootstrap-timepicker">
-                                            <input type="text" class="form-control req" id="txtutilized" value="20000" placeholder="Hosting Cost Per Month "><span class="input-group-addon add-on"><span>GBP</span></span>
-                                        </div>
-                                    </div>
-                                    </div>
-
                                 </div>
                             </div>
                             <div class="col-md-12">
 
-                                <button id="btnSavetab3" type="submit" class="btn btn-success btnsavetab3class">
+                                <br />
+                                <button id="btnSaveTab3Sec2" type="submit" class="btn btn-success btnSaveuserpref">
                                     SAVE</button>
-                                <button id="btnUpdatetab3" type="submit" style="display: none" class="btn btn-primary btnsavetab3class">
+                                <button id="btnUpdateTab3Sec2" type="submit" class="btn btn-primary btnSaveuserpref">
                                     UPDATE</button>
-                                <button id="btnCanceltab3" type="button" style="display: none" class="btn btn-green">
+                                <button id="btnCancelTab3Sec2" type="button" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnCleartab3" type="button" style="display: none" class="btn btn-warning">
+                                <button id="btnclearTab3Sec2" type="button" class="btn btn-warning btnClearuserpref">
                                     CLEAR</button>
-                                <button id="btnQuittab3" type="button" class="btn btn-info">
+                                <button id="btnquitTab3Sec2" type="button" class="btn btn-info">
                                     QUIT FORM</button>
 
                             </div>
@@ -804,6 +965,18 @@
 
                                 </div>
 
+                                <br />
+                                <button id="btnSaveTab4Sec1" type="submit" class="btn btn-success btnSaveuserpref">
+                                    SAVE</button>
+                                <button id="btnUpdateTab4Sec1" type="submit" class="btn btn-primary btnSaveuserpref">
+                                    UPDATE</button>
+                                <button id="btnCancelTab4Sec1" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab4Sec1" type="button" class="btn btn-warning btnClearuserpref">
+                                    CLEAR</button>
+                                <button id="btnquitTab4Sec1" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+
                             </div>
 
                             <div class="col-md-12">
@@ -813,6 +986,8 @@
                                         <div class="form-group">
                                             <label for="drpSupportMode">Support Mode <span>*</span></label>
                                             <select id="drpSupportMode" multiple="multiple" data-placeholder="Select Mode" class="js-states form-control  Dropdown" style="display: none; width: 100%">
+                                                <option>Email</option>
+                                                <option>Call</option>
                                             </select>
                                         </div>
                                     </div>
@@ -828,31 +1003,31 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtSupportCostPerMonth">Support Cost Per Month <span></span></label>
-                                            <input type="text" class="form-control num" id="txtSupportCostPerMonth" placeholder="Support Cost Per Month">
+                                            @*<input type="text" class="form-control num" id="txtSupportCostPerMonth" placeholder="Support Cost Per Month">*@
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control req" id="txtSupportCostPerMonth" placeholder="Support Cost Per Month  "><span class="input-group-addon add-on"><span>GBP</span></span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="drpmaINCurrency">Currency</label>
-                                            <select id="drpmaINCurrency" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                                <option>INR</option>
-                                                <option>AUD</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>
-                                    </div>
+
+
+
                                 </div>
                             </div>
                             <div class="col-md-12">
 
-                                <button id="btnSavebilling" type="submit" class="btn btn-success btnSavebillingmain">
+
+                                <br />
+                                <button id="btnSaveTab4Sec2" type="submit" class="btn btn-success btnSaveuserpref">
                                     SAVE</button>
-                                <button id="btnUpdateBilling" type="submit" style="display: none" class="btn btn-primary btnSavebillingmain">
+                                <button id="btnUpdateTab4Sec2" type="submit" class="btn btn-primary btnSaveuserpref">
                                     UPDATE</button>
-                                <button id="btnClearbilling" type="button" style="display: none" class="btn btn-warning btnbillingclear">
+                                <button id="btnCancelTab4Sec2" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab4Sec2" type="button" class="btn btn-warning btnClearuserpref">
                                     CLEAR</button>
-                                <button id="btnQuitBilling" type="button" class="btn btn-info btnbillingquit">
+                                <button id="btnquitTab4Sec2" type="button" class="btn btn-info">
                                     QUIT FORM</button>
 
                             </div>
@@ -910,16 +1085,17 @@
                                     </div>
                                     <div class="col-md-12">
                                         <br />
-                                        <button id="btnSaveuserpref" type="submit" class="btn btn-success btnSaveuserpref">
+                                        <button id="btnSaveTab5" type="submit" class="btn btn-success btnSaveuserpref">
                                             SAVE</button>
-                                        <button id="btnUpdateuserpref" type="submit" style="display: none" class="btn btn-primary btnSaveuserpref">
+                                        <button id="btnUpdateTab5" type="submit" class="btn btn-primary btnSaveuserpref">
                                             UPDATE</button>
-                                        <button id="btnCanceluserpref" type="button" style="display: none" class="btn btn-green btnCancel">
+                                        <button id="btnCancelTab5" type="button" class="btn btn-green btnCancel">
                                             DELETE</button>
-                                        <button id="btnclearuserpref" type="button" style="display: none" class="btn btn-warning btnClearuserpref">
+                                        <button id="btnclearTab5" type="button" class="btn btn-warning btnClearuserpref">
                                             CLEAR</button>
-                                        <button id="btnquituserpref" type="button" class="btn btn-info">
+                                        <button id="btnquitTab5" type="button" class="btn btn-info">
                                             QUIT FORM</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -935,79 +1111,192 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtuiredcapitalcharacters">Required Capital Characters<span> *</span></label>
-                                            <input type="text" class="form-control  num" id="txtuiredcapitalcharacters" placeholder="Capital Characters">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtuiredcapitalcharacters">Required Capital Characters<span> *</span></label>
+                                                    <input type="text" class="form-control  num" id="txtuiredcapitalcharacters" placeholder="Capital Characters">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtuirednumeric">Required Numeric<span> *</span></label>
+                                                    <input type="text" class="form-control  num" id="txtuirednumeric" placeholder="Required Numeric">
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="form-group">
-                                            <label for="txtuirednumeric">Required Numeric<span> *</span></label>
-                                            <input type="text" class="form-control  num" id="txtuirednumeric" placeholder="uired Numeric">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtcontinuenumber">Continue Number Disallow<span> *</span></label>
+                                                    <input type="text" class="form-control  num" id="txtcontinuenumber" placeholder="Continue Number Disallow">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtnumberofattemptslock">Number of Attempts to Lock <span>*</span></label>
+                                                    <input type="text" class="form-control  num" id="txtnumberofattemptslock" placeholder="Number of Attempts to Lock">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="txtuiredspecialcharacter">Required Special Characters<span> *</span></label>
-                                            <input type="text" class="form-control  num" id="txtuiredspecialcharacter" placeholder="uired Special Characters">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="drpencryptkey">Encription Key<span> *</span></label>
-                                            <select id="drpencryptkey" class="js-states form-control  Dropdownpass" style="display: none; width: 100%">
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtpasswordminimumlength">Password Minimum Length <span>*</span></label>
-                                            <input type="text" class="form-control  num" id="txtpasswordminimumlength" placeholder="Password minimum Length">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtcontinuenumber">Continue Number<span> *</span></label>
-                                            <input type="text" class="form-control  num" id="txtcontinuenumber" placeholder="Continue Number">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtlastsamepassword">Last Same Password Disallow</label>
+                                                    <input type="text" class="form-control num" id="txtlastsamepassword" placeholder="Last Same Password Disallow">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtuserlockunlockminuts">User Lock/UnLock  Minuts</label>
+                                                    <input type="text" class="form-control num" id="txtuserlockunlockminuts" placeholder="Lock/Unlock Minuts">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtnumberofattemptslock">Number of Attempts Lock <span>*</span></label>
-                                            <input type="text" class="form-control  num" id="txtnumberofattemptslock" placeholder="Number of attempts">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtuiredspecialcharacter">Required Special Characters<span> *</span></label>
+                                                    <input type="text" class="form-control  num" id="txtuiredspecialcharacter" placeholder="uired Special Characters">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtpasswordminimumlength">Password Minimum Length <span>*</span></label>
+                                                    <input type="text" class="form-control  num" id="txtpasswordminimumlength" placeholder="Password minimum Length">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="txtpasswordexpirydays">Password Expiry Days</label>
-                                            <input type="text" class="form-control num" id="txtpasswordexpirydays" placeholder="Password Expiry Days">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtuserlockunlockminuts">User Lock/UnLock  Minuts</label>
-                                            <input type="text" class="form-control num" id="txtuserlockunlockminuts" placeholder="Lock/Unlock Minuts">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtcaptchaenableattempt">Captcha Enable Attempt</label>
+                                                    <input type="text" class="form-control num" id="txtcaptchaenableattempt" placeholder="Captch Enable Attempt">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtpasswordexpirydays">Password Expiry Days</label>
+                                                    <input type="text" class="form-control num" id="txtpasswordexpirydays" placeholder="Password Expiry Days">
+                                                </div>
+
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="txtotpexpirytime">OTP Expiry Time</label>
-                                            <input type="text" class="form-control negnum" id="txtotpexpirytime" placeholder="OTP Expiry Time">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtlastsamepassword">Last Same Password</label>
-                                            <input type="text" class="form-control num" id="txtlastsamepassword" placeholder="Last Same Password">
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="txtcaptchaenableattempt">Captcha Enable Attempt</label>
-                                            <input type="text" class="form-control num" id="txtcaptchaenableattempt" placeholder="Captch Enable Attempt">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtotpexpirytime">Password Reset Mode</label>
+                                                    <select id="drpOTPMode" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                                        <option>-- Select Password Reset Mode --</option>
+                                                        <option>OTP Email</option>
+                                                        <option>OTP SMS</option>
+                                                        <option>Password Reset Link in Email</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtotpexpirytime">OTP Expiry Time</label>
+                                                    <input type="text" class="form-control negnum" id="txtOTPExpiryTime" placeholder="OTP Expiry Time">
+                                                </div>
+
+                                            </div>
                                         </div>
 
                                     </div>
+
                                     <div class="col-md-12">
                                         <br />
-                                        <button id="btnSavepassword" type="submit" class="btn btn-success btnsavepasswordauth">
+                                        <button id="btnSaveTab6" type="submit" class="btn btn-success btnSaveuserpref">
                                             SAVE</button>
-                                        <button id="btnUpdatepassword" type="submit" style="display: none" class="btn btn-primary btnsavepasswordauth">
+                                        <button id="btnUpdateTab6" type="submit" class="btn btn-primary btnSaveuserpref">
                                             UPDATE</button>
-                                        <button id="btnCancelpassword" type="button" style="display: none" class="btn btn-green">
+                                        <button id="btnCancelTab6" type="button" class="btn btn-green btnCancel">
                                             DELETE</button>
-                                        <button id="btnclearpassword" type="button" style="display: none" class="btn btn-warning">
+                                        <button id="btnclearTab6" type="button" class="btn btn-warning btnClearuserpref">
                                             CLEAR</button>
-                                        <button id="btnquitpassword" type="button" class="btn btn-info">
+                                        <button id="btnquitTab6" type="button" class="btn btn-info">
                                             QUIT FORM</button>
+
                                     </div>
                                 </div>
                             </div>
 
                         </form>
                     </div>
+
+                    <div role="tabpanel" class="tab-pane " id="tab7">
+                        <form>
+                            <div class="col-md-12">
+                                <h3 class="tab5section">Database
+                                    <span class="text-danger tab3Formname" style="display: none"></span>
+                                </h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label for="drpDatabaseHost">Database Host <span>*</span></label>
+                                            <select id="drpDatabaseHost" class="js-states form-control  dropclear" style="display: none; width: 100%">
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label for="txtDatabaseName">Database Name <span>*</span></label>
+                                            <input type="text" class="form-control  num" id="txtDatabaseName" placeholder="Database Name">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label for="txtDatabaseUser">Database User <span>*</span></label>
+                                            <input type="text" class="form-control  num" id="txtDatabaseUser" placeholder="Database User">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label for="txtDatabasePassword">Database Password <span>*</span></label>
+                                            <input type="text" class="form-control  num" id="txtDatabasePassword" placeholder="Database Password">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <br />
+                                        <button id="btnSaveTab7" type="submit" class="btn btn-success btnSaveuserpref">
+                                            SAVE</button>
+                                        <button id="btnUpdateTab7" type="submit" class="btn btn-primary btnSaveuserpref">
+                                            UPDATE</button>
+                                        <button id="btnCancelTab7" type="button" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnclearTab7" type="button" class="btn btn-warning btnClearuserpref">
+                                            CLEAR</button>
+                                        <button id="btnquitTab7" type="button" class="btn btn-info">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1020,13 +1309,13 @@
         <a class="btn btn-default" rel="tooltip" data-section="tab2section1" title="Basic Details">1</a>
         <a class="btn btn-default" rel="tooltip" data-section="tab2section2" title="White Label Criteria's">2</a>
         <a class="btn btn-default" rel="tooltip" data-section="tab2section3" title="Corporate Setting">3</a>
-        <a class="btn btn-default" rel="tooltip" data-section="tab2section4" title="Referal Details">4</a>
+        <a class="btn btn-default" rel="tooltip" data-section="tab2section4" title="Referral Details">4</a>
     </div>
     <div class="floating-section-buttons tab2" style="display: none">
         <a class="btn btn-default" rel="tooltip" data-section="tab2section1" title="Basic Details">1</a>
         <a class="btn btn-default" rel="tooltip" data-section="tab2section2" title="White Label Criteria's">2</a>
         <a class="btn btn-default" rel="tooltip" data-section="tab2section3" title="Corporate Setting">3</a>
-        <a class="btn btn-default" rel="tooltip" data-section="tab2section4" title="Referal Details">4</a>
+        <a class="btn btn-default" rel="tooltip" data-section="tab2section4" title="Referral Details">4</a>
     </div>
     <div class="floating-section-buttons tab3" style="display: none">
         <a class="btn btn-default" data-section="tab3section2" rel="tooltip" data-placement="left" title="Subscription">1</a>
