@@ -136,6 +136,11 @@ $(document).ready(function () {
                         $('#btnCancelUser').hide();
                         $("#txtEmail").prop('disabled', true);
                         $(".Editdisable").hide();
+                       // $("#txtEmail").prop('disabled', true);
+                       // $("#txtEmail").prop('disabled', true);
+
+                        $("#DrpUnitTab2").prop('disabled', true);
+                        $("#DrpLocationTab2").prop('disabled', true);
                     }
                 }
             }
@@ -402,7 +407,7 @@ $(document).ready(function () {
                     setSelect2Value($('#drpRightsRole'), response['UserWiseRights'][0]['Role']);
                     FillConditional_RightsBase($('#drpRightsCorporate option:selected').val(), $('#drpRightsCorporate option:selected').val(), $('#drpRightsUnit option:selected').val(), 0, 'drpRightsUser');
                     setSelect2Value($('#drpRightsUser'), response['UserWiseRights'][0]['UserId']);
-                    Fill_role($('#drpRightsRole option:selected').val());
+                   // Fill_role($('#drpRightsRole option:selected').val());
                     Fill_Screen_Module_On_Edit(field2, field1);
                 }
 
@@ -1174,6 +1179,7 @@ function Fill_Screen_Module_On_Edit(UserID, RoleId) {
                             $(this).find('table tbody tr').each(function () {
                                 // console.log($(this).find('.checker').attr("id") + ' -- ' + tempModule);
                                 if ((($(this).find('.checker').attr("id"))) == tempSCR) {
+
                                     $(this).find('.checker.view').attr('checked', false);
                                     $(this).find('.checker.view').children().removeClass('checked');
                                     $(this).find('.checker.create').attr('checked', false);
@@ -1182,6 +1188,7 @@ function Fill_Screen_Module_On_Edit(UserID, RoleId) {
                                     $(this).find('.checker.update').children().removeClass('checked');
                                     $(this).find('.checker.delete').attr('checked', false);
                                     $(this).find('.checker.delete').children().removeClass('checked');
+
                                     if (tempview == 'True') {
                                         $(this).find('.checker.view').attr('checked', true);
                                         $(this).find('.checker.view').children().addClass('checked');

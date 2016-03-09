@@ -148,7 +148,7 @@ $(document).ready(function () {
                 if (response != null && response.success) {
                     if (response['Event'] == 'success') {
                         flag = true;
-                        
+
                         $('#hdfSrNo').val(response['srno']);
                         USrno = response['srno'];
                     }
@@ -157,17 +157,7 @@ $(document).ready(function () {
             }
         }).done(function () {
             if (flag) {
-                //var tablename = 'dbo.UserMaster';
-                //var Corporate = $('#hdfCorporate').val();
-                //var unit = '0';
-                //var Formcode = '0';
-                //var Formtabcode = '0';
-                //var Xmaster = Uxmaster;
-                //var Type = 'EditMode';
-                //var SrNo = $('#hdfSrNo').val();
-                //hide_div();
                 EditData(Uxmaster, USrno);
-
                 $('#btnSave').text('UPDATE');
                 $('#btnSave').attr("class", "btn btn-primary btnSave");
                 $('#MastersRecord').children().find('span.tab-name').text('Update Master Record');
@@ -194,9 +184,9 @@ $(document).ready(function () {
         });
 
         $('select').next().find('ul li.select2-selection__choice').remove();
-        
+
         setSelect2Value($('#drpSegmenttab3'), $('#hdfIndustry').val());
-        
+
         setSelect2Value($('#drpCorporateTab'), $('#hdfCorporate').val());
         $("#drpCorporateTab").trigger('change');
         $('#btnSave').text('CREATE');
@@ -215,7 +205,7 @@ $(document).ready(function () {
         clearValidations($(this).parent());
         clearCodes($(this).closest('form'));
         $('#drpMasterTab3').addClass('req');
-        
+
         $('#btnCancel').trigger('click');
     });
 
@@ -342,8 +332,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 if (response != null) {
-                     $('#ulViewList').html('');
-                    $.each(response['Views'], function (i,data) {
+                    $('#ulViewList').html('');
+                    $.each(response['Views'], function (i, data) {
                         $('#ulViewList').append('<li><a href="javascript:void(0);" class="" data-id="' + data.Value + '">' + data.Text + '</a></li>')
                     });
                 }
@@ -364,7 +354,7 @@ function EditData(pXmaster, pSrNo) {
     var Xmaster = pXmaster; //$(this).parent().parent().children(':eq(2)').text();
     var Type = 'EditMode';
     var SrNo = pSrNo; //$(this).parent().parent().children(':eq(1)').text();
-    
+
     $.ajax(
      {
          type: "POST",
@@ -391,15 +381,13 @@ function EditData(pXmaster, pSrNo) {
 
                  /* #drpCorporateTab */
                  $('#drpCorporateTab').find('option[value="' + response['AMaster'][0]['Corporate'] + '"]').attr('selected', true).change();
-                 FillDropdown('drpMasterTab3', 'ConditionalDropdown')
-                 
+                 FillDropdown('drpMasterTab3', 'ConditionalDropdown');
+
                  /* #drpCorporateTab */
-
-
                  $('#drpMasterTab3').find('option[value="' + response['AMaster'][0]['xmaster'] + '"]').attr('selected', true).change();
              }
              if (response['AUserMasterData'].length > 0) {
-                 
+
                  $('#txtnameTab3').val(response['AUserMasterData'][0]['Uxname']);
                  //$('#drpActiveTab3').find('option[value="' + response['AUserMasterData'][0]['UIsActive'] + '"]').attr('selected', true).change();
                  $('#txtRemarsTab3').val(response['AUserMasterData'][0]['URemark']);
@@ -420,14 +408,18 @@ function EditData(pXmaster, pSrNo) {
                  $('#Textbox5Tab3').val(response['AUserMasterData'][0]['Uxreference5']);
                  $('#Textbox6Tab3').val(response['AUserMasterData'][0]['Uxreference6']);
                  $('#txtRemarsTab3').val(response['AUserMasterData'][0]['Uxdetail']);
-
-                 $('#Rating1').val(response['AUserMasterData'][0]['URating1']);
-                 $('#Rating2').val(response['AUserMasterData'][0]['URating2']);
-                 $('#Rating3').val(response['AUserMasterData'][0]['URating3']);
+               
+                 setSelect2Value($('#Rating1'), response['AUserMasterData'][0]['URating1']);
+                 setSelect2Value($('#Rating2'), response['AUserMasterData'][0]['URating2']);
+                 setSelect2Value($('#Rating3'), response['AUserMasterData'][0]['URating3']);
 
                  $('#Date1').val(response['AUserMasterData'][0]['UDate1']);
                  $('#Date2').val(response['AUserMasterData'][0]['UDate2']);
                  $('#Date3').val(response['AUserMasterData'][0]['UDate3']);
+
+                 $('#Email1').val(response['AUserMasterData'][0]['UEmail1']);
+                 $('#Email2').val(response['AUserMasterData'][0]['UEmail2']);
+                 $('#Email3').val(response['AUserMasterData'][0]['UEmail3']);
 
                  $('#Amount1').val(response['AUserMasterData'][0]['UAmount']);
                  $('#Amount2').val(response['AUserMasterData'][0]['UAmount2']);
@@ -438,11 +430,29 @@ function EditData(pXmaster, pSrNo) {
                  $('#photoUpload').val(response['AUserMasterData'][0]['UUpload']);
                  $('#Textarea1').val(response['AUserMasterData'][0]['UTextArea']);
 
+                 $('#Multiselect1').html = '';
+                 $('#MultiSelect2').html = '';
+                 $('#MultiSelect3').html = '';
+                 $('#MultiSelect4').html = '';
+                 $('#MultiSelect5').html = '';
+                 
+                 FillDropdown('Multiselect1', 'MultiSelect1');
+                 FillDropdown('MultiSelect2', 'MultiSelect2');
+                 FillDropdown('MultiSelect3', 'MultiSelect3');
+                 FillDropdown('MultiSelect4', 'MultiSelect4');
+                 FillDropdown('MultiSelect5', 'MultiSelect5');
+
                  $('#Multiselect1').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect1'] + '"]').attr('selected', true).change();
                  $('#Multiselect2').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect2'] + '"]').attr('selected', true).change();
                  $('#Multiselect3').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect3'] + '"]').attr('selected', true).change();
                  $('#Multiselect4').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect4'] + '"]').attr('selected', true).change();
                  $('#Multiselect5').find('option[value="' + response['AUserMasterData'][0]['UMultiSelect5'] + '"]').attr('selected', true).change();
+
+                // setSelect2Value($('#Multiselect1'), response['AUserMasterData'][0]['UMultiSelect1']);
+                // setSelect2Value($('#Multiselect2'), response['AUserMasterData'][0]['UMultiSelect2']);
+                // setSelect2Value($('#Multiselect3'), response['AUserMasterData'][0]['UMultiSelect3']);
+                // setSelect2Value($('#Multiselect4'), response['AUserMasterData'][0]['UMultiSelect4']);
+                 //setSelect2Value($('#Multiselect5'), response['AUserMasterData'][0]['UMultiSelect5']);
 
                  $('#btnSave').text('UPDATE');
                  $('#btnSave').attr("class", "btn btn-primary btnSave");
@@ -1321,7 +1331,7 @@ function FillDropDown_Category() {
             }
         },
         error: function (data) {
-            
+
             swal('Something went wrong!', '', 'error');
         }
     });
@@ -1429,7 +1439,7 @@ function getdata() {
     var type = 'Grid';
     var Formcode = '0';
     var Formtabcode = '0';
-    var WhereClause = 'BUSINESSMODE'; //'TSTBYAMT';
+    var WhereClause = 'LANGUAGE'; //'TSTBYAMT';
     var table = $('#example1').dataTable({
         "ServerSide": true,
         "destroy": true,

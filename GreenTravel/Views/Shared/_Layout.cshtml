@@ -61,7 +61,7 @@
     <link href="/assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
     <link href="/assets/plugins/tipso/tipso.min.css" rel="stylesheet" />
-    <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
+
     <style>
         .sweet-alert.show-sweet-alert.visible {
             z-index: 99999 !important;
@@ -85,7 +85,7 @@
 
     <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/pricing-tables/css/style.css" rel="stylesheet" />
-
+    <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
 
@@ -402,11 +402,11 @@
                                          <li role="presentation"><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox <span class="badge badge-success"> 4</span></a></li>
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
-                                        <li role="presentation"><a href="Dashboard/LogOut"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                        <li role="presentation"><a href="/Dashboard/LogOut"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                        <a href="Dashboard/LogOut" class="log-out waves-effect waves-button waves-classic">
+                                        <a href="/Dashboard/LogOut" class="log-out waves-effect waves-button waves-classic">
                                         <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
                                     </a>
                                 </li>
@@ -445,7 +445,7 @@
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab11">
-                             @*<ul class="menu accordion-menu">
+                          @*   <ul class="menu accordion-menu">
                                 @if (Session["menuString"] != null)
                                 {
                                    @Html.Raw(Session["menuString"].ToString())
@@ -459,9 +459,9 @@
                                     <p>Whitelabel</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu">
-                                        <li>@Html.ActionLink("Whitelabel Step-1", "Index", "WhitelabelStep1")</li>
-                                        <li>@Html.ActionLink("Whitelabel Step-2", "Index", "WhitelabelStep2")</li>
-                                        <li>@Html.ActionLink("User / Access Rights", "Index", "WhitelabelAccessRights")</li>
+                                        <li>@Html.ActionLink("Whitelabel Step-1", "Index", "WhiteStep1")</li>
+                                        <li>@Html.ActionLink("Whitelabel Step-2", "Index", "WhiteStep2")</li>
+                                        @*<li>@Html.ActionLink("User / Access Rights", "Index", "WhitelabelAccessRights")</li>*@
                                     </ul>
                                 </li>
                                 <li class="droplink" "><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-gears "></span>
@@ -478,30 +478,25 @@
                                     <p>Masters</p>
                                 </a></li>
                                 <li>
-                                    <a href="@Url.Action("Index", "User")" class="waves-effect waves-button"><span class="menu-icon fa fa-users"></span>
+                                    <a href="@Url.Action("Index", "CorporateUser")" class="waves-effect waves-button"><span class="menu-icon fa fa-users"></span>
                                     <p>User</p>
                                 </a></li>
                                 <li>
-                                    <a href="@Url.Action("Index", "Agent")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span>
+                                    <a href="@Url.Action("Index", "AgentAccount")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span>
                                     <p>Agent</p>
                                 </a></li>
                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-newspaper-o"></span>
                                     <p>Suppliers</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu">
+                                         <li>@Html.ActionLink("Supplier Account", "Index", "Supplieraccount")</li>
                                         <li>@Html.ActionLink("Hotel", "Index", "Hotels")</li>
+                                        <li>@Html.ActionLink("Sightseeing", "Index", "Sightseeing")</li>
                                         <li>@Html.ActionLink("Restaurant", "Index", "Restaurant")</li>
-                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Sightseeing<span class="arrow"></span></a>
-                                            <ul class="sub-menu">
-                                                <li>@Html.ActionLink("Sightseeing Master", "Index", "Sightseeing")</li>
-                                                <li>@Html.ActionLink("Supplier", "Supplier", "Sightseeing")</li>
-                                            </ul>
-                                        </li>
                                         <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Transportation<span class="arrow"></span></a>
                                             <ul class="sub-menu">
-                                                <li>@Html.ActionLink("Supplier", "Index", "Transportation")</li>
-                                                <li>@Html.ActionLink("FIT Transfer PVT Master", "FITTransferPVT", "Transportation")</li>
-                                                <li>@Html.ActionLink("GIT Transfer Master", "GITTransfer", "Transportation")</li>
+                                                <li>@Html.ActionLink("Transfer Component", "TransferComponent", "Transportation")</li>
+                                                <li>@Html.ActionLink("Transfer Vehicle", "TransferVehicle", "Transportation")</li>
                                             </ul>
                                         </li>
                                         <li>@Html.ActionLink("Guide", "Index", "Guide")</li>
@@ -514,13 +509,11 @@
                                         <li>@Html.ActionLink("Hotel Room", "Index", "RoomPriceList")</li>
                                         <li>@Html.ActionLink("Hotel Function Room", "Index", "FunctionRoomPriceList")</li>
                                         <li>@Html.ActionLink("Hotel Gala Dinner", "Index", "GalaDinnerPriceList")</li>
+                                        <li>@Html.ActionLink("SightSeeing", "Index", "SightSeeningPriceList")</li>
                                         <li>@Html.ActionLink("Restaurant", "Index", "RestaurantPriceList")</li>
-                                        <li>@Html.ActionLink("Sightseening", "Index", "SightSeeningPriceList")</li>
-                                        <li>@Html.ActionLink("Transportation FIT", "Index", "TransportationFITPriceList")</li>
-                                        <li>@Html.ActionLink("Transportation GIT", "Index", "TransportationGITPriceList")</li>
-                                        <li>@Html.ActionLink("Guide FIT", "Index", "GuideFITPriceList")</li>
-                                        <li>@Html.ActionLink("Guide GIT", "Index", "GuideGITPriceList")</li>
-                                        
+                                        <li>@Html.ActionLink("Transportation", "Index", "TransportationPriceList")</li>
+                                        <li>@Html.ActionLink("Guide", "Index", "GuidePriceList")</li>
+                                                                                
                                     </ul>
                                 </li>
                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>

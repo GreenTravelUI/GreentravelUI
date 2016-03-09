@@ -2,50 +2,370 @@
     ViewBag.Title = "Hotels";
     ViewBag.PageTitle = "Hotel Master";
     ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Hotel Code: <span>HOTEL-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
 }
 
+
+
 <style>
-    .modal-lg {
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4
+    {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5
+    {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span,
+        .tab-itenaries .col-md-2 > h5 > span,
+        .tab-itenaries .col-md-3 > h5 > span,
+        .tab-itenaries .col-md-4 > h5 > span,
+        .tab-itenaries .col-md-5 > h5 > span,
+        .tab-itenaries .col-md-6 > h5 > span,
+        .tab-itenaries .col-md-7 > h5 > span,
+        .tab-itenaries .col-md-8 > h5 > span,
+        .tab-itenaries .col-md-9 > h5 > span,
+        .m-b-lg > h5 > span
+        {
+            float: right;
+        }
+
+    .tab-itenaries a > span
+    {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries
+    {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        margin-bottom: 15px;
+    }
+
+        .tab-itenaries .form-control
+        {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control h2
+            {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border
+        {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 25px;
+        }
+
+    .strong
+    {
+        font-weight: bold;
+    }
+
+    .modal-body .strong
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /*.strong:hover {
+            text-decoration: underline !important;
+        }*/
+
+    .panel .panel-body
+    {
+        padding: 15px;
+    }
+
+    .tab-itenaries .row .btn
+    {
+        padding: 5px 7px;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin: 5px 5px 5px 0;
+    }
+
+    .modal-footer .btn
+    {
+        text-transform: uppercase;
+    }
+
+    .star-ratings .select2.select2-container
+    {
+        display: none;
+    }
+
+    .modal-body
+    {
+        width: 100%;
+    }
+
+    .modal-header h4
+    {
+        border-bottom: 1px dotted #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .quote-link h2
+    {
+        /*margin-bottom: 0;
+        margin-top: 0;*/
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .quote-link .panel-heading
+    {
+        padding: 10px 15px;
+    }
+
+    .panel-red .panel-collapse
+    {
+        border: 1px solid #F25656;
+        border-radius: 0 0 5px 5px;
+    }
+
+        .panel-red .panel-collapse .panel-body
+        {
+            color: #4e5e6a;
+        }
+
+    .fa-ul > li
+    {
+        font-size: 12px;
+        position: relative;
+    }
+
+    .fa-ul
+    {
+        margin-left: 15px;
+    }
+
+    .right-floating
+    {
+        float: right;
+        cursor: pointer;
+        color: #F25656;
+    }
+
+    .tab-itenaries span.total-cost
+    {
+        font-size: 11px;
+    }
+
+    a.col-sm-3
+    {
+        background-color: #f25656;
+        color: #fff;
+        font-family: Lucida Console;
+        font-size: 32px;
+        height: 45px;
+        margin-bottom: 0;
+        margin-top: 0;
+        top: 0;
+        width: 22.5%;
+    }
+
+        a.col-sm-3 span
+        {
+            float: left;
+            font-size: 79px;
+            margin: -32px 0 0 -16px;
+        }
+
+    .fa-ul > li
+    {
+        margin-bottom: 5px;
+    }
+
+    /*.panel > .row > div:last-child {
+        padding-left: 0;
+        padding-right: 0;
+    }*/
+    .panel > .row > div:first-child
+    {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .tab-itenaries .table > tbody > tr:first-child > td
+    {
+        border-width: 0;
+    }
+
+    .tab-itenaries .table > tbody > tr > td:first-child
+    {
+        width: 60%;
+    }
+
+    .tab-itenaries .table > tbody > tr > td:last-child
+    {
+        text-align: right;
+        width: 40%;
+    }
+
+    .tab-itenaries .table > tbody > tr > td
+    {
+        font-size: 11px;
+        padding: 7px !important;
+    }
+
+
+    .button-index
+    {
+        background-color: #fff;
+        border-radius: 50%;
+        color: #333;
+        padding: 0 5px;
+        font-weight: bold;
+    }
+
+    .button-itenaries .form-control .btn-steps
+    {
+        text-align: left;
+        width: 77%;
+    }
+
+    .button-itenaries .form-control .btn-steps-icons
+    {
+        width: auto;
+    }
+
+    .button-itenaries .form-control .btn-steps:hover .button-index
+    {
+        color: #333;
+    }
+
+    .button-index
+    {
+        margin-right: 5px;
+    }
+
+    .btn-auto
+    {
+        width: auto;
+    }
+
+    .btn-full
+    {
+        width: 100%;
+    }
+
+    .search-panel-buttons
+    {
+        text-align: right;
+    }
+</style>
+<style>
+    .modal-lg
+    {
         width: 95%;
     }
-    .modal-header h4 {
+
+    .modal-header h4
+    {
         border-bottom: 1px dashed #ccc;
         font-size: 20px;
         font-weight: normal;
     }
-    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover {
+
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover
+    {
         background-color: #22baa0;
         border-color: #22baa0;
         border-left: 0 none #22baa0;
         color: #fff;
     }
-    #wrapper, .wrapper {
+
+    #wrapper, .wrapper
+    {
         width: 200%;
         transform: translate3d(0, 0, 0);
         transition: transform .5s ease-in-out;
         padding-left: 0;
     }
-    .content {
+
+    .content
+    {
         float: left;
         width: 50%;
         min-height: 200px;
         white-space: normal;
         background-repeat: no-repeat;
     }
-    li.content {
+
+    li.content
+    {
         list-style: outside none none;
         transition: 1s;
         border: 1px solid #22BAA0;
     }
-    li.content .libody {
+
+        li.content .libody
+        {
             transition-timing-function: linear;
         }
-    .summery-uitilities-detail {
+
+    .summery-uitilities-detail
+    {
         width: 33.3333%;
         overflow: hidden;
         padding-right: 0;
     }
-    .summery-nav-btn {
+
+    .summery-nav-btn
+    {
         background-color: #ccc;
         color: #22baa0;
         cursor: not-allowed;
@@ -54,11 +374,48 @@
         padding: 5px;
         float: right;
     }
-    .summery-nav-btn.active {
+
+        .summery-nav-btn.active
+        {
             background-color: #fff;
             cursor: pointer;
         }
-    .libody.summery-body {
+
+    .libody.summery-body
+    {
+    }
+
+    .searchpanel-button
+    {
+        padding: 5px 7px !important;
+    }
+
+    .panel.panel-white.tab-itenaries
+    {
+        padding-bottom: 3px;
+    }
+    /*.panel-blue, .panel-green {
+        opacity:0.4;
+    }*/
+    .panel-blue
+    {
+        background-color: #44dcff;
+    }
+
+    .panel-green
+    {
+        background-color: #82eab0;
+    }
+
+        .panel-blue .panel-heading, .panel-blue .panel-body,
+        .panel-green .panel-heading, .panel-green .panel-body
+        {
+            color: #555;
+        }
+
+    .jstree-container-ul > li > a > i.jstree-checkbox
+    {
+        display: none;
     }
 </style>
 
@@ -70,150 +427,413 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Hotel </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Hotel</a></li>
-                    <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank / Tax</a></li>
                     <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room </a></li>
                     <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab" data-section="tab6" class="basic-accord"><span class="menu-icon fa fa-bookmark"></span>&nbsp;&nbsp;&nbsp;&nbsp;Function Room</a></li>
                     <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-spoon"></span>&nbsp;&nbsp;&nbsp;&nbsp;Restaurant</a></li>
-                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-file-text-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Rules</a></li>
+
                 </ul>
                 <div class="tab-content">
                     @*Search Hotel*@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
+                            <div class="form-group">
+                                <label for="txtTagSearch">Tag Search</label>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <input type="text" id="txtTagSearch" class="form-control" value="Bangkok" placeholder="Tag Search" />
+                                    </div>
+                                    <div class="col-md-1" style="text-align: right;">
+                                        <a href="javascript:void(0);" class="btn btn-info searchpanel-button booking-panel-button" data-show-panel="booking-panel" data-toggle="tooltip" data-placement="top" title="Booking"><i class="fa fa-plus"></i></a>
+                                        <a href="javascript:void(0);" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance"><i class="fa fa-plus"></i></a>
                                     </div>
                                 </div>
-                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Hotel Name</th>
-                                            <th>Type of Hotel</th>
-                                            <th>City</th>
-                                            <th>Star Rating</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                            <th>Price List</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Hotel Name</th>
-                                            <th>Type of Hotel</th>
-                                            <th>City</th>
-                                            <th>Star Rating</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                            <th>Price List</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 4%">1</td>
-                                            <td style="width: 20%"><span>Amari Ocean Pattaya </span></td>
-                                            <td style="width: 15%"><span>Hotel</span></td>
-                                            <td style="width: 10%"><span>Pattaya</span></td>
-                                            <td style="width: 10%"><span>4.2</span></td>
-                                            <td style="width: 10%"><span class="label label-success hotelstatus" data-value="Active" data-source="[{value:'1',text:'Active'},{value:'2',text:'Inactive'}]" data-type="select">Active</span></td>
-                                            <td style="width: 21%;">
-                                                <a href="#" rel="tooltip" title="Hotel"><i class="fa fa-hospital-o text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="User"><i class="fa fa-user-plus text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Bank"><i class="fa fa-university text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Room"><i class="fa fa-bed text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                 <a href="#" rel="tooltip" title="Function Room"><i class="fa fa-bookmark text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                 <a href="#" rel="tooltip" title="Restaurant"><i class="fa fa-spoon text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="FOC Rules"><i class="fa fa-file-text-o text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                            <td style="width: 15%">
-                                                <a href="#" rel="tooltip" title="Room Price List"><i class="fa fa-bed text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Function Room Price List"><i class="fa fa-bookmark text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Gala Dinner Price List"><i class="fa fa-spoon text-success"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><span>Rezt Bangkok </span></td>
-                                            <td><span>Hostels</span></td>
-                                            <td><span>Khlong Toei</span></td>
-                                            <td><span>3</span></td>
-                                            <td><span class="label label-danger hotelstatus">Inactive</span></td>
-                                            <td>
-                                                <a href="#" rel="tooltip" title="Hotel"><i class="fa fa-hospital-o text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="User"><i class="fa fa-user-plus text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Bank"><i class="fa fa-university text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Room"><i class="fa fa-bed text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                 <a href="#" rel="tooltip" title="Function Room"><i class="fa fa-bookmark text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                 <a href="#" rel="tooltip" title="Restaurant"><i class="fa fa-spoon text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="FOC Rules"><i class="fa fa-file-text-o text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                            <td style="width: 21%;">
-                                                <a href="#" rel="tooltip" title="Room Price List"><i class="fa fa-bed text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Function Room Price List"><i class="fa fa-bookmark text-success"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#" rel="tooltip" title="Gala Dinner Price List"><i class="fa fa-spoon text-success"></i></a>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
+                            </div>
+                            @*Booking*@
+                            <div class="from-group panel-search booking-panel" style="display: none;">
+                                <div class="panel panel-blue">
+                                    <div class="panel-heading">
+                                        <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Booking</h2>
+                                        <div class="panel-control">
+                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <label for="txtTagSearch">Check-in Date</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option selected="selected">-Select Day-</option>
+                                                                    @{
+                                                                        for (int i = 1; i < 31; i++)
+                                                                        {
+                                                                        <option>@i</option>        
+                                                                        }
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option selected="selected">-Select Month-</option>
+                                                                    <option>January 2016</option>
+                                                                    <option>February 2016</option>
+                                                                    <option>March 2016</option>
+                                                                    <option>April 2016</option>
+                                                                    <option>May 2016</option>
+                                                                    <option>June 2016</option>
+                                                                    <option>July 2016</option>
+                                                                    <option>August 2016</option>
+                                                                    <option>September 2016</option>
+                                                                    <option>October 2016</option>
+                                                                    <option>November 2016</option>
+                                                                    <option>December 2016</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <label for="txtTagSearch">Check-out Date</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option selected="selected">-Select Day-</option>
+                                                                    @{
+                                                                        for (int i = 1; i < 31; i++)
+                                                                        {
+                                                                        <option>@i</option>        
+                                                                        }
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option selected="selected">-Select Month-</option>
+                                                                    <option>January 2016</option>
+                                                                    <option>February 2016</option>
+                                                                    <option>March 2016</option>
+                                                                    <option>April 2016</option>
+                                                                    <option>May 2016</option>
+                                                                    <option>June 2016</option>
+                                                                    <option>July 2016</option>
+                                                                    <option>August 2016</option>
+                                                                    <option>September 2016</option>
+                                                                    <option>October 2016</option>
+                                                                    <option>November 2016</option>
+                                                                    <option>December 2016</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label for="txtTagSearch">Room</label>
+                                                        <select id="drpSearchRoom" class="js-states form-control" style="display: none; width: 100%">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="txtTagSearch">Adults</label>
+                                                        <select id="drpSearchAdults" class="js-states form-control" style="display: none; width: 100%">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="txtTagSearch">Children</label>
+                                                        <select id="drpSearchChildren" class="js-states form-control" style="display: none; width: 100%">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: 0;">
+                                                <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Advance*@
+                            <div class="from-group panel-search advanced-panel" style="display: none;">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Advance</h2>
+                                        <div class="panel-control">
+                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <label for="txtTagSearch">Criteria</label>
+                                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option selected="selected">None</option>
+                                                                    <option>At</option>
+                                                                    <option>Between</option>
+                                                                    <option>Less than</option>
+                                                                    <option>Less than or equal</option>
+                                                                    <option>At Month</option>
+                                                                    <option>Between Month</option>
+                                                                    <option>More than</option>
+                                                                    <option>More than or equal</option>
+                                                                    <option>At Quater</option>
+                                                                    <option>Between Quater</option>
+                                                                    <option>At Year</option>
+                                                                    <option>Between Year</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label for="txtTagSearch">Search By</label>
+                                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option selected="selected">Created date</option>
+                                                                    <option>Updated date</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label for="txtTagSearch">From</label>
+                                                                <div class="row">
+                                                                    <div class="col-md-5">
+                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                            <option selected="selected">2016</option>
+                                                                            <option>2015</option>
+                                                                            <option>2014</option>
+                                                                            <option>2013</option>
+                                                                            <option>2012</option>
+                                                                            <option>2011</option>
+                                                                            <option>2010</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-7">
+                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                            <option selected="selected">January</option>
+                                                                            <option>February</option>
+                                                                            <option>March</option>
+                                                                            <option>April</option>
+                                                                            <option>May</option>
+                                                                            <option>June</option>
+                                                                            <option>July</option>
+                                                                            <option>August</option>
+                                                                            <option>September</option>
+                                                                            <option>October</option>
+                                                                            <option>November</option>
+                                                                            <option>December</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: 0;">
+                                                <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Search Count*@
+                            <div class="form-group">
+                                <h2 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound"><span>Bangkok</span>: <span>2</span> Records found</h2>
+                            </div>
+                            @*Filter - Order - Search Result*@
+                            <div class="from-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-white tab-itenaries">
+                                            <div class="panel-heading">
+                                                <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Order By:</h2>
+                                                <div class="panel-control">
+                                                    <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="tree-view-orderby">
+                                                    <ul>
+                                                        <li>Our recommandations first</li>
+                                                        <li>Lowest price first</li>
+                                                        <li>Stars
+                                                        <ul>
+                                                            <li>5..1</li>
+                                                            <li>1..5</li>
+                                                        </ul>
+                                                        </li>
+                                                        <li>Most central first</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-white tab-itenaries">
+                                            <div class="panel-heading">
+                                                <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Filter By:</h2>
+                                                <div class="panel-control">
+                                                    <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="tree-view">
+                                                    <ul>
+                                                        <li>Price(per night)
+                                                            <ul>
+                                                                <li>THB. 0 - THB. 3600</li>
+                                                                <li>THB. 3600 - THB. 7300</li>
+                                                                <li>THB. 7300 - THB. 11000</li>
+                                                                <li>THB. 11000 - THB. 14000</li>
+                                                                <li>THB. 14000 + </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Star rating
+                                                            <ul>
+                                                                <li>1</li>
+                                                                <li>2</li>
+                                                                <li>3</li>
+                                                                <li>4</li>
+                                                                <li>5</li>
+                                                                <li>Unrated</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Deal
+                                                            <ul>
+                                                                <li>Value Deal</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Reservation policy
+                                                            <ul>
+                                                                <li>Free cancellation</li>
+                                                                <li>Book without credit card</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Beach access
+                                                            <ul>
+                                                                <li>Beach Property</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Meals
+                                                            <ul>
+                                                                <li></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Property type
+                                                            <ul>
+                                                                <li></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Property facility
+                                                            <ul>
+                                                                <li></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Room facility
+                                                            <ul>
+                                                                <li></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>District
+                                                            <ul>
+                                                                <li></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Chain
+                                                            <ul>
+                                                                <li></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="100%" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <h5 class="text-danger">Amari Atrium 
+                                                        <span>
+                                                            <div class="star-ratings" style="display: none;">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4" selected="selected">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Hotel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                    <div class="row">
+                                                        <div class="col-md-12 search-panel-buttons">
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="View Hotel"><span class="fa fa-h-square"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Edit Hotel"><span class="fa fa-hospital-o"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Room"><span class="fa fa-bed"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Function Room"><span class="fa fa-users"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Restaurante"><span class="fa fa-spoon"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Room Price List"><span class="fa fa-television"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Function Room Price List"><span class="fa fa-bookmark"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Gala Dinner Price List"><span class="fa fa-street-view"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="100%" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <h5 class="text-danger">A1 Bangkok 
+                                                        <span>
+                                                            <div class="star-ratings" style="display: none;">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3" selected="selected">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Hotel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                    <div class="row">
+                                                        <div class="col-md-12 search-panel-buttons">
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="View Hotel"><span class="fa fa-h-square"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Edit Hotel"><span class="fa fa-hospital-o"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Room"><span class="fa fa-bed"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Function Room"><span class="fa fa-users"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Restaurante"><span class="fa fa-spoon"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Room Price List"><span class="fa fa-television"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Function Room Price List"><span class="fa fa-bookmark"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Gala Dinner Price List"><span class="fa fa-street-view"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -223,12 +843,17 @@
                             <form>
                                 <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Basic Details - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtHotelName">Hotel Name <span>*</span></label>
-                                    <input type="text" class="form-control req" id="txtHotelName" value="Amari Ocean Pattaya" placeholder="Hotel Name">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="txtHotelName">Hotel Name <span>*</span></label>
+                                            <input type="text" class="form-control req" id="txtHotelName" value="Amari Ocean Pattaya" placeholder="Hotel Name">
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="drpTypeOfHotel">Type Of Hotel <span>*</span></label>
                                             <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Hotel</option>
@@ -239,7 +864,7 @@
                                                 <option>Villas</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="drpStarRating">Star Rating </label>
                                             <select id="drpStarRating" class="js-states form-control" style="display: none; width: 100%">
                                                 <option>1</option>
@@ -254,21 +879,21 @@
                                                 <option>10</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="drpOperatingCurrency">Operating Currency </label>
-                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">THB</option>
-                                                <option>INR</option>
-                                                <option>AUD</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>
+
 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
-                                    <input type="text" class="form-control req email" id="txtOfficialEmail" value="info@amarioceanpattaya.com" placeholder="Official Email(s)">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtOfficialEmail">Official Email(s) <span>*</span></label>
+                                            <input type="text" class="form-control req email" id="txtOfficialEmail" value="info@amarioceanpattaya.com" placeholder="Official Email(s)">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtWebsite">Website </label>
+                                            <input type="text" class="form-control" value="http://www.amari.com/ocean-pattaya/" id="txtWebsite" placeholder="Website">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
@@ -276,77 +901,41 @@
                                             <label for="drpCountry">Code<span>*</span></label>
                                             <input type="text" class="form-control col-sm-5" value="+66" id="txtCountryCode" placeholder="Code">
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <label for="txtOfficialPhone">Official Phone <span>*</span></label>
                                             <input type="text" class="form-control col-sm-5" id="txtOfficialPhone" value="38418418" placeholder="Official Phone">
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <label for="txtFax">Fax</label>
                                             <input type="text" class="form-control" id="txtFax" placeholder="Fax">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtWebsite">Website </label>
-                                    <input type="text" class="form-control" value="http://www.amari.com/ocean-pattaya/" id="txtWebsite" placeholder="Website">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtPrimaryContactPerson">Primary Contact Person </label>
-                                    <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpSupportedAccommodationtype">Supported Accommodation Type<span>*</span></label>
-                                            <select id="drpSupportedAccommodationtype" class="js-states form-control" multiple="multiple" tabindex="-1" style="display: none; width: 100%">
-                                                <option selected="selected">Single Room</option>
-                                                <option selected="selected">Double / Twin Room</option>
-                                                <option>Triple Room</option>
-                                                <option>Quad Room</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="drpFOCruleby">FOC Rule By </label>
-                                            <select id="drpFOCruleby" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Room</option>
-                                                <option selected="selected">Pax</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAccountingGroup">Accounting Group </label>
-                                    <input type="text" class="form-control" id="txtAccountingGroup" placeholder="Accounting Group" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtTaxRegistrationNumber">Tax Registration Number </label>
-                                            <input type="text" class="form-control col-sm-5" id="txtTaxRegistrationNumber" placeholder="Tax Registration Number">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtEffectiveDate">Effective Date</label>
-                                            <input type="text" class="form-control date-picker" id="txtEffectiveDate" value="07/07/2005" placeholder="Effective Date">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtCompanyIncorporationProof">Company Incorporation Proof </label>
-                                    <input type="text" class="form-control" id="txtCompanyIncorporationProof" placeholder="Company Incorporation Proof">
-                                </div>
 
                                 <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp;Hotel Address - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtHotelLocation">Hotel Location (Landmark) </label>
-                                    <input type="text" class="form-control" id="txtHotelLocation" value="Pattaya Beach Road" placeholder="Hotel Location (Landmark)">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <label for="txtHotelLocation">Hotel Location (Landmark) </label>
+                                            <input type="text" class="form-control" id="txtHotelLocation" value="Pattaya Beach Road" placeholder="Hotel Location (Landmark)">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtAddressLine1">Address Line 1 </label>
-                                    <input type="text" class="form-control" id="txtAddressLine1" value="240 Moo 5" placeholder="Address Line 1 ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAddressLine2">Address Line 2 </label>
-                                    <input type="text" class="form-control" id="txtAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Address Line 2">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <label for="txtAddressLine1">Address Line 1 </label>
+                                            <input type="text" class="form-control" id="txtAddressLine1" value="240 Moo 5" placeholder="Address Line 1 ">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtAddressLine2">Address Line 2 </label>
+                                            <input type="text" class="form-control" id="txtAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Address Line 2">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
@@ -369,175 +958,70 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Cancellation  Policies - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <input type="checkbox" checked="checked" id="Chkcancellationfeesapplicable">Cancellation Fees Applicable?
-                                </div>
+                                <h3 class="section-headers tab2section4"><span class="section-index">3</span>&nbsp;Facilities - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtbeforehours1">Before Hours </label>
-                                            <input type="text" class="form-control" value="12" id="txtbeforehours1" placeholder="From Hours">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtPercentage1">Percentage (%)</label>
-                                            <input type="text" class="form-control" id="txtPercentage1" value="25" placeholder="Percentage (%)">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtnumberofnights1"># of Nights</label>
-                                            <input type="text" class="form-control" id="txtnumberofnights1" placeholder="# of Nights">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtbeforehours2">Before Hours </label>
-                                            <input type="text" class="form-control" id="txtbeforehours2" value="24" placeholder="From Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtPercentage2">Percentage (%)</label>
-                                            <input type="text" class="form-control" id="txtPercentage2" placeholder="Percentage (%)">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtnumberofnights2"># of Nights</label>
-                                            <input type="text" class="form-control" id="txtnumberofnights2" value="15" placeholder="# of Nights">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtbeforedays1">Before Days </label>
-                                            <input type="text" class="form-control" id="txtbeforedays1" placeholder="From Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtPercentagedays1">Percentage (%)</label>
-                                            <input type="text" class="form-control" id="txtPercentagedays1" placeholder="Percentage (%)">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtnumberofnightday1"># of Nights</label>
-                                            <input type="text" class="form-control" id="txtnumberofnightday1" placeholder="# of Nights">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtbeforedays2">Before Days </label>
-                                            <input type="text" class="form-control" id="txtbeforedays2" placeholder="From Days">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtPercentagedays2">Percentage (%)</label>
-                                            <input type="text" class="form-control" id="txtPercentagedays2" placeholder="Percentage (%)">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="txtnumberofnightday2"># of Nights</label>
-                                            <input type="text" class="form-control" id="txtnumberofnightday2" placeholder="# of Nights">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h3 class="section-headers tab2section4"><span class="section-index">4</span>&nbsp;Facilities - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="Chkconference">Conference
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="Chkgaladinner">Gala Dinner
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="Chkairportshuttle">Airport Shuttle
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="ChkBoutique">Boutique
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="ChkCasino">Casino
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="ChkFamilyroom">Family Room
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="ChkFitnesscenter">Fitness Center
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="ChkIndoorCorridors">Indoor Corridors
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="ChkKitchenfacility">Kitchen Facility
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="ChkNosmoking">No-Smoking
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="ChkOutdoorcorridors">Outdoor Corridors
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="Chkoutdoorpool">Outdoor Pool
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="Chkparking">Parking
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="Chkpetfriendly">Pet Friendly
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="Chkpool">Pool
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="ChkRestaurant">Restaurant
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="ChkSpa">Spa
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" id="ChkWheelchairaccessible">Wheelchair Accessible
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked" id="Chkwifi">Wifi
                                         </div>
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab2section5"><span class="section-index">5</span>&nbsp;Included Services - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label>Room Included Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="With Breakfast,Without Breakfast,With Lunch, Without Lunch" id="txtRoomincludedService" placeholder="Room Included Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Function Room Included Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" id="txtFunctionroomincludedservice" value="LCD Projector,1 Lunch,2 Tea/Coffee Break" placeholder="Function Room Included Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Gala Dinner Included Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" id="txtGaladinnerincludedservice" value="LCD Projector,Soda Included for 1 Hour,Soft Drink Included for 1 Hour" placeholder="Gala Dinner Included Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Other Included Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="Airport Shuttle,ATM on site,Laundry,Hair/Beauty Salon,VIP Room Facilities" id="txtOtherincludeService" placeholder="Other Included Services">
-                                </div>
-
-                                <h3 class="section-headers tab2section6"><span class="section-index">6</span>&nbsp;Additional Services - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label>Room Additional Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="With Breakfast,Without Breakfast,With Lunch, Without Lunch" id="txtRoomadditionalservice" placeholder="Room Additional Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Function Room Additional Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" id="txtFunctionRoomAdditionalServices" value="LCD Projector,1 Lunch,2 Tea/Coffee Break" placeholder="Function Room Additional Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Gala Dinner Additional Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" id="txtGalaDinnerAdditionalService" value="LCD Projector,Soda Included for 1 Hour,Soft Drink Included for 1 Hour" placeholder="Gala Dinner Additional Services">
-                                </div>
-                                <div class="form-group">
-                                    <label>Other Additional Services</label>
-                                    <input type="text" data-role="tagsinput" class="form-control" value="Airport Shuttle,ATM on site,Laundry,Hair/Beauty Salon,VIP Room Facilities" id="txtOtherAdditionalServices" placeholder="Other Additional Services">
-                                </div>
-
-                                <h3 class="section-headers tab2section7"><span class="section-index">7</span>&nbsp;Nearest Airports - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="section-headers tab2section7"><span class="section-index">4</span>&nbsp;Nearest Airports - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -602,8 +1086,8 @@
                                     UPDATE</button>
                                 <button id="btnCancelCreateHotel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnClearCreateHotel" type="button" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                <button id="btnCREATENEWCreateHotel" type="button" class="btn btn-warning btnSave">
+                                    CREATE NEW</button>
                                 <button id="btnQuitCreateHotel" type="button" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
@@ -758,565 +1242,99 @@
                             </ul>
                         </div>
                     </div>
-                    @*User*@
-                    <div role="tabpanel" class="tab-pane" id="tab9">
-                        <div class="col-md-7">
-                            <form>
-                                <h3 class="tab9section1">User - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label for="txtFirstName">Name <span>*</span></label>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Sarawut" placeholder="First Name" data-label="lblFirstName">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Engchawadechasilp" placeholder="Last Name" data-label="lblLastName">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtHotelUserEmail">Email (User Name) <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtHotelUserEmail" value="sarawut.engchawadechasilp@gmail.com" placeholder="Email(User Name)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtHotelUserPassword">Password <span>*</span></label>
-                                    <input type="Password" class="form-control " value="test@123" id="txtHotelUserPassword" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtConfirmHotelUserPassword">Confirm Password</label>
-                                    <input type="Password" class="form-control" value="test@123" id="txtConfirmHotelUserPassword" placeholder="Confirm Password">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="drpCountry">Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtCountry" value="+66" placeholder="Code">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <label for="txtTelephone">Telephone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtTelephone" value="38645465" placeholder="Telephone">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtExtn">Extn.</label>
-                                            <input type="text" class="form-control" id="txtExtn" placeholder="Extn">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="drpCountry">Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtCountry" placeholder="Code">
-                                        </div>
-                                        <div class="col-md-10">
-                                            <label for="txtCellPhone">Cell Phone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtCellPhone" placeholder="Cell Phone">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpDesignation">Designation <span>*</span></label>
-                                    <select id="drpDesignation" class="js-states form-control" style="display: none; width: 100%">
-                                        <option>Admin</option>
-                                        <option>Receptionist</option>
-                                        <option selected="selected">Manager</option>
-                                        <option>Chef</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtPicture">Picture </label>
-                                    <input type="text" class="form-control" id="txtPicture" placeholder="Picture">
-                                </div>
-                                <div class="form-group">
-                                    <label for="drpStatus">Status </label>
-                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                        <option selected="selected">Active</option>
-                                        <option>Inactive</option>
-                                    </select>
-                                </div>
-
-                                <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                    UPDATE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
-                                <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
-                            </form>
-                        </div>
-                        <div class="col-md-5 summery-detail summerytab9">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-                                        <ul class="summery-list slimscroll">
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>First Name :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Last Name :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Email (User Name) :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-                                                    <li>Telephone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblStarRating" for="drpStarRating"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Cell Phone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Designation :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                    </div>
-                                    <div class="summery-buttons">
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
-                                        <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyUserGrid">SEARCH</a>
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @*Billing / Bank*@
-                    <div role="tabpanel" class="tab-pane" id="tab3">
-                        <div class="col-md-7">
-                            <form>
-                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Billing - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label for="txtBillingName">Billing Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtBillingName" value="Amari Pattaya" placeholder="Billing Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtBillingContactPerson" placeholder="Billing Contact Person">
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAddressLine1">Billing Address Line 1 </label>
-                                    <input type="text" class="form-control" id="txtBillingAddressLine1" value="240 Moo 5" placeholder="Billing Address Line 1 ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtAddressLine2">Billing Address Line 2 </label>
-                                    <input type="text" class="form-control" id="txtBillingAddressLine2" value="Naklua, Banglamung,Chonburi" placeholder="Billing Address Line 2">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label for="txtBillingCity">Billing City </label>
-                                            <input type="text" class="form-control" id="txtBillingCity" value="Chonburi" placeholder="Billing City">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtBillingState">Billing State</label>
-                                            <input type="text" class="form-control" id="txtBillingState" value="Pattaya Central" placeholder="Billing State">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtBillingCountry">Billing Country</label>
-                                            <input type="text" class="form-control" id="txtBillingCountry" value="Thailand" placeholder="Billing Country">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
-                                            <input type="text" class="form-control" id="txtBillingZipCode" value="20150" placeholder="Billing Country">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Billing Email </label>
-                                    <input type="text" class="form-control" id="txtBillingEmail" value="billing@amarioceanpattaya.com" placeholder="Billing Email">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="drpCountry">Billing Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" value="+66" placeholder="Billing Code">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <label for="txtTelephone">Billing Telephone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingTelephone" value="38418418" placeholder="Billing Telephone">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtExtn">Billing Extn.</label>
-                                            <input type="text" class="form-control" id="txtBillingExtn" placeholder="Billing Extn">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="drpCountry">Billing Code</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingCountry" placeholder="Billing Code">
-                                        </div>
-                                        <div class="col-md-10">
-                                            <label for="txtCellPhone">Billing Cell Phone</label>
-                                            <input type="text" class="form-control col-sm-5" id="txtBillingCellPhone" placeholder="Billing Cell Phone">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Bank - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Account Number </label>
-                                    <input type="text" class="form-control" id="txtAccountNumber" placeholder="Account Number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Account Name </label>
-                                    <input type="text" class="form-control" id="txtAccountName" placeholder="Account Name">
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Bank Name </label>
-                                            <input type="text" class="form-control" value="Bangkok Bank" id="txtBankName" placeholder="Bank Name">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Bank Branch </label>
-                                            <input type="text" class="form-control" value="Banglamung Branch" id="txtBankBranch" placeholder="Bank Branch">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Bank Address </label>
-                                    <textarea class="form-control" cols="5" id="txtBankAddress">44, Naklua Road 44 Moo 5 North Pattaya</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtBillingEmail">Swift Code / Sort Code </label>
-                                    <input type="text" class="form-control" id="txtSwiftCode" value="BKKBTHBKTRD" placeholder="Swift Code / Sort Code">
-                                </div>
-
-                                <h3 class="section-headers tab3section3"><span class="section-index">3</span>&nbsp;Tax - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">VAT in Net Rate </label>
-                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                                <option>Included</option>
-                                                <option selected="selected">Excluded</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Rate </label>
-                                            <input type="text" class="form-control" id="txtBankBranch" value="7" placeholder="Rate in Percentage (%)">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Withholding in Net Rate </label>
-                                            <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                                                <option>-None-</option>
-                                                <option>Included</option>
-                                                <option>Excluded</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="txtBillingEmail">Rate </label>
-                                            <input type="text" class="form-control" id="txtBankBranch" placeholder="Rate in Percentage (%)">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <br />
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                    UPDATE</button>
-                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
-                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                    QUIT FORM</button>
-                            </form>
-                        </div>
-                        <div class="col-md-5 summery-detail summerytab3">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-                                        <ul class="summery-list slimscroll">
-                                            <h4 class="summery-header"><span class="summery-section-index">1</span></h4>
-                                            <div class="summ-list-div">
-                                                <div class="summ-list-left">
-                                                    <li>Billing Name 
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Contact Person  :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Address Line 1 
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing City :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCity" for="txtCity"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing State :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblState" for="txtState"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                                <div class="summ-list-right">
-
-                                                    <li>Billing Country :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblCountry" for="txtCountry"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Zip/Postal Code :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblZipCode" for="txtZipCode"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Email :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblStarRating" for="drpStarRating"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Telephone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                    <li>Billing Cell Phone :
-                                                    <br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                        <ul class="summery-list slimscroll">
-                                        </ul>
-                                    </div>
-                                    <div class="summery-buttons">
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     @*Room*@
                     <div role="tabpanel" class="tab-pane " id="tab5">
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                             <form>
                                 <h3 class="tab5section1">Hotel Room - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtRoomType">Room Type <span>*</span></label>
-                                    <input type="text" class="form-control" value="Deluxe Twin Room with Sea View " id="txtRoomType" placeholder="Room Type ">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <label for="txtRoomCategory">Room Category <span>*</span></label>
+                                            <input type="text" class="form-control" value="Deluxe Twin Room with Sea View " id="txtRoomCategory" placeholder="Room Type ">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtNumberofRooms"># of Rooms <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtNumberofRooms" value="26" placeholder="# of Rooms ">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtMaxPax">Max Pax <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtMaxPax" value="4" placeholder="Max Pax ">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
 
-                                        <div class="col-md-2">
-                                            <label for="txtNumberofRooms"># of Rooms <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtNumberofRooms" value="26" placeholder="# of Rooms ">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="txtMaxPax">Max Pax <span>*</span></label>
-                                            <input type="text" class="form-control" id="txtMaxPax" value="4" placeholder="Max Pax ">
-                                        </div>
-                                        <div class="col-md-2">
+
+                                        <div class="col-md-3">
                                             <label for="txtMaxPax">Max Adult<span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="3" placeholder="Max Adult ">
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="txtMaxPax">Max CWB<span>*</span></label>
+                                        <div class="col-md-3">
+                                            <label for="txtMaxPax">Max Child With Extra Bed<span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="1" placeholder="Max CWB ">
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="txtMaxPax">Max CNB<span>*</span></label>
+                                        <div class="col-md-3">
+                                            <label for="txtMaxPax">Max Child With No Bed<span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="1" placeholder="Max CNB ">
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <label for="txtMaxPax">Max Infant<span>*</span></label>
                                             <input type="text" class="form-control" id="txtMaxPax" value="1" placeholder="Max Infant ">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtDescription">Description </label>
-                                    <textarea id="txtDescription" class="form-control" placeholder="Description">Special Offer - Deluxe Twin Room with Sea View</textarea>
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <label for="txtDescription">Description </label>
+                                            <textarea id="txtDescription" class="form-control" placeholder="Description">Special Offer - Deluxe Twin Room with Sea View</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtDescription">Room Facilities </label>
                                     <div class="row">
-                                        <div class="col-md-4 form-marings">
+
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Air Conditioning
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Bathtub
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Flat-screen TV
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Kitchen/Kitchenette
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Patio
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Private Pool
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Soundproof
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Spa Tub
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Terrace
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">View
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Wasing Machine
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Room service 24 hours?
                                         </div>
                                     </div>
@@ -1325,16 +1343,16 @@
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
-                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                <button id="btnupdate" type="submit" class="btn btn-primary btnSave">
                                     UPDATE</button>
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                <button id="btnclear" type="submit" class="btn btn-warning btnSave">
+                                    CREATE NEW</button>
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRoomGrid">SEARCH</a>
                             </form>
                         </div>
-                        <div class="col-md-5 summery-detail summerytab5">
+                        <div class="col-md-4 summery-detail summerytab5">
                             <div class="panel panel-white">
                                 <h4 class="panel-title-summery">Summary </h4>
                                 <ul class="utilitis-drop ">
@@ -1375,12 +1393,6 @@
                                         <ul class="summery-list slimscroll">
                                             <div class="summ-list-div">
                                                 <div class="summ-list-left">
-                                                    <li>Accommodation Type :<br />
-                                                        <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                            <label id="lblHotelName" for="txtHotelName"></label>
-                                                            <i>&nbsp;</i>
-                                                        </a>
-                                                    </li>
                                                     <li>Room Type :<br />
                                                         <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
                                                             <label id="lblHotelName" for="txtHotelName"></label>
@@ -1429,16 +1441,22 @@
                             <form>
                                 <h3 class="tab6section1">Function Room - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="Meetings & Events" placeholder="Conference Room Name">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label for="drpSetupStyle">Function Type <span>*</span></label>
-                                        <input type="text" data-role="tagsinput" class="form-control" value="Half Day AM,Half Day PM" id="txtTags" placeholder="Function Type">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
+                                            <input type="text" class="form-control" id="txtConferenceRoomName" value="Meetings & Events" placeholder="Conference Room Name">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="drpSetupStyle">Function Type <span>*</span></label>
+                                            <input type="text" data-role="tagsinput" class="form-control" value="Half Day AM,Half Day PM" id="txtTags">
+                                        </div>
+                                    </div>
+                                </div>
+                               @* <div class="row">
                                     <div class="col-md-12">
                                         <div class="table-responsive">
                                             <table id="" class="display table" style="width: 100%; cellspacing: 0;">
@@ -1480,7 +1498,7 @@
                                                         <td>1</td>
                                                         <td>
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
+                                                                <input type="text" class="form-control" id="txtTotalTables" value="2" placeholder="Setup Style">
                                                             </div>
                                                         </td>
                                                         <td>
@@ -1499,16 +1517,20 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="txtConferenceRoomDescription">Conference Room Description </label>
                                                 <textarea id="txtConferenceRoomDescription" class="form-control" placeholder="Conference Room Description">Room have central A/C. And free wifi.</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="txtRestrictions">Restrictions  </label>
                                                 <textarea id="txtRestrictions" class="form-control" placeholder="Restrictions">No camera.</textarea>
@@ -1517,35 +1539,36 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txtDescription">Function Room Facilities </label>
                                     <div class="row">
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Projector
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Screens
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Microphones
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Sink
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Easels
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Telephone Support
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Ethernet
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Wifi
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Coffee Maker
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Centrally A/C
                                         </div>
                                     </div>
@@ -1558,9 +1581,111 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyFunctionRoomGrid">SEARCH</a>
-                            </form>
+                           
+                                
+                                 <h6 class="tab9section1">&nbsp;</h6>
+                                <h3 class="tab9section1">Setup Style</h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-3" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Setup Style</a></li>
+                                    <li role="presentation"><a href="#tab2-4" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Setup Style</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-3">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Setup Style</th>
+                                                        <th>Capacity</th>
+                                                        <th>Total Tables</th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>1</th>
+                                                        <th>20</th>
+                                                        <th>1</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Abc Service</span></td>
+                                                        <td><span>THB</span></td>
+                                                        <td>
+                                                       1                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab2-4">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="txtSetupStyle">Setup Style</label>
+                                                   <input type="text" class="form-control" id="txtSetupStyle" value="1" placeholder="Setup Style">
+                                                </div>
+                                                
+                                       
+                                                <div class="col-md-4">
+                                                    <label for="txtCapacity">Capacity</label>
+                                                   <input type="text" class="form-control" id="txtCapacity" value="20" placeholder="Setup Style">
+                                                </div>
+                                                
+                                           
+                                                  <div class="col-md-4">
+                                                    <label for="txtTotalTables">Total Tables</label>
+                                                    <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+                                 </form>
+
+
                         </div>
                         <div class="col-md-5 summery-detail summerytab6">
                             <div class="panel panel-white">
@@ -1654,13 +1779,17 @@
                         </div>
                     </div>
                     @*Restaurant*@
-                    <div role="tabpanel" class="tab-pane " id="tab7">
-                        <div class="col-md-7">
+                    <div role="tabpanel" class="tab-pane" id="tab7">
+                        <div class="col-md-8">
                             <form>
                                 <h3 class="tab7section1">Restaurant - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
-                                    <label for="txtRestaturantName">Restaturant Name</label>
-                                    <input type="text" class="form-control" id="txtRestaturantName" value="Mantra Restaurant & Bar" placeholder="Restaturant Name">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="txtRestaturantName">Restaturant Name</label>
+                                            <input type="text" class="form-control" id="txtRestaturantName" value="Mantra Restaurant & Bar" placeholder="Restaturant Name">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtRestaturantName">Meal Type</label>
@@ -1680,7 +1809,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtRestaturantName">Services</label>
+                                    <label for="txtRestaturantName">Board Type</label>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <input type="checkbox" checked="checked">Break Fast
@@ -1695,123 +1824,93 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="txtBreakFastFromTime">Break Fast From Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtBreakFastFromTime" value="8:00 AM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="txtBreakFastToTime">Break Fast To Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtBreakFastToTime" value="9:00 AM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="txtBreakFastToTime">Price (Per Person)</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control" id="txtBreakFastToTime" value="">
-                                                <span class="input-group-addon add-on">THB</span>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="txtLunchFromTime">Lunch From Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtLunchFromTime" value="11:00 AM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="txtLunchToTime">Lunch To Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtLunchToTime" value="02:00 PM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="txtBreakFastToTime">Price (Per Person)</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control" id="txtBreakFastToTime" value="">
-                                                <span class="input-group-addon add-on">THB</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="txtDinnerFromTime">Dinner From Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtDinnerFromTime" value="7:00 PM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="txtDinnerToTime">Dinner To Time</label>
                                             <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control" id="txtDinnerToTime" value="11:00 PM">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="txtBreakFastToTime">Price (Per Person)</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control" id="txtBreakFastToTime" value="">
-                                                <span class="input-group-addon add-on">THB</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtDinnerToTime">Menu Type</label>
                                     <div class="row">
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">French
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Chinese
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Thai
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Mexican
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Italian
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Spanish
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Japanese
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox">Greek
                                         </div>
-                                        <div class="col-md-4 form-marings">
+                                        <div class="col-md-3 form-marings">
                                             <input type="checkbox" checked="checked">Indian
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtDinnerToTime">Menu Attechment</label>
-                                    <div class="input-group input-append">
-                                        <input type="text" class="form-control" id="txtDinnerToTime" placeholder="Menu Attechment">
-                                        <a href="javascript:void(0);" class="input-group-addon add-on addbtn" data-toggle="modal" data-target="#MySelectSightseeing" rel="tooltip" title="Add Menu Attachment"><span class="fa fa-plus"></span></a>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                        ADD</button>
-                                </div>
-
+                                
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -1820,8 +1919,97 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <a href="javascript:void(0);" class="btn btn-info btnSave" data-toggle="modal" data-target="#MyRestaurantGrid">SEARCH</a>
+                            
+                            
+                             <h6 class="tab9section1">&nbsp;</h6>
+                                <h3 class="tab9section1">Menu Attechment </h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab2-5" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Menu Attachment</a></li>
+                                    <li role="presentation"><a href="#tab2-6" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Menu Attachment</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab2-5">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Menu Title</th>
+                                                        <th>Menu Attechment</th>
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                       <th>Menu Title</th>
+                                                        <th>Menu Attechment</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Continatle</span></td>
+                                                        <td><span></span></td>
+                                                        <td>
+                                                       1                                                          
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab2-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="txtmenutitle">Menu Title</label>
+                                                     <input type="text" class="form-control" id="txtmenutitle" placeholder="Menu Title">
+                                                </div>
+                                            
+                                                <div class="col-md-6">
+                                                    <label for="txtmenuattachment">Menu Attachment</label>
+                                                    <input type="text" class="form-control" id="txtmenuattachment" placeholder="Menu Attechment">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                    </div>
+                                </div>
+
+
                             </form>
                         </div>
                         <div class="col-md-4 summery-detail summerytab7">
@@ -1908,88 +2096,7 @@
                             </div>
                         </div>
                     </div>
-                    @*FOC Rules*@
-                    <div role="tabpanel" class="tab-pane " id="tab8">
-                        <div class="col-md-12">
-                            <h3 class="tab7section1">FOC Rules - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th># of Pax From</th>
-                                            <th># of Pax To</th>
-                                            <th># of FOC Pax</th>
-                                            <th>Breakfast Charges Applicable?</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th colspan="6">
-                                                <a href="javascript:void(0);" class="btn btn-success btnSave" data-toggle="modal" data-target="#MyModalFOCRules">ADD</a>
-                                            </th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 5%;">1</td>
-                                            <td><span class="spaneditable">1</span></td>
-                                            <td><span class="spaneditable">16</span></td>
-                                            <td><span class="spaneditable">1</span></td>
-                                            <td><span class="spaneditable">Yes</span></td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Active</option>
-                                                        <option>Inactive</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><span class="spaneditable">16</span></td>
-                                            <td><span class="spaneditable">32</span></td>
-                                            <td><span class="spaneditable">2</span></td>
-                                            <td><span class="spaneditable">No</span></td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Active</option>
-                                                        <option>Inactive</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <br />
-                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                            SAVE</button>
-                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                            UPDATE</button>
-                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                            DELETE</button>
-                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                            CLEAR</button>
-                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                            QUIT FORM</button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -2052,7 +2159,7 @@
                             </ul>
                         </div>
                     </div>
-                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                    <table id="example-editable1" class="display table datatable" style="width: 100%; cellspacing: 0;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -2136,11 +2243,10 @@
                             </ul>
                         </div>
                     </div>
-                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                    <table id="example-editable2" class="display table datatable" style="width: 100%; cellspacing: 0;">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Accommodation Type</th>
                                 <th>Room Type</th>
                                 <th>Max Pax</th>
                                 <th># of Rooms</th>
@@ -2148,9 +2254,6 @@
                             </tr>
                             <tr>
                                 <th></th>
-                                <th>
-                                    <input type="text" />
-                                </th>
                                 <th>
                                     <input type="text" />
                                 </th>
@@ -2170,7 +2273,6 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>Accommodation Type</th>
                                 <th>Room Type</th>
                                 <th>Max Pax</th>
                                 <th># of Rooms</th>
@@ -2180,7 +2282,6 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Twin Room</td>
                                 <td>Deluxe Twin Room with Sea View </td>
                                 <td>4</td>
                                 <td>26</td>
@@ -2233,7 +2334,7 @@
                             </ul>
                         </div>
                     </div>
-                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                    <table id="example-editable3" class="display table datatable" style="width: 100%; cellspacing: 0;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -2306,7 +2407,7 @@
                             </ul>
                         </div>
                     </div>
-                    <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                    <table id="example-editable4" class="display table datatable" style="width: 100%; cellspacing: 0;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -2375,8 +2476,47 @@
 </div>
 
 @section scripts{
+    <link href="/assets/plugins/Barrating/bootstrap-stars.css" rel="stylesheet" />
+    <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
+    <link href="~/assets/plugins/jstree/themes/default/style.min.css" rel="stylesheet" />
+    <script src="/assets/plugins/jstree/jstree.min.js"></script>
     <script>
+        $(function () {
+            $('.star-ratings').show();
+            $('.example-bootstrap').barrating({
+                theme: 'bootstrap-stars',
+                showSelectedRating: false,
+                readonly: true
+            });
+        });
         $(document).ready(function () {
+            $('#tree-view-orderby').jstree({
+                'core': {
+                    'themes': {
+                        'responsive': false
+                    }
+                },
+                'types': {
+                    'default': {
+                        'icon': 'fa fa-folder icon-state-info icon-md'
+                    },
+                    'file': {
+                        'icon': 'fa fa-file icon-state-default icon-md'
+                    }
+                },
+                'plugins': ['types']
+            });
+            $('.tree-view').jstree({
+                'types': {
+                    'default': {
+                        'icon': 'fa fa-folder icon-state-info icon-md'
+                    },
+                    'file': {
+                        'icon': 'fa fa-file icon-state-default icon-md'
+                    }
+                },
+                'plugins': ['checkbox', 'types']
+            });
             $('.hotelstatus').editable({
                 value: 2,
                 source: [
@@ -2400,7 +2540,39 @@
                     //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
                 }
             });
+            $('.searchpanel-button').on('click', function (e) {
+                var currentButton = $(this);
+                var panelClass = $(this).attr('data-show-panel');
+                $('.panel-search:visible').slideUp(600);
+                var panel = $('.' + panelClass);
+                if ($('.' + panelClass).is(':visible')) {
+                    panel.slideUp(600, function () {
+                        collapsePanelButton($('.booking-panel-button').children());
+                        collapsePanelButton($('.advanced-panel-button').children());
+                    });
+                } else {
+                    panel.slideDown(600, function () {
+                        if ($(this).hasClass('booking-panel')) {
+                            collapsePanelButton($('.advanced-panel-button').children());
+                            expandPanelButton($('.booking-panel-button').children());
+                        } else {
+                            collapsePanelButton($('.booking-panel-button').children());
+                            expandPanelButton($('.advanced-panel-button').children());
+                        }
+                    });
+                }
+                currentButton.trigger('focusout');
+                e.preventDefault();
+            });
         });
+        function expandPanelButton(control) {
+            control.removeClass('fa-plus');
+            control.addClass('fa-minus');
+        }
+        function collapsePanelButton(control) {
+            control.removeClass('fa-minus');
+            control.addClass('fa-plus');
+        }
     </script>
 }
 
@@ -2409,11 +2581,8 @@
         <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Basic Details">1</a>
         @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
         <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Hotel Address">2</a>
-        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Cancellation Policies">3</a>
-        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Facilities">4</a>
-        <a class="btn btn-default" data-section="tab2section5" rel="tooltip" title="Included Services">5</a>
-        <a class="btn btn-default" data-section="tab2section6" rel="tooltip" title="Additional Services">6</a>
-        <a class="btn btn-default" data-section="tab2section7" rel="tooltip" title="Nearest Airports">7</a>
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Facilities">3</a>
+        <a class="btn btn-default" data-section="tab2section7" rel="tooltip" title="Nearest Airports">4</a>
     </div>
     <div class="floating-section-buttons tab3" style="display: none">
         <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
