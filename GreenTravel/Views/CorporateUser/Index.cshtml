@@ -1,8 +1,8 @@
 ﻿@{
     ViewBag.Title = "Index";
 
-    ViewBag.Title = "User / Access Rights";
-    ViewBag.PageTitle = "User / Access Rights";
+    ViewBag.Title = "User / Authentication";
+    ViewBag.PageTitle = "User / Authentication";
     
 }
 
@@ -173,7 +173,7 @@
                     <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
                     <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
 
-                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Access Rights </a></li>
+                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Authentication </a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -442,30 +442,37 @@
 
                                 <div class="row">
                                     <label id="lbSrnoTab4" style="display: none"></label>
-
-
-                                    <div class="form-group col-md-4">
+                                    @*<div class="form-group col-md-4">
                                         <label>Branch <span>*</span></label>
                                         <select id="drpBranch" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>
-                                    <div class="form-group col-md-4">
+                                    </div>*@
+                                    <div class="form-group col-md-3">
                                         <label>Role <span>*</span></label>
                                         <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Date1" id="LbDefault">Default ?<span></span></label>
+                                            &nbsp</br>
+                                                    <input id="chkdefault" type="checkbox">
+                                           
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>User <span>*</span></label>
                                         <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
-                                </div>
-
-
-                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Status <span>*</span></label>
                                             <select id="drpRightsStatus" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
                                         </div>
                                     </div>
+                                </div>
+
+
+                                <div class="row">
+
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
@@ -475,13 +482,11 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="Date1" id="LbDefault"><span></span></label>
-                                            &nbsp</br></br>
-                                                    <input id="chkdefault" type="checkbox">
-
-                                            @*<input type="checkbox" id="chkdefault" />*@Default ?
+                                            <label>Default Language<span> *</span></label>
+                                            <select id="DrpdefaultLanguage" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="row">
                                     <div id="grid-gallery" class="grid-gallery">
@@ -707,7 +712,6 @@
             </div>
         </div>
 
-
         <div class="modal fade bs-example-modal-lg in" id="myModalIcon" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -807,7 +811,6 @@
                 </div>
             </div>
         </div>
-
 
     </div>
 </div>
