@@ -4,13 +4,11 @@
     ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
 }
 
-@{
-    if (Session["CreatedBy"] != null)
-    { }
-    else
-    { Response.Redirect(Url.Action("index", "Home")); }
-}
-
+<style>
+    .hide_cell {
+        display: none;
+    }
+</style>
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -74,7 +72,7 @@
                             <h3 class="tab2section1" style="display: none">View Detail- <span class="text-danger Viewnameclass"></span></h3>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group" style="display: block">
+                                    <div class="form-group" style="display: none">
                                         <label>Srno </label>
                                         <input type="text" class="form-control inputform" id="txtsrno" placeholder="Srno" readonly="true">
                                     </div>

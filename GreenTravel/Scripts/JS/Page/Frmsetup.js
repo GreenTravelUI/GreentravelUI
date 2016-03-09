@@ -1058,9 +1058,9 @@ $(document).ready(function () {
         });
         if (Utilities == '') {
             swal(
-              'Please Select Atleast One Checkbox',
+              'Please Select Atleast One Checkbox !',
               '',
-              'error'
+              'warning'
             )
             return false;
         }
