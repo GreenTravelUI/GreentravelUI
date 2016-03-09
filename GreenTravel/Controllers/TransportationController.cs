@@ -25,5 +25,15 @@ namespace GreenTravel.Controllers
         {
             return View();
         }
+        
+        public ActionResult TransferComponent()
+        {
+            return View();
+        }
+
+        public ActionResult TransferVehicle()
+        {
+            return View();
+        }
     }
 }

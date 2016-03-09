@@ -1,9 +1,8 @@
 ﻿$(window).unload(function () {
     $('select option').remove();
 });
-
+var Message;
 $(document).ready(function () {
-    var Message;
     Dropdown_Bind_Tab1();
     Dropdown_Bind_Tab2();
     getdata();
@@ -102,9 +101,12 @@ $(document).ready(function () {
                 Message = data.responseText;
                 $('.tab2section1').show();
                 $('.Viewnameclass').text($('#txtviewname').val());
-                $('#btnUpdateCreateView').show();
-                $('#btnSaveCreateView').hide();
-                swal('Good job!', Message, 'success');
+                EventClass = data.Event;
+                if (EventClass != 'error') {
+                    $('#btnUpdateCreateView').show();
+                    $('#btnSaveCreateView').hide();
+                }
+                swal(Message, '', EventClass);
             }
         });
     });
@@ -467,7 +469,7 @@ function Dropdown_Bind_Tab2() {
 
 function getdata() {
     var tablename = 'dbo._ViewSetup';
-    var Corporate = '2';
+    var Corporate = $('#hdfCorporate').val();
     var unit = '';
     var userid = '';
     var WhereClause = '';
@@ -505,7 +507,7 @@ function getdata() {
         },
         "columns": [
             { "data": "RowNumber" },
-            { "data": "srno" },
+            { "data": "srno", className: "hide_cell" },
             { "data": "Corporate" },
             { "data": "Module" },
             { "data": "Screen" },
@@ -525,19 +527,18 @@ function cleartab1() {
     $('.inputform').val('');
     $('.Dropdown').each(function () {
         setSelect2Value($(this), '0');
-        //$(this).val($(this).find('option:first').val()).change();
     });
     $('#ismasterView').attr('checked', false);
     $('#ismasterView').parent().removeClass('checked');
+    $('#divMaster').hide();
 }
 
 function Claertab2() {
     clearValidations($(this).closest('form'));
     $('.DropdownColumn').each(function () {
-        $(this).val($(this).find('option:first').val()).change();
+        setSelect2Value($(this), '0');
     });
     $('.inputformColumn').val('');
-
     $('#Visibility').attr('checked', false);
     $('#Visibility').parent().removeClass('checked');
     $('#ColumnUpdate').attr('checked', false);
@@ -549,7 +550,7 @@ function Claertab2() {
 
 function getdataColumn() {
     var tablename = 'dbo._ViewSetup_Fields';
-    var Corporate = '2';
+    var Corporate = $('#hdfCorporate').val();   
     var unit = '';
     var userid = '';
     var WhereClause = '';
@@ -587,7 +588,7 @@ function getdataColumn() {
         },
         "columns": [
             { "data": "RowNumber" },
-            { "data": "srno" },
+            { "data": "srno", className: "hide_cell" },
             { "data": "ColumnCaption" },
             { "data": "ColumnName" },
             { "data": "UpdateControl" },

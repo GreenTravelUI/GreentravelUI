@@ -16,6 +16,10 @@ namespace GreenTravel.Controllers
         DBViewSetup _objDBViewSetup = new DBViewSetup();
         public ActionResult Index()
         {
+            if (Session["CreatedBy"] == null)
+            {
+                return RedirectToAction("index", "Home");
+            }
             return View();
         }
         //Create View Tab
@@ -83,8 +87,12 @@ namespace GreenTravel.Controllers
                 {
                     ViewBag.srno = ds.Tables[0].Rows[0]["Srno"];
                     ViewBag.Message = ds.Tables[0].Rows[0]["msg"];
+                    if (ds.Tables[0].Rows[0]["Help"].ToString() == "Save" || ds.Tables[0].Rows[0]["Help"].ToString() == "Update")
+                    { ViewBag.Event = "success"; }
+                    else if (ds.Tables[0].Rows[0]["Help"].ToString() == "Duplicate")
+                    { ViewBag.Event = "error"; }
                 }
-                return Json(new { srno = ViewBag.srno, responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { srno = ViewBag.srno, Event = ViewBag.Event ,responseText = ViewBag.Message }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

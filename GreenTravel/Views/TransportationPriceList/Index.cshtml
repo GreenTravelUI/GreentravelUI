@@ -1,17 +1,16 @@
 ﻿@{
-    ViewBag.Title = "Sightseeing Price List";
-    ViewBag.PageTitle = "Sightseeing Price List";
-     ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
-     ViewBag.Breadcurmb += "<li>Sightseeing Code: <span>SS-5-0-1</span></li>";
+    ViewBag.Title = "Transfer";
+    ViewBag.PageTitle = "Transfer Price List";
+    ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Transfer Code: <span>TR-5-0-1</span></li>";
     ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
     ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
     ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
     ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
     ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
     ViewBag.Breadcurmb += "</ol>";
-
 }
-
 
 
 <div class="col-md-12 form-detail">
@@ -20,90 +19,100 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Sightseeing Price List </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-map-signs"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Sightseeing Price List</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Transfer Price List </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-taxi"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Transfer Price List</a></li>
+
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Transfer</label>
+                                    <input type="text" class="form-control" id="txtOfficialEmail" value="Amari Ocean Pattaya" placeholder="Hotel">
                                 </div>
-                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nationality Set</th>
-                                            <th>Company Name</th>
-                                            <th>From Visiting Date</th>
-                                            <th>To Visiting Date</th>
-                                            <th>Sightseeing</th>
-                                            <th>Currency</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nationality Set</th>
-                                            <th>Company Name</th>
-                                            <th>From Visiting Date</th>
-                                            <th>To Visiting Date</th>
-                                            <th>Sightseeing</th>
-                                            <th>Currency</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>FIT/Group </label>
+                                    <select id="drpTypeOfHotel" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">FIT</option>
+                                        <option>Group</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <div class="dropdown table-custome-drop">
+                                        <div class="btn-group">
+                                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-download-alt"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Excel</a></li>
+                                                <li><a href="#">PDF</a></li>
+                                                <li><a href="#">Email</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Costing</th>
+                                                <th>FIT/Group</th>
+                                                
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Costing</th>
+                                                <th>FIT/Group</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <th></th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                               
+                                                <th>
+                                                    <a href="#">
+                                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td><span>set1</span></td>
+                                                <td><span>FIT</span></td>
+                                               
+                                                <td>
+                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                    &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                            </tr>
+                                           
 
-
-
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-7">
                             <form>
-
-                                 <h3 class="tab9section1">Create Sightseeing Price List - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="tab9section1">Create Transfer Price List - <span class="text-danger">Uber Transport - Pattaya</span></h3>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -125,49 +134,17 @@
                                     </div>
 
                                 </div>
+                                
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
-                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">Accommodation</option>
-                                                <option>Coach</option>
-                                                <option>Guide</option>
-                                                <option>Driver</option>
-                                                <option>Meal</option>
-                                                <option>Transport</option>
-                                                <option>Sightseeing</option>
-                                                <option>Supplier</option>
-                                                <option>Other</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="drpSupplier">Supplier </label>
-                                            <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">Abc Supplier</option>
-                                                <option>Xyz Supplier</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="drpHotel">Sighseeing </label>
-                                            <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
-                                                <option selected="selected">Akshardham</option>
-                                                <option>Adalaj Stepwell</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtFromDate">From Visit Date </label>
+                                            <label for="txtFromDate">From Date </label>
                                             <input type="text" class="form-control date-picker" id="txtFromDate" value="01/07/2016" placeholder="From Validity">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txtTodate">To Visit Date </label>
+                                            <label for="txtTodate">To Date </label>
                                             <input type="text" class="form-control date-picker" id="txtTodate" value="04/20/2016" placeholder="To Validity">
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -205,14 +182,15 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+
                                 <br />
                                 <br />
                                 <br />
 
-                                 <h3 class="tab9section1">Rate </h3>
+                                <h3 class="tab9section1">Rate </h3>
                                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#tab2-1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Rate</a></li>
                                     <li role="presentation"><a href="#tab2-2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Rates</a></li>
@@ -225,17 +203,16 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Nationality Set</th>
-                                                        <th>Costing Type</th>
-                                                        <th>Rate </th>
+                                                        <th>Transfer Component</th>
+                                                        
                                                         <th style="width: 15%;">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Nationality Set</th>
-                                                        <th>Costing Type</th>
-                                                        <th>Rate </th>
+                                                       <th>Nationality Set</th>
+                                                        <th>Transfer Component</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </tfoot>
@@ -248,9 +225,7 @@
                                                         <th>
                                                             <input type="text" />
                                                         </th>
-                                                        <th>
-                                                            <input type="text" />
-                                                        </th>
+                                                        
                                                         <th>
                                                             <a href="#">
                                                                 <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
@@ -260,11 +235,8 @@
                                                     <tr>
                                                         <td>1</td>
                                                         <td><span>Asian-Indian</span></td>
-                                                        <td><span>Service Per Day</span></td>
-                                                        <td>
-                                                        4200
-                                                          
-                                                        <td>
+                                                        <td><span>Component 1</span></td>
+                                                       
                                                             <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                             &nbsp;&nbsp;
                                                 <a href="#"><i class="fa fa-trash-o"></i></a>
@@ -273,9 +245,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                       
                                     </div>
-                                    
                                     <div role="tabpanel" class="tab-pane" id="tab2-2">
                                         <div class="form-group">
                                             <div class="row">
@@ -288,23 +258,42 @@
                                                         <option>Austrailian</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-6">
+
+                                                <div class="col-md-3">
+                                                    <label for="drpSharingType">Sharing Type </label>
+                                                    <select id="drpSharingType" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">SIC</option>
+                                                        <option>Private</option>
+                                                   
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <label for="drpCostingType">Costing Type</label>
                                                     <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
-                                                   <option selected="selected">Service Per Day</option>
-                                                        <option>Per Pax</option>
-                                                         </select>
+                                                        <option selected="selected">Service Per Day</option>
+                                                        <option> Per Pax</option>
+                                                        
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                 <div class="col-md-12">
-                                                    <label for="drpEntrance">Entrance</label>
-                                                    <select id="drpEntrance"  multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
-                                                   <option selected="selected">Entrance 1</option>
-                                                        <option>Entrance 2</option>
-                                                         </select>
+                                                <div class="col-md-6">
+                                                    <label for="drpTransferComponent">Transfer Component </label>
+                                                    <select id="drpTransferComponent" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Component 1</option>
+                                                        <option>Component 2</option>
+                                                   
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="drpVehicleName">Vehicle - Vehicle Name</label>
+                                                    <select id="drpVehicleName" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">SUV-Scorpio</option>
+                                                        <option>Car-Indica</option>
+                                                        <option>Sedanc-Sail</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,36 +302,15 @@
                                                 <div class="col-md-12">
                                                     <label for="drpMealPlan">Included Services</label>
                                                     <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Dinner</option>
-                                                        <option>LCD Projector</option>
-                                                        <option>Soda Included For 1 Hr</option>
-                                                        <option>Soda Included For 2 Hr</option>
-                                                        <option>Soda Included For 3 Hr</option>
-                                                        <option>Soda Included For 4 Hr</option>
-                                                        <option>Soda Included For 5 Hr</option>
-                                                        <option>Soda Included For 6 Hr</option>
-                                                        <option>Soft Drink Included For 1 Hr</option>
-                                                        <option>Soft Drink Included For 2 Hr</option>
-                                                        <option>Soft Drink Included For 3 Hr</option>
-                                                        <option>Soft Drink Included For 4 Hr</option>
-                                                        <option>Soft Drink Included For 5 Hr</option>
-                                                        <option>Soft Drink Included For 6 Hr</option>
-                                                        <option>Juice Included For 1 Hr</option>
-                                                        <option>Juice Included For 2 Hr</option>
-                                                        <option>Juice Included For 3 Hr</option>
-                                                        <option>Juice Included For 4 Hr</option>
-                                                        <option>Juice Included For 5 Hr</option>
-                                                        <option>Juice Included For 6 Hr</option>
-                                                        <option>1 Starter</option>
-                                                        <option>2 Starter</option>
-                                                        <option>3 Starter</option>
-                                                        <option>4 Starter</option>
-                                                        <option>5 Starter</option>
-                                                        <option>6 Starter</option>
-                                                        <option>7 Starter</option>
-                                                        <option>8 Starter</option>
-                                                        <option>9 Starter</option>
-                                                        <option>10 Starter</option>
+                                                        <option selected="selected">A/c</option>
+                                                        <option>LCD</option>
+                                                        <option>2 Lunch</option>
+                                                        <option>3 Lunch</option>
+                                                        <option>4 Lunch</option>
+                                                        <option>1 Tea / Coffee Break</option>
+                                                        <option>2 Tea / Coffee Break</option>
+                                                        <option>3 Tea / Coffee Break</option>
+                                                        <option>4 Tea / Coffee Break</option>
                                                         <option>Airport Shuttle</option>
                                                         <option>ATM on site</option>
                                                         <option>VIP Room Facilities</option>
@@ -352,53 +320,51 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                               <div class="col-md-3">
-                                                    <label for="drpCurrency">Currency</label>
-                                                    <select id="drpCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                  <div class="col-md-3">
+                                                    <label for="drpCurrencyadd">Currency</label>
+                                                    <select id="drpCurrencyadd" class="js-states form-control" style="display: none; width: 100%">
                                                    <option selected="selected">THB</option>
                                                         <option>USD</option>
                                                         <option>INR</option>
                                                          </select>
                                                 </div>
-                                                <div class="col-md-3">
-                                                   <label for="txtExchangerate">Exchange Rate</label>
+                                               <div class="col-md-3">
+                                                   <label for="txtExchangerateadd">Exchange Rate</label>
                                                     <div class="input-group input-append">
-                                                        <input type="text" class="form-control" id="txtExchangerate" value="1" placeholder="Exchange Rate">
+                                                        <input type="text" class="form-control" id="txtExchangerateadd" value="1" placeholder="Exchange Rate">
                                                         
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="txtServiceCost">Service Cost </label>
+                                                    <label for="txtServiceCostadd">Service Cost </label>
                                                     <div class="input-group input-append">
-                                                        <input type="text" class="form-control" id="txtServiceCost" value="1500" placeholder="Service Cost ">
+                                                        <input type="text" class="form-control" id="txtServiceCostadd" value="1500" placeholder="Service Cost ">
                                                         <span class="input-group-addon add-on"><span>THB</span></span>
                                                     </div>
                                                 </div>
-
                                             </div>
-
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <label for="txtAdultticketrate">Adult Ticket Rate </label>
-                                                     <div class="input-group input-append">
-                                                        <input type="text" class="form-control" id="txtAdultticketrate" value="2000" placeholder="Adult Ticket Rate ">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label for="txtChildTicketrate">Child Ticket Rate</label>
-                                                     <div class="input-group input-append">
-                                                        <input type="text" class="form-control" id="txtChildTicketrate" value="900" placeholder="Child Ticket Rate">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </div>
 
+                                                <div class="col-md-3">
+                                                    <label for="txtAdultrate">Adult Rate</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtAdultrate" value="4200" placeholder="Single Room Rate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtChildrate">Child Rate</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtChildrate" value="8400" placeholder="Double / Twin Room Rate">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
-
                                         </div>
-                                       
+                                        
                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                             SAVE</button>
                                         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
@@ -406,11 +372,12 @@
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
                                         <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                            CLEAR</button>
+                                            CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
                                     </div>
                                 </div>
+
                                 <h6 class="tab9section1">&nbsp;</h6>
                                 <h3 class="tab9section1">Additional Services </h3>
                                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
@@ -536,14 +503,14 @@
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
                                         <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                            CLEAR</button>
+                                            CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
+
                         <div class="col-md-5 summery-detail summerytab2">
                             <div class="panel panel-white">
                                 <h4 class="panel-title-summery">Summary </h4>
@@ -584,89 +551,35 @@
                                     <div class="summ-lis-height">
                                         <ul class="summery-list slimscroll">
                                             <div class="summ-list-left">
-                                                <li>Nationality Set :<br />
+                                                <li>Nationality Set
+                                                    <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblNationalitySet" for="drpNationalitySet"></label>
+                                                        <label id="lblHotelName" for="txtHotelName"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
-                                                <li>Sightseeing :
+                                                <li>From Function Date
                                                     <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblSightseeing" for="drpSightseeing"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Entrance Name :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblEntranceName" for="drpEntranceName"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Available Addons :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblAvailableAddons" for="drpAvailableAddons"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Official Email(s)  :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Official Phone  :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
+                                                        <label id="lblStarRating" for="drpStarRating"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
 
+
                                             </div>
                                             <div class="summ-list-right">
-                                                <li>Website  :
+                                                <li>To Function Date 
                                                     <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblWebsite" for="txtWebsite"></label>
+                                                        <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
-                                                <li>Address Line 1 
+                                                <li>Function Type
                                                     <br />
                                                     <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>City :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblCity" for="txtCity"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>State :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblState" for="txtState"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Country :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblCountry" for="txtCountry"></label>
-                                                        <i>&nbsp;</i>
-                                                    </a>
-                                                </li>
-                                                <li>Zip/Postal Code :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblZipCode" for="txtZipCode"></label>
+                                                        <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
                                                         <i>&nbsp;</i>
                                                     </a>
                                                 </li>
@@ -688,11 +601,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-
-

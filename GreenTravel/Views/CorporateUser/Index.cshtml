@@ -1,0 +1,815 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+    ViewBag.Title = "User / Access Rights";
+    ViewBag.PageTitle = "User / Access Rights";
+    
+}
+
+
+<link href="/assets/plugins/gridgallery/css/component.css" rel="stylesheet" type="text/css" />
+<style>
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4 {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5 {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span,
+        .tab-itenaries .col-md-2 > h5 > span,
+        .tab-itenaries .col-md-3 > h5 > span,
+        .tab-itenaries .col-md-4 > h5 > span,
+        .tab-itenaries .col-md-5 > h5 > span,
+        .tab-itenaries .col-md-6 > h5 > span,
+        .tab-itenaries .col-md-7 > h5 > span,
+        .tab-itenaries .col-md-8 > h5 > span,
+        .tab-itenaries .col-md-9 > h5 > span,
+        .m-b-lg > h5 > span {
+            float: right;
+        }
+
+    .tab-itenaries a > span {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        /*margin-bottom: 15px;*/
+    }
+
+        .tab-itenaries .form-control {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label {
+                width: 100%;
+            }
+
+            .tab-itenaries .form-control h2 {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 25px;
+        }
+
+        .tab-itenaries .form-control .btn {
+            padding: 8px 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .tab-itenaries span.total-cost {
+            font-size: 11px;
+        }
+
+        .tab-itenaries .table > tbody > tr:first-child > td {
+            border-width: 0;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:first-child {
+            width: 60%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:last-child {
+            text-align: right;
+            width: 40%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td {
+            font-size: 11px;
+            padding: 7px !important;
+        }
+
+    .grid figcaption {
+        background: #fff none repeat scroll 0 0;
+        padding: 25px;
+    }
+
+    .grid li:hover figure {
+        opacity: 1;
+    }
+
+    .grid li {
+        cursor: default;
+        float: left;
+        width: 33.3% !important;
+    }
+
+    figcaption > h3 {
+        border-bottom: 1px dashed #3c3c3c !important;
+    }
+
+    .grid li {
+        position: relative !important;
+    }
+
+    td:first-child {
+        width: 50% !important;
+    }
+</style>
+
+<style>
+    .hide_cell {
+        display: none;
+    }
+
+    #errmsg {
+        color: red;
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
+                    <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
+
+                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Access Rights </a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <div>
+                            <form>
+                                <div class="table-responsive">
+                                    <div class="dropdown table-custome-drop">
+                                        <div class="btn-group">
+                                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-download-alt"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Excel</a></li>
+                                                <li><a href="#">PDF</a></li>
+                                                <li><a href="#">User Name (Email)</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <table id="gridUser" class="display" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th style="display: none">srno</th>
+                                                <th style="display: none">NoCount</th>
+                                                <th>Corporate
+                                                </th>
+                                                <th>Unit
+                                                </th>
+                                                <th>Location
+                                                </th>
+                                                <th>Name
+                                                </th>
+                                                <th>User Name (Email)
+                                                </th>
+                                                <th>Action
+                                                </th>
+                                            </tr>
+
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th style="display: none">srno</th>
+                                                <th style="display: none">NoCount</th>
+                                                <th>Corporate
+                                                </th>
+                                                <th>Unit
+                                                </th>
+                                                <th>Location
+                                                </th>
+                                                <th>Name
+                                                </th>
+                                                <th>User Name (Email)
+                                                </th>
+                                                <th>Action
+                                                </th>
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <div class="col-md-7">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <label>Corporate <span>*</span></label>
+
+                                            <select id="drpCorporate" class="js-states col-sm-2 form-control Dropdown formcorporate " style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Unit <span>*</span></label>
+                                            <select id="DrpUnitTab2" class="js-states col-sm-2  form-control Dropdown " style="display: none; width: 100%"></select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <label>Location <span>*</span></label>
+                                            <select id="DrpLocationTab2" class="js-states col-sm-2 form-control Dropdown " style="display: none; width: 100%"></select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label>Branch <span>*</span></label>
+                                            <select id="DrpBranchTab2" class="js-states col-sm-2 form-control Dropdown " style="display: none; width: 100%"></select>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtsrno" placeholder="SrNo" style="display: none" data-label="lblFirstName">
+                                    <label for="txtFirstName">Name <span>*</span></label>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <input type="text" class="form-control col-sm-6 textbox-control " id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <input type="text" class="form-control col-sm-6 textbox-control " id="txtLastName" placeholder="Last Name" data-label="lblLastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtEmail">Email <span>*</span></label>
+                                            <input type="text" class="form-control textbox-control  email" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
+                                        </div>
+
+                                        <div class="col-md-6 Editdisable">
+                                            <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
+                                            <input type="text" class="form-control confirm  email" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtPassword">Password <span>*</span></label>
+                                            <input type="Password" class="form-control " id="txtPassword" placeholder="Password">
+                                        </div>
+
+                                        <div class="col-md-6 Editdisable">
+                                            <label for="txtConfirmPassword">Confirm Password <span>*</span></label>
+                                            <input type="Password" class="form-control confirm " id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSaveUser" type="submit" class="btn btn-success btnSaveuserclass">
+                                    SAVE</button>
+                                <button id="btnUpdateUser" type="submit" class="btn btn-primary btnSaveuserclass" style="display: none">
+                                    UPDATE</button>
+                                @*<button id="btnCancelUser" type="button" class="btn btn-green" style="display: none">
+                                    DELETE</button>*@
+                                <button id="btnclearuser" type="button" class="btn btn-warning btnclearuser">
+                                    CLEAR</button>
+                                <button id="btnQuitUser" type="button" class="btn btn-info quituserbtn">
+                                    QUIT FORM</button>
+
+
+                            </form>
+                        </div>
+                        <div class="col-md-5 summery-detail summerytab2">
+                            <div class="panel panel-white">
+                                <h4 class="panel-title-summery">Summary </h4>
+                                <ul class="utilitis-drop ">
+                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
+                                        <ul>
+                                            <li><a href="#"><i class="task">&nbsp;</i><br />
+                                                Task </a></li>
+                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
+                                                Notifications </a></li>
+                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
+                                                Calendar </a></li>
+                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
+                                                Email </a></li>
+                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
+                                                SMS </a></li>
+                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
+                                                Notes </a></li>
+                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
+                                                Tags </a></li>
+                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
+                                                Help Video </a></li>
+                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
+                                                Guided Tour </a></li>
+                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
+                                                Copy </a></li>
+                                            <li><a href="#"><i class="print">&nbsp;</i><br />
+                                                Print </a></li>
+                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
+                                                Updates </a></li>
+                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
+                                                Screenshot </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="panel-body" style="border: 1px solid #22BAA0;">
+                                    <div class="summ-lis-height">
+                                        <ul class="summery-list">
+                                            <div class="summ-list-left">
+                                                <li>First Name:<br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblFirstName" for="txtFirstName"></label>
+                                                        @*        <i>&nbsp;</i>*@
+                                                    </a>
+                                                </li>
+                                                <li>Last Name:
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblLastName" for="txtLastName"></label>
+                                                        @*<i>&nbsp;</i>*@
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div class="summ-list-right">
+                                                <li>Email :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblEmail" for="txtEmail"></label>
+                                                        @*<i>&nbsp;</i>*@
+                                                    </a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="summery-buttons">
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+
+                                        <p>
+                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        <div class="col-md-12">
+                            <form>
+
+                                <div class="row">
+                                    <label id="lbSrnoTab4" style="display: none"></label>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Corporate <span>*</span></label>
+                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Unit <span>*</span></label>
+                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Location <span>*</span></label>
+                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <label id="lbSrnoTab4" style="display: none"></label>
+
+
+                                    <div class="form-group col-md-4">
+                                        <label>Branch <span>*</span></label>
+                                        <select id="drpBranch" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Role <span>*</span></label>
+                                        <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>User <span>*</span></label>
+                                        <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Status <span>*</span></label>
+                                            <select id="drpRightsStatus" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
+                                            &nbsp
+                                                    <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Date1" id="LbDefault"><span></span></label>
+                                            &nbsp</br></br>
+                                                    <input id="chkdefault" type="checkbox">
+
+                                            @*<input type="checkbox" id="chkdefault" />*@Default ?
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="grid-gallery" class="grid-gallery">
+                                        <section class="grid-wrap">
+
+                                            <ul class="grid">
+                                                <li class="grid-sizer"></li>
+                                                <div id="partial">
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <b>
+                                                                        <label id="lbheading">
+                                                                            <input type="checkbox">
+                                                                            Module 1</label></b></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 1</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 2</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 3</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 4</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <label id="lbheading">
+                                                                        <input type="checkbox">
+                                                                        Module 2</label></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 4</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 5</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <label id="lbheading">
+                                                                        <input type="checkbox">
+                                                                        Module 3</label></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 6</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>Screen 7</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <label id="lbheading">
+                                                                        <input type="checkbox">
+                                                                        Module 4</label></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 8</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 9</td>
+                                                                            <td>
+                                                                                <input type="checkbox">V 
+                                                                                 <input type="checkbox">C 
+                                                                                 <input type="checkbox">U 
+                                                                                 <input type="checkbox">D 
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+
+                                                </div>
+                                            </ul>
+
+                                        </section>
+                                        <section class="slideshow">
+
+                                            <ul>
+                                                <li></li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+
+                                </div>
+
+                                <br />
+                                <br />
+                                <button id="btnSavetab4" type="submit" class="btn btn-success btnSaveTab4" style="display: none">
+                                    SAVE</button>
+                                <button id="btnupdatetab4" type="submit" class="btn btn-primary btnSaveTab4" style="display: none">
+                                    UPDATE</button>
+                                <button id="btnDeletetab4" type="button" class="btn btn-green" style="display: none">
+                                    DELETE</button>
+                                <button id="btnCleartab4" type="button" class="btn btn-warning">
+                                    CLEAR</button>
+                                <button id="btnQuittab4" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade bs-example-modal-lg in" id="myModalIcon" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">User Role</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <form id="frmRoleGrid">
+                                    <div class="table-responsive">
+                                        <table id="gridRole" class="display" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th style="display: none">srno</th>
+                                                    <th style="display: none">UserId</th>
+                                                    <th>UserName 
+                                                    </th>
+                                                    <th>Unit
+                                                    </th>
+                                                    <th>Location
+                                                    </th>
+                                                    <th>Role
+                                                    </th>
+                                                    <th>Default
+                                                    </th>
+                                                    <th>Status
+                                                    </th>
+                                                    <th>Action
+                                                    </th>
+                                                </tr>
+
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th style="display: none">srno</th>
+                                                    <th style="display: none">UserId</th>
+                                                    <th>UserName 
+                                                    </th>
+                                                    <th>Unit
+                                                    </th>
+                                                    <th>Location
+                                                    </th>
+                                                    <th>Role
+                                                    </th>
+                                                    <th>Default 
+                                                    </th>
+                                                    <th>Status
+                                                    </th>
+                                                    <th>Action
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+
+                                        </table>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bs-example-modal-lg in" id="DeleteModel" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                    <div class="modal-header">
+                        <h4 class="modal-title">System Message</h4>
+                    </div>
+                    <div class="modal-body custom-model-body">
+                        <form>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label id="lbldelete"></label>
+                                        </br>
+                                        <label id="lblRole"></label>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
+                                <button type="button" class="btn btn-info modeldeleteclose" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
