@@ -1,7 +1,6 @@
 ﻿@{
-    ViewBag.Title = "FIT Invoice";
-    ViewBag.PageTitle = "FIT Invoice";
-    ViewBag.FooterCopyRight = "2015 &copy; Modern by Steelcoders.";
+    ViewBag.Title = "Invoice";
+    ViewBag.PageTitle = "Invoice";
 }
 
 <div class="col-md-12 form-detail">
@@ -10,8 +9,9 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach FIT Invoice </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create FIT Invoice</a></li>
+                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Invoice </a></li>
+                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Invoice</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice Item Details</a></li>
 
                 </ul>
                 <div class="tab-content">
@@ -122,75 +122,160 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="drpInvoicePartyName ">Party Name </label>
-                                            <input type="text" class="form-control " id="txtTaxRegistrationNumber" placeholder="Party Name">
+                                            <label for="drpInvoicePartyName ">Party&nbsp<span>*</span></label>
+                                            <input type="text" class="form-control " id="txtTaxRegistrationNumber" placeholder="Party Name" value="Flamingo">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="drpNationality ">Nationality  </label>
+                                            <label>Invoice Date&nbsp<span>*</span></label>
+                                            <input type="text" class="form-control date-picker" id="txtinvoicedate" placeholder="dd/MM/yyyy">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <label for="drpNationality ">Invoice Currency&nbsp<span>*</span></label>
+                                            <select id="DrpInvoiceCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">USD</option>
+                                                <option>INR</option>
+                                                <option>AUD</option>
+                                                <option>THB</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpNationality ">Client Nationality Set&nbsp<span>*</span></label>
                                             <select id="drpNationality" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Asian-Indian</option>
+                                                <option>African</option>
+                                                <option>Europian</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="txtClientName ">Client Name </label>
-                                            <input type="text" class="form-control " id="txtClientName" placeholder="Client Name">
+                                            <label for="txtClientName ">Client Name&nbsp<span>*</span></label>
+                                            <input type="text" class="form-control " id="txtClientName" placeholder="Client Name" value="Vicky Patel">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txtClientCellPhone ">Client Cell Phone   </label>
-                                            <input type="text" class="form-control " id="txtClientCellPhone " placeholder="Client Cell Phone ">
+                                            <label for="txtClientCellPhone ">Client Cellphone&nbsp<span>*</span></label>
+                                            <input type="text" class="form-control " id="txtClientCellPhone" placeholder="Client Cell Phone" value="9874563210">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtInvoicePartyAddress">Client Address&nbsp<span>*</span></label>
+                                    <textarea class="form-control" cols="5" id="txtInvoicePartyAddress"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpStatus ">Invoice Status&nbsp<span>*</span></label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">In Process  </option>
+                                                <option>Booked</option>
+                                                <option>Reconfirmed</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpStatus ">Invoice Type&nbsp<span>*</span></label>
+                                            <select id="DrpInvoiceType" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Final</option>
+                                                <option>Proforma </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="section-headers tab2section4"><span class="section-index">2</span>&nbsp; Tour Details</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpStatus ">Tour Type&nbsp<span>*</span></label>
+                                            <select id="DrpTourType" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">FIT</option>
+                                                <option>GIT </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpInvoicePartyName ">Tour Name&nbsp<span>*</span></label>
+                                            <input type="text" class="form-control " id="txtTourName" placeholder="Tour Name" value="Vicky Patel BANGKOK PACKAGE 2Nights">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtAdults"># Adults&nbsp<span>*</span></label>
+                                            <input type="text" class="form-control" id="txtAdults" placeholder="Adults">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDays"># CWB</label>
+                                            <input type="text" class="form-control" id="txtcwb" placeholder="Child With Bad">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDays"># CNB</label>
+                                            <input type="text" class="form-control" id="txtcnb" placeholder="Child No Bad">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDays"># Infant</label>
+                                            <input type="text" class="form-control" id="txtinfant" placeholder="Infant">
                                         </div>
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="drpInvoicePartyName ">Tour Name </label>
-                                            <input type="text" class="form-control " id="txtTourName " placeholder="Tour Name ">
+                                        <div class="col-md-3">
+                                            <label for="txtAdults"># Single Room</label>
+                                            <input type="text" class="form-control" id="txtsingleroom" placeholder="Single Room">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtTaxRegistrationNumber">Travel From Date</label>
+                                            <label for="txtDays"># Double Room</label>
+                                            <input type="text" class="form-control" id="txtDoubleRoom" placeholder="Double Room">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTaxRegistrationNumber">Travel From Date&nbsp<span>*</span></label>
                                             <input type="text" class="form-control date-picker" id="txtTravelFromDate" placeholder="dd/MM/yyyy">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtTravelToDate">Travel To Date</label>
+                                            <label for="txtTravelToDate">Travel To Date&nbsp<span>*</span></label>
                                             <input type="text" class="form-control date-picker" id="txtTravelToDate" placeholder="dd/MM/yyyy">
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <label for="txtNight">Night</label>
-                                            <input type="text" class="form-control " id="txtNights" placeholder="Night">
+                                            <label for="txtNight">Nights</label>
+                                            <input type="text" class="form-control " id="txtNights" placeholder="Nights">
                                         </div>
                                         <div class="col-md-3">
                                             <label for="txtDays">Days</label>
                                             <input type="text" class="form-control " id="txtDays" placeholder="Days">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="drpStatus ">Status  </label>
-                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtInvoicePartyAddress">Party Address</label>
-                                    <textarea class="form-control" cols="5" id="txtInvoicePartyAddress"></textarea>
-                                </div>
 
-                                <h3 class="section-headers tab2section2"><span class="section-index">2</span>&nbsp; Booking Details</h3>
+
+                                <h3 class="section-headers tab2section2"><span class="section-index">3</span>&nbsp; Booking Details</h3>
 
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="txtBookedBy">Booked By</label>
                                             <select id="drpBookedBy" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Urvi Patel</option>
+                                                <option>Shivam Patel</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
@@ -205,12 +290,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtReconfirmedBy">Reconfirmed By</label>
                                             <select id="drpReconfirmedBy" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Urvi Patel</option>
+                                                <option>Shivam Patel</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtReconfirmedOn">Reconfirmed On</label>
                                             <input type="text" class="form-control date-picker" id="txtReconfirmedOn" placeholder="dd/MM/yyyy">
                                         </div>
@@ -218,7 +305,7 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Invoice Item Details</h3>
+                                <h3 class="section-headers tab2section3"><span class="section-index">4</span>&nbsp;Invoice Item Details</h3>
                                 @*<div class="form-group">
                                     <button id="btnADD" type="submit" class="btn btn-success btnSave">
                                         ADD</button>
@@ -442,6 +529,25 @@
 
                                             </div>
                                             <h4 class="summery-header"><span class="summery-section-index">2</span></h4>
+                                            <div class="summ-list-right">
+
+                                                <li>Travel To Date  :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblTravelToDate" for="txtTravelToDate"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                                <li>Adults  :
+                                                    <br />
+                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
+                                                        <label id="lblAdults" for="txtAdults"></label>
+                                                        <i>&nbsp;</i>
+                                                    </a>
+                                                </li>
+                                            </div>
+
+                                            <h4 class="summery-header"><span class="summery-section-index">3</span></h4>
                                             <div class="summ-list-div">
                                                 <div class="summ-list-left">
                                                     <li>Booked By 
@@ -483,6 +589,112 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab3">
+                        <div class="col-md-12">
+                            <form>
+                                
+                                <div class="form-group">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#
+                                                    </th>
+                                                    <th>Items
+                                                    </th>
+                                                    <th>Description
+                                                    </th>
+                                                    <th>Quantity
+                                                    </th>
+                                                    <th>Price
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>
+                                                        <a href="#" data-toggle="modal" data-target="#AddDataModel" class="btn btn-success">ADD</a>
+                                                    </th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>Total</th>
+                                                    <th><span class="label label-danger">$870</span></th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1
+                                                    </td>
+                                                    <td>Amari Atrium
+                                                    </td>
+                                                    <td>Type: Deluxe Room  
+                                                        <br />
+                                                        2 Double Rooms    
+                                                        <br />
+                                                        1 Extra Adults
+                                                        <br />
+                                                        1 CWB 
+                                                        <br />
+                                                        1 CNB
+                                                        <br />
+                                                        1 Infant
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">2 Nights</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">$650  </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2
+                                                    </td>
+                                                    <td>Alcazar Show
+                                                    </td>
+                                                    <td>3 Adults<br />
+                                                        2 Childs
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">5 Pax</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">$120 </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3
+                                                    </td>
+                                                    <td>PVT Transfer
+                                                    </td>
+                                                    <td>For Alcazar Show - SUV Merc
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">5 Pax</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info">$100 </span>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CLEAR</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                                <a href="#" data-toggle="modal" data-target="#myCancellationModel" class="btn btn-danger">CANCEL INVOICE</a>
+                                <button class="btn btn-default" type="button">Print</button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -678,8 +890,7 @@
                                         </tfoot>
                                         <tbody>
                                             <tr role="row">
-                                                <td>
-                                                    Amari Atrium
+                                                <td>Amari Atrium
                                                 </td>
                                                 <td>
                                                     <div class="input-group input-append">
@@ -689,8 +900,7 @@
                                                 </td>
                                             </tr>
                                             <tr role="row">
-                                                <td>
-                                                    Nong Nooch Tropical Botanical Garden
+                                                <td>Nong Nooch Tropical Botanical Garden
                                                 </td>
                                                 <td>
                                                     <div class="input-group input-append">
@@ -800,7 +1010,8 @@
 @section floatingsection{
     <div class="floating-section-buttons tab2" style="display: none">
         <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Party Details">1</a>
-        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Booking Details">2</a>
-        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Invoice Item Details">3</a>
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Tour Details">2</a>
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Booking Details">3</a>
+
     </div>
 }

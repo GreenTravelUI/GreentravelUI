@@ -104,11 +104,11 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Supplier </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Supplier</a></li>
+                    <li role="presentation"><a href="#tab10" role="tab" data-toggle="tab" data-section="tab10" class="basic-accord"><span class="menu-icon fa fa-paw"></span>&nbsp;&nbsp;&nbsp;&nbsp;Services</a></li>
                     <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</a></li>
                     <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-university"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Bank</a></li>
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Payment Criteria</a></li>
                     <li role="presentation"><a href="#tabcreditlimit" role="tab" data-toggle="tab" data-section="tabcreditlimit" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Credit Limit</a></li>
-
                     <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Accounts</a></li>
 
 
@@ -381,11 +381,11 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="txtSupplierName">Supplier Code </label>
-                                            <input type="text" class="form-control req" id="txtSupplierName" readonly value="HOTLE-5-0-1" placeholder="Supplier Name">
+                                            <input type="text" class="form-control req" id="txtSupplierCode" readonly value="HOTLE-5-0-1" placeholder="Supplier Name">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="txtSupplierName">Operating Branch <span>*</span></label>
-                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpOperatingBranch" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Pattaya</option>
                                                 <option>Bangkok</option>
                                                 <option>Phuket</option>
@@ -400,14 +400,14 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <label for="drpTypeOfSupplier">Supplier Category<span>*</span></label>
-                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpTypeOfSuppliercat" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Company</option>
                                                 <option>Person</option>
                                             </select>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
-                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpTypeOfSupplier11" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Accommodation</option>
                                                 <option>Coach</option>
                                                 <option>Guide</option>
@@ -449,7 +449,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label for="drpOperatingCurrency">Operating Currency  <span>*</span></label>
-                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpOperatingCurrency1" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">THB</option>
                                                 <option>INR</option>
                                                 <option>AUD</option>
@@ -498,7 +498,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Status <span>*</span></label>
-                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpTypeOfSupplier1" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Active</option>
                                                 <option>Inactive</option>
                                             </select>
@@ -512,11 +512,11 @@
 
 
                                             <label for="txtRemarks">Remarks </label>
-                                            <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                            <textarea class="form-control" cols="5" id="txtRemarks1"></textarea>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="txtRemarksInternal">Remarks (Internal)</label>
-                                            <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                            <textarea class="form-control" cols="5" id="txtRemarksInternal1"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -592,7 +592,7 @@
                                     UPDATE</button>
                                 <button id="btnCancelCreateSupplier" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
-                                <button id="btnClearCreateSupplier" type="button" class="btn btn-warning btnSave">
+                                <button id="btnCreateSupplier" type="button" class="btn btn-warning btnSave">
                                     CREATE NEW</button>
                                 <button id="btnSaveCreateAgent" type="submit" class="btn btn-lightgreen btnSave">
                                     CREATE AGENT</button>
@@ -750,6 +750,326 @@
                             </ul>
                         </div>
                     </div>
+                    @*Services*@
+                    <div class="tab-pane" id="tab10">
+                        <div class="col-md-7">
+                            <form>
+                                <h3 class="tab7section1">&nbsp;Services - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                               
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                         <label for="drpServices">Services</label>
+                                            <select id="drpServices" class="js-states form-control" multiple="multiple"  style="display: none; width: 100%">
+                                                <option selected="selected">Accommodation</option>
+                                                <option>Coach</option>
+                                                <option>Guide</option>
+                                                <option>Driver</option>
+                                                <option>Meal</option>
+                                                <option>Transport</option>
+                                                <option>Sightseeing</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CREATE NEW</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+
+                                <h6>&nbsp;</h6>
+                                <h3 class="tab7section1">&nbsp;Accommodation</h3>
+
+                                  <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#Accomodationserch" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Accommodation</a></li>
+                                    <li role="presentation"><a href="#accomondationform" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Accommodation</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="Accomodationserch">
+                                        <div class="table-responsive">
+                                            <table id="Accomandationtable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>City</th>
+                                                        <th>Hotel</th>
+                                                        
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                         <th>City</th>
+                                                        <th>Hotel</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                       
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>Bangkok</span></td>
+                                                        <td><span>abc</span></td>
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="accomondationform">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpcityaccomondation">City</label>
+                                                    <select id="drpcityaccomondation" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Bangkok</option>
+                                                        <option>Pattaya</option>
+                                                        <option>Singapore</option>
+                                                       
+                                                    </select>
+                                                </div>
+                                                </div>
+                                            </div>
+                                         <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpAccomondationms">Hotel</label>
+                                                    <select id="drpAccomondationms" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                                        <option selected="selected">Accommodation 1</option>
+                                                        <option>Accommodation 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <button id="btnSaveallaccom" type="submit" class="btn btn-success btnSave">
+                                          ADD ALL HOTEL</button>
+                                        <button id="btnAddAccommodation" type="submit" class="btn btn-primary btnSave">
+                                            ADD</button>
+                                      
+                                    </div>
+                                </div>
+
+                                   <h6>&nbsp;</h6>
+                                <h3 class="tab7section1">&nbsp;Sightseeing</h3>
+
+                                  <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#Sightseeingserch" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Sighseeing</a></li>
+                                    <li role="presentation"><a href="#sightseeingform" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Sightseeing</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="Sightseeingserch">
+                                        <div class="table-responsive">
+                                            <table id="sightseeingtable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>City</th>
+                                                        <th>Sighseeing</th>
+                                                        
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                         <th>City</th>
+                                                        <th>Sightseeing</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                       
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>BANGKOK</span></td>
+                                                        <td><span>Newbei</span></td>
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="sightseeingform">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpSighseeingCity">City</label>
+                                                    <select id="drpSighseeingCity" class="js-states form-control" style="display: none; width: 100%">
+                                                         <option selected="selected">Bangkok</option>
+                                                        <option>Pattaya</option>
+                                                        <option>Singapore</option>
+                                                    </select>
+                                                </div>
+                                                </div>
+                                            </div>
+                                         <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpsighseeingms">Sightseeing</label>
+                                                    <select id="drpsighseeingms" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                                        <option selected="selected">Grand Palace</option>
+                                                        <option selected="selected">Wat Pho</option>
+                                                        <option>Wat phra kaew</option>
+                                                        <option>Wat Arun</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <button id="btnSaveallss" type="submit" class="btn btn-success btnSave">
+                                          ADD ALL SIGHTSEEING</button>
+                                        <button id="btnAddSightseeing" type="submit" class="btn btn-primary btnSave">
+                                            ADD</button>
+                                      
+                                    </div>
+                                </div>
+
+                                 <h6>&nbsp;</h6>
+                                <h3 class="tab7section1">&nbsp;Restaurant</h3>
+
+                                  <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#RestaurantSearch" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Restaurant</a></li>
+                                    <li role="presentation"><a href="#RestaurantForm" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Restaurant</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="RestaurantSearch">
+                                        <div class="table-responsive">
+                                            <table id="restoranttable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>City</th>
+                                                        <th>Restaurant</th>
+                                                        
+                                                        <th style="width: 15%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                         <th>City</th>
+                                                        <th>Restaurant</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                       
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>BANGKOK</span></td>
+                                                        <td><span>Le Normandie Restaurant</span></td>
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="RestaurantForm">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpRestocity">City</label>
+                                                    <select id="drpRestocity" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Bangkok</option>
+                                                        <option>Pattaya</option>
+                                                        <option>Singapore</option>
+                                                    </select>
+                                                </div>
+                                                </div>
+                                            </div>
+                                         <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpRestoms">Restaurant</label>
+                                                    <select id="drpRestoms" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                                        <option selected="selected">Le Normandie</option>
+                                                        <option selected="selected">Rock Restaurant</option>
+                                                        <option>Sensi Restaurant</option>
+                                                        <option>Medici Kitchen</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <button id="btnSaveallRS" type="submit" class="btn btn-success btnSave">
+                                          ADD ALL RESTAURANT</button>
+                                        <button id="btnaddrs" type="submit" class="btn btn-primary btnSave">
+                                            ADD</button>
+                                      
+                                    </div>
+                                </div>
+                            </form>
+                        </div> 
+                    </div>
                     @*User*@
                     <div role="tabpanel" class="tab-pane" id="tab9">
                         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
@@ -906,7 +1226,7 @@
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
                                         <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                            CLEAR</button>
+                                            CREATE NEW</button>
 
                                     </form>
                                 </div>
@@ -1271,7 +1591,7 @@
                                 <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                     DELETE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
@@ -1511,7 +1831,7 @@
                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
                                             DELETE</button>
                                         <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                            CLEAR</button>
+                                            CREATE NEW</button>
 
                                     </form>
                                 </div>
@@ -1790,7 +2110,7 @@
                                         <div class="form-group">
                                             <label for="txttotaloutstanding">Total Outstanding Payment </label>
                                             <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control req" id="txttotaloutstanding" value="3000 USD" placeholder="Credit Limit" readonly>
+                                                <input type="text" class="form-control req" id="txttotaloutstanding" value="3000" placeholder="Credit Limit" readonly>
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
@@ -1873,13 +2193,13 @@
                                 <button id="btnSave" type="submit" class="btn btn-primary btnSave">
                                     UPDATE</button>
                                 <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                    CLEAR</button>
+                                    CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
                             </form>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -2713,6 +3033,8 @@
                     //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
                 }
             });
+
+           
         });
     </script>
 }
