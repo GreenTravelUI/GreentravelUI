@@ -1,0 +1,717 @@
+﻿@{
+    ViewBag.Title = "Index";
+    ViewBag.Title = "Authorization Policy Master";
+    ViewBag.PageTitle = "Authorization Policy Master";
+}
+
+<link href="/assets/plugins/gridgallery/css/component.css" rel="stylesheet" type="text/css" />
+<style>
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4 {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5 {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span,
+        .tab-itenaries .col-md-2 > h5 > span,
+        .tab-itenaries .col-md-3 > h5 > span,
+        .tab-itenaries .col-md-4 > h5 > span,
+        .tab-itenaries .col-md-5 > h5 > span,
+        .tab-itenaries .col-md-6 > h5 > span,
+        .tab-itenaries .col-md-7 > h5 > span,
+        .tab-itenaries .col-md-8 > h5 > span,
+        .tab-itenaries .col-md-9 > h5 > span,
+        .m-b-lg > h5 > span {
+            float: right;
+        }
+
+    .tab-itenaries a > span {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        /*margin-bottom: 15px;*/
+    }
+
+        .tab-itenaries .form-control {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label {
+                width: 100%;
+            }
+
+            .tab-itenaries .form-control h2 {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 25px;
+        }
+
+        .tab-itenaries .form-control .btn {
+            padding: 8px 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .tab-itenaries span.total-cost {
+            font-size: 11px;
+        }
+
+        .tab-itenaries .table > tbody > tr:first-child > td {
+            border-width: 0;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:first-child {
+            width: 60%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td:last-child {
+            text-align: right;
+            width: 40%;
+        }
+
+        .tab-itenaries .table > tbody > tr > td {
+            font-size: 11px;
+            padding: 7px !important;
+        }
+
+    .grid figcaption {
+        background: #fff none repeat scroll 0 0;
+        padding: 25px;
+    }
+
+    .grid li:hover figure {
+        opacity: 1;
+    }
+
+    .grid li {
+        cursor: default;
+        float: left;
+        width: 33.3% !important;
+    }
+
+    figcaption > h3 {
+        border-bottom: 1px dashed #3c3c3c !important;
+    }
+
+    .grid li {
+        position: relative !important;
+    }
+
+    td:first-child {
+        width: 50% !important;
+    }
+
+    .select2-container.select2-container--default.select2-container--open {
+        z-index: 99999 !important;
+    }
+</style>
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Authorization Policy</a></li>
+                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Authorization Policy</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">User Name (Email)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%;">#</th>
+                                            <th>Corporate</th>
+                                            <th>Unit</th>
+                                            <th>Location</th>
+                                            <th>Role</th>
+                                            <th>Authorization Policy</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th style="width: 10%;">#</th>
+                                            <th>Corporate</th>
+                                            <th>Unit</th>
+                                            <th>Location</th>
+                                            <th>Role</th>
+                                            <th>Authorization Policy</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @*<tr>
+                                                <th></th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <input type="text" />
+                                                </th>
+                                                <th>
+                                                    <a href="#">
+                                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                            <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                </th>
+                                            </tr>*@
+                                        @*<tr>
+                                            <td>1</td>
+                                            <td><span>Travels Unlimited</span></td>
+                                            <td><span>Bangkok</span></td>
+                                            <td><span>Bangkok</span></td>
+                                            <td><span>Executive</span></td>
+                                            <td><span>Executive Role Policy</span></td>
+                                            <td>
+                                                <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o text-success"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>*@
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        <div class="col-md-12">
+                            <form>
+                                <div class="row">
+                                    <label id="lbSrnoTab4" style="display: none"></label>
+                                    <div class="form-group col-md-4">
+                                        <label>Corporate <span>*</span></label>
+                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%">
+                                            <option>--Select Coporate--</option>
+                                            <option selected="selected">Travels Unlimited</option>
+                                            <option>Flamingo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Unit <span>*</span></label>
+                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
+                                            <option>--Select Unit--</option>
+                                            <option selected="selected">Bangkok</option>
+                                            <option>Ahmedabad</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Location <span>*</span></label>
+                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
+                                            <option>--Select Location--</option>
+                                            <option selected="selected">Bangkok</option>
+                                            <option>Ahmedabad</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label>Role <span>*</span></label>
+                                        <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
+                                            <option>--Select Role--</option>
+                                            <option selected="selected">Executive</option>
+                                            <option>ERP Admin</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Authorization Policy <span>*</span></label>
+                                        <input type="text" class="form-control " id="txtTaxRegistrationNumber" placeholder="Authorization Policy">
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div id="grid-gallery" class="grid-gallery">
+                                        <section class="grid-wrap">
+                                            <ul class="grid">
+                                                <li class="grid-sizer"></li>
+                                                <div id="partial">
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <b>
+                                                                        <label id="lbheading">
+                                                                            Module 1</label></b></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 1</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                                @*<button rel="tooltip" title="Authorize Value" class="btn btn-default" style="padding: 2px 10px"><i class="fa fa-unlock-alt"></i></button>*@
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 2</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 3</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 4</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <label id="lbheading">
+                                                                        Module 2</label></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 4</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 5</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <label id="lbheading">
+                                                                        Module 3</label></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 6</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>Screen 7</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <figcaption class="panel-body tab-itenaries">
+                                                                <div class="myDiv">
+                                                                    <h3 style="margin-top: 0; text-align: center; border-bottom: 0px dotted #ccc;">
+                                                                        <label style="display: none" id="lbheadingName"></label>
+                                                                    </h3>
+                                                                </div>
+                                                                <h3 style="margin-top: 0; text-align: center;">
+                                                                    <label id="lbheading">
+                                                                        Module 4</label></h3>
+
+                                                                <table class="table sampletable" style="margin-bottom: 0;">
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Screen 8</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Screen 9</td>
+                                                                            <td>
+                                                                                <a href="#" data-toggle="modal" data-target="#myAuthorizatiobModal" class="btn btn-default" style="font-size: 10px; padding: 6px 12px 3px;" rel="tooltip" title="Authorization Details"><i class="fa fa-unlock-alt"></i></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </li>
+
+
+                                                </div>
+                                            </ul>
+
+                                        </section>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <button id="btnSavetab4" type="submit" class="btn btn-success">
+                                    SAVE</button>
+                                <button id="btnupdatetab4" type="submit" class="btn btn-primary">
+                                    UPDATE</button>
+                                <button id="btnDeletetab4" type="button" class="btn btn-green">
+                                    DELETE</button>
+                                <button id="btnCleartab4" type="button" class="btn btn-warning">
+                                    CLEAR</button>
+                                <button id="btnQuittab4" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@*Model Pop*@
+<div class="modal fade modify-colum-model" id="myAuthorizatiobModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+            <div class="modal-header">
+                <h4 class="modal-title">Authorization Details - <span class="text-danger">Screen 1</span></h4>
+            </div>
+            <div class="modal-body custom-model-body">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tab2-7-1" role="tab" data-toggle="tab" data-section="tab1-1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Authorization Policy</a></li>
+                            <li role="presentation"><a href="#tab2-7-2" role="tab" data-toggle="tab" data-section="tab1-3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Authorization Value</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="tab2-7-1">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="drpactionEvent">Action / Event</label>
+                                                <select id="drpactionEvent" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">Create Quote</option>
+                                                    <option>Create Invoice </option>
+                                                    <option>Update Receipt </option>
+                                                    <option>Status Change </option>
+                                                    <option>Discount </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="txtCancellationAgentFees">Authorization Type</label>
+                                                <select id="drpauthorization" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">Range Bound </option>
+                                                    <option>Approval  </option>
+                                                    <option>Item Wise </option>
+                                                    <option>Total Amount </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="txtCancellationAgentFees">After Authorization Action</label>
+                                                <select id="drpafterautho" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">Auto </option>
+                                                    <option>Manual  </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="Drpmin">Min Authorization Time</label>
+                                                <select id="Drpmin" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">24 Hours </option>
+                                                    <option>2 Days </option>
+                                                    <option>5 Days </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="Drpmax">Max Authorization Time</label>
+                                                <select id="Drpmax" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option>24 Hours </option>
+                                                    <option>2 Days </option>
+                                                    <option selected="selected">5 Days </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="drpauthotypevalue">Remarks</label>
+                                                @*<input type="text" class="form-control" id="txtremark" placeholder="Remarks">*@
+                                                <textarea class="form-control" id="txtremark" placeholder="Remarks"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtCancellationAgentFees">Remarks (Internal)</label>
+                                                @*<input type="text" class="form-control" id="txtintremarks" placeholder="Remarks (Internal)">*@
+                                                <textarea class="form-control" id="txtintremarks" placeholder="Remarks (Internal)"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-success">Save</button>
+                                    <button id="btnupdate" type="submit" class="btn btn-primary">
+                                        UPDATE</button>
+                                </div>
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="tab2-7-2">
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#userGrid" role="tab" data-toggle="tab" data-section="userGrid" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Authorization Value</a></li>
+                                    <li role="presentation"><a href="#userForm" role="tab" data-toggle="tab" data-section="userForm" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Authorization Value </a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="userGrid">
+                                        <div class="table-responsive">
+                                            @*<div class="dropdown table-custome-drop">
+                                                <div class="btn-group">
+                                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                                    </a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#">Excel</a></li>
+                                                        <li><a href="#">PDF</a></li>
+                                                        <li><a href="#">Email</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>*@
+                                            <table id="example-editable1" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Authorization Level</th>
+                                                        <th>Authorization Type Value</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    @*<tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>*@
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Authorization Level</th>
+                                                        <th>Authorization Type Value</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                @*<tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>No Authorization</td>
+                                                        <td>Percentage</td>
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>*@
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="userForm">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="drpactionEvent">Authorization Level</label>
+                                                            <select id="DrpAuthorizationLevel" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option>--Select Authorization Level-- </option>
+                                                                <option selected="selected">No Authorization </option>
+                                                                <option>One Level Authorization </option>
+                                                                <option>Two Level Authorization </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="drpauthotypevalue">Authorization Type Value</label>
+                                                            <select id="drpauthotypevalue" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option>--Select Authorization Type-- </option>
+                                                                <option selected="selected">Percentage</option>
+                                                                <option>Amount </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="drpauthotypevalue">Min Value</label>
+                                                            <input type="text" class="form-control" id="txtminvalue" placeholder="Min Value">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="drpauthotypevalue">Max Value</label>
+                                                            <input type="text" class="form-control" id="txtmaxvalue" placeholder="Max Value">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="drpauthotypevalue">Remarks</label>
+                                                            @*<input type="text" class="form-control" id="txtautoremark" placeholder="Remarks">*@
+                                                            <textarea class="form-control" id="txtautoremark" placeholder="Remarks"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtCancellationAgentFees">Remarks (Internal)</label>
+                                                            @*<input type="text" class="form-control" id="txtautoremarkInternal" placeholder="Remarks (Internal)">*@
+                                                            <textarea class="form-control" id="txtautoremarkInternal" placeholder="Remarks (Internal)"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="button" class="btn btn-success">Save</button>
+                                            <button id="btnupdateAutho" type="submit" class="btn btn-primary">
+                                                UPDATE</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
