@@ -21,9 +21,9 @@
                 <ul class="nav nav-tabs form-basic-tab" role="tablist">
                     <li role="presentation" class="active" id="Search"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Company </a></li>
                     <li role="presentation" id="CreateCorporate"><a href="#tab2" role="tab" data-section="tab2" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create White Label</a></li>
-                    <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Subscription / Hosting</a></li>
+                    <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Subscription / Billing</a></li>
+                    <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hosting / Support</a></li>
                     <li role="presentation" id="Tab7"><a href="#tab7" role="tab" data-section="tab7" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Database</a></li>
-                    <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Billing / Support</a></li>
                     <li role="presentation" id="tabuserpreferance"><a href="#tab5" role="tab" data-section="tab5" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;UI Preference</a></li>
                     <li role="presentation" id="Tab6"><a href="#tab6" role="tab" data-section="tab6" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Password Authentication Preference</a></li>
                 </ul>
@@ -144,6 +144,7 @@
                                         <div class="form-group">
                                             <label for="drpcompanyType">Company Type <span>*</span></label>
                                             <select id="drpcompanyType" multiple="multiple" data-placeholder="Select Company Type" class="js-states form-control req Dropdown" style="display: none; width: 100%">
+                                                <option>All</option>
                                                 <option>Incoming Tour Operator</option>
                                                 <option>FIT Tour Operator</option>
                                                 <option>Outgoing Tour Operator</option>
@@ -156,6 +157,7 @@
                                         <div class="form-group">
                                             <label for="drpServices">Services <span>*</span></label>
                                             <select id="drpServices" multiple="multiple" class="js-states form-control Dropdown " style="display: none; width: 100%">
+                                                <option>All</option>
                                                 <option>FIT Tour</option>
                                                 <option>Groups</option>
 
@@ -188,6 +190,7 @@
                                         <div class="form-group">
                                             <label for="drpBusinessMode">Business Mode <span>*</span></label>
                                             <select id="drpBusinessMode" multiple="multiple" class="js-states form-control Dropdown " style="display: none; width: 100%">
+                                                <option>All</option>
                                                 <option>B2B</option>
                                                 <option>B2C</option>
 
@@ -604,7 +607,6 @@
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab3">
-
                         <form>
                             <div class="col-md-12">
                                 <h3 class="tab3section2"><span class="section-index">1</span>&nbsp;Subscription
@@ -655,7 +657,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="drpmaINCurrency">Currency</label>
+                                            <label for="drpmaINCurrency">Payment Currency</label>
                                             <select id="drpmaINCurrency" class="js-states form-control Dropdown" style="display: none; width: 100%">
                                                 <option>INR</option>
                                                 <option>AUD</option>
@@ -689,7 +691,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
 
                                     <div class="col-md-3">
@@ -710,14 +711,14 @@
                                     </div>
 
 
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="drpPaymentMode">Payment Mode </label>
                                             <select id="drpPaymentMode" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    @*<div class="col-md-3">
                                         <div class="form-group">
                                             <label for="drpPaymentCurrency">Payment Currency </label>
                                             <select id="drpPaymentCurrency" class="js-states form-control Dropdownhost" style="display: none; width: 100%">
@@ -726,7 +727,7 @@
                                                 <option>USD</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div>*@
                                 </div>
                                 <div class="row">
 
@@ -757,15 +758,109 @@
                                     QUIT FORM</button>
                                 <br />
                                 <br />
+                            </div>
 
+                            <div class="col-md-12">
 
+                                <h3 class="tab4section1"><span class="section-index">2</span>&nbsp;Billing
+                                    <span class="text-danger tab3Formname" style="display: none"></span>
+                                </h3>
+                                <input type="text" class="form-control" style="display: none" id="txtsrnotab4" placeholder="Don't Enter Text" style="display: none">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtBillingName">Billing Name <span>*</span></label>
+                                            <input type="text" class="form-control " id="txtBillingName" placeholder="Billing Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="drpbillingcountry">Billing Country</label>
+                                        <select id="drpbillingcountry" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="drpbillingState">Billing State</label>
+                                        <select id="drpbillingState" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="drpbillingCity">Billing City </label>
+                                        <select id="drpbillingCity" class="js-states form-control Dropdown" style="display: none; width: 100%">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
+                                            <input type="text" class="form-control " id="txtBillingContactPerson" placeholder="Billing Contact Person">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
+                                        <input type="text" class="form-control" id="txtBillingZipCode" data-max="6" placeholder="Zip Code">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="txtBillingEmail">Billing Email </label>
+                                        <input type="text" class="form-control" id="txtBillingEmail" placeholder="Billing Email">
+                                    </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtAddressLine1">Billing Address Line 1 </label>
+                                            <input type="text" class="form-control" id="txtBillingAddressLine1" placeholder="Billing Address Line 1 ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtBillingZipCode">Billing Telephone Code</label>
+                                        <input type="text" class="form-control" id="txtBillingTelephoneCode" placeholder="Zip Code">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="txtTelephone">Billing Telephone</label>
+                                        <input type="text" class="form-control" id="txtBillingTelephone" placeholder="Billing Telephone">
+                                    </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtAddressLine2">Billing Address Line 2 </label>
+                                            <input type="text" class="form-control" id="txtBillingAddressLine2" placeholder="Billing Address Line 2">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="txtBillingZipCode">Billing Cell Phone Code</label>
+                                        <input type="text" class="form-control" id="txtBillingPhoneCode" placeholder="Zip Code">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="txtCellPhone">Billing Cell Phone</label>
+                                        <input type="text" class="form-control num max" id="txtBillingCellPhone" data-max="10" placeholder="Billing Cell Phone">
+                                    </div>
 
+                                </div>
+
+                                <br />
+                                <button id="btnSaveTab4Sec1" type="submit" class="btn btn-success btnSaveuserpref">
+                                    SAVE</button>
+                                <button id="btnUpdateTab4Sec1" type="submit" class="btn btn-primary btnSaveuserpref">
+                                    UPDATE</button>
+                                <button id="btnCancelTab4Sec1" type="button" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnclearTab4Sec1" type="button" class="btn btn-warning btnClearuserpref">
+                                    CLEAR</button>
+                                <button id="btnquitTab4Sec1" type="button" class="btn btn-info">
+                                    QUIT FORM</button>
 
                             </div>
+
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        <form>
                             <div class="col-md-12">
-                                <h3 class="tab3section1"><span class="section-index">2</span>&nbsp;Hosting
+                                <h3 class="tab3section1"><span class="section-index">1</span>&nbsp;Hosting
                                     <span class="text-danger tab3Formname" style="display: none"></span>
                                 </h3>
                                 <input type="text" class="form-control" id="txtsrnotab3" placeholder="Don't Enter Text" style="display: none">
@@ -880,104 +975,8 @@
                                     QUIT FORM</button>
 
                             </div>
-                        </form>
-                    </div>
-                    <div role="tabpanel" class="tab-pane " id="tab4">
-                        <form>
-                            <div class="col-md-12">
 
-                                <h3 class="tab4section1"><span class="section-index">1</span>&nbsp;Billing
-                                    <span class="text-danger tab3Formname" style="display: none"></span>
-                                </h3>
-                                <input type="text" class="form-control" style="display: none" id="txtsrnotab4" placeholder="Don't Enter Text" style="display: none">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtBillingName">Billing Name <span>*</span></label>
-                                            <input type="text" class="form-control " id="txtBillingName" placeholder="Billing Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="drpbillingcountry">Billing Country</label>
-                                        <select id="drpbillingcountry" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="drpbillingState">Billing State</label>
-                                        <select id="drpbillingState" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="drpbillingCity">Billing City </label>
-                                        <select id="drpbillingCity" class="js-states form-control Dropdown" style="display: none; width: 100%">
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtBillingContactPerson">Billing Contact Person <span>*</span></label>
-                                            <input type="text" class="form-control " id="txtBillingContactPerson" placeholder="Billing Contact Person">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
-                                        <input type="text" class="form-control" id="txtBillingZipCode" data-max="6" placeholder="Zip Code">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="txtBillingEmail">Billing Email </label>
-                                        <input type="text" class="form-control" id="txtBillingEmail" placeholder="Billing Email">
-                                    </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtAddressLine1">Billing Address Line 1 </label>
-                                            <input type="text" class="form-control" id="txtBillingAddressLine1" placeholder="Billing Address Line 1 ">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="txtBillingZipCode">Billing Telephone Code</label>
-                                        <input type="text" class="form-control" id="txtBillingTelephoneCode" placeholder="Zip Code">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="txtTelephone">Billing Telephone</label>
-                                        <input type="text" class="form-control" id="txtBillingTelephone" placeholder="Billing Telephone">
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtAddressLine2">Billing Address Line 2 </label>
-                                            <input type="text" class="form-control" id="txtBillingAddressLine2" placeholder="Billing Address Line 2">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="txtBillingZipCode">Billing Cell Phone Code</label>
-                                        <input type="text" class="form-control" id="txtBillingPhoneCode" placeholder="Zip Code">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="txtCellPhone">Billing Cell Phone</label>
-                                        <input type="text" class="form-control num max" id="txtBillingCellPhone" data-max="10" placeholder="Billing Cell Phone">
-                                    </div>
-
-                                </div>
-
-                                <br />
-                                <button id="btnSaveTab4Sec1" type="submit" class="btn btn-success btnSaveuserpref">
-                                    SAVE</button>
-                                <button id="btnUpdateTab4Sec1" type="submit" class="btn btn-primary btnSaveuserpref">
-                                    UPDATE</button>
-                                <button id="btnCancelTab4Sec1" type="button" class="btn btn-green btnCancel">
-                                    DELETE</button>
-                                <button id="btnclearTab4Sec1" type="button" class="btn btn-warning btnClearuserpref">
-                                    CLEAR</button>
-                                <button id="btnquitTab4Sec1" type="button" class="btn btn-info">
-                                    QUIT FORM</button>
-
-                            </div>
 
                             <div class="col-md-12">
                                 <h3 class="section-headers tab4section2"><span class="section-index">2</span>&nbsp;Support </h3>
@@ -986,6 +985,7 @@
                                         <div class="form-group">
                                             <label for="drpSupportMode">Support Mode <span>*</span></label>
                                             <select id="drpSupportMode" multiple="multiple" data-placeholder="Select Mode" class="js-states form-control  Dropdown" style="display: none; width: 100%">
+                                                <option>All</option>
                                                 <option>Email</option>
                                                 <option>Call</option>
                                             </select>
@@ -1162,7 +1162,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="txtuiredspecialcharacter">Required Special Characters<span> *</span></label>
-                                                    <input type="text" class="form-control  num" id="txtuiredspecialcharacter" placeholder="uired Special Characters">
+                                                    <input type="text" class="form-control  num" id="txtuiredspecialcharacter" placeholder="Required Special Characters">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1319,11 +1319,12 @@
     </div>
     <div class="floating-section-buttons tab3" style="display: none">
         <a class="btn btn-default" data-section="tab3section2" rel="tooltip" data-placement="left" title="Subscription">1</a>
-        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" data-placement="left" title="Hosting">2</a>
+        <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Billing">1</a>
 
     </div>
     <div class="floating-section-buttons tab4" style="display: none">
-        <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" data-placement="left" title="Hosting">2</a>
+
         <a class="btn btn-default" data-section="tab4section2" rel="tooltip" title="Support">2</a>
     </div>
 }
