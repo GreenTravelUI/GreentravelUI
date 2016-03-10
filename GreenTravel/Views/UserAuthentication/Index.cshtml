@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Index";
-    ViewBag.Title = "Manage Role";
-    ViewBag.PageTitle = "Manage Role";
+    ViewBag.Title = "User Authentication";
+    ViewBag.PageTitle = "User Authentication";
     
 }
 
@@ -169,9 +169,8 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Role </a></li>
-                    @*<li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>*@
-                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Manage Role</a></li>
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search User</a></li>
+                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Authentication </a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -204,7 +203,8 @@
                                                 </th>
                                                 <th>Role
                                                 </th>
-
+                                                <th>Name
+                                                </th>
                                                 <th>Action
                                                 </th>
                                             </tr>
@@ -223,6 +223,8 @@
                                                 </th>
                                                 <th>Role
                                                 </th>
+                                                <th>Name
+                                                </th>
                                                 <th>Action
                                                 </th>
                                             </tr>
@@ -233,242 +235,41 @@
                             </form>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="tab2">
-                        <div class="col-md-7">
-                            <form>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-
-                                            <label>Corporate <span>*</span></label>
-
-                                            <select id="drpCorporate" class="js-states col-sm-2 form-control Dropdown formcorporate " style="display: none; width: 100%"></select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Unit <span>*</span></label>
-                                            <select id="DrpUnitTab2" class="js-states col-sm-2  form-control Dropdown " style="display: none; width: 100%"></select>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-
-                                        <div class="col-md-6">
-                                            <label>Location <span>*</span></label>
-                                            <select id="DrpLocationTab2" class="js-states col-sm-2 form-control Dropdown " style="display: none; width: 100%"></select>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label>Branch <span>*</span></label>
-                                            <select id="DrpBranchTab2" class="js-states col-sm-2 form-control Dropdown " style="display: none; width: 100%"></select>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtsrno" placeholder="SrNo" style="display: none" data-label="lblFirstName">
-                                    <label for="txtFirstName">Name <span>*</span></label>
-                                    <div class="row">
-
-                                        <div class="col-md-6">
-
-                                            <input type="text" class="form-control col-sm-6 textbox-control " id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
-                                        </div>
-
-                                        <div class="col-md-6">
-
-                                            <input type="text" class="form-control col-sm-6 textbox-control " id="txtLastName" placeholder="Last Name" data-label="lblLastName">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtEmail">Email <span>*</span></label>
-                                            <input type="text" class="form-control textbox-control  email" id="txtEmail" placeholder="Email (User Name)" data-label="lblEmail">
-                                        </div>
-
-                                        <div class="col-md-6 Editdisable">
-                                            <label for="txtConfirmEmail">Confirm Email <span>*</span></label>
-                                            <input type="text" class="form-control confirm  email" id="txtConfirmEmail" data-confirm="txtEmail" placeholder="Confirm Email">
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtPassword">Password <span>*</span></label>
-                                            <input type="Password" class="form-control " id="txtPassword" placeholder="Password">
-                                        </div>
-
-                                        <div class="col-md-6 Editdisable">
-                                            <label for="txtConfirmPassword">Confirm Password <span>*</span></label>
-                                            <input type="Password" class="form-control confirm " id="txtConfirmPassword" data-confirm="txtPassword" placeholder="Confirm Password">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <br />
-                                <button id="btnSaveUser" type="submit" class="btn btn-success btnSaveuserclass">
-                                    SAVE</button>
-                                <button id="btnUpdateUser" type="submit" class="btn btn-primary btnSaveuserclass" style="display: none">
-                                    UPDATE</button>
-                                @*<button id="btnCancelUser" type="button" class="btn btn-green" style="display: none">
-                                    DELETE</button>*@
-                                <button id="btnclearuser" type="button" class="btn btn-warning btnclearuser">
-                                    CLEAR</button>
-                                <button id="btnQuitUser" type="button" class="btn btn-info quituserbtn">
-                                    QUIT FORM</button>
-
-
-                            </form>
-                        </div>
-                        <div class="col-md-5 summery-detail summerytab2">
-                            <div class="panel panel-white">
-                                <h4 class="panel-title-summery">Summary </h4>
-                                <ul class="utilitis-drop ">
-                                    <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                        <ul>
-                                            <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                Task </a></li>
-                                            <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                Notifications </a></li>
-                                            <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                Calendar </a></li>
-                                            <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                Email </a></li>
-                                            <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                SMS </a></li>
-                                            <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                Notes </a></li>
-                                            <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                Tags </a></li>
-                                            <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                Help Video </a></li>
-                                            <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                Guided Tour </a></li>
-                                            <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                Copy </a></li>
-                                            <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                Print </a></li>
-                                            <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                Updates </a></li>
-                                            <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                Screenshot </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                    <div class="summ-lis-height">
-                                        <ul class="summery-list">
-                                            <div class="summ-list-left">
-                                                <li>First Name:<br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblFirstName" for="txtFirstName"></label>
-                                                        @*        <i>&nbsp;</i>*@
-                                                    </a>
-                                                </li>
-                                                <li>Last Name:
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblLastName" for="txtLastName"></label>
-                                                        @*<i>&nbsp;</i>*@
-                                                    </a>
-                                                </li>
-                                            </div>
-                                            <div class="summ-list-right">
-                                                <li>Email :
-                                                    <br />
-                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                        <label id="lblEmail" for="txtEmail"></label>
-                                                        @*<i>&nbsp;</i>*@
-                                                    </a>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                    </div>
-                                    <div class="summery-buttons">
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-
-                                        <p>
-                                            Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                     <div role="tabpanel" class="tab-pane " id="tab4">
                         <div class="col-md-12">
                             <form>
-
                                 <div class="row">
-                                    <label id="lbSrnoTab4" style="display: none"></label>
-
                                     <div class="form-group col-md-4">
                                         <label>Corporate <span>*</span></label>
-                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%">
-                                            <option>--Select Coporate--</option>
-                                            <option selected="selected">Travels Unlimited</option>
-                                            <option>Flamingo</option>
-                                        </select>
+                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Unit <span>*</span></label>
-                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
-                                            <option>--Select Unit--</option>
-                                            <option selected="selected">Bangkok</option>
-                                            <option>Ahmedabad</option>
-                                        </select>
+                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Location <span>*</span></label>
-                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
-                                            <option>--Select Location--</option>
-                                            <option selected="selected">Bangkok</option>
-                                            <option>Ahmedabad</option>
-                                        </select>
+                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
-
                                 </div>
-
                                 <div class="row">
                                     <label id="lbSrnoTab4" style="display: none"></label>
-                                    <div class="form-group col-md-4">
+                                    @*<div class="form-group col-md-4">
+                                        <label>Branch <span>*</span></label>
+                                        <select id="drpBranch" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                    </div>*@
+                                    <div class="form-group col-md-3">
                                         <label>Role <span>*</span></label>
-                                        @*<select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>*@
-                                        <input type="text" id="txtrole" placeholder="Role" class="form-control ">
+                                        <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
-                                            &nbsp
-                                                    <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
-                                        </div>
-                                    </div>
-                                    @*<div class="col-md-1">
+                                    <div class="col-md-1">
                                         <div class="form-group">
                                             <label for="Date1" id="LbDefault">Default ?<span></span></label>
                                             &nbsp</br>
                                                     <input id="chkdefault" type="checkbox">
                                         </div>
-                                    </div>*@
-                                    @*<div class="form-group col-md-4">
+                                    </div>
+                                    <div class="form-group col-md-4">
                                         <label>User <span>*</span></label>
                                         <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
@@ -477,16 +278,23 @@
                                             <label>Status <span>*</span></label>
                                             <select id="drpRightsStatus" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
                                         </div>
-                                    </div>*@
+                                    </div>
                                 </div>
-                                @*<div class="row">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
+                                            &nbsp
+                                                    <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
+                                        </div>
+                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Default Language<span> *</span></label>
                                             <select id="DrpdefaultLanguage" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                         </div>
                                     </div>
-                                </div>*@
+                                </div>
                                 <div class="row">
                                     <div id="grid-gallery" class="grid-gallery">
                                         <section class="grid-wrap">
@@ -694,7 +502,7 @@
 
                                 <br />
                                 <br />
-                                <button id="btnSavetab4" type="submit" class="btn btn-success ">
+                                <button id="btnSavetab4" type="submit" class="btn btn-success">
                                     SAVE</button>
                                 <button id="btnupdatetab4" type="submit" class="btn btn-primary ">
                                     UPDATE</button>
@@ -719,7 +527,6 @@
                         <h4 class="modal-title">User Role</h4>
                     </div>
                     <div class="modal-body custom-model-body">
-
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <form id="frmRoleGrid">
@@ -771,7 +578,6 @@
 
                                         </table>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -780,8 +586,5 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </div>

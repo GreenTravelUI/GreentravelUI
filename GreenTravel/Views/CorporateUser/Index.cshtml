@@ -1,8 +1,7 @@
 ﻿@{
     ViewBag.Title = "Index";
-
-    ViewBag.Title = "User / Authentication";
-    ViewBag.PageTitle = "User / Authentication";
+    ViewBag.Title = "Manage User";
+    ViewBag.PageTitle = "Manage User";
     
 }
 
@@ -170,10 +169,9 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach User</a></li>
+                    <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search User</a></li>
                     <li role="presentation" id="userlitab2"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create User</a></li>
-
-                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Authentication </a></li>
+                    @*<li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Authentication </a></li>*@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
@@ -243,51 +241,32 @@
                             <form>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
-
+                                        <div class="col-md-12">
                                             <label>Corporate <span>*</span></label>
-
                                             <select id="drpCorporate" class="js-states col-sm-2 form-control Dropdown formcorporate " style="display: none; width: 100%"></select>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <label>Unit <span>*</span></label>
                                             <select id="DrpUnitTab2" class="js-states col-sm-2  form-control Dropdown " style="display: none; width: 100%"></select>
                                         </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-
                                         <div class="col-md-6">
                                             <label>Location <span>*</span></label>
                                             <select id="DrpLocationTab2" class="js-states col-sm-2 form-control Dropdown " style="display: none; width: 100%"></select>
                                         </div>
-
-                                        <div class="col-md-6">
-                                            <label>Branch <span>*</span></label>
-                                            <select id="DrpBranchTab2" class="js-states col-sm-2 form-control Dropdown " style="display: none; width: 100%"></select>
-                                        </div>
-
-
                                     </div>
                                 </div>
-
-
-
                                 <div class="form-group">
                                     <input type="text" class="form-control col-sm-5 textbox-control" id="txtsrno" placeholder="SrNo" style="display: none" data-label="lblFirstName">
                                     <label for="txtFirstName">Name <span>*</span></label>
                                     <div class="row">
-
                                         <div class="col-md-6">
-
                                             <input type="text" class="form-control col-sm-6 textbox-control " id="txtFirstName" placeholder="First Name" data-label="lblFirstName">
                                         </div>
-
                                         <div class="col-md-6">
-
                                             <input type="text" class="form-control col-sm-6 textbox-control " id="txtLastName" placeholder="Last Name" data-label="lblLastName">
                                         </div>
                                     </div>
@@ -417,14 +396,10 @@
                         </div>
                     </div>
 
-
-                    <div role="tabpanel" class="tab-pane " id="tab4">
+                    @*<div role="tabpanel" class="tab-pane " id="tab4">
                         <div class="col-md-12">
                             <form>
-
                                 <div class="row">
-                                    <label id="lbSrnoTab4" style="display: none"></label>
-
                                     <div class="form-group col-md-4">
                                         <label>Corporate <span>*</span></label>
                                         <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
@@ -437,15 +412,9 @@
                                         <label>Location <span>*</span></label>
                                         <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
-
                                 </div>
-
                                 <div class="row">
                                     <label id="lbSrnoTab4" style="display: none"></label>
-                                    @*<div class="form-group col-md-4">
-                                        <label>Branch <span>*</span></label>
-                                        <select id="drpBranch" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>*@
                                     <div class="form-group col-md-3">
                                         <label>Role <span>*</span></label>
                                         <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
@@ -455,7 +424,6 @@
                                             <label for="Date1" id="LbDefault">Default ?<span></span></label>
                                             &nbsp</br>
                                                     <input id="chkdefault" type="checkbox">
-                                           
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -469,10 +437,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="row">
-
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
@@ -486,7 +451,6 @@
                                             <select id="DrpdefaultLanguage" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row">
                                     <div id="grid-gallery" class="grid-gallery">
@@ -707,7 +671,7 @@
                                     QUIT FORM</button>
                             </form>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -720,7 +684,6 @@
                         <h4 class="modal-title">User Role</h4>
                     </div>
                     <div class="modal-body custom-model-body">
-
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <form id="frmRoleGrid">
@@ -772,7 +735,6 @@
 
                                         </table>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -781,37 +743,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="modal fade bs-example-modal-lg in" id="DeleteModel" role="dialog">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
-                    <div class="modal-header">
-                        <h4 class="modal-title">System Message</h4>
-                    </div>
-                    <div class="modal-body custom-model-body">
-                        <form>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label id="lbldelete"></label>
-                                        </br>
-                                        <label id="lblRole"></label>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
-                                <button type="button" class="btn btn-info modeldeleteclose" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 
