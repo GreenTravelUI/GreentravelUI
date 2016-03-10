@@ -135,16 +135,20 @@
         font-weight: normal;
     }
 
-    .quote-link h2 {
-        /*margin-bottom: 0;
-        margin-top: 0;*/
-        margin-top: 15px;
-        text-align: center;
+    .quote-link {
+        width: 27%;
     }
 
-    .quote-link .panel-heading {
-        padding: 10px 15px;
-    }
+        .quote-link h2 {
+            /*margin-bottom: 0;
+        margin-top: 0;*/
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .quote-link .panel-heading {
+            padding: 10px 15px;
+        }
 
     .panel-red .panel-collapse {
         border: 1px solid #F25656;
@@ -168,6 +172,7 @@
         float: right;
         cursor: pointer;
         color: #F25656;
+        margin-left: 5px;
     }
 
     .tab-itenaries span.total-cost {
@@ -252,15 +257,59 @@
     .btn-full {
         width: 100%;
     }
+
+    h4.panel-title {
+        float: none !important;
+    }
+
+    .tour-code, .tour-name {
+        border-width: 1px !important;
+        padding: 9px 10px !important;
+    }
+
+    .table-itinarary-summery td {
+        text-align: center;
+        vertical-align: top;
+        padding: 10px 2px;
+    }
+
+        .table-itinarary-summery td:nth-child(1) {
+            width: 10%;
+            font-size: 14px;
+        }
+
+        .table-itinarary-summery td:nth-child(2) {
+            text-align: left;
+            width: 55%;
+        }
+
+        .table-itinarary-summery td:nth-child(3) {
+            width: 15%;
+        }
+
+        .table-itinarary-summery td:nth-child(4) {
+            width: 10%;
+            color: #F25656;
+        }
+
+        .table-itinarary-summery td:nth-child(5) {
+            width: 10%;
+            color: #F25656;
+        }
+
+    .select2-container.select2-container--default.select2-container--open {
+        z-index: 99999 !important;
+    }
 </style>
+
 <div class="col-md-12">
     <div class="panel panel-white">
         <div class="panel-body">
             <div id="rootwizard">
                 <ul class="nav nav-tabs wizard-tab" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><span>1</span> Create Tour<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
-                    <li role="presentation"><a href="#tab2" data-toggle="tab"><span>2</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
-                    <li role="presentation"><a href="#tab3" data-toggle="tab"><span>3</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
+                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab1"><span>1</span> Create Tour<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>2</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>3</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="tab1">
@@ -806,492 +855,6 @@
 
                             <form id="wizardForm form-horizontal" class="wizard-verti-form">
                                 <div class="tab-content" style="border-left: 1px dashed #dce1e4">
-                                    @*Hotel*@
-                                    <div class="tab-pane active fade in" id="tab2-1">
-                                        <div class="m-b-lg">
-                                            <h4 style="margin-top: 0;">Hotel List Of Bangkok - <span class="text-danger">45 Hotels found</span></h4>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Amari Atrium 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4" selected="selected">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                                                    <p><span>Hotel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
-                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">A1 Bangkok 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3" selected="selected">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                                                    <p><span>Hostel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
-                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @*Sightseeing*@
-                                    <div class="tab-pane fade" id="tab2-2">
-                                        <div class="m-b-lg">
-                                            <h4 style="margin-top: 0;">Sightseeing List Of Bangkok - <span class="text-danger">34 Sightseeings found</span></h4>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Grand Palace</h5>
-                                                    <p>
-                                                        <span>Na Phra Lan Rd, Phra Nakhon</span>
-                                                    </p>
-                                                    <p>
-                                                        <span>Bangkok, 10200, Thailand</span>
-                                                    </p>
-                                                    <p>
-                                                        Duration: <span>2 Hours</span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#mySightseeingModal">CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Nong Nooch Tropical Botanical Garden</h5>
-                                                    <p>
-                                                        <span>Pattaya</span>
-                                                    </p>
-                                                    <p>
-                                                        <span>Pattaya, 10200, Thailand</span>
-                                                    </p>
-                                                    <p>
-                                                        Duration: <span>1.5 Hours</span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button data-toggle="modal" data-target="#mySightseeingModal" type="button" class="btn btn-info btnSave">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                                            Add to Itinerry</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @*Guide*@
-                                    <div class="tab-pane fade" id="tab2-3">
-                                        <div class="m-b-lg">
-                                            <h4 style="margin-top: 0;">Guide List Of Bangkok - <span class="text-danger">5 Guides found</span></h4>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-9 right-border">
-                                                    <h5 class="text-danger">Nadia Manassawee Ponpitak</h5>
-                                                    <p>
-                                                        Guide Locations: <span>Bangkok | Ayutthaya | Nakhon Pathom</span>
-                                                    </p>
-                                                    <p>
-                                                        Languages: <span>English | Chinese </span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myGuideModal">CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-9 right-border">
-                                                    <h5 class="text-danger">Natt Opasanon</h5>
-                                                    <p>
-                                                        Guide Locations: <span>Bangkok | Ayutthaya | Nakhon Pathom</span>
-                                                    </p>
-                                                    <p>
-                                                        Languages: <span>English</span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button data-toggle="modal" data-target="#myGuideModal" type="button" class="btn btn-info btnSave">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                                            Add to Itinerry</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @*Restaurante*@
-                                    <div class="tab-pane fade" id="tab2-4">
-                                        <div class="m-b-lg">
-                                            <h4 style="margin-top: 0;">Restaurante List Of Bangkok - <span class="text-danger">78 Restaurantes found</span></h4>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Zazen Restaurant</h5>
-                                                    <p><span>Surat Thani, Thailand</span></p>
-                                                    <p>Type: <span>Veg. | Non-Veg.</span></p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myRestauranteModal">CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Eat Me Restaurant </h5>
-                                                    <p><span>Soi Pipat 2, Thailand</span></p>
-                                                    <p>Type: <span>Veg. | Non-Veg.</span></p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button data-toggle="modal" data-target="#myRestauranteModal" type="button" class="btn btn-info btnSave">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @*Conferance*@
-                                    <div class="tab-pane fade" id="tab2-5">
-                                        <div class="m-b-lg">
-                                            <h4 style="margin-top: 0;">Conferance List Of Bangkok - <span class="text-danger">12 Conferances found</span></h4>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Amari Atrium 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4" selected="selected">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>50 Seats</span></p>
-                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myConferanceModal">CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">A1 Bangkok 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3" selected="selected">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>46 Seats</span></p>
-                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button data-toggle="modal" data-target="#myConferanceModal" type="button" class="btn btn-info btnSave">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                                            Add to Itinerry</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @*Gala-Dinner*@
-                                    <div class="tab-pane fade" id="tab2-6">
-                                        <div class="m-b-lg">
-                                            <h4 style="margin-top: 0;">Gala-Dinner List Of Bangkok - <span class="text-danger">23 Gala-Dinners found</span></h4>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">Amari Atrium 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4" selected="selected">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>56 Seats</span></p>
-                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myGalaDinnerModal">CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            ADD TO ITINERARY</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-b-lg tab-itenaries panel panel-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <a>
-                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6 right-border">
-                                                    <h5 class="text-danger">A1 Bangkok 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3" selected="selected">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>46 Seats</span></p>
-                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button data-toggle="modal" data-target="#myGalaDinnerModal" type="button" class="btn btn-info btnSave">
-                                                            CALCULATE PRICE</button>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                                            Add to Itinerry</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     @*All*@
                                     <div class="tab-pane fade" id="tab2-0">
@@ -1767,6 +1330,487 @@
                                         </div>
                                     </div>
 
+                                    @*Hotel*@
+                                    <div class="tab-pane active fade in" id="tab2-1">
+                                        <div class="m-b-lg">
+                                            <h4 style="margin-top: 0;">Hotel List Of Bangkok - <span class="text-danger">45 Hotels found</span></h4>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Amari Atrium 
+                                                        <span>
+                                                            <div class="star-ratings">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4" selected="selected">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Hotel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">A1 Bangkok 
+                                                        <span>
+                                                            <div class="star-ratings">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3" selected="selected">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Hostel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">4800 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*Sightseeing*@
+                                    <div class="tab-pane fade" id="tab2-2">
+                                        <div class="m-b-lg">
+                                            <h4 style="margin-top: 0;">Sightseeing List Of Bangkok - <span class="text-danger">34 Sightseeings found</span></h4>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Grand Palace</h5>
+                                                    <p>
+                                                        <span>Na Phra Lan Rd, Phra Nakhon</span>
+                                                    </p>
+                                                    <p>
+                                                        <span>Bangkok, 10200, Thailand</span>
+                                                    </p>
+                                                    <p>
+                                                        Duration: <span>2 Hours</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">5500 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#mySightseeingModal">CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Nong Nooch Tropical Botanical Garden</h5>
+                                                    <p>
+                                                        <span>Pattaya</span>
+                                                    </p>
+                                                    <p>
+                                                        <span>Pattaya, 10200, Thailand</span>
+                                                    </p>
+                                                    <p>
+                                                        Duration: <span>1.5 Hours</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">4800 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button data-toggle="modal" data-target="#mySightseeingModal" type="button" class="btn btn-info btnSave">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
+                                                            Add to Itinerry</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*Guide*@
+                                    <div class="tab-pane fade" id="tab2-3">
+                                        <div class="m-b-lg">
+                                            <h4 style="margin-top: 0;">Guide List Of Bangkok - <span class="text-danger">5 Guides found</span></h4>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-9 right-border">
+                                                    <h5 class="text-danger">Nadia Manassawee Ponpitak</h5>
+                                                    <p>
+                                                        Guide Locations: <span>Bangkok | Ayutthaya | Nakhon Pathom</span>
+                                                    </p>
+                                                    <p>
+                                                        Languages: <span>English | Chinese </span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">5500 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myGuideModal">CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-9 right-border">
+                                                    <h5 class="text-danger">Natt Opasanon</h5>
+                                                    <p>
+                                                        Guide Locations: <span>Bangkok | Ayutthaya | Nakhon Pathom</span>
+                                                    </p>
+                                                    <p>
+                                                        Languages: <span>English</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">4800 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button data-toggle="modal" data-target="#myGuideModal" type="button" class="btn btn-info btnSave">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
+                                                            Add to Itinerry</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*Restaurante*@
+                                    <div class="tab-pane fade" id="tab2-4">
+                                        <div class="m-b-lg">
+                                            <h4 style="margin-top: 0;">Restaurante List Of Bangkok - <span class="text-danger">78 Restaurantes found</span></h4>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Zazen Restaurant</h5>
+                                                    <p><span>Surat Thani, Thailand</span></p>
+                                                    <p>Type: <span>Veg. | Non-Veg.</span></p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">5500 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myRestauranteModal">CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Eat Me Restaurant </h5>
+                                                    <p><span>Soi Pipat 2, Thailand</span></p>
+                                                    <p>Type: <span>Veg. | Non-Veg.</span></p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">4800 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button data-toggle="modal" data-target="#myRestauranteModal" type="button" class="btn btn-info btnSave">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*Conferance*@
+                                    <div class="tab-pane fade" id="tab2-5">
+                                        <div class="m-b-lg">
+                                            <h4 style="margin-top: 0;">Conferance List Of Bangkok - <span class="text-danger">12 Conferances found</span></h4>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Amari Atrium 
+                                                        <span>
+                                                            <div class="star-ratings">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4" selected="selected">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>50 Seats</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">5500 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myConferanceModal">CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">A1 Bangkok 
+                                                        <span>
+                                                            <div class="star-ratings">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3" selected="selected">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>46 Seats</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">4800 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button data-toggle="modal" data-target="#myConferanceModal" type="button" class="btn btn-info btnSave">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
+                                                            Add to Itinerry</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*Gala-Dinner*@
+                                    <div class="tab-pane fade" id="tab2-6">
+                                        <div class="m-b-lg">
+                                            <h4 style="margin-top: 0;">Gala-Dinner List Of Bangkok - <span class="text-danger">23 Gala-Dinners found</span></h4>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">Amari Atrium 
+                                                        <span>
+                                                            <div class="star-ratings">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4" selected="selected">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>56 Seats</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">5500 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myGalaDinnerModal">CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            ADD TO ITINERARY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-lg tab-itenaries panel panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a>
+                                                        <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 right-border">
+                                                    <h5 class="text-danger">A1 Bangkok 
+                                                        <span>
+                                                            <div class="star-ratings">
+                                                                <div class="stars stars-example-bootstrap">
+                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3" selected="selected">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </span></h5>
+                                                    <p><span>Bangkok</span>&nbsp;|&nbsp;<span>46 Seats</span></p>
+                                                    <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-control">
+                                                        Total Cost
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <h2 class="text-danger strong">4800 THB</h2>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button data-toggle="modal" data-target="#myGalaDinnerModal" type="button" class="btn btn-info btnSave">
+                                                            CALCULATE PRICE</button>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
+                                                            Add to Itinerry</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     @*Transportation*@
                                     <div class="tab-pane fade" id="tab2-7">
                                         <div class="m-b-lg">
@@ -1839,10 +1883,16 @@
                                 </div>
                             </form>
                             <div class="col-md-3 quote-link">
-                                <h2>Your Itinarary Selection</h2>
+                                <h2>Your Itinarary Summery</h2>
                                 <div class="panel panel-white">
                                     <div class="panel-body tab-itenaries ">
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="form-group">
+                                                <label class="form-control tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control tour-name" value="Neeraj Khurana BANGKOK PACKAGE 01Nights" placeholder="Tour Name">
+                                            </div>
                                             <div class="panel panel-red">
                                                 <div class="panel-heading" role="tab" id="headingOne">
                                                     <h4 class="panel-title">
@@ -1852,11 +1902,60 @@
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                                     <div class="panel-body">
-                                                        <ul class="fa-ul">
-                                                            <li><i class="fa-li fa fa-check"></i>Amari Atrium - <span class="label label-primary total-cost">THB 5500</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
-                                                            <li><i class="fa-li fa fa-check"></i>Alkazar Show - <span class="label label-primary total-cost">THB 4200</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
-                                                            <li><i class="fa-li fa fa-check"></i>A1 Bangkok - <span class="label label-primary total-cost">THB 3900</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
-                                                        </ul>
+                                                        <table class="table-itinarary-summery" style="width: 100%;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><span class="fa fa-university"></span></td>
+                                                                    <td>Amari Atrium</td>
+                                                                    <td><span class="label label-primary total-cost">THB 5500</span></td>
+                                                                    <td><span class="fa fa-pencil faSuccess"></span></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-map-marker"></span></td>
+                                                                    <td>Grand Palace</td>
+                                                                    <td><span class="label label-primary total-cost">THB 4200</span></td>
+                                                                    <td><span class="fa fa-pencil faSuccess"></span></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-university"></span></td>
+                                                                    <td>A1 Bangkok</td>
+                                                                    <td><span class="label label-primary total-cost">THB 4200</span></td>
+                                                                    <td><span class="fa fa-pencil faSuccess"></span></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-car"></span></td>
+                                                                    <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                                    <td><span class="label label-primary total-cost">THB 4200</span></td>
+                                                                    <td><span class="fa fa-pencil faSuccess"></span></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-street-view"></span></td>
+                                                                    <td>Nadia Manassawee Ponpitak</td>
+                                                                    <td><span class="label label-primary total-cost">THB 4200</span></td>
+                                                                    <td><span class="fa fa-pencil faSuccess"></span></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-university"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-primary total-cost">THB 4200</span></td>
+                                                                    <td><span class="fa fa-pencil faSuccess"></span></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        @*<ul class="fa-ul">
+                                                            <li><span class="label label-primary total-cost">THB 5500</span><span class="fa fa-close right-floating faDanger"></span></li>
+                                                            <li><i class="fa-li fa fa-map-marker"></i>Grand Palace - <span class="label label-primary total-cost">THB 4200</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
+                                                            <li><i class="fa-li fa fa-university"></i>A1 Bangkok - <span class="label label-primary total-cost">THB 3900</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
+                                                            <li><i class="fa-li fa fa-car"></i>ATS TOUR - Toyota Yaris - Car - <span class="label label-primary total-cost">THB 3900</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
+                                                            <li><i class="fa-li fa fa-map"></i>Nadia Manassawee Ponpitak - <span class="label label-primary total-cost">THB 3900</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
+                                                            <li><i class="fa-li fa fa-university"></i>Zazen Restaurant - <span class="label label-primary total-cost">THB 3900</span><span class="fa fa-close right-floating faDanger"></span><span class="fa fa-pencil right-floating faSuccess"></span></li>
+                                                        </ul>*@
                                                     </div>
                                                 </div>
                                             </div>
@@ -2026,7 +2125,7 @@
 
 @*Hotel Popup*@
 <div class="modal fade" id="myHotelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" style="width: 90%;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -2038,7 +2137,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label for="drproomtype">Room Type</label>
+                                    <label for="drproomtype">Room Category</label>
                                     <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
@@ -2047,74 +2146,15 @@
                                     <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtMaxPax" placeholder="Max Pax" readonly>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="drpMealPlan">Meal Plan</label>
-                                    <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
+                                    <label for="drpSupplier">Supplier</label>
+                                    <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="txtNumberofRoomsSingle">Single Room Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Single Room Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="txtNumberofRoomsSingle">Double Room Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Double Room Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="txtNumberofRoomsSingle">Extra Adult Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Extra Adult Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="txtNumberofRoomsSingle">Extra CWB Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Extra CWB Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4">
-                                <label for="txtNumberofRoomsSingle">Extra CNB Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Extra CNB Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4">
-                                <label for="txtNumberofRoomsSingle">Infant Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Infant Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <label for="txtRoomType">Check-in Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                                         <option>1</option>
@@ -2124,7 +2164,7 @@
                                         <option>5</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <label for="txtRoomType">Check-out Day</label>
                                     <select id="drpCheckOutDay" class="js-states form-control" style="display: none; width: 100%">
                                         <option>1</option>
@@ -2134,36 +2174,188 @@
                                         <option>5</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <label for="txtRoomType">Check-In Time</label>
                                     <div class="input-group input-append bootstrap-timepicker">
                                         <input type="text" class="form-control" id="txtCheckInTime">
                                         <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                     </div>
                                 </div>
+                                <div class="col-md-2">
+                                    <input type="checkbox" /> Incl. ABF
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="checkbox" /> Incl. Lunch
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="checkbox" /> Incl. Dinner
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <label for="txtNumberofRoomsSingle"># of Rooms Single</label>
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="# of Rooms Single">
+                                <div class="col-md-6">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 25%"></th>
+                                                <th style="width: 25%"></th>
+                                                <th style="width: 25%">Net Rate (Per Room)</th>
+                                                <th style="width: 25%">Total Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="4"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td># of Single</td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" placeholder="# of Single">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateSingle" id="txtNetRateSingle" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostSingle" id="txtTotalCostSingle" placeholder="Total Cost">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td># of Double / Twin</td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNumberofDoubleTwin" id="txtNumberofDoubleTwin" placeholder="# of Double / Twin">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateDoubleTwin" id="txtNetRateDoubleTwin" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostDoubleTwin" id="txtTotalCostDoubleTwin" placeholder="Total Cost">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td># of Quad</td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNumberofSingleQuad" id="txtNumberofQuad" placeholder="# of Quad">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" placeholder="Total Cost">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="txtNumberofRoomsSingle"># of Rooms Double</label>
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="# of Rooms Double">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="txtNumberofRoomsSingle"># of Rooms Twin</label>
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="# of Rooms Twin">
+                                <div class="col-md-6">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 25%"></th>
+                                                <th style="width: 25%"></th>
+                                                <th style="width: 25%">Net Rate (Per Pax)</th>
+                                                <th style="width: 25%">Total Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="4"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td># of Adult</td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNumberofAdult" id="txtNumberofAdult" placeholder="# of Adult">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td># of Extra Bed Adult</td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNumberofExtraBedAdult" id="txtNumberofExtraBedAdult" placeholder="# of Extra Bed Adult">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" placeholder="Total Cost">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td># of Extra Bed Child</td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNumberofSingleQuad" id="txtNumberofQuad" placeholder="# of Extra Bed Child">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" placeholder="Total Cost">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <h4 class="strong" style="float: left; margin-top: 15px; margin-right: 10px;">Total Cost: </h4>
