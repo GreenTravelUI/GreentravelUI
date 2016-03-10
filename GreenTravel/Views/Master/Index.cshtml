@@ -1,0 +1,452 @@
+﻿@{
+    ViewBag.Title = "Configure";
+    ViewBag.PageTitle = "Configure Master";
+}
+
+<link href="~/assets/plugins/datatables/css/dataTables.tableTools.css" rel="stylesheet" />
+
+<style>
+    .field-name
+    {
+        float: left;
+        width: 50%;
+    }
+
+    .modify-colum-model .dropdown.table-custome-drop
+    {
+        float: left;
+        width: 50%;
+    }
+
+    .field-name
+    {
+        padding-right: 15px;
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                    <li role="presentation" class="active" id="SearchMaster"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Master </a></li>
+                    <li role="presentation" id="CreateMaster"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tab-name">Create Master</span></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form>
+                            <div class="table-responsive">
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Industry</th>
+                                            <th>Corporate</th>
+                                            <th>Master Code</th>
+                                            <th>Entry Level</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Industry</th>
+                                            <th>Corporate</th>
+                                            <th>Master Code</th>
+                                            <th>Entry Level</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <input type="text" />
+                                            </th>
+                                            <th>
+                                                <a href="#">
+                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span>Travel</span></td>
+                                            <td><span>Travel</span></td>
+                                            <td><span>Patel Travels</span></td>
+                                            <td><span>ABANK</span></td>
+                                            <td><span>General</span>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab2">
+                        <div class="col-md-8">
+                            <form>
+                                <h3><span class="tab-section-name">Master Configuration</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" style="display: none" class="form-control" id="type" placeholder="Master Name">
+                                            <label>Master Name <span>*</span></label>
+                                            <input type="text" class="form-control req" id="txtMasterName" placeholder="Master Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtHotelCode">Master Code <span>*</span></label>
+                                            <input type="text" class="form-control req" id="txtMasterCode" placeholder="Master Code">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpIndustrymaster">Industry </label>
+                                            <select id="drpIndustrymaster" class="js-states form-control drpdown" style="display: none; width: 100%">
+                                                <option value="0">--None-- </option>
+                                                <option value="1">Travels </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpEntrylevel">Entry Level <span>*</span></label>
+                                            <select id="drpEntrylevel" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                <option value="0">--None--</option>
+                                                <option value="1">Super Admin</option>
+                                                <option value="2">Corporate Admin</option>
+                                                <option value="3">Common Shared</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpCorporate">Corporate <span>*</span></label>
+                                            <select id="drpCorporate" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                <option value="0">--None--</option>
+                                                <option value="1">Patel Tours&Travels</option>
+                                                <option value="2">Flamingo Travels</option>
+                                                <option value="3">Eagle Travels</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <br />
+                                <button id="btnSaveMastersetup" type="submit" class="btn btn-success btnSave">
+                                    CREATE MASTER</button>
+                                <button id="btnsUpdate" type="submit" class="btn btn-primary btnSave" style="display: none">
+                                    UPDATE</button>
+                                <button id="btnDelete" type="submit" class="btn btn-green" style="display: none">
+                                    DELETE</button>
+                                <button id="btnCancelMastersetup" type="submit" class="btn btn-warning " style="display: none;">
+                                    CLEAR</button>
+                                <button id="btnQuitform" type="submit" class="btn btn-info ">
+                                    QUIT FORM</button>
+
+                            </form>
+
+                            <h6>&nbsp;</h6>
+                            <h6>&nbsp;</h6>
+
+                            <h3><span class="tab-section-name">Master Form Fields</span></h3>
+                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                <li role="presentation" class="active" id="SearchMasterFormFieldli"><a href="#SearchMasterFormField" role="tab" data-toggle="tab" data-section="SearchMasterFormField" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Form Field </a></li>
+                                <li role="presentation" id="CreateMasterFormFieldli"><a href="#CreateMasterFormField" role="tab" data-toggle="tab" data-section="CreateMasterFormField" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tab-name">Create Form Field</span></a></li>
+
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="SearchMasterFormField">
+                                    <div class="col-md-12">
+                                        <form>
+                                            <div class="table-responsive">
+                                                <div class="dropdown table-custome-drop">
+                                                    <div class="btn-group">
+                                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Excel</a></li>
+                                                            <li><a href="#">PDF</a></li>
+                                                            <li><a href="#">Email</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <table id="example-editable1" class="display table" style="width: 100%; cellspacing: 0;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Sequence Number</th>
+                                                            <th>Control Label</th>
+                                                            <th>Control Type</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Sequence Number</th>
+                                                            <th>Control Label</th>
+                                                            <th>Control Type</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>
+                                                                <input type="text" />
+                                                            </th>
+                                                            <th>
+                                                                <input type="text" />
+                                                            </th>
+                                                            <th>
+                                                                <input type="text" />
+                                                            </th>
+                                                            <th>
+                                                                <a href="#">
+                                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td><span>1</span></td>
+                                                            <td><span>City Name</span></td>
+                                                            <td><span>DropDown</span>
+                                                            <td>
+                                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                                &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane " id="CreateMasterFormField">
+                                    <div class="col-md-12">
+                                        <form>
+                                            <h3><span class="tab-section-name">Form Fields</span></h3>
+
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Control Sequence Number <span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtControlSequenceNumber" placeholder="1">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>Control Type <span>*</span></label>
+                                                        <select id="drpControlType" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                            <option value="0">--None--</option>
+                                                            <option value="1">TextBox</option>
+                                                            <option value="2" selected="selected">DropDown</option>
+                                                            <option value="3">Multiselect</option>
+                                                            <option value="4">Rating</option>
+                                                            <option value="5">Date</option>
+                                                            <option value="6">Time</option>
+                                                            <option value="7">TextArea</option>
+                                                            <option value="8">HTML Editor</option>
+                                                            <option value="8">Upload</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Value</label>
+                                                        <input type="text" class="form-control req" id="txtValure" placeholder="DropDown">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>Control Label <span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtControlLable" placeholder="Place Name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Control Place Holder<span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtControlPlaceholder" placeholder="Enter City">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>Control Help Text <span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtcontrolHelpText" placeholder="Help">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h6>&nbsp;</h6>
+                                            <h3><span class="tab-section-name">Form Control Validation</span></h3>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" checked="checked" id="chkRequired">Required
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" checked="checked" id="chkEmailValidation">Email Validation
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" id="chkNumeric">Numeric
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" id="chkAlphabetic">Alphabetic
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" checked="checked" id="chkAlphanumeric">Alphanumeric
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" id="chkDecimaAmount">Decimal Amount
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" checked="checked" id="chkUrl">URL
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" id="chkNegNumberallowed">Neg. Number Allowed
+                                                    </div>
+                                                    <div class="col-md-3 form-marings">
+                                                        <input type="checkbox" checked="checked" id="chkNegDecimalAmount">Neg. Decimal Amount
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Max Character <span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtMaxValue" placeholder="5">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>Min Character<span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtMinvalue" placeholder="2">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>Regular Expression <span>*</span></label>
+                                                        <input type="text" class="form-control req" id="txtRegularExpression" placeholder="+91-">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <button id="btnCreateMasterFormField" type="submit" class="btn btn-success btnSave">
+                                                CREATE MASTER</button>
+
+                                            <button id="btnQuitField" type="submit" class="btn btn-info ">
+                                                QUIT FORM</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modify-colum-model" id="DeleteModel" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">System Message</h4>
+                    </div>
+
+                    <div class="modal-body  custom-model-body">
+                        <form>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label id="lbldelete"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @*<script src="~/assets/plugins/datatables/js/dataTables.tableTools.js"></script>*@
+    <script src="~/assets/plugins/table-export/tableExport.js"></script>
+    <script src="~/assets/plugins/table-export/jquery.base64.js"></script>
+    <script src="~/assets/plugins/table-export/html2canvas.js"></script>
+    <script src="~/assets/plugins/table-export/jspdf/libs/sprintf.js"></script>
+    <script src="~/assets/plugins/table-export/jspdf/jspdf.js"></script>
+    <script src="~/assets/plugins/table-export/jspdf/libs/base64.js"></script>
+    @*<script src="~/Scripts/JS/Page/Masters.js"></script>*@
+    <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('ol.sortable').length) {
+                $('ol.sortable').nestedSortable({
+                    forcePlaceholderSize: true,
+                    handle: 'div',
+                    helper: 'clone',
+                    items: 'li',
+                    opacity: .6,
+                    placeholder: 'placeholder',
+                    revert: 250,
+                    tabSize: 25,
+                    tolerance: 'pointer',
+                    toleranceElement: '> div',
+                    maxLevels: 3,
+
+                    //isTree: true,
+                    expandOnHover: 700,
+                    startCollapsed: true
+                });
+
+
+            }
+        });
+    </script>
+}

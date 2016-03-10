@@ -5,23 +5,23 @@ $(document).ready(function () {
 
     $('.date-picker').datepicker({
         orientation: "top auto",
-        autoclose: true,
+    //    autoclose: true,
 
-    }).on('hide', function () {
-        if (!this.firstHide) {
-            if (!$(this).is(":focus")) {
-                this.firstHide = true;
-                // this will inadvertently call show (we're trying to hide!)
-                this.focus();
-            }
-        } else {
-            this.firstHide = false;
-        }
-    }).on('show', function () {
-        if (this.firstHide) {
-            // careful, we have an infinite loop!
-            $(this).datepicker('hide');
-        }
+    //}).on('hide', function () {
+    //    if (!this.firstHide) {
+    //        if (!$(this).is(":focus")) {
+    //            this.firstHide = true;
+    //            // this will inadvertently call show (we're trying to hide!)
+    //            this.focus();
+    //        }
+    //    } else {
+    //        this.firstHide = false;
+    //    }
+    //}).on('show', function () {
+    //    if (this.firstHide) {
+    //        // careful, we have an infinite loop!
+    //        $(this).datepicker('hide');
+    //    }
     });
 
     $('#cp1').colorpicker({
