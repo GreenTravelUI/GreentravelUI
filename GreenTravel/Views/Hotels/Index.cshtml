@@ -362,7 +362,36 @@
         color: #fff;
     }
 
-    #wrapper, .wrapper {
+
+    .searchpanel-button {
+        padding: 5px 9px !important;
+    }
+
+    .panel.panel-white.tab-itenaries {
+        padding-bottom: 3px;
+    }
+    /*.panel-blue, .panel-green {
+        opacity:0.4;
+    }*/
+    .panel-blue {
+        background-color: #44dcff;
+    }
+
+    .panel-green {
+        background-color: #82eab0;
+    }
+
+        .panel-blue .panel-heading, .panel-blue .panel-body,
+        .panel-green .panel-heading, .panel-green .panel-body {
+            color: #555;
+        }
+
+    .jstree-container-ul > li > a > i.jstree-checkbox {
+        display: none;
+    }
+</style>
+<style>
+    #wrapper, .wrapper-utilities {
         width: 200%;
         transform: translate3d(0, 0, 0);
         transition: transform .5s ease-in-out;
@@ -410,35 +439,7 @@
 
     .libody.summery-body {
     }
-
-    .searchpanel-button {
-        padding: 5px 9px !important;
-    }
-
-    .panel.panel-white.tab-itenaries {
-        padding-bottom: 3px;
-    }
-    /*.panel-blue, .panel-green {
-        opacity:0.4;
-    }*/
-    .panel-blue {
-        background-color: #44dcff;
-    }
-
-    .panel-green {
-        background-color: #82eab0;
-    }
-
-        .panel-blue .panel-heading, .panel-blue .panel-body,
-        .panel-green .panel-heading, .panel-green .panel-body {
-            color: #555;
-        }
-
-    .jstree-container-ul > li > a > i.jstree-checkbox {
-        display: none;
-    }
 </style>
-
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -999,11 +1000,11 @@
                                                     @*<p><span>Hotel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>*@
                                                     <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
                                                     <div class="tab-itenaries btn aminities">
-                                                        <i class="glyphicons glyphicons-bedroom-nightstand"  rel="tooltip" title="Rooms"></i>
+                                                        <i class="glyphicons glyphicons-bedroom-nightstand" rel="tooltip" title="Rooms"></i>
                                                         <i class="fa fa-spoon text-info" rel="tooltip" title="Restaurant"></i>&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-coffee text-info" rel="tooltip" title="Coffee / Tea"></i>&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-beer" rel="tooltip" title="Bar"></i>&nbsp;&nbsp;&nbsp;
-                                                        <i class="fa fa-bed text-info" ></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-bed text-info"></i>&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-television text-info" rel="tooltip" title="Theater"></i>&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-bus" rel="tooltip" title="Transfer"></i>&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-wifi text-info" rel="tooltip" title="Wifi"></i>&nbsp;&nbsp;&nbsp;
@@ -1292,7 +1293,7 @@
                             </form>
                         </div>
                         <div class="col-md-4  summery-detail summery-uitilities-detail summerytab2">
-                            <ul class="wrapper">
+                            <ul class="wrapper-utilities">
                                 <li class="content utilities">
                                     <h4 class="panel-title-summery">Utilities <span class="summery-nav-btn active next fa fa-chevron-right"></span>&nbsp;<span class="summery-nav-btn prev fa fa-chevron-left"></span></h4>
                                     <div class="libody">
@@ -2696,104 +2697,104 @@
                 //}
             );
         });
-        $(document).ready(function () {
+          $(document).ready(function () {
 
-            $('#tree-view-orderby').jstree({
-                'core': {
-                    'themes': {
-                        'responsive': false
-                    }
-                },
-                'types': {
-                    'default': {
-                        'icon': 'fa fa-folder icon-state-info icon-md'
-                    },
-                    'file': {
-                        'icon': 'fa fa-file icon-state-default icon-md'
-                    }
-                },
-                'plugins': ['types']
-            });
-            $('.tree-view').jstree({
-                'types': {
-                    'default': {
-                        'icon': 'fa fa-folder icon-state-info icon-md'
-                    },
-                    'file': {
-                        'icon': 'fa fa-file icon-state-default icon-md'
-                    }
-                },
-                'plugins': ['checkbox', 'types']
-            });
-            $('.hotelstatus').editable({
-                value: 2,
-                source: [
-                    { '1': 'Active' },
-                    { '2': 'Inactive' }
-                ]
-            });
-            $('.next').on('click', function () {
-                if ($(this).hasClass('active')) {
-                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
-                    $(this).parent().parent().hide();
-                    $(this).parent().parent().next().show();
-                    //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
-                }
-            });
-            $('.prev').on('click', function () {
-                if ($(this).hasClass('active')) {
-                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
-                    $(this).parent().parent().hide();
-                    $(this).parent().parent().prev().show();
-                    //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
-                }
-            });
-            $('.searchpanel-button').on('click', function (e) {
-                var currentButton = $(this);
-                var panelClass = $(this).attr('data-show-panel');
-                $('.panel-search:visible').slideUp(600);
-                var panel = $('.' + panelClass);
-                if ($('.' + panelClass).is(':visible')) {
-                    panel.slideUp(600, function () {
-                        collapsePanelButton($('.booking-panel-button').children());
-                        collapsePanelButton($('.advanced-panel-button').children());
-                    });
-                } else {
-                    panel.find('.panel-body').show();
-                    panel.slideDown(600, function () {
-                        if ($(this).hasClass('booking-panel')) {
-                            collapsePanelButton($('.advanced-panel-button').children());
-                            expandPanelButton($('.booking-panel-button').children());
-                        } else {
-                            collapsePanelButton($('.booking-panel-button').children());
-                            expandPanelButton($('.advanced-panel-button').children());
-                        }
-                    });
-                }
-                currentButton.trigger('focusout');
-                e.preventDefault();
-            });
-            $('st-accordion').on('click', 'li div.my_class', handle_click);
-            $('.orderby-accordion li').on('click', function () {
-                var thisControl = $(this);
-                $('.orderby-accordion li').removeClass('orderby').find('i').removeClass('fa').removeClass('fa-check');
-                thisControl.find('i').addClass('fa').addClass('fa-check')
-                thisControl.addClass('orderby')
-            });
-        });
-        function expandPanelButton(control) {
-            control.removeClass('fa-plus');
-            control.addClass('fa-minus');
-        }
-        function collapsePanelButton(control) {
-            control.removeClass('fa-minus');
-            control.addClass('fa-plus');
-        }
-        function handle_click(e) {
-            e.stopPropagation();
-            // your event code
-        }
-    </script>
+              $('#tree-view-orderby').jstree({
+                  'core': {
+                      'themes': {
+                          'responsive': false
+                      }
+                  },
+                  'types': {
+                      'default': {
+                          'icon': 'fa fa-folder icon-state-info icon-md'
+                      },
+                      'file': {
+                          'icon': 'fa fa-file icon-state-default icon-md'
+                      }
+                  },
+                  'plugins': ['types']
+              });
+              $('.tree-view').jstree({
+                  'types': {
+                      'default': {
+                          'icon': 'fa fa-folder icon-state-info icon-md'
+                      },
+                      'file': {
+                          'icon': 'fa fa-file icon-state-default icon-md'
+                      }
+                  },
+                  'plugins': ['checkbox', 'types']
+              });
+              $('.hotelstatus').editable({
+                  value: 2,
+                  source: [
+                      { '1': 'Active' },
+                      { '2': 'Inactive' }
+                  ]
+              });
+              $('.next').on('click', function () {
+                  if ($(this).hasClass('active')) {
+                      //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
+                      $(this).parent().parent().hide();
+                      $(this).parent().parent().next().show();
+                      //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
+                  }
+              });
+              $('.prev').on('click', function () {
+                  if ($(this).hasClass('active')) {
+                      //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
+                      $(this).parent().parent().hide();
+                      $(this).parent().parent().prev().show();
+                      //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
+                  }
+              });
+              $('.searchpanel-button').on('click', function (e) {
+                  var currentButton = $(this);
+                  var panelClass = $(this).attr('data-show-panel');
+                  $('.panel-search:visible').slideUp(600);
+                  var panel = $('.' + panelClass);
+                  if ($('.' + panelClass).is(':visible')) {
+                      panel.slideUp(600, function () {
+                          collapsePanelButton($('.booking-panel-button').children());
+                          collapsePanelButton($('.advanced-panel-button').children());
+                      });
+                  } else {
+                      panel.find('.panel-body').show();
+                      panel.slideDown(600, function () {
+                          if ($(this).hasClass('booking-panel')) {
+                              collapsePanelButton($('.advanced-panel-button').children());
+                              expandPanelButton($('.booking-panel-button').children());
+                          } else {
+                              collapsePanelButton($('.booking-panel-button').children());
+                              expandPanelButton($('.advanced-panel-button').children());
+                          }
+                      });
+                  }
+                  currentButton.trigger('focusout');
+                  e.preventDefault();
+              });
+              $('st-accordion').on('click', 'li div.my_class', handle_click);
+              $('.orderby-accordion li').on('click', function () {
+                  var thisControl = $(this);
+                  $('.orderby-accordion li').removeClass('orderby').find('i').removeClass('fa').removeClass('fa-check');
+                  thisControl.find('i').addClass('fa').addClass('fa-check')
+                  thisControl.addClass('orderby')
+              });
+          });
+          function expandPanelButton(control) {
+              control.removeClass('fa-plus');
+              control.addClass('fa-minus');
+          }
+          function collapsePanelButton(control) {
+              control.removeClass('fa-minus');
+              control.addClass('fa-plus');
+          }
+          function handle_click(e) {
+              e.stopPropagation();
+              // your event code
+          }
+          </script>
 }
 
 @section floatingsection{
