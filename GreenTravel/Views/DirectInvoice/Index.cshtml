@@ -11,7 +11,7 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Invoice </a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Invoice</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice Item Details</a></li>
+                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice Item Details</a></li>
 
                 </ul>
                 <div class="tab-content">
@@ -305,12 +305,12 @@
                                     </div>
                                 </div>
 
-                                <h3 class="section-headers tab2section3"><span class="section-index">4</span>&nbsp;Invoice Item Details</h3>
+                                @* <h3 class="section-headers tab2section3"><span class="section-index">4</span>&nbsp;Invoice Item Details</h3>*@
                                 @*<div class="form-group">
                                     <button id="btnADD" type="submit" class="btn btn-success btnSave">
                                         ADD</button>
                                 </div>*@
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <thead>
@@ -396,7 +396,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div>*@
                                 <br />
                                 <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                     SAVE</button>
@@ -591,94 +591,273 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab3">
-                        <div class="col-md-12">
-                            <form>
-                                
-                                <div class="form-group">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>#
-                                                    </th>
-                                                    <th>Items
-                                                    </th>
-                                                    <th>Description
-                                                    </th>
-                                                    <th>Quantity
-                                                    </th>
-                                                    <th>Price
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>
-                                                        <a href="#" data-toggle="modal" data-target="#AddDataModel" class="btn btn-success">ADD</a>
-                                                    </th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th>Total</th>
-                                                    <th><span class="label label-danger">$870</span></th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1
-                                                    </td>
-                                                    <td>Amari Atrium
-                                                    </td>
-                                                    <td>Type: Deluxe Room  
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#Accomodationserch" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Invoice Item Details</a></li>
+                            <li role="presentation"><a href="#accomondationform" role="tab" data-toggle="tab" data-section="accomondationform" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice Item Details</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="Accomodationserch">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#
+                                                </th>
+                                                <th>Items
+                                                </th>
+                                                <th>Description
+                                                </th>
+                                                <th>Quantity
+                                                </th>
+                                                <th>Price
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Total</th>
+                                                <th><span class="label label-danger">$870</span></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>1
+                                                </td>
+                                                <td>Amari Atrium
+                                                </td>
+                                                <td>Type: Deluxe Room  
                                                         <br />
-                                                        2 Double Rooms    
+                                                    2 Double Rooms    
                                                         <br />
-                                                        1 Extra Adults
+                                                    1 Extra Adults
                                                         <br />
-                                                        1 CWB 
+                                                    1 CWB 
                                                         <br />
-                                                        1 CNB
+                                                    1 CNB
                                                         <br />
-                                                        1 Infant
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-info">2 Nights</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-info">$650  </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2
-                                                    </td>
-                                                    <td>Alcazar Show
-                                                    </td>
-                                                    <td>3 Adults<br />
-                                                        2 Childs
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-info">5 Pax</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-info">$120 </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3
-                                                    </td>
-                                                    <td>PVT Transfer
-                                                    </td>
-                                                    <td>For Alcazar Show - SUV Merc
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-info">5 Pax</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-info">$100 </span>
-                                                    </td>
-                                                </tr>
+                                                    1 Infant
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info">2 Nights</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info">$650  </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2
+                                                </td>
+                                                <td>Alcazar Show
+                                                </td>
+                                                <td>3 Adults<br />
+                                                    2 Childs
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info">5 Pax</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info">$120 </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3
+                                                </td>
+                                                <td>PVT Transfer
+                                                </td>
+                                                <td>For Alcazar Show - SUV Merc
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info">5 Pax</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info">$100 </span>
+                                                </td>
+                                            </tr>
 
-                                            </tbody>
-                                        </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="accomondationform">
+                                <h3 class="tabsupplier"><span class="section-index ">1</span>&nbsp;Supplier</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpSupplierType">Supplier Type&nbsp<span>*</span></label>
+                                            <select id="drpSupplierType" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Hotel</option>
+                                                <option>Sightseeing</option>
+                                                <option>Transfer</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpSupplier">Supplier&nbsp<span>*</span></label>
+                                            <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Amari Atrium</option>
+                                                <option>Amari Atrium New</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <h3 class="tabitemdetails"><span class="section-index ">2</span>&nbsp;Item Detail</h3>
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <label for="drpitem">Item&nbsp<span>*</span></label>
+                                            <select id="drpitem" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Double Room</option>
+                                                <option>Single Room</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpitemtype">Item Type&nbsp<span>*</span></label>
+                                            <select id="drpitemtype" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Standard Room</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpitemtype">Item Quantity</label>
+                                            <input type="text" class="form-control" id="txtitemquantity" placeholder="Item Desc">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpitemtype">Item Quantity Unit</label>
+                                            <select id="drpitemQuantityunit" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Night</option>
+                                                <option selected="selected">Pax</option>
+                                                <option selected="selected">Room</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="drpitemtype">Item Desc</label>
+                                            <input type="text" class="form-control" id="txtitemDesc" placeholder="Item Desc">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpSupplierType">Item Status&nbsp<span>*</span></label>
+                                            <select id="drpitemstatus" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Reconfirmed </option>
+                                                <option>Book</option>
+                                                <option>Confirm</option>
+                                                <option>Cancel</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpitemtype">Payment Date</label>
+                                            <input type="text" placeholder="Payment Date" value="07/07/2005" id="txtlastupdatedDate" class="form-control date-picker">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTotalSupplierAmount">Total Supplier Amount</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" readonly="" placeholder="Total Supplier Amount" value="20000" id="txtutilized" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="tabitemrate"><span class="section-index ">3</span>&nbsp;Item Rate</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtnetrate">Net Rate&nbsp<span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Net Rate" value="" id="txtnetrate" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpnetrateunit">Net Rate Unit</label>
+                                            <select id="drpnetrateunit" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Amount Per Pax </option>
+                                                <option selected="">Full Amount </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtnetrate">Margin&nbsp<span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Margin" value="" id="txtMargin" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDiscount">Discount</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Discount" value="" id="txtDiscount" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="tabsalerate"><span class="section-index ">4</span>&nbsp;Sale Rate</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtTotalSupplierAmount">Sell Rate </label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Sell Rate" value="" id="txtsellrate" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTotalSupplierAmount">Tax </label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Tax" value="" id="txttax" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtnetrate">Sell Rate Including Tax&nbsp<span>*</span></label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Margin" value="" id="txtsellrateIncludetax" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="drpbillcurency">Bill Currency</label>
+                                            <select id="drpbillcurency" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">USD</option>
+                                                <option>THB</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="txtExchangeRate">Exchange Rate </label>
+                                            <input type="text" placeholder="Exchange Rate" value="" id="txtExchangeRate" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTotalSupplierAmount">Billed Amount </label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" placeholder="Billed Amount" value="" id="txtBilledAmount" class="form-control req"><span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="tabsummery"><span class="section-index ">5</span>&nbsp;Summery</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpSupplierType">Total Amount&nbsp<span>*</span></label>
+                                            <input type="text" placeholder="Total Amount" value="" id="txtTotalAmount" class="form-control">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpSupplier">Total Tax&nbsp<span>*</span></label>
+                                            <input type="text" placeholder="Total Tax" value="" id="txttotaltxt" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpSupplierType">Total Amount Payable&nbsp<span>*</span></label>
+                                            <input type="text" placeholder="Total Amount Payable" value="" id="txtTotalAmountPayable" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <br />
@@ -692,14 +871,14 @@
                                     QUIT FORM</button>
                                 <a href="#" data-toggle="modal" data-target="#myCancellationModel" class="btn btn-danger">CANCEL INVOICE</a>
                                 <button class="btn btn-default" type="button">Print</button>
-                            </form>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="col-md-12">
@@ -841,7 +1020,7 @@
 </div>
 
 @*Cancellation Popup*@
-<div class="modal fade modify-colum-model" id="myCancellationModel" role="dialog">
+<div class="modal fade modify-colum-model" id="myCancellationModel1" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -989,6 +1168,89 @@
     </div>
 </div>
 
+<div class="modal fade modify-colum-model" id="myCancellationModel" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+            <div class="modal-header">
+                <h4 class="modal-title">Cancellation Fees</h4>
+            </div>
+            <div class="modal-body custom-model-body">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <div class="col-md-12">
+                        <div class="tab-content">
+                            <div role="tabpanel">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpCancellationAgent">Cancellation Purpose</label>
+                                            <input type="text" class="form-control" id="txtCancellationPurpose" placeholder="Cancellation Purpose ">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtCancellationAgentFees">Cancellation Type</label>
+                                            <select id="drpCancellationType" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Hotel</option>
+                                                <option>Sightseeing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpSuppliernew">Supplier</label>
+                                            <select id="drpSuppliernew" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Amari Atrium</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpItemnew">Item</label>
+                                            <select id="drpItemnew" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Standard Room</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpItemTypeNew">Item Type</label>
+                                            <select id="drpItemTypeNew" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Double</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtBookedItemQuantity">Booked Item Quantity</label>
+                                            <input type="text" placeholder="Booked Item Quantity" value="" id="txtBookedItemQuantity" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="txtItemQuantityToBeCancelled">Item Quantity To Be Cancelled</label>
+                                            <input type="text" placeholder="Item Quantity To Be Cancelled" value="" id="txtItemQuantityToBeCancelled" class="form-control">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpItemQuantityUnit">Item Quantity Unit</label>
+                                            <select id="drpItemQuantityUnit" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Room</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-success">CANCEL INVOICE</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts{
     <script>
 
@@ -1012,6 +1274,12 @@
         <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Party Details">1</a>
         <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Tour Details">2</a>
         <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Booking Details">3</a>
-
+    </div>
+    <div class="floating-section-buttons accomondationform" style="display: none">
+        <a class="btn btn-default" data-section="tabsupplier" rel="tooltip" title="Supplier Details">1</a>
+        <a class="btn btn-default" data-section="tabitemdetails" rel="tooltip" title="Item  Details">2</a>
+        <a class="btn btn-default" data-section="tabitemrate" rel="tooltip" title="Item Rate">3</a>
+        <a class="btn btn-default" data-section="tabsalerate" rel="tooltip" title="Sale Rate">4</a>
+        <a class="btn btn-default" data-section="tabsummery" rel="tooltip" title="Summery">5</a>
     </div>
 }
