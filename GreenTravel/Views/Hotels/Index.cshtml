@@ -415,7 +415,8 @@
         color: #fff;
     }
 
-    #wrapper, .wrapper {
+    #wrapper, .wrapper
+    {
         width: 200%;
         transform: translate3d(0, 0, 0);
         transition: transform .5s ease-in-out;
@@ -471,33 +472,40 @@
     {
     }
 
-    .searchpanel-button {
+    .searchpanel-button
+    {
         padding: 5px 9px !important;
     }
 
-    .panel.panel-white.tab-itenaries {
+    .panel.panel-white.tab-itenaries
+    {
         padding-bottom: 3px;
     }
     /*.panel-blue, .panel-green {
         opacity:0.4;
     }*/
-    .panel-blue {
+    .panel-blue
+    {
         background-color: #44dcff;
     }
 
-    .panel-green {
+    .panel-green
+    {
         background-color: #82eab0;
     }
 
         .panel-blue .panel-heading, .panel-blue .panel-body,
-        .panel-green .panel-heading, .panel-green .panel-body {
+        .panel-green .panel-heading, .panel-green .panel-body
+        {
             color: #555;
         }
 
-    .jstree-container-ul > li > a > i.jstree-checkbox {
+    .jstree-container-ul > li > a > i.jstree-checkbox
+    {
         display: none;
     }
 </style>
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -2502,13 +2510,13 @@
                                                         <option selected="selected">Small</option>
                                                         <option>Large</option>
                                                     </select>
-                                </div>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <label for="txtImagePath">Image Path<span>*</span></label>
                                                     <input type="text" class="form-control req" id="txtImagePath" value="D:/Image/Hotel.jpg" placeholder="Hotel Name">
-                            </div>
-                        </div>
-                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <br />
                                         <button id="btnsaveimage" type="submit" class="btn btn-success btnSave">
                                             SAVE</button>
@@ -2521,8 +2529,8 @@
                                         <button id="btnquiteimage" type="button" class="btn btn-info btnSave">
                                             QUIT FORM</button>
 
-                </div>
-            </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -2908,7 +2916,6 @@
 
 
     <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
-    <script src="/assets/plugins/jstree/jstree.min.js"></script>
     <script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.accordion.js"></script>
     @*<script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.easing.1.3.js"></script>*@
 
@@ -2928,33 +2935,6 @@
         });
         $(document).ready(function () {
 
-            $('#tree-view-orderby').jstree({
-                'core': {
-                    'themes': {
-                        'responsive': false
-                    }
-                },
-                'types': {
-                    'default': {
-                        'icon': 'fa fa-folder icon-state-info icon-md'
-                    },
-                    'file': {
-                        'icon': 'fa fa-file icon-state-default icon-md'
-                    }
-                },
-                'plugins': ['types']
-            });
-            $('.tree-view').jstree({
-                'types': {
-                    'default': {
-                        'icon': 'fa fa-folder icon-state-info icon-md'
-                    },
-                    'file': {
-                        'icon': 'fa fa-file icon-state-default icon-md'
-                    }
-                },
-                'plugins': ['checkbox', 'types']
-            });
             $('.hotelstatus').editable({
                 value: 2,
                 source: [
