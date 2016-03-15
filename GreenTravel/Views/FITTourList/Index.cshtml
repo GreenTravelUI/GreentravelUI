@@ -1,0 +1,1154 @@
+﻿@{
+    ViewBag.Title = "FIT Tour List";
+    ViewBag.PageTitle = "FIT Tour List";
+}
+
+
+<link href="/assets/plugins/Barrating/bootstrap-stars.css" rel="stylesheet" />
+<link href="~/assets/plugins/jstree/themes/default/style.min.css" rel="stylesheet" />
+<link href="~/assets/plugins/FlexibleSlideToTopAccordion/css/style.css" rel="stylesheet" />
+
+<style>
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4
+    {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5
+    {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span.right-floated,
+        .tab-itenaries .col-md-2 > h5 > span.right-floated,
+        .tab-itenaries .col-md-3 > h5 > span.right-floated,
+        .tab-itenaries .col-md-4 > h5 > span.right-floated,
+        .tab-itenaries .col-md-5 > h5 > span.right-floated,
+        .tab-itenaries .col-md-6 > h5 > span.right-floated,
+        .tab-itenaries .col-md-7 > h5 > span.right-floated,
+        .tab-itenaries .col-md-8 > h5 > span.right-floated,
+        .tab-itenaries .col-md-9 > h5 > span.right-floated,
+        .m-b-lg > h5 > span.right-floated
+        {
+            float: right;
+            font-size: 13px;
+            font-weight: normal;
+            text-align: right;
+        }
+
+            .tab-itenaries .col-md-1 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-2 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-3 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-4 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-5 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-6 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-7 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-8 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-9 > h5 > span.right-floated .TripRatting,
+            .m-b-lg > h5 > span.right-floated .TripRatting
+            {
+                font-size: 2.4em;
+            }
+
+        .tab-itenaries .col-md-1 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-2 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-3 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-4 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-5 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-6 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-7 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-8 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-9 > h5 > span.left-floated .small-text,
+        .m-b-lg > h5 > span.left-floated .small-text
+        {
+            font-size: 13px;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .tab-itenaries .col-md-1 > h5 > span.left-floated,
+        .tab-itenaries .col-md-2 > h5 > span.left-floated,
+        .tab-itenaries .col-md-3 > h5 > span.left-floated,
+        .tab-itenaries .col-md-4 > h5 > span.left-floated,
+        .tab-itenaries .col-md-5 > h5 > span.left-floated,
+        .tab-itenaries .col-md-6 > h5 > span.left-floated,
+        .tab-itenaries .col-md-7 > h5 > span.left-floated,
+        .tab-itenaries .col-md-8 > h5 > span.left-floated,
+        .tab-itenaries .col-md-9 > h5 > span.left-floated,
+        .m-b-lg > h5 > span.left-floated
+        {
+            float: none;
+        }
+
+    .tab-itenaries a > span
+    {
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries
+    {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        margin-bottom: 15px;
+    }
+
+        .tab-itenaries .form-control
+        {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control h2
+            {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border
+        {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 0;
+        }
+
+    .strong
+    {
+        font-weight: bold;
+    }
+
+    .modal-body .strong
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /*.strong:hover {
+            text-decoration: underline !important;
+        }*/
+
+    .panel .panel-body
+    {
+        padding: 15px;
+    }
+
+    .tab-itenaries .row .btn
+    {
+        padding: 5px 9px;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin: 5px 5px 5px 0;
+    }
+
+    .tab-itenaries .row .rooms-type .btn
+    {
+        padding: 2px 5px;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin: 5px 0 5px 0;
+    }
+
+    .modal-footer .btn
+    {
+        text-transform: uppercase;
+    }
+
+    .star-ratings .select2.select2-container
+    {
+        display: none;
+    }
+
+    .modal-body
+    {
+        width: 100%;
+    }
+
+    .modal-header h4
+    {
+        border-bottom: 1px dotted #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .quote-link h2
+    {
+        /*margin-bottom: 0;
+        margin-top: 0;*/
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .quote-link .panel-heading
+    {
+        padding: 10px 15px;
+    }
+
+    .panel-red .panel-collapse
+    {
+        border: 1px solid #F25656;
+        border-radius: 0 0 5px 5px;
+    }
+
+        .panel-red .panel-collapse .panel-body
+        {
+            color: #4e5e6a;
+        }
+
+    .fa-ul > li
+    {
+        font-size: 12px;
+        position: relative;
+    }
+
+    .fa-ul
+    {
+        margin-left: 15px;
+    }
+
+    .right-floating
+    {
+        float: right;
+        cursor: pointer;
+        color: #F25656;
+    }
+
+    .tab-itenaries span.total-cost
+    {
+        font-size: 11px;
+    }
+
+    a.col-sm-3
+    {
+        background-color: #f25656;
+        color: #fff;
+        font-family: Lucida Console;
+        font-size: 32px;
+        height: 45px;
+        margin-bottom: 0;
+        margin-top: 0;
+        top: 0;
+        width: 22.5%;
+    }
+
+        a.col-sm-3 span
+        {
+            float: left;
+            font-size: 79px;
+            margin: -32px 0 0 -16px;
+        }
+
+    .fa-ul > li
+    {
+        margin-bottom: 5px;
+    }
+
+    /*.panel > .row > div:last-child {
+        padding-left: 0;
+        padding-right: 0;
+    }*/
+    .panel > .row > div:first-child
+    {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .tab-itenaries .table > tbody > tr:first-child > td
+    {
+        border-width: 0;
+    }
+
+    .tab-itenaries .table > tbody > tr > td:first-child
+    {
+        width: 60%;
+    }
+
+    .tab-itenaries .table > tbody > tr > td:last-child
+    {
+        text-align: right;
+        width: 40%;
+    }
+
+    .tab-itenaries .table > tbody > tr > td
+    {
+        font-size: 11px;
+        padding: 7px !important;
+    }
+
+    .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label
+    {
+        width: 100%;
+    }
+
+    .button-index
+    {
+        background-color: #fff;
+        border-radius: 50%;
+        color: #333;
+        padding: 0 5px;
+        font-weight: bold;
+    }
+
+    .button-itenaries .form-control .btn-steps
+    {
+        text-align: left;
+        width: 77%;
+    }
+
+    .button-itenaries .form-control .btn-steps-icons
+    {
+        width: auto;
+    }
+
+    .button-itenaries .form-control .btn-steps:hover .button-index
+    {
+        color: #333;
+    }
+
+    .button-index
+    {
+        margin-right: 5px;
+    }
+
+    .btn-auto
+    {
+        width: auto;
+    }
+
+    .btn-full
+    {
+        width: 100%;
+    }
+
+    .search-panel-buttons
+    {
+        text-align: right;
+    }
+
+    .br-theme-bootstrap-stars .br-widget
+    {
+        line-height: 30px;
+    }
+
+    h2.strong .alt-text
+    {
+        font-size: 0.6em;
+    }
+
+    h2.strong .amount
+    {
+        color: #f25656;
+    }
+
+    .rooms-type .btn
+    {
+        width: auto !important;
+    }
+
+    .aminities
+    {
+        float: right;
+        color: #BEC8D2;
+    }
+</style>
+<style>
+    .modal-lg
+    {
+        width: 95%;
+    }
+
+    .modal-header h4
+    {
+        border-bottom: 1px dashed #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover
+    {
+        background-color: #22baa0;
+        border-color: #22baa0;
+        border-left: 0 none #22baa0;
+        color: #fff;
+    }
+
+    #wrapper, .wrapper
+    {
+        width: 200%;
+        transform: translate3d(0, 0, 0);
+        transition: transform .5s ease-in-out;
+        padding-left: 0;
+    }
+
+    .content
+    {
+        float: left;
+        width: 50%;
+        min-height: 200px;
+        white-space: normal;
+        background-repeat: no-repeat;
+    }
+
+    li.content
+    {
+        list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
+    }
+
+        li.content .libody
+        {
+            transition-timing-function: linear;
+        }
+
+    .summery-uitilities-detail
+    {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    .summery-nav-btn
+    {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+        .summery-nav-btn.active
+        {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .libody.summery-body
+    {
+    }
+
+    .searchpanel-button
+    {
+        padding: 5px 9px !important;
+    }
+
+    .panel.panel-white.tab-itenaries
+    {
+        padding-bottom: 3px;
+    }
+    /*.panel-blue, .panel-green {
+        opacity:0.4;
+    }*/
+    .panel-blue
+    {
+        background-color: #44dcff;
+    }
+
+    .panel-green
+    {
+        background-color: #82eab0;
+    }
+
+        .panel-blue .panel-heading, .panel-blue .panel-body,
+        .panel-green .panel-heading, .panel-green .panel-body
+        {
+            color: #555;
+        }
+
+    .jstree-container-ul > li > a > i.jstree-checkbox
+    {
+        display: none;
+    }
+</style>
+<style>
+    .field-name
+    {
+        float: left;
+        width: 50%;
+    }
+
+    .modify-colum-model .dropdown.table-custome-drop
+    {
+        float: left;
+        width: 50%;
+    }
+
+    .field-name
+    {
+        padding-right: 15px;
+    }
+
+    .modal-header h4
+    {
+        border-bottom: 1px dotted #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .modal-footer
+    {
+        text-align: left;
+    }
+
+    #ulViewList
+    {
+        padding-left: 0 !important;
+    }
+
+    .selectcolor
+    {
+    }
+
+    .field-list .active
+    {
+        background-color: #4fe7cd;
+        color: #fff !important;
+        font-weight: bolder;
+        font-size: 15px;
+    }
+
+        .field-list .active a
+        {
+            text-decoration: underline;
+        }
+
+    .panel-body.slimscroll li
+    {
+        padding: 5px;
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+
+            <form>
+                <div class="form-group">
+                    <label for="txtTagSearch">Tour</label>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" id="txtTagSearch" class="form-control" value="Thailand" placeholder="Hotel / Destination" />
+                        </div>
+                        <div class="col-md-1" style="text-align: right;">
+                            <a href="javascript:void(0);" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Tour Search"><i class="fa fa-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-info searchpanel-button booking-panel-button" data-show-panel="booking-panel" data-toggle="tooltip" data-placement="top" title="Search Quat"><i class="fa fa-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                @*Booking*@
+                <div class="from-group panel-search booking-panel" style="display: none;">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Booking</h2>
+                            <div class="panel-control">
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @* <label for="txtTagSearch">Number Of Adult</label>*@
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Adult</label>
+                                                    <input type="text" class="form-control" id="txtAdult" value="5" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Extra Bed Adult</label>
+                                                    <input type="text" class="form-control" id="txtAdultextrabed" value="1" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Extra Bed Child</label>
+                                                    <input type="text" class="form-control" id="txtExtraChild" value="2" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Child No Bed</label>
+                                                    <input type="text" class="form-control" id="txtnobed" value="1" placeholder="Adult">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @* <label for="txtTagSearch">Number Of Adult</label>*@
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Infant</label>
+                                                    <input type="text" class="form-control" id="txtinfant" value="1" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number of Rooms Single</label>
+                                                    <input type="text" class="form-control" id="txtNumberofroomsingle" value="2" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number of Rooms Double/Twin</label>
+                                                    <input type="text" class="form-control" id="txtNumberofroomdouble" value="2" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number of Rooms Quad</label>
+                                                    <input type="text" class="form-control" id="txtNumberofroomQuad" value="1" placeholder="Adult">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @*Advance*@
+                <div class="from-group panel-search advanced-panel" style="display: none;">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Advance</h2>
+                            <div class="panel-control">
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="txtTagSearch">Criteria</label>
+                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">None</option>
+                                                        <option>At</option>
+                                                        <option>Between</option>
+                                                        <option>Less than</option>
+                                                        <option>Less than or equal</option>
+                                                        <option>At Month</option>
+                                                        <option>Between Month</option>
+                                                        <option>More than</option>
+                                                        <option>More than or equal</option>
+                                                        <option>At Quater</option>
+                                                        <option>Between Quater</option>
+                                                        <option>At Year</option>
+                                                        <option>Between Year</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtTagSearch">Search By</label>
+                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Created date</option>
+                                                        <option>Updated date</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtTagSearch">From</label>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option selected="selected">2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                                <option>2010</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option selected="selected">January</option>
+                                                                <option>February</option>
+                                                                <option>March</option>
+                                                                <option>April</option>
+                                                                <option>May</option>
+                                                                <option>June</option>
+                                                                <option>July</option>
+                                                                <option>August</option>
+                                                                <option>September</option>
+                                                                <option>October</option>
+                                                                <option>November</option>
+                                                                <option>December</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @*Search Count*@
+                <div class="form-group">
+                    <h2 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound"><span>Thailand</span>: <span>2</span> Records found</h2>
+                </div>
+                @*Filter - Order - Search Result*@
+                <div class="from-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            @*Order By*@
+                            <div class="panel panel-white tab-itenaries">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Order By:</h2>
+                                    <div class="panel-control">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="st-accordion orderby-accordion">
+                                        <ul>
+                                            <li class="orderby">
+                                                <a href="javascript:void(0);">Our recommendations first <i class="fa fa-check"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Lowest price first <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Stars <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Most central first <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Review score <i></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Filter By*@
+                            <div class="panel panel-white tab-itenaries">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Filter By:</h2>
+                                    <div class="panel-control">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="st-accordion" class="st-accordion">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0);">Price<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 0 - Rs. 3,600
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 3,600 - Rs. 7,300
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 7,300 - Rs. 11,000
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 11,000 - Rs. 14,000
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 14,000 +
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0);">Nights<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        1-3 Nights
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        4-6 Nights
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        7-10 Nights
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        More than 10 Nights
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*Search Result*@
+                        <div class="col-md-9">
+                            <div class="m-b-lg tab-itenaries panel panel-body">
+                                <div class="row">
+                                    <div class="col-md-8 right-border">
+                                        <h5 class="text-danger"><a href="#">Thailand Thrilling - <span class="text-danger" style="font-size: 20px">5 Nights /6 Days</span></a></h5>
+
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-size: 12px"><b>Agent-</b></td>
+                                                    <td style="font-size: 12px; color: red">&nbsp;Flamingo Transworld</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 12px"><b>Tour Code-</b></td>
+                                                    <td style="font-size: 12px; color: red">&nbsp;TOUR-1152</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br />
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-size: 14px"><b>Countries To Travel:-</b></td>
+                                                    <td>&nbsp;Thailand</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 14px"><b>Cities To Travel:-</b></td>
+                                                    <td>&nbsp;Bangkok</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Hotel"><span class="fa fa-hospital-o"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="SightSeeing"><span class="fa fa-flag"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Transport"><span class="fa fa-cab"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Guide"><span class="fa fa-user"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Restaurant"><span class="fa fa-cutlery"></span></a>
+
+                                    </div>
+                                    <div class="col-md-4" style="padding-left:15px">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel-group">
+                                                        <div class="panel panel-success">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">Quatation</h3>
+                                                            </div>
+                                                            <div class="panel-body slimscroll" style="max-height: 150px;">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="padding-right:70px;padding-left:12px">Ref#</th>
+                                                                            <th style="padding-right:50px">Date</th>
+                                                                            <th>Action</th>
+                                                                            
+                                                                        </tr>
+
+                                                                    </thead>
+                                                                   
+                                                                </table>
+                                                                <ul class="" style="height:100%;padding-left:10px">
+                                                                 <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-TRU-01 &nbsp;&nbsp;10-02-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-12 &nbsp;&nbsp;02-04-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-45 &nbsp;&nbsp;25-05-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-78 &nbsp;&nbsp;12-12-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-UNL-12 &nbsp;&nbsp;11-11-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-EGL-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                     
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-b-lg tab-itenaries panel panel-body">
+                                <div class="row">
+                                    <div class="col-md-8 right-border">
+                                        <h5 class="text-danger"><a href="#">Thailand Thunder - <span class="text-danger" style="font-size: 20px">3 Nights /4 Days</span></a></h5>
+
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-size: 12px"><b>Agent-</b></td>
+                                                    <td style="font-size: 12px; color: red">&nbsp;Flamingo Transworld</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 12px"><b>Tour Code-</b></td>
+                                                    <td style="font-size: 12px; color: red">&nbsp;TOUR-1248</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br />
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-size: 14px"><b>Countries To Travel:-</b></td>
+                                                    <td>&nbsp;Thailand</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 14px"><b>Cities To Travel:-</b></td>
+                                                    <td>&nbsp;Bangkok</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Hotel"><span class="fa fa-hospital-o"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="SightSeeing"><span class="fa fa-flag"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Transport"><span class="fa fa-cab"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Guide"><span class="fa fa-user"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Restaurant"><span class="fa fa-cutlery"></span></a>
+
+                                    </div>
+                                    <div class="col-md-4" style="padding-left:15px">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel-group">
+                                                        <div class="panel panel-success">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">Quatation</h3>
+                                                            </div>
+                                                            <div class="panel-body slimscroll" style="max-height: 150px;">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="padding-right:70px;padding-left:12px">Ref#</th>
+                                                                            <th style="padding-right:50px">Date</th>
+                                                                            <th>Action</th>
+                                                                            
+                                                                        </tr>
+
+                                                                    </thead>
+                                                                   
+                                                                </table>
+                                                                <ul class="" style="height:100%;padding-left:10px">
+                                                                 <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-TRU-01 &nbsp;&nbsp;10-02-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-12 &nbsp;&nbsp;02-04-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-45 &nbsp;&nbsp;25-05-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-78 &nbsp;&nbsp;12-12-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-UNL-12 &nbsp;&nbsp;11-11-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-EGL-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                                                     <li>THLND-FLG-01 &nbsp;&nbsp;15-03-2016&nbsp;&nbsp;  <a href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;  <a href="#"><i class="fa fa-download"></i></a></li>
+                                     
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+
+
+    <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
+    <script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.accordion.js"></script>
+    <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
+    <script src="~/assets/plugins/datatables/js/dataTables.tableTools.js"></script>
+    @*<script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.easing.1.3.js"></script>*@
+
+    <script>
+        $(function () {
+            $('.star-ratings').show();
+            $('.example-bootstrap').barrating({
+                theme: 'bootstrap-stars',
+                showSelectedRating: false,
+                readonly: true
+            });
+            $('#st-accordion').accordion(
+                //{
+                //oneOpenedItem: true
+                //}
+            );
+        });
+        $(document).ready(function () {
+
+            $('.hotelstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+            $('.next').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().next().show();
+                    //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
+                }
+            });
+            $('.prev').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().prev().show();
+                    //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
+                }
+            });
+            $('.searchpanel-button').on('click', function (e) {
+                var currentButton = $(this);
+                var panelClass = $(this).attr('data-show-panel');
+                $('.panel-search:visible').slideUp(600);
+                var panel = $('.' + panelClass);
+                if ($('.' + panelClass).is(':visible')) {
+                    panel.slideUp(600, function () {
+                        collapsePanelButton($('.booking-panel-button').children());
+                        collapsePanelButton($('.advanced-panel-button').children());
+                    });
+                } else {
+                    panel.find('.panel-body').show();
+                    panel.slideDown(600, function () {
+                        if ($(this).hasClass('booking-panel')) {
+                            collapsePanelButton($('.advanced-panel-button').children());
+                            expandPanelButton($('.booking-panel-button').children());
+                        } else {
+                            collapsePanelButton($('.booking-panel-button').children());
+                            expandPanelButton($('.advanced-panel-button').children());
+                        }
+                    });
+                }
+                currentButton.trigger('focusout');
+                e.preventDefault();
+            });
+            $('st-accordion').on('click', 'li div.my_class', handle_click);
+            $('.orderby-accordion li').on('click', function () {
+                var thisControl = $(this);
+                $('.orderby-accordion li').removeClass('orderby').find('i').removeClass('fa').removeClass('fa-check');
+                thisControl.find('i').addClass('fa').addClass('fa-check')
+                thisControl.addClass('orderby')
+            });
+        });
+        function expandPanelButton(control) {
+            control.removeClass('fa-plus');
+            control.addClass('fa-minus');
+        }
+        function collapsePanelButton(control) {
+            control.removeClass('fa-minus');
+            control.addClass('fa-plus');
+        }
+        function handle_click(e) {
+            e.stopPropagation();
+            // your event code
+        }
+    </script>
+}
+
+@section floatingsection{
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Basic Details">1</a>
+        @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Hotel Address">2</a>
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Facilities">3</a>
+        <a class="btn btn-default" data-section="tab2section7" rel="tooltip" title="Nearest Airports">4</a>
+    </div>
+    <div class="floating-section-buttons tab3" style="display: none">
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Bank">2</a>
+        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Tax">3</a>
+    </div>
+    <div class="floating-section-buttons tab4" style="display: none">
+        <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Hotel Room">1</a>
+        <a class="btn btn-default" data-section="tab4section2" rel="tooltip" title="Function Room">2</a>
+        <a class="btn btn-default" data-section="tab4section3" rel="tooltip" title="Restaurent">3</a>
+    </div>
+}
