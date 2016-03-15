@@ -146,14 +146,26 @@
         padding: 10px 15px;
     }
 
-    .panel-red .panel-collapse {
+    .panel-red .panel-collapse, .panel-blue .panel-collapse, .panel-purple .panel-collapse, .panel-green .panel-collapse {
         border: 1px solid #F25656;
         border-radius: 0 0 5px 5px;
     }
 
-        .panel-red .panel-collapse .panel-body {
-            color: #4e5e6a;
-        }
+    .panel-blue .panel-collapse {
+        border: 1px solid #12AFCB;
+    }
+
+    .panel-purple .panel-collapse {
+        border: 1px solid #7A6FBE;
+    }
+
+    .panel-green .panel-collapse {
+        border: 1px solid #22BAA0;
+    }
+
+    .panel-red .panel-collapse .panel-body, .panel-blue .panel-collapse .panel-body, .panel-purple .panel-collapse .panel-body {
+        color: #4e5e6a;
+    }
 
     .fa-ul > li {
         font-size: 12px;
@@ -263,35 +275,55 @@
         padding: 9px 10px !important;
     }
 
-    .table-itinarary-summary td {
+    .summarytab .table-itinarary-summary td {
         text-align: center;
         vertical-align: top;
         padding: 10px 2px;
     }
 
-        .table-itinarary-summary td:nth-child(1) {
-            width: 10%;
+        .summarytab .table-itinarary-summary td:nth-child(1) {
+            width: 5%;
             font-size: 14px;
+            font-size: 18px;
         }
 
-        .table-itinarary-summary td:nth-child(2) {
+        .summarytab .table-itinarary-summary td:nth-child(2) {
             text-align: left;
-            width: 55%;
+            width: 30%;
+            font-size: 13px;
         }
 
-        .table-itinarary-summary td:nth-child(3) {
-            width: 15%;
-        }
-
-        .table-itinarary-summary td:nth-child(4) {
+        .summarytab .table-itinarary-summary td:nth-child(3) {
             width: 10%;
-            color: #F25656;
         }
 
-        .table-itinarary-summary td:nth-child(5) {
-            width: 10%;
-            color: #F25656;
+        .summarytab .table-itinarary-summary td:nth-child(4) {
+            width: auto;
+            text-align: left;
         }
+
+        .summarytab .table-itinarary-summary td:nth-child(5) {
+            width: 10%;
+        }
+
+        .summarytab .table-itinarary-summary td:nth-child(6) {
+            width: 3%;
+            font-size: 15px;
+        }
+
+            .summarytab .table-itinarary-summary td:nth-child(6) a {
+                color: #22BAA0 !important;
+            }
+
+        .summarytab .table-itinarary-summary td:nth-child(7) {
+            width: 3%;
+            color: #F25656;
+            font-size: 15px;
+        }
+
+    .summarytab td span.label {
+        display: inline-block;
+    }
 
     .select2-container.select2-container--default.select2-container--open {
         z-index: 99999 !important;
@@ -299,6 +331,35 @@
 
     .accordian-heading {
         padding: 10px !important;
+    }
+
+    .summary-tab-itenaries h4 {
+        color: #F25656;
+        border-bottom: 1px dotted #f25656;
+        margin: 0 0 5px 0;
+        padding: 0 0 5px 0;
+    }
+
+    .summary-tab-itenaries .form-group .btn-steps {
+        text-align: left;
+        width: 83%;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 14px;
+    }
+
+    .summary-tab-itenaries .form-group .btn-steps-icons {
+        width: auto;
+        font-size: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .panel .panel-heading .panel-title {
+        color: #fff !important;
+    }
+    .right-aligned {
+        text-align:right
     }
 </style>
 
@@ -308,9 +369,10 @@
             <div id="rootwizard">
                 <ul class="nav nav-tabs wizard-tab" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab1"><span>1</span> Create Tour<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
-                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>2</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
-                    <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>3</span> Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
-                    <li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>4</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
+                    <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="tab5"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>5</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                 </ul>
                 <div class="tab-content">
                     @*Create Tour*@
@@ -329,34 +391,9 @@
                                                 <div role="tabpanel" class="tab-pane active" id="tab1-1">
                                                     <div class="col-md-8">
                                                         <form>
-                                                            <h3 class="tab1section1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
-                                                            <div class="form-group">
-                                                                <label for="txtAgent">Agent</label>
-                                                                <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label for="txtInquiredBy">Inquired By</label>
-                                                                        <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="txtQuoteToBeSentTo">Quote To Be Sent To</label>
-                                                                        <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote To Be Sent To">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent</label>
-                                                                        <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
-                                                                    </div>
 
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="section-headers tab1section2"><span class="section-index ">2</span>&nbsp;Tour Package Details</h3>
-                                                            <div class="form-group">
+                                                            <h3 class="tab1section2">Tour Package Details</h3>
+                                                            @*<div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <label for="txtClientName">Client Name (Lead Traveler)</label>
@@ -369,7 +406,7 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div>*@
 
                                                             <div class="form-group">
                                                                 <div class="row">
@@ -381,36 +418,24 @@
                                                                         <label for="txtNumberofDays">Number of Days</label>
                                                                         <input type="text" class="form-control" id="txtNumberofDays" placeholder="Number of Days">
                                                                     </div>
-
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtFromDate">From Date</label>
-                                                                        <input type="text" class="form-control date-picker" id="txtFromDate" placeholder="From Date">
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtToDate">To Date</label>
-                                                                        <input type="text" class="form-control date-picker" id="txtToDate" placeholder="To Date">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <div class="row">
                                                                     <div class="col-md-6">
                                                                         <label for="drpCountriesToTravel">Countries To Travel</label>
                                                                         <select id="drpCountriesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                             <option>All</option>
                                                                         </select>
                                                                     </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="row">
+
                                                                     <div class="col-md-6">
                                                                         <label for="drpCitiesToTravel">Cities To Travel</label>
                                                                         <select id="drpCitiesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                             <option>All</option>
                                                                         </select>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="row">
                                                                     <div class="col-md-6">
                                                                         @*<input type="checkbox" />Service Inclusions*@
                                                                         <label for="drpServiceInclisions">Service Inclusions</label>
@@ -481,7 +506,7 @@
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
-                                                                        <label for="drpOrderStatus">Quotation Status</label>
+                                                                        <label for="drpOrderStatus">Tour Status</label>
                                                                         <select id="drpOrderStatus" class="js-states form-control" style="display: none; width: 100%">
                                                                         </select>
                                                                     </div>
@@ -504,51 +529,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            <h3 class="tab1section3"><span class="section-index ">3</span>&nbsp;Pax / Room Details</h3>
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtAgent">Number of Adult</label>
-                                                                        <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
-                                                                    </div>
-
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtAgent">Number of Extra Bed Child</label>
-                                                                        <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtAgent">Number of Child No Bed</label>
-                                                                        <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtAgent">Number of Infant</label>
-                                                                        <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-
-                                                            @* <h3 class="tab1section4"><span class="section-index ">4</span>&nbsp;Room Details</h3>*@
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label for="txtNumberofRoomsSinglepax">Number of Rooms Single</label>
-                                                                        <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="txtNumberofRoomsDouble">Number of Rooms Double/Twin</label>
-                                                                        <input type="text" class="form-control" id="txtNumberofRoomsDouble" placeholder="Number of Rooms Double">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label for="txtNumberofRoomsTwin">Number of Rooms Quad</label>
-                                                                        <input type="text" class="form-control" id="txtNumberofRoomsquad" placeholder="Number of Rooms Quad">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
 
                                                             <br />
                                                             <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -566,7 +546,7 @@
 
                                                     <div class="col-md-4 summary-detail summarytab2">
                                                         <div class="panel panel-white">
-                                                            <h4 class="panel-title-summary">Summary </h4>
+                                                            <h4 class="panel-title-summery">Summary </h4>
                                                             <ul class="utilitis-drop ">
                                                                 <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                                                     <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
@@ -603,7 +583,7 @@
                                                             <div class="panel-body" style="border: 1px solid #22BAA0;">
                                                                 <div class="summ-lis-height">
 
-                                                                    <ul class="summary-list slimscroll">
+                                                                    <ul class="summery-list slimscroll">
                                                                         <h4 class="summary-header"><span class="summary-section-index">1</span></h4>
                                                                         <div class="summ-list-div">
                                                                             <div class="summ-list-left">
@@ -704,7 +684,7 @@
                                                                         </div>
                                                                     </ul>
 
-                                                                    <ul class="summary-list slimscroll">
+                                                                    <ul class="summery-list slimscroll">
                                                                     </ul>
                                                                 </div>
                                                                 <div class="summary-buttons">
@@ -894,6 +874,204 @@
 
 
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Create Quotation*@
+                    <div class="tab-pane fade in" id="tab5">
+                        <div class="row m-b-lg">
+                            <div class="form-detail">
+                                <div class="panel panel-white">
+                                    <div class="panel-body">
+                                        <div role="tabpanel" class="tab-pane" id="tab1-3">
+
+                                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                                <li role="presentation" class="active"><a href="#SearchQuotation" role="tab" data-toggle="tab" data-section="SearchQuotation" class="hosting-accord "><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Quotation</a></li>
+                                                <li role="presentation"><a href="#CreateQuotation" role="tab" data-toggle="tab" data-section="CreateQuotation" class="basic-accord "><span class="menu-icon fa fa-suitcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Quotation</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane active" id="SearchQuotation">
+                                                    <h3>Search Quotation</h3>
+                                                    <div class="table-responsive">
+                                                        <table id="restoranttable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Agent</th>
+                                                                    <th>Inquired By</th>
+                                                                    <th>Quote To Be Sent To</th>
+                                                                    <th>Quotation Type</th>
+                                                                    <th>Quotation Reference #</th>
+                                                                    <th>Quotation Status</th>
+                                                                    <th>Quotation Created Date</th>
+                                                                    <th style="width: 15%;">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Agent</th>
+                                                                    <th>Inquired By</th>
+                                                                    <th>Quote To Be Sent To</th>
+                                                                    <th>Quotation Type</th>
+                                                                    <th>Quotation Reference #</th>
+                                                                    <th>Quotation Status</th>
+                                                                    <th>Quotation Created Date</th>
+                                                                    <th style="width: 15%;">Action</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Flamingo Travels</td>
+                                                                    <td>Vicky Amin</td>
+                                                                    <td>Nirav Shah</td>
+                                                                    <td>FIT</td>
+                                                                    <td>THLND-FLG-SP-0101</td>
+                                                                    <td>Quoted</td>
+                                                                    <td>15-Mar-2016</td>
+                                                                    <td>
+                                                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                                        &nbsp;&nbsp;
+                                                                        <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div role="tabpanel" class="tab-pane" id="CreateQuotation">
+                                                    <div class="col-md-8">
+                                                        <h3 class="CreateQuotationsection1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
+                                                        <div class="form-group">
+                                                            <label for="txtAgent">Agent</label>
+                                                            <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="txtInquiredBy">Inquired By</label>
+                                                                    <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtQuoteToBeSentTo">Quote To Be Sent To</label>
+                                                                    <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote To Be Sent To">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent</label>
+                                                                    <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">2</span>&nbsp;Quotation Details</h3>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Currency</label>
+                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">THB</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Type</label>
+                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Reference #</label>
+                                                                    <input type="text" class="form-control" id="txtQuotationReferenceNumber" placeholder="Quotation Reference #" readonly>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Status</label>
+                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Created Date</label>
+                                                                    <input type="text" class="form-control date-picker" id="txtQuotationReferenceNumber" placeholder="Quotation Created Date">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Sent to Agent Date</label>
+                                                                    <input type="text" class="form-control date-picker" id="txtQuotationReferenceNumber" placeholder="Quotation Sent to Agent Date">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <h3 class="section-headers CreateQuotationsection3"><span class="section-index ">3</span>&nbsp;Pax / Room Details</h3>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Adult</label>
+                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Extra Bed Adult</label>
+                                                                    <input type="text" class="form-control" id="txtnumberofextraadult" placeholder="# of Extra Bed Adult">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Extra Bed Child</label>
+                                                                    <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Child No Bed</label>
+                                                                    <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Infant</label>
+                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsSinglepax"># of Rooms Single</label>
+                                                                    <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double/Twin</label>
+                                                                    <input type="text" class="form-control" id="txtNumberofRoomsDouble" placeholder="Number of Rooms Double">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsTwin"># of Rooms Quad</label>
+                                                                    <input type="text" class="form-control" id="txtNumberofRoomsquad" placeholder="Number of Rooms Quad">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <br />
+                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                                            SAVE</button>
+                                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                            UPDATE</button>
+                                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                            DELETE</button>
+                                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                                            CREATE NEW</button>
+                                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                                            QUIT FORM</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1966,13 +2144,13 @@
                                             <div class="panel panel-red">
                                                 <div class="panel-heading" role="tab" id="headingOne">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Day 1
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Day 1  (11-Mar-2016)
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                                     <div class="panel-body">
-                                                        <table class="table-itinarary-summary" style="width: 100%;">
+                                                        <table class="table-itinarary-summary table" style="width: 100%;">
                                                             <tbody>
                                                                 <tr>
                                                                     <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
@@ -2025,13 +2203,13 @@
                                             <div class="panel panel-red">
                                                 <div class="panel-heading" role="tab" id="headingTwo">
                                                     <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Day 2
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Day 2  (12-Mar-2016)
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapseTwo" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                     <div class="panel-body">
-                                                        <table class="table-itinarary-summary" style="width: 100%;">
+                                                        <table class="table-itinarary-summary table" style="width: 100%;">
                                                             <tbody>
                                                                 <tr>
                                                                     <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
@@ -2083,13 +2261,13 @@
                                             <div class="panel panel-red">
                                                 <div class="panel-heading" role="tab" id="headingThree">
                                                     <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Day 3
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Day 3 (13-Mar-2016)
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingThree">
                                                     <div class="panel-body">
-                                                        <table class="table-itinarary-summary" style="width: 100%;">
+                                                        <table class="table-itinarary-summary table" style="width: 100%;">
                                                             <tbody>
                                                                 <tr>
                                                                     <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
@@ -2148,187 +2326,443 @@
                     @*Summary*@
                     <div class="tab-pane fade in" id="tab4">
                         <div class="row">
-                            <div class="col-md-7">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <label class="tour-code">Tour Name:- Neeraj Khurana BANGKOK PACKAGE 01Nights</label>
-                                    </div>
-                                </div>
+                            <div class="col-md-9">
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                     <div class="panel panel-red">
                                         <div class="panel-heading accordian-heading" role="tab" id="headingOne">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#summarycollapseOne" aria-expanded="true" aria-controls="collapseOne">Day 1
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#summarycollapseOne" aria-expanded="true" aria-controls="collapseOne">Day 1 (11-Mar-2016)
                                                 </a>
                                             </h4>
                                         </div>
-                                        <div id="summarycollapseOne" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="panel-body">
-                                                <table class="table-itinarary-summary" style="width: 100%;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>Amari Atrium</td>
-                                                            <td><span class="label label-primary total-cost">THB 5500</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-map-marker"></span></td>
-                                                            <td>Grand Palace</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>A1 Bangkok</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-car"></span></td>
-                                                            <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-street-view"></span></td>
-                                                            <td>Nadia Manassawee Ponpitak</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <div id="summarycollapseOne" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="headingOne">
+                                            <table class="table-itinarary-summary table" style="width: 100%;">
+                                                <tbody>
+                                                    @*Hotel*@
+                                                    <tr>
+                                                        <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
+                                                        <td>Amari Atrium</td>
+                                                        <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
+                                                        <td>
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
+                                                        </td>
+                                                        <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
+                                                        <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Transfer*@
+                                                    <tr>
+                                                        <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
+                                                        <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                        <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                        <td>
+                                                            <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                            <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                            <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                        </td>
+                                                        <td><span class="label label-springgreen total-cost">THB 4200</span></td>
+                                                        <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Restaurant*@
+                                                    <tr>
+                                                        <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                        <td>Zazen Restaurant</td>
+                                                        <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                        </td>
+                                                        <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                        <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Guide*@
+                                                    <tr>
+                                                        <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
+                                                        <td>Nadia Manassawee Ponpitak</td>
+                                                        <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
+                                                            <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
+                                                        </td>
+                                                        <td><span class="label label-tomato total-cost">THB 1200</span></td>
+                                                        <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Sightseeing*@
+                                                    <tr>
+                                                        <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
+                                                        <td>Grand Palace</td>
+                                                        <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
+                                                        </td>
+                                                        <td><span class="label label-orange total-cost">THB 4200</span></td>
+                                                        <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+
+                                                    @*Restaurant*@
+                                                    <tr>
+                                                        <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                        <td>Zazen Restaurant</td>
+                                                        <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                        </td>
+                                                        <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                        <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <div class="panel panel-red">
                                         <div class="panel-heading accordian-heading" role="tab" id="headingTwo">
                                             <h4 class="panel-title">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#summarycollapseOnecollapseTwo" aria-expanded="false" aria-controls="collapseTwo">Day 2
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#summarycollapseOnecollapseTwo" aria-expanded="false" aria-controls="collapseTwo">Day 2 (12-Mar-2016)
                                                 </a>
                                             </h4>
                                         </div>
-                                        <div id="summarycollapseOnecollapseTwo" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                                            <div class="panel-body">
-                                                <table class="table-itinarary-summary" style="width: 100%;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>Amari Atrium</td>
-                                                            <td><span class="label label-primary total-cost">THB 5500</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-map-marker"></span></td>
-                                                            <td>Grand Palace</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>A1 Bangkok</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-car"></span></td>
-                                                            <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-street-view"></span></td>
-                                                            <td>Nadia Manassawee Ponpitak</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <div id="summarycollapseOnecollapseTwo" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="headingTwo">
+                                            <table class="table-itinarary-summary table" style="width: 100%;">
+                                                <tbody>
+                                                    @*Hotel*@
+                                                    <tr>
+                                                        <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
+                                                        <td>Amari Atrium</td>
+                                                        <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
+                                                        <td>
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
+                                                        </td>
+                                                        <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
+                                                        <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Transfer*@
+                                                    <tr>
+                                                        <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
+                                                        <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                        <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                        <td>
+                                                            <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                            <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                            <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                        </td>
+                                                        <td><span class="label label-springgreen total-cost">THB 4200</span></td>
+                                                        <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Restaurant*@
+                                                    <tr>
+                                                        <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                        <td>Zazen Restaurant</td>
+                                                        <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                        </td>
+                                                        <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                        <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Guide*@
+                                                    <tr>
+                                                        <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
+                                                        <td>Nadia Manassawee Ponpitak</td>
+                                                        <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
+                                                            <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
+                                                        </td>
+                                                        <td><span class="label label-tomato total-cost">THB 1200</span></td>
+                                                        <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Sightseeing*@
+                                                    <tr>
+                                                        <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
+                                                        <td>Grand Palace</td>
+                                                        <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
+                                                        </td>
+                                                        <td><span class="label label-orange total-cost">THB 4200</span></td>
+                                                        <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+
+                                                    @*Restaurant*@
+                                                    <tr>
+                                                        <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                        <td>Zazen Restaurant</td>
+                                                        <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                        </td>
+                                                        <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                        <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <div class="panel panel-red">
                                         <div class="panel-heading accordian-heading" role="tab" id="headingThree">
                                             <h4 class="panel-title">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#summarycollapseOnecollapseThree" aria-expanded="false" aria-controls="collapseThree">Day 3
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#summarycollapseOnecollapseThree" aria-expanded="false" aria-controls="collapseThree">Day 3 (13-Mar-2016)
                                                 </a>
                                             </h4>
                                         </div>
-                                        <div id="summarycollapseOnecollapseThree" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingThree">
-                                            <div class="panel-body">
-                                                <table class="table-itinarary-summary" style="width: 100%;">
-                                                    <tbody>
+                                        <div id="summarycollapseOnecollapseThree" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="headingThree">
+                                            <table class="table-itinarary-summary table" style="width: 100%;">
+                                                <tbody>
+                                                    @*Hotel*@
+                                                    <tr>
+                                                        <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
+                                                        <td>Amari Atrium</td>
+                                                        <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
+                                                        <td>
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
+                                                            <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
+                                                        </td>
+                                                        <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
+                                                        <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Transfer*@
+                                                    <tr>
+                                                        <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
+                                                        <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                        <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                        <td>
+                                                            <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                            <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                            <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                        </td>
+                                                        <td><span class="label label-springgreen total-cost">THB 4200</span></td>
+                                                        <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Restaurant*@
+                                                    <tr>
+                                                        <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                        <td>Zazen Restaurant</td>
+                                                        <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                        </td>
+                                                        <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                        <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Guide*@
+                                                    <tr>
+                                                        <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
+                                                        <td>Nadia Manassawee Ponpitak</td>
+                                                        <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
+                                                            <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
+                                                        </td>
+                                                        <td><span class="label label-tomato total-cost">THB 1200</span></td>
+                                                        <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                    @*Sightseeing*@
+                                                    <tr>
+                                                        <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
+                                                        <td>Grand Palace</td>
+                                                        <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
+                                                            <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
+                                                        </td>
+                                                        <td><span class="label label-orange total-cost">THB 4200</span></td>
+                                                        <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+
+                                                    @*Restaurant*@
+                                                    <tr>
+                                                        <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                        <td>Zazen Restaurant</td>
+                                                        <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
+                                                        <td>
+                                                            <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                            <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                        </td>
+                                                        <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                        <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                        <td><span class="fa fa-close faDanger"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 quote-link">
+                                <h2 style="font-size: 15px;">Summary</h2>
+                                <div class="panel panel-white">
+                                    <div class="panel-body tab-itenaries summary-tab-itenaries ">
+                                        <h4>THLND-FLG-SP-0101</h4>
+                                        <div class="form-group">
+                                            <label class="form-control tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-control tour-code">Tour Name:- Neeraj Khurana BANGKOK PACKAGE 01Nights</label>
+                                        </div>
+                                        <div class="panel-group" aria-multiselectable="true" role="tablist">
+                                            @*Tour Details*@
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingTwo">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab1" aria-expanded="false" aria-controls="collapseTwo">Tour Details
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="SummaryTab1" class="panel-collapse panel-white collapse summarytab" role="tabpanel" aria-labelledby="headingTwo">
+                                                    <div class="panel-body">
+                                                        <p>
+                                                            <label>Agent: <span>Flamingo Travels</span></label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Client Name: <span></span></label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Client Nationality Set</label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Tour Name</label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Tour Code</label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Travel From Date</label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Travel To Date</label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Nights</label>
+                                                        </p>
+                                                        <p>
+                                                            <label>Days</label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*Quote Summery*@
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingTwo">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="false" aria-controls="collapseTwo">
+                                                            Quote Summery
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="headingTwo">
+                                                    <table class="table">
                                                         <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>Amari Atrium</td>
-                                                            <td><span class="label label-primary total-cost">THB 5500</span></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>
+                                                                <label>Total Net Rate</label></td>
+                                                            <td class="right-aligned">
+                                                                <span class="label label-danger">4700 THB</span>
+
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="fa fa-map-marker"></span></td>
-                                                            <td>Grand Palace</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>
+                                                                <label>Total Margin</label></td>
+                                                            <td class="right-aligned">
+                                                                <span class="label label-danger">890 THB</span>
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>A1 Bangkok</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>
+                                                                <label>Total Discount</label></td>
+                                                            <td class="right-aligned">
+                                                                <span class="label label-danger">240 THB</span>
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="fa fa-car"></span></td>
-                                                            <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>
+                                                                <label>Total Commision</label>
+                                                                
+                                                            </td>
+                                                            <td><span class="label label-danger">1480 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="fa fa-street-view"></span></td>
-                                                            <td>Nadia Manassawee Ponpitak</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>
+                                                                <label>Sell Rate</label></td>
+                                                            <td class="right-aligned">
+                                                                <span class="label label-danger">7310 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="fa fa-university"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-primary total-cost">THB 4200</span></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>
+                                                                <label>Tax</label></td>
+                                                            <td class="right-aligned"><span class="label label-danger">1096 THB</span></td>
                                                         </tr>
-                                                    </tbody>
-                                                </table>
+                                                        <tr>
+                                                            <td>
+                                                                <label>Sell Rate Including Tax</label></td>
+                                                            <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <label>Exchange Rate</label></td>
+                                                            <td class="right-aligned"><span class="label label-danger">40</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <label>Final Sell Rate</label></td>
+                                                            <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2480,6 +2914,9 @@
                                 <div class="col-md-3">
                                     <label for="drproomtype">Room Category</label>
                                     <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Standard</option>
+                                        <option>Deluxe</option>
+                                        <option>Superior</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
@@ -2498,21 +2935,21 @@
                                 <div class="col-md-2">
                                     <label for="txtRoomType">Check-in Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
-                                        <option>Day 1 11-Mar-2016</option>
-                                        <option>Day 2 12-Mar-2016</option>
-                                        <option>Day 3 13-Mar-2016</option>
-                                        <option>Day 4 14-Mar-2016</option>
-                                        <option>Day 5 15-Mar-2016</option>
+                                        <option>Day 1 (11-Mar-2016)</option>
+                                        <option>Day 2 (12-Mar-2016)</option>
+                                        <option>Day 3 (13-Mar-2016)</option>
+                                        <option>Day 4 (14-Mar-2016)</option>
+                                        <option>Day 5 (15-Mar-2016)</option>
                                     </select>
                                 </div>
                                 <div class="col-md-2">
                                     <label for="txtRoomType">Check-out Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
-                                        <option>Day 1 11-Mar-2016</option>
-                                        <option>Day 2 12-Mar-2016</option>
-                                        <option>Day 3 13-Mar-2016</option>
-                                        <option>Day 4 14-Mar-2016</option>
-                                        <option>Day 5 15-Mar-2016</option>
+                                        <option>Day 1 (11-Mar-2016)</option>
+                                        <option>Day 2 (12-Mar-2016)</option>
+                                        <option>Day 3 (13-Mar-2016)</option>
+                                        <option>Day 4 (14-Mar-2016)</option>
+                                        <option>Day 5 (15-Mar-2016)</option>
                                     </select>
                                 </div>
                                 <div class="col-md-2">
@@ -2563,236 +3000,272 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <table class="display table" style="width: 100%; cellspacing: 0;">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 15%">Room Type</th>
-                                        <th style="width: 10%">Total Room</th>
-                                        <th style="width: 12%">Room Category</th>
-                                        <th style="width: 10%">Max Pax</th>
-                                        <th style="width: 7%">Incl. ABF</th>
-                                        <th style="width: 7%">Incl. Lunch</th>
-                                        <th style="width: 7%">Incl. Dinner</th>
-                                        <th style="width: 13%">Net Rate (Per Room)</th>
-                                        <th style="width: 10%">Total Cost</th>
-                                        <th style="width: 5%;"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th colspan="10"></th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Single Room</option>
-                                                <option>Double / Twin Room</option>
-                                                <option>Quad Room</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
-                                        </td>
-                                        <td>
-                                            <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="Max Pax">
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" checked="checked" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateSingle" id="txtNetRateSingle" value="4000" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostSingle" id="txtTotalCostSingle" value="8000" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td><a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Single Room</option>
-                                                <option selected="selected">Double / Twin Room</option>
-                                                <option>Quad Room</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
-                                        </td>
-                                        <td>
-                                            <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="Max Pax">
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" checked="checked" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" checked="checked" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateSingle" id="txtNetRateSingle" value="3000" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostSingle" id="txtTotalCostSingle" value="12000" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td><a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Single Room</option>
-                                                <option>Double / Twin Room</option>
-                                                <option selected="selected">Quad Room</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
-                                        </td>
-                                        <td>
-                                            <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="Max Pax">
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" checked="checked" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" checked="checked" />
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateSingle" id="txtNetRateSingle" value="4500" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostSingle" id="txtTotalCostSingle" value="4500" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td><a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="form-group">
-                            <table class="display table" style="width: 100%; cellspacing: 0;">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 25%"></th>
-                                        <th style="width: 25%">Net Rate (Per Pax)</th>
-                                        <th style="width: 25%">Total Cost</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th colspan="3"></th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Adult Cost</td>
-                                        <td><span>11500</span></td>
-                                        <td><span>24500</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Extra Bed Adult Cost</td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2500" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="5000" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Extra Bed Child Cost</td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="1500" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="7500" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Child No Bed Cost</td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="1000" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="2000" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Infant Cost</td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="800" placeholder="Net Rate (Per Room)">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group input-append">
-                                                <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="800" placeholder="Total Cost">
-                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tabRoomType" role="tab" data-toggle="tab" data-section="tabRoomType" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Rooms</a></li>
+                            <li role="presentation"><a href="#tabRoomRate" role="tab" data-toggle="tab" data-section="tabRoomRate" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Rates</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            @*Tab 1*@
+                            <div role="tabpanel" class="tab-pane active" id="tabRoomType">
+                                <div class="form-group">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 15%">Room Type</th>
+                                                <th style="width: 8%">Total Room</th>
+                                                <th style="width: 15%">Room Category</th>
+                                                <th style="width: 6%">Max Pax</th>
+                                                <th style="width: 6%">Incl. ABF</th>
+                                                <th style="width: 8%">Incl. Lunch</th>
+                                                <th style="width: 8%">Incl. Dinner</th>
+                                                <th style="width: 8%;"></th>
+                                                <th style="width: 5%;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="11"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double / Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Standard</option>
+                                                        <option>Deluxe</option>
+                                                        <option>Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="1" placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option selected="selected">Double / Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Standard</option>
+                                                        <option selected="selected">Deluxe</option>
+                                                        <option>Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="4" placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double / Twin Room</option>
+                                                        <option selected="selected">Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Standard</option>
+                                                        <option>Deluxe</option>
+                                                        <option selected="selected">Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="6" readonly placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*Tab 2*@
+                            <div role="tabpanel" class="tab-pane" id="tabRoomRate">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="text-danger"><span>Double / Twin Room Cost / Pax Details</span></h3>
+                                        <h4 class="text-danger">Deluxe  |  Max Pax: 4  |  Incl. ABF  |  Incl. Lunch</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Double / Twin Room Cost</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="RoomCost" value="4700" placeholder="Room Cost">
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label># of Double / Twin Rooms</label>
+                                        <input type="text" class="form-control" id="txtNumberOfSingleRoom" value="4" placeholder="# of Double / Twin Room" readonly>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Total Double / Twin Room Cost</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="idTotalCost" value="18800" placeholder="Total Double / Twin Room Cost" readonly>
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label># of Adults</label>
+                                        <input type="text" class="form-control" id="txtNumberOfAdults" value="8" placeholder="# of Adults">
+                                    </div>
+                                </div>
+
+                                @*Rate*@
+                                <div class="form-group">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 25%"></th>
+                                                <th style="width: 25%">Pax Count</th>
+                                                <th style="width: 25%">Net Rate (Per Room Per Night)</th>
+                                                <th style="width: 25%">Total Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="3"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>Extra Bed Adult Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2500" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="5000" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Extra Bed Child Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="1500" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="3000" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Child No Bed Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="1000" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Infant Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="800" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2806,7 +3279,7 @@
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost: </h4>
                                 </td>
                                 <td>
-                                    <h2 class="text-danger strong" style="margin-top: 9px;">34800 THB</h2>
+                                    <h2 class="text-danger strong" style="margin-top: 9px;">26800 THB</h2>
                                 </td>
                             </tr>
                         </table>
@@ -2989,11 +3462,11 @@
                         <div class="col-md-4">
                             <label for="txtRoomType">Visit Day</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
-                                <option>Day 1 11-Mar-2016</option>
-                                <option>Day 2 12-Mar-2016</option>
-                                <option>Day 3 13-Mar-2016</option>
-                                <option>Day 4 14-Mar-2016</option>
-                                <option>Day 5 15-Mar-2016</option>
+                                <option>Day 1 (11-Mar-2016)</option>
+                                <option>Day 2 (12-Mar-2016)</option>
+                                <option>Day 3 (13-Mar-2016)</option>
+                                <option>Day 4 (14-Mar-2016)</option>
+                                <option>Day 5 (15-Mar-2016)</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -3082,11 +3555,11 @@
                         <div class="col-md-6">
                             <label for="txtRoomType">Visit Day</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
-                                <option>Day 1 11-Mar-2016</option>
-                                <option>Day 2 12-Mar-2016</option>
-                                <option>Day 3 13-Mar-2016</option>
-                                <option>Day 4 14-Mar-2016</option>
-                                <option>Day 5 15-Mar-2016</option>
+                                <option>Day 1 (11-Mar-2016)</option>
+                                <option>Day 2 (12-Mar-2016)</option>
+                                <option>Day 3 (13-Mar-2016)</option>
+                                <option>Day 4 (14-Mar-2016)</option>
+                                <option>Day 5 (15-Mar-2016)</option>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -3337,11 +3810,11 @@
                         <div class="col-md-3">
                             <label for="txtRoomType">Visit Day</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
-                                <option>Day 1 11-Mar-2016</option>
-                                <option>Day 2 12-Mar-2016</option>
-                                <option>Day 3 13-Mar-2016</option>
-                                <option>Day 4 14-Mar-2016</option>
-                                <option>Day 5 15-Mar-2016</option>
+                                <option>Day 1 (11-Mar-2016)</option>
+                                <option>Day 2 (12-Mar-2016)</option>
+                                <option>Day 3 (13-Mar-2016)</option>
+                                <option>Day 4 (14-Mar-2016)</option>
+                                <option>Day 5 (15-Mar-2016)</option>
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -3459,11 +3932,11 @@
                         <div class="col-md-3">
                             <label for="txtRoomType">Visit Day</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
-                                <option>Day 1 11-Mar-2016</option>
-                                <option>Day 2 12-Mar-2016</option>
-                                <option>Day 3 13-Mar-2016</option>
-                                <option>Day 4 14-Mar-2016</option>
-                                <option>Day 5 15-Mar-2016</option>
+                                <option>Day 1 (11-Mar-2016)</option>
+                                <option>Day 2 (12-Mar-2016)</option>
+                                <option>Day 3 (13-Mar-2016)</option>
+                                <option>Day 4 (14-Mar-2016)</option>
+                                <option>Day 5 (15-Mar-2016)</option>
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -3643,13 +4116,3 @@
     <script src="/assets/js/pages/calendar.js"></script>
 }
 
-
-@section floatingsection{
-    <div class="floating-section-buttons tab1-1">
-        <a class="btn btn-default" data-section="tab1section1" rel="tooltip" title="Agent Details">1</a>
-        @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
-        <a class="btn btn-default" data-section="tab1section2" rel="tooltip" title="Tour Package Details">2</a>
-        <a class="btn btn-default" data-section="tab1section3" rel="tooltip" title="Pax / Room Details">3</a>
-        @*<a class="btn btn-default" data-section="tab1section4" rel="tooltip" title="Room Details">4</a>*@
-    </div>
-}
