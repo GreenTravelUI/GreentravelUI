@@ -29,5 +29,5 @@ $(document).ready(function () {
     });
     $('#cp2').colorpicker();
 
-    $('#timepicker1').timepicker();
+    $('.timepicker').timepicker();
 });
