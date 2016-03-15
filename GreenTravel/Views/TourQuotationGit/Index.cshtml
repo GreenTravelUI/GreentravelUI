@@ -1469,12 +1469,12 @@
                                                     <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div class="form-control">
+                                                    @*<div class="form-control">
                                                         Total Cost
                                                     </div>
                                                     <div class="form-control">
                                                         <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>
+                                                    </div>*@
                                                     <div class="form-control">
                                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
                                                             CALCULATE PRICE</button>
@@ -2546,7 +2546,7 @@
                                 </div>
                             </div>
                         </div>
-                        @*<div class="form-group">
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
                                     <label for="txtNumberOfAdult"># Adult</label>
@@ -2569,229 +2569,767 @@
                                     <input type="text" class="form-control" name="txtNumberOfInfant" id="txtNumberOfInfant" value="1" placeholder="# Infant">
                                 </div>
                             </div>
-                        </div>*@
-                        <div role="tabpanel">
-                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#Accomodationserch" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hotel Pax Details</a></li>
-                                <li role="presentation"><a href="#accomondationform" role="tab" data-toggle="tab" data-section="accomondationform" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hotel Price Details</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="Accomodationserch">
-                                    <div class="form-group">
-                                        <table class="display table" style="width: 100%; cellspacing: 0;">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width: 15%">Room Type</th>
-                                                    <th style="width: 8%">Total Room</th>
-                                                    <th style="width: 15%">Room Category</th>
-                                                    <th style="width: 6%">Max Pax</th>
-                                                    <th style="width: 7%">Incl. ABF</th>
-                                                    <th style="width: 7%">Incl. Lunch</th>
-                                                    <th style="width: 8%">Incl. Dinner</th>
-                                                    <th style="width: 5%;"></th>
-                                                    <th style="width: 5%;"></th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th colspan="11"></th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Single Room</option>
-                                                            <option>Double / Twin Room</option>
-                                                            <option>Quad Room</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
-                                                    </td>
-                                                    <td>
-                                                        <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option selected="selected">Standard</option>
-                                                            <option>Deluxe</option>
-                                                            <option>Superior</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="2" placeholder="Max Pax">
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" checked="checked" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" />
-                                                    </td>
-                                                    <td><a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Single Room</option>
-                                                            <option selected="selected">Double / Twin Room</option>
-                                                            <option>Quad Room</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
-                                                    </td>
-                                                    <td>
-                                                        <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Standard</option>
-                                                            <option selected="selected">Deluxe</option>
-                                                            <option>Superior</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="2" placeholder="Max Pax">
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" checked="checked" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" checked="checked" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" />
-                                                    </td>
-                                                    <td><a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Single Room</option>
-                                                            <option>Double / Twin Room</option>
-                                                            <option selected="selected">Quad Room</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
-                                                    </td>
-                                                    <td>
-                                                        <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Standard</option>
-                                                            <option>Deluxe</option>
-                                                            <option selected="selected">Superior</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" readonly placeholder="Max Pax">
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" checked="checked" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" checked="checked" />
-                                                    </td>
-                                                    <td><a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a></td>
-                                                    <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                        </div>
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tabRoomType" role="tab" data-toggle="tab" data-section="tabRoomType" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Rooms</a></li>
+                            <li role="presentation"><a href="#tabRoomRate" role="tab" data-toggle="tab" data-section="tabRoomRate" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Rates</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            @*Tab 1*@
+                            <div role="tabpanel" class="tab-pane active" id="tabRoomType">
+                                <div class="form-group">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 15%">Room Type</th>
+                                                <th style="width: 8%">Total Room</th>
+                                                <th style="width: 15%">Room Category</th>
+                                                <th style="width: 6%">Max Pax</th>
+                                                <th style="width: 6%">Incl. ABF</th>
+                                                <th style="width: 8%">Incl. Lunch</th>
+                                                <th style="width: 8%">Incl. Dinner</th>
+                                                <th style="width: 8%;"></th>
+                                                <th style="width: 5%;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="11"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double / Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Standard</option>
+                                                        <option>Deluxe</option>
+                                                        <option>Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="1" placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option selected="selected">Double / Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Standard</option>
+                                                        <option selected="selected">Deluxe</option>
+                                                        <option>Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="4" placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double / Twin Room</option>
+                                                        <option selected="selected">Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Standard</option>
+                                                        <option>Deluxe</option>
+                                                        <option selected="selected">Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="6" readonly placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*Tab 2*@
+                            <div role="tabpanel" class="tab-pane" id="tabRoomRate">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="text-danger"><span>Double / Twin Room Cost / Pax Details</span></h3>
+                                        <h4 class="text-danger">Deluxe  |  Max Pax: 4  |  Incl. ABF  |  Incl. Lunch</h4>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane" id="accomondationform">
-                                    <div class="form-group">
-                                        <table class="display table" style="width: 100%; cellspacing: 0;">
+                                @*<div class="row">
+                                    <div class="col-md-3">
+                                        <label>Double / Twin Room Cost</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="RoomCost" value="4700" placeholder="Room Cost">
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label># of Double / Twin Rooms</label>
+                                        <input type="text" class="form-control" id="txtNumberOfSingleRoom" value="4" placeholder="# of Double / Twin Room" readonly>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Total Double / Twin Room Cost</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="idTotalCost" value="18800" placeholder="Total Double / Twin Room Cost" readonly>
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label># of Adults</label>
+                                        <input type="text" class="form-control" id="txtNumberOfAdults" value="8" placeholder="# of Adults" >
+                                    </div>
+                                </div>*@
+
+                                @*Rate*@
+                                <div class="form-group">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
                                             <thead>
                                                 <tr>
-                                                    <th style="width: 12%">Pax Range </th>
-                                                    <th>Single Room Net Rate</th>
-                                                    <th>Double/Twin Room Net Rate </th>
-                                                    <th>Quad Room Net Rate</th>
-                                                    <th>Extra Bed Adult Net Rate</th>
-                                                    <th style="width: 25%">Extra Bed Child Net Rate</th>
-                                                    <th style="width: 25%">CNB Net Rate</th>
-                                                    <th style="width: 25%">Infant</th>
-                                                    <th style="width: 25%">Net Rate (Per Pax)</th>
-                                                    <th style="width: 25%">Total Cost</th>
+                                                    <th style="width: 8%">Pax Range </th>
+                                                    <th>Double / Twin Room Cost</th>
+                                                    <th>Extra Bed Adult Cost</th>
+                                                    <th>Extra Bed Child Cost</th>
+                                                    <th>Child No Bed Cost</th>
+                                                    <th>Infant Cost</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
-                                                    <th colspan="10"></th>
+                                                    <th colspan="6"></th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
-                                                @*<tr>
-                                                    <td>Adult Cost</td>
-                                                    <td><span>11500</span></td>
-                                                    <td><span>24500</span></td>
-                                                </tr>
                                                 <tr>
-                                                    <td>Extra Bed Adult Cost</td>
+                                                    <td>5-10</td>
                                                     <td>
                                                         <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2500" placeholder="Net Rate (Per Room)">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2500" placeholder="Double / Twin Room Cost">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="5000" placeholder="Total Cost">
-                                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Extra Bed Child Cost</td>
-                                                    <td>
-                                                        <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="1500" placeholder="Net Rate (Per Room)">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="10" placeholder="Extra Bed Adult Cost">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="7500" placeholder="Total Cost">
-                                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Child No Bed Cost</td>
-                                                    <td>
-                                                        <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="1000" placeholder="Net Rate (Per Room)">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="25" placeholder="Extra Bed Child Cost">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="2000" placeholder="Total Cost">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="50" placeholder="Child No Bed Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="75" placeholder="Infant Cost">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Infant Cost</td>
+                                                    <td>10-20</td>
                                                     <td>
                                                         <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="800" placeholder="Net Rate (Per Room)">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="3000" placeholder="Double / Twin Room Cost">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-append">
-                                                            <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="800" placeholder="Total Cost">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="125" placeholder="Extra Bed Adult Cost">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </td>
-                                                </tr>*@
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="150" placeholder="Extra Bed Child Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="175" placeholder="Child No Bed Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="200" placeholder="Infant Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20-30</td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="4000" placeholder="Double / Twin Room Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="35" placeholder="Extra Bed Adult Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="25" placeholder="Extra Bed Child Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="50" placeholder="Child No Bed Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="75" placeholder="Infant Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>30-40</td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="4500" placeholder="Double / Twin Room Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="100" placeholder="Extra Bed Adult Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="200" placeholder="Extra Bed Child Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="300" placeholder="Child No Bed Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="125" placeholder="Infant Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>40-50</td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="5000" placeholder="Double / Twin Room Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="100" placeholder="Extra Bed Adult Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="200" placeholder="Extra Bed Child Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="250" placeholder="Child No Bed Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="100" placeholder="Infant Cost">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6" style="text-align: right;">
+                        <table style="float: right">
+                            <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost: </h4>
+                                </td>
+                                <td>
+                                    <h2 class="text-danger strong" style="margin-top: 9px;">26800 THB</h2>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-info">Calculate</button>*@
+                <button type="button" class="btn btn-success ">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* hotelpop*@
+@*Hotel Popup*@
+<div class="modal fade" id="myHotelModal111" tabindex="-1" role="dialog" aria-labelledby="myModalLabel111" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Calculate Hotel Price - <span class="text-danger">Amari Atrium</span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="txtRoomType">Total Pax</label>
+                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtTotalPax" value="20" placeholder="Total Pax">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="drproomtype">Room Category</label>
+                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                        <option selected="selected">Standard</option>
+                                        <option>Deluxe</option>
+                                        <option>Superior</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtRoomType">Max Pax</label>
+                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtMaxPax" placeholder="Max Pax" readonly>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="drpSupplier">Supplier</label>
+                                    <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="txtRoomType">Check-in Day</label>
+                                    <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Day 1 (11-Mar-2016)</option>
+                                        <option>Day 2 (12-Mar-2016)</option>
+                                        <option>Day 3 (13-Mar-2016)</option>
+                                        <option>Day 4 (14-Mar-2016)</option>
+                                        <option>Day 5 (15-Mar-2016)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtRoomType">Check-out Day</label>
+                                    <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Day 1 (11-Mar-2016)</option>
+                                        <option>Day 2 (12-Mar-2016)</option>
+                                        <option>Day 3 (13-Mar-2016)</option>
+                                        <option>Day 4 (14-Mar-2016)</option>
+                                        <option>Day 5 (15-Mar-2016)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtRoomType">Check-In Time</label>
+                                    <div class="input-group input-append bootstrap-timepicker">
+                                        <input type="text" class="form-control" id="txtCheckInTime">
+                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                     </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="width: 100%">&nbsp;</label>
+                                    <input type="checkbox" />
+                                    Incl. ABF
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="width: 100%">&nbsp;</label>
+                                    <input type="checkbox" />
+                                    Incl. Lunch
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="width: 100%">&nbsp;</label>
+                                    <input type="checkbox" />
+                                    Incl. Dinner
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="txtNumberOfAdult"># Adult</label>
+                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberOfAdult" value="10" placeholder="# Adult">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtNumberOfExtraBedAdult"># Extra Bed Adult</label>
+                                    <input type="text" class="form-control" name="txtNumberOfExtraBedAdult" id="txtNumberOfExtraBedAdult" value="2" placeholder="# Extra Bed Adult">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtNumberOfExtraBedChild"># Extra Bed Child</label>
+                                    <input type="text" class="form-control" name="txtNumberOfExtraBedChild" id="txtNumberOfExtraBedChild" value="5" placeholder="# Extra Bed Child">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtNumberOfChildNoBed"># Child No Bed</label>
+                                    <input type="text" class="form-control" name="txtNumberOfChildNoBed" id="txtNumberOfChildNoBed" value="2" placeholder="# Child No Bed">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtNumberOfInfant"># Infant</label>
+                                    <input type="text" class="form-control" name="txtNumberOfInfant" id="txtNumberOfInfant" value="1" placeholder="# Infant">
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tabRoomType1" role="tab" data-toggle="tab" data-section="tabRoomType" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Rooms</a></li>
+                            <li role="presentation"><a href="#tabRoomRate1" role="tab" data-toggle="tab" data-section="tabRoomRate" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Rates</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            @*Tab 1*@
+                            <div role="tabpanel" class="tab-pane active" id="tabRoomType1">
+                                <div class="form-group">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 15%">Room Type</th>
+                                                <th style="width: 8%">Total Room</th>
+                                                <th style="width: 15%">Room Category</th>
+                                                <th style="width: 6%">Max Pax</th>
+                                                <th style="width: 6%">Incl. ABF</th>
+                                                <th style="width: 8%">Incl. Lunch</th>
+                                                <th style="width: 8%">Incl. Dinner</th>
+                                                <th style="width: 8%;"></th>
+                                                <th style="width: 5%;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="11"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double / Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Standard</option>
+                                                        <option>Deluxe</option>
+                                                        <option>Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="1" placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option selected="selected">Double / Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Standard</option>
+                                                        <option selected="selected">Deluxe</option>
+                                                        <option>Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="4" placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double / Twin Room</option>
+                                                        <option selected="selected">Quad Room</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
+                                                </td>
+                                                <td>
+                                                    <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Standard</option>
+                                                        <option>Deluxe</option>
+                                                        <option selected="selected">Superior</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="6" readonly placeholder="Max Pax">
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" checked="checked" />
+                                                </td>
+                                                <td>
+                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                </td>
+                                                <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*Tab 2*@
+                            <div role="tabpanel" class="tab-pane" id="tabRoomRate1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="text-danger"><span>Double / Twin Room Cost / Pax Details</span></h3>
+                                        <h4 class="text-danger">Deluxe  |  Max Pax: 4  |  Incl. ABF  |  Incl. Lunch</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Double / Twin Room Cost</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="RoomCost" value="4700" placeholder="Room Cost">
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label># of Double / Twin Rooms</label>
+                                        <input type="text" class="form-control" id="txtNumberOfSingleRoom" value="4" placeholder="# of Double / Twin Room" readonly>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Total Double / Twin Room Cost</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="idTotalCost" value="18800" placeholder="Total Double / Twin Room Cost" readonly>
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label># of Adults</label>
+                                        <input type="text" class="form-control" id="txtNumberOfAdults" value="8" placeholder="# of Adults" >
+                                    </div>
+                                </div>
+
+                                @*Rate*@
+                                <div class="form-group">
+                                    <table class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 25%"></th>
+                                                <th style="width: 25%">Pax Count</th>
+                                                <th style="width: 25%">Net Rate (Per Room Per Night)</th>
+                                                <th style="width: 25%">Total Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="3"></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>Extra Bed Adult Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2500" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="5000" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Extra Bed Child Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="1500" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="3000" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Child No Bed Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="1000" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Infant Cost</td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="" placeholder="Pax Count">
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="800" placeholder="Net Rate (Per Room)">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="" placeholder="Total Cost" readonly>
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -2807,7 +3345,7 @@
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost: </h4>
                                 </td>
                                 <td>
-                                    <h2 class="text-danger strong" style="margin-top: 9px;">34800 THB</h2>
+                                    <h2 class="text-danger strong" style="margin-top: 9px;">26800 THB</h2>
                                 </td>
                             </tr>
                         </table>
@@ -2822,6 +3360,7 @@
         </div>
     </div>
 </div>
+
 
 @*Sightseeing Popup*@
 <div class="modal fade" id="mySightseeingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
