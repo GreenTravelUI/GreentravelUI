@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Alert Messages";
+    ViewBag.PageTitle = "Alert Messages";
+}
+
+
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <button class="btn btn-success" onclick="swal('Good job!','Agent created successfully!','success')">CREATE</button>
+            <button class="btn btn-primary" onclick="swal('Good job!','Agent updated successfully!','success')">UPDATE</button>
+            <button class="btn btn-danger" onclick="swal('Oops...','Same agent found with same data!','error')">ERROR MESSAGE</button>
+            <button class="btn btn-green" onclick="confirmAlert();">DELETE</button>
+            <button class="btn btn-info" onclick="swal({ title: 'Auto close alert!', text: 'This will close in 10 seconds.', timer: 10000});">AUTO CLOSE MESSAGE</button>
+            <button class="btn btn-danger" onclick="swal({title: 'Complete Following Fields',html:'<ul><li>Name: Is required.</li><li>Email: Invalid format.</li><li>Mobile: Invalid format.</li></ul>'});">ALREADY EXISTS LIST MESSAGE</button>
+            <button class="btn btn-warning" onclick="swal('Warning','You will not be able to recover this quotation.','warning')">WARNING</button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function confirmAlert() {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this quotation!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Deleted!", "Your quotation has been deleted.", "success");
+                } else {
+                    swal("Cancelled", "Your quotation is safe :)", "error");
+                }
+            });
+        }
+    </script>
+}
