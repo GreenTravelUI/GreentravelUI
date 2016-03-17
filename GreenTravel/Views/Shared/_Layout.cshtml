@@ -872,6 +872,7 @@
             $('.exclude').sortable({
                 items: ':not(.disabled)'
             });
+            checkWindowSize($(window).width());
         });
         $(document).ready(function () {
             $('.nav-tabs a').click(function () {
@@ -988,7 +989,15 @@
                 }
             }
         });
-
+        function checkWindowSize(wSize) {
+            if (wSize <= 360) {
+                $('body').removeClass('page-sidebar-fixed');
+            } else if (wSize <= 480) {
+                $('body').removeClass('page-sidebar-fixed');
+            } else if (wSize <= 640) {
+                $('body').removeClass('page-sidebar-fixed');
+            }
+        }
     </script>
     <script src="~/Scripts/JS/CommonValueSelection.js"></script>
     @*<script src="~/Scripts/JS/CommonValidations.js"></script>*@
