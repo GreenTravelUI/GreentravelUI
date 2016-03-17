@@ -12,7 +12,7 @@
             <button class="btn btn-danger" onclick="swal('Oops...','Same agent found with same data!','error')">ERROR MESSAGE</button>
             <button class="btn btn-green" onclick="confirmAlert();">DELETE</button>
             <button class="btn btn-info" onclick="swal({ title: 'Auto close alert!', text: 'This will close in 10 seconds.', timer: 10000});">AUTO CLOSE MESSAGE</button>
-            <button class="btn btn-danger" onclick="swal({title: 'Complete Following Fields',html:'<ul><li>Name: Is required.</li><li>Email: Invalid format.</li><li>Mobile: Invalid format.</li></ul>'});">ALREADY EXISTS LIST MESSAGE</button>
+            <button class="btn btn-danger" onclick="htmlMessage();">ALREADY EXISTS LIST MESSAGE</button>
             <button class="btn btn-warning" onclick="swal('Warning','You will not be able to recover this quotation.','warning')">WARNING</button>
         </div>
     </div>
@@ -38,6 +38,14 @@
                 } else {
                     swal("Cancelled", "Your quotation is safe :)", "error");
                 }
+            });
+        }
+
+        function htmlMessage() {
+            var str = '<ul><li><span class="fa fa-angle-double-right"></span>Name: Is required.</li><li><span class="fa fa-angle-double-right"></span>Email: Invalid format.</li><li><span class="fa fa-angle-double-right"></span>Mobile: Invalid format.</li></ul>';
+            swal({
+                title: 'Complete Following Fields',
+                html: str
             });
         }
     </script>
