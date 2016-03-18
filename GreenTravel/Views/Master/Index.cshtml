@@ -152,9 +152,9 @@
                                             </select>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="drpCorporate">Corporate <span>*</span></label>
+                                            <label for="drpCorporate">Corporate</label>
                                             <select id="drpCorporate" class="js-states form-control drpdown req" style="display: none; width: 100%">
-                                                <option value="0">--All--</option>
+                                                <option value="0">--None--</option>
                                                 <option value="1">Patel Tours&Travels</option>
                                                 <option value="2">Flamingo Travels</option>
                                                 <option value="3">Eagle Travels</option>
@@ -274,7 +274,7 @@
                                                         <label>Control Sequence Number <span>*</span></label>
                                                         <input type="text" class="form-control req" id="txtControlSequenceNumber" placeholder="1">
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Control Type <span>*</span></label>
                                                         <select id="drpControlType" class="js-states form-control drpdown req" style="display: none; width: 100%">
                                                             <option value="0">--None--</option>
@@ -287,6 +287,22 @@
                                                             <option value="7">TextArea</option>
                                                             <option value="8">HTML Editor</option>
                                                             <option value="8">Upload</option>
+                                                        </select>
+
+                                                    </div>
+                                                     <div class="col-md-3">
+                                                        <label>Backend Field</label>
+                                                        <select id="drpBackendControl" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                            <option value="0" selected="selected">DropDown 1</option>
+                                                            <option value="1">DropDown 2</option>
+                                                            <option value="2">DropDown 3</option>
+                                                            <option value="3">DropDown 4</option>
+                                                            <option value="4">DropDown 5</option>
+                                                            <option value="5">DropDown 6</option>
+                                                            <option value="6">DropDown 7</option>
+                                                            <option value="7">DropDown 8</option>
+                                                            <option value="8">DropDown 9</option>
+                                                            <option value="8">DropDown 10</option>
                                                         </select>
 
                                                     </div>
@@ -325,38 +341,44 @@
                                             <h3><span class="tab-section-name">Form Control Validation</span></h3>
                                             <div class="form-group">
                                                 <div class="row">
+
                                                     <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" checked="checked" id="chkRequired">Required
+                                                        <div class="row">
+                                                            <label for="chkreq">&nbsp;</label>
+                                                            <div class="col-md-12 form-marings">
+                                                                <input type="checkbox" checked="checked" id="chkRequired">Required
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" checked="checked" id="chkEmailValidation">Email Validation
+                                                        <div class="row">
+                                                            <label for="chkcharlim">&nbsp;</label>
+                                                            <div class="col-md-12 form-marings">
+                                                                <input type="checkbox" checked="checked" id="chkcharlimit">Character Limit
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" id="chkNumeric">Numeric
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" id="chkAlphabetic">Alphabetic
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" checked="checked" id="chkAlphanumeric">Alphanumeric
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" id="chkDecimaAmount">Decimal Amount
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" checked="checked" id="chkUrl">URL
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" id="chkNegNumberallowed">Neg. Number Allowed
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <input type="checkbox" checked="checked" id="chkNegDecimalAmount">Neg. Decimal Amount
+                                                    <div class="col-md-6 form-marings">
+                                                        <label>Other Validation</label>
+                                                        <select id="drpFormValidation" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                            <option value="0">--None--</option>
+                                                            <option value="email">Email</option>
+                                                            <option value="Numeric">Numeric</option>
+                                                            <option value="Alphabetic">Alphabetic</option>
+                                                            <option value="Alphanumeric">Alphanumeric</option>
+                                                            <option value="DecimalAmount">Numeric(Decimal Amount)</option>
+                                                            <option value="url">URL</option>
+                                                            <option value="NegNumberAllowed">Numeric(Neg. Number Allowed)</option>
+                                                            <option value="Negdecimalnumber">Numeric(Neg. Decimal Amount)</option>
+                                                            <option value="Regularexpression" selected="selected">Regular Expression</option>
+                                                        </select>
                                                     </div>
 
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
+
                                                     <div class="col-md-3">
                                                         <label>Max Character </label>
                                                         <input type="text" class="form-control req" id="txtMaxValue" placeholder="5">
@@ -365,60 +387,63 @@
                                                         <label>Min Character</label>
                                                         <input type="text" class="form-control req" id="txtMinvalue" placeholder="2">
                                                     </div>
+
+
                                                     <div class="col-md-3">
-                                                        <label>Regular Expression </label>
+                                                        <label>Regular Expression Value </label>
                                                         <input type="text" class="form-control req" id="txtRegularExpression" placeholder="+91-">
                                                     </div>
+
                                                 </div>
-                                            </div>
-                                            <br />
-                                            <button id="btnCreateMasterFormField" type="submit" class="btn btn-success btnSave">
-                                                CREATE MASTER</button>
-
-                                            <button id="btnQuitField" type="submit" class="btn btn-info ">
-                                                QUIT FORM</button>
-                                        </form>
                                     </div>
+                                    <br />
+                                    <button id="btnCreateMasterFormField" type="submit" class="btn btn-success btnSave">
+                                        CREATE MASTER</button>
+
+                                    <button id="btnQuitField" type="submit" class="btn btn-info ">
+                                        QUIT FORM</button>
+                                    </form>
                                 </div>
-
                             </div>
-
 
                         </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="modal fade modify-colum-model" id="DeleteModel" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">System Message</h4>
-                    </div>
 
-                    <div class="modal-body  custom-model-body">
-                        <form>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label id="lbldelete"></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
-                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+    <div class="modal fade modify-colum-model" id="DeleteModel" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">System Message</h4>
+                </div>
+
+                <div class="modal-body  custom-model-body">
+                    <form>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label id="lbldelete"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="modeldelete">Ok</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 </div>
 
 @section scripts{
@@ -454,6 +479,9 @@
 
 
             }
+
+
+
         });
     </script>
 }
