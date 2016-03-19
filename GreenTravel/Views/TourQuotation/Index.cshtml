@@ -363,16 +363,22 @@
         text-align: right !important;
         font-size: 13px !important;
     }
+
     td .label {
         line-height: 2.5;
     }
+
     .btnradius {
         border-radius: 5px !important;
-        padding: 6px 10px ! important;
-        width:100% !important;
-        font-size:19px !important;
+        padding: 6px 10px !important;
+        width: 100% !important;
+        font-size: 19px !important;
     }
 
+    .tab-content-new {
+        background: #fff none repeat scroll 0 0;
+        padding: 0px !important;
+    }
 </style>
 
 <div class="col-md-12">
@@ -518,12 +524,12 @@
                                                                     <div class="col-md-6">
                                                                         <label for="drpOrderStatus">Tour Status</label>
                                                                         <select id="drpOrderStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                       <option value="selstatus">---None---</option>
+                                                                            <option value="selstatus">---None---</option>
                                                                             <option value="draft" selected="selected">Draft</option>
                                                                             <option value="published">Published</option>
                                                                             <option value="online">Online</option>
-                                                                           
-                                                                             </select>
+
+                                                                        </select>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <label for="txtTags">Tags</label>
@@ -1020,7 +1026,7 @@
                                                                 <div class="col-md-6">
                                                                     <label for="txtAgent">Quotation Status</label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
-                                                                    <option>--None--</option>
+                                                                        <option>--None--</option>
                                                                         <option value="draft" selected="selected">Draft</option>
                                                                         <option value="negotiating">Negotiating</option>
                                                                         <option value="readytoquote">Ready To Quote</option>
@@ -1051,7 +1057,7 @@
                                                                     <label for="txtAgent"># of Adult</label>
                                                                     <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
                                                                 </div>
-                                                               
+
                                                                 <div class="col-md-3">
                                                                     <label for="txtAgent"># of Extra Bed Child</label>
                                                                     <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
@@ -1060,7 +1066,7 @@
                                                                     <label for="txtAgent"># of Child No Bed</label>
                                                                     <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
                                                                 </div>
-                                                                 <div class="col-md-3">
+                                                                <div class="col-md-3">
                                                                     <label for="txtAgent"># of Infant</label>
                                                                     <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
                                                                 </div>
@@ -1069,21 +1075,27 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                               
+
                                                                 <div class="col-md-3">
                                                                     <label for="txtNumberofRoomsSinglepax"># of Rooms Single</label>
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double/Twin</label>
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double</label>
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsDouble" placeholder="Number of Rooms Double">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Twin</label>
+                                                                    <input type="text" class="form-control" id="txtnumbertwin" placeholder="Number of Rooms Twin">
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="txtNumberofRoomsTwin"># of Rooms Quad</label>
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsquad" placeholder="Number of Rooms Quad">
                                                                 </div>
                                                             </div>
+
                                                         </div>
+
 
                                                         <br />
                                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -2744,49 +2756,59 @@
                                                 <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab2">
                                                     <table class="table">
                                                         <tr>
-                                                            <td><label>Total Net Rate</label></td>
+                                                            <td>
+                                                                <label>Total Net Rate</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">4700 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Total Margin</label></td>
+                                                            <td>
+                                                                <label>Total Margin</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">890 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Total Discount</label></td>
+                                                            <td>
+                                                                <label>Total Discount</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">240 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Total Commision</label></td>
+                                                            <td>
+                                                                <label>Total Commision</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">1480 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Sell Rate</label></td>
+                                                            <td>
+                                                                <label>Sell Rate</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">7310 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Tax</label></td>
+                                                            <td>
+                                                                <label>Tax</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">1096 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Sell Rate Including Tax</label></td>
+                                                            <td>
+                                                                <label>Sell Rate Including Tax</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Exchange Rate</label></td>
+                                                            <td>
+                                                                <label>Exchange Rate</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">40</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><label>Final Sell Rate</label></td>
+                                                            <td>
+                                                                <label>Final Sell Rate</label></td>
                                                             <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
                                                         </tr>
                                                     </table>
                                                 </div>
                                             </div>
-                                           <br /><br />
+                                            <br />
+                                            <br />
                                             <div class="panel">
-                                            <button id="btnBookNow" type="submit" class="btn btn-success btnSave btnradius" onclick="confirmAlert();">Book Now</button>
-                                           
-                                        </div>
+                                                <button id="btnBookNow" type="submit" class="btn btn-success btnSave btnradius" onclick="confirmAlert();">Book Now</button>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2799,7 +2821,7 @@
                             <div class="col-md-10" style="width: 100%;">
                                 <div id="calendar"></div>
                             </div>
-                           
+
                         </div>
 
                     </div>
@@ -2823,7 +2845,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3">  
                                     <label for="txtRoomType">Total Pax</label>
                                     <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtTotalPax" value="20" placeholder="Total Pax">
                                 </div>
@@ -2835,17 +2857,13 @@
                                         <option>Superior</option>
                                     </select>
                                 </div>
-                               
-                                <div class="col-md-6">
+
+                                <div class="col-md-3">
                                     <label for="drpSupplier">Supplier</label>
                                     <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtRoomType">Check-in Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                                         <option>Day 1 (11-Mar-2016)</option>
@@ -2855,7 +2873,12 @@
                                         <option>Day 5 (15-Mar-2016)</option>
                                     </select>
                                 </div>
-                                <div class="col-md-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-md-3">
                                     <label for="txtRoomType">Check-out Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                                         <option>Day 1 (11-Mar-2016)</option>
@@ -2865,7 +2888,7 @@
                                         <option>Day 5 (15-Mar-2016)</option>
                                     </select>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtRoomType">Check-In Time</label>
                                     <div class="input-group input-append bootstrap-timepicker">
                                         <input type="text" class="form-control timepicker" id="txtCheckInTime">
@@ -2895,22 +2918,23 @@
                                     <label for="txtNumberOfAdult"># Adult</label>
                                     <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberOfAdult" value="10" placeholder="# Adult">
                                 </div>
-                                
-                                <div class="col-md-2">
+
+                                <div class="col-md-3">
                                     <label for="txtNumberOfExtraBedChild"># Extra Bed Child</label>
                                     <input type="text" class="form-control" name="txtNumberOfExtraBedChild" id="txtNumberOfExtraBedChild" value="5" placeholder="# Extra Bed Child">
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtNumberOfChildNoBed"># Child No Bed</label>
                                     <input type="text" class="form-control" name="txtNumberOfChildNoBed" id="txtNumberOfChildNoBed" value="2" placeholder="# Child No Bed">
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtNumberOfInfant"># Infant</label>
                                     <input type="text" class="form-control" name="txtNumberOfInfant" id="txtNumberOfInfant" value="1" placeholder="# Infant">
                                 </div>
                             </div>
                         </div>
-                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+
+                      <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#tabRoomType" role="tab" data-toggle="tab" data-section="tabRoomType" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Rooms</a></li>
                             <li role="presentation"><a href="#tabRoomRate" role="tab" data-toggle="tab" data-section="tabRoomRate" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Rates</a></li>
                         </ul>
@@ -2923,11 +2947,11 @@
                                             <tr>
                                                 <th style="width: 20%">Room Category</th>
                                                 <th style="width: 20%">Room Type</th>
-                                                
                                                 <th style="width: 8%">Total Rooms</th>
                                                 <th style="width: 6%">Incl. ABF</th>
                                                 <th style="width: 8%">Incl. Lunch</th>
                                                 <th style="width: 8%">Incl. Dinner</th>
+                                                <th style="width: 20%">Room Pax Combination</th>
                                                 <th style="width: 8%;"></th>
                                                 <th style="width: 5%;"></th>
                                             </tr>
@@ -2968,6 +2992,26 @@
                                                 <td>
                                                     <input type="checkbox" />
                                                 </td>
+                                                 <td>
+                                                    <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>1 Adult</option>
+                                                         <option>1 Adult + 1 CNB + 1 Infant</option>
+                                                        <option>1 Adult + 1 CNB</option>
+                                                        <option>1 Adult + 1 Infant</option>
+                                                        <option>2 Adults</option>
+                                                        <option>2 Adults + 1 CWB + 1 CNB</option>
+                                                        <option>2 Adults + 1 CWB + 1 Infant</option>
+                                                        <option>2 Adults + 1 CNB + 1 Infant</option>
+                                                        <option>2 Adults + 1 CWB</option>
+                                                        <option>2 Adults + 1 CNB</option>
+                                                        <option>2 Adults + 1 Infant</option>
+                                                        <option>2 Adults + 2 Infant</option>
+                                                        <option>3 Adults</option>
+                                                        <option>3 Adults + 1 CNB + 1 Infant</option>
+                                                        <option>3 Adults + 1 Infant</option>
+                                                        <option>3 Adults + 1 CNB</option>
+                                                    </select>
+                                                </td>
                                                 <td>
                                                     <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
                                                     <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
@@ -3003,6 +3047,26 @@
                                                 </td>
                                                 <td>
                                                     <input type="checkbox" />
+                                                </td>
+                                                 <td>
+                                                    <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>1 Adult</option>
+                                                         <option>1 Adult + 1 CNB + 1 Infant</option>
+                                                        <option>1 Adult + 1 CNB</option>
+                                                        <option>1 Adult + 1 Infant</option>
+                                                        <option>2 Adults</option>
+                                                        <option>2 Adults + 1 CWB + 1 CNB</option>
+                                                        <option>2 Adults + 1 CWB + 1 Infant</option>
+                                                        <option selected="selected">2 Adults + 1 CNB + 1 Infant</option>
+                                                        <option>2 Adults + 1 CWB</option>
+                                                        <option>2 Adults + 1 CNB</option>
+                                                        <option>2 Adults + 1 Infant</option>
+                                                        <option>2 Adults + 2 Infant</option>
+                                                        <option>3 Adults</option>
+                                                        <option>3 Adults + 1 CNB + 1 Infant</option>
+                                                        <option>3 Adults + 1 Infant</option>
+                                                        <option>3 Adults + 1 CNB</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
@@ -3041,6 +3105,26 @@
                                                 <td>
                                                     <input type="checkbox" checked="checked" />
                                                 </td>
+                                                 <td>
+                                                    <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>1 Adult</option>
+                                                        <option>1 Adult + 1 CNB + 1 Infant</option>
+                                                        <option>1 Adult + 1 CNB</option>
+                                                        <option>1 Adult + 1 Infant</option>
+                                                        <option>2 Adults</option>
+                                                        <option>2 Adults + 1 CWB + 1 CNB</option>
+                                                        <option selected="selected">2 Adults + 1 CWB + 1 Infant</option>
+                                                        <option>2 Adults + 1 CNB + 1 Infant</option>
+                                                        <option>2 Adults + 1 CWB</option>
+                                                        <option>2 Adults + 1 CNB</option>
+                                                        <option>2 Adults + 1 Infant</option>
+                                                        <option>2 Adults + 2 Infant</option>
+                                                        <option>3 Adults</option>
+                                                        <option>3 Adults + 1 CNB + 1 Infant</option>
+                                                        <option>3 Adults + 1 Infant</option>
+                                                        <option>3 Adults + 1 CNB</option>
+                                                    </select>
+                                                </td>
                                                 <td>
                                                     <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
                                                     <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
@@ -3055,127 +3139,70 @@
                             <div role="tabpanel" class="tab-pane" id="tabRoomRate">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3 class="text-danger"><span>Double / Twin Room Cost / Pax Details</span></h3>
-                                        <h4 class="text-danger">Deluxe  |  Max Pax: 4  |  Incl. ABF  |  Incl. Lunch</h4>
+                                        <h3 class="text-danger"><span>Double Room Cost</span></h3>
+                                        <h4 class="text-danger">Deluxe  |  4 Rooms  |  2 Adults + 1 CNB + 1 Infant  |  Incl. ABF  |  Incl. Lunch</h4>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <label>Double / Twin Room Cost</label>
+                                    <div class="col-md-4">
+                                        <label>Net Rate (Per Room Per Night)</label>
                                         <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="RoomCost" value="4700" placeholder="Room Cost">
+                                            <input type="text" class="form-control" id="txtNetRate" value="2500" placeholder="Room Cost">
                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <label># of Double / Twin Rooms</label>
-                                        <input type="text" class="form-control" id="txtNumberOfSingleRoom" value="4" placeholder="# of Double / Twin Room" readonly>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label>Total Double / Twin Room Cost</label>
+                                    <div class="col-md-4">
+                                        <label>Extra Bed Adult Rate</label>
                                         <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="idTotalCost" value="18800" placeholder="Total Double / Twin Room Cost" readonly>
+                                            <input type="text" class="form-control" id="txtExtraAdultRate" value="" placeholder="">
                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <label># of Adults</label>
-                                        <input type="text" class="form-control" id="txtNumberOfAdults" value="8" placeholder="# of Adults">
+                                    <div class="col-md-4">
+                                        <label>Extra Bed Child Rate</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="txtCWBRate" value="" placeholder="">
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
                                     </div>
+                                    
                                 </div>
-
-                                @*Rate*@
-                                <div class="form-group">
-                                    <table class="display table" style="width: 100%; cellspacing: 0;">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 25%"></th>
-                                                <th style="width: 25%">Pax Count</th>
-                                                <th style="width: 25%">Net Rate (Per Room Per Night)</th>
-                                                <th style="width: 25%">Total Cost</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th colspan="3"></th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td>Extra Bed Adult Cost</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2" placeholder="Pax Count">
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2500" placeholder="Net Rate (Per Room)">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="5000" placeholder="Total Cost" readonly>
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Extra Bed Child Cost</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="2" placeholder="Pax Count">
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="1500" placeholder="Net Rate (Per Room)">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="3000" placeholder="Total Cost" readonly>
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Child No Bed Cost</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="" placeholder="Pax Count">
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="1000" placeholder="Net Rate (Per Room)">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtTotalCostExtraBedAdult" id="txtTotalCostExtraBedAdult" value="" placeholder="Total Cost" readonly>
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Infant Cost</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNetRateExtraBedAdult" id="txtNetRateExtraBedAdult" value="" placeholder="Pax Count">
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtNetRateQuad" id="txtNetRateQuad" value="800" placeholder="Net Rate (Per Room)">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-append">
-                                                        <input type="text" class="form-control" name="txtTotalCostQuad" id="txtTotalCostQuad" value="" placeholder="Total Cost" readonly>
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                
+                                
+                                 <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Child No Bed Rate</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="txtCNBRate" value="1000" placeholder="">
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                      <div class="col-md-4">
+                                        <label>Infant Rate</label>
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control" id="txtInfantRate" value="500" placeholder="">
+                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                        </div>
+                                    </div>
+                                      
                                 </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                   <table>
+                                       
+                                           <th class="strong" style="font-size:19px">(Room Cost &nbsp;*&nbsp; Number of Rooms)&nbsp;=&nbsp;Total Room Cost</th>
+                                          
+                                       
+                                       <tbody>
+                                           <tr>
+                                               <td class="text-danger strong" style="text-align:right;font-size:25px">(4000*4)=16000 THB</td>
+                                               
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                                </div>
+                                      </div>                          
                             </div>
                         </div>
                     </div>
@@ -3190,9 +3217,29 @@
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost: </h4>
                                 </td>
                                 <td>
-                                    <h2 class="text-danger strong" style="margin-top: 9px;">26800 THB</h2>
+                                    <h2 class="text-danger strong" style="margin-top: 9px;">22500 THB</h2>
                                 </td>
+
                             </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Margin: </h4>
+                                </td>
+                                <td>
+                                    <h2 class="text-danger strong" style="margin-top: 9px;">1575 THB</h2>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Cost For Quotation: </h4>
+                                </td>
+                                <td>
+                                    <h2 class="text-danger strong" style="margin-top: 9px;">24075 THB</h2>
+                                </td>
+
+                            </tr>
+
                         </table>
                     </div>
                 </div>
@@ -3270,26 +3317,26 @@
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                <label for="txtNumberofRoomsSingle">Adult Ticket Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Adult Ticket Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                    <label for="txtNumberofRoomsSingle">Adult Ticket Rate</label>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Adult Ticket Rate">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="txtNumberofRoomsSingle">Child Ticket Rate</label>
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Child Ticket Rate">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                <div class="col-md-3">
+                                    <label for="txtNumberofRoomsSingle">Child Ticket Rate</label>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Child Ticket Rate">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
                                 </div>
-                            </div>
-                                
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="row">
-                            
+
                             <div class="col-md-3">
                                 <label for="txtNumberofRoomsSingle"># Of Adults</label>
                                 <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofAdult" placeholder="# Of Adults">
@@ -3299,10 +3346,10 @@
                                 <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofSightseeingChild" placeholder="# Of Childrens">
                             </div>
                             <div class="col-md-6">
-                                    <label for="txtNumberofRoomsSingle">Additional Services</label>
-                                    <select id="drpIncludedEntrance" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
-                                    </select>
-                                </div>
+                                <label for="txtNumberofRoomsSingle">Additional Services</label>
+                                <select id="drpIncludedEntrance" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3398,7 +3445,7 @@
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                             </select>
                         </div>
-                       
+
                         <div class="col-md-4">
                             <label for="txtServiceCost">Service Cost</label>
                             <div class="input-group input-append">
@@ -3406,7 +3453,7 @@
                                 <span class="input-group-addon add-on"><span>THB</span></span>
                             </div>
                         </div>
-                         <div class="col-md-4">
+                        <div class="col-md-4">
                             <label for="txtRoomType">Additional Services</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
                             </select>
@@ -3499,7 +3546,7 @@
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                             </select>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -3516,7 +3563,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                         <div class="col-md-6">
+                        <div class="col-md-6">
                             <label for="txtRoomType">Additional Services</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
                             </select>
@@ -3782,8 +3829,8 @@
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                             </select>
                         </div>
-                        
-                         <div class="col-md-6 pvt-div">
+
+                        <div class="col-md-6 pvt-div">
                             <label for="txtSeatCapacity">Service Cost</label>
                             <div class="input-group input-append">
                                 <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtguideratepvt" value="2000" placeholder="Service Cost">
@@ -3794,7 +3841,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                       <div class="col-md-6">
+                        <div class="col-md-6">
                             <label for="txtRoomType">Additional Services</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
                             </select>
@@ -4051,9 +4098,9 @@
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    window.location.href="/bookingsfit"
+                    window.location.href = "/bookingsfit"
                     //swal("Deleted!", "Your quotation has been deleted.", "success");
-                  
+
                 } else {
                     swal("Cancelled", "Your Booking is cancelled :)", "error");
                 }
@@ -4063,7 +4110,7 @@
     <script src="/assets/plugins/fullcalendar/lib/moment.min.js"></script>
     <script src="/assets/plugins/fullcalendar/fullcalendar.min.js"></script>
     <script src="/assets/js/pages/calendar.js"></script>
-  
+
 }
 
 

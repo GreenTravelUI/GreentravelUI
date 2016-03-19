@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Tour FIT Booking";
-    ViewBag.PageTitle = "Tour FIT Booking";
+    ViewBag.Title = "Tour Booking";
+    ViewBag.PageTitle = "Tour Booking";
 }
 
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
@@ -366,6 +366,12 @@
     td .label {
         line-height: 2.5;
     }
+      .btnradius {
+        border-radius: 5px !important;
+        padding: 6px 10px ! important;
+        width:100% !important;
+        font-size:19px !important;
+    }
 </style>
 
 <div class="col-md-12">
@@ -453,81 +459,54 @@
                                                         <h3 class="CreateQuotationsection1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
                                                         <div class="form-group">
                                                             <label for="txtAgent">Agent</label>
-                                                            <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
+                                                            <input type="text" class="form-control" id="txtAgent" placeholder="Agent" readonly>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <label for="txtInquiredBy">Inquired By</label>
-                                                                    <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
+                                                                    <label for="txtInquiredBy">Booked By</label>
+                                                                    <input type="text" class="form-control" id="txtBookedBy" placeholder="Nirav Shah">
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <label for="txtQuoteToBeSentTo">Quote Sent To</label>
-                                                                    <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote Sent To">
+                                                                    <label for="txtQuoteToBeSentTo">Booked Date</label>
+                                                                    <input type="text" class="form-control datepicker" id="txtBookeddate" placeholder="15-03-2016">
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                       
+                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">2</span>&nbsp;Bookings Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent</label>
-                                                                    <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">2</span>&nbsp;Quotation Details</h3>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Currency</label>
-                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <label for="txtAgent">Booking Currency</label>
+                                                                    <select id="drpBookingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                                         <option selected="selected">THB</option>
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Type</label>
-                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
-                                                                        <option>Per Pax</option>
-                                                                        <option>Service Wise</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
+                                                              <div class="col-md-6">
                                                                     <label for="txtAgent">Quotation Reference #</label>
                                                                     <input type="text" class="form-control" id="txtQuotationReferenceNumber" placeholder="Quotation Reference #" readonly>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Status</label>
-                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
-                                                                    <option>--None--</option>
-                                                                        <option value="draft" selected="selected">Draft</option>
-                                                                        <option value="negotiating">Negotiating</option>
-                                                                        <option value="readytoquote">Ready To Quote</option>
-                                                                        <option value="quoted">Quoted</option>
-                                                                        <option value="pendingforaprooval">Pending For Aprooval</option>
-                                                                        <option value="aprooved">Aprooved</option>
-                                                                    </select>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
+                                                                
                                                                 <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Created Date</label>
-                                                                    <input type="text" class="form-control date-picker" id="txtQuotationReferenceNumber" placeholder="Quotation Created Date">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Sent to Agent Date</label>
-                                                                    <input type="text" class="form-control date-picker" id="txtQuotationReferenceNumber" placeholder="Quotation Sent to Agent Date">
+                                                                    <label for="txtAgent">Booking Status</label>
+                                                                    <select id="drpBookingStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option>--None--</option>
+                                                                        <option value="Booked" selected="selected">Booked</option>
+                                                                        <option value="Confirmed">Confirmed</option>
+                                                                        <option value="ReConfirmed">ReConfirmed</option>
+                                                                        <option value="Travelled">Travelled</option>
+                                                                        <option value="Closed">Closed</option>
+                                                                        <option value="Amended">Amended</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
-
+                                                        
                                                         <h3 class="section-headers CreateQuotationsection3"><span class="section-index ">3</span>&nbsp;Pax / Room Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
@@ -562,19 +541,24 @@
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double/Twin</label>
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double</label>
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsDouble" placeholder="Number of Rooms Double">
                                                                 </div>
                                                                 <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Twin</label>
+                                                                    <input type="text" class="form-control" id="txtnumbertwin" placeholder="Number of Rooms Twin">
+                                                                </div>
+                                                                 <div class="col-md-3">
                                                                     <label for="txtNumberofRoomsTwin"># of Rooms Quad</label>
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsquad" placeholder="Number of Rooms Quad">
                                                                 </div>
+                                                               
                                                             </div>
                                                         </div>
+                                                          
 
                                                         <br />
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            SAVE</button>
+                                                     
                                                         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
                                                             UPDATE</button>
                                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
@@ -2167,18 +2151,14 @@
                                 <h2 class="text-danger" style="font-weight: bold; border-bottom: 1px dotted; margin-bottom: 5px; padding-bottom: 5px;">Summary</h2>
                                 <div class="panel panel-white">
                                     <div class="panel-body tab-itenaries summary-tab-itenaries ">
-                                        <h4>Quote Ref.# THLND-FLG-SP-0101</h4>
+                                        <h4>Booking Ref.# THLND-FLG-SP-0101</h4>
                                         <div class="form-group">
                                             <label class="form-control tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control tour-code">Tour Name:- Neeraj Khurana BANGKOK PACKAGE 01Nights</label>
                                         </div>
-                                        <div class="form-group">
-                                            <button id="btnSave" type="submit" class="btn btn-warning btnSave btn-steps">Generate Quote</button>
-                                            <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
-                                            <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></button>
-                                        </div>
+                                       
                                         <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
                                             @*Tour Details*@
                                             <div class="panel panel-red">
@@ -2224,7 +2204,7 @@
                                             <div class="panel panel-red">
                                                 <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab2">
                                                     <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Quote Summery
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Booking Summery
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -2269,6 +2249,12 @@
                                                     </table>
                                                 </div>
                                             </div>
+
+                                            <br /><br />
+                                            <div class="panel">
+                                            <button id="btnBookNow" type="submit" class="btn btn-success btnSave btnradius">Confirm Booking</button>
+                                           
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2425,16 +2411,12 @@
                                     </select>
                                 </div>
                                
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label for="drpSupplier">Supplier</label>
                                     <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
+                                 <div class="col-md-3">
                                     <label for="txtRoomType">Check-in Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                                         <option>Day 1 (11-Mar-2016)</option>
@@ -2444,7 +2426,12 @@
                                         <option>Day 5 (15-Mar-2016)</option>
                                     </select>
                                 </div>
-                                <div class="col-md-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                               
+                                <div class="col-md-3">
                                     <label for="txtRoomType">Check-out Day</label>
                                     <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                                         <option>Day 1 (11-Mar-2016)</option>
@@ -2454,7 +2441,7 @@
                                         <option>Day 5 (15-Mar-2016)</option>
                                     </select>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtRoomType">Check-In Time</label>
                                     <div class="input-group input-append bootstrap-timepicker">
                                         <input type="text" class="form-control timepicker" id="txtCheckInTime">
@@ -2484,19 +2471,16 @@
                                     <label for="txtNumberOfAdult"># Adult</label>
                                     <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberOfAdult" value="10" placeholder="# Adult">
                                 </div>
+                                
                                 <div class="col-md-3">
-                                    <label for="txtNumberOfExtraBedAdult"># Extra Bed Adult</label>
-                                    <input type="text" class="form-control" name="txtNumberOfExtraBedAdult" id="txtNumberOfExtraBedAdult" value="2" placeholder="# Extra Bed Adult">
-                                </div>
-                                <div class="col-md-2">
                                     <label for="txtNumberOfExtraBedChild"># Extra Bed Child</label>
                                     <input type="text" class="form-control" name="txtNumberOfExtraBedChild" id="txtNumberOfExtraBedChild" value="5" placeholder="# Extra Bed Child">
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtNumberOfChildNoBed"># Child No Bed</label>
                                     <input type="text" class="form-control" name="txtNumberOfChildNoBed" id="txtNumberOfChildNoBed" value="2" placeholder="# Child No Bed">
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="txtNumberOfInfant"># Infant</label>
                                     <input type="text" class="form-control" name="txtNumberOfInfant" id="txtNumberOfInfant" value="1" placeholder="# Infant">
                                 </div>
@@ -2513,9 +2497,9 @@
                                     <table class="display table" style="width: 100%; cellspacing: 0;">
                                         <thead>
                                             <tr>
-                                                <th style="width: 16%">Room Category</th>
-                                                <th style="width: 15%">Room Type</th>
-                                                <th style="width: 26%">Bed Setup</th>
+                                                <th style="width: 20%">Room Category</th>
+                                                <th style="width: 20%">Room Type</th>
+                                                
                                                 <th style="width: 8%">Total Rooms</th>
                                                 <th style="width: 6%">Incl. ABF</th>
                                                 <th style="width: 8%">Incl. Lunch</th>
@@ -2546,15 +2530,7 @@
                                                         <option>Quad Room</option>
                                                     </select>
                                                 </td>
-                                                 <td>
-                                                    <select id="drpSetupStyle" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option>1-Double Bed</option>
-                                                        <option  selected="selected">1-Single Bed</option>
-                                                        <option>2-Single Bed & 1-Extra Bed</option>
-                                                        <option>1-Double Bed & 1-Extra Bed</option>
-                                                        
-                                                    </select>
-                                                </td>
+                                                
                                                 <td>
                                                     <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
                                                 </td>
@@ -2590,15 +2566,7 @@
                                                         <option>Quad Room</option>
                                                     </select>
                                                 </td>
-                                                 <td>
-                                                    <select id="drpSetupStyle" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option  selected="selected">1-Double Bed</option>
-                                                        <option>1-Single Bed</option>
-                                                        <option>2-Single Bed & 1-Extra Bed</option>
-                                                        <option>1-Double Bed & 1-Extra Bed</option>
-                                                        
-                                                    </select>
-                                                </td>
+                                                
                                                 <td>
                                                     <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
                                                 </td>
@@ -2634,15 +2602,7 @@
                                                         <option>Quad Room</option>
                                                     </select>
                                                 </td>
-                                                 <td>
-                                                    <select id="drpSetupStyle" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option>1-Double Bed</option>
-                                                        <option>1-Single Bed</option>
-                                                        <option>2-Single Bed & 1-Extra Bed</option>
-                                                        <option  selected="selected">1-Double Bed & 1-Extra Bed</option>
-                                                        
-                                                    </select>
-                                                </td>
+                                                
                                                 <td>
                                                     <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
                                                 </td>
