@@ -366,6 +366,13 @@
     td .label {
         line-height: 2.5;
     }
+    .btnradius {
+        border-radius: 5px !important;
+        padding: 6px 10px ! important;
+        width:100% !important;
+        font-size:19px !important;
+    }
+
 </style>
 
 <div class="col-md-12">
@@ -376,7 +383,7 @@
                     <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab1"><span>1</span> Create Tour<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
                     <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="tab5"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
-                    <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Quotation Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                     <li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>5</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                 </ul>
                 <div class="tab-content">
@@ -511,7 +518,12 @@
                                                                     <div class="col-md-6">
                                                                         <label for="drpOrderStatus">Tour Status</label>
                                                                         <select id="drpOrderStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                        </select>
+                                                                       <option value="selstatus">---None---</option>
+                                                                            <option value="draft" selected="selected">Draft</option>
+                                                                            <option value="published">Published</option>
+                                                                            <option value="online">Online</option>
+                                                                           
+                                                                             </select>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <label for="txtTags">Tags</label>
@@ -1008,6 +1020,13 @@
                                                                 <div class="col-md-6">
                                                                     <label for="txtAgent">Quotation Status</label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                                    <option>--None--</option>
+                                                                        <option value="draft" selected="selected">Draft</option>
+                                                                        <option value="negotiating">Negotiating</option>
+                                                                        <option value="readytoquote">Ready To Quote</option>
+                                                                        <option value="quoted">Quoted</option>
+                                                                        <option value="pendingforaprooval">Pending For Aprooval</option>
+                                                                        <option value="aprooved">Aprooved</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -1032,10 +1051,7 @@
                                                                     <label for="txtAgent"># of Adult</label>
                                                                     <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
                                                                 </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Extra Bed Adult</label>
-                                                                    <input type="text" class="form-control" id="txtnumberofextraadult" placeholder="# of Extra Bed Adult">
-                                                                </div>
+                                                               
                                                                 <div class="col-md-3">
                                                                     <label for="txtAgent"># of Extra Bed Child</label>
                                                                     <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
@@ -1044,16 +1060,16 @@
                                                                     <label for="txtAgent"># of Child No Bed</label>
                                                                     <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
                                                                 </div>
-
+                                                                 <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Infant</label>
+                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
+                                                                </div>
 
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Infant</label>
-                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
-                                                                </div>
+                                                               
                                                                 <div class="col-md-3">
                                                                     <label for="txtNumberofRoomsSinglepax"># of Rooms Single</label>
                                                                     <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
@@ -2373,15 +2389,15 @@
                                                         </tr>
                                                         @*Transfer*@
                                                         <tr>
-                                                            <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
+                                                            <td><span class="fa fa-car text-success" rel="tooltip" title="Transfer"></span></td>
                                                             <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                            <td><span class="label label-success" rel="tooltip" title="Time">10:30 AM</span></td>
                                                             <td>
-                                                                <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
-                                                                <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                                <span class="label label-success" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-success" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                                <span class="label label-success" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
                                                             </td>
-                                                            <td><span class="label label-springgreen total-cost">THB 4200</span></td>
+                                                            <td><span class="label label-success total-cost">THB 4200</span></td>
                                                             <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
                                                             <td><span class="fa fa-close faDanger"></span></td>
                                                         </tr>
@@ -2664,7 +2680,7 @@
                                 <h2 class="text-danger" style="font-weight: bold; border-bottom: 1px dotted; margin-bottom: 5px; padding-bottom: 5px;">Summary</h2>
                                 <div class="panel panel-white">
                                     <div class="panel-body tab-itenaries summary-tab-itenaries ">
-                                        <h4>Quote Ref.# :- THLND-FLG-SP-0101</h4>
+                                        <h4>Quote Ref.# THLND-FLG-SP-0101</h4>
                                         <div class="form-group">
                                             <label class="form-control tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
                                         </div>
@@ -2766,6 +2782,11 @@
                                                     </table>
                                                 </div>
                                             </div>
+                                           <br /><br />
+                                            <div class="panel">
+                                            <button id="btnBookNow" type="submit" class="btn btn-success btnSave btnradius" onclick="confirmAlert();">Book Now</button>
+                                           
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2775,117 +2796,10 @@
                     @*View Itinerary*@
                     <div class="tab-pane fade in" id="tab3">
                         <div class="row">
-                            <div class="col-md-10" style="width: 80%;">
+                            <div class="col-md-10" style="width: 100%;">
                                 <div id="calendar"></div>
                             </div>
-                            <div class="col-md-2" style="width: 20%;">
-                                <div class="panel">
-                                    <div class="panel-body tab-itenaries button-itenaries">
-                                        <div class="form-control">
-                                            <button id="btnSave" type="submit" class="btn btn-warning btnSave btn-steps"><span class="button-index">1</span> Quote</button>
-                                            <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
-                                        </div>
-                                        <div class="form-control">
-                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave btn-steps"><span class="button-index">2</span> Book</button>
-                                            <button id="btnSave" type="submit" class="btn btn-primary btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Invoice"><i class="fa fa-download"></i></button>
-                                        </div>
-                                        <div class="form-control">
-                                            <button id="btnSave" type="submit" class="btn btn-success btnSave btn-steps"><span class="button-index">3</span> Confirm</button>
-                                            <button id="btnSave" type="submit" class="btn btn-success btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Voucher"><i class="fa fa-download"></i></button>
-                                        </div>
-                                        <div class="form-control">
-                                            <button id="btnSave" type="submit" class="btn btn-info btnSave btn-steps"><span class="button-index">4</span> Reconfirm</button>
-                                            <button id="btnSave" type="submit" class="btn btn-info btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Itinrary"><i class="fa fa-download"></i></button>
-                                        </div>
-                                        <div class="form-control">
-                                            <button id="btnSave" type="submit" class="btn btn-danger btnSave btn-steps"><span class="button-index">5</span> Invoice</button>
-                                            <button id="btnSave" type="submit" class="btn btn-danger btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Itinrary"><i class="fa fa-download"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel">
-                                    <div class="panel-body tab-itenaries button-itenaries">
-                                        <div class="form-control">
-                                            <div class="btn-group btn-full">
-                                                <button class="btn btn-danger btnSave dropdown-toggle btn-auto" type="submit" id="btnSave" style="width: 80%">Amend</button>
-                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-auto" type="button" style="width: auto">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <ul role="menu" class="dropdown-menu">
-                                                    <li><a href="#">Quote</a></li>
-                                                    <li><a href="#">Booking</a></li>
-                                                    <li><a href="#">Confirmation</a></li>
-                                                    <li><a href="#">Reconfirmation</a></li>
-                                                    <li><a href="#">Invoice</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="form-control">
-                                            <div class="btn-group btn-full">
-                                                <button class="btn btn-danger btnSave dropdown-toggle btn-auto" type="submit" id="btnSave" style="width: 80%">Download</button>
-                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-auto" type="button" style="width: auto">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <ul role="menu" class="dropdown-menu">
-                                                    <li><a href="#">Quote</a></li>
-                                                    <li><a href="#">Booking</a></li>
-                                                    <li><a href="#">Confirmation</a></li>
-                                                    <li><a href="#">Reconfirmation</a></li>
-                                                    <li><a href="#">Invoice</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="form-control">
-                                            <div class="btn-group btn-full">
-                                                <button class="btn btn-danger btnSave dropdown-toggle btn-auto" type="submit" id="btnSave" style="width: 80%">Email</button>
-                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-auto" type="button" style="width: auto">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <ul role="menu" class="dropdown-menu">
-                                                    <li><a href="#">Quote</a></li>
-                                                    <li><a href="#">Booking</a></li>
-                                                    <li><a href="#">Confirmation</a></li>
-                                                    <li><a href="#">Reconfirmation</a></li>
-                                                    <li><a href="#">Invoice</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel ">
-                                    <h2 style="margin-top: 0; text-align: center;">Profit Summary</h2>
-                                    <div class="panel-body tab-itenaries">
-                                        <table class="table" style="margin-bottom: 0;">
-                                            <tbody>
-                                                <tr>
-                                                    <td>As Per Quote</td>
-                                                    <td><span class="label label-primary">150 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>As Per Booking</td>
-                                                    <td><span class="label label-primary">450 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Operation Cordn.</td>
-                                                    <td><span class="label label-primary">380 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Exchange Rate </td>
-                                                    <td><span class="label label-primary">420 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>After Receipt</td>
-                                                    <td><span class="label label-primary">14000 THB</span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </div>
+                           
                         </div>
 
                     </div>
@@ -2921,11 +2835,8 @@
                                         <option>Superior</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="txtRoomType">Max Pax</label>
-                                    <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtMaxPax" placeholder="Max Pax" readonly>
-                                </div>
-                                <div class="col-md-3">
+                               
+                                <div class="col-md-6">
                                     <label for="drpSupplier">Supplier</label>
                                     <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
@@ -2957,7 +2868,7 @@
                                 <div class="col-md-2">
                                     <label for="txtRoomType">Check-In Time</label>
                                     <div class="input-group input-append bootstrap-timepicker">
-                                        <input type="text" class="form-control" id="txtCheckInTime">
+                                        <input type="text" class="form-control timepicker" id="txtCheckInTime">
                                         <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                     </div>
                                 </div>
@@ -2984,10 +2895,7 @@
                                     <label for="txtNumberOfAdult"># Adult</label>
                                     <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberOfAdult" value="10" placeholder="# Adult">
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="txtNumberOfExtraBedAdult"># Extra Bed Adult</label>
-                                    <input type="text" class="form-control" name="txtNumberOfExtraBedAdult" id="txtNumberOfExtraBedAdult" value="2" placeholder="# Extra Bed Adult">
-                                </div>
+                                
                                 <div class="col-md-2">
                                     <label for="txtNumberOfExtraBedChild"># Extra Bed Child</label>
                                     <input type="text" class="form-control" name="txtNumberOfExtraBedChild" id="txtNumberOfExtraBedChild" value="5" placeholder="# Extra Bed Child">
@@ -3013,10 +2921,10 @@
                                     <table class="display table" style="width: 100%; cellspacing: 0;">
                                         <thead>
                                             <tr>
-                                                <th style="width: 15%">Room Type</th>
-                                                <th style="width: 8%">Total Room</th>
-                                                <th style="width: 15%">Room Category</th>
-                                                <th style="width: 6%">Max Pax</th>
+                                                <th style="width: 20%">Room Category</th>
+                                                <th style="width: 20%">Room Type</th>
+                                                
+                                                <th style="width: 8%">Total Rooms</th>
                                                 <th style="width: 6%">Incl. ABF</th>
                                                 <th style="width: 8%">Incl. Lunch</th>
                                                 <th style="width: 8%">Incl. Dinner</th>
@@ -3031,17 +2939,7 @@
                                         </tfoot>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option>Single Room</option>
-                                                        <option>Double / Twin Room</option>
-                                                        <option>Quad Room</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
-                                                </td>
-                                                <td>
+                                                 <td>
                                                     <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                         <option selected="selected">Standard</option>
                                                         <option>Deluxe</option>
@@ -3049,8 +2947,18 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="1" placeholder="Max Pax">
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option>Double</option>
+                                                        <option>Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
                                                 </td>
+                                                
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="2" placeholder="# of Rooms">
+                                                </td>
+                                                                                               
                                                 <td>
                                                     <input type="checkbox" checked="checked" />
                                                 </td>
@@ -3067,17 +2975,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option>Single Room</option>
-                                                        <option selected="selected">Double / Twin Room</option>
-                                                        <option>Quad Room</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
-                                                </td>
-                                                <td>
+                                                 <td>
                                                     <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                         <option>Standard</option>
                                                         <option selected="selected">Deluxe</option>
@@ -3085,8 +2983,18 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" readonly value="4" placeholder="Max Pax">
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option selected="selected">Double</option>
+                                                        <option>Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
                                                 </td>
+                                                
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="4" placeholder="# of Rooms">
+                                                </td>
+                                                                                               
                                                 <td>
                                                     <input type="checkbox" checked="checked" />
                                                 </td>
@@ -3103,17 +3011,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option>Single Room</option>
-                                                        <option>Double / Twin Room</option>
-                                                        <option selected="selected">Quad Room</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
-                                                </td>
-                                                <td>
+                                                 <td>
                                                     <select id="drproomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                         <option>Standard</option>
                                                         <option>Deluxe</option>
@@ -3121,8 +3019,19 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="6" readonly placeholder="Max Pax">
+                                                    <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Single Room</option>
+                                                        <option  selected="selected">Double</option>
+                                                        <option>Twin Room</option>
+                                                        <option>Quad Room</option>
+                                                    </select>
                                                 </td>
+                                                
+                                                <td>
+                                                    <input type="text" class="form-control" name="txtNumberofSingle" id="txtNumberofSingle" value="1" placeholder="# of Rooms">
+                                                </td>
+                                               
+                                              
                                                 <td>
                                                     <input type="checkbox" />
                                                 </td>
@@ -3360,17 +3269,7 @@
                                     <select id="drpSightseeingAddon" class="js-states form-control" style="display: none; width: 100%">
                                     </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="txtNumberofRoomsSingle">Additional Services</label>
-                                    <select id="drpIncludedEntrance" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-3">
+                                <div class="col-md-3">
                                 <label for="txtNumberofRoomsSingle">Adult Ticket Rate</label>
                                 <div class="input-group input-append">
                                     <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofRoomsSingle" placeholder="Adult Ticket Rate">
@@ -3384,6 +3283,13 @@
                                     <span class="input-group-addon add-on"><span>THB</span></span>
                                 </div>
                             </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            
                             <div class="col-md-3">
                                 <label for="txtNumberofRoomsSingle"># Of Adults</label>
                                 <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofAdult" placeholder="# Of Adults">
@@ -3392,6 +3298,11 @@
                                 <label for="txtNumberofRoomsSingle"># Of Childrens</label>
                                 <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtNumberofSightseeingChild" placeholder="# Of Childrens">
                             </div>
+                            <div class="col-md-6">
+                                    <label for="txtNumberofRoomsSingle">Additional Services</label>
+                                    <select id="drpIncludedEntrance" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
+                                    </select>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -3487,17 +3398,18 @@
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                             </select>
                         </div>
-                        <div class="col-md-4">
-                            <label for="txtRoomType">Additional Services</label>
-                            <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
-                            </select>
-                        </div>
+                       
                         <div class="col-md-4">
                             <label for="txtServiceCost">Service Cost</label>
                             <div class="input-group input-append">
                                 <input type="text" class="form-control" name="txtServiceCost" id="txtServiceCost" placeholder="Service Cost">
                                 <span class="input-group-addon add-on"><span>THB</span></span>
                             </div>
+                        </div>
+                         <div class="col-md-4">
+                            <label for="txtRoomType">Additional Services</label>
+                            <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -3576,15 +3488,18 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
+                            <label for="drpMealTyperestocl">Meal Type</label>
+                            <select id="drpMealTyperestocl" class="js-states form-control" style="display: none; width: 100%">
+                                <option value="lunch" selected="selected">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
                             <label for="txtRoomType">Included Services</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label for="txtRoomType">Additional Services</label>
-                            <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
-                            </select>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="form-group">
@@ -3596,6 +3511,15 @@
                         <div class="col-md-6">
                             <label for="txtNumberOfPassengers"># Passengers</label>
                             <input type="text" class="form-control" id="txtNumberOfPassengers">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                         <div class="col-md-6">
+                            <label for="txtRoomType">Additional Services</label>
+                            <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -3810,7 +3734,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="txtRoomType">Visit Day</label>
+                            <label for="txtRoomType">Transfer Day</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                                 <option>Day 1 (11-Mar-2016)</option>
                                 <option>Day 2 (12-Mar-2016)</option>
@@ -3858,21 +3782,22 @@
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label for="txtRoomType">Additional Services</label>
-                            <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6 pvt-div">
+                        
+                         <div class="col-md-6 pvt-div">
                             <label for="txtSeatCapacity">Service Cost</label>
                             <div class="input-group input-append">
                                 <input type="text" class="form-control" name="txtNumberofRoomsSingle" id="txtguideratepvt" value="2000" placeholder="Service Cost">
                                 <span class="input-group-addon add-on"><span>THB</span></span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                       <div class="col-md-6">
+                            <label for="txtRoomType">Additional Services</label>
+                            <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -4112,9 +4037,33 @@
                 $('.fc-today-button').hide();
             });
         });
+        function confirmAlert() {
+            swal({
+                title: "Are you sure?",
+                text: "You are going to book this tour!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, book it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    window.location.href="/bookingsfit"
+                    //swal("Deleted!", "Your quotation has been deleted.", "success");
+                  
+                } else {
+                    swal("Cancelled", "Your Booking is cancelled :)", "error");
+                }
+            });
+        }
     </script>
     <script src="/assets/plugins/fullcalendar/lib/moment.min.js"></script>
     <script src="/assets/plugins/fullcalendar/fullcalendar.min.js"></script>
     <script src="/assets/js/pages/calendar.js"></script>
+  
 }
+
 
