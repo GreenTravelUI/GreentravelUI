@@ -66,6 +66,7 @@
         .sweet-alert.show-sweet-alert.visible {
             z-index: 99999 !important;
         }
+        
     </style>
     <link href="~/assets/plugins/flaticons/BigMugSolid/flaticon.css" rel="stylesheet" />
     @RenderSection("styles", required: false)
@@ -89,7 +90,11 @@
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
-
+    <style>
+        .select2-container.select2-container--default.select2-container--open {
+            z-index: 9999999 !important;
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -100,7 +105,7 @@
 <body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
-        
+
         @RenderSection("rightsidesummary", required: false)
     </nav>
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
@@ -858,6 +863,8 @@
     <script src="/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="/assets/plugins/select2/js/select2.min.js"></script>
     <script src="/assets/plugins/nestable/jquery.nestable.js"></script>
+      <script src="~/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/assets/plugins/morris/raphael.min.js"></script>
     <script src="/assets/js/modern.min.js"></script>
     <script src="/assets/js/pages/form-elements.js"></script>
     @*<script src="/assets/js/pages/nestable.js"></script>*@
@@ -935,6 +942,21 @@
             $('.horizontal-logout').on('click', function () {
                 $('body').addClass('show-menu');
             });
+            $('.btn-utilities-right').on('click', function () {
+                $('.utilities-sidebar').parent().show('slide', 'right', 400);
+                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
+                $('.btn-quickreport-right').removeClass('tab-itenaries');
+                $(this).addClass('tab-itenaries');
+            });
+            $('.btn-quickreport-right').on('click', function () {
+                $('.quickreport-sidebar').parent().show('slide', 'left', 400);
+                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
+                $('.btn-utilities-right').removeClass('tab-itenaries');
+                $(this).addClass('tab-itenaries');
+            });
+
+
+
         });
         $(window).scroll(function () {
             if ($(this).scrollTop() > 100) {

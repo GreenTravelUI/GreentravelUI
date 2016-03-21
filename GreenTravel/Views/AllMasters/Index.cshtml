@@ -905,7 +905,7 @@
     </script>
     @*<script src="~/Scripts/JS/Page/AllMasters.js"></script>*@
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
-
+  
     <script>
 
         $(document).ready(function () {
@@ -987,20 +987,39 @@
             //    $('#ddr').append(a);
 
             //});
-
+            Morris.Bar({
+                element: 'morris2',
+                data: [
+                    { year: '11-Mar-2016', a: 25, b: 15 },
+                    { year: '12-Mar-2016', a: 05, b: 12 },
+                    { year: '13-Mar-2016', a: 05, b: 32 },
+                    { year: '14-Mar-2016', a: 19, b: 05 },
+                    { year: '15-Mar-2016', a: 25, b: 40 },
+                    { year: '16-Mar-2016', a: 65, b: 10 },
+                    { year: '17-Mar-2016', a: 65, b: 60 }
+                ],
+                xkey: 'year',
+                ykeys: ['a', 'b'],
+                labels: ['a', 'b'],
+                barRatio: 0.4,
+                xLabelAngle: 35,
+                hideHover: 'auto',
+                barColors: ['#6ad6c3', '#22BAA0'],
+                resize: true
+            });
         });
     </script>
 }
 
 @section rightsidesummary{
     <h3>
-        <span class="pull-left">
+        <span class="">
             <div class="btn-group">
-                <button type="button" class="btn btn-default">Uitilities</button>
-                <button type="button" class="btn btn-default">Quick Report</button>
+                <a class="btn tab-itenaries btn-utilities-right">Uitilities</a>
+                <a class="btn btn-quickreport-right">Quick Report</a>
             </div>
         </span>
-        <a href="javascript:void(0);" class="pull-right" id="closeRightSideSummary"><i class="fa fa-times"></i></a>
+        <a href="javascript:void(0);" class="pull-right btn" id="closeRightSideSummary" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
     </h3>
     <div class="slimscroll utilities-sidebar">
         <a href="javascript:void(0);" class="showRight2">
@@ -1051,5 +1070,68 @@
             <i class="flaticon-photo-camera-black-tool"></i>
             <span>Screenshot</span>
         </a>
+    </div>
+    <div class="slimscroll quickreport-sidebar">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>From </label>
+                        <input type="text" class="form-control date-picker" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>To </label>
+                        <input type="text" class="form-control date-picker" id="txtRightTo" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Unit</label>
+                        <select class="js-states form-control" style="display: none; width: 100%">
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Location</label>
+                        <select class="js-states form-control" style="display: none; width: 100%">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>User</label>
+                <select class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                    <option>All</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Action</label>
+                        <select class="js-states form-control" style="display: none; width: 100%">
+                            <option>Created</option>
+                            <option>Modified</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Node Value</label>
+                        <select class="js-states form-control" style="display: none; width: 100%">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Fortnightly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-info" style="padding: 3px 10px">SEARCH</button>
+        </div>
+        <div class="col-md-12">
+            <div class="panel-body">
+                <div id="morris2" style="height:260px !important;"></div>
+            </div>
+        </div>
     </div>
 }
