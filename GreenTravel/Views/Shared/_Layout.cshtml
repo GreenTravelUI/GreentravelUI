@@ -67,6 +67,7 @@
             z-index: 99999 !important;
         }
     </style>
+    <link href="~/assets/plugins/flaticons/BigMugSolid/flaticon.css" rel="stylesheet" />
     @RenderSection("styles", required: false)
     <!-- Theme Styles -->
     <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
@@ -98,8 +99,8 @@
 </head>
 <body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">
     <div class="overlay"></div>
-    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
-        <h3><span class="pull-left">Utilities</span><a href="javascript:void(0);" class="pull-right" id="closeRightSideSummary"><i class="fa fa-times"></i></a></h3>
+    <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
+        
         @RenderSection("rightsidesummary", required: false)
     </nav>
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
@@ -181,7 +182,7 @@
                 <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                 <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
                 <a href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
-                <a href="#"><i class="fa fa-comment"></i><span>Comments</span></a>
+                <a href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a>
             </div>
         </nav>
         <button class="close-button" id="close-button">Close Menu</button>
@@ -459,6 +460,12 @@
                                 }
                             </ul>*@
                             <ul class="menu accordion-menu">
+                                <li class="horizontal-logout" style="display:none;">
+                                    <a href="javascript:void(0);" class="waves-effect waves-button">
+                                        <span class="menu-icon fa fa-sign-out "></span>
+                                        <p>Logout</p>
+                                    </a>
+                                </li>
                                 <li><a href="@Url.Action("Index", "Dashboard")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span>
                                     <p>Dashboard</p>
                                 </a></li>
@@ -925,6 +932,9 @@
             });
             //$(document).tooltip();
             $('[rel=tooltip]').tooltip({});
+            $('.horizontal-logout').on('click', function () {
+                $('body').addClass('show-menu');
+            });
         });
         $(window).scroll(function () {
             if ($(this).scrollTop() > 100) {
