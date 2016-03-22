@@ -489,7 +489,7 @@
                                     </ul>
                                 </div>
                                 &nbsp;&nbsp;
-                                <div class="btn-group">
+                                <div class="btn-group btn-tables-views">
                                     <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
                                         <span class="icon-grid"></span>
                                     </a>
@@ -907,41 +907,34 @@
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
 
     <script>
+        $(function () {
+           
 
+            
+
+        });
         $(document).ready(function () {
             // Guided Tour Code Start
-
             var tour = new Tour({
                 steps: [
                 {
-                    element: ".breadcrumb",
-                    title: "Title of Page.",
-                    content: "This is a title of the page.",
-                    placement: "bottom"
-                },
-                {
-                    element: "#example-editable_length",
-                    title: "Grid Length",
-                    content: "You can change length of your grid from here.",
+                    element: "#MastersRecord",
+                    title: "Create Master Data Entry.",
+                    content: "Enter data for masters from here.",
                     placement: "right"
                 },
                 {
-                    element: "#example-editable",
-                    title: "Grid",
-                    content: "Your data goes here.",
-                    placement: "top"
-                },
-                {
-                    element: "#example-editable_length",
-                    title: "Grid Length",
-                    content: "You can change length of your grid from here.",
-                    placement: "right"
+                    element: ".btn-tables-views",
+                    title: "Masters Views",
+                    content: "Open master views list and modifiy view data.",
+                    placement: "left"
                 }
                 ]
             });
-
+            localStorage.clear();
             tour.init();
             tour.start();
+            // Guided Tour Code End
 
             $('ol.sortable').nestedSortable({
                 forcePlaceholderSize: true,
@@ -961,7 +954,7 @@
                 startCollapsed: true
             });
 
-            // Guided Tour Code End
+            
             if ($('ol.sortable').length) {
                 $('ol.sortable').nestedSortable({
                     forcePlaceholderSize: true,
