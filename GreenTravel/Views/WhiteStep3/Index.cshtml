@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Whitelabel Step 3";
+    ViewBag.PageTitle = "Whitelabel Step 3";
+}
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <form>
+                        <div class="form-group">
+                            <label data-toggle="tooltip" data-placement="right" title="Industry">Corporate</label>
+                            <select id="drpIndustry" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Modules</label>
+                            <div class="cf nestable-lists1">
+                                <ol class="sortable sortable1" id="parent1">
+                                    <li>
+                                        <div><span class=""><span></span></span>Dashboard</div>
+                                    </li>
+                                    <li>
+                                        <div><span class=""><span></span></span>Whitelabel</div>
+                                    </li>
+                                    <li id="list_4">
+                                        <div><span class="disclose"><span></span></span>Settings</div>
+                                    </li>
+                                    <li id="list_5">
+                                        <div><span class="disclose"><span></span></span>Masters</div>
+                                    </li>
+                                    <li id="list_9" class="active">
+                                        <div><span class="disclose"><span></span></span>User</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <br />
+                            <button class="btn btn-success">Update Module Sequence</button>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Screens</label>
+                            <div class="cf nestable-lists2">
+                                <ol class="sortable sortable2" id="parent2">
+                                    <li>
+                                        <div><span class=""><span></span></span>Manage User</div>
+                                    </li>
+                                    <li>
+                                        <div><span class=""><span></span></span>Manage Role</div>
+                                    </li>
+                                    <li id="list_4">
+                                        <div><span class=""><span></span></span>User Authentication</div>
+                                    </li>
+                                    <li id="list_5">
+                                        <div><span class="disclose"><span></span></span>Authorization Policy Master</div>
+                                    </li>
+                                    <li id="list_9">
+                                        <div><span class="disclose"><span></span></span>User Authorization</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <br />
+                            <button class="btn btn-success">Update Screen Sequence</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#parent1, #parent2').sortable();
+        });
+    </script>
+}
