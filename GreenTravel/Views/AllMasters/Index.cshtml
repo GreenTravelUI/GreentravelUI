@@ -863,7 +863,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>Created By: </td>
-                                                            <td><span class="label label-success">Vicky Amin</span></td>
+                                                            <td><span class="label label-success">Sameer Shah</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Created Date: </td>
@@ -871,11 +871,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Created From Branch: </td>
-                                                            <td><span class="label label-danger">Bodakdev</span></td>
+                                                            <td><span class="label label-danger">Bangkok</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Last Updated By: </td>
-                                                            <td><span class="label label-info">Vicky Amin</span></td>
+                                                            <td><span class="label label-info">Sameer Shah</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Last Updated Date: </td>
@@ -909,7 +909,59 @@
     <script>
 
         $(document).ready(function () {
+            // Guided Tour Code Start
 
+            var tour = new Tour({
+                steps: [
+                {
+                    element: ".breadcrumb",
+                    title: "Title of Page.",
+                    content: "This is a title of the page.",
+                    placement: "bottom"
+                },
+                {
+                    element: "#example-editable_length",
+                    title: "Grid Length",
+                    content: "You can change length of your grid from here.",
+                    placement: "right"
+                },
+                {
+                    element: "#example-editable",
+                    title: "Grid",
+                    content: "Your data goes here.",
+                    placement: "top"
+                },
+                {
+                    element: "#example-editable_length",
+                    title: "Grid Length",
+                    content: "You can change length of your grid from here.",
+                    placement: "right"
+                }
+                ]
+            });
+
+            tour.init();
+            tour.start();
+
+            $('ol.sortable').nestedSortable({
+                forcePlaceholderSize: true,
+                handle: 'div',
+                helper: 'clone',
+                items: 'li',
+                opacity: .6,
+                placeholder: 'placeholder',
+                revert: 250,
+                tabSize: 25,
+                tolerance: 'pointer',
+                toleranceElement: '> div',
+                maxLevels: 3,
+
+                isTree: true,
+                expandOnHover: 700,
+                startCollapsed: true
+            });
+
+            // Guided Tour Code End
             if ($('ol.sortable').length) {
                 $('ol.sortable').nestedSortable({
                     forcePlaceholderSize: true,
@@ -1007,6 +1059,8 @@
                 barColors: ['#6ad6c3', '#22BAA0'],
                 resize: true
             });
+
+            
         });
     </script>
 }
@@ -1070,6 +1124,76 @@
             <i class="flaticon-photo-camera-black-tool"></i>
             <span>Screenshot</span>
         </a>
+        <hr />
+        <div class="col-md-12">
+            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Notification</h4>
+
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                        <p class="task-details">New user registered.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                        <p class="task-details">Database error.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                        <p class="task-details">Reached 24k likes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                        <p class="task-details">New user registered.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                        <p class="task-details">Database error.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                        <p class="task-details">Reached 24k likes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                        <p class="task-details">New user registered.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                        <p class="task-details">Database error.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                        <p class="task-details">Reached 24k likes</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="slimscroll quickreport-sidebar">
         <div class="col-md-12">
@@ -1097,6 +1221,7 @@
                     <div class="col-md-6">
                         <label>Action</label>
                         <select class="js-states form-control" style="display: none; width: 100%">
+                            <option>All</option>
                             <option>Created</option>
                             <option>Modified</option>
                         </select>
