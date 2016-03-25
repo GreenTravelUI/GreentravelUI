@@ -1,6 +1,15 @@
 ﻿@{
-    ViewBag.Title = "Tour FIT Quotation";
-    ViewBag.PageTitle = "Tour FIT Quotation";
+    ViewBag.Title = "Tour FIT";
+    ViewBag.PageTitle = "Tour FIT";
+    ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
+    ViewBag.Breadcurmb += "<li>Quotation Code: <span>HOTLE-5-0-1</span></li>";
+    ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
+    ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
+    ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
+    ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
+    ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
+    ViewBag.Breadcurmb += "</ol>";
+   
 }
 
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
@@ -394,9 +403,149 @@
     .itenarynewwidth {
         width: 32% !important;
     }
+
     .newtextbox {
-         border-width: 2px !important;
-    padding: 7px 1px !important;
+        border-width: 2px !important;
+        padding: 7px 1px !important;
+    }
+</style>
+
+<style>
+    .summery-uitilities-detail {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    .summery-nav-btn {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+        .summery-nav-btn.active {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .summary-body p {
+        margin: 0;
+    }
+
+    .summary-list .label {
+        font-size: 100%;
+    }
+
+    .summary-list {
+        margin-bottom: 0;
+    }
+
+        .summary-list > tbody > tr > td {
+            text-align: left !important;
+            width: auto;
+        }
+
+            .summary-list > tbody > tr > td:first-child {
+                width: 45%;
+            }
+
+        .summary-list > tbody > tr:first-child > td {
+            border-top-width: 0;
+        }
+
+
+    .field-list .active {
+        background-color: #4fe7cd;
+        color: #fff !important;
+        font-weight: bolder;
+        /*font-size: 14px;*/
+    }
+
+    .field-list a:hover {
+        text-decoration: none;
+    }
+
+    li.content {
+        list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
+    }
+
+        li.content .libody {
+            transition-timing-function: linear;
+        }
+
+
+    .panel-red .panel-collapse, .panel-blue .panel-collapse, .panel-purple .panel-collapse, .panel-green .panel-collapse {
+        border: 1px solid #F25656;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .panel-blue .panel-collapse {
+        border: 1px solid #12AFCB;
+    }
+
+    .panel-purple .panel-collapse {
+        border: 1px solid #7A6FBE;
+    }
+
+    .panel-green .panel-collapse {
+        border: 1px solid #22BAA0;
+    }
+
+    .panel-group {
+        margin-bottom: 0;
+    }
+
+        .panel-group .panel-red .panel-collapse .panel-body, .panel-blue .panel-collapse .panel-body, .panel-purple .panel-collapse .panel-body {
+            color: #4e5e6a;
+        }
+
+        .panel-group .panel .panel-heading {
+            padding: 10px;
+        }
+
+    .panel .panel-heading .panel-title {
+        color: #fff !important;
+        float: none;
+        font-weight: normal;
+        font-size: 17px;
+        border-bottom-width: 0;
+    }
+
+    .panel-group .panel .panel-body h3, .panel-group .panel .panel-body h4 {
+        margin: 0;
+    }
+
+    .tab-itenaries {
+        border: 1px double #bec8d2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+        .tab-itenaries .table > tbody > tr > td {
+            font-size: 12px;
+            padding: 7px !important;
+        }
+           #ulViewList {
+        padding-left: 0 !important;
+    }
+     .field-name {
+        padding-right: 15px;
+    }
+       .field-name {
+        float: left;
+        width: 50%;
+    }
+  .ulviewlistclass
+     {
+        padding-left: 0 !important;
     }
 </style>
 
@@ -421,13 +570,13 @@
                                         <div role="tabpanel">
                                             <!-- Nav tabs -->
                                             @* <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                                <li role="presentation" class="active"><a href="#tab1-1" role="tab" data-toggle="tab" data-section="tab1-1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Agent Details / Pax / Room </a></li>
+                                                <li role="presentation" class="active"><a href="#tab11" role="tab" data-toggle="tab" data-section="tab1-1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Agent Details / Pax / Room </a></li>
                                                 <li role="presentation"><a href="#tab1-3" role="tab" data-toggle="tab" data-section="tab1-3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Client Details</a></li>
                                             </ul>*@
                                             <h3>Agent Details / Pax / Room</h3>
                                             <div class="tab-content">
 
-                                                <div role="tabpanel" class="tab-pane active" id="tab1-1">
+                                                <div role="tabpanel" class="tab-pane active" id="tab11">
                                                     <div class="col-md-8">
                                                         <form>
 
@@ -585,339 +734,50 @@
                                                                 QUIT FORM</button>
                                                         </form>
                                                     </div>
-
-                                                    <div class="col-md-4 summary-detail summarytab2">
-                                                        <div class="panel panel-white">
-                                                            <h4 class="panel-title-summery">Summary </h4>
-                                                            <ul class="utilitis-drop ">
-                                                                <li><a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                                                    <img src="assets/images/utilitis-icon.png" height="19" width="19" /></a>
-                                                                    <ul>
-                                                                        <li><a href="#"><i class="task">&nbsp;</i><br />
-                                                                            Task </a></li>
-                                                                        <li><a href="#"><i class="noti">&nbsp;</i><br />
-                                                                            Notifications </a></li>
-                                                                        <li><a href="#"><i class="cal">&nbsp;</i><br />
-                                                                            Calendar </a></li>
-                                                                        <li><a href="#"><i class="e-mail">&nbsp;</i><br />
-                                                                            Email </a></li>
-                                                                        <li><a href="#"><i class="sms">&nbsp;</i><br />
-                                                                            SMS </a></li>
-                                                                        <li><a href="#"><i class="notes">&nbsp;</i><br />
-                                                                            Notes </a></li>
-                                                                        <li><a href="#"><i class="tages">&nbsp;</i><br />
-                                                                            Tags </a></li>
-                                                                        <li><a href="#"><i class="help-video">&nbsp;</i><br />
-                                                                            Help Video </a></li>
-                                                                        <li><a href="#"><i class="guided-tour">&nbsp;</i><br />
-                                                                            Guided Tour </a></li>
-                                                                        <li><a href="#"><i class="copy">&nbsp;</i><br />
-                                                                            Copy </a></li>
-                                                                        <li><a href="#"><i class="print">&nbsp;</i><br />
-                                                                            Print </a></li>
-                                                                        <li><a href="#"><i class="updates">&nbsp;</i><br />
-                                                                            Updates </a></li>
-                                                                        <li><a href="#"><i class="screns">&nbsp;</i><br />
-                                                                            Screenshot </a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="panel-body" style="border: 1px solid #22BAA0;">
-                                                                <div class="summ-lis-height">
-
-                                                                    <ul class="summery-list slimscroll">
-                                                                        <h4 class="summary-header"><span class="summary-section-index">1</span></h4>
-                                                                        <div class="summ-list-div">
-                                                                            <div class="summ-list-left">
-                                                                                <li>Hotel Name :<br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblHotelName" for="txtHotelName"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>Type Of Hotel :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblTypeOfHotel" for="drpTypeOfHotel"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>Star Rating :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblStarRating" for="drpStarRating"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>Operating Currency :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblOperatingCurrency" for="drpOperatingCurrency"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                            </div>
-                                                                            <div class="summ-list-right">
-                                                                                <li>Website  :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblWebsite" for="txtWebsite"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>Official Email(s)  :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblOfficialEmail" for="txtOfficialEmail"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>Official Phone  :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblOfficialPhone" for="txtOfficialPhone"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                            </div>
+                                                    <div class="col-md-4 summery-detail summery-uitilities-detail summerytab11">
+                                                        <div class="panel-body tab-itenaries ">
+                                                            <div class="panel-group">
+                                                                <div class="panel panel-red">
+                                                                    <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                                                        <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                                            <i class="icon-reload"></i>
+                                                                        </a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                                                        <div class="panel-body summary-body">
+                                                                            <table class="table summary-list">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Created By: </td>
+                                                                                        <td><span class="label label-success">Samir Shah</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Created Date: </td>
+                                                                                        <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Created From Branch: </td>
+                                                                                        <td><span class="label label-danger">Bangkok</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Last Updated By: </td>
+                                                                                        <td><span class="label label-info">Samir Shah</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Last Updated Date: </td>
+                                                                                        <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
                                                                         </div>
-                                                                        <h4 class="summary-header"><span class="summary-section-index">2</span></h4>
-                                                                        <div class="summ-list-div">
-                                                                            <div class="summ-list-left">
-                                                                                <li>Address Line 1 
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblAddressLine1" for="txtAddressLine1"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>City :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblCity" for="txtCity"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>State :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblState" for="txtState"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-
-                                                                            </div>
-                                                                            <div class="summ-list-right">
-                                                                                <li>Country :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblCountry" for="txtCountry"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>Zip/Postal Code :
-                                                                                        <br />
-                                                                                    <a href="javascript:void(0);" class="">@* invalid-red / valid-green *@
-                                                                                        <label id="lblZipCode" for="txtZipCode"></label>
-                                                                                        <i>&nbsp;</i>
-                                                                                    </a>
-                                                                                </li>
-                                                                            </div>
-                                                                        </div>
-                                                                    </ul>
-
-                                                                    <ul class="summery-list slimscroll">
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="summary-buttons">
-                                                                    <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                                        SAVE</button>
-                                                                    <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                                        UPDATE</button>
-                                                                    <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                                                        DELETE</button>
-                                                                    <p>
-                                                                        Inputs with <i class="cross">&nbsp;</i> mark are incorrect
-                                                                    </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @*Client Detail*@
-                                                @*  <div role="tabpanel" class="tab-pane" id="tab1-3">
-                                                    <h3>Flight Details</h3>
-                                                    <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                                        <li role="presentation" class="active"><a href="#ImageSearch" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Flight Detail</a></li>
-                                                        <li role="presentation"><a href="#Imageform" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-plane"></span>&nbsp;&nbsp;&nbsp;&nbsp;Flight Detail</a></li>
-                                                    </ul>
-                                                    <div class="tab-content">
-                                                        <div role="tabpanel" class="tab-pane active" id="ImageSearch">
-                                                            <div class="col-md-12">
-                                                                <div class="table-responsive">
-                                                                    <table id="restoranttable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>#</th>
-                                                                                <th>Trip Type</th>
-                                                                                <th>Flight</th>
-                                                                                <th>Departure Airport</th>
-                                                                                <th>Departure Date</th>
-                                                                                <th>Arrival Airport</th>
-                                                                                <th>Arrival Date</th>
-                                                                                <th style="width: 15%;">Action</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tfoot>
-                                                                            <tr>
-                                                                                <th>#</th>
-                                                                                <th>Trip Type</th>
-                                                                                <th>Flight</th>
-                                                                                <th>Departure Airport</th>
-                                                                                <th>Departure Date</th>
-                                                                                <th>Arrival Airport</th>
-                                                                                <th>Arrival Date</th>
-                                                                                <th>Action</th>
-                                                                            </tr>
-                                                                        </tfoot>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <th></th>
-                                                                                <th>
-                                                                                    <input type="text" />
-                                                                                </th>
-                                                                                <th>
-                                                                                    <input type="text" />
-                                                                                </th>
-                                                                                <th>
-                                                                                    <input type="text" />
-                                                                                </th>
-                                                                                <th>
-                                                                                    <input type="text" />
-                                                                                </th>
-                                                                                <th>
-                                                                                    <input type="text" />
-                                                                                </th>
-                                                                                <th>
-                                                                                    <input type="text" />
-                                                                                </th>
-                                                                                <th>
-                                                                                    <a href="#">
-                                                                                        <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                                                            <img src="assets/images/close.png" height="15" width="15" /></a>
-                                                                                </th>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td><span>Arrival</span></td>
-                                                                                <td><span>JA-508</span></td>
-                                                                                <td><span>SP International</span></td>
-                                                                                <td><span>15-03-2016</span></td>
-                                                                                <td><span>Pattaya International</span></td>
-                                                                                <td><span>16-03-2016</span></td>
-                                                                                <td>
-                                                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                                                    &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>2</td>
-                                                                                <td><span>Arrival</span></td>
-                                                                                <td><span>KF-589</span></td>
-                                                                                <td><span>Jodhpur International</span></td>
-                                                                                <td><span>15-03-2016</span></td>
-                                                                                <td><span>Pattaya International</span></td>
-                                                                                <td><span>16-03-2016</span></td>
-                                                                                <td>
-                                                                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                                                    &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div role="tabpanel" class="tab-pane" id="Imageform">
-                                                            <form>
-                                                                <div class="col-md-8">
 
-                                                                    <div class="form-group">
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label for="txtImageTitle">Trip Type</label>
-                                                                                <select id="drpTripType" class="js-states form-control" style="display: none; width: 100%">
-                                                                                    <option>Arrival</option>
-                                                                                    <option>Departure</option>
-                                                                                    <option>Internal</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <label for="txtFlightNumber">Flight#</label>
-                                                                                <input type="text" class="form-control" id="txtFlightNumber" placeholder="Flight#">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label for="txtDepartureAirport">Departure Airport</label>
-                                                                                <input type="text" class="form-control" id="txtDepartureAirport" placeholder="Departure Airport">
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label for="txtFlightNumber">Departure Date</label>
-                                                                                <input type="text" class="form-control date-picker" id="txtdepdate" placeholder="Date">
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label for="txtdepTime">Departure Time</label>
-                                                                                <div class="input-group input-append bootstrap-timepicker">
-                                                                                    <input type="text" class="form-control" id="txtdepTime">
-                                                                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label for="txtArivalAirport">Arrival Airport</label>
-                                                                                <input type="text" class="form-control" id="txtArivalAirport" placeholder="Departure Airport">
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label for="txtarivaldate">Arrival Date</label>
-                                                                                <input type="text" class="form-control date-picker" id="txtarivaldate" placeholder="Date">
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label for="txtArivalTime">Arrival Time</label>
-                                                                                <div class="input-group input-append bootstrap-timepicker">
-                                                                                    <input type="text" class="form-control" id="txtArivalTime">
-                                                                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <br />
-                                                                    <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                                        SAVE</button>
-                                                                    <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                                        UPDATE</button>
-                                                                    <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                                                        DELETE</button>
-                                                                    <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                                                        CREATE NEW</button>
-                                                                    <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                                                        QUIT FORM</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                </div>*@
                                             </div>
                                         </div>
                                     </div>
@@ -940,6 +800,107 @@
                                             <div class="tab-content">
                                                 <div role="tabpanel" class="tab-pane active" id="SearchQuotation">
                                                     <h3>Search Quotation</h3>
+                                                    <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
+                                </div>
+                                &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                        <span class="icon-grid"></span>
+                                    </a>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
+                                    </ul>
+                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
+                                                                <li><a href="#">City</a></li>
+                                                                <li><a href="#">Country</a></li>
+                                                                <li><a href="#">State</a></li>
+                                                                <li class="active"><a href="#">Agent Margin</a></li>
+                                                                <li><a href="#">Support Mode</a></li>
+                                                                <li><a href="#">Agent Type</a></li>
+                                                                <li><a href="#">Control Type</a></li>
+                                                                <li><a href="#">Nationality</a></li>
+                                                                <li><a href="#">Vehicle Name</a></li>
+                                                                <li><a href="#">SMS Configure</a></li>
+                                                                <li><a href="#">Screen</a></li>
+                                                                <li><a href="#">Supplier Type</a></li>
+                                                                <li><a href="#">Date Format</a></li>
+                                                                <li><a href="#">days</a></li>
+                                                                <li><a href="#">Holiday</a></li>
+                                                                <li><a href="#">Bank</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Value</a></li>
+                                                                    <li><a href="#">Margin Type</a></li>
+                                                                    <li><a href="#">Efective Date From</a></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ol class="sortable" id="ddr">
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li id="list_4">
+                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_5">
+                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_9">
+                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+
+                                                                </ol>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <br /><br />
                                                     <div class="table-responsive">
                                                         <table id="restoranttable" class="display table datatable" style="width: 100%; cellspacing: 0;">
                                                             <thead>
@@ -1132,6 +1093,46 @@
                                                             COPY & CREATE NEW</button>
                                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                             QUIT FORM</button>
+                                                    </div>
+                                                    <div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateQuotation">
+                                                        <div class="panel-body tab-itenaries ">
+                                                            <div class="panel-group">
+                                                                <div class="panel panel-red">
+                                                                    <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                                                        <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                                                        <div class="panel-body summary-body">
+                                                                            <table class="table summary-list">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Created By: </td>
+                                                                                        <td><span class="label label-success">Samir Shah</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Created Date: </td>
+                                                                                        <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Created From Branch: </td>
+                                                                                        <td><span class="label label-danger">Bangkok</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Last Updated By: </td>
+                                                                                        <td><span class="label label-info">Samir Shah</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Last Updated Date: </td>
+                                                                                        <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2846,11 +2847,7 @@
                                                                 <label>Total Discount</label></td>
                                                             <td class="right-aligned"><span class="label label-success">240 THB</span></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Total Commision</label></td>
-                                                            <td class="right-aligned"><span class="label label-maroon">1480 THB</span></td>
-                                                        </tr>
+                                                        
                                                         <tr>
                                                             <td>
                                                                 <label>Sell Rate</label></td>
@@ -4710,6 +4707,67 @@
                 $('.fc-today-button').trigger('click');
                 $('.fc-today-button').hide();
             });
+            Morris.Bar({
+                element: 'morris2',
+                data: [
+                    { year: '11-Mar-2016', a: 25, b: 15 },
+                    { year: '12-Mar-2016', a: 05, b: 12 },
+                    { year: '13-Mar-2016', a: 05, b: 32 },
+                    { year: '14-Mar-2016', a: 19, b: 05 },
+                    { year: '15-Mar-2016', a: 25, b: 40 },
+                    { year: '16-Mar-2016', a: 65, b: 10 },
+                    { year: '17-Mar-2016', a: 65, b: 60 }
+                ],
+                xkey: 'year',
+                ykeys: ['a', 'b'],
+                labels: ['a', 'b'],
+                barRatio: 0.4,
+                xLabelAngle: 35,
+                hideHover: 'auto',
+                barColors: ['#6ad6c3', '#22BAA0'],
+                resize: true
+            });
+
+            if ($('ol.sortable').length) {
+
+
+                $('.disclose').on('click', function () {
+                    $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
+                })
+
+                $('#serialize').click(function () {
+                    serialized = $('ol.sortable').nestedSortable('serialize');
+                    $('#serializeOutput').text(serialized + '\n\n');
+                })
+
+                $('#toHierarchy').click(function (e) {
+                    hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
+                    hiered = dump(hiered);
+                    (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
+                    $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
+                })
+
+                $('#toArray').click(function (e) {
+                    arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
+                    arraied = dump(arraied);
+                    (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
+                    $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
+                })
+            }
+
+            $('.drag-close').click(function () {
+                $(this).parent().parent().remove();
+            });
+
+            $('#ulViewList').delegate("a", "click", function (e) {
+                $(this).parent().parent().find("li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+            $('.ulviewlistclass').delegate("a", "click", function (e) {
+                $(this).parent().parent().find("li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+
         });
         function confirmAlert() {
             swal({
@@ -4741,3 +4799,203 @@
 }
 
 
+@section floatingsection{
+    <div class="floating-section-buttons CreateQuotation" style="display: none">
+        <a class="btn btn-default" data-section="CreateQuotationsection1" rel="tooltip" title="Agent Details">1</a>
+
+        <a class="btn btn-default" data-section="CreateQuotationsection2" rel="tooltip" title="Quotation Overview">2</a>
+        <a class="btn btn-default" data-section="CreateQuotationsection3" rel="tooltip" title="Pax / Room Detail">3</a>
+
+    </div>
+
+}
+
+
+
+@section rightsidesummary{
+    <h3>
+        <span class="">
+            <div class="btn-group">
+                <a class="btn tab-itenaries btn-utilities-right">Utilities</a>
+                <a class="btn btn-quickreport-right">Quick Report</a>
+            </div>
+        </span>
+        <a href="javascript:void(0);" class="pull-right btn" id="closeRightSideSummary" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
+    </h3>
+    <div class="slimscroll utilities-sidebar">
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-notebook-black-tool-symbol text-utilities-tasks"></i>
+            <span>Task</span>
+        </a>
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-megaphone-black-amplification-audio-tool-symbol text-utilities-notification"></i>
+            <span>Notification</span>
+        </a>
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-calendar-events-symbol text-utilities-calendar"></i>
+            <span>Calendar</span>
+        </a>
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-new-email-black-back-envelope-symbol-of-interface text-utilities-email"></i>
+            <span>Email</span>
+        </a>
+        @*<a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-notebook-black-tool-symbol"></i>
+            <span>SMS</span>
+        </a>*@
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-broken-black-ticket-symbol text-utilities-notes"></i>
+            <span>Notes</span>
+        </a>
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-close-arrow-shape-button-interface-symbol text-utilities-tags"></i>
+            <span>Tags</span>
+        </a>
+        <a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-film-strip-piece-of-two-photograms text-utilities-helpvideo"></i>
+            <span>Help Video</span>
+        </a>
+        @*<a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-notebook-black-tool-symbol"></i>
+            <span>Guided Tour</span>
+        </a>*@
+        @*<a href="javascript:void(0);" class="showRight2">
+            <i class="flaticon-notebook-black-tool-symbol"></i>
+            <span>Copy</span>
+        </a>*@
+        <a href="javascript:void(0);">
+            <i class="flaticon-printing-button-interface-symbol text-utilities-print"></"></i>
+            <span>Print</span>
+        </a>
+        <a href="javascript:void(0);">
+            <i class="flaticon-photo-camera-black-tool text-utilities-screenshot"></i>
+            <span>Screenshot</span>
+        </a>
+        <hr />
+        <div class="col-md-12">
+            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Notification</h4>
+
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                        <p class="task-details">New user registered.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                        <p class="task-details">Database error.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                        <p class="task-details">Reached 24k likes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                        <p class="task-details">New user registered.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                        <p class="task-details">Database error.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                        <p class="task-details">Reached 24k likes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-success"><i class="icon-user"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1min ago</span>
+                        <p class="task-details">New user registered.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-danger"><i class="icon-energy"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">24min ago</span>
+                        <p class="task-details">Database error.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="task-icon badge badge-info"><i class="icon-heart"></i></div>
+                        <span class="badge badge-roundless badge-default pull-right">1h ago</span>
+                        <p class="task-details">Reached 24k likes</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="slimscroll quickreport-sidebar">
+        <div class="col-md-12">
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>From </label>
+                        <input type="text" class="form-control date-picker" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>To </label>
+                        <input type="text" class="form-control date-picker" id="txtRightTo" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>User</label>
+                <select class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                    <option>All</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Action</label>
+                        <select class="js-states form-control" style="display: none; width: 100%">
+                            <option>All</option>
+                            <option>Created</option>
+                            <option>Modified</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Node Value</label>
+                        <select class="js-states form-control" style="display: none; width: 100%">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Fortnightly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2" style="padding-left: 0">
+                        <label>&nbsp;</label>
+                        <button class="btn btn-info" style="padding: 5px 10px; font-size: 12px;">SHOW</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+        </div>
+        <div class="col-md-12">
+            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding-bottom: 5px;">Master Data Entry Craeted/Modified Report <span class="pull-right"><a href="javascript:void(0);" style="padding: 0;">Flip View</a></span></h4>
+            <div class="panel-body">
+                <div id="morris2"></div>
+            </div>
+        </div>
+    </div>
+}

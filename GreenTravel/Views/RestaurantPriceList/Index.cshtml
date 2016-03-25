@@ -12,6 +12,20 @@
     ViewBag.Breadcurmb += "</ol>";
 }
 <style>
+       #ulViewList {
+        padding-left: 0 !important;
+    }
+     .field-name {
+        padding-right: 15px;
+    }
+       .field-name {
+        float: left;
+        width: 50%;
+    }
+  .ulviewlistclass
+     {
+        padding-left: 0 !important;
+    }
     .summery-uitilities-detail {
         width: 33.3333%;
         overflow: hidden;
@@ -149,19 +163,108 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
+                             <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
+                                </div>
+                                &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                        <span class="icon-grid"></span>
+                                    </a>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
+                                    </ul>
+                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
+                                                                <li><a href="#">City</a></li>
+                                                                <li><a href="#">Country</a></li>
+                                                                <li><a href="#">State</a></li>
+                                                                <li class="active"><a href="#">Agent Margin</a></li>
+                                                                <li><a href="#">Support Mode</a></li>
+                                                                <li><a href="#">Agent Type</a></li>
+                                                                <li><a href="#">Control Type</a></li>
+                                                                <li><a href="#">Nationality</a></li>
+                                                                <li><a href="#">Vehicle Name</a></li>
+                                                                <li><a href="#">SMS Configure</a></li>
+                                                                <li><a href="#">Screen</a></li>
+                                                                <li><a href="#">Supplier Type</a></li>
+                                                                <li><a href="#">Date Format</a></li>
+                                                                <li><a href="#">days</a></li>
+                                                                <li><a href="#">Holiday</a></li>
+                                                                <li><a href="#">Bank</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Value</a></li>
+                                                                    <li><a href="#">Margin Type</a></li>
+                                                                    <li><a href="#">Efective Date From</a></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ol class="sortable" id="ddr">
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li id="list_4">
+                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_5">
+                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_9">
+                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+
+                                                                </ol>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="table-responsive">
+                               
                                 <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
@@ -866,6 +969,46 @@
                 hideHover: 'auto',
                 barColors: ['#6ad6c3', '#22BAA0'],
                 resize: true
+            });
+
+            if ($('ol.sortable').length) {
+
+
+                $('.disclose').on('click', function () {
+                    $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
+                })
+
+                $('#serialize').click(function () {
+                    serialized = $('ol.sortable').nestedSortable('serialize');
+                    $('#serializeOutput').text(serialized + '\n\n');
+                })
+
+                $('#toHierarchy').click(function (e) {
+                    hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
+                    hiered = dump(hiered);
+                    (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
+                    $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
+                })
+
+                $('#toArray').click(function (e) {
+                    arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
+                    arraied = dump(arraied);
+                    (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
+                    $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
+                })
+            }
+
+            $('.drag-close').click(function () {
+                $(this).parent().parent().remove();
+            });
+
+            $('#ulViewList').delegate("a", "click", function (e) {
+                $(this).parent().parent().find("li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+            $('.ulviewlistclass').delegate("a", "click", function (e) {
+                $(this).parent().parent().find("li").removeClass("active");
+                $(this).parent().addClass("active");
             });
         });
     </script>
