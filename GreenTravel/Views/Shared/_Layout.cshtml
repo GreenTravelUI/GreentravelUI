@@ -103,7 +103,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-header-fixed page-sidebar-fixed">@*page-horizontal-bar *@
+<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">@* *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
         @RenderSection("rightsidesummary", required: false)
@@ -437,7 +437,7 @@
                 </div>
             </div>
         </div><!-- Navbar -->
-        <div class="page-sidebar sidebar">@*horizontal-bar*@
+        <div class="horizontal-bar sidebar">@*page-sidebar *@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -990,17 +990,21 @@
             }
 
             var $tabsummery = $('.summery' + $('.form-tabs').find('li[class=active]').children().data('section'))
-
+            console.log('.summery' + $('.form-tabs').find('li[class=active]').children().data('section'));
             if ($tabsummery.length > 0) {
                 //set_prev = $('.summery-detail').css('top');
-                set_prev = $tabsummery.css('top');
+                if ($tabsummery.hasClass('sub-summary-tab')) {
+                    set_prev = $tabsummery.parent().parent().parent().parent().offset().top;
+                } else {
+                    set_prev = $tabsummery.css('top');
+                }
                 if ($('body').hasClass('page-horizontal-bar')) {
                     if ($('body').hasClass('page-sidebar-fixed')) {
                         if ($(document).scrollTop() >= 161) {
                             set = ($(document).scrollTop() - (160)) + "px";
                             $tabsummery.animate({ top: set }, { duration: 0, queue: false });
                             if (($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - $tabsummery.height()) < ($(document).scrollTop() + 100)) {
-                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286))
+                                var new_top = ($tabsummery.parent().parent().parent().parent().offset().top + $tabsummery.parent().parent().parent().parent().height() - ($tabsummery.height() + 286) - ($tabsummery.hasClass('sub-summary-tab') ? 0 : 0))
                                 $tabsummery.animate({ top: set_prev }, { duration: 0, queue: false });
                             }
                         } else {
