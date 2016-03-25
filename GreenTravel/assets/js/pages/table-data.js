@@ -85,6 +85,10 @@ $(document).ready(function() {
            name: 'username',
            title: 'Enter username'
     });
+    $('.table-editable td span.spaneditable').editable({
+        url: '/post',
+
+    });
     
     // Datatables
     

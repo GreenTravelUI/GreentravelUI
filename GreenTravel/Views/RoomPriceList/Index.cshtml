@@ -13,6 +13,23 @@
 }
 
 <style>
+    #ulViewList {
+        padding-left: 0 !important;
+    }
+
+    .field-name {
+        padding-right: 15px;
+    }
+
+    .field-name {
+        float: left;
+        width: 50%;
+    }
+
+    .ulviewlistclass {
+        padding-left: 0 !important;
+    }
+
     .summery-uitilities-detail {
         width: 33.3333%;
         overflow: hidden;
@@ -161,19 +178,108 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="table-responsive">
-                                    <div class="dropdown table-custome-drop">
-                                        <div class="btn-group">
-                                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                <span class="glyphicon glyphicon-download-alt"></span>
-                                            </a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Excel</a></li>
-                                                <li><a href="#">PDF</a></li>
-                                                <li><a href="#">Email</a></li>
-                                            </ul>
+                                 <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
+                                </div>
+                                &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                        <span class="icon-grid"></span>
+                                    </a>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
+                                    </ul>
+                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
+                                                                <li><a href="#">City</a></li>
+                                                                <li><a href="#">Country</a></li>
+                                                                <li><a href="#">State</a></li>
+                                                                <li class="active"><a href="#">Agent Margin</a></li>
+                                                                <li><a href="#">Support Mode</a></li>
+                                                                <li><a href="#">Agent Type</a></li>
+                                                                <li><a href="#">Control Type</a></li>
+                                                                <li><a href="#">Nationality</a></li>
+                                                                <li><a href="#">Vehicle Name</a></li>
+                                                                <li><a href="#">SMS Configure</a></li>
+                                                                <li><a href="#">Screen</a></li>
+                                                                <li><a href="#">Supplier Type</a></li>
+                                                                <li><a href="#">Date Format</a></li>
+                                                                <li><a href="#">days</a></li>
+                                                                <li><a href="#">Holiday</a></li>
+                                                                <li><a href="#">Bank</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Value</a></li>
+                                                                    <li><a href="#">Margin Type</a></li>
+                                                                    <li><a href="#">Efective Date From</a></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ol class="sortable" id="ddr">
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li id="list_4">
+                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_5">
+                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_9">
+                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+
+                                                                </ol>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                                <div class="table-responsive">
+                                   
                                     <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
                                         <thead>
                                             <tr>
@@ -340,14 +446,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="row">
-                                                <label for="lblinc">&nbsp;</label>
-                                                <div class="col-md-12 form-marings">
-                                                    <input type="checkbox" checked>Incl. ABF
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                         <div class="col-md-3">
                                             <label for="txtminstay">Min Stay (Days)</label>
                                             <input type="text" class="form-control" id="txtminstay" value="3" placeholder="Max Pax">
@@ -401,6 +500,9 @@
                                     CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                 <br />
 
                                 <h3 class="tab9section1 section-headers">Rate</h3>
@@ -676,6 +778,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                     </div>
                                 </div>
 
@@ -824,6 +929,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                     </div>
                                 </div>
                             </form>
@@ -882,7 +990,7 @@
                                         <option>Group</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                               @* <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
@@ -913,7 +1021,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -955,6 +1063,9 @@
                                     CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                 <br />
 
                                 <h3 class="tab9section1 section-headers">Cancellation Policy Details</h3>
@@ -1020,11 +1131,11 @@
                                     <div role="tabpanel" class="tab-pane " id="tab3-2">
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Cancel Days</label>
                                                     <input type="text" class="form-control" id="txtexchangerate" value="1" placeholder="Single Room Rate">
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="drpNationalityset">Charge Type </label>
                                                     <select id="drpNationalityset" class="js-states form-control" style="display: none; width: 100%">
                                                         <option selected="selected">None</option>
@@ -1034,25 +1145,26 @@
                                                         <option>Night Per Room</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label for="txtexchangerate">Charge</label>
                                                     <input type="text" class="form-control" id="txtexchangerate" value="1" placeholder="Single Room Rate">
                                                 </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                                 <div class="col-md-3">
                                                     <label for="drpcurrency">Currency</label>
                                                     <select id="drpcurrency" class="js-states form-control" style="display: none; width: 100%">
                                                         <option selected="selected">THB</option>
                                                         <option>INR</option>
                                                     </select>
                                                 </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                               
                                                 <div class="col-md-6">
                                                     <label for="txtexchangerate">Exchange Rate</label>
-                                                    <input type="text" class="form-control" id="txtexchangerate" value="100" placeholder="Exchange Rate">
+                                                    <input type="text" class="form-control" id="txtexchangerate" value="1" placeholder="Exchange Rate">
                                                 </div>
                                             </div>
                                         </div>
@@ -1079,6 +1191,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                     </div>
                                 </div>
                             </form>
@@ -1135,7 +1250,7 @@
                                         <option>Group</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                              @*  <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
@@ -1166,7 +1281,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -1207,6 +1322,9 @@
                                     CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                 <br />
 
                                 <h3 class="tab9section1 section-headers">FOC Policy Details</h3>
@@ -1449,6 +1567,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
 
                                     </div>
                                 </div>
@@ -1519,7 +1640,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
@@ -1551,7 +1672,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -1617,6 +1738,9 @@
                                     CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                 <br />
 
                                 <h3 class="tab9section1 section-headers">Surcharge Details</h3>
@@ -1768,6 +1892,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                     </div>
                                 </div>
                             </form>
@@ -1837,7 +1964,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
@@ -1869,7 +1996,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -1936,6 +2063,9 @@
                                     CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
+                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                 <br />
 
                                 <h3 class="tab9section1 section-headers">Mandatory Details</h3>
@@ -2075,6 +2205,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                     </div>
                                 </div>
                             </form>
@@ -2141,40 +2274,6 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
-                                                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Accommodation</option>
-                                                        <option>Coach</option>
-                                                        <option>Guide</option>
-                                                        <option>Driver</option>
-                                                        <option>Meal</option>
-                                                        <option>Transport</option>
-                                                        <option>Sightseeing</option>
-                                                        <option>Supplier</option>
-                                                        <option>Other</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-
-                                                <div class="col-md-3">
-                                                    <label for="drpSupplier">Supplier </label>
-                                                    <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Abc Supplier</option>
-                                                        <option>Xyz Supplier</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="drpHotel">Hotel </label>
-                                                    <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Abc Hotel</option>
-                                                        <option>Xyz Hotel</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-6">
                                                     <label for="drpRoomCategory">Room Category </label>
                                                     <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                         <option>Standerd </option>
@@ -2184,7 +2283,9 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                         </div>
+                                        
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -2238,6 +2339,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
 
                                         <br />
                                         <br />
@@ -2373,6 +2477,9 @@
                                                     CREATE NEW</button>
                                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                     QUIT FORM</button>
+                                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                             </div>
                                         </div>
 
@@ -2506,6 +2613,9 @@
                                                     CREATE NEW</button>
                                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                     QUIT FORM</button>
+                                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                             </div>
                                         </div>
 
@@ -2566,40 +2676,7 @@
                                                         <option>Group</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
-                                                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Accommodation</option>
-                                                        <option>Coach</option>
-                                                        <option>Guide</option>
-                                                        <option>Driver</option>
-                                                        <option>Meal</option>
-                                                        <option>Transport</option>
-                                                        <option>Sightseeing</option>
-                                                        <option>Supplier</option>
-                                                        <option>Other</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-
-                                                <div class="col-md-3">
-                                                    <label for="drpSupplier">Supplier </label>
-                                                    <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Abc Supplier</option>
-                                                        <option>Xyz Supplier</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="drpHotel">Hotel </label>
-                                                    <select id="drpHotel" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Abc Hotel</option>
-                                                        <option>Xyz Hotel</option>
-                                                    </select>
-                                                </div>
+                                                
                                                 <div class="col-md-6">
                                                     <label for="drpRoomCategory">Room Category </label>
                                                     <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
@@ -2610,7 +2687,9 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                         </div>
+                                      
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -2647,6 +2726,9 @@
                                             CREATE NEW</button>
                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                             QUIT FORM</button>
+                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
 
                                         <br />
                                         <br />
@@ -2782,6 +2864,9 @@
                                                     CREATE NEW</button>
                                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                     QUIT FORM</button>
+                                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                             </div>
                                         </div>
 
@@ -2915,6 +3000,9 @@
                                                     CREATE NEW</button>
                                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                     QUIT FORM</button>
+                                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+	<span class="fa fa-refresh"></span>
+ </a>
                                             </div>
                                         </div>
 
@@ -2998,6 +3086,45 @@
             });
 
 
+            if ($('ol.sortable').length) {
+
+
+                $('.disclose').on('click', function () {
+                    $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
+                })
+
+                $('#serialize').click(function () {
+                    serialized = $('ol.sortable').nestedSortable('serialize');
+                    $('#serializeOutput').text(serialized + '\n\n');
+                })
+
+                $('#toHierarchy').click(function (e) {
+                    hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
+                    hiered = dump(hiered);
+                    (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
+                    $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
+                })
+
+                $('#toArray').click(function (e) {
+                    arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
+                    arraied = dump(arraied);
+                    (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
+                    $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
+                })
+            }
+
+            $('.drag-close').click(function () {
+                $(this).parent().parent().remove();
+            });
+
+            $('#ulViewList').delegate("a", "click", function (e) {
+                $(this).parent().parent().find("li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+            $('.ulviewlistclass').delegate("a", "click", function (e) {
+                $(this).parent().parent().find("li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
 
         });
     </script>
@@ -3015,19 +3142,19 @@
     </h3>
     <div class="slimscroll utilities-sidebar">
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-notebook-black-tool-symbol"></i>
+            <i class="flaticon-notebook-black-tool-symbol text-utilities-tasks"></i>
             <span>Task</span>
         </a>
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-megaphone-black-amplification-audio-tool-symbol"></i>
+            <i class="flaticon-megaphone-black-amplification-audio-tool-symbol text-utilities-notification"></i>
             <span>Notification</span>
         </a>
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-calendar-events-symbol"></i>
+            <i class="flaticon-calendar-events-symbol text-utilities-calendar"></i>
             <span>Calendar</span>
         </a>
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-new-email-black-back-envelope-symbol-of-interface"></i>
+            <i class="flaticon-new-email-black-back-envelope-symbol-of-interface text-utilities-email"></i>
             <span>Email</span>
         </a>
         @*<a href="javascript:void(0);" class="showRight2">
@@ -3035,15 +3162,15 @@
             <span>SMS</span>
         </a>*@
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-broken-black-ticket-symbol"></i>
+            <i class="flaticon-broken-black-ticket-symbol text-utilities-notes"></i>
             <span>Notes</span>
         </a>
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-close-arrow-shape-button-interface-symbol"></i>
+            <i class="flaticon-close-arrow-shape-button-interface-symbol text-utilities-tags"></i>
             <span>Tags</span>
         </a>
         <a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-film-strip-piece-of-two-photograms"></i>
+            <i class="flaticon-film-strip-piece-of-two-photograms text-utilities-helpvideo"></i>
             <span>Help Video</span>
         </a>
         @*<a href="javascript:void(0);" class="showRight2">
@@ -3055,11 +3182,11 @@
             <span>Copy</span>
         </a>*@
         <a href="javascript:void(0);">
-            <i class="flaticon-printing-button-interface-symbol"></"></i>
+            <i class="flaticon-printing-button-interface-symbol text-utilities-print"></"></i>
             <span>Print</span>
         </a>
         <a href="javascript:void(0);">
-            <i class="flaticon-photo-camera-black-tool"></i>
+            <i class="flaticon-photo-camera-black-tool text-utilities-screenshot"></i>
             <span>Screenshot</span>
         </a>
         <hr />
@@ -3159,6 +3286,7 @@
                     <div class="col-md-6">
                         <label>Action</label>
                         <select class="js-states form-control" style="display: none; width: 100%">
+                            <option>All</option>
                             <option>Created</option>
                             <option>Modified</option>
                         </select>
@@ -3182,7 +3310,7 @@
 
         </div>
         <div class="col-md-12">
-            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding-bottom: 5px;">Room Price Craeted/Modified Report <span class="pull-right"><a href="javascript:void(0);" style="padding: 0;">Flip View</a></span></h4>
+            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding-bottom: 5px;">Master Data Entry Craeted/Modified Report <span class="pull-right"><a href="javascript:void(0);" style="padding: 0;">Flip View</a></span></h4>
             <div class="panel-body">
                 <div id="morris2"></div>
             </div>
