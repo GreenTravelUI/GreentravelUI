@@ -378,9 +378,9 @@
             width: auto;
         }
 
-            .summary-list > tbody > tr > td:first-child {
+        /*.summary-list > tbody > tr > td:first-child {
                 width: 45%;
-            }
+            }*/
 
         .summary-list > tbody > tr:first-child > td {
             border-top-width: 0;
@@ -589,7 +589,7 @@
                                             <th>Margin For</th>
                                             <th>Margin Type</th>
                                             <th>Value</th>
-                                            <th>Action</th>
+                                            <th style="width: 10% !important;">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -604,7 +604,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
+                                        @*<tr>
                                             <th></th>
                                             <th>
                                                 <input type="text" />
@@ -627,7 +627,7 @@
                                                     <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
                                                         <img src="assets/images/close.png" height="15" width="15" /></a>
                                             </th>
-                                        </tr>
+                                        </tr>*@
 
                                         <tr>
                                             <td>1</td>
@@ -637,7 +637,7 @@
                                             <td>Accommodation</td>
                                             <td>Amount</td>
                                             <td>500</td>
-                                            <td style="width: 21%;">
+                                            <td>
                                                 <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o text-success"></i></a>
                                                 &nbsp;&nbsp;
                                                 <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
@@ -650,7 +650,7 @@
                                             <td>COACH</td>
                                             <td>Percentage</td>
                                             <td>500</td>
-                                            <td style="width: 21%;">
+                                            <td>
                                                 <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o text-success"></i></a>
                                                 &nbsp;&nbsp;
                                                 <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
@@ -664,7 +664,7 @@
                                             <td>Guide</td>
                                             <td>Amount</td>
                                             <td>1000</td>
-                                            <td style="width: 21%;">
+                                            <td>
                                                 <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o text-success"></i></a>
                                                 &nbsp;&nbsp;
                                                 <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
@@ -678,7 +678,7 @@
                                             <td>Driver</td>
                                             <td>Amount</td>
                                             <td>1500</td>
-                                            <td style="width: 21%;">
+                                            <td>
                                                 <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o text-success"></i></a>
                                                 &nbsp;&nbsp;
                                                 <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
@@ -852,9 +852,16 @@
                                 <div class="panel-group">
                                     <div class="panel panel-red">
                                         <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
-                                            <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                                <i class="icon-reload"></i>
-                                            </a>
+                                            <h4 class="panel-title">Summary 
+                                                <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                    <i class="icon-reload"></i>
+                                                </a>
+                                                <a id="startGuiededTour" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                                                    <i class="icon-info"></i>
+                                                </a>
+                                                <a id="startTimeline" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Timeline">
+                                                    <i class="fa fa-sitemap"></i>
+                                                </a>
                                             </h4>
                                         </div>
                                         <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
@@ -898,44 +905,9 @@
 
 @section scripts{
     <script src="~/assets/plugins/datatables/js/dataTables.tableTools.js"></script>
-    <script type="text/javascript">
-        $(function () {
-
-        });
-    </script>
-    @*<script src="~/Scripts/JS/Page/AllMasters.js"></script>*@
     <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
-
     <script>
-        $(function () {
-
-
-
-
-        });
         $(document).ready(function () {
-            // Guided Tour Code Start
-            var tour = new Tour({
-                steps: [
-                {
-                    element: "#MastersRecord",
-                    title: "Create Master Data Entry.",
-                    content: "Enter data for masters from here.",
-                    placement: "right"
-                },
-                {
-                    element: ".btn-tables-views",
-                    title: "Masters Views",
-                    content: "Open master views list and modifiy view data.",
-                    placement: "left"
-                }
-                ]
-            });
-            localStorage.clear();
-            tour.init();
-            //tour.start();
-            // Guided Tour Code End
-
             $('ol.sortable').nestedSortable({
                 forcePlaceholderSize: true,
                 handle: 'div',
@@ -996,6 +968,28 @@
                     $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
                 })
             }
+            $('#startGuiededTour').on('click', function () {
+                //var _tour = GuidedTour();\
+                var tour = new Tour({
+                    steps: [
+                    {
+                        element: "#MastersRecord",
+                        title: "Create Master Data Entry.",
+                        content: "Enter data for masters from here.",
+                        placement: "right"
+                    },
+                    {
+                        element: ".panel-title",
+                        title: "Page Summary",
+                        content: "Your page summary will be goes here.",
+                        placement: "top"
+                    }
+                    ]
+                });
+                localStorage.clear();
+                tour.init();
+                tour.start();
+            });
 
             $('.drag-close').click(function () {
                 $(this).parent().parent().remove();
@@ -1029,6 +1023,30 @@
 
 
         });
+        function GuidedTour() {
+            // Guided Tour Code Start
+            var tour = new Tour({
+                steps: [
+                {
+                    element: "#MastersRecord",
+                    title: "Create Master Data Entry.",
+                    content: "Enter data for masters from here.",
+                    placement: "right"
+                },
+                {
+                    element: ".btn-tables-views",
+                    title: "Masters Views",
+                    content: "Open master views list and modifiy view data.",
+                    placement: "left"
+                }
+                ]
+            });
+            localStorage.clear();
+            tour.init();
+            //tour.start();
+            return tour;
+            // Guided Tour Code End
+        }
     </script>
 }
 
@@ -1216,6 +1234,93 @@
             <div class="panel-body">
                 <div id="morris2"></div>
             </div>
+        </div>
+    </div>
+}
+
+@section rightsidetimeline{
+    <h3>Trail
+        <a id="closeRightSideTimeline" class="pull-right btn" href="javascript:void(0);" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
+    </h3>
+    <div class="slimscroll utilities-sidebar">
+        <div class="col-md-12">
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>From </label>
+                        <input type="text" class="form-control date-picker" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-5">
+                        <label>To </label>
+                        <input type="text" class="form-control date-picker" id="txtRightTo" />
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-bottom: 5px;width: 100%;">&nbsp;</label>
+                        <button class="btn btn-info pull-right" style="font-size: 12px; padding: 10px 14px;" rel="tooltip" title="Show Trail"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                
+            </div>
+            <hr />
+        </div>
+        <div class="col-md-12">
+            <section id="cd-timeline" class="cd-container mCustomScrollbar">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-success">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-success">Created</h2>
+                        <span class="cd-date">11-Mar-2016 05:11 PM</span>
+                        <span class="cd-date pull-right">Sudhir Seth</span>
+                        <span class="cd-date" style="display: block;">198.013.120.143</span>
+                    </div>
+                </div>
+                <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-primary">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-primary">Updated</h2>
+                        <span class="cd-date">12-Mar-2016 09:59 AM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-primary">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-primary">Updated</h2>
+                        <span class="cd-date ">12-Mar-2016 01:23 PM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-danger">
+                        <i class="fa fa-trash"></i>
+                    </div>
+                    <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h2 class="text-danger">Deleted</h2>
+                        <span class="cd-date ">12-Mar-2016 10:36 AM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <!-- cd-timeline-block -->
+            </section>
         </div>
     </div>
 }

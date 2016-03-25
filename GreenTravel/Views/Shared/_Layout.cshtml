@@ -66,10 +66,9 @@
         .sweet-alert.show-sweet-alert.visible {
             z-index: 99999 !important;
         }
-        
     </style>
     <link href="~/assets/plugins/flaticons/BigMugSolid/flaticon.css" rel="stylesheet" />
-    <link href="~/assets/plugins/bootstrap-tour/bootstrap-tour.css" rel="stylesheet" type="text/css"/>
+    <link href="~/assets/plugins/bootstrap-tour/bootstrap-tour.css" rel="stylesheet" type="text/css" />
     @RenderSection("styles", required: false)
     <!-- Theme Styles -->
     <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
@@ -88,6 +87,7 @@
 
     <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/pricing-tables/css/style.css" rel="stylesheet" />
+    <link href="~/assets/plugins/vertical-timeline/css/style.css" rel="stylesheet" />
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
@@ -95,7 +95,6 @@
         .select2-container.select2-container--default.select2-container--open {
             z-index: 9999999 !important;
         }
-        
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -104,12 +103,15 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">
+<body class="page-header-fixed page-sidebar-fixed">@*page-horizontal-bar *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
-
         @RenderSection("rightsidesummary", required: false)
     </nav>
+    <nav class="cbp-spmenu cbp-spmenu3 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-righttimeline-s2">
+        @RenderSection("rightsidetimeline", required: false)
+    </nav>
+
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
         <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
         <div class="slimscroll">
@@ -188,7 +190,7 @@
             <div class="profile-menu-list">
                 <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                 <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
-                <a href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
+                <a href="#"><i class="fa fa-comments"></i><span>Chat</span></a>
                 <a href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a>
             </div>
         </nav>
@@ -435,7 +437,7 @@
                 </div>
             </div>
         </div><!-- Navbar -->
-        <div class="horizontal-bar sidebar">
+        <div class="page-sidebar sidebar">@*horizontal-bar*@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -864,8 +866,10 @@
                 {
                     <p class="no-s">@Html.Raw(ViewBag.FooterCopyRight)</p>
                 }
-                <input type="hidden" id="showRightSideSummary"  class="showRightSideSummary" />
-                <input type="hidden" id="closeRightSideSummary"  class="closeRightSideSummary" />
+                <a id="showRightSideSummary"  class="showRightSideSummary" style="display:none;"></a>
+                <a id="closeRightSideSummary"  class="closeRightSideSummary" style="display:none;"></a>
+                <a id="showRightSideTimeline"  class="showRightSideTimeline" style="display:none;"></a>
+                <a id="closeRightSideTimeline"  class="closeRightSideTimeline" style="display:none;"></a>
             </div>
         </div>
     </main>
@@ -899,7 +903,7 @@
     <script src="/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="/assets/plugins/select2/js/select2.min.js"></script>
     <script src="/assets/plugins/nestable/jquery.nestable.js"></script>
-      <script src="~/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/assets/plugins/morris/morris.min.js"></script>
     <script src="~/assets/plugins/morris/raphael.min.js"></script>
     <script src="~/assets/plugins/bootstrap-tour/bootstrap-tour.js"></script>
     <script src="/assets/js/modern.min.js"></script>
@@ -912,6 +916,7 @@
     <script src="/assets/js/classie.js"></script>
     <script src="/assets/js/selectFx.js"></script>
     <script src="/assets/plugins/tipso/tipso.min.js"></script>
+    @*<script src="~/assets/plugins/vertical-timeline/js/main.js"></script>*@
     <script src="~/assets/plugins/sweetalert/sweetalert2.min.js"></script>
     <script>
         (function () {
@@ -991,8 +996,6 @@
                 $('.btn-utilities-right').removeClass('tab-itenaries');
                 $(this).addClass('tab-itenaries');
             });
-
-
 
         });
         $(window).scroll(function () {
@@ -1084,7 +1087,7 @@
     </script>
     <script src="~/Scripts/JS/CommonValueSelection.js"></script>
     @*<script src="~/Scripts/JS/CommonValidations.js"></script>*@
-    
+
     @RenderSection("scripts", required: false)
     <script>
         $('.date-picker').datepicker({
