@@ -158,19 +158,20 @@
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active" id="SearchMaster"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Master </a></li>
                     <li role="presentation" id="CreateMaster"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tab-name">Create Master</span></a></li>
+                    <li role="presentation" id="MasterFromField"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-tasks"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tab-name">Master Form Field</span></a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
                             <div class="dropdown table-custome-drop">
                                 <div class="btn-group">
-                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                    <a class="label label-success dropdown-toggle" rel="tooltip" title="Export" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
                                         <span class="glyphicon glyphicon-download-alt"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Excel</a></li>
                                         <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
+                                        <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
                                     </ul>
                                 </div>
                                 &nbsp;&nbsp;
@@ -179,8 +180,8 @@
                                         <span class="icon-grid"></span>
                                     </a>
                                     <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">Change View</a> </li>
+                                        <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
                                     </ul>
                                     <div class="modal fade modify-colum-model" id="myModal" role="dialog">
                                         <div class="modal-dialog">
@@ -260,6 +261,45 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                        <div class="modal-dialog modal-sm" >
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3>Email Grid Data
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    </h3>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>To </label>
+                                                                <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="txtHotelCode">Massage</label>
+                                                                <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <button type="button" class="btn btn-success ">Send</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <br />
@@ -290,7 +330,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
+                                        @*<tr>
                                             <th></th>
                                             <th>
                                                 <input type="text" />
@@ -312,7 +352,7 @@
                                                     <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
                                                         <img src="assets/images/close.png" height="15" width="15" /></a>
                                             </th>
-                                        </tr>
+                                        </tr>*@
                                         <tr>
                                             <td>1</td>
                                             <td><span>Travel</span></td>
@@ -321,9 +361,9 @@
                                             <td><span>ABANK</span></td>
                                             <td><span>General</span>
                                             <td>
-                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
                                                 &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
 
@@ -392,229 +432,16 @@
                                     CLEAR</button>
                                 <button id="btnQuitform" type="submit" class="btn btn-info ">
                                     QUIT FORM</button>
-                             <a class="btn btn-refresh" rel="tooltip" title="Refresh Page" aria-expanded="false" onclick="window.location.href=window.location.href;">
-                                            <span class="fa fa-refresh"></span>
-                                        </a>
+                                <a class="btn btn-refresh" rel="tooltip" title="Refresh Page" aria-expanded="false" onclick="window.location.href=window.location.href;">
+                                    <span class="fa fa-refresh"></span>
+                                </a>
 
                             </form>
 
                             <br />
                             <br />
 
-                            <h3><span class="tab-section-name">Master Form Fields</span></h3>
-                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                <li role="presentation" class="active" id="SearchMasterFormFieldli"><a href="#SearchMasterFormField" role="tab" data-toggle="tab" data-section="SearchMasterFormField" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Form Field </a></li>
-                                <li role="presentation" id="CreateMasterFormFieldli"><a href="#CreateMasterFormField" role="tab" data-toggle="tab" data-section="CreateMasterFormField" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tab-name">Create Form Field</span></a></li>
 
-                            </ul>
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="SearchMasterFormField">
-                                    <div class="col-md-12">
-                                        <form>
-                                            <div class="dropdown table-custome-drop">
-                                                <div class="btn-group">
-                                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                                    </a>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="#">Excel</a></li>
-                                                        <li><a href="#">PDF</a></li>
-                                                        <li><a href="#">Email</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <br />
-                                            <div class="table-responsive">
-
-                                                <table id="" class="display table datatable" style="width: 100%;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Sequence Number</th>
-                                                            <th>Control Label</th>
-                                                            <th>Control Type</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Sequence Number</th>
-                                                            <th>Control Label</th>
-                                                            <th>Control Type</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th></th>
-                                                            <th>
-                                                                <input type="text" />
-                                                            </th>
-                                                            <th>
-                                                                <input type="text" />
-                                                            </th>
-                                                            <th>
-                                                                <input type="text" />
-                                                            </th>
-                                                            <th>
-                                                                <a href="#">
-                                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                                            </th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td><span>1</span></td>
-                                                            <td><span>City Name</span></td>
-                                                            <td><span>DropDown</span>
-                                                            <td>
-                                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
-
-                                                    </tbody>
-
-                                                </table>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane " id="CreateMasterFormField">
-                                    <div class="col-md-12">
-                                        <form>
-                                            <h3><span class="tab-section-name">Form Fields</span></h3>
-
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Control Sequence Number <span>*</span></label>
-                                                        <input type="text" class="form-control req" id="txtControlSequenceNumber" placeholder="1">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label>Control Type <span>*</span></label>
-                                                        <select id="drpControlType" class="js-states form-control drpdown req" style="display: none; width: 100%">
-                                                            <option value="0">--None--</option>
-                                                            <option value="1">TextBox</option>
-                                                            <option value="2" selected="selected">DropDown</option>
-                                                            <option value="3">Multiselect</option>
-                                                            <option value="4">Rating</option>
-                                                            <option value="5">Date</option>
-                                                            <option value="6">Time</option>
-                                                            <option value="7">TextArea</option>
-                                                            <option value="8">HTML Editor</option>
-                                                            <option value="8">Upload</option>
-                                                        </select>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Value</label>
-                                                        <select id="drpValue" class="js-states form-control drpdown req" style="display: none; width: 100%">
-                                                            <option value="0">--None--</option>
-                                                            <option value="1">Value 1 </option>
-
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label>Control Label <span>*</span></label>
-                                                        <input type="text" class="form-control req" id="txtControlLable" placeholder="Place Name">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Control Place Holder</label>
-                                                        <input type="text" class="form-control req" id="txtControlPlaceholder" placeholder="Enter City">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label>Control Help Text </label>
-                                                        <input type="text" class="form-control req" id="txtcontrolHelpText" placeholder="Help">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <h6>&nbsp;</h6>
-                                            <h3><span class="tab-section-name">Form Control Validation</span></h3>
-                                            <div class="form-group">
-                                                <div class="row">
-
-                                                    <div class="col-md-3 form-marings">
-                                                        <div class="row">
-                                                            <label for="chkreq">&nbsp;</label>
-                                                            <div class="col-md-12 form-marings">
-                                                                <input type="checkbox" checked="checked" id="chkRequired">Required
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 form-marings">
-                                                        <div class="row">
-                                                            <label for="chkcharlim">&nbsp;</label>
-                                                            <div class="col-md-12 form-marings">
-                                                                <input type="checkbox" checked="checked" id="chkcharlimit">Character Limit
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 form-marings">
-                                                        <label>Other Validation</label>
-                                                        <select id="drpFormValidation" class="js-states form-control drpdown req" style="display: none; width: 100%">
-                                                            <option value="0">--None--</option>
-                                                            <option value="email">Email</option>
-                                                            <option value="Numeric">Numeric</option>
-                                                            <option value="Alphabetic">Alphabetic</option>
-                                                            <option value="Alphanumeric">Alphanumeric</option>
-                                                            <option value="DecimalAmount">Numeric(Decimal Amount)</option>
-                                                            <option value="url">URL</option>
-                                                            <option value="NegNumberAllowed">Numeric(Neg. Number Allowed)</option>
-                                                            <option value="Negdecimalnumber">Numeric(Neg. Decimal Amount)</option>
-                                                            <option value="Regularexpression" selected="selected">Regular Expression</option>
-                                                        </select>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-
-                                                    <div class="col-md-3">
-                                                        <label>Max Character </label>
-                                                        <input type="text" class="form-control req" id="txtMaxValue" placeholder="5">
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label>Min Character</label>
-                                                        <input type="text" class="form-control req" id="txtMinvalue" placeholder="2">
-                                                    </div>
-
-
-                                                    <div class="col-md-3">
-                                                        <label>Regular Expression Value </label>
-                                                        <input type="text" class="form-control req" id="txtRegularExpression" placeholder="^[1-9]([0-9]{1,45}$)">
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <button id="btnCreateMasterFormField" type="submit" class="btn btn-success btnSave">
-                                                CREATE MASTER</button>
-
-                                            <button id="btnQuitField" type="submit" class="btn btn-info ">
-                                                QUIT FORM</button>
-                                             <a class="btn btn-refresh" rel="tooltip" title="Refresh Page" aria-expanded="false" onclick="window.location.href=window.location.href;">
-                                            <span class="fa fa-refresh"></span>
-                                        </a>
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
 
 
                         </div>
@@ -623,9 +450,16 @@
                                 <div class="panel-group">
                                     <div class="panel panel-red">
                                         <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
-                                            <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                                <i class="icon-reload"></i>
-                                            </a>
+                                            <h4 class="panel-title">Summary 
+                                                <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                    <i class="fa fa-tasks"></i>
+                                                </a>
+                                                <a id="startGuiededTour" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                                                    <i class="icon-info"></i>
+                                                </a>
+                                                <a id="startTimeline" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
+                                                    <i class="fa fa-sitemap"></i>
+                                                </a>
                                             </h4>
                                         </div>
                                         <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
@@ -652,11 +486,11 @@
                                                             <td>Last Updated Date: </td>
                                                             <td><span class="label label-warning">14-Mar-2016</span></td>
                                                         </tr>
-                                                         <tr>
+                                                        <tr>
                                                             <td>Page Load Time: </td>
                                                             <td><span class="label label-info">00:01:00 Minutes</span></td>
                                                         </tr>
-                                                         <tr>
+                                                        <tr>
                                                             <td>Record Update Time: </td>
                                                             <td><span class="label label-danger">00:01:20 Minutes</span></td>
                                                         </tr>
@@ -669,6 +503,400 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab3">
+                        @*<h3><span class="tab-section-name">Master Form Fields</span></h3>*@
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active" id="SearchMasterFormFieldli"><a href="#SearchMasterFormField" role="tab" data-toggle="tab" data-section="SearchMasterFormField" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Form Field </a></li>
+                            <li role="presentation" id="CreateMasterFormFieldli"><a href="#CreateMasterFormField" role="tab" data-toggle="tab" data-section="CreateMasterFormField" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tab-name">Create Form Field</span></a></li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="SearchMasterFormField">
+                                <div class="col-md-12">
+                                    <form>
+                                        <div class="dropdown table-custome-drop">
+                                            <div class="btn-group">
+                                                <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                                    <span class="glyphicon glyphicon-download-alt"></span>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Excel</a></li>
+                                                    <li><a href="#">PDF</a></li>
+                                                    <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal1">Email</a></li>
+                                                </ul>
+                                            </div>
+                                            &nbsp;&nbsp;
+                                            <div class="btn-group btn-tables-views">
+                                                <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                                    <span class="icon-grid"></span>
+                                                </a>
+                                                <ul class="dropdown-menu cate-drop-menu">
+                                                    <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                                    <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
+                                                </ul>
+                                                <div class="modal fade modify-colum-model" id="myModal1" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <br />
+                                                                <div class="model-left-columns">
+                                                                    <div class="field-name">
+                                                                        <h3>View <a href="#"></a></h3>
+                                                                        <ul id="ulViewList" class="field-list slimscroll">
+                                                                            <li><a href="#">City</a></li>
+                                                                            <li><a href="#">Country</a></li>
+                                                                            <li><a href="#">State</a></li>
+                                                                            <li class="active"><a href="#">Agent Margin</a></li>
+                                                                            <li><a href="#">Support Mode</a></li>
+                                                                            <li><a href="#">Agent Type</a></li>
+                                                                            <li><a href="#">Control Type</a></li>
+                                                                            <li><a href="#">Nationality</a></li>
+                                                                            <li><a href="#">Vehicle Name</a></li>
+                                                                            <li><a href="#">SMS Configure</a></li>
+                                                                            <li><a href="#">Screen</a></li>
+                                                                            <li><a href="#">Supplier Type</a></li>
+                                                                            <li><a href="#">Date Format</a></li>
+                                                                            <li><a href="#">days</a></li>
+                                                                            <li><a href="#">Holiday</a></li>
+                                                                            <li><a href="#">Bank</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="field-name">
+                                                                        <h3>Field Name <a href="#">Add all</a></h3>
+                                                                        <div class="field-list field-list-img slimscroll">
+                                                                            <ul>
+                                                                                <li><a href="#">Value</a></li>
+                                                                                <li><a href="#">Margin Type</a></li>
+                                                                                <li><a href="#">Efective Date From</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="drag-drop-right">
+                                                                    <section>
+                                                                        <h2>Drag and drop reorder</h2>
+                                                                        <div class="cf nestable-lists">
+                                                                            <ol class="sortable" id="ddr">
+                                                                                <li>
+                                                                                    <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                                </li>
+                                                                                <li id="list_4">
+                                                                                    <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                                </li>
+                                                                                <li id="list_5">
+                                                                                    <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                                </li>
+                                                                                <li id="list_9">
+                                                                                    <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                                </li>
+
+                                                                            </ol>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-success ">Apply</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade modify-colum-model" id="EmailModal1" role="dialog">
+                                                    <div class="modal-dialog modal-sm" >
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h3>Email</h3>
+                                                                <br />
+                                                            </div>
+                                                            <div class="modal-body">
+
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>To </label>
+                                                                            <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label for="txtHotelCode">Massage</label>
+                                                                            <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <button type="button" class="btn btn-success ">Send</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div class="table-responsive">
+
+                                            <table id="" class="display table datatable" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Sequence Number</th>
+                                                        <th>Control Label</th>
+                                                        <th>Control Type</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Sequence Number</th>
+                                                        <th>Control Label</th>
+                                                        <th>Control Type</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" />
+                                                        </th>
+                                                        <th>
+                                                            <a href="#">
+                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
+                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><span>1</span></td>
+                                                        <td><span>City Name</span></td>
+                                                        <td><span>DropDown</span>
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane " id="CreateMasterFormField">
+                                <div class="col-md-8">
+                                    <form>
+                                        <h3><span class="tab-section-name">Form Fields</span></h3>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Control Sequence Number <span>*</span></label>
+                                                    <input type="text" class="form-control req" id="txtControlSequenceNumber" placeholder="1" readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Control Type <span>*</span></label>
+                                                    <select id="drpControlType" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                        <option value="0">--None--</option>
+                                                        <option value="1">TextBox</option>
+                                                        <option value="2" selected="selected">DropDown</option>
+                                                        <option value="3">Multiselect</option>
+                                                        <option value="4">Rating</option>
+                                                        <option value="5">Date</option>
+                                                        <option value="6">Time</option>
+                                                        <option value="7">TextArea</option>
+                                                        <option value="8">HTML Editor</option>
+                                                        <option value="8">Upload</option>
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Value</label>
+                                                    <select id="drpValue" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                        <option value="0">--None--</option>
+                                                        <option value="1">Value 1 </option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Control Label <span>*</span></label>
+                                                    <input type="text" class="form-control req" id="txtControlLable" placeholder="Place Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Control Place Holder</label>
+                                                    <input type="text" class="form-control req" id="txtControlPlaceholder" placeholder="Enter City">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Control Help Text </label>
+                                                    <input type="text" class="form-control req" id="txtcontrolHelpText" placeholder="Help">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h6>&nbsp;</h6>
+                                        <h3><span class="tab-section-name">Form Control Validation</span></h3>
+                                        <div class="form-group">
+                                            <div class="row">
+
+                                                <div class="col-md-3 form-marings">
+                                                    <div class="row">
+                                                        <label for="chkreq" class="labelforcheckbox">&nbsp;</label>
+                                                        <div class="col-md-12 form-marings">
+                                                            <input type="checkbox" checked="checked" id="chkRequired">Required
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 form-marings">
+                                                    <div class="row">
+                                                        <label for="chkcharlim" class="labelforcheckbox">&nbsp;</label>
+                                                        <div class="col-md-12 form-marings">
+                                                            <input type="checkbox" checked="checked" id="chkcharlimit">Character Limit
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label>Max Character </label>
+                                                    <input type="text" class="form-control req" id="txtMaxValue" placeholder="5">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label>Min Character</label>
+                                                    <input type="text" class="form-control req" id="txtMinvalue" placeholder="2">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 form-marings">
+                                                    <label>Other Validation</label>
+                                                    <select id="drpFormValidation" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                                                        <option value="0">--None--</option>
+                                                        <option value="email">Email</option>
+                                                        <option value="Numeric">Numeric</option>
+                                                        <option value="Alphabetic">Alphabetic</option>
+                                                        <option value="Alphanumeric">Alphanumeric</option>
+                                                        <option value="DecimalAmount">Numeric(Decimal Amount)</option>
+                                                        <option value="url">URL</option>
+                                                        <option value="NegNumberAllowed">Numeric(Neg. Number Allowed)</option>
+                                                        <option value="Negdecimalnumber">Numeric(Neg. Decimal Amount)</option>
+                                                        <option value="Regularexpression" selected="selected">Regular Expression</option>
+                                                    </select>
+                                                </div>
+                                                
+
+
+                                                <div class="col-md-6">
+                                                    <label>Regular Expression Value </label>
+                                                    <input type="text" class="form-control req" id="txtRegularExpression" placeholder="^[1-9]([0-9]{1,45}$)">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <br />
+                                        <button id="btnCreateMasterFormField" type="submit" class="btn btn-success btnSave">
+                                            CREATE MASTER</button>
+
+                                        <button id="btnQuitField" type="submit" class="btn btn-info ">
+                                            QUIT FORM</button>
+                                        <a class="btn btn-refresh" rel="tooltip" title="Refresh Page" aria-expanded="false" onclick="window.location.href=window.location.href;">
+                                            <span class="fa fa-refresh"></span>
+                                        </a>
+                                    </form>
+                                </div>
+                                <div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateMasterFormField">
+                                    <div class="panel-body tab-itenaries ">
+                                        <div class="panel-group">
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                                    <h4 class="panel-title">Summary <a id="showRightSideSummary1" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                                    <div class="panel-body summary-body">
+                                                        <table class="table summary-list">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Created By: </td>
+                                                                    <td><span class="label label-success">Samir Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Created Date: </td>
+                                                                    <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Created From Branch: </td>
+                                                                    <td><span class="label label-danger">Bangkok</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Last Updated By: </td>
+                                                                    <td><span class="label label-info">Samir Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Last Updated Date: </td>
+                                                                    <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Page Load Time: </td>
+                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Record Update Time: </td>
+                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
@@ -786,7 +1014,28 @@
                 $(this).parent().parent().find("li").removeClass("active");
                 $(this).parent().addClass("active");
             });
-
+            $('#startGuiededTour').on('click', function () {
+                //var _tour = GuidedTour();\
+                var tour = new Tour({
+                    steps: [
+                    {
+                        element: "#CreateMaster",
+                        title: "Create Master.",
+                        content: "Configure Master.",
+                        placement: "right"
+                    },
+                    {
+                        element: "#MasterFromField",
+                        title: "Master From Field.",
+                        content: "Set master form fields for configured master.",
+                        placement: "right"
+                    }
+                    ]
+                });
+                localStorage.clear();
+                tour.init();
+                tour.start();
+            });
             //});
             Morris.Bar({
                 element: 'morris2',
@@ -1000,6 +1249,92 @@
             <div class="panel-body">
                 <div id="morris2"></div>
             </div>
+        </div>
+    </div>
+}
+
+@section rightsidetimeline{
+    <h3>Trail
+        <a id="closeRightSideTimeline" class="pull-right btn" href="javascript:void(0);" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
+    </h3>
+    <div class="slimscroll utilities-sidebar">
+        <div class="col-md-12">
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>From </label>
+                        <input type="text" class="form-control date-picker" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-5">
+                        <label>To </label>
+                        <input type="text" class="form-control date-picker" id="txtRightTo" />
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-bottom: 5px; width: 100%;">&nbsp;</label>
+                        <button class="btn btn-info pull-right" style="font-size: 12px; padding: 10px 14px;" rel="tooltip" title="Show Trail"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <hr />
+        </div>
+        <div class="col-md-12">
+            <section id="cd-timeline" class="cd-container mCustomScrollbar">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-success">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-success">Created</h2>
+                        <span class="cd-date">11-Mar-2016 05:11 PM</span>
+                        <span class="cd-date pull-right">Sudhir Seth</span>
+                        <span class="cd-date" style="display: block;">198.013.120.143</span>
+                    </div>
+                </div>
+                <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-primary">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-primary">Updated</h2>
+                        <span class="cd-date">12-Mar-2016 09:59 AM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-primary">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-primary">Updated</h2>
+                        <span class="cd-date ">12-Mar-2016 01:23 PM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-danger">
+                        <i class="fa fa-trash"></i>
+                    </div>
+                    <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h2 class="text-danger">Deleted</h2>
+                        <span class="cd-date ">12-Mar-2016 10:36 AM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <!-- cd-timeline-block -->
+            </section>
         </div>
     </div>
 }
