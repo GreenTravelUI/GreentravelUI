@@ -224,6 +224,9 @@
             font-size: 12px;
             padding: 7px !important;
         }
+    .tdpaddingleft {
+        padding-left: 35px;
+    }
 </style>
 
 <div class="col-md-12 form-detail">
@@ -239,7 +242,7 @@
                     <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Selling Criteria</a></li>
                     <li role="presentation"><a href="#tabcreditlimit" role="tab" data-toggle="tab" data-section="tabcreditlimit" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Credit Limit</a></li>
                     <li role="presentation"><a href="#SetMargin" role="tab" data-toggle="tab" data-section="SetMargin" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Margin</a></li>
-                    <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Commission</a></li>
+                    @*<li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Commission</a></li>*@
                     <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab" data-section="tab7" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Discount</a></li>
                     <li role="presentation"><a href="#tab10" role="tab" data-toggle="tab" data-section="tab10" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;Accounts</a></li>
 
@@ -317,7 +320,7 @@
                             <div class="form-group">
                                 <h4 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound">200 Records found</h4>
                             </div>
-                            <div class="dropdown table-custome-drop">
+                          <div class="dropdown table-custome-drop">
                                 <div class="btn-group">
                                     <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
                                         <span class="glyphicon glyphicon-download-alt"></span>
@@ -325,7 +328,7 @@
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Excel</a></li>
                                         <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
+                                        <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
                                     </ul>
                                 </div>
                                 &nbsp;&nbsp;
@@ -334,8 +337,8 @@
                                         <span class="icon-grid"></span>
                                     </a>
                                     <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">Change View</a> </li>
+                                        <li><a href="javascript:void(0);" style="color: #000"> <span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
                                     </ul>
                                     <div class="modal fade modify-colum-model" id="myModal" role="dialog">
                                         <div class="modal-dialog">
@@ -415,8 +418,49 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                        <div class="modal-dialog" style="width:30%;height:40%">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                     <h3>Email</h3>
+                                                    <br />
+                                                </div>
+                                                <div class="modal-body">
+                                                   
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>To </label>
+                                                                <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="txtHotelCode">Massage</label>
+                                                                <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                 <button type="button" class="btn btn-success ">Send</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <br />
+                            <br />
 
                             <div class="table-responsive">
 
@@ -548,23 +592,9 @@
                                                 <option>C++</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="drpStarRating">Star Rating </label>
-                                            <select id="drpStarRating" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="drpOperatingCurrency">Operating Currency <span>*</span></label>
+                                        
+                                        <div class="col-md-6">
+                                            <label for="drpOperatingCurrency">Agent Base Currency <span>*</span></label>
                                             <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">THB</option>
                                                 <option>INR</option>
@@ -774,7 +804,7 @@
                                     DELETE</button>
                                 <button id="btnClearCreateAgent" type="button" class="btn btn-warning btnSave">
                                     CREATE NEW</button>
-                                <button id="btnSaveCreateSupplier" type="submit" class="btn btn-lightgreen btnpaddingless btnSave">
+                                <button id="btnSaveCreateSupplier" type="button" class="btn btn-lightgreen btnpaddingless" onclick="confirmAlert();">
                                     CREATE SUPPLIER</button>
                                 <button id="btnQuitCreateAgent" type="button" class="btn btn-info btnSave">
                                     QUIT FORM</button>
@@ -850,10 +880,10 @@
                                             <label for="txtFirstName">Name <span>*</span></label>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Sarawut" placeholder="First Name" data-label="lblFirstName">
+                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Jhon" placeholder="First Name" data-label="lblFirstName">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Engchawadechasilp" placeholder="Last Name" data-label="lblLastName">
+                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Peter" placeholder="Last Name" data-label="lblLastName">
                                                 </div>
                                             </div>
                                         </div>
@@ -1189,7 +1219,7 @@
                                                 <td>Sarawut Engchawadechasilp</td>
                                                 <td>sarawut.engchawadechasilp@gmail.com</td>
                                                 <td>Manager</td>
-                                                <td><span class="label label-success Agentstatus">Active</span></td>
+                                                <td><span class="label label-success">Active</span></td>
                                                 <td>
                                                     <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                     &nbsp;&nbsp;
@@ -1229,7 +1259,7 @@
                                             <div class="row">
                                                 <label for="lblfordifferentaddress">&nbsp;</label>
                                                 <div class="col-md-12 form-marings">
-                                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                                    <input type="checkbox" id="chkDifferentAddress" checked="checked">Different Address?
                                                 </div>
                                             </div>
 
@@ -1316,7 +1346,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Bank Detail For Agent Invoice - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <h3 class="section-headers tab3section2"><span class="section-index">2</span>&nbsp;Bank Detail For Invoice - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                 <div class="form-group">
                                     <label for="drpacno">Account No <span>*</span></label>
                                     <select id="drpacno" class="js-states form-control" style="display: none; width: 100%">
@@ -1448,6 +1478,7 @@
                         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#sellingGrid" role="tab" data-toggle="tab" data-section="userGrid" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Selling Criteria</a></li>
                             <li role="presentation"><a href="#sellingform" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Selling Criteria</a></li>
+                            <li role="presentation"><a href="#invoicereceipt" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice / Receipt Details</a></li>
 
                         </ul>
                         <div class="tab-content">
@@ -1472,37 +1503,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row">
-
-                                                <div class="col-md-6">
-                                                    <label for="txtAddressLine1">Invoice Currency <span>*</span></label>
-                                                    <select id="drpOperatingCurrency" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
-                                                        <option selected="selected">THB</option>
-                                                        <option>All</option>
-                                                        <option>INR</option>
-                                                        <option>AUD</option>
-                                                        <option>USD</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="txtAgentName">Applicable Bank Fee</label>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control" id="timepicker4">
-                                                        <span class="input-group-addon add-on"><span>THB</span></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="txtAddressLine1">Payment Type <span>*</span></label>
-                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Bank Transfer</option>
-                                                        <option>Cash</option>
-                                                        <option>Credit Card</option>
-                                                    </select>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <div class="row">
 
@@ -1774,6 +1775,144 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="invoicereceipt">
+                                  <div class="col-md-8">
+                                    <form>
+                                        <h3 class="tab5section1">Invoice / Receipt Details - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                       <table>
+                                           <tr>
+                                               <th class="" style="width:17%">Invoice Currency</th>
+                                               <th class="tdpaddingleft">Applicable Bank Fee</th>
+                                               <th class="tdpaddingleft">Payment Type</th>
+                                               <th class="tdpaddingleft">Effective Date</th>
+                                               <th class="tdpaddingleft"></th>
+                                          </tr>
+                                           <tbody>
+                                               <tr>
+                                                   <td class="">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control"style="display: none; width: 100%">
+                                                        <option selected="selected">THB</option>
+                                                        <option>All</option>
+                                                        <option>INR</option>
+                                                        <option>AUD</option>
+                                                        <option>USD</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft">
+                                                       <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control" id="timepicker4">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="width:27%">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Bank Transfer</option>
+                                                        <option>Cash</option>
+                                                        <option>Credit Card</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft">
+                                                         <input type="text" class="form-control date-picker" id="Effectivedate">
+                                                   </td>
+                                                   <td class="tdpaddingleft"><a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a></td>
+                                               </tr>
+                                              
+                                                <tr>
+                                                   <td class="" style="padding-top:5px">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control"style="display: none; width: 100%">
+                                                        <option selected="selected">THB</option>
+                                                        <option>All</option>
+                                                        <option>INR</option>
+                                                        <option>AUD</option>
+                                                        <option>USD</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="padding-top:10px">
+                                                       <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control" id="timepicker4">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="width:27%;padding-top:5px">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Bank Transfer</option>
+                                                        <option>Cash</option>
+                                                        <option>Credit Card</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="padding-top:5px">
+                                                         <input type="text" class="form-control date-picker" id="Effectivedate">
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="padding-top:5px"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                               </tr>
+                                           </tbody>
+                                     
+                                       
+                                     </table>
+                                        <br />
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                            <span class="fa fa-refresh"></span>
+                                        </a>
+
+                                    </form>
+                                </div>
+                                <div class="col-md-4 summery-detail summery-uitilities-detail summerytab4">
+                                    <div class="panel-body tab-itenaries ">
+                                        <div class="panel-group">
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                                    <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                                    <div class="panel-body summary-body">
+                                                        <table class="table summary-list">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Created By: </td>
+                                                                    <td><span class="label label-success">Samir Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Created Date: </td>
+                                                                    <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Created From Branch: </td>
+                                                                    <td><span class="label label-danger">Bangkok</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Last Updated By: </td>
+                                                                    <td><span class="label label-info">Samir Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Last Updated Date: </td>
+                                                                    <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Page Load Time: </td>
+                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Record Update Time: </td>
+                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -4048,6 +4187,28 @@
             });
 
         });
+        function confirmAlert() {
+            swal({
+                title: "Are you sure want to create agent as supplier?",
+                text: "You are going to create supplier!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, create it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                  //  window.location.href = "/bookingsfit"
+                    swal("Created!", "Your supplier has been created.", "success");
+
+                } else {
+                    swal("Cancelled", "Your supplier is cancelled :)", "error");
+                }
+            });
+        }
     </script>
 }
 

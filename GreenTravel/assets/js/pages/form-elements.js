@@ -30,6 +30,9 @@ $(document).ready(function () {
     $('#cp2').colorpicker();
 
     $('.timepicker').timepicker({
-        defaultTime: false
+        showMeridian: false,
+        defaultTime: false,
+        use24hours: true,
+       
     });
 });
