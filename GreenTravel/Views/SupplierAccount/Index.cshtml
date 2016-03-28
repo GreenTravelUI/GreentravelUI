@@ -220,6 +220,9 @@
             font-size: 12px;
             padding: 7px !important;
         }
+        .tdpaddingleft {
+        padding-left: 35px;
+    }
 </style>
 
 <div class="col-md-12 form-detail">
@@ -319,7 +322,7 @@
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Excel</a></li>
                                         <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
+                                        <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
                                     </ul>
                                 </div>
                                 &nbsp;&nbsp;
@@ -328,10 +331,10 @@
                                         <span class="icon-grid"></span>
                                     </a>
                                     <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
+                                        <li><a href="javascript:void(0);" style="color: #000"> <span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
                                     </ul>
-                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
+                                    <div class="modal fade modify-colum-model" id="myModal" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
@@ -344,7 +347,7 @@
                                                     <div class="model-left-columns">
                                                         <div class="field-name">
                                                             <h3>View <a href="#"></a></h3>
-                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
+                                                            <ul id="ulViewList" class="field-list slimscroll">
                                                                 <li><a href="#">City</a></li>
                                                                 <li><a href="#">Country</a></li>
                                                                 <li><a href="#">State</a></li>
@@ -409,8 +412,49 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                        <div class="modal-dialog" style="width:30%;height:40%">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                     <h3>Email</h3>
+                                                    <br />
+                                                </div>
+                                                <div class="modal-body">
+                                                   
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>To </label>
+                                                                <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="txtHotelCode">Massage</label>
+                                                                <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                 <button type="button" class="btn btn-success ">Send</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <br />
+                            <br />
                             <div class="table-responsive">
 
                                 <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
@@ -560,7 +604,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="drpOperatingCurrency">Operating Currency  <span>*</span></label>
+                                            <label for="drpOperatingCurrency">Supplier Base Currency  <span>*</span></label>
                                             <select id="drpOperatingCurrency1" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">THB</option>
                                                 <option>INR</option>
@@ -578,36 +622,37 @@
                                 </div>*@
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <label for="drpCountry">Code <span>*</span></label>
                                             <input type="text" class="form-control col-sm-5" value="+66" id="txtCountryCode" placeholder="Code">
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="txtOfficialPhone">Official Phone <span>*</span></label>
                                             <input type="text" class="form-control col-sm-5" id="txtOfficialPhone" value="38418418" placeholder="Official Phone">
                                         </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
                                         <div class="col-md-6">
                                             <label for="txtWebsite">Website </label>
                                             <input type="text" class="form-control" value="http://www.amari.com/ocean-pattaya/" id="txtWebsite" placeholder="Website">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        
                                         <div class="col-md-6">
                                             <label for="txtFax">Fax</label>
                                             <input type="text" class="form-control" id="txtFax" placeholder="Fax">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="txtPrimaryContactPerson">Primary Contact Person </label>
+                                            <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="txtPrimaryContactPerson">Primary Contact Person </label>
-                                            <input type="text" class="form-control" id="txtPrimaryContactPerson" placeholder="Primary Contact Person">
-                                        </div>
+                                        
                                         <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Status <span>*</span></label>
                                             <select id="drpTypeOfSupplier1" class="js-states form-control" style="display: none; width: 100%">
@@ -654,22 +699,24 @@
 
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <label for="txtCity">City </label>
-                                            <input type="text" class="form-control" value="Chonburi" id="txtCity" placeholder="City">
+                                         <div class="col-md-3">
+                                            <label for="txtCountry">Country</label>
+                                            <input type="text" class="form-control" value="Thailand" id="txtCountry" placeholder="Country">
                                         </div>
+                                       
                                         <div class="col-md-3">
                                             <label for="txtState">State</label>
                                             <input type="text" class="form-control" value="Pattaya Central" id="txtState" placeholder="State">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtCountry">Country</label>
-                                            <input type="text" class="form-control" value="Thailand" id="txtCountry" placeholder="Country">
+                                            <label for="txtCity">City </label>
+                                            <input type="text" class="form-control" value="Chonburi" id="txtCity" placeholder="City">
                                         </div>
-                                        <div class="col-md-3">
+                                         <div class="col-md-3">
                                             <label for="txtZipCode">Zip/Postal Code</label>
                                             <input type="text" class="form-control" id="txtZipCode" value="20150" placeholder="Country">
                                         </div>
+                                       
                                     </div>
                                 </div>
 
@@ -706,7 +753,7 @@
                                     DELETE</button>
                                 <button id="btnCreateSupplier" type="button" class="btn btn-warning btnSave">
                                     CREATE NEW</button>
-                                <button id="btnSaveCreateAgent" type="submit" class="btn btn-lightgreen btnSave">
+                                <button id="btnSaveCreateAgent" type="button" class="btn btn-lightgreen" onclick="confirmAlert();">
                                     CREATE AGENT</button>
                                 <button id="btnQuitCreateSupplier" type="button" class="btn btn-info btnSave">
                                     QUIT FORM</button>
@@ -1190,10 +1237,10 @@
                                             <label for="txtFirstName">Name <span>*</span></label>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Sarawut" placeholder="First Name" data-label="lblFirstName">
+                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtFirstName" value="Jhon" placeholder="First Name" data-label="lblFirstName">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Engchawadechasilp" placeholder="Last Name" data-label="lblLastName">
+                                                    <input type="text" class="form-control col-sm-5 textbox-control" id="txtLastName" value="Peter" placeholder="Last Name" data-label="lblLastName">
                                                 </div>
                                             </div>
                                         </div>
@@ -1387,106 +1434,7 @@
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane active" id="userGrid">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
-                                    </div>
-                                    &nbsp;&nbsp;
-                                <div class="btn-group btn-tables-views">
-                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
-                                        <span class="icon-grid"></span>
-                                    </a>
-                                    <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser1">Change View</a> </li>
-                                    </ul>
-                                    <div class="modal fade modify-colum-model" id="myModaluser1" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <br />
-                                                    <div class="model-left-columns">
-                                                        <div class="field-name">
-                                                            <h3>View <a href="#"></a></h3>
-                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
-                                                                <li><a href="#">City</a></li>
-                                                                <li><a href="#">Country</a></li>
-                                                                <li><a href="#">State</a></li>
-                                                                <li class="active"><a href="#">Agent Margin</a></li>
-                                                                <li><a href="#">Support Mode</a></li>
-                                                                <li><a href="#">Agent Type</a></li>
-                                                                <li><a href="#">Control Type</a></li>
-                                                                <li><a href="#">Nationality</a></li>
-                                                                <li><a href="#">Vehicle Name</a></li>
-                                                                <li><a href="#">SMS Configure</a></li>
-                                                                <li><a href="#">Screen</a></li>
-                                                                <li><a href="#">Supplier Type</a></li>
-                                                                <li><a href="#">Date Format</a></li>
-                                                                <li><a href="#">days</a></li>
-                                                                <li><a href="#">Holiday</a></li>
-                                                                <li><a href="#">Bank</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="field-name">
-                                                            <h3>Field Name <a href="#">Add all</a></h3>
-                                                            <div class="field-list field-list-img slimscroll">
-                                                                <ul>
-                                                                    <li><a href="#">Value</a></li>
-                                                                    <li><a href="#">Margin Type</a></li>
-                                                                    <li><a href="#">Efective Date From</a></li>
-
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="drag-drop-right">
-                                                        <section>
-                                                            <h2>Drag and drop reorder</h2>
-                                                            <div class="cf nestable-lists">
-                                                                <ol class="sortable" id="ddr">
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li id="list_4">
-                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_5">
-                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_9">
-                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-
-                                                                </ol>
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success ">Apply</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
+                               
                                 <div class="table-responsive">
 
                                     <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
@@ -1577,7 +1525,7 @@
                                             <div class="row">
                                                 <label for="txtSupplierUserEmail">&nbsp;</label>
                                                 <div class="col-md-12 form-marings">
-                                                    <input type="checkbox" id="chkDifferentAddress">Different Address?
+                                                    <input type="checkbox" id="chkDifferentAddress" checked="checked">Different Address?
                                                 </div>
                                             </div>
 
@@ -1600,21 +1548,23 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <label for="txtBillingCity">Billing City </label>
-                                            <input type="text" class="form-control" id="txtBillingCity" value="Chonburi" placeholder="Billing City">
+                                            <label for="txtBillingCountry">Billing Country</label>
+                                            <input type="text" class="form-control" id="txtBillingCountry" value="Thailand" placeholder="Billing Country">
                                         </div>
+                                        
                                         <div class="col-md-3">
                                             <label for="txtBillingState">Billing State</label>
                                             <input type="text" class="form-control" id="txtBillingState" value="Pattaya Central" placeholder="Billing State">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtBillingCountry">Billing Country</label>
-                                            <input type="text" class="form-control" id="txtBillingCountry" value="Thailand" placeholder="Billing Country">
+                                            <label for="txtBillingCity">Billing City </label>
+                                            <input type="text" class="form-control" id="txtBillingCity" value="Chonburi" placeholder="Billing City">
                                         </div>
                                         <div class="col-md-3">
                                             <label for="txtBillingZipCode">Billing Zip/Postal Code</label>
                                             <input type="text" class="form-control" id="txtBillingZipCode" value="20150" placeholder="Billing Country">
                                         </div>
+                                        
                                     </div>
                                 </div>
 
@@ -1795,6 +1745,7 @@
                         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#Paygrid" role="tab" data-toggle="tab" data-section="userGrid" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Payment</a></li>
                             <li role="presentation"><a href="#Payform" role="tab" data-toggle="tab" data-section="userForm" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Payment </a></li>
+                             <li role="presentation"><a href="#invoicereceipt" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Payment Transfer Details</a></li>
 
                         </ul>
                         <div class="tab-content">
@@ -1803,6 +1754,8 @@
                                     <form>
                                         <h3 class="tab4section1">Payment Criteria - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
                                         <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
                                             <label for="txtAddressLine1">Natinality Set <span>*</span></label>
                                             <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Asian</option>
@@ -1810,31 +1763,13 @@
                                                 <option>Europian</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <label for="txtBillingContactPerson">Credit Days</label>
                                                     <input type="text" class="form-control" id="txtCreaditDays" placeholder="Creadit Days">
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <label for="txtAddressLine1">Payment Currency <span>*</span></label>
-                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">THB</option>
-                                                        <option>INR</option>
-                                                        <option>AUD</option>
-                                                        <option>USD</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label for="txtAddressLine1">Payment Type <span>*</span></label>
-                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                        <option selected="selected">Bank Transfer</option>
-                                                        <option>Cash</option>
-                                                        <option>Credit Card</option>
-                                                    </select>
-                                                </div>
+                                               </div>
                                             </div>
-                                        </div>
+                                      
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -1946,106 +1881,7 @@
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane active" id="Paygrid">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
-                                    </div>
-                                    &nbsp;&nbsp;
-                                <div class="btn-group btn-tables-views">
-                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
-                                        <span class="icon-grid"></span>
-                                    </a>
-                                    <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser2">Change View</a> </li>
-                                    </ul>
-                                    <div class="modal fade modify-colum-model" id="myModaluser2" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <br />
-                                                    <div class="model-left-columns">
-                                                        <div class="field-name">
-                                                            <h3>View <a href="#"></a></h3>
-                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
-                                                                <li><a href="#">City</a></li>
-                                                                <li><a href="#">Country</a></li>
-                                                                <li><a href="#">State</a></li>
-                                                                <li class="active"><a href="#">Agent Margin</a></li>
-                                                                <li><a href="#">Support Mode</a></li>
-                                                                <li><a href="#">Agent Type</a></li>
-                                                                <li><a href="#">Control Type</a></li>
-                                                                <li><a href="#">Nationality</a></li>
-                                                                <li><a href="#">Vehicle Name</a></li>
-                                                                <li><a href="#">SMS Configure</a></li>
-                                                                <li><a href="#">Screen</a></li>
-                                                                <li><a href="#">Supplier Type</a></li>
-                                                                <li><a href="#">Date Format</a></li>
-                                                                <li><a href="#">days</a></li>
-                                                                <li><a href="#">Holiday</a></li>
-                                                                <li><a href="#">Bank</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="field-name">
-                                                            <h3>Field Name <a href="#">Add all</a></h3>
-                                                            <div class="field-list field-list-img slimscroll">
-                                                                <ul>
-                                                                    <li><a href="#">Value</a></li>
-                                                                    <li><a href="#">Margin Type</a></li>
-                                                                    <li><a href="#">Efective Date From</a></li>
-
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="drag-drop-right">
-                                                        <section>
-                                                            <h2>Drag and drop reorder</h2>
-                                                            <div class="cf nestable-lists">
-                                                                <ol class="sortable" id="ddr">
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li id="list_4">
-                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_5">
-                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_9">
-                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-
-                                                                </ol>
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success ">Apply</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
+                               
                                 <div class="table-responsive">
 
                                     <table id="example-editable" class="display table datatable" style="width: 100%; cellspacing: 0;">
@@ -2104,6 +1940,144 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                             <div role="tabpanel" class="tab-pane" id="invoicereceipt">
+                                  <div class="col-md-8">
+                                    <form>
+                                        <h3 class="tab5section1">Payment Transfer Details - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                       <table>
+                                           <tr>
+                                               <th class="" style="width:17%">Invoice Currency</th>
+                                               <th class="tdpaddingleft">Applicable Bank Fee</th>
+                                               <th class="tdpaddingleft">Payment Mode</th>
+                                               <th class="tdpaddingleft">Effective Date</th>
+                                               <th class="tdpaddingleft"></th>
+                                          </tr>
+                                           <tbody>
+                                               <tr>
+                                                   <td class="">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control"style="display: none; width: 100%">
+                                                        <option selected="selected">THB</option>
+                                                        <option>All</option>
+                                                        <option>INR</option>
+                                                        <option>AUD</option>
+                                                        <option>USD</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft">
+                                                       <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control" id="timepicker4">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="width:27%">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Bank Transfer</option>
+                                                        <option>Cash</option>
+                                                        <option>Credit Card</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft">
+                                                         <input type="text" class="form-control date-picker" id="Effectivedate">
+                                                   </td>
+                                                   <td class="tdpaddingleft"><a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a></td>
+                                               </tr>
+                                              
+                                                <tr>
+                                                   <td class="" style="padding-top:5px">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control"style="display: none; width: 100%">
+                                                        <option selected="selected">THB</option>
+                                                        <option>All</option>
+                                                        <option>INR</option>
+                                                        <option>AUD</option>
+                                                        <option>USD</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="padding-top:10px">
+                                                       <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control" id="timepicker4">
+                                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                                    </div>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="width:27%;padding-top:5px">
+                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Bank Transfer</option>
+                                                        <option>Cash</option>
+                                                        <option>Credit Card</option>
+                                                    </select>
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="padding-top:5px">
+                                                         <input type="text" class="form-control date-picker" id="Effectivedate">
+                                                   </td>
+                                                   <td class="tdpaddingleft" style="padding-top:5px"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                               </tr>
+                                           </tbody>
+                                     
+                                       
+                                     </table>
+                                        <br />
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                            <span class="fa fa-refresh"></span>
+                                        </a>
+
+                                    </form>
+                                </div>
+                                <div class="col-md-4 summery-detail summery-uitilities-detail summerytab4">
+                                    <div class="panel-body tab-itenaries ">
+                                        <div class="panel-group">
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                                    <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                                    <div class="panel-body summary-body">
+                                                        <table class="table summary-list">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Created By: </td>
+                                                                    <td><span class="label label-success">Samir Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Created Date: </td>
+                                                                    <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Created From Branch: </td>
+                                                                    <td><span class="label label-danger">Bangkok</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Last Updated By: </td>
+                                                                    <td><span class="label label-info">Samir Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Last Updated Date: </td>
+                                                                    <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Page Load Time: </td>
+                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Record Update Time: </td>
+                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3299,6 +3273,28 @@
             });
 
         });
+        function confirmAlert() {
+            swal({
+                title: "Are you sure want to create supplier as agent?",
+                text: "You are going to create agent!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, create it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    //  window.location.href = "/bookingsfit"
+                    swal("Created!", "Your agent has been created.", "success");
+
+                } else {
+                    swal("Cancelled", "Your agent is cancelled :)", "error");
+                }
+            });
+        }
     </script>
 }
 
