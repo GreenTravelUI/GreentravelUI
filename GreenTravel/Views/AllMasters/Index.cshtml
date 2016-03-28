@@ -657,7 +657,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                       
+
                                         <tr>
                                             <td>1</td>
                                             <td>AGT-050</td>
@@ -713,7 +713,7 @@
                                                 <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td>5</td>
                                             <td>AGT-050</td>
                                             <td>B+</td>
@@ -726,7 +726,7 @@
                                                 <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td>6</td>
                                             <td>AGT-050</td>
                                             <td>A++</td>
@@ -850,9 +850,29 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="tab3">
-                        <div class="col-md-8">
+                        <div class="col-md-8 full-responsive">
                             <form>
-                                <h3>Select Master</h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <h3>Select Master
+                                    <span class="responsiveButtons">
+                                        <a id="showRightSideSummaryInner" onclick="$('#showRightSideSummary').trigger('mouseover')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                            <i class="fa fa-tasks"></i>
+                                        </a>
+                                        <a id="startGuiededTourInner" onclick="$('#startGuiededTour').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                        <a id="startTimelineInner" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
+                                            <i class="fa fa-sitemap"></i>
+                                        </a>
+                                    </span>
+                                            </h3>
+
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -937,17 +957,22 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
+
+                                                <label for="txtEffectiveDate">Effective From Date</label>
+                                                <input type="text" class="form-control date-picker" id="txtEffectiveFromDate" value="07/07/2005" placeholder="Effective From Date">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <label for="drpTypeOfAgent">FIT/Group&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="FIT/Group"></span></label>
                                                 <select id="drpTypeOfAgentFG" class="js-states form-control" style="display: none; width: 100%">
                                                     <option selected="selected">FIT</option>
                                                     <option>Group</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-
                                             <div class="col-md-6">
                                                 <label for="drpTypeOfAgent">Margin For</label>
                                                 <select id="drpMarginFor" class="js-states form-control" style="display: none; width: 100%">
@@ -965,6 +990,10 @@
                                                 </select>
 
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
                                             <div class="col-md-6">
                                                 <label for="drpTypeOfAgent">Margin Type</label>
                                                 <select id="drpMarginType" class="js-states form-control" style="display: none; width: 100%">
@@ -973,20 +1002,11 @@
                                                     <option>Amount / Room / Night</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-
                                             <div class="col-md-6">
                                                 <label for="drpTypeOfAgent">Value</label>
                                                 <input type="text" class="form-control" id="txtValue" placeholder="Value">
                                             </div>
-                                            <div class="col-md-6">
-
-                                                <label for="txtEffectiveDate">Effective From Date</label>
-                                                <input type="text" class="form-control date-picker" id="txtEffectiveFromDate" value="07/07/2005" placeholder="Effective From Date">
-                                            </div>
+                                            
                                         </div>
                                     </div>
 
@@ -1127,7 +1147,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h3>Import Data</h3>
                 <div class="form-group">
                     <div class="row">
@@ -1279,13 +1299,13 @@
                     element: "#MastersRecord",
                     title: "Create Master Data Entry.",
                     content: "Enter data for masters from here.",
-                    placement: "right"
+                    placement: "bottom"
                 },
                 {
                     element: ".btn-tables-views",
                     title: "Masters Views",
                     content: "Open master views list and modifiy view data.",
-                    placement: "left"
+                    placement: "bottom"
                 }
                 ]
             });
@@ -1523,7 +1543,7 @@
                         <h2 class="text-success">Created</h2>
                         <span class="cd-date">11-Mar-2016 05:11 PM</span>
                         <span class="cd-date pull-right">Sudhir Seth</span>
-                        <span class="cd-date" style="display: block;">198.013.120.143</span>
+                        <span class="cd-date" style="display: block; width:50%;">198.013.120.143</span>
                     </div>
                 </div>
                 <!-- cd-timeline-block -->
@@ -1535,7 +1555,7 @@
                         <h2 class="text-primary">Updated</h2>
                         <span class="cd-date">12-Mar-2016 09:59 AM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
@@ -1547,7 +1567,7 @@
                         <h2 class="text-primary">Updated</h2>
                         <span class="cd-date ">12-Mar-2016 01:23 PM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
@@ -1562,7 +1582,7 @@
                         <h2 class="text-danger">Deleted</h2>
                         <span class="cd-date ">12-Mar-2016 10:36 AM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
