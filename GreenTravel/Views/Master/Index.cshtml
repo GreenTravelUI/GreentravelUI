@@ -23,6 +23,14 @@
     #ulViewList {
         padding-left: 0 !important;
     }
+
+    .popupSelect ~ .select2-container {
+        z-index: 9999999;
+    }
+
+    .cbp-spmenu2 .slimScrollDiv .col-md-12 .form-group .row .popupSelect ~ .select2-container--open {
+        z-index: 9999999 !important;
+    }
 </style>
 
 <style>
@@ -231,9 +239,16 @@
 
                                                     <div class="drag-drop-right">
                                                         <section>
-                                                            <h2>Drag and drop reorder</h2>
+                                                            <h2>Drag and drop reorder1</h2>
                                                             <div class="cf nestable-lists">
-                                                                <ol class="sortable" id="ddr">
+                                                                <ul id="sortable" class="ui-sortable sortable-list">
+                                                                    <li class="ui-state-default">Agent Type</li>
+                                                                    <li class="ui-state-default">Agent Master Code</li>
+                                                                    <li class="ui-state-default">FIT/Group</li>
+                                                                    <li class="ui-state-default">Margin For</li>
+                                                                    <li class="ui-state-default">Margin Type</li>
+                                                                </ul>
+                                                                @*<ol class="sortable" id="ddr">
                                                                     <li>
                                                                         <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
                                                                     </li>
@@ -250,7 +265,7 @@
                                                                         <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
                                                                     </li>
 
-                                                                </ol>
+                                                                </ol>*@
                                                             </div>
                                                         </section>
                                                     </div>
@@ -376,19 +391,23 @@
                     <div role="tabpanel" class="tab-pane " id="tab2">
                         <div class="col-md-8 full-responsive">
                             <form>
-                                <h3><span class="tab-section-name">Master Configuration</span>
-                                    <span class="responsiveButtons">
-                                    <a id="showRightSideSummaryInner" onclick="$('#showRightSideSummary').trigger('mouseover')" style="float: right;padding:10px;margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                        <i class="fa fa-tasks"></i>
-                                    </a>
-                                    <a id="startGuiededTourInner" onclick="$('#startGuiededTour').trigger('click')" style="float: right;padding:10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
-                                        <i class="fa fa-info-circle"></i>
-                                    </a>
-                                    <a id="startTimelineInner" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right;padding:10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
-                                        <i class="fa fa-sitemap"></i>
-                                    </a>
-                                        </span>
-                                </h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3><span class="tab-section-name">Master Configuration</span>
+                                            <span class="responsiveButtons">
+                                                <a id="showRightSideSummaryInner" onclick="$('#showRightSideSummary').trigger('mouseover')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                    <i class="fa fa-tasks"></i>
+                                                </a>
+                                                <a id="startGuiededTourInner" onclick="$('#startGuiededTour').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                                                    <i class="fa fa-info-circle"></i>
+                                                </a>
+                                                <a id="startTimelineInner" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
+                                                    <i class="fa fa-sitemap"></i>
+                                                </a>
+                                            </span>
+                                        </h3>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -487,15 +506,15 @@
                                                             <td><span class="label label-warning">06-Mar-2016</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Created From Branch: </td>
+                                                            <td>Created Branch: </td>
                                                             <td><span class="label label-danger">Bangkok</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Last Updated By: </td>
+                                                            <td>Updated By: </td>
                                                             <td><span class="label label-info">Samir Shah</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Last Updated Date: </td>
+                                                            <td>Updated Date: </td>
                                                             <td><span class="label label-warning">14-Mar-2016</span></td>
                                                         </tr>
                                                         <tr>
@@ -503,7 +522,7 @@
                                                             <td><span class="label label-info">00:01:00 Minutes</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Record Update Time: </td>
+                                                            <td>Update Time: </td>
                                                             <td><span class="label label-danger">00:01:20 Minutes</span></td>
                                                         </tr>
                                                     </tbody>
@@ -529,7 +548,7 @@
                                     <form>
                                         <div class="dropdown table-custome-drop">
                                             <div class="btn-group">
-                                                <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                                <a class="label label-success dropdown-toggle" data-toggle="dropdown" rel="tooltip" title="Export" aria-expanded="false" style="font-size: 111%">
                                                     <span class="glyphicon glyphicon-download-alt"></span>
                                                 </a>
                                                 <ul class="dropdown-menu" role="menu">
@@ -596,26 +615,26 @@
                                                                 <div class="drag-drop-right">
                                                                     <section>
                                                                         <h2>Drag and drop reorder</h2>
-                                                                        <div class="cf nestable-lists">
-                                                                            <ol class="sortable" id="ddr">
-                                                                                <li>
-                                                                                    <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
-                                                                                </li>
-                                                                                <li id="list_4">
-                                                                                    <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                                </li>
-                                                                                <li id="list_5">
-                                                                                    <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                                </li>
-                                                                                <li id="list_9">
-                                                                                    <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                                </li>
-
-                                                                            </ol>
-                                                                        </div>
+                                                                        <ol class="sortable" id="ddr">
+                                                                            <li class="disabled">
+                                                                                <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                            </li>
+                                                                            <li class="disabled">
+                                                                                <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                            </li>
+                                                                            <li id="list_4">
+                                                                                <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                            </li>
+                                                                            <li id="list_5">
+                                                                                <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                            </li>
+                                                                            <li id="list_9">
+                                                                                <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                            </li>
+                                                                        </ol>
+                                                                        @*<div class="cf nnestable-lists">
+                                                                            
+                                                                        </div>*@
                                                                     </section>
                                                                 </div>
                                                             </div>
@@ -713,9 +732,9 @@
                                                         <td><span>City Name</span></td>
                                                         <td><span>DropDown</span>
                                                         <td>
-                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            <a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
                                                             &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                <a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a>
                                                         </td>
                                                     </tr>
 
@@ -879,15 +898,15 @@
                                                                     <td><span class="label label-warning">06-Mar-2016</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Created From Branch: </td>
+                                                                    <td>Created Branch: </td>
                                                                     <td><span class="label label-danger">Bangkok</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Last Updated By: </td>
+                                                                    <td>Updated By: </td>
                                                                     <td><span class="label label-info">Samir Shah</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Last Updated Date: </td>
+                                                                    <td>Updated Date: </td>
                                                                     <td><span class="label label-warning">14-Mar-2016</span></td>
                                                                 </tr>
                                                                 <tr>
@@ -895,7 +914,7 @@
                                                                     <td><span class="label label-info">00:01:00 Minutes</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Record Update Time: </td>
+                                                                    <td>Update Time: </td>
                                                                     <td><span class="label label-danger">00:01:20 Minutes</span></td>
                                                                 </tr>
                                                             </tbody>
@@ -954,69 +973,72 @@
     <script src="~/assets/plugins/table-export/jspdf/jspdf.js"></script>
     <script src="~/assets/plugins/table-export/jspdf/libs/base64.js"></script>
     @*<script src="~/Scripts/JS/Page/Masters.js"></script>*@
-    <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
+    @*<script src="/assets/js/jquery.mjs.nestedSortable.js"></script>*@
     <script>
         $(document).ready(function () {
-            $('ol.sortable').nestedSortable({
-                forcePlaceholderSize: true,
-                handle: 'div',
-                helper: 'clone',
-                items: 'li',
-                opacity: .6,
-                placeholder: 'placeholder',
-                revert: 250,
-                tabSize: 25,
-                tolerance: 'pointer',
-                toleranceElement: '> div',
-                maxLevels: 3,
+            //$('ol.sortable').nestedSortable({
+            //    forcePlaceholderSize: true,
+            //    handle: 'div',
+            //    helper: 'clone',
+            //    items: 'li',
+            //    opacity: .6,
+            //    placeholder: 'placeholder',
+            //    revert: 250,
+            //    tabSize: 25,
+            //    tolerance: 'pointer',
+            //    toleranceElement: '> div',
+            //    maxLevels: 3,
 
-                isTree: true,
-                expandOnHover: 700,
-                startCollapsed: true
-            });
+            //    isTree: true,
+            //    expandOnHover: 700,
+            //    startCollapsed: true
+            //});
 
 
-            if ($('ol.sortable').length) {
-                $('ol.sortable').nestedSortable({
-                    forcePlaceholderSize: true,
-                    handle: 'div',
-                    helper: 'clone',
-                    items: 'li',
-                    opacity: .6,
-                    placeholder: 'placeholder',
-                    revert: 250,
-                    tabSize: 25,
-                    tolerance: 'pointer',
-                    toleranceElement: '> div',
-                    maxLevels: 3,
-                    //isTree: true,
-                    expandOnHover: 700,
-                    startCollapsed: true
-                });
+            //if ($('ol.sortable').length) {
+            //    $('ol.sortable').nestedSortable({
+            //        forcePlaceholderSize: true,
+            //        handle: 'div',
+            //        helper: 'clone',
+            //        items: 'li',
+            //        opacity: .6,
+            //        placeholder: 'placeholder',
+            //        revert: 250,
+            //        tabSize: 25,
+            //        tolerance: 'pointer',
+            //        toleranceElement: '> div',
+            //        maxLevels: 3,
+            //        //isTree: true,
+            //        expandOnHover: 700,
+            //        startCollapsed: true
+            //    });
 
-                $('.disclose').on('click', function () {
-                    $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
-                })
+            //    $('.disclose').on('click', function () {
+            //        $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
+            //    })
 
-                $('#serialize').click(function () {
-                    serialized = $('ol.sortable').nestedSortable('serialize');
-                    $('#serializeOutput').text(serialized + '\n\n');
-                })
+            //    $('#serialize').click(function () {
+            //        serialized = $('ol.sortable').nestedSortable('serialize');
+            //        $('#serializeOutput').text(serialized + '\n\n');
+            //    })
 
-                $('#toHierarchy').click(function (e) {
-                    hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
-                    hiered = dump(hiered);
-                    (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
-                    $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
-                })
+            //    $('#toHierarchy').click(function (e) {
+            //        hiered = $('ol.sortable').nestedSortable('toHierarchy', { startDepthCount: 0 });
+            //        hiered = dump(hiered);
+            //        (typeof ($('#toHierarchyOutput')[0].textContent) != 'undefined') ?
+            //        $('#toHierarchyOutput')[0].textContent = hiered : $('#toHierarchyOutput')[0].innerText = hiered;
+            //    })
 
-                $('#toArray').click(function (e) {
-                    arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
-                    arraied = dump(arraied);
-                    (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
-                    $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
-                })
-            }
+            //    $('#toArray').click(function (e) {
+            //        arraied = $('ol.sortable').nestedSortable('toArray', { startDepthCount: 0 });
+            //        arraied = dump(arraied);
+            //        (typeof ($('#toArrayOutput')[0].textContent) != 'undefined') ?
+            //        $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
+            //    })
+            //}
+            //$('.sortable').sortable({
+            //    items: ':not(.disabled)'
+            //});
 
             $('.drag-close').click(function () {
                 $(this).parent().parent().remove();
@@ -1232,7 +1254,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>Action</label>
-                        <select class="js-states form-control" style="display: none; width: 100%">
+                        <select class="js-states form-control popupSelect" style="display: none; width: 100%">
                             <option>All</option>
                             <option>Created</option>
                             <option>Modified</option>
@@ -1240,7 +1262,7 @@
                     </div>
                     <div class="col-md-4">
                         <label>Node Value</label>
-                        <select class="js-states form-control" style="display: none; width: 100%">
+                        <select class="js-states form-control popupSelect" style="display: none; width: 100%">
                             <option>Daily</option>
                             <option>Weekly</option>
                             <option>Fortnightly</option>
@@ -1302,7 +1324,7 @@
                         <h2 class="text-success">Created</h2>
                         <span class="cd-date">11-Mar-2016 05:11 PM</span>
                         <span class="cd-date pull-right">Sudhir Seth</span>
-                        <span class="cd-date" style="display: block; width:50%;">198.013.120.143</span>
+                        <span class="cd-date" style="display: block; width: 50%;">198.013.120.143</span>
                     </div>
                 </div>
                 <!-- cd-timeline-block -->
@@ -1314,7 +1336,7 @@
                         <h2 class="text-primary">Updated</h2>
                         <span class="cd-date">12-Mar-2016 09:59 AM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
@@ -1326,7 +1348,7 @@
                         <h2 class="text-primary">Updated</h2>
                         <span class="cd-date ">12-Mar-2016 01:23 PM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
@@ -1341,7 +1363,7 @@
                         <h2 class="text-danger">Deleted</h2>
                         <span class="cd-date ">12-Mar-2016 10:36 AM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>

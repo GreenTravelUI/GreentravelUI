@@ -91,11 +91,7 @@
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
-    <style>
-        .modal-body > .select2-container.select2-container--default.select2-container--open {
-            z-index: 99999 !important;
-        } 
-    </style>
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -103,7 +99,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-header-fixed  page-sidebar-fixed">@* page-horizontal-bar*@
+<body class="page-header-fixed  page-sidebar-fixed">@*page-horizontal-bar *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
         @RenderSection("rightsidesummary", required: false)
@@ -437,7 +433,7 @@
                 </div>
             </div>
         </div><!-- Navbar -->
-        <div class="page-sidebar sidebar">@* horizontal-bar *@
+        <div class="page-sidebar sidebar">@*horizontal-bar  *@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -896,13 +892,14 @@
     @*<script src="/assets/js/pages/nestable.js"></script>*@
     <script src="/assets/js/pages/form-select2.js"></script>
     <script src="/assets/js/pages/table-data.js"></script>
-    <script src="/assets/js/jquery.sortable.js"></script>
+    @*<script src="/assets/js/jquery.sortable.js"></script>*@
     <!-- theme js-->
     <script src="/assets/js/classie.js"></script>
     <script src="/assets/js/selectFx.js"></script>
     <script src="/assets/plugins/tipso/tipso.min.js"></script>
     @*<script src="~/assets/plugins/vertical-timeline/js/main.js"></script>*@
     <script src="~/assets/plugins/sweetalert/sweetalert2.min.js"></script>
+    <script src="~/assets/js/jquery.ui.touch-punch.js"></script>
     <script>
         (function () {
             [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
@@ -916,15 +913,19 @@
         })();
         $(function () {
             //$('.sortable').sortable();
-            //$('.handles').sortable({
-            //    handle: 'span'
+            ////$('.handles').sortable({
+            ////    handle: 'span'
+            ////});
+            //$('.connected').sortable({
+            //    connectWith: '.connected'
             //});
-            $('.connected').sortable({
-                connectWith: '.connected'
+            //$('.exclude').sortable({
+            //    items: ':not(.disabled)'
+            //});
+            $("#sortable").sortable({
+                placeholder: "ui-state-highlight"
             });
-            $('.exclude').sortable({
-                items: ':not(.disabled)'
-            });
+            $("#sortable").disableSelection();
             checkWindowSize($(window).width());
         });
         $(document).ready(function () {

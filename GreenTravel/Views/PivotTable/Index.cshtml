@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Pivot Report";
+    ViewBag.PageTitle = "Pivot Report";
+}
+<link href="~/assets/plugins/pivottable/css/c3.min.css" rel="stylesheet" />
+<link href="~/assets/plugins/pivottable/css/pivot.css" rel="stylesheet" />
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div id="output" style="margin: 30px;"></div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/assets/plugins/pivottable/js/d3.min.js"></script>
+    <script src="~/assets/plugins/pivottable/js/c3.min.js"></script>
+    <script src="~/assets/plugins/jquery-touchpouch/jquery.ui.touch-punch.min.js"></script>
+    <script src="~/assets/plugins/pivottable/js/pivot.js"></script>
+    <script src="~/assets/plugins/pivottable/js/show_code.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var derivers = $.pivotUtilities.derivers;
+
+            var renderers = $.extend(
+                $.pivotUtilities.renderers,
+                $.pivotUtilities.c3_renderers,
+                $.pivotUtilities.d3_renderers,
+                $.pivotUtilities.export_renderers
+                );
+
+            $.getJSON("/assets/plugins/pivottable/mps.json", function (mps) {
+                $("#output").pivotUI(mps, {
+                    renderers: renderers,
+                    derivedAttributes: {
+                        "Age Bin": derivers.bin("Age", 10),
+                        "Gender Imbalance": function (mp) {
+                            return mp["Gender"] == "Male" ? 1 : -1;
+                        }
+                    },
+                    cols: ["Age Bin"], rows: ["Gender"],
+                    rendererName: "Table Barchart"
+                });
+            });
+        });
+    </script>
+}
