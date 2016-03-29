@@ -576,6 +576,7 @@
                     <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Sightseeing</a></li>
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-map-signs"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Sightseeing</a></li>
                     <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-picture-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Images</a></li>
+                    <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-film"></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>
                     @*<li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>*@
                 </ul>
                 <div class="tab-content">
@@ -1140,7 +1141,7 @@
                                     <input type="text" class="form-control" id="txtHotelName" value="Safari World & Marine Park" placeholder="Sightseeing Company Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtEntranceName">Entrance Name</label>
+                                    <label for="txtEntranceName">Name of Entrances</label>
                                     <input type="text" data-role="tagsinput" class="form-control" value="Safari World,Marine Park,Jungle Cruise" id="txtentrancename" placeholder="">
                                 </div>
                                 <div class="form-group">
@@ -1152,7 +1153,7 @@
                                         <div class="col-md-6">
 
                                             <label>Duration(HH:MM)</label>
-                                            <input type="text" class="form-control" value="05:30" id="txtDurations" placeholder="">
+                                            <input type="text" class="form-control timepicker" value="" id="txtDurations" placeholder="">
                                         </div>
                                     </div>
                                 </div>
@@ -1202,18 +1203,20 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <label for="txtCity">City </label>
-                                            <input type="text" class="form-control" value="Samwatawantok" id="txtCity" placeholder="City">
+                                         <div class="col-md-3">
+                                            <label for="txtCountry">Country</label>
+                                            <input type="text" class="form-control" value="Thailand" id="txtCountry" placeholder="Country">
                                         </div>
-                                        <div class="col-md-3">
+                                         <div class="col-md-3">
                                             <label for="txtState">State</label>
                                             <input type="text" class="form-control" value="Bangkok" id="txtState" placeholder="State">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="txtCountry">Country</label>
-                                            <input type="text" class="form-control" value="Thailand" id="txtCountry" placeholder="Country">
+                                            <label for="txtCity">City </label>
+                                            <input type="text" class="form-control" value="Samwatawantok" id="txtCity" placeholder="City">
                                         </div>
+                                       
+                                       
                                         <div class="col-md-3">
                                             <label for="txtZipCode">Zip/Postal Code</label>
                                             <input type="text" class="form-control" id="txtZipCode" value="10510" placeholder="Country">
@@ -1230,106 +1233,12 @@
                                     CREATE NEW</button>
                                 <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                     QUIT FORM</button>
-                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-	<span class="fa fa-refresh"></span>
- </a>
+                                <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                    <span class="fa fa-refresh"></span>
+                                </a>
                             </form>
 
-                            <h3 class="section-headers tab2section3"><span class="section-index">3</span>&nbsp;Show Time - <span class="text-danger">Grand Palace - Pattaya</span></h3>
-                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#tab2-1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Show Time</a></li>
-                                <li role="presentation"><a href="#tab2-2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-film "></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="tab2-1">
-                                    <div class="table-responsive">
-                                        <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Show Time </th>
-                                                    <th>SIC Pickup Time</th>
-                                                    <th style="width: 15%;">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Show Time </th>
-                                                    <th>SIC Pickup Time</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>
-                                                        <input type="text" />
-                                                    </th>
-                                                    <th>
-                                                        <input type="text" />
-                                                    </th>
-                                                    <th>
-                                                        <a href="#">
-                                                            <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                                <img src="assets/images/close.png" height="15" width="15" /></a>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td><span>10:30</span></td>
-                                                    <td><span>10:00</span></td>
-                                                    <td>
-                                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                        &nbsp;&nbsp;
-                                                        <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-
-                                <div role="tabpanel" class="tab-pane" id="tab2-2">
-                                    <form>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label for="timepicker1">Show Time<span>*</span></label>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control timepicker" value="10:30AM" id="timepicker1">
-                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <label for="timepicker2">SIC Pickup Time <span>*</span></label>
-                                                    <div class="input-group input-append bootstrap-timepicker">
-                                                        <input type="text" class="form-control timepicker" value="10:00AM" id="timepicker2">
-                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                            SAVE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                            UPDATE</button>
-                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                            DELETE</button>
-                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                            CREATE NEW</button>
-                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                            QUIT FORM</button>
-                                         <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-	<span class="fa fa-refresh"></span>
- </a>
-                                    </form>
-
-
-                                </div>
-                            </div>
+                           
 
                         </div>
                         <div class="col-md-4 summery-detail summery-uitilities-detail summerytab2">
@@ -1367,13 +1276,13 @@
                                                             <td><span class="label label-warning">14-Mar-2016</span></td>
                                                         </tr>
                                                         <tr>
-                                                                    <td>Page Load Time: </td>
-                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Record Update Time: </td>
-                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
-                                                                </tr>
+                                                            <td>Page Load Time: </td>
+                                                            <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Record Update Time: </td>
+                                                            <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -1384,8 +1293,8 @@
                         </div>
                     </div>
                     @*Images*@
-                    <div class="tab-pane" id="tab8">
-                        <div class="col-md-8">
+                    <div role="tabpanel" class="tab-pane" id="tab8">
+                    <div class="col-md-8">
                             <form>
                                 <h3 class="tab7section1">&nbsp;Images</h3>
                                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
@@ -1415,23 +1324,7 @@
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th>
-                                                            <input type="text" />
-                                                        </th>
-                                                        <th>
-                                                            <input type="text" />
-                                                        </th>
-                                                        <th>
-                                                            <input type="text" />
-                                                        </th>
-                                                        <th>
-                                                            <a href="#">
-                                                                <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                                    <img src="assets/images/close.png" height="15" width="15" /></a>
-                                                        </th>
-                                                    </tr>
+                                                   
                                                     <tr>
                                                         <td>1</td>
                                                         <td><span>Hotel</span></td>
@@ -1499,66 +1392,201 @@
                                                 CREATE NEW</button>
                                             <button id="btnquiteimage" type="button" class="btn btn-info btnSave">
                                                 QUIT FORM</button>
-                                             <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-	<span class="fa fa-refresh"></span>
- </a>
+                                            <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                                <span class="fa fa-refresh"></span>
+                                            </a>
 
                                         </div>
                                     </div>
+                                    </div>
                             </form>
                         </div>
-                        </div>
-                        <div class="col-md-4 summery-detail summery-uitilities-detail summerytab8">
-                            <div class="panel-body tab-itenaries ">
-                                <div class="panel-group">
-                                    <div class="panel panel-red">
-                                        <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
-                                            <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                            
-                                            </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
-                                            <div class="panel-body summary-body">
-                                                <table class="table summary-list">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Created By: </td>
-                                                            <td><span class="label label-success">Samir Shah</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Created Date: </td>
-                                                            <td><span class="label label-warning">06-Mar-2016</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Created From Branch: </td>
-                                                            <td><span class="label label-danger">Bangkok</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Last Updated By: </td>
-                                                            <td><span class="label label-info">Samir Shah</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Last Updated Date: </td>
-                                                            <td><span class="label label-warning">14-Mar-2016</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                                    <td>Page Load Time: </td>
-                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Record Update Time: </td>
-                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
-                                                                </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                   
+                    <div class="col-md-4 summery-detail summery-uitilities-detail summerytab8">
+                        <div class="panel-body tab-itenaries ">
+                            <div class="panel-group">
+                                <div class="panel panel-red">
+                                    <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body summary-body">
+                                            <table class="table summary-list">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Created By: </td>
+                                                        <td><span class="label label-success">Samir Shah</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Created Date: </td>
+                                                        <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Created From Branch: </td>
+                                                        <td><span class="label label-danger">Bangkok</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Updated By: </td>
+                                                        <td><span class="label label-info">Samir Shah</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Updated Date: </td>
+                                                        <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Page Load Time: </td>
+                                                        <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Record Update Time: </td>
+                                                        <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                   
+                    </div>
+                        </div>
+
+                    @*Show*@
+                     <div role="tabpanel" class="tab-pane" id="tab9">
+                         <h3 class="tab2section3">&nbsp;Show Time - <span class="text-danger">Grand Palace - Pattaya</span></h3>
+                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#tab2-1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Show Time</a></li>
+                                <li role="presentation"><a href="#tab2-2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-film "></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                
+                                <div role="tabpanel" class="tab-pane active" id="tab2-1">
+                                    <div class="table-responsive">
+                                        <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Show Time </th>
+                                                    <th>SIC Pickup Time</th>
+                                                    <th style="width: 15%;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Show Time </th>
+                                                    <th>SIC Pickup Time</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td><span>10:30</span></td>
+                                                    <td><span>10:00</span></td>
+                                                    <td>
+                                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                        &nbsp;&nbsp;
+                                                        <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="tab2-2">
+                                    <form>
+                                       <div class="col-md-8">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="timepicker1">Show Time<span>*</span></label>
+                                                    <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control timepicker" value="10:30AM" id="timepicker1">
+                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label for="timepicker2">SIC Pickup Time <span>*</span></label>
+                                                    <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control timepicker" value="10:00AM" id="timepicker2">
+                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                            <span class="fa fa-refresh"></span>
+                                        </a>
+                                          </div> 
+                                              <div class="col-md-4 summery-detail summery-uitilities-detail summerytab8">
+                        <div class="panel-body tab-itenaries ">
+                            <div class="panel-group">
+                                <div class="panel panel-red">
+                                    <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body summary-body">
+                                            <table class="table summary-list">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Created By: </td>
+                                                        <td><span class="label label-success">Samir Shah</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Created Date: </td>
+                                                        <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Created From Branch: </td>
+                                                        <td><span class="label label-danger">Bangkok</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Updated By: </td>
+                                                        <td><span class="label label-info">Samir Shah</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Updated Date: </td>
+                                                        <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Page Load Time: </td>
+                                                        <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Record Update Time: </td>
+                                                        <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                                    </form>
+
+                                </div>
+                                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1662,7 +1690,7 @@
     <div class="floating-section-buttons tab2" style="display: none">
         <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Sightseeing">1</a>
         <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Sightseeing Address">2</a>
-        <a class="btn btn-default" data-section="tab2section3" rel="tooltip" title="Show Time ">3</a>
+    
     </div>
     <div class="floating-section-buttons tab6" style="display: none">
         <a class="btn btn-default" data-section="tab6section1" rel="tooltip" title="Show Time">1</a>
