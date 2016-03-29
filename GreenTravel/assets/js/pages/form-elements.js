@@ -4,7 +4,7 @@ $(document).ready(function () {
     });
 
     $('.date-picker').datepicker({
-        orientation: "top auto",
+        orientation: "auto",
     //    autoclose: true,
 
     //}).on('hide', function () {
