@@ -487,8 +487,32 @@
                                         <li><a id="" href="javascript:void(0);" data-toggle="modal" data-target="#importmodal">Import Data</a></li>
 
                                     </ul>
-
-
+                                    <div class="modal fade modify-colum-model" id="importmodal" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3>Import Data
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    </h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>Select File</label>
+                                                                <input id="Upload File" type="file" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger ">Verify</button>
+                                                    <button type="button" class="btn btn-success ">Import</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 &nbsp;&nbsp;
                                 <div class="btn-group">
@@ -852,25 +876,21 @@
                     <div role="tabpanel" class="tab-pane" id="tab3">
                         <div class="col-md-8 full-responsive">
                             <form>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-12">
-
-                                            <h3>Select Master
-                                    <span class="responsiveButtons">
-                                        <a id="showRightSideSummaryInner" onclick="$('#showRightSideSummary').trigger('mouseover')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                            <i class="fa fa-tasks"></i>
-                                        </a>
-                                        <a id="startGuiededTourInner" onclick="$('#startGuiededTour').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
-                                            <i class="fa fa-info-circle"></i>
-                                        </a>
-                                        <a id="startTimelineInner" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
-                                            <i class="fa fa-sitemap"></i>
-                                        </a>
-                                    </span>
-                                            </h3>
-
-                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Select Master
+                                            <span class="responsiveButtons">
+                                                <a id="showRightSideSummaryInner" onclick="$('#showRightSideSummary').trigger('mouseover')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                    <i class="fa fa-tasks"></i>
+                                                </a>
+                                                <a id="startGuiededTourInner" onclick="$('#startGuiededTour').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                                                    <i class="fa fa-info-circle"></i>
+                                                </a>
+                                                <a id="startTimelineInner" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
+                                                    <i class="fa fa-sitemap"></i>
+                                                </a>
+                                            </span>
+                                        </h3>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -961,7 +981,7 @@
                                                 <label for="txtEffectiveDate">Effective From Date</label>
                                                 <input type="text" class="form-control date-picker" id="txtEffectiveFromDate" value="07/07/2005" placeholder="Effective From Date">
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -1006,7 +1026,7 @@
                                                 <label for="drpTypeOfAgent">Value</label>
                                                 <input type="text" class="form-control" id="txtValue" placeholder="Value">
                                             </div>
-                                            
+
                                         </div>
                                     </div>
 
@@ -1142,34 +1162,7 @@
     </div>
 </div>*@
 @*import modal*@
-<div class="modal fade modify-colum-model" id="importmodal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3>Import Data</h3>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Select File</label>
-                            <input id="Upload File" type="file" class="form-control">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-success ">Import</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 @section scripts{
     <script src="~/assets/plugins/datatables/js/dataTables.tableTools.js"></script>
@@ -1543,7 +1536,7 @@
                         <h2 class="text-success">Created</h2>
                         <span class="cd-date">11-Mar-2016 05:11 PM</span>
                         <span class="cd-date pull-right">Sudhir Seth</span>
-                        <span class="cd-date" style="display: block; width:50%;">198.013.120.143</span>
+                        <span class="cd-date" style="display: block; width: 50%;">198.013.120.143</span>
                     </div>
                 </div>
                 <!-- cd-timeline-block -->
@@ -1555,7 +1548,7 @@
                         <h2 class="text-primary">Updated</h2>
                         <span class="cd-date">12-Mar-2016 09:59 AM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
@@ -1567,7 +1560,7 @@
                         <h2 class="text-primary">Updated</h2>
                         <span class="cd-date ">12-Mar-2016 01:23 PM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
@@ -1582,7 +1575,7 @@
                         <h2 class="text-danger">Deleted</h2>
                         <span class="cd-date ">12-Mar-2016 10:36 AM</span>
                         <span class="cd-date pull-right">Samarth Shah</span>
-                        <span class="cd-date" style="display: block; width:50%;">165.145.12.013</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
                     </div>
                     <!-- cd-timeline-content -->
                 </div>
