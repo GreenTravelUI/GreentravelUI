@@ -160,18 +160,21 @@
     #errmsg {
         color: red;
     }
-       #ulViewList {
+
+    #ulViewList {
         padding-left: 0 !important;
     }
-     .field-name {
+
+    .field-name {
         padding-right: 15px;
     }
-       .field-name {
+
+    .field-name {
         float: left;
         width: 50%;
     }
-  .ulviewlistclass
-     {
+
+    .ulviewlistclass {
         padding-left: 0 !important;
     }
 </style>
@@ -190,7 +193,7 @@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <div>
                             <form>
-                                 <div class="dropdown table-custome-drop">
+                               <div class="dropdown table-custome-drop">
                                 <div class="btn-group">
                                     <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
                                         <span class="glyphicon glyphicon-download-alt"></span>
@@ -198,7 +201,7 @@
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Excel</a></li>
                                         <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
+                                        <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
                                     </ul>
                                 </div>
                                 &nbsp;&nbsp;
@@ -207,10 +210,10 @@
                                         <span class="icon-grid"></span>
                                     </a>
                                     <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
+                                        <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
                                     </ul>
-                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
+                                    <div class="modal fade modify-colum-model" id="myModal" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
@@ -223,7 +226,7 @@
                                                     <div class="model-left-columns">
                                                         <div class="field-name">
                                                             <h3>View <a href="#"></a></h3>
-                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
+                                                            <ul id="ulViewList" class="field-list slimscroll">
                                                                 <li><a href="#">City</a></li>
                                                                 <li><a href="#">Country</a></li>
                                                                 <li><a href="#">State</a></li>
@@ -288,11 +291,51 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                        <div class="modal-dialog" style="width: 30%; height: 40%">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h3>Email</h3>
+                                                    <br />
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>To </label>
+                                                                <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="txtHotelCode">Massage</label>
+                                                                <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <button type="button" class="btn btn-success ">Send</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <br /><br />
                                 <div class="table-responsive">
-                                    
-                                    <table id="gridUser" class="display" style="width: 100%;">
+
+                                    <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -627,12 +670,12 @@
                                     CLEAR</button>
                                 <button id="btnQuittab4" type="button" class="btn btn-info">
                                     QUIT FORM</button>
-                                 <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-	<span class="fa fa-refresh"></span>
- </a>
+                                <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                    <span class="fa fa-refresh"></span>
+                                </a>
                             </form>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
