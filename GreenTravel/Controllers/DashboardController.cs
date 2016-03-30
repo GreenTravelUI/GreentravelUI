@@ -14,16 +14,16 @@ namespace GreenTravel.Controllers
     public class DashboardController : Controller
     {
         //Variable and Object
-        DB_Login _objDBLogin = new DB_Login();
-        DataSet ds = new DataSet();
-        FormValidationPara _FormValidationPara = new FormValidationPara();
+        //DB_Login _objDBLogin = new DB_Login();
+        //DataSet ds = new DataSet();
+        //FormValidationPara _FormValidationPara = new FormValidationPara();
         // GET: /Dashboard/
         public ActionResult Index()
         {
-            if (Session["CreatedBy"] == null)
-            {
-                return RedirectToAction("index", "Home");
-            }
+            //if (Session["CreatedBy"] == null)
+            //{
+            //    return RedirectToAction("index", "Home");
+            //}
             return View();
         }
 
@@ -61,11 +61,11 @@ namespace GreenTravel.Controllers
         {
             return View();
         }
-        public ActionResult LogOut()
-        {
-            FormsAuthentication.SignOut();
-            Session.Abandon(); // it will clear the session at the end of request
-            return RedirectToAction("index", "Home");
-        }
+        //public ActionResult LogOut()
+        //{
+        //    FormsAuthentication.SignOut();
+        //    Session.Abandon(); // it will clear the session at the end of request
+        //    return RedirectToAction("index", "Home");
+        //}
     }
 }

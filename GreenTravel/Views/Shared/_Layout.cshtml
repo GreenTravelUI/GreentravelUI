@@ -99,7 +99,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">@*page-horizontal-bar *@
+<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">@* *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
         @RenderSection("rightsidesummary", required: false)
@@ -214,7 +214,7 @@
                     <img src="/assets/images/logo-small.png" height="60" width="200" class="res-logo" /></a>
                 </div><!-- Logo Box -->
                 <div class="search-button">
-                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+                    <a href="" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                 </div>
                 <div class="topmenu-outer">
                     <div class="top-menu">
@@ -433,7 +433,7 @@
                 </div>
             </div>
         </div><!-- Navbar -->
-        <div class="page-sidebar horizontal-bar sidebar">@*horizontal-bar  *@
+        <div class="horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -458,12 +458,12 @@
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab11">
-                          @*   <ul class="menu accordion-menu">
+                             <ul class="menu accordion-menu">
                                 @if (Session["menuString"] != null)
                                 {
                                    @Html.Raw(Session["menuString"].ToString())
                                 }
-                            </ul>*@
+                            </ul>
                             <ul class="menu accordion-menu">
                                 <li class="horizontal-logout" style="display:none;">
                                     <a href="javascript:void(0);" class="waves-effect waves-button">
@@ -480,6 +480,7 @@
                                     <ul class="sub-menu"  style="display: none;">
                                         <li>@Html.ActionLink("Whitelabel Step-1", "Index", "WhiteStep1")</li>
                                         <li>@Html.ActionLink("Whitelabel Step-2", "Index", "WhiteStep2")</li>
+                                        <li>@Html.ActionLink("Whitelabel Step-3", "Index", "WhiteStep3")</li>
                                         @*<li>@Html.ActionLink("User / Access Rights", "Index", "WhitelabelAccessRights")</li>*@
                                     </ul>
                                 </li>
@@ -912,16 +913,10 @@
             });
         })();
         $(function () {
-            //$('.sortable').sortable();
-            ////$('.handles').sortable({
-            ////    handle: 'span'
-            ////});
-            //$('.connected').sortable({
-            //    connectWith: '.connected'
-            //});
-            //$('.exclude').sortable({
-            //    items: ':not(.disabled)'
-            //});
+            $(".ui-sortable").sortable({
+                placeholder: "ui-state-highlight"
+            });
+            $(".ui-sortable").disableSelection();
             $("#sortable").sortable({
                 placeholder: "ui-state-highlight"
             });
@@ -929,6 +924,9 @@
             checkWindowSize($(window).width());
         });
         $(document).ready(function () {
+            $('.drag-close').click(function () {
+                $(this).parent().remove();
+            });
             $('.nav-tabs a').click(function () {
                 $('.floating-section-buttons').hide();
                 $('.' + $(this).data('section')).show();
