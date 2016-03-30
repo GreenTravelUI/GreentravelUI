@@ -91,7 +91,7 @@
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
-    
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -99,7 +99,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">@* *@
+<body class="page-header-fixed  page-sidebar-fixed">@*page-horizontal-bar *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
         @RenderSection("rightsidesummary", required: false)
@@ -433,7 +433,7 @@
                 </div>
             </div>
         </div><!-- Navbar -->
-        <div class="horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
+        <div class="page-sidebar sidebar">@*horizontal-bar  page-sidebar*@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -458,13 +458,13 @@
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab11">
-                             <ul class="menu accordion-menu">
+                             @*<ul class="menu accordion-menu">
                                 @if (Session["menuString"] != null)
                                 {
                                    @Html.Raw(Session["menuString"].ToString())
                                 }
-                            </ul>
-                            <ul class="menu accordion-menu">
+                            </ul>*@
+                            <ul class="menu accordion-menu main-menus">
                                 <li class="horizontal-logout" style="display:none;">
                                     <a href="javascript:void(0);" class="waves-effect waves-button">
                                         <span class="menu-icon fa fa-sign-out "></span>
@@ -488,21 +488,19 @@
                                     <p>Settings</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
-                                        <li>@Html.ActionLink("Configure Master", "Index", "Master")</li>
+                                        <li><a href="/Master/Index" class="SCREEN-0-0-1">Configure Master</a></li>
+                                        @*<li>@Html.ActionLink("Configure Master", "Index", "Master")</li>*@
                                        @* <li>@Html.ActionLink("Form Setup", "Index", "FormSetup")</li>
                                         <li>@Html.ActionLink("Form Control Setup", "Index", "FormControlSetup")</li>
                                         <li>@Html.ActionLink("View Setup", "Index", "ViewsSetup")</li>*@
                                     </ul>
                                 </li>
                                <li>
-                                   <a href="@Url.Action("Index", "AllMasters")" class="waves-effect waves-button"><span class="menu-icon fa fa-cubes"></span>
-                                    <p>Masters</p>
-                                   @* <span class="arrow"></span></a>
-                                    <ul class="sub-menu">
-                                        <li>@Html.ActionLink("Configure", "Index", "Master")</li>
-                                       <li>@Html.ActionLink("DataEntry", "Index", "DataEntry")</li>
-                                    </ul>*@
-                                </a></li>
+                                   <a href="/AllMasters/Index" class="SCREEN-0-0-2 waves-effect waves-button">
+                                       <span class="menu-icon fa fa-cubes"></span>
+                                       <p>Masters</p>
+                                   </a>
+                               </li>
                                  <li class="droplink" "><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-gears "></span>
                                     <p>User</p>
                                     <span class="arrow"></span></a>
@@ -558,7 +556,7 @@
                                                                                 
                                     </ul>
                                 </li>
-                               <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                              @* <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
                                     <p>Tour</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
@@ -566,18 +564,59 @@
                                             <ul class="sub-menu" style="display: none;">
                                         <li>@Html.ActionLink("Create FIT", "Index", "TourQuotation")</li>
                                         <li>@Html.ActionLink("Search FIT", "Index", "FITTourList")</li>
-                                                </ul>
+                                            </ul>
                                              <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Group<span class="arrow"></span></a>
                                             <ul class="sub-menu" style="display: none;">
                                                  <li>@Html.ActionLink("Create Group", "Index", "TourQuotationGit")</li>
-                                        <li>@Html.ActionLink("Search Group", "Index", "FITTourList")</li>
-                                       
-                                                </ul>
+                                                 <li>@Html.ActionLink("Search Group", "Index", "FITTourList")</li>
+                                            </ul>
 
                                         
                                     </ul>
-                                </li>
+                                </li>*@
                                  <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                                    <p>Tour</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">B2B<span class="arrow"></span></a>
+                                            <ul class="sub-menu" style="display: none;">
+                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">FIT<span class="arrow"></span></a>
+                                           <ul class="sub-menu" style="display: none;">
+                                        <li>@Html.ActionLink("Custom Itinerary", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Fixed Itinerary", "Index", "FITTourList")</li>
+                                            </ul>
+                                             <li class="droplink"><a href="javascript:void(0);" class=" waves-button">GIT<span class="arrow"></span></a>
+                                           <ul class="sub-menu" style="display: none;">
+                                        <li>@Html.ActionLink("Custom Itinerary", "Index", "TourGITQuotation")</li>
+                                        <li>@Html.ActionLink("Fixed Itinerary", "Index", "FITTourList")</li>
+                                            </ul>
+                                    </ul>
+                                            <li class="droplink"><a href="javascript:void(0);" class=" waves-button">B2C<span class="arrow"></span></a>
+                                            <ul class="sub-menu" style="display: none;">
+                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">FIT<span class="arrow"></span></a>
+                                           <ul class="sub-menu" style="display: none;">
+                                        <li>@Html.ActionLink("Custom Itinerary", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Fixed Itinerary", "Index", "FITTourList")</li>
+                                            </ul>
+                                             <li class="droplink"><a href="javascript:void(0);" class=" waves-button">GIT<span class="arrow"></span></a>
+                                           <ul class="sub-menu" style="display: none;">
+                                        <li>@Html.ActionLink("Custom Itinerary", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Fixed Itinerary", "Index", "FITTourList")</li>
+                                            </ul>
+                                    </ul>
+                                                <li class="droplink"><a href="javascript:void(0);" class=" waves-button"> Individual Components<span class="arrow"></span></a>
+                                            <ul class="sub-menu" style="display: none;">
+                                         <li>@Html.ActionLink("Hotel", "Index", "HotelComponent")</li>
+                                        <li>@Html.ActionLink("Sightseeing", "Index", "Sightseeingcomponent")</li>
+                                                 <li>@Html.ActionLink("Transportation", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Restaurant", "Index", "FITTourList")</li>
+                                                 <li>@Html.ActionLink("Guide", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Cruise", "Index", "FITTourList")</li>
+                                    </ul>
+                                    </ul>
+                                   
+                                </li>
+                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-shopping-cart"></span>
                                     <p>FIT Bookings</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
@@ -980,8 +1019,44 @@
                 $('.btn-utilities-right').removeClass('tab-itenaries');
                 $(this).addClass('tab-itenaries');
             });
-
+            //SetCurrentMenu('@ViewBag.CurrentMenu');
         });
+        //function SetCurrentMenu(currentMenu) {
+        //    var flag = false;
+        //    $('.main-menus > li').each(function () {
+        //        $(this).removeClass('active');
+        //        $(this).removeClass('open');
+        //        //console.log($(this).text() + ':: ' + $(this).children().hasClass(currentMenu));
+        //        if ($(this).children().hasClass(currentMenu)) {
+        //            $(this).addClass('active');
+        //            flag = true;
+        //        } else if (SetCurrentSubMenu($(this).find('ul > li'), currentMenu)) {
+        //            $(this).addClass('active');
+        //            $(this).addClass('open');
+        //            $(this).find('.sub-menu').show();
+        //            flag = true;
+        //        }
+        //    });
+        //    return flag;
+        //}
+        //function SetCurrentSubMenu($MenuLevel, currentMenu) {
+        //    var flag = false;
+        //    $MenuLevel.each(function () {
+        //        $(this).removeClass('active');
+        //        $(this).removeClass('open');
+        //        $(this).closest('.sub-menu').hide();
+        //        if ($(this).children().hasClass(currentMenu)) {
+        //            $(this).addClass('active');
+        //            flag = true;
+        //        } else if (SetCurrentSubMenu($(this).find('ul > li'), currentMenu)) {
+        //            $(this).addClass('active');
+        //            $(this).addClass('open');
+        //            $(this).find('.sub-menu').show();
+        //            flag = true;
+        //        }
+        //    });
+        //    return flag;
+        //}
         $(window).scroll(function () {
             if ($(this).scrollTop() > 100) {
                 $('.scrollToTop').fadeIn();

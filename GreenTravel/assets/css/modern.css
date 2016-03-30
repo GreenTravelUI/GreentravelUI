@@ -2810,22 +2810,31 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
     .dataTables_wrapper .dataTables_length select:focus {
         outline: 0;
     }
-
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    color: #5f5f5f!important;
-    border: 1px solid #ebebeb;
-    background: #f1f1f1!important;
+    color: #fff !important;
+    border: 1px solid #F25656;
+    background: #F25656 !important;
+    border-radius:50%;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button:active,
 .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
-    color: #5f5f5f!important;
-    border: 1px solid transparent;
-    background: #f7f7f7!important;
+    color: #5f5f5f !important;
+    /*border: 1px solid transparent;*/
+    background: #fff !important;
+    border: 1px solid #F25656;
     box-shadow: none;
+    border-radius:50%;
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous ,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous :hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next ,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next :hover  {
+    border-radius:15px;
+}
+
 
 tr.group,
 tr.group:hover {
@@ -7403,6 +7412,15 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .labelforcheckbox {
         display: none;
     }
+    .responsiveButtons {
+        display: block;
+    }
+    .responsiveUtilityButton {
+        display:block;
+    }
+    .responsiveViewTrailButton {
+        display:block;
+    }
 }
 
 @media (max-width: 980px) {
@@ -7451,6 +7469,12 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .responsiveButtons {
         display: block;
     }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
+    }
 }
 
 @media (max-width: 800px) {
@@ -7492,6 +7516,12 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .responsiveButtons {
         display: block;
     }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -7532,6 +7562,12 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .responsiveButtons {
         display: block;
     }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -7569,6 +7605,12 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 
     .responsiveButtons {
         display: block;
+    }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
     }
 }
 
@@ -7692,6 +7734,12 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .responsiveButtons {
         display: block;
     }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -7779,6 +7827,12 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .responsiveButtons {
         display: block;
     }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
+    }
 }
 
 @media (max-width: 360px) {
@@ -7810,6 +7864,7 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .dataTables_wrapper .dataTables_paginate .paginate_button {
         padding: 5px 0;
         margin-bottom: 10px;
+        border: 1px solid #F25656;
     }
 
     .editable.editable-click img {
@@ -7885,10 +7940,16 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     .responsiveButtons {
         display: block;
     }
+    .responsiveUtilityButton {
+        display:none;
+    }
+    .responsiveViewTrailButton {
+        display:none;
+    }
 }
 
 /* Placed by Amit Parmar (On 24-Dec-2015 6:14 PM) - START */
-td a i.fa.fa-pencil-square-o {
+/*td a i.fa.fa-pencil-square-o {
     color: #22baa0;
     font-size: 1.7em;
 }
@@ -7896,7 +7957,7 @@ td a i.fa.fa-pencil-square-o {
 td a i.fa.fa-trash-o {
     color: #E70C0C;
     font-size: 1.7em;
-}
+}*/
 
 td span {
     cursor: pointer;
@@ -8104,4 +8165,49 @@ textarea {
 }
 .date-picker-line-sidebar {
     top:66px !important;
+}
+
+.table.dataTable {
+    margin-top:10px !important;
+}
+.table > thead, table.dataTable thead th, table.dataTable thead td  {
+    color:#F25656;
+    border-bottom:1px solid #F25656 !important;
+    vertical-align:middle !important;
+    padding-left:10px;
+}
+.table > tfoot ,table.dataTable tfoot th, table.dataTable tfoot td {
+    border-top:1px solid #F25656 !important;
+    padding-left:10px;
+    vertical-align:middle !important;
+    color:#F25656;
+}
+.table > tbody > tr > td, .table > tbody > tr > th{
+    vertical-align:middle !important;
+}
+.table > tbody > tr > td > a > img, .table > tbody > tr > th > a > img{
+    border-radius: 50%;
+    width:35px;
+    height:35px;
+}
+.table > tbody > tr > td > a > span, .table > tbody > tr > th > a > span {
+    font-size:17px !important;   
+    color:#fff;
+}
+.table > tbody > tr > td > span.label, .table > tbody > tr > th > span.label {
+    font-size:100%;
+}
+.table > tbody > tr > td > a > span, .table > tbody > tr > th > a > span {
+    border-radius:50%;
+    padding:8px 9px;
+    
+}
+.grid-btn-success {
+    background-color: #22BAA0;
+}
+.grid-btn-danger {
+    background-color: #F25656;
+}
+.dataTables_wrapper .dataTables_length {
+
 }
