@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Tour FIT";
-    ViewBag.PageTitle = "Tour FIT";
+    ViewBag.PageTitle = "Tour B2B FIT Custom Itinerary";
     ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
     ViewBag.Breadcurmb += "<li>Quotation Code: <span>HOTLE-5-0-1</span></li>";
     ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
@@ -408,6 +408,21 @@
         border-width: 2px !important;
         padding: 7px 1px !important;
     }
+
+
+
+    .ui-state-default table {
+        width: 100%;
+    }
+
+    .right-border {
+        border-right: 1px solid #ccc;
+        padding-right: 10px;
+    }
+
+    .left-padding {
+        padding: 10px 20px;
+    }
 </style>
 
 <style>
@@ -550,6 +565,11 @@
     .ulviewlistclass {
         padding-left: 0 !important;
     }
+    .sortable-list li {
+        border:none !important;
+        border-bottom:solid !important;
+        border-width:1px !important;
+    }
 </style>
 
 <div class="col-md-12">
@@ -557,7 +577,7 @@
         <div class="panel-body">
             <div id="rootwizard">
                 <ul class="nav nav-tabs wizard-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab11"><span>1</span> Create Tour<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
+                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab11"><span>1</span> Create Inquiry<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
                     <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="tab5"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Quotation Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
@@ -576,56 +596,64 @@
                                                 <li role="presentation" class="active"><a href="#tab11" role="tab" data-toggle="tab" data-section="tab1-1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Agent Details / Pax / Room </a></li>
                                                 <li role="presentation"><a href="#tab1-3" role="tab" data-toggle="tab" data-section="tab1-3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Client Details</a></li>
                                             </ul>*@
-                                            <h3>Agent Details / Pax / Room</h3>
+
+
                                             <div class="tab-content">
 
                                                 <div role="tabpanel" class="tab-pane active" id="tab11">
                                                     <div class="col-md-8">
                                                         <form>
-
-                                                            <h3 class="tab1section2">Tour Package Details</h3>
+                                                            <h3 class="tab1section1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
+                                                            <div class="form-group">
+                                                                <label for="txtAgent">Agent</label>
+                                                                <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
+                                                            </div>
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
-                                                                        <label for="txtClientName">Tour Name</label>
-                                                                        <input type="text" class="form-control" id="txtClientName" placeholder="Tour Name">
+                                                                        <label for="txtInquiredBy">Inquired By</label>
+                                                                        <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <label for="txtClientName">Tour Code</label>
-                                                                        <input type="text" class="form-control" id="txtClientName" placeholder="Tour Code">
+                                                                        <label for="txtinqdate">Inquired Date</label>
+                                                                        <input type="text" class="form-control date-picker" id="txtinqdate" value="10-03-2016" placeholder="Quote Sent To">
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <div class="form-group">
                                                                 <div class="row">
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtNumberofNights">Number of Nights</label>
-                                                                        <input type="text" class="form-control" id="txtNumberofNights" placeholder="Number of Nights">
+                                                                    <div class="col-md-6">
+                                                                        <label for="txtQuoteToBeSentTo">Quote To Be Sent To</label>
+                                                                        <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote Sent To">
                                                                     </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="txtNumberofDays">Number of Days</label>
-                                                                        <input type="text" class="form-control" id="txtNumberofDays" placeholder="Number of Days">
+                                                                    <div class="col-md-6">
+                                                                        <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent</label>
+                                                                        <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
                                                                     </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <h6>&nbsp;</h6>
+                                                            <h3 class="tab1section2"><span class="section-index ">2</span>&nbsp;Travel Details</h3>
+                                                            <div class="form-group">
+                                                                <div class="row">
                                                                     <div class="col-md-6">
                                                                         <label for="drpCountriesToTravel">Countries To Travel</label>
                                                                         <select id="drpCountriesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                             <option>All</option>
+                                                                            <option selected="selected">Thiland</option>
                                                                         </select>
                                                                     </div>
+                                                                    <div class="col-md-6">
+                                                                        <label for="txtTags">Travel From Date</label>
+                                                                        <input type="text" class="form-control date-picker" value="10-03-2016" id="txtTags" placeholder="Tags">
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
-
                                                             <div class="form-group">
                                                                 <div class="row">
-
-                                                                    <div class="col-md-6">
-                                                                        <label for="drpCitiesToTravel">Cities To Travel</label>
-                                                                        <select id="drpCitiesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
-                                                                            <option>All</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-12">
                                                                         @*<input type="checkbox" />Service Inclusions*@
                                                                         <label for="drpServiceInclisions">Service Inclusions</label>
                                                                         <select id="drpServiceInclisions" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
@@ -639,72 +667,257 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <table id="exampleeditable" class="display table" style="width: 100%; grid-column-sizing: 5%">
-                                                                    <thead>
-                                                                        <tr>
+                                                                <div class="row">
 
-                                                                            <th>#</th>
-                                                                            <th style="width: 45%">City</th>
-                                                                            <th style="width: 50%; margin-left: 4px;">&nbsp;&nbsp;&nbsp;Nights</th>
+                                                                    <div class="col-md-12">
+                                                                        <label for="drpCitiesToTravel">Cities To Travel</label>
+                                                                        <select id="drpCitiesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                                                            <option>All</option>
+                                                                            <option selected="selected">Bangkok</option>
+                                                                            <option selected="selected">Pattaya</option>
+                                                                            <option>Chiang Mai</option>
+                                                                            <option selected="selected">Phuket</option>
+                                                                            <option>Khon Kaen</option>
+                                                                        </select>
+                                                                    </div>
 
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tfoot>
-                                                                        <tr>
-                                                                            <th></th>
-                                                                            <th></th>
-
-                                                                            <th style="text-align: right"><a id="btnaddSection" class="btn btn-success" href="javascript:void(0);" style="padding: 0px 6px;"><i class="fa fa-plus"></i></a></th>
-                                                                        </tr>
-                                                                    </tfoot>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>
-                                                                                <input type="text" class="form-control" id="txtCity" placeholder="City">
-                                                                            </td>
-                                                                            <td>
-                                                                                <input type="text" class="form-control" id="txtNights" placeholder="Nights">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>2</td>
-                                                                            <td>
-                                                                                <input type="text" class="form-control" id="txtCity2" placeholder="City">
-                                                                            </td>
-                                                                            <td>
-                                                                                <input type="text" class="form-control" id="txtNights2" placeholder="Nights">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>3</td>
-                                                                            <td>
-                                                                                <input type="text" class="form-control" id="txtCity3" placeholder="City">
-                                                                            </td>
-                                                                            <td>
-                                                                                <input type="text" class="form-control" id="txtNights3" placeholder="Nights">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                                </div>
                                                             </div>
+                                                            <h3>Cities Breakup</h3>
+                                                            <div class="cf nestable-lists" style="border:solid;border-width:1px;border-color:black">
+                                                                <ul class="ui-handle sortable-list">
+                                                                    <li class="ui-state-default">
+                                                                        @*<div class="col-md-12">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <label>Pattaya,Thiland</label>
+                                                                                </div>
+                                                                                <div class="col-md-1">
+                                                                                    <label>IN</label>
+                                                                                    <label>9 Apr</label>
+                                                                                </div>
+                                                                                <div  class="col-md-1" style="text-align: right;">
+                                                                                    <label>OUT</label>
+                                                                                    <label>11 Apr</label>
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <label>Nights</label>
+                                                                                    <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                                                                        <option>1</option>
+                                                                                        <option>2</option>
+                                                                                        <option>3</option>
+                                                                                        <option>4</option>
+                                                                                        <option>5</option>
+                                                                                        <option>6</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-1">
+                                                                                    <span class="handler fa fa-arrows"></span>
+                                                                                </div>
+                                                                                <div class="col-md-4" style="text-align: right;">
+                                                                                    <span class="handler fa fa-times"></span>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>*@
+                                                                        <table>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding-left: 10px;width: 4%">
+                                                                                        <label style="font-size:15px">1</label>
+                                                                                    </td>
+                                                                                    <td style="padding-left: 10px;width: 30%">
+                                                                                        <label style="font-size:16px">Pattaya,Thiland</label>
+                                                                                    </td>
+                                                                                    <td style="width: 10%">
+                                                                                        <label>In</label><br />
+                                                                                        <label>9 Apr</label>
+                                                                                    </td>
+                                                                                    <td style="width: 20%">
+                                                                                        <label>Out</label><br />
+                                                                                        <label>11 Apr</label>
+                                                                                    </td>
+                                                                                    <td style="width: 10%; text-align: right;">
+                                                                                        <span style="border: 1px solid #ccc; padding: 7px 10px 6px; background-color: #34425a; color: white">Nights</span>
+                                                                                    </td>
+                                                                                    <td style="width: 8%" class="right-border">
+                                                                                        <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option>1</option>
+                                                                                            <option selected="selected">2</option>
+                                                                                            <option>3</option>
+                                                                                            <option>4</option>
+                                                                                            <option>5</option>
+                                                                                            <option>6</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td style="width: 5%; font-size: 18px; color:red" class="left-padding">
+                                                                                        <span class="handler fa fa-arrows"></span>
+                                                                                    </td>
+                                                                                    <td style="width: 5%; text-align: right;color:red;padding-right:10px;font-size:18px">
+                                                                                        <span class="handler fa fa-times"></span>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </li>
+                                                                    <li class="ui-state-default">
+
+                                                                        <table>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                     <td style="padding-left: 10px;width: 4%">
+                                                                                        <label style="font-size:15px">2</label>
+                                                                                    </td>
+                                                                                    <td style="padding-left: 10px;width: 30%">
+                                                                                        <label style="font-size:16px">Bangkok,Thiland</label>
+                                                                                    </td>
+                                                                                    <td style="width: 10%">
+                                                                                        <label>In</label><br />
+                                                                                        <label>9 Apr</label>
+                                                                                    </td>
+                                                                                    <td style="width: 20%">
+                                                                                        <label>Out</label><br />
+                                                                                        <label>11 Apr</label>
+                                                                                    </td>
+                                                                                    <td style="width: 10%; text-align: right;">
+                                                                                        <span style="border: 1px solid #ccc; padding: 7px 10px 6px; background-color: #34425a; color: white">Nights</span>
+                                                                                    </td>
+                                                                                    <td style="width: 8%" class="right-border">
+                                                                                        <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option>1</option>
+                                                                                            <option selected="selected">2</option>
+                                                                                            <option>3</option>
+                                                                                            <option>4</option>
+                                                                                            <option>5</option>
+                                                                                            <option>6</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td style="width: 5%; font-size: 18px;color:red" class="left-padding">
+                                                                                        <span class="handler fa fa-arrows"></span>
+                                                                                    </td>
+                                                                                    <td style="width: 5%; text-align: right;color:red;padding-right:10px;font-size:18px">
+                                                                                        <span class="handler fa fa-times"></span>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </li>
+                                                                    <li class="ui-state-default">
+
+                                                                        <table>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                     <td style="padding-left: 10px;width: 4%">
+                                                                                        <label style="font-size:15px">3</label>
+                                                                                    </td>
+                                                                                    <td style="padding-left: 10px;width: 30%">
+                                                                                        <label style="font-size:16px">Phuket,Thiland</label>
+                                                                                    </td>
+                                                                                    <td style="width: 10%">
+                                                                                        <label>In</label><br />
+                                                                                        <label>9 Apr</label>
+                                                                                    </td>
+                                                                                    <td style="width: 20%">
+                                                                                        <label>Out</label><br />
+                                                                                        <label>11 Apr</label>
+                                                                                    </td>
+                                                                                    <td style="width: 10%; text-align: right;">
+                                                                                        <span style="border: 1px solid #ccc; padding: 7px 10px 6px; background-color: #34425a; color: white">Nights</span>
+                                                                                    </td>
+                                                                                    <td style="width: 8%" class="right-border">
+                                                                                        <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option>1</option>
+                                                                                            <option selected="selected">2</option>
+                                                                                            <option>3</option>
+                                                                                            <option>4</option>
+                                                                                            <option>5</option>
+                                                                                            <option>6</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td style="width: 5%; font-size: 18px;color:red" class="left-padding">
+                                                                                        <span class="handler fa fa-arrows"></span>
+                                                                                    </td>
+                                                                                    <td style="width: 5%; text-align: right;color:red;padding-right:10px;font-size:18px">
+                                                                                        <span class="handler fa fa-times"></span>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                             <h6>&nbsp;</h6>
+                                                            <h3 class="tab1section3"><span class="section-index ">3</span>&nbsp;Guest Details</h3>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                     <div class="col-md-6">
+                                                                    <label for="txtAgent">Guest Name (Lead Traveler)</label>
+                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="Samir Shah">
+                                                                </div>
+                                                                    <div class="col-md-6">
+                                                                        <label for="txtAddressLine1">Natinality Set <span>*</span></label>
+                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                            <option selected="selected">Asian</option>
+                                                                            <option>Austrailian</option>
+                                                                            <option>Europian</option>
+                                                                        </select>
+                                                                    </div>
+                                                                     
+                                                                </div>
+                                                            </div>
+                                                             <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Adult</label>
+                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
+                                                                </div>
+
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Extra Bed Child</label>
+                                                                    <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Child No Bed</label>
+                                                                    <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Infant</label>
+                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                             <h6>&nbsp;</h6>
+                                                            <h3 class="tab1section4"><span class="section-index ">4</span>&nbsp;Additional Details</h3>
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
-                                                                        <label for="drpOrderStatus">Tour Status</label>
+                                                                        <label for="drpOrderStatus">Inquiry Status</label>
                                                                         <select id="drpOrderStatus" class="js-states form-control" style="display: none; width: 100%">
                                                                             <option value="selstatus">---None---</option>
                                                                             <option value="draft" selected="selected">Draft</option>
-                                                                            <option value="published">Published</option>
-                                                                            <option value="online">Online</option>
+                                                                            <option value="published">Inquired</option>
+                                                                            <option value="online">Quoted</option>
+                                                                            <option>Trash</option>
 
                                                                         </select>
                                                                     </div>
                                                                     <div class="col-md-6">
+                                                                        <label for="txtTransferTo">Transfer To</label>
+                                                                        <input type="text" class="form-control" id="txtTransferTo" placeholder="Vicky Amin">
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                     <div class="col-md-6">
                                                                         <label for="txtTags">Tags</label>
                                                                         <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Tags">
                                                                     </div>
@@ -735,6 +948,9 @@
                                                                 CREATE NEW</button>
                                                             <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                                 QUIT FORM</button>
+                                                             <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                            <span class="fa fa-refresh"></span>
+                                        </a>
                                                         </form>
                                                     </div>
                                                     <div class="col-md-4 summery-detail summery-uitilities-detail ">
@@ -751,6 +967,14 @@
                                                                         <div class="panel-body summary-body">
                                                                             <table class="table summary-list">
                                                                                 <tbody>
+                                                                                    <tr>
+                                                                                        <td>Itinerary Code: </td>
+                                                                                        <td><span class="label label-primary">Tour123</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Itinerary Name: </td>
+                                                                                        <td><span class="label label-danger">Thrilling Thiland</span></td>
+                                                                                    </tr>
                                                                                     <tr>
                                                                                         <td>Created By: </td>
                                                                                         <td><span class="label label-success">Samir Shah</span></td>
@@ -772,13 +996,13 @@
                                                                                         <td><span class="label label-warning">14-Mar-2016</span></td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                    <td>Page Load Time: </td>
-                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Record Update Time: </td>
-                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
-                                                                </tr>
+                                                                                        <td>Page Load Time: </td>
+                                                                                        <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Record Update Time: </td>
+                                                                                        <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                                                    </tr>
                                                                                 </tbody>
                                                                             </table>
                                                                         </div>
@@ -918,9 +1142,7 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>#</th>
-                                                                    <th>Agent</th>
-                                                                    <th>Inquired By</th>
-                                                                    <th>Quote To Be Sent To</th>
+                                                                   
                                                                     <th>Quotation Type</th>
                                                                     <th>Quotation Reference #</th>
                                                                     <th>Quotation Status</th>
@@ -931,9 +1153,7 @@
                                                             <tfoot>
                                                                 <tr>
                                                                     <th>#</th>
-                                                                    <th>Agent</th>
-                                                                    <th>Inquired By</th>
-                                                                    <th>Quote To Be Sent To</th>
+                                                                  
                                                                     <th>Quotation Type</th>
                                                                     <th>Quotation Reference #</th>
                                                                     <th>Quotation Status</th>
@@ -944,9 +1164,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td>1</td>
-                                                                    <td>Flamingo Travels</td>
-                                                                    <td>Vicky Amin</td>
-                                                                    <td>Nirav Shah</td>
+                                                                  
                                                                     <td>FIT</td>
                                                                     <td>THLND-FLG-SP-0101</td>
                                                                     <td>Quoted</td>
@@ -967,34 +1185,9 @@
                                                 </div>
                                                 <div role="tabpanel" class="tab-pane" id="CreateQuotation">
                                                     <div class="col-md-8">
-                                                        <h3 class="CreateQuotationsection1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
-                                                        <div class="form-group">
-                                                            <label for="txtAgent">Agent</label>
-                                                            <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label for="txtInquiredBy">Inquired By</label>
-                                                                    <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtQuoteToBeSentTo">Quote Sent To</label>
-                                                                    <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote Sent To">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent</label>
-                                                                    <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
-                                                                </div>
+                                                      
 
-                                                            </div>
-                                                        </div>
-
-                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">2</span>&nbsp;Quotation Details</h3>
+                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">1</span>&nbsp;Quotation Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
@@ -1007,17 +1200,14 @@
                                                                     <label for="txtAgent">Quotation Type</label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
                                                                         <option>Per Pax</option>
-                                                                        <option>Service Wise</option>
+                                                                        <option selected="selected">Service Wise</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Reference #</label>
-                                                                    <input type="text" class="form-control" id="txtQuotationReferenceNumber" placeholder="Quotation Reference #" readonly>
-                                                                </div>
+
                                                                 <div class="col-md-6">
                                                                     <label for="txtAgent">Quotation Status</label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
@@ -1032,20 +1222,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Created Date</label>
-                                                                    <input type="text" class="form-control date-picker" id="txtQuotationReferenceNumber" placeholder="Quotation Created Date">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Sent to Agent Date</label>
-                                                                    <input type="text" class="form-control date-picker" id="txtQuotationReferenceNumber" placeholder="Quotation Sent to Agent Date">
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
-                                                        <h3 class="section-headers CreateQuotationsection3"><span class="section-index ">3</span>&nbsp;Pax / Room Details</h3>
+
+                                                        <h3 class="section-headers CreateQuotationsection3"><span class="section-index ">2</span>&nbsp;Pax / Room Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-3">
@@ -1068,29 +1247,183 @@
 
                                                             </div>
                                                         </div>
+
                                                         <div class="form-group">
-                                                            <div class="row">
+                                                            <table class="display table" style="width: 100%; cellspacing: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width: 8%">Rooms</th>
 
-                                                                <div class="col-md-3">
-                                                                    <label for="txtNumberofRoomsSinglepax"># of Rooms Single</label>
-                                                                    <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double</label>
-                                                                    <input type="text" class="form-control" id="txtNumberofRoomsDouble" placeholder="Number of Rooms Double">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Twin</label>
-                                                                    <input type="text" class="form-control" id="txtnumbertwin" placeholder="Number of Rooms Twin">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtNumberofRoomsTwin"># of Rooms Quad</label>
-                                                                    <input type="text" class="form-control" id="txtNumberofRoomsquad" placeholder="Number of Rooms Quad">
-                                                                </div>
-                                                            </div>
+                                                                        <th style="width: 20%">Room Type</th>
+                                                                        <th style="width: 8%">Incl. ABF</th>
+                                                                        <th style="width: 9%">Incl. Lunch</th>
+                                                                        <th style="width: 10%">Incl. Dinner</th>
+                                                                        <th style="width: 20%">Room Pax Combination</th>
+                                                                        <th style="width: 1%;"></th>
+                                                                        <th style="width: 5%;"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th colspan="11"></th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label>Room 1</label>
+                                                                        </td>
 
+                                                                        <td>
+                                                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option>Single Room</option>
+                                                                                <option>Double</option>
+                                                                                <option>Twin Room</option>
+                                                                                <option>Quad Room</option>
+                                                                            </select>
+                                                                        </td>
+
+
+
+                                                                        <td>
+                                                                            <input type="checkbox" checked="checked" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option>1 Adult</option>
+                                                                                <option>1 Adult + 1 CNB + 1 Infant</option>
+                                                                                <option>1 Adult + 1 CNB</option>
+                                                                                <option>1 Adult + 1 Infant</option>
+                                                                                <option>2 Adults</option>
+                                                                                <option>2 Adults + 1 CWB + 1 CNB</option>
+                                                                                <option>2 Adults + 1 CWB + 1 Infant</option>
+                                                                                <option>2 Adults + 1 CNB + 1 Infant</option>
+                                                                                <option>2 Adults + 1 CWB</option>
+                                                                                <option>2 Adults + 1 CNB</option>
+                                                                                <option>2 Adults + 1 Infant</option>
+                                                                                <option>2 Adults + 2 Infant</option>
+                                                                                <option>3 Adults</option>
+                                                                                <option>3 Adults + 1 CNB + 1 Infant</option>
+                                                                                <option>3 Adults + 1 Infant</option>
+                                                                                <option>3 Adults + 1 CNB</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+
+                                                                            <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                                            <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                                        </td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label>Room 2</label>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option>Single Room</option>
+                                                                                <option selected="selected">Double</option>
+                                                                                <option>Twin Room</option>
+                                                                                <option>Quad Room</option>
+                                                                            </select>
+                                                                        </td>
+
+
+                                                                        <td>
+                                                                            <input type="checkbox" checked="checked" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option>1 Adult</option>
+                                                                                <option>1 Adult + 1 CNB + 1 Infant</option>
+                                                                                <option>1 Adult + 1 CNB</option>
+                                                                                <option>1 Adult + 1 Infant</option>
+                                                                                <option>2 Adults</option>
+                                                                                <option>2 Adults + 1 CWB + 1 CNB</option>
+                                                                                <option>2 Adults + 1 CWB + 1 Infant</option>
+                                                                                <option selected="selected">2 Adults + 1 CNB + 1 Infant</option>
+                                                                                <option>2 Adults + 1 CWB</option>
+                                                                                <option>2 Adults + 1 CNB</option>
+                                                                                <option>2 Adults + 1 Infant</option>
+                                                                                <option>2 Adults + 2 Infant</option>
+                                                                                <option>3 Adults</option>
+                                                                                <option>3 Adults + 1 CNB + 1 Infant</option>
+                                                                                <option>3 Adults + 1 Infant</option>
+                                                                                <option>3 Adults + 1 CNB</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                                            <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                                        </td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label>Room 3</label>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option>Single Room</option>
+                                                                                <option selected="selected">Double</option>
+                                                                                <option>Twin Room</option>
+                                                                                <option>Quad Room</option>
+                                                                            </select>
+                                                                        </td>
+
+
+                                                                        <td>
+                                                                            <input type="checkbox" checked="checked" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option>1 Adult</option>
+                                                                                <option>1 Adult + 1 CNB + 1 Infant</option>
+                                                                                <option>1 Adult + 1 CNB</option>
+                                                                                <option>1 Adult + 1 Infant</option>
+                                                                                <option>2 Adults</option>
+                                                                                <option>2 Adults + 1 CWB + 1 CNB</option>
+                                                                                <option selected="selected">2 Adults + 1 CWB + 1 Infant</option>
+                                                                                <option>2 Adults + 1 CNB + 1 Infant</option>
+                                                                                <option>2 Adults + 1 CWB</option>
+                                                                                <option>2 Adults + 1 CNB</option>
+                                                                                <option>2 Adults + 1 Infant</option>
+                                                                                <option>2 Adults + 2 Infant</option>
+                                                                                <option>3 Adults</option>
+                                                                                <option>3 Adults + 1 CNB + 1 Infant</option>
+                                                                                <option>3 Adults + 1 Infant</option>
+                                                                                <option>3 Adults + 1 CNB</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                                            <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                                        </td>
+                                                                        <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-
 
                                                         <br />
                                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
@@ -1105,6 +1438,7 @@
                                                             COPY & CREATE NEW</button>
                                                         <button id="btnSave" type="submit" class="btn btn-info btnSave">
                                                             QUIT FORM</button>
+                                                        
                                                     </div>
                                                     <div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateQuotation">
                                                         <div class="panel-body tab-itenaries ">
@@ -1118,6 +1452,18 @@
                                                                         <div class="panel-body summary-body">
                                                                             <table class="table summary-list">
                                                                                 <tbody>
+                                                                                    <tr>
+                                                                                        <td>Quote Ref #: </td>
+                                                                                        <td><span class="label label-primary">THLND-FLG-01</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Quote Created Date: </td>
+                                                                                        <td><span class="label label-danger">10-03-2016</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Quote Sent To Agent Date: </td>
+                                                                                        <td><span class="label label-info">11-03-2016</span></td>
+                                                                                    </tr>
                                                                                     <tr>
                                                                                         <td>Created By: </td>
                                                                                         <td><span class="label label-success">Samir Shah</span></td>
@@ -1139,13 +1485,13 @@
                                                                                         <td><span class="label label-warning">14-Mar-2016</span></td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                    <td>Page Load Time: </td>
-                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Record Update Time: </td>
-                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
-                                                                </tr>
+                                                                                        <td>Page Load Time: </td>
+                                                                                        <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Record Update Time: </td>
+                                                                                        <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                                                    </tr>
                                                                                 </tbody>
                                                                             </table>
                                                                         </div>
@@ -3050,11 +3396,11 @@
                                                 <th style="width: 20%">Room Category</th>
                                                 <th style="width: 20%">Room Type</th>
 
-                                                <th style="width: 6%">Incl. ABF</th>
+                                                <th style="width: 7%">Incl. ABF</th>
                                                 <th style="width: 8%">Incl. Lunch</th>
                                                 <th style="width: 8%">Incl. Dinner</th>
                                                 <th style="width: 20%">Room Pax Combination</th>
-                                                <th style="width: 8%;"></th>
+                                                <th style="width: 10%;"></th>
                                                 <th style="width: 5%;"></th>
                                             </tr>
                                         </thead>
@@ -3116,8 +3462,8 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a><span class="fa fa-money grid-btn-success" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a><span class="fa fa-times grid-btn-danger" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -3172,8 +3518,8 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a><span class="fa fa-money grid-btn-success" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a><span class="fa fa-times grid-btn-danger" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -3228,8 +3574,8 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                    <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a><span class="fa fa-money grid-btn-success" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
+                                                    <a><span class="fa fa-times grid-btn-danger" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
                                                 </td>
                                                 <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
                                             </tr>

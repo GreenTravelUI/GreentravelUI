@@ -461,6 +461,8 @@
     }
 </style>
 <style>
+
+
     .summery-uitilities-detail {
         width: 33.3333%;
         overflow: hidden;
@@ -584,7 +586,16 @@
             padding: 7px !important;
         }
 </style>
-
+@*New font for dropdown*@
+<style>
+        .select2-selection {
+        height: 29px !important;
+        font-size: 11px !important;
+    }
+    .select2-dropdown {
+    font-size: 11px;
+}
+</style>
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
@@ -604,31 +615,13 @@
                     @*Search Hotel*@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
-                            @*<div class="form-group">
-                                <label for="txtTagSearch">Hotel / Destination</label>
-                                <div class="row">
-                                    <div class="col-md-4 newsize" style="padding-right:1px !important">
-                                        <input type="text" id="txtTagSearch" class="form-control" value="Bangkok" placeholder="Hotel / Destination" />
-
-                                    </div>
-                                    <div class="col-md-2" style="padding-left:14px !important">
-                                        <a href="javascript:void(0);" class="btn btn-info searchpanel-button booking-panel-button" data-show-panel="booking-panel" data-toggle="tooltip" data-placement="top" title="Booking"><i class="fa fa-plus"></i></a>
-
-                                    </div>
-                                    
-                                </div>
-                            </div>*@
+                           
                             @*Booking*@
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="from-group panel-search booking-panel">
                                         <div class="panel panel-blue">
-                                            @* <div class="panel-heading">
-                                        <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Booking</h2>
-                                        <div class="panel-control">
-                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
-                                        </div>
-                                    </div>*@
+                                           
                                             <div class="panel-body">
                                                 <form>
                                                     <div class="form-group">
@@ -640,55 +633,23 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <label for="txtTagSearch" style="font-size:15px !important">Check-in</label>
                                                                 <div class="row">
-                                                                     <div class="col-md-2">
-                                                                        <a href="#"><i class="fa fa-calendar-check-o date-picker" style="font-size:30px !important"></i></a>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtTagSearch" style="font-size: 15px !important">Check-in</label>
                                                                     </div>
-                                                                    <div class="col-md-4">
-                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                                            <option selected="selected">-Day-</option>
-                                                                            @{
-                                                                                for (int i = 1; i <= 31; i++)
-                                                                                {
-                                                                                <option>@i</option>        
-                                                                                }
-                                                                            }
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                                                                            <option selected="selected">-Select Month-</option>
-                                                                            <option>January 2016</option>
-                                                                            <option>February 2016</option>
-                                                                            <option>March 2016</option>
-                                                                            <option>April 2016</option>
-                                                                            <option>May 2016</option>
-                                                                            <option>June 2016</option>
-                                                                            <option>July 2016</option>
-                                                                            <option>August 2016</option>
-                                                                            <option>September 2016</option>
-                                                                            <option>October 2016</option>
-                                                                            <option>November 2016</option>
-                                                                            <option>December 2016</option>
-                                                                        </select>
-                                                                    </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtTagSearch" style="font-size: 15px !important">Check-out</label>
                                                                 </div>
+                                                                    </div>
+                                                             </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="txtTagSearch" style="font-size:15px !important">Check-out</label>
-                                                                <div class="row">
+                                                                    <div class="col-md-1">
+                                                                        <a href="#"><i class="fa fa-calendar-check-o date-picker" style="font-size: 30px !important"></i></a>
+                                                                    </div>
                                                                     <div class="col-md-2">
-                                                                        <a href="#"><i class="fa fa-calendar-check-o date-picker" style="font-size:30px !important"></i></a>
-                                                                    </div>
-                                                                    <div class="col-md-4">
                                                                         <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                                             <option selected="selected">-Day-</option>
                                                                             @{
@@ -699,7 +660,38 @@
                                                                             }
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-3">
+                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                            <option selected="selected">-Select Month-</option>
+                                                                            <option>January 2016</option>
+                                                                            <option>February 2016</option>
+                                                                            <option>March 2016</option>
+                                                                            <option>April 2016</option>
+                                                                            <option>May 2016</option>
+                                                                            <option>June 2016</option>
+                                                                            <option>July 2016</option>
+                                                                            <option>August 2016</option>
+                                                                            <option>September 2016</option>
+                                                                            <option>October 2016</option>
+                                                                            <option>November 2016</option>
+                                                                            <option>December 2016</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <a href="#"><i class="fa fa-calendar-check-o date-picker" style="font-size: 30px !important"></i></a>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                            <option selected="selected">-Day-</option>
+                                                                            @{
+                                                                                for (int i = 1; i <= 31; i++)
+                                                                                {
+                                                                                <option>@i</option>        
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-3">
                                                                         <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                                             <option selected="selected">-Select Month-</option>
                                                                             <option>January 2016</option>
@@ -717,62 +709,61 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            
                                                         </div>
-                                                    </div>
+                                                   
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="row">
-                                                            <div class="col-md-2">
-                                                                      &nbsp;
+                                                                   
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtTagSearch">Room</label>
+                                                                        <select id="drpSearchRoom" class="js-states form-control" style="display: none; width: 100%">
+                                                                            @{
+                                                                                for (int i = 1; i < 30; i++)
+                                                                                {
+                                                                                <option>@i</option>        
+                                                                                }
+                                                                            }
+                                                                        </select>
                                                                     </div>
-                                                            <div class="col-md-4">
-                                                                <label for="txtTagSearch">Room</label>
-                                                                <select id="drpSearchRoom" class="js-states form-control" style="display: none; width: 100%">
-                                                                @{
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtTagSearch">Adults</label>
+                                                                        <select id="drpSearchAdults" class="js-states form-control" style="display: none; width: 100%">
+                                                                            @{
                                                                                 for (int i = 1; i < 30; i++)
                                                                                 {
                                                                                 <option>@i</option>        
                                                                                 }
                                                                             }
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="txtTagSearch">Adults</label>
-                                                                <select id="drpSearchAdults" class="js-states form-control" style="display: none; width: 100%">
-                                                               @{
-                                                                                for (int i = 1; i < 30; i++)
-                                                                                {
-                                                                                <option>@i</option>        
-                                                                                }
-                                                                            }
-                                                                     </select>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="txtTagSearch">Children</label>
-                                                                <select id="drpSearchChildren" class="js-states form-control" style="display: none; width: 100%">
-                                                               @{
-                                                                                for (int i = 1; i < 30; i++)
-                                                                                {
-                                                                                <option>@i</option>        
-                                                                                }
-                                                                            }
-                                                                     </select>
-                                                            </div>
+                                                                        </select>
                                                                     </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtTagSearch">Children</label>
+                                                                        <select id="drpSearchChildren" class="js-states form-control" style="display: none; width: 100%">
+                                                                            @{
+                                                                                for (int i = 1; i < 30; i++)
+                                                                                {
+                                                                                <option>@i</option>        
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                            </div>
                                                     </div>
                                                     <div class="form-group" style="margin-bottom: 0;">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <a href="javascript:void(0);" style="float:right" class="btn btn-primary">See Prices</a>
+                                                                <a href="javascript:void(0);" style="float: right" class="btn btn-primary">See Prices</a>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </form>
+                                                 </div>
                                             </div>
                                         </div>
                                     </div>
