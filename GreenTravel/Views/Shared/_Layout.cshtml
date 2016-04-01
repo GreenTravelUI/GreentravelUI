@@ -72,6 +72,7 @@
     @RenderSection("styles", required: false)
     <!-- Theme Styles -->
     <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/modern-custom.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/nestable/nestable.css" rel="stylesheet" type="text/css" />
     @{
         ViewBag.ThemeColor = "Green";
@@ -91,7 +92,11 @@
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
-
+    <style>
+        .select2-container.select2-container--default.select2-container--open {
+            z-index: 9999999 !important;
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -434,7 +439,7 @@
             </div>
         </div><!-- Navbar -->
         @*page-sidebar*@
-        <div class="page-sidebar horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
+        <div class="horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -482,7 +487,7 @@
                                         <li>@Html.ActionLink("Whitelabel Step-1", "Index", "WhiteStep1")</li>
                                         <li>@Html.ActionLink("Whitelabel Step-2", "Index", "WhiteStep2")</li>
                                         <li>@Html.ActionLink("Whitelabel Step-3", "Index", "WhiteStep3")</li>
-                                        @*<li>@Html.ActionLink("User / Access Rights", "Index", "WhitelabelAccessRights")</li>*@
+                                        
                                     </ul>
                                 </li>
                                 <li class="droplink" "><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-gears "></span>
@@ -490,10 +495,7 @@
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li><a href="/Master/Index" class="SCREEN-0-0-1">Configure Master</a></li>
-                                        @*<li>@Html.ActionLink("Configure Master", "Index", "Master")</li>*@
-                                       @* <li>@Html.ActionLink("Form Setup", "Index", "FormSetup")</li>
-                                        <li>@Html.ActionLink("Form Control Setup", "Index", "FormControlSetup")</li>
-                                        <li>@Html.ActionLink("View Setup", "Index", "ViewsSetup")</li>*@
+                                        
                                     </ul>
                                 </li>
                                <li>
@@ -513,14 +515,6 @@
                                         <li>@Html.ActionLink("User Authorization", "Index", "Authorization")</li>        
                                     </ul>
                                 </li>
-                                @*<li>
-                                    <a href="@Url.Action("Index", "AllMaster")" class="waves-effect waves-button"><span class="menu-icon fa fa-cube"></span>
-                                    <p>Masters</p>
-                                </a></li>
-                                <li>
-                                    <a href="@Url.Action("Index", "CorporateUser")" class="waves-effect waves-button"><span class="menu-icon fa fa-users"></span>
-                                    <p>User</p>
-                                </a></li>*@
                                 <li>
                                     <a href="@Url.Action("Index", "AgentAccount")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span>
                                     <p>Agent</p>
@@ -554,27 +548,8 @@
                                         <li>@Html.ActionLink("Restaurant", "Index", "RestaurantPriceList")</li>
                                         <li>@Html.ActionLink("Transportation", "Index", "TransportationPriceList")</li>
                                         <li>@Html.ActionLink("Guide", "Index", "GuidePriceList")</li>
-                                                                                
                                     </ul>
                                 </li>
-                              @* <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
-                                    <p>Tour</p>
-                                    <span class="arrow"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">FIT<span class="arrow"></span></a>
-                                            <ul class="sub-menu" style="display: none;">
-                                        <li>@Html.ActionLink("Create FIT", "Index", "TourQuotation")</li>
-                                        <li>@Html.ActionLink("Search FIT", "Index", "FITTourList")</li>
-                                            </ul>
-                                             <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Group<span class="arrow"></span></a>
-                                            <ul class="sub-menu" style="display: none;">
-                                                 <li>@Html.ActionLink("Create Group", "Index", "TourQuotationGit")</li>
-                                                 <li>@Html.ActionLink("Search Group", "Index", "FITTourList")</li>
-                                            </ul>
-
-                                        
-                                    </ul>
-                                </li>*@
                                  <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
                                     <p>Tour</p>
                                     <span class="arrow"></span></a>
@@ -621,20 +596,13 @@
                                     <p>FIT Bookings</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
-                                        
                                         <li>@Html.ActionLink("Booked", "Index", "BookingsFIT")</li>
                                          <li>@Html.ActionLink("Confirmed By Supplier", "Index", "TourQuotationGit")</li>
                                         <li>@Html.ActionLink("Re-confirmed By Agent", "Index", "FITTourList")</li>
                                         <li>@Html.ActionLink("Cancelled By Agent", "Index", "TourQuotationGit")</li>
                                         <li>@Html.ActionLink("Amended", "Index", "TourQuotationGit")</li>
-                                       
-                                             
                                     </ul>
                                 </li>
-                               @* <li>
-                                    <a href="@Url.Action("Index", "TourQuotation")" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span>
-                                    <p>Tour Quotation</p>
-                                </a></li>*@
                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-tasks "></span>
                                     <p>Invoice</p>
                                     <span class="arrow"></span></a>
