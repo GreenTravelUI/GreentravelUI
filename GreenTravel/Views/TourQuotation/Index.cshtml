@@ -565,10 +565,11 @@
     .ulviewlistclass {
         padding-left: 0 !important;
     }
+
     .sortable-list li {
-        border:none !important;
-        border-bottom:solid !important;
-        border-width:1px !important;
+        border: none !important;
+        border-bottom: solid !important;
+        border-width: 1px !important;
     }
 </style>
 
@@ -579,7 +580,7 @@
                 <ul class="nav nav-tabs wizard-tab form-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab11"><span>1</span> Create Inquiry<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
                     <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="tab5"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
-                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Generate Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Build Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Quotation Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                     <li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>5</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                 </ul>
@@ -605,17 +606,17 @@
                                                         <form>
                                                             <h3 class="tab1section1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
                                                             <div class="form-group">
-                                                                <label for="txtAgent">Agent</label>
+                                                                <label for="txtAgent">Agent<span class="star"> *</span></label>
                                                                 <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
-                                                                        <label for="txtInquiredBy">Inquired By</label>
+                                                                        <label for="txtInquiredBy">Inquired By<span class="star"> *</span></label>
                                                                         <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <label for="txtinqdate">Inquired Date</label>
+                                                                        <label for="txtinqdate">Inquired Date<span class="star"> *</span></label>
                                                                         <input type="text" class="form-control date-picker" id="txtinqdate" value="10-03-2016" placeholder="Quote Sent To">
                                                                     </div>
                                                                 </div>
@@ -627,7 +628,7 @@
                                                                         <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote Sent To">
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent</label>
+                                                                        <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent Side</label>
                                                                         <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
                                                                     </div>
 
@@ -638,14 +639,14 @@
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
-                                                                        <label for="drpCountriesToTravel">Countries To Travel</label>
+                                                                        <label for="drpCountriesToTravel">Countries To Travel<span class="star"> *</span></label>
                                                                         <select id="drpCountriesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                             <option>All</option>
                                                                             <option selected="selected">Thiland</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <label for="txtTags">Travel From Date</label>
+                                                                        <label for="txtTags">Travel From Date<span class="star"> *</span></label>
                                                                         <input type="text" class="form-control date-picker" value="10-03-2016" id="txtTags" placeholder="Tags">
                                                                     </div>
 
@@ -655,7 +656,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         @*<input type="checkbox" />Service Inclusions*@
-                                                                        <label for="drpServiceInclisions">Service Inclusions</label>
+                                                                        <label for="drpServiceInclisions">Service Inclusions<span class="star"> *</span></label>
                                                                         <select id="drpServiceInclisions" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                             <option>All</option>
                                                                             <option>Accommodation</option>
@@ -672,7 +673,7 @@
                                                                 <div class="row">
 
                                                                     <div class="col-md-12">
-                                                                        <label for="drpCitiesToTravel">Cities To Travel</label>
+                                                                        <label for="drpCitiesToTravel">Cities To Travel<span class="star"> *</span></label>
                                                                         <select id="drpCitiesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                             <option>All</option>
                                                                             <option selected="selected">Bangkok</option>
@@ -685,51 +686,19 @@
 
                                                                 </div>
                                                             </div>
-                                                            <h3>Cities Breakup</h3>
-                                                            <div class="cf nestable-lists" style="border:solid;border-width:1px;border-color:black">
+                                                            <h3>Cities Breakup<span class="star" style="color: red !important"> *</span></h3>
+                                                            <div class="cf nestable-lists" style="border: solid; border-width: 1px; border-color: black">
                                                                 <ul class="ui-handle sortable-list">
                                                                     <li class="ui-state-default">
-                                                                        @*<div class="col-md-12">
-                                                                            <div class="row">
-                                                                                <div class="col-md-4">
-                                                                                    <label>Pattaya,Thiland</label>
-                                                                                </div>
-                                                                                <div class="col-md-1">
-                                                                                    <label>IN</label>
-                                                                                    <label>9 Apr</label>
-                                                                                </div>
-                                                                                <div  class="col-md-1" style="text-align: right;">
-                                                                                    <label>OUT</label>
-                                                                                    <label>11 Apr</label>
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <label>Nights</label>
-                                                                                    <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
-                                                                                        <option>1</option>
-                                                                                        <option>2</option>
-                                                                                        <option>3</option>
-                                                                                        <option>4</option>
-                                                                                        <option>5</option>
-                                                                                        <option>6</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-md-1">
-                                                                                    <span class="handler fa fa-arrows"></span>
-                                                                                </div>
-                                                                                <div class="col-md-4" style="text-align: right;">
-                                                                                    <span class="handler fa fa-times"></span>
-                                                                                </div>
 
-                                                                            </div>
-                                                                        </div>*@
                                                                         <table>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td style="padding-left: 10px;width: 4%">
-                                                                                        <label style="font-size:15px">1</label>
+                                                                                    <td style="padding-left: 10px; width: 4%">
+                                                                                        <label style="font-size: 15px">1</label>
                                                                                     </td>
-                                                                                    <td style="padding-left: 10px;width: 30%">
-                                                                                        <label style="font-size:16px">Pattaya,Thiland</label>
+                                                                                    <td style="padding-left: 10px; width: 30%">
+                                                                                        <label style="font-size: 16px">Pattaya,Thiland</label>
                                                                                     </td>
                                                                                     <td style="width: 10%">
                                                                                         <label>In</label><br />
@@ -752,10 +721,10 @@
                                                                                             <option>6</option>
                                                                                         </select>
                                                                                     </td>
-                                                                                    <td style="width: 5%; font-size: 18px; color:red" class="left-padding">
+                                                                                    <td style="width: 5%; font-size: 18px; color: red" class="left-padding">
                                                                                         <span class="handler fa fa-arrows"></span>
                                                                                     </td>
-                                                                                    <td style="width: 5%; text-align: right;color:red;padding-right:10px;font-size:18px">
+                                                                                    <td style="width: 5%; text-align: right; color: red; padding-right: 10px; font-size: 18px">
                                                                                         <span class="handler fa fa-times"></span>
                                                                                     </td>
                                                                                 </tr>
@@ -768,11 +737,11 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                     <td style="padding-left: 10px;width: 4%">
-                                                                                        <label style="font-size:15px">2</label>
+                                                                                    <td style="padding-left: 10px; width: 4%">
+                                                                                        <label style="font-size: 15px">2</label>
                                                                                     </td>
-                                                                                    <td style="padding-left: 10px;width: 30%">
-                                                                                        <label style="font-size:16px">Bangkok,Thiland</label>
+                                                                                    <td style="padding-left: 10px; width: 30%">
+                                                                                        <label style="font-size: 16px">Bangkok,Thiland</label>
                                                                                     </td>
                                                                                     <td style="width: 10%">
                                                                                         <label>In</label><br />
@@ -795,10 +764,10 @@
                                                                                             <option>6</option>
                                                                                         </select>
                                                                                     </td>
-                                                                                    <td style="width: 5%; font-size: 18px;color:red" class="left-padding">
+                                                                                    <td style="width: 5%; font-size: 18px; color: red" class="left-padding">
                                                                                         <span class="handler fa fa-arrows"></span>
                                                                                     </td>
-                                                                                    <td style="width: 5%; text-align: right;color:red;padding-right:10px;font-size:18px">
+                                                                                    <td style="width: 5%; text-align: right; color: red; padding-right: 10px; font-size: 18px">
                                                                                         <span class="handler fa fa-times"></span>
                                                                                     </td>
                                                                                 </tr>
@@ -811,11 +780,11 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                     <td style="padding-left: 10px;width: 4%">
-                                                                                        <label style="font-size:15px">3</label>
+                                                                                    <td style="padding-left: 10px; width: 4%">
+                                                                                        <label style="font-size: 15px">3</label>
                                                                                     </td>
-                                                                                    <td style="padding-left: 10px;width: 30%">
-                                                                                        <label style="font-size:16px">Phuket,Thiland</label>
+                                                                                    <td style="padding-left: 10px; width: 30%">
+                                                                                        <label style="font-size: 16px">Phuket,Thiland</label>
                                                                                     </td>
                                                                                     <td style="width: 10%">
                                                                                         <label>In</label><br />
@@ -838,10 +807,10 @@
                                                                                             <option>6</option>
                                                                                         </select>
                                                                                     </td>
-                                                                                    <td style="width: 5%; font-size: 18px;color:red" class="left-padding">
+                                                                                    <td style="width: 5%; font-size: 18px; color: red" class="left-padding">
                                                                                         <span class="handler fa fa-arrows"></span>
                                                                                     </td>
-                                                                                    <td style="width: 5%; text-align: right;color:red;padding-right:10px;font-size:18px">
+                                                                                    <td style="width: 5%; text-align: right; color: red; padding-right: 10px; font-size: 18px">
                                                                                         <span class="handler fa fa-times"></span>
                                                                                     </td>
                                                                                 </tr>
@@ -852,48 +821,48 @@
 
                                                                 </ul>
                                                             </div>
-                                                             <h6>&nbsp;</h6>
+                                                            <h6>&nbsp;</h6>
                                                             <h3 class="tab1section3"><span class="section-index ">3</span>&nbsp;Guest Details</h3>
                                                             <div class="form-group">
                                                                 <div class="row">
-                                                                     <div class="col-md-6">
-                                                                    <label for="txtAgent">Guest Name (Lead Traveler)</label>
-                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="Samir Shah">
-                                                                </div>
                                                                     <div class="col-md-6">
-                                                                        <label for="txtAddressLine1">Natinality Set <span>*</span></label>
+                                                                        <label for="txtAgent">Guest Name (Lead Traveler)</label>
+                                                                        <input type="text" class="form-control" id="txtnumberadult" placeholder="Samir Shah">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label for="txtAddressLine1">Natinality Set</label>
                                                                         <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
                                                                             <option selected="selected">Asian</option>
                                                                             <option>Austrailian</option>
                                                                             <option>Europian</option>
                                                                         </select>
                                                                     </div>
-                                                                     
+
                                                                 </div>
                                                             </div>
-                                                             <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Adult</label>
-                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtAgent"># of Adult</label>
+                                                                        <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
+                                                                    </div>
 
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Extra Bed Child</label>
-                                                                    <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Child No Bed</label>
-                                                                    <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Infant</label>
-                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
-                                                                </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtAgent"># of Extra Bed Child</label>
+                                                                        <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtAgent"># of Child No Bed</label>
+                                                                        <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="txtAgent"># of Infant</label>
+                                                                        <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
+                                                                    </div>
 
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                             <h6>&nbsp;</h6>
+                                                            <h6>&nbsp;</h6>
                                                             <h3 class="tab1section4"><span class="section-index ">4</span>&nbsp;Additional Details</h3>
                                                             <div class="form-group">
                                                                 <div class="row">
@@ -909,15 +878,19 @@
                                                                         </select>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <label for="txtTransferTo">Transfer To</label>
-                                                                        <input type="text" class="form-control" id="txtTransferTo" placeholder="Vicky Amin">
+                                                                        <label for="drpTransferTo">Transfer To</label>
+                                                                        <select id="drpTransferTo" class="js-states form-control" style="display: none; width: 100%">
+                                                                            <option selected="selected">Samarth Shah</option>
+                                                                            <option>Samir Shah</option>
+
+                                                                        </select>
                                                                     </div>
-                                                                   
+
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="row">
-                                                                     <div class="col-md-6">
+                                                                    <div class="col-md-12">
                                                                         <label for="txtTags">Tags</label>
                                                                         <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Tags">
                                                                     </div>
@@ -939,18 +912,21 @@
 
                                                             <br />
                                                             <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                                SAVE</button>
+                                                                CREATE INQUIRY</button>
                                                             <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                                UPDATE</button>
+                                                                UPDATE INQUIRY</button>
                                                             <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                                                DELETE</button>
-                                                            <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                                                CREATE NEW</button>
-                                                            <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                                                QUIT FORM</button>
-                                                             <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-                                            <span class="fa fa-refresh"></span>
-                                        </a>
+                                                                DELETE INQUIRY</button>
+                                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" title="Create New" onclick="window.location.href=window.location.href;">
+                                                                <span class="fa fa-plus"></span>
+                                                            </a>
+
+                                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Quit From" onclick="window.location.href=window.location.href;">
+                                                                <span class="fa fa-times"></span>
+                                                            </a>
+                                                            <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                                                <span class="fa fa-refresh"></span>
+                                                            </a>
                                                         </form>
                                                     </div>
                                                     <div class="col-md-4 summery-detail summery-uitilities-detail ">
@@ -968,13 +944,10 @@
                                                                             <table class="table summary-list">
                                                                                 <tbody>
                                                                                     <tr>
-                                                                                        <td>Itinerary Code: </td>
-                                                                                        <td><span class="label label-primary">Tour123</span></td>
+                                                                                        <td>Inquiry Code: </td>
+                                                                                        <td><span class="label label-primary">TourInq123</span></td>
                                                                                     </tr>
-                                                                                    <tr>
-                                                                                        <td>Itinerary Name: </td>
-                                                                                        <td><span class="label label-danger">Thrilling Thiland</span></td>
-                                                                                    </tr>
+
                                                                                     <tr>
                                                                                         <td>Created By: </td>
                                                                                         <td><span class="label label-success">Samir Shah</span></td>
@@ -1142,7 +1115,7 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>#</th>
-                                                                   
+
                                                                     <th>Quotation Type</th>
                                                                     <th>Quotation Reference #</th>
                                                                     <th>Quotation Status</th>
@@ -1153,7 +1126,7 @@
                                                             <tfoot>
                                                                 <tr>
                                                                     <th>#</th>
-                                                                  
+
                                                                     <th>Quotation Type</th>
                                                                     <th>Quotation Reference #</th>
                                                                     <th>Quotation Status</th>
@@ -1164,7 +1137,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td>1</td>
-                                                                  
+
                                                                     <td>FIT</td>
                                                                     <td>THLND-FLG-SP-0101</td>
                                                                     <td>Quoted</td>
@@ -1185,19 +1158,19 @@
                                                 </div>
                                                 <div role="tabpanel" class="tab-pane" id="CreateQuotation">
                                                     <div class="col-md-8">
-                                                      
 
-                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">1</span>&nbsp;Quotation Details</h3>
+
+                                                        <h3><span class="section-index ">1</span>&nbsp;Quotation Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Currency</label>
+                                                                    <label for="txtAgent">Quotation Currency<span class="star"> *</span></label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
                                                                         <option selected="selected">THB</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Type</label>
+                                                                    <label for="txtAgent">Quotation Type<span class="star"> *</span></label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
                                                                         <option>Per Pax</option>
                                                                         <option selected="selected">Service Wise</option>
@@ -1209,7 +1182,7 @@
                                                             <div class="row">
 
                                                                 <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Status</label>
+                                                                    <label for="txtAgent">Quotation Status<span class="star"> *</span></label>
                                                                     <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
                                                                         <option>--None--</option>
                                                                         <option value="draft" selected="selected">Draft</option>
@@ -1228,20 +1201,20 @@
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Adult</label>
+                                                                    <label for="txtAgent"># of Adult<span class="star"> *</span></label>
                                                                     <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
                                                                 </div>
 
                                                                 <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Extra Bed Child</label>
+                                                                    <label for="txtAgent"># of Extra Bed Child<span class="star"> *</span></label>
                                                                     <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Child No Bed</label>
+                                                                    <label for="txtAgent"># of Child No Bed<span class="star"> *</span></label>
                                                                     <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Infant</label>
+                                                                    <label for="txtAgent"># of Infant<span class="star"> *</span></label>
                                                                     <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
                                                                 </div>
 
@@ -1255,11 +1228,11 @@
                                                                         <th style="width: 8%">Rooms</th>
 
                                                                         <th style="width: 20%">Room Type</th>
-                                                                        <th style="width: 8%">Incl. ABF</th>
-                                                                        <th style="width: 9%">Incl. Lunch</th>
-                                                                        <th style="width: 10%">Incl. Dinner</th>
-                                                                        <th style="width: 20%">Room Pax Combination</th>
-                                                                        <th style="width: 1%;"></th>
+                                                                        <th style="width: 9%">Incl. ABF</th>
+                                                                        <th style="width: 10%">Incl. Lunch</th>
+                                                                        <th style="width: 11%">Incl. Dinner</th>
+                                                                        <th style="width: 30%">Room Pax Combination</th>
+
                                                                         <th style="width: 5%;"></th>
                                                                     </tr>
                                                                 </thead>
@@ -1314,11 +1287,7 @@
                                                                                 <option>3 Adults + 1 CNB</option>
                                                                             </select>
                                                                         </td>
-                                                                        <td>
 
-                                                                            <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                                            <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                                        </td>
                                                                         <td></td>
                                                                     </tr>
                                                                     <tr>
@@ -1365,10 +1334,7 @@
                                                                                 <option>3 Adults + 1 CNB</option>
                                                                             </select>
                                                                         </td>
-                                                                        <td>
-                                                                            <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                                            <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                                        </td>
+
                                                                         <td></td>
                                                                     </tr>
                                                                     <tr>
@@ -1415,11 +1381,8 @@
                                                                                 <option>3 Adults + 1 CNB</option>
                                                                             </select>
                                                                         </td>
-                                                                        <td>
-                                                                            <a class="text-success"><span class="fa fa-money" rel="tooltip" title="Rate" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                                            <a class="text-danger"><span class="fa fa-times" rel="tooltip" title="Remove" style="padding: 10px; font-size: 1.3em;"></span></a>
-                                                                        </td>
-                                                                        <td><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+
+                                                                        <td><a class=" btn btn-success" rel="tooltip" title="Add Room" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -1427,18 +1390,30 @@
 
                                                         <br />
                                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            SAVE</button>
+                                                            CREATE QUOTATION</button>
                                                         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                            UPDATE</button>
+                                                            UPDATE QUOTATION</button>
                                                         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                                            DELETE</button>
-                                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-                                                            CREATE NEW</button>
-                                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                                            COPY & CREATE NEW</button>
-                                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
-                                                            QUIT FORM</button>
-                                                        
+                                                            DELETE QUOTATION</button>
+                                                        <button id="btnCancel" type="submit" class="btn btn-success btnCancel">
+                                                            BUILD ITINERARY</button>
+                                                        <button id="btnCancel" type="submit" class="btn btn-info btnCancel">
+                                                            UPDATE ITINERARY</button>
+
+                                                        <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Copy & Create New" onclick="window.location.href=window.location.href;">
+                                                            <span class="fa fa-files-o"></span>
+                                                        </a>
+                                                        <a class="btn btn-warning" aria-expanded="false" rel="tooltip" title="Create New" onclick="window.location.href=window.location.href;">
+                                                            <span class="fa fa-plus"></span>
+                                                        </a>
+
+                                                        <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Quit From" onclick="window.location.href=window.location.href;">
+                                                            <span class="fa fa-times"></span>
+                                                        </a>
+                                                        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                                            <span class="fa fa-refresh"></span>
+                                                        </a>
+
                                                     </div>
                                                     <div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateQuotation">
                                                         <div class="panel-body tab-itenaries ">
@@ -2617,12 +2592,7 @@
                                 <div class="panel panel-white">
                                     <div class="panel-body tab-itenaries ">
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                            <div class="form-group">
-                                                <label class="form-control tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control tour-name" value="Neeraj Khurana BANGKOK PACKAGE 01Nights" placeholder="Tour Name">
-                                            </div>
+
                                             <div class="panel panel-red">
                                                 <div class="panel-heading" role="tab" id="headingOne">
                                                     <h4 class="panel-title">
@@ -2807,462 +2777,638 @@
                     </div>
                     @*Summary*@
                     <div class="tab-pane fade in" id="tab4">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="panel-group" id="SummeryAccordion1" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-red">
-                                        <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
-                                            <h4 class="panel-title ">
-                                                <a data-toggle="collapse" data-parent="#SummeryAccordion1" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">Day 1  (11-Mar-2016)
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
-                                            <div class="panel-body">
-                                                <table class="table-itinarary-summary table" style="width: 100%;">
-                                                    <tbody>
-                                                        @*Hotel*@
-                                                        <tr>
-                                                            <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
-                                                            <td>Amari Atrium</td>
-                                                            <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
-                                                            <td>
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
-                                                            </td>
-                                                            <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
-                                                            <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Transfer*@
-                                                        <tr>
-                                                            <td><span class="fa fa-car text-success" rel="tooltip" title="Transfer"></span></td>
-                                                            <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-success" rel="tooltip" title="Time">10:30 AM</span></td>
-                                                            <td>
-                                                                <span class="label label-success" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-success" rel="tooltip" title="Sharing Type">SIC</span> | 
-                                                                <span class="label label-success" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
-                                                            </td>
-                                                            <td><span class="label label-success total-cost">THB 4200</span></td>
-                                                            <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Restaurant*@
-                                                        <tr>
-                                                            <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
-                                                            </td>
-                                                            <td><span class="label label-maroon total-cost">THB 2300</span></td>
-                                                            <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Guide*@
-                                                        <tr>
-                                                            <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
-                                                            <td>Nadia Manassawee Ponpitak</td>
-                                                            <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
-                                                                <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
-                                                            </td>
-                                                            <td><span class="label label-tomato total-cost">THB 1200</span></td>
-                                                            <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Sightseeing*@
-                                                        <tr>
-                                                            <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
-                                                            <td>Grand Palace</td>
-                                                            <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
-                                                            </td>
-                                                            <td><span class="label label-orange total-cost">THB 4200</span></td>
-                                                            <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#quotelist" role="tab" data-toggle="tab" data-section="userGrid" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;List Of Quotation</a></li>
+                            <li role="presentation"><a href="#quotesummary" role="tab" data-toggle="tab" data-section="userForm" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Quotation Summary </a></li>
 
-                                                        @*Restaurant*@
-                                                        <tr>
-                                                            <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
-                                                            </td>
-                                                            <td><span class="label label-maroon total-cost">THB 2300</span></td>
-                                                            <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="quotelist">
+                                <div class="col-md-9" style="padding-left:1px !important">
+                                    <div class="panel-group panel-groupnew" aria-multiselectable="true" role="tablist">
+                                        <div class="panel panel-red">
+                                            <div class="panel-heading panel-headingnew accordian-heading" role="tab" id="headingTwo1">
+                                                <span style="font-size: 16px">List Of Quotations</span>
+                                            </div>
+                                            <div id="SummaryTab12" class="panel-collapse panel-white in summarytab" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body slimscroll" style="max-height:none; border: solid; border-color: red; border-width: 0px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px">
+                                                    <table style="width: 100%;font-size:15px" class="tb">
+                                                        <thead>
+                                                            <tr style="border-bottom:solid;border-width:1px">
+                                                                <th style="width: 30%">Quotation Title</th>
+                                                                <th style="width: 20%">Quotation Ref. #</th>
+                                                                <th style="width: 20%">Generated Date</th>
+                                                                <th style="width: 20%">Quoted Date</th>
+                                                                <th style="width: 10%">Action</th>
+                                                            </tr>
+
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr style="padding-bottom:10px">
+                                                                <td>Quote 1</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 2</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 3</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 4</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 5</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 6</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 1</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quote 7</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                             <tr>
+                                                                <td>Quote 8</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                             <tr>
+                                                                <td>Quote 9</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                             <tr>
+                                                                <td>Quote 10</td>
+                                                                <td>THLND-FLG-01</td>
+                                                                <td>10-03-2016</td>
+                                                                <td>11-03-2016</td>
+                                                                <td>
+                                                                    <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="panel panel-red">
-                                        <div class="panel-heading accordian-heading" role="tab" id="headingTwo2">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#SummeryAccordion1" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">Day 2  (12-Mar-2016)
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseTwo2" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingTwo2">
-                                            <div class="panel-body">
-                                                <table class="table-itinarary-summary table" style="width: 100%;">
-                                                    <tbody>
-                                                        @*Hotel*@
-                                                        <tr>
-                                                            <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
-                                                            <td>Amari Atrium</td>
-                                                            <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
-                                                            <td>
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
-                                                            </td>
-                                                            <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
-                                                            <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Transfer*@
-                                                        <tr>
-                                                            <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
-                                                            <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
-                                                            <td>
-                                                                <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
-                                                                <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
-                                                            </td>
-                                                            <td><span class="label label-springgreen total-cost">THB 4200</span></td>
-                                                            <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Restaurant*@
-                                                        <tr>
-                                                            <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
-                                                            </td>
-                                                            <td><span class="label label-maroon total-cost">THB 2300</span></td>
-                                                            <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Guide*@
-                                                        <tr>
-                                                            <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
-                                                            <td>Nadia Manassawee Ponpitak</td>
-                                                            <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
-                                                                <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
-                                                            </td>
-                                                            <td><span class="label label-tomato total-cost">THB 1200</span></td>
-                                                            <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Sightseeing*@
-                                                        <tr>
-                                                            <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
-                                                            <td>Grand Palace</td>
-                                                            <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
-                                                            </td>
-                                                            <td><span class="label label-orange total-cost">THB 4200</span></td>
-                                                            <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-
-                                                        @*Restaurant*@
-                                                        <tr>
-                                                            <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
-                                                            </td>
-                                                            <td><span class="label label-maroon total-cost">THB 2300</span></td>
-                                                            <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-red">
-                                        <div class="panel-heading accordian-heading" role="tab" id="headingThree3">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#SummeryAccordion1" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">Day 3 (13-Mar-2016)
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree3" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingThree3">
-                                            <div class="panel-body">
-                                                <table class="table-itinarary-summary table" style="width: 100%;">
-                                                    <tbody>
-                                                        @*Hotel*@
-                                                        <tr>
-                                                            <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
-                                                            <td>Amari Atrium</td>
-                                                            <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
-                                                            <td>
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
-                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
-                                                            </td>
-                                                            <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
-                                                            <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Transfer*@
-                                                        <tr>
-                                                            <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
-                                                            <td>ATS TOUR - Toyota Yaris - Car</td>
-                                                            <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
-                                                            <td>
-                                                                <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
-                                                                <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
-                                                                <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
-                                                            </td>
-                                                            <td><span class="label label-springgreen total-cost">THB 4200</span></td>
-                                                            <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Restaurant*@
-                                                        <tr>
-                                                            <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
-                                                            </td>
-                                                            <td><span class="label label-maroon total-cost">THB 2300</span></td>
-                                                            <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Guide*@
-                                                        <tr>
-                                                            <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
-                                                            <td>Nadia Manassawee Ponpitak</td>
-                                                            <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
-                                                                <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
-                                                            </td>
-                                                            <td><span class="label label-tomato total-cost">THB 1200</span></td>
-                                                            <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                        @*Sightseeing*@
-                                                        <tr>
-                                                            <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
-                                                            <td>Grand Palace</td>
-                                                            <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
-                                                                <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
-                                                            </td>
-                                                            <td><span class="label label-orange total-cost">THB 4200</span></td>
-                                                            <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-
-                                                        @*Restaurant*@
-                                                        <tr>
-                                                            <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
-                                                            <td>Zazen Restaurant</td>
-                                                            <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
-                                                            <td>
-                                                                <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
-                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
-                                                            </td>
-                                                            <td><span class="label label-maroon total-cost">THB 2300</span></td>
-                                                            <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
-                                                            <td><span class="fa fa-close faDanger"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
-                            <div class="col-md-3 quote-link">
-                                <h2 class="text-danger" style="font-weight: bold; border-bottom: 1px dotted; margin-bottom: 5px; padding-bottom: 5px;">Summary</h2>
-                                <div class="panel panel-white">
-                                    <div class="panel-body tab-itenaries summary-tab-itenaries ">
-                                        <h4>Quote Ref.# THLND-FLG-SP-0101</h4>
-                                        <div class="form-group">
-                                            <label class="form-control tour-code">Tour Code:- FIT-BANGKOK-1-NIGHT</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-control tour-code">Tour Name:- Neeraj Khurana BANGKOK PACKAGE 01Nights</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <button id="btnSave" type="submit" class="btn btn-warning btnSave btn-steps">Generate Quote</button>
-                                            <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
-                                            <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></button>
-                                        </div>
-                                        <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
-                                            @*Tour Details*@
+                            <div role="tabpanel" class="tab-pane" id="quotesummary">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="panel-group" id="SummeryAccordion1" role="tablist" aria-multiselectable="true">
                                             <div class="panel panel-red">
-                                                <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab1">
-                                                    <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#SummaryAccordion" href="#SummaryTab1" aria-expanded="true" aria-controls="collapseTwo">Tour Details
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                                    <h4 class="panel-title ">
+                                                        <a data-toggle="collapse" data-parent="#SummeryAccordion1" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">Day 1  (11-Mar-2016)
                                                         </a>
                                                     </h4>
                                                 </div>
-                                                <div id="SummaryTab1" class="panel-collapse panel-white collapse summarytab" role="tabpanel" aria-labelledby="lblSummeryTab1">
+                                                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
                                                     <div class="panel-body">
-                                                        <p>
-                                                            <label>Agent: <span>Flamingo Travels</span></label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Client Name: <span></span></label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Client Nationality Set</label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Tour Name</label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Tour Code</label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Travel From Date</label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Travel To Date</label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Nights</label>
-                                                        </p>
-                                                        <p>
-                                                            <label>Days</label>
-                                                        </p>
+                                                        <table class="table-itinarary-summary table" style="width: 100%;">
+                                                            <tbody>
+                                                                @*Hotel*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
+                                                                    <td>Amari Atrium</td>
+                                                                    <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
+                                                                    </td>
+                                                                    <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
+                                                                    <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Transfer*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-car text-success" rel="tooltip" title="Transfer"></span></td>
+                                                                    <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                                    <td><span class="label label-success" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-success" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-success" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                                <span class="label label-success" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                                    </td>
+                                                                    <td><span class="label label-success total-cost">THB 4200</span></td>
+                                                                    <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Restaurant*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                                    </td>
+                                                                    <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                                    <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Guide*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
+                                                                    <td>Nadia Manassawee Ponpitak</td>
+                                                                    <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
+                                                                <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
+                                                                    </td>
+                                                                    <td><span class="label label-tomato total-cost">THB 1200</span></td>
+                                                                    <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Sightseeing*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
+                                                                    <td>Grand Palace</td>
+                                                                    <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
+                                                                    </td>
+                                                                    <td><span class="label label-orange total-cost">THB 4200</span></td>
+                                                                    <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+
+                                                                @*Restaurant*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                                    </td>
+                                                                    <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                                    <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
-                                            @*Quote Summery*@
                                             <div class="panel panel-red">
-                                                <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab2">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingTwo2">
                                                     <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Quote Summary
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#SummeryAccordion1" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">Day 2  (12-Mar-2016)
                                                         </a>
                                                     </h4>
                                                 </div>
-                                                <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab2">
-                                                    <table class="table">
-                                                        <tr>
-                                                            <td>
-                                                                <label>Total Net Rate</label></td>
-                                                            <td class="right-aligned"><span class="label label-danger">4700 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Total Margin</label></td>
-                                                            <td class="right-aligned"><span class="label label-orange">890 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Total Discount</label></td>
-                                                            <td class="right-aligned"><span class="label label-success">240 THB</span></td>
-                                                        </tr>
+                                                <div id="collapseTwo2" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingTwo2">
+                                                    <div class="panel-body">
+                                                        <table class="table-itinarary-summary table" style="width: 100%;">
+                                                            <tbody>
+                                                                @*Hotel*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
+                                                                    <td>Amari Atrium</td>
+                                                                    <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
+                                                                    </td>
+                                                                    <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
+                                                                    <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Transfer*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
+                                                                    <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                                    <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                                <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                                    </td>
+                                                                    <td><span class="label label-springgreen total-cost">THB 4200</span></td>
+                                                                    <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Restaurant*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                                    </td>
+                                                                    <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                                    <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Guide*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
+                                                                    <td>Nadia Manassawee Ponpitak</td>
+                                                                    <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
+                                                                <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
+                                                                    </td>
+                                                                    <td><span class="label label-tomato total-cost">THB 1200</span></td>
+                                                                    <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Sightseeing*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
+                                                                    <td>Grand Palace</td>
+                                                                    <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
+                                                                    </td>
+                                                                    <td><span class="label label-orange total-cost">THB 4200</span></td>
+                                                                    <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
 
-                                                        <tr>
-                                                            <td>
-                                                                <label>Sell Rate</label></td>
-                                                            <td class="right-aligned"><span class="label label-tomato">7310 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Tax</label></td>
-                                                            <td class="right-aligned"><span class="label label-primary">1096 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Sell Rate Including Tax</label></td>
-                                                            <td class="right-aligned"><span class="label label-info">8406 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Exchange Rate</label></td>
-                                                            <td class="right-aligned"><span class="label label-dodgerblue">40</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Final Sell Rate</label></td>
-                                                            <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
-                                                        </tr>
-                                                    </table>
+                                                                @*Restaurant*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                                    </td>
+                                                                    <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                                    <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <br />
-                                            <br />
-                                            <div class="form-group">
-                                                <div class="input-group input-append">
-                                                    <input type="text" class="form-control newtextbox" id="txtdiscountapply" value="400" placeholder="">
-                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading accordian-heading" role="tab" id="headingThree3">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#SummeryAccordion1" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">Day 3 (13-Mar-2016)
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree3" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingThree3">
+                                                    <div class="panel-body">
+                                                        <table class="table-itinarary-summary table" style="width: 100%;">
+                                                            <tbody>
+                                                                @*Hotel*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-university text-dodgerblue" rel="tooltip" title="Hotel"></span></td>
+                                                                    <td>Amari Atrium</td>
+                                                                    <td><span class="label label-dodgerblue" rel="tooltip" title="Time">11:00 AM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-dodgerblue" rel="tooltip" title="Check-in Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Check-out Day">Day 2 (14-Mar-2016)</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included ABF">Incl. ABF</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="Included Lunch">Incl. Lunch</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Adult"># of Adult: 2</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Extra Bed Adult"># of Extra Bed Adult: 1</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Child No Bed"># of Child No Bed: 1</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Single Room"># of Single Room: 2</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Double / Twin Room"># of Double / Twin Room: 4</span> | 
+                                                                <span class="label label-dodgerblue" rel="tooltip" title="# of Quad Room"># of Quad Room: 1</span>
+                                                                    </td>
+                                                                    <td><span class="label label-dodgerblue total-cost">THB 5500</span></td>
+                                                                    <td><a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Transfer*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-car text-springgreen" rel="tooltip" title="Transfer"></span></td>
+                                                                    <td>ATS TOUR - Toyota Yaris - Car</td>
+                                                                    <td><span class="label label-springgreen" rel="tooltip" title="Time">10:30 AM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-springgreen" rel="tooltip" title="Visit Day">Day 1 (11-Mar-2016)</span> | 
+                                                                <span class="label label-springgreen" rel="tooltip" title="Sharing Type">SIC</span> | 
+                                                                <span class="label label-springgreen" rel="tooltip" title="Transfer Component">Airport To Bangkok</span>
+                                                                    </td>
+                                                                    <td><span class="label label-springgreen total-cost">THB 4200</span></td>
+                                                                    <td><a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Restaurant*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-maroon" rel="tooltip" title="Time">12:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                                    </td>
+                                                                    <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                                    <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Guide*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-street-view text-tomato" rel="tooltip" title="Guide"></span></td>
+                                                                    <td>Nadia Manassawee Ponpitak</td>
+                                                                    <td><span class="label label-tomato" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-tomato" rel="tooltip" title="Sightseeing">Grand Palace</span> | 
+                                                                <span class="label label-tomato" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span>
+                                                                    </td>
+                                                                    <td><span class="label label-tomato total-cost">THB 1200</span></td>
+                                                                    <td><a data-target="#myGuideModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                                @*Sightseeing*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-map-marker text-orange" rel="tooltip" title="Sightseeing"></span></td>
+                                                                    <td>Grand Palace</td>
+                                                                    <td><span class="label label-orange" rel="tooltip" title="Time">01:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-orange" rel="tooltip" title="Supplier Company">Travelz Unlimited</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Pickup From">Amari Atrium</span> | 
+                                                                <span class="label label-orange" rel="tooltip" title="Pickup Time">11:45 AM</span>
+                                                                    </td>
+                                                                    <td><span class="label label-orange total-cost">THB 4200</span></td>
+                                                                    <td><a data-target="#mySightseeingModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+
+                                                                @*Restaurant*@
+                                                                <tr>
+                                                                    <td><span class="fa fa-spoon text-maroon" rel="tooltip" title="Restaurant"></span></td>
+                                                                    <td>Zazen Restaurant</td>
+                                                                    <td><span class="label label-maroon" rel="tooltip" title="Time">07:30 PM</span></td>
+                                                                    <td>
+                                                                        <span class="label label-maroon" rel="tooltip" title="Visit Day">Day 2 (12-Mar-2016)</span> | 
+                                                                <span class="label label-maroon" rel="tooltip" title="# Passengers"># Passengers: 3</span>
+                                                                    </td>
+                                                                    <td><span class="label label-maroon total-cost">THB 2300</span></td>
+                                                                    <td><a data-target="#myRestauranteModal" data-toggle="modal"><span class="fa fa-pencil faSuccess"></span></a></td>
+                                                                    <td><span class="fa fa-close faDanger"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="panel">
-                                                <button id="btnBookNow" type="submit" class="btn btn-danger btnSave btnradius">Apply Discount</button>
 
-                                            </div>
-                                            <div class="panel">
-                                                <button id="btnBookNow" type="submit" class="btn btn-success btnSave btnradius" onclick="confirmAlert();">Book Now</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 quote-link">
+                                        <h2 class="text-danger" style="font-weight: bold; border-bottom: 1px dotted; margin-bottom: 5px; padding-bottom: 5px;">Summary</h2>
+                                        <div class="panel panel-white">
+                                            <div class="panel-body tab-itenaries summary-tab-itenaries ">
 
+                                                <div class="form-group">
+                                                    <button id="btnSave" type="submit" class="btn btn-warning btnSave btn-steps">Generate Quote</button>
+                                                    <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
+                                                    <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></button>
+                                                </div>
+                                                <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
+                                                    @*Quotation Referance*@
+                                                    <div class="panel panel-red">
+                                                        <div class="panel-heading accordian-heading" role="tab" id="">
+                                                            <h4 class="panel-title">Quotation Referance
+                                                            </h4>
+                                                        </div>
+                                                        <div id="SummaryTab11" class="panel-collapse panel-white summarytab" role="tabpanel" aria-labelledby="lblSummeryTab1">
+                                                            <div class="panel-body">
+                                                                <table style="width: 100%">
+                                                                    <tr>
+                                                                        <td>Quote Ref.#: </td>
+                                                                        <td style="text-align: right"><span class="label label-danger">THLND-FLG-SP-0101</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Quotation Title: </td>
+                                                                        <td style="text-align: right; padding-top: 10px"><span class="label label-danger">Thiland Quotation</span></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*Tour Details*@
+                                                    <div class="panel panel-red">
+                                                        <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab1">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#SummaryAccordion" href="#SummaryTab1" aria-expanded="true" aria-controls="collapseTwo">Travel Details
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="SummaryTab1" class="panel-collapse panel-white collapse summarytab" role="tabpanel" aria-labelledby="lblSummeryTab1">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                    <label>Agent: <span>Flamingo Travels</span></label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Client Name: <span></span></label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Client Nationality Set</label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Tour Name</label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Tour Code</label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Travel From Date</label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Travel To Date</label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Nights</label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>Days</label>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*Quote Summery*@
+                                                    <div class="panel panel-red">
+                                                        <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab2">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Quote Summary
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab2">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Total Net Rate</label></td>
+                                                                    <td class="right-aligned"><span class="label label-danger">4700 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Total Margin</label></td>
+                                                                    <td class="right-aligned"><span class="label label-orange">890 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Total Discount</label></td>
+                                                                    <td class="right-aligned"><span class="label label-success">240 THB</span></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Sell Rate</label></td>
+                                                                    <td class="right-aligned"><span class="label label-tomato">7310 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Tax</label></td>
+                                                                    <td class="right-aligned"><span class="label label-primary">1096 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Sell Rate Including Tax</label></td>
+                                                                    <td class="right-aligned"><span class="label label-info">8406 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Exchange Rate</label></td>
+                                                                    <td class="right-aligned"><span class="label label-dodgerblue">40</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Final Sell Rate</label></td>
+                                                                    <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <br />
+                                                    <div class="form-group">
+                                                        <div class="input-group input-append">
+                                                            <input type="text" class="form-control newtextbox" id="txtdiscountapply" value="400" placeholder="">
+                                                            <span class="input-group-addon add-on"><span>THB</span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <button id="btnBookNow" type="submit" class="btn btn-danger btnSave btnradius">Apply Discount</button>
+
+                                                    </div>
+                                                    <div class="panel">
+                                                        <button id="btnBookNow" type="submit" class="btn btn-success btnSave btnradius" onclick="confirmAlert();">Book Now</button>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     @*View Itinerary*@
                     <div class="tab-pane fade in" id="tab3">
