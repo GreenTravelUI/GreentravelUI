@@ -576,6 +576,11 @@
     .tablespan > tbody > tr > td > span.label, .table > tbody > tr > th > span.label {
         font-size: 70% !important;
     }
+    .cbp-spmenu2 h3 .btn
+     {
+    color: #fff;
+    padding: 9px 12px !important;
+}
 </style>
 
 <div class="col-md-12">
@@ -1235,6 +1240,10 @@
                                                                         <option value="pendingforaprooval">Pending For Aprooval</option>
                                                                         <option value="aprooved">Aprooved</option>
                                                                     </select>
+                                                                </div>
+                                                                 <div class="col-md-6">
+                                                                    <label for="txtTags">Tags</label>
+                                                                    <input type="text" data-role="tagsinput" class="form-control" id="txtTagSte2" placeholder="Tags">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -5895,6 +5904,47 @@
                 $(this).parent().addClass("active");
             });
 
+            $('.btn-distribute-right').on('click', function () {
+                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
+                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
+                $('.distribute-sidebar').parent().show('slide', 'left', 400);
+                $('.followup-sidebar').parent().hide('slide', 'left', 400);
+                $('.btn-quickreports-right').removeClass('tab-itenaries');
+                $('.btn-utilitiess-right').removeClass('tab-itenaries');
+                $('.btn-followup-right').removeClass('tab-itenaries');
+                $(this).addClass('tab-itenaries');
+            });
+            $('.btn-utilitiess-right').on('click', function () {
+                $('.utilities-sidebar').parent().show('slide', 'right', 400);
+                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
+                $('.distribute-sidebar').parent().hide('slide', 'left', 400);
+                $('.followup-sidebar').parent().hide('slide', 'left', 400);
+                $('.btn-quickreports-right').removeClass('tab-itenaries');
+                $('.btn-distribute-right').removeClass('tab-itenaries');
+                $('.btn-followup-right').removeClass('tab-itenaries');
+                $(this).addClass('tab-itenaries');
+            });
+            $('.btn-quickreports-right').on('click', function () {
+                $('.quickreport-sidebar').parent().show('slide', 'left', 400);
+                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
+                $('.distribute-sidebar').parent().hide('slide', 'left', 400);
+                $('.followup-sidebar').parent().hide('slide', 'left', 400);
+                $('.btn-utilitiess-right').removeClass('tab-itenaries');
+                $('.btn-distribute-right').removeClass('tab-itenaries');
+                $('.btn-followup-right').removeClass('tab-itenaries');
+                $(this).addClass('tab-itenaries');
+            });
+            $('.btn-followup-right').on('click', function () {
+                $('.followup-sidebar').parent().show('slide', 'left', 400);
+                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
+                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
+                $('.distribute-sidebar').parent().hide('slide', 'left', 400);
+                $('.btn-utilitiess-right').removeClass('tab-itenaries');
+                $('.btn-distribute-right').removeClass('tab-itenaries');
+                $('.btn-quickreports-right').removeClass('tab-itenaries');
+                $(this).addClass('tab-itenaries');
+            });
+
         });
         function confirmAlert() {
             swal({
@@ -5953,8 +6003,10 @@
     <h3>
         <span class="">
             <div class="btn-group">
-                <a class="btn tab-itenaries btn-utilities-right">Utilities</a>
-                <a class="btn btn-quickreport-right">Quick Report</a>
+                <a class="btn tab-itenaries btn-utilitiess-right">Utilities</a>
+                <a class="btn btn-quickreports-right">Quick Report</a>
+                 <a class="btn btn-distribute-right">Distribute</a>
+                 <a class="btn btn-followup-right">Follow up</a>
             </div>
         </span>
         <a href="javascript:void(0);" class="pull-right btn" id="closeRightSideSummary" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
@@ -6134,5 +6186,47 @@
                 <div id="morris2"></div>
             </div>
         </div>
+    </div>
+    <div class="slimscroll distribute-sidebar">
+        <div class="col-md-12">
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Distribute </label>
+                        <input type="text" class="form-control" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Distribute  </label>
+                        <input type="text" class="form-control" id="txtRightTo" />
+                    </div>
+                </div>
+            </div>
+          
+            <br />
+
+        </div>
+       
+    </div>
+    <div class="slimscroll followup-sidebar">
+        <div class="col-md-12">
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Followup </label>
+                        <input type="text" class="form-control" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Followup  </label>
+                        <input type="text" class="form-control" id="txtRightTo" />
+                    </div>
+                </div>
+            </div>
+          
+            <br />
+
+        </div>
+       
     </div>
 }
