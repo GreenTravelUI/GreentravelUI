@@ -104,7 +104,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-header-fixed page-horizontal-bar page-sidebar-fixed">@*page-horizontal-bar *@
+<body class="page-header-fixed page-sidebar-fixed">@*page-horizontal-bar *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
         @RenderSection("rightsidesummary", required: false)
@@ -112,7 +112,6 @@
     <nav class="cbp-spmenu cbp-spmenu3 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-righttimeline-s2">
         @RenderSection("rightsidetimeline", required: false)
     </nav>
-
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
         <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
         <div class="slimscroll">
@@ -439,7 +438,7 @@
             </div>
         </div><!-- Navbar -->
         @*page-sidebar*@
-        <div class="horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
+        <div class="page-sidebar sidebar">@*horizontal-bar  page-sidebar*@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -938,6 +937,8 @@
             $('.drag-close').click(function () {
                 $(this).parent().remove();
             });
+            $('.floating-section-buttons').hide();
+            $('.' + $(this).data('section')).show();
             $('.nav-tabs a').click(function () {
                 $('.floating-section-buttons').hide();
                 $('.' + $(this).data('section')).show();
