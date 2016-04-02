@@ -576,6 +576,9 @@
     .tablespan > tbody > tr > td > span.label, .table > tbody > tr > th > span.label {
         font-size: 70% !important;
     }
+    .tabletdpaddingremove > tbody > tr > td {
+        padding: 5px;
+    }
 </style>
 
 <div class="col-md-12">
@@ -3668,20 +3671,15 @@
                                                         </div>
                                                         <div id="SummaryTab11" class="panel-collapse panel-white summarytab" role="tabpanel" aria-labelledby="lblSummeryTab1">
                                                             <div class="panel-body">
-                                                                
-                                                                <table style="width: 100%">
+                                                                <table style="width: 100%;margin-bottom:1px !important;" class="table tabletdpaddingremove">
                                                                     <tr>
-                                                                        <td style="background-color: white; border: solid; border-width: 1px; color: red; font-size: 18px"><span style="width: 100%">THLND-FLG-SP-0101</span></td>
+                                                                        <td style="color: red; font-size: 16px;text-align:center"><span style="width: 100%">THLND-FLG-SP-0101</span></td>
                                                                     </tr>
-
-                                                                </table>
-                                                                <table style="width: 100%; margin-top: 8px">
-
-                                                                    <tr>
-                                                                        <td style="background-color: white; border: solid; border-width: 1px; color: red; font-size: 18px"><span style="width: 100%">Thiland Quotation</span></td>
+                                                                     <tr>
+                                                                        <td style="color: red; font-size: 16px;text-align:center"><span style="width: 100%">Thiland Quotation</span></td>
                                                                     </tr>
                                                                 </table>
-                                                            </div>
+                                                               </div>
                                                         </div>
                                                     </div>
                                                     @*Tour Details*@
@@ -5181,23 +5179,41 @@
                                 <option selected="selected">Private</option>
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label for="txtRoomType">Transfer Component</label>
-                            <select id="drpTransferComponent" class="js-states form-control" style="display: none; width: 100%">
-                                <option>Airport To Bangkok</option>
+                         <div class="col-md-6">
+                            <label for="txtRoomType">Transfer For</label>
+                            <select id="drpTransferFor" class="js-states form-control" style="display: none; width: 100%">
+                                <option>Sightseeing</option>
+                                <option>Restaurant</option>
+                                <option>Airport</option>
+                                <option>Common</option>
                             </select>
                         </div>
+                       
                     </div>
                 </div>
                 <div class="form-group pvt-div">
                     <div class="row">
+                         <div class="col-md-6">
+                            <label for="txtRoomType">Transfer Component</label>
+                            <select id="drpTransferComponent" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">Alkazer Show Rerutn Transfrer</option>
+                                <option>Airport To Bangkok hotel</option>
+                                <option>Dinner Return Transfer</option>
+                                <option>Lunch Return Transfer</option>
+                            </select>
+                        </div>
                         <div class="col-md-6">
                             <label for="txtRoomType">Vehicle Type - Vehicle Name</label>
                             <select id="drpVehicleTypeVehicle Name" class="js-states form-control" style="display: none; width: 100%">
                                 <option>Bus-Volvo B11</option>
                             </select>
                         </div>
-                        <div class="col-md-2">
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                         <div class="col-md-2">
                             <label for="txtSeatCapacity">Min Pax</label>
                             <input type="text" class="form-control" name="txtSeatCapacity" id="txtMinPax" value="1" placeholder="1">
                         </div>
@@ -5209,10 +5225,6 @@
                             <label for="txtLuggageCapacity">Luggage Capacity</label>
                             <input type="text" class="form-control" name="txtLuggageCapacity" id="txtLuggageCapacity" placeholder="10 kg" readonly>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
                         <div class="col-md-6">
                             <label for="txtRoomType">Included Services</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%">
@@ -5220,6 +5232,11 @@
                             </select>
                         </div>
 
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
                         <div class="col-md-6 pvt-div">
                             <label for="txtSeatCapacity">Service Cost Per Day</label>
                             <div class="input-group input-append">
@@ -5227,10 +5244,6 @@
                                 <span class="input-group-addon add-on"><span>THB</span></span>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
                         <div class="col-md-6">
                             <label for="txtRoomType">Additional Services</label>
                             <select id="drpCheckInDay" class="js-states form-control" style="display: none; width: 100%" multiple="multiple">
@@ -5741,8 +5754,8 @@
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    window.location.href = "/bookingsfit"
-                    //swal("Deleted!", "Your quotation has been deleted.", "success");
+                   // window.location.href = "/bookingsfit"
+                    swal("Booked!", "Your Package has been booked.", "success");
 
                 } else {
                     swal("Cancelled", "Your Booking is cancelled :)", "error");
