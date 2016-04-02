@@ -106,46 +106,30 @@
             font-size: 11px;
         }
 
-        .tab-itenaries .table > tbody > tr:first-child > td {
+    /*.tab-itenaries .table > tbody > tr:first-child > td {
             border-width: 0;
         }
 
         .tab-itenaries .table > tbody > tr > td:first-child {
-            width: 60%;
+            width: 50%;
         }
 
         .tab-itenaries .table > tbody > tr > td:last-child {
             text-align: right;
-            width: 40%;
+            width: 50%;
         }
 
         .tab-itenaries .table > tbody > tr > td {
             font-size: 11px;
             padding: 7px !important;
-        }
+        }*/
 
     .grid figcaption {
         background: #fff none repeat scroll 0 0;
         padding: 25px;
     }
 
-    .grid li:hover figure {
-        opacity: 1;
-    }
 
-    .grid li {
-        cursor: default;
-        float: left;
-        width: 33.3% !important;
-    }
-
-    figcaption > h3 {
-        border-bottom: 1px dashed #3c3c3c !important;
-    }
-
-    .grid li {
-        position: relative !important;
-    }
 
     td:first-child {
         width: 40% !important;
@@ -193,18 +177,18 @@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <div>
                             <form>
-                               <div class="dropdown table-custome-drop">
-                                <div class="btn-group">
-                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Excel</a></li>
-                                        <li><a href="#">PDF</a></li>
-                                        <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
-                                    </ul>
-                                </div>
-                                &nbsp;&nbsp;
+                                <div class="dropdown table-custome-drop">
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
+                                        </ul>
+                                    </div>
+                                    &nbsp;&nbsp;
                                 <div class="btn-group btn-tables-views">
                                     <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
                                         <span class="icon-grid"></span>
@@ -331,8 +315,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <br /><br />
+                                </div>
+                                <br />
+                                <br />
                                 <div class="table-responsive">
 
                                     <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
@@ -382,59 +367,60 @@
                     <div role="tabpanel" class="tab-pane" id="tab4">
                         <div class="col-md-12">
                             <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label id="lbSrnoTab4" style="display: none"></label>
 
-                                <div class="row">
-                                    <label id="lbSrnoTab4" style="display: none"></label>
-
-                                    <div class="form-group col-md-4">
-                                        <label>Corporate <span>*</span></label>
-                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%">
-                                            <option>--Select Coporate--</option>
-                                            <option selected="selected">Travels Unlimited</option>
-                                            <option>Flamingo</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Unit <span>*</span></label>
-                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
-                                            <option>--Select Unit--</option>
-                                            <option selected="selected">Bangkok</option>
-                                            <option>Ahmedabad</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Location <span>*</span></label>
-                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
-                                            <option>--Select Location--</option>
-                                            <option selected="selected">Bangkok</option>
-                                            <option>Ahmedabad</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <label id="lbSrnoTab4" style="display: none"></label>
-                                    <div class="form-group col-md-4">
-                                        <label>Role <span>*</span></label>
-                                        @*<select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>*@
-                                        <input type="text" id="txtrole" placeholder="Role" class="form-control ">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
-                                            &nbsp
-                                                    <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
+                                        <div class="col-md-4">
+                                            <label>Corporate <span>*</span></label>
+                                            <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%">
+                                                <option>--Select Coporate--</option>
+                                                <option selected="selected">Travels Unlimited</option>
+                                                <option>Flamingo</option>
+                                            </select>
                                         </div>
+                                        <div class="col-md-4">
+                                            <label>Unit <span>*</span></label>
+                                            <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
+                                                <option>--Select Unit--</option>
+                                                <option selected="selected">Bangkok</option>
+                                                <option>Ahmedabad</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Location <span>*</span></label>
+                                            <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%">
+                                                <option>--Select Location--</option>
+                                                <option selected="selected">Bangkok</option>
+                                                <option>Ahmedabad</option>
+                                            </select>
+                                        </div>
+
                                     </div>
-                                    @*<div class="col-md-1">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label id="lbSrnoTab4" style="display: none"></label>
+                                        <div class="form-group col-md-4">
+                                            <label>Role <span>*</span></label>
+                                            @*<select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>*@
+                                            <input type="text" id="txtrole" placeholder="Role" class="form-control ">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
+                                                &nbsp
+                                                    <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
+                                            </div>
+                                        </div>
+                                        @*<div class="col-md-1">
                                         <div class="form-group">
                                             <label for="Date1" id="LbDefault">Default ?<span></span></label>
                                             &nbsp</br>
                                                     <input id="chkdefault" type="checkbox">
                                         </div>
                                     </div>*@
-                                    @*<div class="form-group col-md-4">
+                                        @*<div class="form-group col-md-4">
                                         <label>User <span>*</span></label>
                                         <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                     </div>
@@ -444,6 +430,7 @@
                                             <select id="drpRightsStatus" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
                                         </div>
                                     </div>*@
+                                    </div>
                                 </div>
                                 @*<div class="row">
                                     <div class="col-md-4">

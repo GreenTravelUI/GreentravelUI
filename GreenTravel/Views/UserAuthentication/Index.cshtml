@@ -111,14 +111,6 @@
             border-width: 0;
         }
 
-        .tab-itenaries .table > tbody > tr > td:first-child {
-            width: 60%;
-        }
-
-        .tab-itenaries .table > tbody > tr > td:last-child {
-            text-align: right;
-            width: 40%;
-        }
 
         .tab-itenaries .table > tbody > tr > td {
             font-size: 11px;
@@ -130,7 +122,7 @@
         padding: 25px;
     }
 
-    .grid li:hover figure {
+    /*.grid li:hover figure {
         opacity: 1;
     }
 
@@ -146,7 +138,7 @@
 
     .grid li {
         position: relative !important;
-    }
+    }*/
 
     td:first-child {
         width: 50% !important;
@@ -178,27 +170,30 @@
     #errmsg {
         color: red;
     }
-          #ulViewList {
+
+    #ulViewList {
         padding-left: 0 !important;
     }
-     .field-name {
+
+    .field-name {
         padding-right: 15px;
     }
-       .field-name {
+
+    .field-name {
         float: left;
         width: 50%;
     }
-  .ulviewlistclass
-     {
+
+    .ulviewlistclass {
         padding-left: 0 !important;
     }
-   .field-list .active {
+
+    .field-list .active {
         background-color: #4fe7cd;
         color: #fff !important;
         font-weight: bolder;
         /*font-size: 14px;*/
     }
-
 </style>
 
 
@@ -217,17 +212,17 @@
                         <div>
                             <form>
                                 <div class="dropdown table-custome-drop">
-                                <div class="btn-group">
-                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Excel</a></li>
-                                        <li><a href="#">PDF</a></li>
-                                        <li><a href="#">Email</a></li>
-                                    </ul>
-                                </div>
-                                &nbsp;&nbsp;
+                                    <div class="btn-group">
+                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                            <span class="glyphicon glyphicon-download-alt"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Excel</a></li>
+                                            <li><a href="#">PDF</a></li>
+                                            <li><a href="#">Email</a></li>
+                                        </ul>
+                                    </div>
+                                    &nbsp;&nbsp;
                                 <div class="btn-group btn-tables-views">
                                     <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
                                         <span class="icon-grid"></span>
@@ -315,8 +310,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <br /><br />
+                                </div>
+                                <br />
+                                <br />
                                 <div class="table-responsive">
 
                                     <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
@@ -368,58 +364,54 @@
                     <div role="tabpanel" class="tab-pane" id="tab2">
                         <div class="col-md-12">
                             <form>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                        <label>Corporate <span>*</span></label>
-                                        <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Unit <span>*</span></label>
-                                        <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Location <span>*</span></label>
-                                        <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label id="lbSrnoTab4" style="display: none"></label>
-                                    @*<div class="form-group col-md-4">
-                                        <label>Branch <span>*</span></label>
-                                        <select id="drpBranch" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>*@
-                                    <div class="form-group col-md-2">
-                                        <label>Role <span>*</span></label>
-                                        <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="Date1" id="LbDefault">Default ?<span></span></label>
-                                            &nbsp</br>
-                                                    <input id="chkdefault" type="checkbox">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Corporate <span>*</span></label>
+                                            <select id="drpRightsCorporate" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
                                         </div>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>User <span>*</span></label>
-                                        <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Status <span>*</span></label>
-                                            <select id="drpRightsStatus" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
+                                        <div class="col-md-4">
+                                            <label>Unit <span>*</span></label>
+                                            <select id="drpRightsUnit" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Location <span>*</span></label>
+                                            <select id="drpRightsLocation" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label id="lbSrnoTab4" style="display: none"></label>
+                                        <div class="col-md-2">
+                                            <label>Role <span>*</span></label>
+                                            <select id="drpRightsRole" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox" id="chkfreeflag">Default ?
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>User <span>*</span></label>
+                                            <select id="drpRightsUser" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Status <span>*</span></label>
+                                                <select id="drpRightsStatus" class="js-states col-sm-2 form-control Dropdown  " style="display: none; width: 100%"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <label for="Date1" id="LbDate1">Effective Date <span>*</span></label>
-                                            &nbsp
-                                                    <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
+                                            <input type="text" id="Date1" placeholder="dd/mm/yyyy" class="form-control date-picker ">
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                        <div class="col-md-4">
                                             <label>Default Language<span> *</span></label>
                                             <select id="DrpdefaultLanguage" class="js-states col-sm-2 form-control Dropdown disableRights " style="display: none; width: 100%"></select>
                                         </div>
