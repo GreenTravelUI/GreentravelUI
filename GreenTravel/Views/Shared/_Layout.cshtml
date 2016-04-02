@@ -91,7 +91,11 @@
     <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
     <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
-
+    <style>
+        .select2-container.select2-container--default.select2-container--open {
+            z-index: 9999999 !important;
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -970,6 +974,8 @@
             $('.drag-close').click(function () {
                 $(this).parent().remove();
             });
+            $('.floating-section-buttons').hide();
+            $('.' + $('.nav-tabs.wizard-tab > li:first-child > a').data('section')).show();
             $('.nav-tabs a').click(function () {
                 $('.floating-section-buttons').hide();
                 $('.' + $(this).data('section')).show();
