@@ -112,7 +112,6 @@
     <nav class="cbp-spmenu cbp-spmenu3 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-righttimeline-s2">
         @RenderSection("rightsidetimeline", required: false)
     </nav>
-
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
         <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
         <div class="slimscroll">
@@ -550,7 +549,7 @@
                                         <li>@Html.ActionLink("Guide", "Index", "GuidePriceList")</li>
                                     </ul>
                                 </li>
-                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                                @* <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
                                     <p>Tour</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
@@ -591,8 +590,77 @@
                                     </ul>
                                     </ul>
                                    
+                                </li>*@
+                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                                    <p>B2B FIT Tour</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li>@Html.ActionLink("Custom Itinerary", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Fixed Itinerary", "Index", "FITTourList")</li>
+                                            <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Individual Component<span class="arrow"></span></a>
+                                             <ul class="sub-menu" style="display: none;">
+                                                 <li>@Html.ActionLink("Hotel", "Index", "HotelComponent")</li>
+                                                 <li>@Html.ActionLink("Sightseeing", "Index", "Sightseeingcomponent")</li>
+                                                 <li>@Html.ActionLink("Transportation", "Index", "FITTourList")</li>
+                                                 <li>@Html.ActionLink("Restaurant", "Index", "FITTourList")</li>
+                                                 <li>@Html.ActionLink("Guide", "Index", "FITTourList")</li>
+                                                 <li>@Html.ActionLink("Cruise", "Index", "FITTourList")</li>
+                                             </ul>
+                                           <li class="droplink"><a href="javascript:void(0);" class=" waves-button">All Bookings<span class="arrow"></span></a>
+                                             <ul class="sub-menu" style="display: none;">
+                                                <li>@Html.ActionLink("Booked", "Index", "BookingsFIT")</li>
+                                                <li>@Html.ActionLink("Confirmed By Supplier", "Index", "TourQuotationGit")</li>
+                                                <li>@Html.ActionLink("Re-confirmed By Agent", "Index", "FITTourList")</li>
+                                                <li>@Html.ActionLink("Cancelled By Agent", "Index", "TourQuotationGit")</li>
+                                                <li>@Html.ActionLink("Amended", "Index", "TourQuotationGit")</li>
+                                             </ul>
+                                               
+                                    </ul>
+                                   
                                 </li>
-                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-shopping-cart"></span>
+                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                                    <p>B2B GIT Tour</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li>@Html.ActionLink("Custom Itinerary", "Index", "TourquotationGIT")</li>
+                                        <li>@Html.ActionLink("Fixed Itinerary", "Index", "FITTourList")</li>
+                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Individual Component<span class="arrow"></span></a>
+                                            <ul class="sub-menu" style="display: none;">
+                                                 <li>@Html.ActionLink("Hotel", "Index", "HotelComponent")</li>
+                                                <li>@Html.ActionLink("Sightseeing", "Index", "Sightseeingcomponent")</li>
+                                                <li>@Html.ActionLink("Transportation", "Index", "FITTourList")</li>
+                                                <li>@Html.ActionLink("Restaurant", "Index", "FITTourList")</li>
+                                                <li>@Html.ActionLink("Guide", "Index", "FITTourList")</li>
+                                                <li>@Html.ActionLink("Cruise", "Index", "FITTourList")</li>
+                                            </ul>
+                                        <li class="droplink"><a href="javascript:void(0);" class=" waves-button">All Bookings<span class="arrow"></span></a>
+                                             <ul class="sub-menu" style="display: none;">
+                                                <li>@Html.ActionLink("Booked", "Index", "BookingsFIT")</li>
+                                                <li>@Html.ActionLink("Confirmed By Supplier", "Index", "TourQuotationGit")</li>
+                                                <li>@Html.ActionLink("Re-confirmed By Agent", "Index", "FITTourList")</li>
+                                                <li>@Html.ActionLink("Cancelled By Agent", "Index", "TourQuotationGit")</li>
+                                                <li>@Html.ActionLink("Amended", "Index", "TourQuotationGit")</li>
+                                              </ul>
+                                    </ul>
+                                   
+                                </li>
+                               @* <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-suitcase"></span>
+                                    <p>B2B FIT Bookings</p>
+                                    <span class="arrow"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                         <li class="droplink"><a href="javascript:void(0);" class=" waves-button">Custom Itinerary<span class="arrow"></span></a>
+                                             <ul class="sub-menu" style="display: none;">
+                                       <li>@Html.ActionLink("Booked", "Index", "BookingsFIT")</li>
+                                         <li>@Html.ActionLink("Confirmed By Supplier", "Index", "TourQuotationGit")</li>
+                                        <li>@Html.ActionLink("Re-confirmed By Agent", "Index", "FITTourList")</li>
+                                        <li>@Html.ActionLink("Cancelled By Agent", "Index", "TourQuotationGit")</li>
+                                        <li>@Html.ActionLink("Amended", "Index", "TourQuotationGit")</li>
+                                    </ul>
+                                             </ul>
+                                   
+                                </li>*@
+                                
+                                @* <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-shopping-cart"></span>
                                     <p>FIT Bookings</p>
                                     <span class="arrow"></span></a>
                                     <ul class="sub-menu" style="display: none;">
@@ -602,7 +670,7 @@
                                         <li>@Html.ActionLink("Cancelled By Agent", "Index", "TourQuotationGit")</li>
                                         <li>@Html.ActionLink("Amended", "Index", "TourQuotationGit")</li>
                                     </ul>
-                                </li>
+                                </li>*@
                                 <li class="droplink"><a href="javascript:void(0);" class="waves-effect waves-button"><span class="menu-icon fa fa-tasks "></span>
                                     <p>Invoice</p>
                                     <span class="arrow"></span></a>
@@ -938,6 +1006,8 @@
             $('.drag-close').click(function () {
                 $(this).parent().remove();
             });
+            $('.floating-section-buttons').hide();
+            $('.' + $('.nav-tabs.wizard-tab > li:first-child > a').data('section')).show();
             $('.nav-tabs a').click(function () {
                 $('.floating-section-buttons').hide();
                 $('.' + $(this).data('section')).show();
