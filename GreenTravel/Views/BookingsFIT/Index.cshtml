@@ -334,9 +334,6 @@
         display: inline-block;
     }
 
-    .select2-container.select2-container--default.select2-container--open {
-        z-index: 99999 !important;
-    }
 
     .accordian-heading {
         padding: 10px !important;
@@ -351,14 +348,14 @@
 
     .summary-tab-itenaries .form-group .btn-steps {
         text-align: left;
-        width: 67%;
+        width: 54%;
         padding-left: 12px;
         padding-right: 12px;
         font-size: 14px;
     }
 
     .summary-tab-itenaries .form-group .btn-steps-icons {
-        width: auto;
+        width: 14%;
         font-size: 14px;
         padding-left: 12px;
         padding-right: 12px;
@@ -1439,8 +1436,16 @@
                                 <div class="col-sm-6" style="width: 53.5%;">
                                     <input type="text" class="form-control" style="padding: 12px 10px ! important;" placeholder="Search & Add Suppliers - Type Country, City, Hotel, Sightseeing, Transfer, Guide, Restaurant">
                                 </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control date-picker" placeholder="01-03-2016">
+                                <div class="col-md-1">
+                                    Select City
+                                </div>
+                                <div class="col-sm-2">
+                                    <select id="drpcity" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Select City</option>
+                                        <option selected="selected">Pattaya</option>
+                                        <option>Bangkok</option>
+                                        <option>Phuket</option>
+                                    </select>
                                 </div>
                             </div>
                         </form>
@@ -1979,6 +1984,17 @@
                                                 <div class="col-md-3">
                                                     <div class="form-control">
                                                         <span class="text-success">FREE Cancellation</span>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label>Room Category</label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                    <select id="drpcity" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Select Category</option>
+                                                        <option selected="selected">Standard</option>
+                                                        <option>Delux</option>
+                                                        <option>Superior</option>
+                                                    </select>
                                                     </div>
                                                     <div class="form-control">
                                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
@@ -3028,7 +3044,7 @@
 
                                                                     <h1><small>Amari Atrium</small> <small class="text-success text-bottom-border">5000 THB</small>
                                                                         <a style="padding-left: 40%" href="javascript:void(0);" data-toggle="modal" data-target="#confirmhotel"><span class="fa fa-check-square-o btn-primary" style="border-radius: 50%; padding: 8px 9px"></span></a>
-                                                                        <a><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                         <a onclick="confirmAlert();" href="#"><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                     </h1>
 
@@ -3063,7 +3079,7 @@
                                                             <div class="panel panel-red">
                                                                 <div class="panel-heading" role="tab" id="headingOnesg">
                                                                     <h4 class="panel-title">
-                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesg" aria-expanded="true" aria-controls="collapseOne">Hotel Options
+                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesg" aria-expanded="true" aria-controls="collapseOne">Hotel Options - Pattaya
                                                                         </a>
                                                                     </h4>
                                                                 </div>
@@ -3099,7 +3115,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3122,7 +3138,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3145,7 +3161,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">5000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3344,7 +3360,7 @@
                                                                 <div class="col-md-12 text-bottom-border">
                                                                     <h1><small>Amari Ocean</small> <small class="text-success text-bottom-border">6500 THB</small>
                                                                          <a style="padding-left: 40%" href="javascript:void(0);" data-toggle="modal" data-target="#confirmhotel"><span class="fa fa-check-square-o btn-primary" style="border-radius: 50%; padding: 8px 9px"></span></a>
-                                                                         <a><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                         <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                         <a onclick="confirmAlert();" href="#"><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a></h1>
                                                                 </div>
                                                                 <div class="col-md-12 child-span-margin">
@@ -3376,7 +3392,7 @@
                                                             <div class="panel panel-red">
                                                                 <div class="panel-heading" role="tab" id="headingOnesgg">
                                                                     <h4 class="panel-title">
-                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesgg" aria-expanded="true" aria-controls="collapseOne">Hotel Options
+                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesgg" aria-expanded="true" aria-controls="collapseOne">Hotel Options - Bangkok
                                                                         </a>
                                                                     </h4>
                                                                 </div>
@@ -3412,7 +3428,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3435,7 +3451,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3458,7 +3474,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">5000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3739,7 +3755,9 @@
                                                 <div class="form-group">
                                                     <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Update Booking</button>
                                                     <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Itinerary"><i class="fa fa-download"></i></button>
-                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Itinerary To Agent"><i class="fa fa-paper-plane"></i></a>
+                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="View Itinerary"><i class="fa fa-navicon"></i></a>
+                                                   
+                                                     <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Itinerary To Agent"><i class="fa fa-paper-plane"></i></a>
                                                 </div>
                                                 <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
                                                     @*Quotation Referance*@
@@ -3758,7 +3776,7 @@
                                                                         <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%">Thiland Quotation</span></td>
                                                                     </tr>
                                                                      <tr>
-                                                                        <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%">Booking Status - Booked</span></td>
+                                                                        <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%" class="label label-primary">Booking Status - Booked</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -3774,49 +3792,36 @@
                                                         </div>
                                                         <div id="SummaryTab1" class="panel-collapse panel-white in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab1">
                                                             <div class="panel-body">
-                                                                <table class="table">
+                                                                  <table class="table">
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Agent</label></td>
-                                                                        <td class="right-aligned"><span class="label label-danger">Flamingo Travels</span></td>
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-danger">Flamingo Travels</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Agent"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Client Name</label></td>
-                                                                        <td class="right-aligned"><span class="label label-success">Samarth Shah</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Client Nationality</label></td>
-                                                                        <td class="right-aligned"><span class="label label-primary">Asia</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Cities</label></td>
-                                                                        <td class="right-aligned"><span class="label label-info">Pattaya, Bangkok</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Travel From Date</label></td>
-                                                                        <td class="right-aligned"><span class="label label-danger">11-03-2016</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Travel To Date</label></td>
-                                                                        <td class="right-aligned"><span class="label label-success">16-03-2016</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Nights</label></td>
-                                                                        <td class="right-aligned"><span class="label label-primary">5</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Days</label></td>
-                                                                        <td class="right-aligned"><span class="label label-info">6</span></td>
-                                                                    </tr>
-                                                                </table>
 
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-success">Samarth Shah</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Guest Name"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-primary">Asia</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Guest Nationality"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-info">Pattaya, Bangkok</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Cities To Travels"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-danger">11-03-2016</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Travel From Date"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-success">16-03-2016</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Travel To Date"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-primary">5N / 6D</span></td>
+                                                                    </tr>
+
+                                                                </table>
 
                                                             </div>
                                                         </div>
@@ -3831,6 +3836,16 @@
                                                         </div>
                                                         <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab2">
                                                             <table class="table">
+                                                                 <tr>
+                                                                    <td>
+                                                                        <label>Booked By (Travelz Unlimited Side)</label></td>
+                                                                    <td class="right-aligned"><span class="label label-danger">Samarth Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Approved By (Travelz Unlimited Side)</label></td>
+                                                                    <td class="right-aligned"><span class="label label-danger">Samarth Shah</span></td>
+                                                                </tr>
                                                                 <tr>
                                                                     <td>
                                                                         <label>Total Net Rate</label></td>
@@ -3840,6 +3855,11 @@
                                                                     <td>
                                                                         <label>Total Margin</label></td>
                                                                     <td class="right-aligned"><span class="label label-orange">890 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Total Supplier Discount</label></td>
+                                                                    <td class="right-aligned"><span class="label label-success">240 THB</span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
@@ -3869,7 +3889,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <label>Final Sell Rate</label></td>
+                                                                        <label>Total Quotation Amount</label></td>
                                                                     <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
                                                                 </tr>
                                                             </table>
@@ -3886,7 +3906,7 @@
                                                     </div>
                                                    
                                                     <div class="panel">
-                                                        <a id="btnemail" class="btn btn-info btnSave btnradius" href="javascript:void(0);" data-toggle="modal" data-target="#Booknowpopup">Confirm Booking</a>
+                                                        <a id="btnemail" class="btn btn-info btnSave btnradius" href="javascript:void(0);" data-toggle="modal" data-target="#confirmbooingpop">Confirm Booking</a>
 
                                                     </div>
                                                     <br />
@@ -4150,6 +4170,13 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
+                                <div class="col-md-3 form-marings">
+
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox">Optional Hotel?
+                                            </div>
+                                        </div>
                             </div>
                         </div>
 
@@ -4357,85 +4384,92 @@
                             </div>
                             @*Tab 2*@
                             <div role="tabpanel" class="tab-pane" id="tabRoomRate">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3 class="text-danger"><span>Double Room Cost</span></h3>
-                                        <h4 class="text-danger">Deluxe  |  2 Adults + 1 CNB + 1 Infant  |  Incl. ABF  |  Incl. Lunch</h4>
+                                <div style="border: solid 1px darkseagreen; padding: 5px">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="text-danger"><span>Double Room Cost</span></h3>
+                                            <h4 class="text-danger">Deluxe  |  2 Adults + 1 CNB + 1 Infant  |  Incl. ABF  |  Incl. Lunch</h4>
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Net Rate (Per Room Per Night)</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtNetRate" value="2500" placeholder="Room Cost">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Extra Bed Adult Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtExtraAdultRate" value="" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Extra Bed Child Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtCWBRate" value="" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Child No Bed Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtCNBRate" value="1000" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Infant Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtInfantRate" value="500" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Room Cost Per Night</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtRoomcostPerNight" value="4000" placeholder="" readonly>
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-10"></div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-success" style="float: right">Apply Rate</button>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="strong" style="font-size: 19px">(Room Cost Per Night &nbsp;*&nbsp; Number of Nights)&nbsp;=&nbsp;Room 1 Cost</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-danger strong" style="text-align: right; font-size: 25px">(4000*5)=20000 THB</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br />
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Net Rate (Per Room Per Night)</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtNetRate" value="2500" placeholder="Room Cost">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Extra Bed Adult Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtExtraAdultRate" value="" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Extra Bed Child Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtCWBRate" value="" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Child No Bed Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtCNBRate" value="1000" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Infant Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtInfantRate" value="500" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Room Cost Per Night</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtRoomcostPerNight" value="4000" placeholder="" readonly>
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th class="strong" style="font-size: 19px">(Room Cost Per Night &nbsp;*&nbsp; Number of Nights)&nbsp;=&nbsp;Room 1 Cost</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-danger strong" style="text-align: right; font-size: 25px">(4000*5)=20000 THB</td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <br />
-
                             </div>
-
+                            <br />
+                            <br />
                             <div class="row">
                                 <div class="col-md-12">
                                     <table>
@@ -4720,6 +4754,16 @@
                             </div>
                         </div>
                     </div>
+                      <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-marings">
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox">Optional Sightseeing?
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -4897,6 +4941,16 @@
                         </div>
                     </div>
                 </div>
+                  <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-marings">
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox">Optional Guide?
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
                 <div class="row">
                     <div class="col-md-6">
                     </div>
@@ -5075,6 +5129,12 @@
                                 <option selected="selected">Special Theme</option>
                             </select>
                         </div>
+                        <div class="col-md-3 form-marings">
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox">Optional Restaurant?
+                                            </div>
+                                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -5441,6 +5501,16 @@
                         </div>
                     </div>
                 </div>
+                  <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-marings">
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox">Optional Transport?
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
                 <div class="row">
                     <div class="col-md-6">
                     </div>
@@ -5628,6 +5698,16 @@
                         </div>
                     </div>
                 </div>
+                  <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-marings">
+                                            <label class="labelforcheckbox">&nbsp;</label>
+                                            <div class="form-group form-marings">
+                                                <input type="checkbox">Optional Transport?
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
                 <div class="row">
                     <div class="col-md-6">
                     </div>
@@ -5812,6 +5892,56 @@
         </div>
     </div>
 </div>
+
+@*confirmbooking*@
+<div class="modal fade modify-colum-model" id="confirmbooingpop" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Confirm Booking Now
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </h4>
+            </div>
+            <div class="modal-body">
+              
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Agent Re-confirmation Date</label>
+                            <input type="text" class="form-control date-picker" id="txtToemail" value="11-03-2016" placeholder="support@gttechpure.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Confirmed By</label>
+                            <input type="text" class="form-control" id="txtToemail" placeholder="samarth@gttechpure.com">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Approved By </label>
+                            <input type="text" class="form-control req" id="txtToemail" placeholder="support@gttechpure.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Booking For Re-confirmation To Be Sent To</label>
+                            <input type="text" class="form-control req" id="txtToemail" placeholder="samarth@gttechpure.com">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success ">Confirm Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section scripts{
     <link href="/assets/plugins/Barrating/bootstrap-stars.css" rel="stylesheet" />
