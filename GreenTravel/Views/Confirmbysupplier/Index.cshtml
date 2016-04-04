@@ -1,20 +1,18 @@
 ﻿@{
-    ViewBag.Title = "Tour FIT";
-    ViewBag.PageTitle = "B2B FIT Custom Itinerary";
+    ViewBag.Title = "Tour Booking";
+    ViewBag.PageTitle = "B2B FIT Tour Confirm By Supplier";
     ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
-    ViewBag.Breadcurmb += "<li>Inquiry Code: <span>TourInq123</span></li>";
-    ViewBag.Breadcurmb += "<li>Inquiry Status: <span>Draft</span></li>";
+    ViewBag.Breadcurmb += "<li>Booking Reference #: <span>Tour123</span></li>";
+    ViewBag.Breadcurmb += "<li>Booking Status : <span>Booked</span></li>";
     ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
     ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
     ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
     ViewBag.Breadcurmb += "<li>User Updated: <span>Iris Joe</span></li>";
     ViewBag.Breadcurmb += "<li>Updated Date: <span>29-02-2016</span></li>";
     ViewBag.Breadcurmb += "</ol>";
-   
 }
 
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-<link href="~/assets/plugins/FlexibleSlideToTopAccordion/css/style.css" rel="stylesheet" />
 <style>
     .tab-itenaries > .col-md-1 > h4,
     .tab-itenaries .col-md-2 > h4,
@@ -225,16 +223,21 @@
         padding-right: 0;
     }
 
-    .tab-itenaries > .table > tbody > tr:first-child > td {
+    .tab-itenaries .table > tbody > tr:first-child > td {
         border-width: 0;
     }
 
-    .tab-itenaries > .table > tbody > tr > td:last-child {
-        text-align: right;
+    .tab-itenaries .table > tbody > tr > td:first-child {
+        width: 5%;
     }
 
-    .tab-itenaries > .table > tbody > tr > td {
-        font-size: 11px;
+    .tab-itenaries .table > tbody > tr > td:last-child {
+        text-align: right;
+       
+    }
+
+    .tab-itenaries .table > tbody > tr > td {
+        font-size: 10px;
         padding: 7px !important;
     }
 
@@ -402,21 +405,163 @@
         border-width: 2px !important;
         padding: 7px 1px !important;
     }
+</style>
 
-
-
-    .ui-state-default table {
-        width: 100%;
+<style>
+       #ulViewList {
+        padding-left: 0 !important;
+    }
+     .field-name {
+        padding-right: 15px;
+    }
+       .field-name {
+        float: left;
+        width: 50%;
+    }
+  .ulviewlistclass
+     {
+        padding-left: 0 !important;
+    }
+    .summery-uitilities-detail {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
     }
 
-    .right-border {
-        border-right: 1px solid #ccc;
-        padding-right: 10px;
+    .summery-nav-btn {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
     }
 
-    .left-padding {
-        padding: 10px 20px;
+        .summery-nav-btn.active {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .summary-body p {
+        margin: 0;
     }
+
+    .summary-list .label {
+        font-size: 100%;
+    }
+
+    .summary-list {
+        margin-bottom: 0;
+    }
+
+        .summary-list > tbody > tr > td {
+            text-align: left !important;
+            width: auto;
+        }
+
+            .summary-list > tbody > tr > td:first-child {
+                width: 45%;
+            }
+
+        .summary-list > tbody > tr:first-child > td {
+            border-top-width: 0;
+        }
+
+
+    .field-list .active {
+        background-color: #4fe7cd;
+        color: #fff !important;
+        font-weight: bolder;
+        /*font-size: 14px;*/
+    }
+
+    .field-list a:hover {
+        text-decoration: none;
+    }
+
+    li.content {
+        list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
+    }
+
+        li.content .libody {
+            transition-timing-function: linear;
+        }
+
+
+    .panel-red .panel-collapse, .panel-blue .panel-collapse, .panel-purple .panel-collapse, .panel-green .panel-collapse {
+        border: 1px solid #F25656;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .panel-blue .panel-collapse {
+        border: 1px solid #12AFCB;
+    }
+
+    .panel-purple .panel-collapse {
+        border: 1px solid #7A6FBE;
+    }
+
+    .panel-green .panel-collapse {
+        border: 1px solid #22BAA0;
+    }
+
+    .panel-group {
+        margin-bottom: 0;
+    }
+
+        .panel-group .panel-red .panel-collapse .panel-body, .panel-blue .panel-collapse .panel-body, .panel-purple .panel-collapse .panel-body {
+            color: #4e5e6a;
+        }
+
+        .panel-group .panel .panel-heading {
+            padding: 10px;
+        }
+
+    .panel .panel-heading .panel-title {
+        color: #fff !important;
+        float: none;
+        font-weight: normal;
+        font-size: 17px;
+        border-bottom-width: 0;
+    }
+
+    .panel-group .panel .panel-body h3, .panel-group .panel .panel-body h4 {
+        margin: 0;
+    }
+
+    .tab-itenaries {
+        border: 1px double #bec8d2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+        .tab-itenaries .table > tbody > tr > td {
+            font-size: 11px;
+            padding: 7px !important;
+        }
+
+    #ulViewList {
+        padding-left: 0 !important;
+    }
+
+    .field-name {
+        padding-right: 15px;
+    }
+
+    .field-name {
+        float: left;
+        width: 50%;
+    }
+
+    .ulviewlistclass {
+        padding-left: 0 !important;
+    }
+
 </style>
 
 <style>
@@ -538,33 +683,12 @@
         padding-bottom: 10px;
     }
 
-        .tab-itenaries .table > tbody > tr > td {
-            font-size: 12px;
-            padding: 7px !important;
-        }
-
-    #ulViewList {
-        padding-left: 0 !important;
-    }
-
-    .field-name {
-        padding-right: 15px;
-    }
-
-    .field-name {
-        float: left;
-        width: 50%;
-    }
-
-    .ulviewlistclass {
-        padding-left: 0 !important;
-    }
-
-    .sortable-list {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
+       
+        .sortable-list {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+        
         .sortable-list li {
             border: none !important;
             border-bottom: solid !important;
@@ -574,76 +698,326 @@
             .sortable-list li:last-child {
                 border-bottom-width: 0 !important;
             }
-
-    .tablespan > tbody > tr > td > span.label, .table > tbody > tr > th > span.label {
+            .left-padding {
+    padding: 10px 20px;
+}
+              .tablespan > tbody > tr > td > span.label, .table > tbody > tr > th > span.label {
         font-size: 70% !important;
     }
-
-    .cbp-spmenu2 h3 .btn {
-        color: #fff;
-        padding: 9px 12px !important;
-    }
-    .borbotm
-    {
-    border:solid !important;
-    border-width:1px !important;
-    }
+              .tab-itenaries2 .table > tbody > tr > td:first-child
+              {
+    width: 52% !important;
+}
 </style>
 
 <div class="col-md-12">
     <div class="panel panel-white">
         <div class="panel-body">
             <div id="rootwizard">
-                <ul class="nav nav-tabs wizard-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab1"><span>1</span> Create Inquiry<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
-                    <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="CreateQuotation"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
-                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Build Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
-                    <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Quotation Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
-                    @*<li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>5</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>*@
+                <ul class="nav nav-tabs wizard-tab" role="tablist">
+                    @*<li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab1"><span>1</span> Create Tour<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>*@
+                    <li role="presentation" class="active"><a href="#tab5" data-toggle="tab" data-section="tab5"><span>1</span> Update Booking<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>2</span> Update Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>3</span> Booking Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
+                    @*<li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>4</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>*@
                 </ul>
                 <div class="tab-content">
-                    @*Create Tour*@
-                    <div class="tab-pane active fade in" id="tab1">
+
+                    @*Create Quotation*@
+                    <div class="tab-pane active fade in" id="tab5">
                         <div class="row m-b-lg">
                             <div class="form-detail">
                                 <div class="panel panel-white">
                                     <div class="panel-body">
-                                        <div role="tabpanel">
+                                        <div role="tabpanel" class="tab-pane" id="tab1-3">
+
+                                            @*<ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                                <li role="presentation" class="active"><a href="#SearchQuotation" role="tab" data-toggle="tab" data-section="SearchQuotation" class="hosting-accord "><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Booking</a></li>
+                                                <li role="presentation"><a href="#CreateQuotation" role="tab" data-toggle="tab" data-section="CreateQuotation" class="basic-accord "><span class="menu-icon fa fa-suitcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;Update Booking</a></li>
+                                            </ul>*@
                                             <div class="tab-content">
-                                                <div class="col-md-8">
-                                                    <form>
-                                                        <h3 class="tab1section1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
+                                                 <div role="tabpanel" class="tab-pane" id="SearchQuotation">
+                                                    <h3>Search Quotation</h3>
+                                                      <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
+                                </div>
+                                &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                        <span class="icon-grid"></span>
+                                    </a>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">Change View</a> </li>
+                                    </ul>
+                                    <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll">
+                                                                <li><a href="#">City</a></li>
+                                                                <li><a href="#">Country</a></li>
+                                                                <li><a href="#">State</a></li>
+                                                                <li class="active"><a href="#">Agent Margin</a></li>
+                                                                <li><a href="#">Support Mode</a></li>
+                                                                <li><a href="#">Agent Type</a></li>
+                                                                <li><a href="#">Control Type</a></li>
+                                                                <li><a href="#">Nationality</a></li>
+                                                                <li><a href="#">Vehicle Name</a></li>
+                                                                <li><a href="#">SMS Configure</a></li>
+                                                                <li><a href="#">Screen</a></li>
+                                                                <li><a href="#">Supplier Type</a></li>
+                                                                <li><a href="#">Date Format</a></li>
+                                                                <li><a href="#">days</a></li>
+                                                                <li><a href="#">Holiday</a></li>
+                                                                <li><a href="#">Bank</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Value</a></li>
+                                                                    <li><a href="#">Margin Type</a></li>
+                                                                    <li><a href="#">Efective Date From</a></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ol class="sortable" id="ddr">
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li id="list_4">
+                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_5">
+                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_9">
+                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+
+                                                                </ol>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                                                    <div class="table-responsive">
+                                                        <table id="restoranttable" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Agent</th>
+                                                                    <th>Booked By</th>
+                                                                    <th>Booked Date</th>
+                                                                   
+                                                                    <th style="width: 15%;">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Agent</th>
+                                                                    <th>Booked By</th>
+                                                                    <th>Booked Date</th>
+                                                                   
+                                                                    <th style="width: 15%;">Action</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Travelz Unlimited</td>
+                                                                    <td>Samir Shah</td>
+                                                                    <td>23-03-2016</td>
+                                                                  
+                                                                    <td>
+                                                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                                        &nbsp;&nbsp;
+                                                                        <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                                     
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div role="tabpanel" class="tab-pane active" id="CreateQuotation">
+                                                  @*  <div class="col-md-8">
+                                                        <h3 class="CreateQuotationsection1"><span class="section-index ">1</span>&nbsp;Agent Details</h3>
                                                         <div class="form-group">
-                                                            <label for="txtAgent">Agent<span class="star"> *</span></label>
-                                                            <input type="text" class="form-control" id="txtAgent" placeholder="Agent">
+                                                            <label for="txtAgent">Agent</label>
+                                                            <input type="text" class="form-control" id="txtAgent" placeholder="Agent" readonly>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <label for="txtInquiredBy">Inquired By<span class="star"> *</span></label>
-                                                                    <input type="text" class="form-control" id="txtInquiredBy" placeholder="Inquired By">
+                                                                    <label for="txtInquiredBy">Booked By</label>
+                                                                    <input type="text" class="form-control" id="txtBookedBy" placeholder="Nirav Shah" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <label for="txtinqdate">Inquired Date<span class="star"> *</span></label>
-                                                                    <input type="text" class="form-control date-picker" id="txtinqdate" value="10-03-2016" placeholder="Quote Sent To">
+                                                                    <label for="txtQuoteToBeSentTo">Booked Date</label>
+                                                                    <input type="text" class="form-control datepicker" id="txtBookeddate" placeholder="15-03-2016" readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <h3 class="section-headers CreateQuotationsection2"><span class="section-index ">2</span>&nbsp;Bookings Details</h3>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Booking Currency</label>
+                                                                    <select id="drpBookingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">THB</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="txtAgent">Quotation Reference #</label>
+                                                                    <input type="text" class="form-control" id="txtQuotationReferenceNumber" placeholder="Quotation Reference #" readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
+
                                                                 <div class="col-md-6">
-                                                                    <label for="txtQuoteToBeSentTo">Quote To Be Sent To</label>
-                                                                    <input type="text" class="form-control" id="txtQuoteToBeSentTo" placeholder="Quote Sent To">
+                                                                    <label for="txtAgent">Booking Status</label>
+                                                                    <select id="drpBookingStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option>--None--</option>
+                                                                        <option value="Booked" selected="selected">Booked</option>
+                                                                        <option value="Confirmed">Confirmed</option>
+                                                                        <option value="ReConfirmed">ReConfirmed</option>
+                                                                        <option value="Travelled">Travelled</option>
+                                                                        <option value="Closed">Closed</option>
+                                                                        <option value="Amended">Amended</option>
+                                                                    </select>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtFinalApprovalRequiredFromAgent">Final Approval Required From Agent Side</label>
-                                                                    <input type="text" class="form-control" id="txtFinalApprovalRequiredFromAgent" placeholder="Final Approval Required From Agent">
+                                                            </div>
+                                                        </div>
+                                                        <h3 class="section-headers CreateQuotationsection3"><span class="section-index ">3</span>&nbsp;Pax / Room Details</h3>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Adult</label>
+                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
+                                                                </div>
+
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Extra Bed Child</label>
+                                                                    <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Child No Bed</label>
+                                                                    <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Infant</label>
+                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
                                                                 </div>
 
                                                             </div>
                                                         </div>
-                                                        <h6>&nbsp;</h6>
-                                                        <h3 class="tab1section2"><span class="section-index ">2</span>&nbsp;Travel Details</h3>
+                                                        <div class="form-group">
+                                                            <div class="row">
+
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsSinglepax"># of Rooms Single</label>
+                                                                    <input type="text" class="form-control" id="txtNumberofRoomsSinglepax" placeholder="Number of Rooms Single">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Double</label>
+                                                                    <input type="text" class="form-control" id="txtNumberofRoomsDouble" placeholder="Number of Rooms Double">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsDouble"># of Rooms Twin</label>
+                                                                    <input type="text" class="form-control" id="txtnumbertwin" placeholder="Number of Rooms Twin">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtNumberofRoomsTwin"># of Rooms Quad</label>
+                                                                    <input type="text" class="form-control" id="txtNumberofRoomsquad" placeholder="Number of Rooms Quad">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <br />
+
+                                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                                            UPDATE</button>
+                                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                                            DELETE</button>
+                                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                                            CREATE NEW</button>
+                                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                                            COPY & CREATE NEW</button>
+                                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                                            QUIT FORM</button>
+                                                    </div>*@
+                                                     <div class="col-md-8">
+                                                    <form>
+                                                     
+                                                        <h3 class="tab1section1"><span class="section-index ">1</span>&nbsp;Travel Details</h3>
+                                                         <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Adult</label>
+                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
+                                                                </div>
+
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Extra Bed Child</label>
+                                                                    <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Child No Bed</label>
+                                                                    <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtAgent"># of Infant</label>
+                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-12">
@@ -850,7 +1224,7 @@
                                                             </ul>
                                                         </div>
                                                         <h6>&nbsp;</h6>
-                                                        <h3 class="tab1section3"><span class="section-index ">3</span>&nbsp;Guest Details</h3>
+                                                        <h3 class="tab1section2"><span class="section-index ">2</span>&nbsp;Guest Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
@@ -891,27 +1265,19 @@
                                                             </div>
                                                         </div>
                                                         <h6>&nbsp;</h6>
-                                                        <h3 class="tab1section4"><span class="section-index ">4</span>&nbsp;Additional Details</h3>
+                                                        <h3 class="tab1section3"><span class="section-index ">3</span>&nbsp;Additional Details</h3>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <label for="drpOrderStatus">Inquiry Status</label>
-                                                                    <select id="drpOrderStatus" class="js-states form-control" style="display: none; width: 100%">
-                                                                        <option value="selstatus">---None---</option>
-                                                                        <option value="draft" selected="selected">Draft</option>
-                                                                        <option value="published">Inquired</option>
-                                                                        <option value="online">Quoted</option>
-                                                                        <option>Trash</option>
-                                                                        <option>Active</option>
-                                                                        <option>In Communication</option>
-                                                                        <option>Re-confirmed</option>
-                                                                        <option>Booked</option>
-
+                                                                    <label for="drpTransferTo">Booking Owner</label>
+                                                                    <select id="drpTransferTo" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">Samarth Shah</option>
+                                                                        <option>Samir Shah</option>
 
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <label for="drpInqLevel">Inquiry Level</label>
+                                                                    <label for="drpInqLevel">Booking Level</label>
                                                                     <select id="drpInqLevel" class="js-states form-control" style="display: none; width: 100%">
                                                                         <option value="selstatus">---None---</option>
                                                                         <option value="draft" selected="selected">1 Star</option>
@@ -933,32 +1299,22 @@
                                                         </div>
                                                         <div class="form-geoup">
                                                             <div class="row">
+                                                               
                                                                 <div class="col-md-6">
-                                                                    <label for="drpTransferTo">Inquiry Owner</label>
-                                                                    <select id="drpTransferTo" class="js-states form-control" style="display: none; width: 100%">
-                                                                        <option selected="selected">Samarth Shah</option>
-                                                                        <option>Samir Shah</option>
-
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="drpTransferTo">Share Inquiry</label>
+                                                                    <label for="drpTransferTo">Share Booking</label>
                                                                     <select id="drpTransferTo" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                                         <option selected="selected">Samarth Shah</option>
                                                                         <option>Samir Shah</option>
 
                                                                     </select>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
+                                                                 <div class="col-md-6">
                                                                     <label for="txtTags">Tags</label>
                                                                     <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Tags">
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                       
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-6">
@@ -992,561 +1348,76 @@
                                                         </a>
                                                     </form>
                                                 </div>
-                                                <div class="col-md-4 summery-detail summery-uitilities-detail ">
-                                                    <div class="panel-body tab-itenaries ">
-                                                        <div class="panel-group">
-                                                            <div class="panel panel-red">
-                                                                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
-                                                                    <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                                                        <i class="icon-reload"></i>
-                                                                    </a>
-                                                                    </h4>
-                                                                </div>
-                                                                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
-                                                                    <div class="panel-body summary-body">
-                                                                        <table class="table summary-list">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>Inquiry Code: </td>
-                                                                                    <td><span class="label label-primary">TourInq123</span></td>
-                                                                                </tr>
-
-                                                                                <tr>
-                                                                                    <td>Created By: </td>
-                                                                                    <td><span class="label label-success">Samir Shah</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Created Date: </td>
-                                                                                    <td><span class="label label-warning">06-Mar-2016</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Created From Branch: </td>
-                                                                                    <td><span class="label label-danger">Bangkok</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Last Updated By: </td>
-                                                                                    <td><span class="label label-info">Samir Shah</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Last Updated Date: </td>
-                                                                                    <td><span class="label label-warning">14-Mar-2016</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Page Load Time: </td>
-                                                                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Record Update Time: </td>
-                                                                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
+                                                     <div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateQuotation">
+                            <div class="panel-body tab-itenaries tab-itenaries2 ">
+                                <div class="panel-group">
+                                    <div class="panel panel-red">
+                                        <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                            <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                <i class="icon-reload"></i>
+                                            </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                            <div class="panel-body summary-body">
+                                                <table class="table summary-list">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Booking Reference #: </td>
+                                                            <td><span class="label label-success">Tour121</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Quotation Reference #: </td>
+                                                            <td><span class="label label-warning">Quote123</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Agent: </td>
+                                                            <td><span class="label label-danger">Travelz Unlimited</span></td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>Total Amount: </td>
+                                                            <td><span class="label label-success">5000 THB</span></td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>Booked By: </td>
+                                                            <td><span class="label label-warning">samarth@techpure.co.uk</span></td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>Booked Date: </td>
+                                                            <td><span class="label label-info">10-03-2016</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Approoved By: </td>
+                                                            <td><span class="label label-warning">samarth@techpure.co.uk</span></td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>Approoved Date: </td>
+                                                            <td><span class="label label-info">10-03-2016</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Booking Confirmation Sent To: </td>
+                                                            <td><span class="label label-danger">samarth@techpure.co.uk</span></td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>Booking Status: </td>
+                                                            <td><span class="label label-success">Booked</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last Updated By: </td>
+                                                            <td><span class="label label-info">Samir Shah</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last Updated Date: </td>
+                                                            <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @*Create Quotation*@
-                    <div class="tab-pane fade in" id="tab5">
-                        <div class="row m-b-lg">
-                            <div class="form-detail">
-                                <div class="panel panel-white">
-                                    <div class="panel-body">
-                                        <div role="tabpanel" class="tab-pane" id="tab1-3">
-
-                                            <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                                @*<li role="presentation" class="active"><a href="#SearchQuotation" role="tab" data-toggle="tab" data-section="SearchQuotation" class="hosting-accord "><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Quotation</a></li>*@
-                                                @*<li role="presentation" class="active"><a href="#CreateQuotation" role="tab" data-toggle="tab" data-section="CreateQuotation" class="basic-accord "><span class="menu-icon fa fa-suitcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Quotation</a></li>*@
-                                            </ul>
-                                            <div class="tab-content">
-                                                <div role="tabpanel" class="tab-pane" id="SearchQuotation">
-                                                    <h3>Search Quotation</h3>
-                                                    <div class="dropdown table-custome-drop">
-                                                        <div class="btn-group">
-                                                            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                                                                <span class="glyphicon glyphicon-download-alt"></span>
-                                                            </a>
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                <li><a href="#">Excel</a></li>
-                                                                <li><a href="#">PDF</a></li>
-                                                                <li><a href="#">Email</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        &nbsp;&nbsp;
-                                <div class="btn-group btn-tables-views">
-                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
-                                        <span class="icon-grid"></span>
-                                    </a>
-                                    <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
-                                    </ul>
-                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <br />
-                                                    <div class="model-left-columns">
-                                                        <div class="field-name">
-                                                            <h3>View <a href="#"></a></h3>
-                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
-                                                                <li><a href="#">City</a></li>
-                                                                <li><a href="#">Country</a></li>
-                                                                <li><a href="#">State</a></li>
-                                                                <li class="active"><a href="#">Agent Margin</a></li>
-                                                                <li><a href="#">Support Mode</a></li>
-                                                                <li><a href="#">Agent Type</a></li>
-                                                                <li><a href="#">Control Type</a></li>
-                                                                <li><a href="#">Nationality</a></li>
-                                                                <li><a href="#">Vehicle Name</a></li>
-                                                                <li><a href="#">SMS Configure</a></li>
-                                                                <li><a href="#">Screen</a></li>
-                                                                <li><a href="#">Supplier Type</a></li>
-                                                                <li><a href="#">Date Format</a></li>
-                                                                <li><a href="#">days</a></li>
-                                                                <li><a href="#">Holiday</a></li>
-                                                                <li><a href="#">Bank</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="field-name">
-                                                            <h3>Field Name <a href="#">Add all</a></h3>
-                                                            <div class="field-list field-list-img slimscroll">
-                                                                <ul>
-                                                                    <li><a href="#">Value</a></li>
-                                                                    <li><a href="#">Margin Type</a></li>
-                                                                    <li><a href="#">Efective Date From</a></li>
-
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="drag-drop-right">
-                                                        <section>
-                                                            <h2>Drag and drop reorder</h2>
-                                                            <div class="cf nestable-lists">
-                                                                <ol class="sortable" id="ddr">
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li id="list_4">
-                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_5">
-                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_9">
-                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-
-                                                                </ol>
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success ">Apply</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                                    </div>
-                                                    <br />
-                                                    <br />
-                                                    <div class="table-responsive">
-                                                        <table id="restoranttable" class="display table datatable" style="width: 100%; cellspacing: 0;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>#</th>
-
-                                                                    <th>Quotation Type</th>
-                                                                    <th>Quotation Reference #</th>
-                                                                    <th>Quotation Status</th>
-                                                                    <th>Quotation Created Date</th>
-                                                                    <th style="width: 15%;">Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tfoot>
-                                                                <tr>
-                                                                    <th>#</th>
-
-                                                                    <th>Quotation Type</th>
-                                                                    <th>Quotation Reference #</th>
-                                                                    <th>Quotation Status</th>
-                                                                    <th>Quotation Created Date</th>
-                                                                    <th style="width: 15%;">Action</th>
-                                                                </tr>
-                                                            </tfoot>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-
-                                                                    <td>FIT</td>
-                                                                    <td>THLND-FLG-SP-0101</td>
-                                                                    <td>Quoted</td>
-                                                                    <td>15-Mar-2016</td>
-                                                                    <td>
-                                                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                                        &nbsp;&nbsp;
-                                                                        <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                                        &nbsp;&nbsp;
-                                                                        <a href="#" rel="tooltip" title="Generate Quotation" class="text-warning"><i class="fa fa-suitcase"></i></a>
-                                                                        &nbsp;&nbsp;
-                                                                        <a href="#" rel="tooltip" title="Copy & Create New"><i class="fa fa-files-o"></i></a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div role="tabpanel" class="tab-pane active" id="CreateQuotation">
-                                                    <div class="col-md-8">
-
-
-                                                        <h3 class="tab2section1"><span class="section-index ">1</span>&nbsp;Quotation Details</h3>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent">Quotation Currency<span class="star"> *</span></label>
-                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
-                                                                        <option>THB</option>
-                                                                        <option selected="selected">USD</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtExchangeRate">Exchange Rate</label>
-                                                                    <input type="text" class="form-control" id="txtExchangeRate" value="1" placeholder="">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Type<span class="star"> *</span></label>
-                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
-                                                                        <option>Per Pax</option>
-                                                                        <option selected="selected">Service Wise</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="row">
-
-                                                                <div class="col-md-6">
-                                                                    <label for="txtAgent">Quotation Status<span class="star"> *</span></label>
-                                                                    <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
-                                                                        <option>--None--</option>
-                                                                        <option value="draft" selected="selected">Draft</option>
-                                                                        <option value="negotiating">Negotiating</option>
-                                                                        <option value="readytoquote">Ready To Quote</option>
-                                                                        <option value="quoted">Quoted</option>
-                                                                        <option value="pendingforaprooval">Pending For Aprooval</option>
-                                                                        <option value="aprooved">Aprooved</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="txtTags">Tags</label>
-                                                                    <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Tags">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <h3 class="section-headers tab2section2"><span class="section-index ">2</span>&nbsp;Pax / Room Details</h3>
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Adult<span class="star"> *</span></label>
-                                                                    <input type="text" class="form-control" id="txtnumberadult" placeholder="# of Adult">
-                                                                </div>
-
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Extra Bed Child<span class="star"> *</span></label>
-                                                                    <input type="text" class="form-control" id="txtcwb" placeholder="# of CWB">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Child No Bed<span class="star"> *</span></label>
-                                                                    <input type="text" class="form-control" id="txtcnb" placeholder="# of CNB">
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="txtAgent"># of Infant<span class="star"> *</span></label>
-                                                                    <input type="text" class="form-control" id="txtinfant" placeholder="# of Infant">
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <table class="display table" style="width: 100%; cellspacing: 0;">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th style="width: 8%">Rooms</th>
-
-                                                                        <th style="width: 20%">Room Type</th>
-                                                                        <th style="width: 9%">Incl. ABF</th>
-                                                                        <th style="width: 10%">Incl. Lunch</th>
-                                                                        <th style="width: 11%">Incl. Dinner</th>
-                                                                        <th style="width: 30%">Room Pax Combination</th>
-
-                                                                        <th style="width: 5%;"></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tfoot>
-                                                                    <tr>
-                                                                        <th colspan="11"></th>
-                                                                    </tr>
-                                                                </tfoot>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Room 1</label>
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                                                <option>Single Room</option>
-                                                                                <option>Double</option>
-                                                                                <option>Twin Room</option>
-                                                                                <option>Quad Room</option>
-                                                                            </select>
-                                                                        </td>
-
-
-
-                                                                        <td>
-                                                                            <input type="checkbox" checked="checked" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="checkbox" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="checkbox" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
-                                                                                <option>1 Adult</option>
-                                                                                <option>1 Adult + 1 CNB + 1 Infant</option>
-                                                                                <option>1 Adult + 1 CNB</option>
-                                                                                <option>1 Adult + 1 Infant</option>
-                                                                                <option>2 Adults</option>
-                                                                                <option>2 Adults + 1 CWB + 1 CNB</option>
-                                                                                <option>2 Adults + 1 CWB + 1 Infant</option>
-                                                                                <option>2 Adults + 1 CNB + 1 Infant</option>
-                                                                                <option>2 Adults + 1 CWB</option>
-                                                                                <option>2 Adults + 1 CNB</option>
-                                                                                <option>2 Adults + 1 Infant</option>
-                                                                                <option>2 Adults + 2 Infant</option>
-                                                                                <option>3 Adults</option>
-                                                                                <option>3 Adults + 1 CNB + 1 Infant</option>
-                                                                                <option>3 Adults + 1 Infant</option>
-                                                                                <option>3 Adults + 1 CNB</option>
-                                                                            </select>
-                                                                        </td>
-
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Room 2</label>
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                                                <option>Single Room</option>
-                                                                                <option selected="selected">Double</option>
-                                                                                <option>Twin Room</option>
-                                                                                <option>Quad Room</option>
-                                                                            </select>
-                                                                        </td>
-
-
-                                                                        <td>
-                                                                            <input type="checkbox" checked="checked" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="checkbox" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="checkbox" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
-                                                                                <option>1 Adult</option>
-                                                                                <option>1 Adult + 1 CNB + 1 Infant</option>
-                                                                                <option>1 Adult + 1 CNB</option>
-                                                                                <option>1 Adult + 1 Infant</option>
-                                                                                <option>2 Adults</option>
-                                                                                <option>2 Adults + 1 CWB + 1 CNB</option>
-                                                                                <option>2 Adults + 1 CWB + 1 Infant</option>
-                                                                                <option selected="selected">2 Adults + 1 CNB + 1 Infant</option>
-                                                                                <option>2 Adults + 1 CWB</option>
-                                                                                <option>2 Adults + 1 CNB</option>
-                                                                                <option>2 Adults + 1 Infant</option>
-                                                                                <option>2 Adults + 2 Infant</option>
-                                                                                <option>3 Adults</option>
-                                                                                <option>3 Adults + 1 CNB + 1 Infant</option>
-                                                                                <option>3 Adults + 1 Infant</option>
-                                                                                <option>3 Adults + 1 CNB</option>
-                                                                            </select>
-                                                                        </td>
-
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Room 3</label>
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <select id="drproomtype" class="js-states form-control" style="display: none; width: 100%">
-                                                                                <option>Single Room</option>
-                                                                                <option selected="selected">Double</option>
-                                                                                <option>Twin Room</option>
-                                                                                <option>Quad Room</option>
-                                                                            </select>
-                                                                        </td>
-
-
-                                                                        <td>
-                                                                            <input type="checkbox" checked="checked" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="checkbox" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="checkbox" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <select id="drproompaxcombination" class="js-states form-control" style="display: none; width: 100%">
-                                                                                <option>1 Adult</option>
-                                                                                <option>1 Adult + 1 CNB + 1 Infant</option>
-                                                                                <option>1 Adult + 1 CNB</option>
-                                                                                <option>1 Adult + 1 Infant</option>
-                                                                                <option>2 Adults</option>
-                                                                                <option>2 Adults + 1 CWB + 1 CNB</option>
-                                                                                <option selected="selected">2 Adults + 1 CWB + 1 Infant</option>
-                                                                                <option>2 Adults + 1 CNB + 1 Infant</option>
-                                                                                <option>2 Adults + 1 CWB</option>
-                                                                                <option>2 Adults + 1 CNB</option>
-                                                                                <option>2 Adults + 1 Infant</option>
-                                                                                <option>2 Adults + 2 Infant</option>
-                                                                                <option>3 Adults</option>
-                                                                                <option>3 Adults + 1 CNB + 1 Infant</option>
-                                                                                <option>3 Adults + 1 Infant</option>
-                                                                                <option>3 Adults + 1 CNB</option>
-                                                                            </select>
-                                                                        </td>
-
-                                                                        <td><a class=" btn btn-success" rel="tooltip" title="Add Room" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
-                                                        <br />
-                                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                                            CREATE QUOTATION</button>
-                                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-                                                            UPDATE QUOTATION</button>
-                                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-                                                            DELETE QUOTATION</button>
-                                                        <button id="btnCancel" type="submit" class="btn btn-success btnCancel">
-                                                            BUILD ITINERARY</button>
-                                                        <button id="btnCancel" type="submit" class="btn btn-info btnCancel">
-                                                            UPDATE ITINERARY</button>
-
-                                                        <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Copy & Create New" onclick="window.location.href=window.location.href;">
-                                                            <span class="fa fa-files-o"></span>
-                                                        </a>
-                                                        <a class="btn btn-warning" aria-expanded="false" rel="tooltip" title="Create New" onclick="window.location.href=window.location.href;">
-                                                            <span class="fa fa-plus"></span>
-                                                        </a>
-
-                                                        <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Quit From" onclick="window.location.href=window.location.href;">
-                                                            <span class="fa fa-times"></span>
-                                                        </a>
-                                                        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-                                                            <span class="fa fa-refresh"></span>
-                                                        </a>
-
-                                                    </div>
-                                                    <div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateQuotation">
-                                                        <div class="panel-body tab-itenaries ">
-                                                            <div class="panel-group">
-                                                                <div class="panel panel-red">
-                                                                    <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
-                                                                        <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
-                                                                        </h4>
-                                                                    </div>
-                                                                    <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
-                                                                        <div class="panel-body summary-body">
-                                                                            <table class="table summary-list">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>Quote Ref #: </td>
-                                                                                        <td><span class="label label-primary">THLND-FLG-01</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Quote Created Date: </td>
-                                                                                        <td><span class="label label-danger">10-03-2016</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Quote Sent To Agent Date: </td>
-                                                                                        <td><span class="label label-info">11-03-2016</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Created By: </td>
-                                                                                        <td><span class="label label-success">Samir Shah</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Created Date: </td>
-                                                                                        <td><span class="label label-warning">06-Mar-2016</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Created From Branch: </td>
-                                                                                        <td><span class="label label-danger">Bangkok</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Last Updated By: </td>
-                                                                                        <td><span class="label label-info">Samir Shah</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Last Updated Date: </td>
-                                                                                        <td><span class="label label-warning">14-Mar-2016</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Page Load Time: </td>
-                                                                                        <td><span class="label label-info">00:01:00 Minutes</span></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Record Update Time: </td>
-                                                                                        <td><span class="label label-danger">00:01:20 Minutes</span></td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2118,12 +1989,12 @@
                                                         <label>Room Category</label>
                                                     </div>
                                                     <div class="form-control">
-                                                        <select id="drpcity" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Select Category</option>
-                                                            <option selected="selected">Standerd</option>
-                                                            <option>Delux</option>
-                                                            <option>Superior</option>
-                                                        </select>
+                                                    <select id="drpcity" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Select Category</option>
+                                                        <option selected="selected">Standard</option>
+                                                        <option>Delux</option>
+                                                        <option>Superior</option>
+                                                    </select>
                                                     </div>
                                                     <div class="form-control">
                                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
@@ -3082,13 +2953,13 @@
                     </div>
                     @*Summary*@
                     <div class="tab-pane fade in" id="tab4">
-                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                       @* <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#quotelist" role="tab" data-toggle="tab" data-section="userGrid" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-book"></span>&nbsp;&nbsp;&nbsp;&nbsp;List Of Quotation</a></li>
                             <li role="presentation"><a href="#quotesummary" role="tab" data-toggle="tab" data-section="userForm" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-user-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Quotation Summary </a></li>
 
-                        </ul>
+                        </ul>*@
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="quotelist">
+                            <div role="tabpanel" class="tab-pane" id="quotelist">
                                 <div class="col-md-12" style="padding-left: 1px !important; padding-right: 1px !important">
                                     <div class="panel-group panel-groupnew" aria-multiselectable="true" role="tablist">
                                         <div class="panel panel-red">
@@ -3157,7 +3028,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="quotesummary">
+                            <div role="tabpanel" class="tab-pane active" id="quotesummary">
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="row">
@@ -3172,8 +3043,9 @@
                                                                 <div class="col-md-12 text-bottom-border">
 
                                                                     <h1><small>Amari Atrium</small> <small class="text-success text-bottom-border">5000 THB</small>
-                                                                        <a style="padding-left: 47%" data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
-                                                                        <a><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a style="padding-left: 40%" href="javascript:void(0);" data-toggle="modal" data-target="#confirmhotel"><span class="fa fa-check-square-o btn-primary" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a onclick="confirmAlert();" href="#"><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                     </h1>
 
                                                                 </div>
@@ -3486,8 +3358,10 @@
                                                         <div class="col-md-8 text-left-border">
                                                             <div class="row">
                                                                 <div class="col-md-12 text-bottom-border">
-                                                                    <h1><small>Amari Ocean</small> <small class="text-success text-bottom-border">6500 THB</small> <a style="padding-left: 47%" data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
-                                                                        <a><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a></h1>
+                                                                    <h1><small>Amari Ocean</small> <small class="text-success text-bottom-border">6500 THB</small>
+                                                                         <a style="padding-left: 40%" href="javascript:void(0);" data-toggle="modal" data-target="#confirmhotel"><span class="fa fa-check-square-o btn-primary" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                         <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a onclick="confirmAlert();" href="#"><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a></h1>
                                                                 </div>
                                                                 <div class="col-md-12 child-span-margin">
                                                                     <table>
@@ -3518,7 +3392,7 @@
                                                             <div class="panel panel-red">
                                                                 <div class="panel-heading" role="tab" id="headingOnesgg">
                                                                     <h4 class="panel-title">
-                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesgg" aria-expanded="true" aria-controls="collapseOne">Hotel Options - Pattaya
+                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesgg" aria-expanded="true" aria-controls="collapseOne">Hotel Options - Bangkok
                                                                         </a>
                                                                     </h4>
                                                                 </div>
@@ -3879,17 +3753,17 @@
                                         <div class="panel panel-white">
                                             <div class="panel-body tab-itenaries summary-tab-itenaries ">
                                                 <div class="form-group">
-                                                    <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Generate Quote</button>
-                                                    <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
-                                                    <a id="showRightSideItinerary" href="javascript:void(0);" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" rel="tooltip" title="View Itinerary"><i class="fa fa-navicon"></i></a>
-
-                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></a>
+                                                    <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Update Booking</button>
+                                                    <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Itinerary"><i class="fa fa-download"></i></button>
+                                                 <a id="showRightSideItinerary" href="javascript:void(0);" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" rel="tooltip" title="View Itinerary"><i class="fa fa-navicon"></i></a>
+                                                   
+                                                     <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Itinerary To Agent"><i class="fa fa-paper-plane"></i></a>
                                                 </div>
                                                 <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
                                                     @*Quotation Referance*@
                                                     <div class="panel panel-red">
                                                         <div class="panel-heading accordian-heading" role="tab" id="">
-                                                            <h4 class="panel-title">Quotation Referance #
+                                                            <h4 class="panel-title">Booking Referance #
                                                             </h4>
                                                         </div>
                                                         <div id="SummaryTab11" class="panel-collapse panel-white summarytab in" role="tabpanel" aria-labelledby="lblSummeryTab1">
@@ -3900,6 +3774,9 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%">Thiland Quotation</span></td>
+                                                                    </tr>
+                                                                     <tr>
+                                                                        <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%" class="label label-primary">Booking Status - Booked</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -3915,7 +3792,7 @@
                                                         </div>
                                                         <div id="SummaryTab1" class="panel-collapse panel-white in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab1">
                                                             <div class="panel-body">
-                                                                <table class="table">
+                                                                  <table class="table">
                                                                     <tr>
                                                                         <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-danger">Flamingo Travels</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Agent"></span></td>
                                                                     </tr>
@@ -3946,7 +3823,6 @@
 
                                                                 </table>
 
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -3954,12 +3830,22 @@
                                                     <div class="panel panel-blue">
                                                         <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab2">
                                                             <h4 class="panel-title">
-                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Quote Summary
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Booking Summary
                                                                 </a>
                                                             </h4>
                                                         </div>
                                                         <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="lblSummeryTab2">
                                                             <table class="table">
+                                                                 <tr>
+                                                                    <td>
+                                                                        <label>Booked By (Travelz Unlimited Side)</label></td>
+                                                                    <td class="right-aligned"><span class="label label-danger">Samarth Shah</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Approved By (Travelz Unlimited Side)</label></td>
+                                                                    <td class="right-aligned"><span class="label label-danger">Samarth Shah</span></td>
+                                                                </tr>
                                                                 <tr>
                                                                     <td>
                                                                         <label>Total Net Rate</label></td>
@@ -3973,7 +3859,7 @@
                                                                 <tr>
                                                                     <td>
                                                                         <label>Total Supplier Discount</label></td>
-                                                                    <td class="right-aligned"><span class="label label-primary">240 THB</span></td>
+                                                                    <td class="right-aligned"><span class="label label-success">240 THB</span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
@@ -4018,49 +3904,45 @@
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
                                                         </div>
                                                     </div>
+                                                   
                                                     <div class="panel">
-                                                        <button id="btnBookNow" type="submit" class="btn btn-danger btnSave btnradius">Apply Discount</button>
+                                                        <a id="btnemail" class="btn btn-info btnSave btnradius" href="javascript:void(0);" data-toggle="modal" data-target="#confirmbooingpop">Re-confirm Booking</a>
 
                                                     </div>
-                                                    <div class="panel">
-                                                        <a id="btnemail" class="btn btn-info btnSave btnradius" href="javascript:void(0);" data-toggle="modal" data-target="#Booknowpopup">Book</a>
-
-                                                    </div>
-
+                                                    <br />
+                                                      <div class="panel ">
+                                    <h2 style="margin-top: 0; text-align: center;">Profit Summary</h2>
+                                    <div class="panel-body tab-itenaries">
+                                        <table class="table" style="margin-bottom: 0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>As Per Quote</td>
+                                                    <td><span class="label label-primary">150 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>As Per Booking</td>
+                                                    <td><span class="label label-primary">450 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Operation Cordn.</td>
+                                                    <td><span class="label label-primary">380 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Exchange Rate </td>
+                                                    <td><span class="label label-primary">420 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>After Receipt</td>
+                                                    <td><span class="label label-primary">14000 THB</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="panel ">
-                                            <h2 style="margin-top: 0; text-align: center;">Profit Summary</h2>
-                                            <div class="panel-body tab-itenaries">
-                                                <table class="table" style="margin-bottom: 0;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>As Per Quote</td>
-                                                            <td><span class="label label-primary">150 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>As Per Booking</td>
-                                                            <td><span class="label label-primary">450 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Operation Cordn.</td>
-                                                            <td><span class="label label-primary">380 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Exchange Rate </td>
-                                                            <td><span class="label label-primary">420 THB</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>After Receipt</td>
-                                                            <td><span class="label label-primary">14000 THB</span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
                                     </div>
-
 
                                 </div>
                             </div>
@@ -4070,17 +3952,125 @@
                     @*View Itinerary*@
                     <div class="tab-pane fade in" id="tab3">
                         <div class="row">
-                            <div class="col-md-10" style="width: 100%;">
+                            <div class="col-md-10" style="width: 80%;">
                                 <div id="calendar"></div>
                             </div>
+                            <div class="col-md-2" style="width: 20%;">
+                               @* <div class="panel">
+                                    <div class="panel-body tab-itenaries button-itenaries">
+                                        <div class="form-control">
+                                            <button id="btnSave" type="submit" class="btn btn-warning btnSave btn-steps"><span class="button-index">1</span> Quote</button>
+                                            <button id="btnSave" type="submit" class="btn btn-warning btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
+                                        </div>
+                                        <div class="form-control">
+                                            <button id="btnSave" type="submit" class="btn btn-primary btnSave btn-steps"><span class="button-index">2</span> Book</button>
+                                            <button id="btnSave" type="submit" class="btn btn-primary btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Invoice"><i class="fa fa-download"></i></button>
+                                        </div>
+                                        <div class="form-control">
+                                            <button id="btnSave" type="submit" class="btn btn-success btnSave btn-steps"><span class="button-index">3</span> Confirm</button>
+                                            <button id="btnSave" type="submit" class="btn btn-success btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Voucher"><i class="fa fa-download"></i></button>
+                                        </div>
+                                        <div class="form-control">
+                                            <button id="btnSave" type="submit" class="btn btn-info btnSave btn-steps"><span class="button-index">4</span> Reconfirm</button>
+                                            <button id="btnSave" type="submit" class="btn btn-info btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Itinrary"><i class="fa fa-download"></i></button>
+                                        </div>
+                                        <div class="form-control">
+                                            <button id="btnSave" type="submit" class="btn btn-danger btnSave btn-steps"><span class="button-index">5</span> Invoice</button>
+                                            <button id="btnSave" type="submit" class="btn btn-danger btn-steps-icons" data-section="tab4section1" rel="tooltip" title="Download Itinrary"><i class="fa fa-download"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="panel-body tab-itenaries button-itenaries">
+                                        <div class="form-control">
+                                            <div class="btn-group btn-full">
+                                                <button class="btn btn-danger btnSave dropdown-toggle btn-auto" type="submit" id="btnSave" style="width: 80%">Amend</button>
+                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-auto" type="button" style="width: auto">
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu">
+                                                    <li><a href="#">Quote</a></li>
+                                                    <li><a href="#">Booking</a></li>
+                                                    <li><a href="#">Confirmation</a></li>
+                                                    <li><a href="#">Reconfirmation</a></li>
+                                                    <li><a href="#">Invoice</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-control">
+                                            <div class="btn-group btn-full">
+                                                <button class="btn btn-danger btnSave dropdown-toggle btn-auto" type="submit" id="btnSave" style="width: 80%">Download</button>
+                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-auto" type="button" style="width: auto">
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu">
+                                                    <li><a href="#">Quote</a></li>
+                                                    <li><a href="#">Booking</a></li>
+                                                    <li><a href="#">Confirmation</a></li>
+                                                    <li><a href="#">Reconfirmation</a></li>
+                                                    <li><a href="#">Invoice</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-control">
+                                            <div class="btn-group btn-full">
+                                                <button class="btn btn-danger btnSave dropdown-toggle btn-auto" type="submit" id="btnSave" style="width: 80%">Email</button>
+                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-auto" type="button" style="width: auto">
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu">
+                                                    <li><a href="#">Quote</a></li>
+                                                    <li><a href="#">Booking</a></li>
+                                                    <li><a href="#">Confirmation</a></li>
+                                                    <li><a href="#">Reconfirmation</a></li>
+                                                    <li><a href="#">Invoice</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                <div class="panel ">
+                                    <h2 style="margin-top: 0; text-align: center;">Profit Summary</h2>
+                                    <div class="panel-body tab-itenaries">
+                                        <table class="table" style="margin-bottom: 0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>As Per Quote</td>
+                                                    <td><span class="label label-primary">150 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>As Per Booking</td>
+                                                    <td><span class="label label-primary">450 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Operation Cordn.</td>
+                                                    <td><span class="label label-primary">380 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Exchange Rate </td>
+                                                    <td><span class="label label-primary">420 THB</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>After Receipt</td>
+                                                    <td><span class="label label-primary">14000 THB</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 
 @*Hotel Popup*@
@@ -5866,70 +5856,59 @@
     </div>
 </div>
 
-
-<div class="modal fade modify-colum-model" id="Booknowpopup" role="dialog">
+@*confirm hotel*@
+<div class="modal fade modify-colum-model" id="confirmhotel" role="dialog">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Book Now
+                <h4>Confirm Booking
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </h4>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table" style="width: 100%; border: solid; border-width: 1px; margin-top: 20px">
-                                <thead>
-                                    <tr>
-                                        <th class="borbotm" style="width: 10%">City</th>
-                                        <th class="borbotm" style="width: 10%">Select Hotel To Book</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="borbotm">Bangkok
-                                        </td>
-                                        <td class="borbotm">
-                                            <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Amari Atrium</option>
-                                                <option>Amari Oceans</option>
-                                                <option>Bangkok Floor</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="borbotm">Pattaya
-                                        </td>
-                                        <td class="borbotm">
-                                            <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Amari Atrium</option>
-                                                <option>Amari Oceans</option>
-                                                <option>Bangkok Floor</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="borbotm">Phuket
-                                        </td>
-                                        <td class="borbotm">
-                                            <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Amari Atrium</option>
-                                                <option>Amari Oceans</option>
-                                                <option>Bangkok Floor</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+              
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Booked By (Agent Side) </label>
+                            <label>Re-confirmation Date </label>
+                            <input type="text" class="form-control date-picker" id="txtToemail" placeholder="11-03-2016">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Booking Reference #</label>
+                            <input type="text" class="form-control" id="txtToemail" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success ">Confirm Hotel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*confirmbooking*@
+<div class="modal fade modify-colum-model" id="confirmbooingpop" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Confirm Booking Now
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </h4>
+            </div>
+            <div class="modal-body">
+              
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Re-confirm By (Agent Side) </label>
                             <input type="text" class="form-control req" id="txtToemail" placeholder="support@gttechpure.com">
                         </div>
                         <div class="col-md-6">
@@ -5941,7 +5920,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Booked By (Travelz Unlimited Side) </label>
+                            <label>re-confirm By (Travelz Unlimited Side) </label>
                             <input type="text" class="form-control req" id="txtToemail" placeholder="support@gttechpure.com">
                         </div>
                         <div class="col-md-6">
@@ -5953,7 +5932,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Booking Cofirmation To Be Sent To</label>
+                            <label>Invoice Voucher Itinerary To Be Sent To</label>
                             <input type="text" class="form-control req" id="txtToemail" placeholder="travelzunlimited@gttechpure.com">
                         </div>
 
@@ -5962,7 +5941,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-success ">Book Now</button>
+                            <button type="button" class="btn btn-success ">Re-Confirm Now</button>
                         </div>
                     </div>
                 </div>
@@ -5971,23 +5950,39 @@
     </div>
 </div>
 
+
 @section scripts{
     <link href="/assets/plugins/Barrating/bootstrap-stars.css" rel="stylesheet" />
     <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
-    <script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.accordion.js"></script>
     <script>
         $(function () {
-            $('#st-accordion').accordion(
-                //{
-                //oneOpenedItem: true
-                //}
-            );
             $('.example-bootstrap').barrating({
                 theme: 'bootstrap-stars',
                 showSelectedRating: false,
                 readonly: true
             });
         });
+        function confirmAlert() {
+           
+            swal({
+                title: "Are You Sure Want To Cancel Booking?",
+                text: "This hotel is confirmed!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, Cancel it!",
+                cancelButtonText: "No, Do Not Cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Cancelled!", "Your booking has been cancelled.", "success");
+                } else {
+                    swal("Booking", "Your booking is safe :)", "error");
+                }
+            });
+            }
         $(document).ready(function () {
             var date = new Date();
             var day = date.getDate();
@@ -6039,29 +6034,6 @@
                 $('.fc-today-button').trigger('click');
                 $('.fc-today-button').hide();
             });
-            $('.removeHandler').on('click', function () {
-                $(this).closest('li.ui-state-default').remove();
-            });
-            Morris.Bar({
-                element: 'morris2',
-                data: [
-                    { year: '11-Mar-2016', a: 25, b: 15 },
-                    { year: '12-Mar-2016', a: 05, b: 12 },
-                    { year: '13-Mar-2016', a: 05, b: 32 },
-                    { year: '14-Mar-2016', a: 19, b: 05 },
-                    { year: '15-Mar-2016', a: 25, b: 40 },
-                    { year: '16-Mar-2016', a: 65, b: 10 },
-                    { year: '17-Mar-2016', a: 65, b: 60 }
-                ],
-                xkey: 'year',
-                ykeys: ['a', 'b'],
-                labels: ['a', 'b'],
-                barRatio: 0.4,
-                xLabelAngle: 35,
-                hideHover: 'auto',
-                barColors: ['#6ad6c3', '#22BAA0'],
-                resize: true
-            });
 
             if ($('ol.sortable').length) {
 
@@ -6102,69 +6074,28 @@
                 $(this).parent().parent().find("li").removeClass("active");
                 $(this).parent().addClass("active");
             });
-            $('.btn-distribute-right').on('click', function () {
-                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
-                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
-                $('.distribute-sidebar').parent().show('slide', 'left', 400);
-                $('.followup-sidebar').parent().hide('slide', 'left', 400);
-                $('.btn-quickreports-right').removeClass('tab-itenaries');
-                $('.btn-utilitiess-right').removeClass('tab-itenaries');
-                $('.btn-followup-right').removeClass('tab-itenaries');
-                $(this).addClass('tab-itenaries');
+            Morris.Bar({
+                element: 'morris2',
+                data: [
+                    { year: '11-Mar-2016', a: 25, b: 15 },
+                    { year: '12-Mar-2016', a: 05, b: 12 },
+                    { year: '13-Mar-2016', a: 05, b: 32 },
+                    { year: '14-Mar-2016', a: 19, b: 05 },
+                    { year: '15-Mar-2016', a: 25, b: 40 },
+                    { year: '16-Mar-2016', a: 65, b: 10 },
+                    { year: '17-Mar-2016', a: 65, b: 60 }
+                ],
+                xkey: 'year',
+                ykeys: ['a', 'b'],
+                labels: ['a', 'b'],
+                barRatio: 0.4,
+                xLabelAngle: 35,
+                hideHover: 'auto',
+                barColors: ['#6ad6c3', '#22BAA0'],
+                resize: true
             });
-            $('.btn-utilitiess-right').on('click', function () {
-                $('.utilities-sidebar').parent().show('slide', 'right', 400);
-                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
-                $('.distribute-sidebar').parent().hide('slide', 'left', 400);
-                $('.followup-sidebar').parent().hide('slide', 'left', 400);
-                $('.btn-quickreports-right').removeClass('tab-itenaries');
-                $('.btn-distribute-right').removeClass('tab-itenaries');
-                $('.btn-followup-right').removeClass('tab-itenaries');
-                $(this).addClass('tab-itenaries');
-            });
-            $('.btn-quickreports-right').on('click', function () {
-                $('.quickreport-sidebar').parent().show('slide', 'left', 400);
-                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
-                $('.distribute-sidebar').parent().hide('slide', 'left', 400);
-                $('.followup-sidebar').parent().hide('slide', 'left', 400);
-                $('.btn-utilitiess-right').removeClass('tab-itenaries');
-                $('.btn-distribute-right').removeClass('tab-itenaries');
-                $('.btn-followup-right').removeClass('tab-itenaries');
-                $(this).addClass('tab-itenaries');
-            });
-            $('.btn-followup-right').on('click', function () {
-                $('.followup-sidebar').parent().show('slide', 'left', 400);
-                $('.quickreport-sidebar').parent().hide('slide', 'left', 400);
-                $('.utilities-sidebar').parent().hide('slide', 'right', 400);
-                $('.distribute-sidebar').parent().hide('slide', 'left', 400);
-                $('.btn-utilitiess-right').removeClass('tab-itenaries');
-                $('.btn-distribute-right').removeClass('tab-itenaries');
-                $('.btn-quickreports-right').removeClass('tab-itenaries');
-                $(this).addClass('tab-itenaries');
-            });
-        });
-        function confirmAlert() {
-            swal({
-                title: "Are you sure?",
-                text: "You are going to book this tour!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes, book it!",
-                cancelButtonText: "No, cancel it!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-            function (isConfirm) {
-                if (isConfirm) {
-                    //window.location.href = "/bookingsfit"
-                    swal("Booked!", "Your package has been bookled.", "success");
 
-                } else {
-                    swal("Cancelled", "Your Booking is cancelled :)", "error");
-                }
-            });
-        }
+        });
     </script>
     <script src="/assets/plugins/fullcalendar/lib/moment.min.js"></script>
     <script src="/assets/plugins/fullcalendar/fullcalendar.min.js"></script>
@@ -6174,36 +6105,22 @@
 
 
 @section floatingsection{
-    <div class="floating-section-buttons CreateQuotation1" style="display: none">
-        <a class="btn btn-default" data-section="CreateQuotationsection1" rel="tooltip" title="Agent Details">1</a>
-        <a class="btn btn-default" data-section="CreateQuotationsection2" rel="tooltip" title="Quotation Overview">2</a>
-        <a class="btn btn-default" data-section="CreateQuotationsection3" rel="tooltip" title="Pax / Room Detail">3</a>
-
+   
+    <div class="floating-section-buttons tab5" style="display: none">
+    
+        <a class="btn btn-default" data-section="tab1section1" rel="tooltip" title="Travel Details">1</a>
+        <a class="btn btn-default" data-section="tab1section2" rel="tooltip" title="Guest Details">2</a>
+        <a class="btn btn-default" data-section="tab1section3" rel="tooltip" title="Additional Details">3</a>
     </div>
-    <div class="floating-section-buttons tab1" style="display: none">
-        <a class="btn btn-default" data-section="tab1section1" rel="tooltip" title="Agent Details">1</a>
-        <a class="btn btn-default" data-section="tab1section2" rel="tooltip" title="Travel Details">2</a>
-        <a class="btn btn-default" data-section="tab1section3" rel="tooltip" title="Guest Details">3</a>
-        <a class="btn btn-default" data-section="tab1section4" rel="tooltip" title="Additional Details">4</a>
-    </div>
-    <div class="floating-section-buttons CreateQuotation" style="display: none">
-        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Quotation Details">1</a>
-        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Pax/Room Details">2</a>
-
-    </div>
-
+   
 }
-
-
 
 @section rightsidesummary{
     <h3>
         <span class="">
             <div class="btn-group">
-                <a class="btn tab-itenaries btn-utilitiess-right">Utilities</a>
-                <a class="btn btn-quickreports-right">Quick Report</a>
-                <a class="btn btn-distribute-right">Distribute</a>
-                <a class="btn btn-followup-right">Follow up</a>
+                <a class="btn tab-itenaries btn-utilities-right">Utilities</a>
+                <a class="btn btn-quickreport-right">Quick Report</a>
             </div>
         </span>
         <a href="javascript:void(0);" class="pull-right btn" id="closeRightSideSummary" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
@@ -6378,91 +6295,11 @@
 
         </div>
         <div class="col-md-12">
-            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding-bottom: 5px;">Master Data Entry Craeted/Modified Report <span class="pull-right"><a href="javascript:void(0);" style="padding: 0;">Flip View</a></span></h4>
+            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding-bottom: 5px;">Bookings Craeted/Modified Report <span class="pull-right"><a href="javascript:void(0);" style="padding: 0;">Flip View</a></span></h4>
             <div class="panel-body">
                 <div id="morris2"></div>
             </div>
         </div>
     </div>
-    <div class="slimscroll distribute-sidebar">
-        <div class="col-md-12">
-            <br />
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Distribute </label>
-                        <input type="text" class="form-control" id="txtRightFrom" />
-                    </div>
-                    <div class="col-md-6">
-                        <label>Distribute  </label>
-                        <input type="text" class="form-control" id="txtRightTo" />
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-        </div>
-
-    </div>
-    <div class="slimscroll followup-sidebar">
-        <div class="col-md-12">
-            <br />
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Followup </label>
-                        <input type="text" class="form-control" id="txtRightFrom" />
-                    </div>
-                    <div class="col-md-6">
-                        <label>Followup  </label>
-                        <input type="text" class="form-control" id="txtRightTo" />
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-        </div>
-
-    </div>
 }
 
-@section rightsideitinerary{
-    <h3>Itineraries
-        <a id="closeRightSideItinerary" class="pull-right btn" href="javascript:void(0);" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
-    </h3>
-    <div class="slimscroll utilities-sidebar">
-        <div class="col-md-12">
-            <div id="st-accordion" class="st-accordion">
-                <ul>
-                    <li>
-                        <a href="javascript:void(0);">Day 1 (Bangkok)<span class="st-arrow"></span></a>
-                        <div class="st-content">
-                            <div class="form-control">
-                                <input type="checkbox" />
-                                <span class="label label-orange">13:30</span>&nbsp;-&nbsp;<span class="fa fa-plane"></span>&nbsp;Arrival On Bangkok Airport - Suwarnabhumi Airport
-                            </div>
-                            <div class="form-control">
-                                <input type="checkbox" />
-                                Rs. 3,600 - Rs. 7,300
-                            </div>
-                            <div class="form-control">
-                                <input type="checkbox" />
-                                Rs. 7,300 - Rs. 11,000
-                            </div>
-                            <div class="form-control">
-                                <input type="checkbox" />
-                                Rs. 11,000 - Rs. 14,000
-                            </div>
-                            <div class="form-control">
-                                <input type="checkbox" />
-                                Rs. 14,000 +
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-}
