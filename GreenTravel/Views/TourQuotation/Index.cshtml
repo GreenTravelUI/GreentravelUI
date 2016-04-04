@@ -14,6 +14,7 @@
 }
 
 <link href="/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/plugins/FlexibleSlideToTopAccordion/css/style.css" rel="stylesheet" />
 <style>
     .tab-itenaries > .col-md-1 > h4,
     .tab-itenaries .col-md-2 > h4,
@@ -3875,7 +3876,7 @@
                                                 <div class="form-group">
                                                     <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Generate Quote</button>
                                                     <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
-                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="View Itinerary"><i class="fa fa-navicon"></i></a>
+                                                    <a id="showRightSideItinerary" href="javascript:void(0);" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" rel="tooltip" title="View Itinerary"><i class="fa fa-navicon"></i></a>
 
                                                     <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></a>
                                                 </div>
@@ -5914,9 +5915,14 @@
 @section scripts{
     <link href="/assets/plugins/Barrating/bootstrap-stars.css" rel="stylesheet" />
     <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
+    <script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.accordion.js"></script>
     <script>
         $(function () {
-
+            $('#st-accordion').accordion(
+                //{
+                //oneOpenedItem: true
+                //}
+            );
             $('.example-bootstrap').barrating({
                 theme: 'bootstrap-stars',
                 showSelectedRating: false,
@@ -6360,5 +6366,44 @@
 
         </div>
 
+    </div>
+}
+
+@section rightsideitinerary{
+    <h3>Itineraries
+        <a id="closeRightSideItinerary" class="pull-right btn" href="javascript:void(0);" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
+    </h3>
+    <div class="slimscroll utilities-sidebar">
+        <div class="col-md-12">
+            <div id="st-accordion" class="st-accordion">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">Day 1 (Bangkok)<span class="st-arrow"></span></a>
+                        <div class="st-content">
+                            <div class="form-control">
+                                <input type="checkbox" />
+                                <span class="label label-orange">13:30</span>&nbsp;-&nbsp;<span class="fa fa-plane"></span>&nbsp;Arrival On Bangkok Airport - Suwarnabhumi Airport
+                            </div>
+                            <div class="form-control">
+                                <input type="checkbox" />
+                                Rs. 3,600 - Rs. 7,300
+                            </div>
+                            <div class="form-control">
+                                <input type="checkbox" />
+                                Rs. 7,300 - Rs. 11,000
+                            </div>
+                            <div class="form-control">
+                                <input type="checkbox" />
+                                Rs. 11,000 - Rs. 14,000
+                            </div>
+                            <div class="form-control">
+                                <input type="checkbox" />
+                                Rs. 14,000 +
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 }
