@@ -344,14 +344,14 @@
 
     .summary-tab-itenaries .form-group .btn-steps {
         text-align: left;
-        width: 67%;
+        width: 54%;
         padding-left: 12px;
         padding-right: 12px;
         font-size: 14px;
     }
 
     .summary-tab-itenaries .form-group .btn-steps-icons {
-        width: auto;
+        width: 14%;
         font-size: 14px;
         padding-left: 12px;
         padding-right: 12px;
@@ -593,7 +593,7 @@
                     <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="CreateQuotation"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Build Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Quotation Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
-                    <li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>5</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
+                    @*<li role="presentation"><a href="#tab3" data-toggle="tab" data-section="tab3"><span>5</span> View Itinerary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>*@
                 </ul>
                 <div class="tab-content">
                     @*Create Tour*@
@@ -1559,8 +1559,16 @@
                                 <div class="col-sm-6" style="width: 53.5%;">
                                     <input type="text" class="form-control" style="padding: 12px 10px ! important;" placeholder="Search & Add Suppliers - Type Country, City, Hotel, Sightseeing, Transfer, Guide, Restaurant">
                                 </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control date-picker" placeholder="01-03-2016">
+                                <div class="col-md-1">
+                                    Select City
+                                </div>
+                                <div class="col-sm-2">
+                                    <select id="drpcity" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>Select City</option>
+                                        <option selected="selected">Pattaya</option>
+                                        <option>Bangkok</option>
+                                        <option>Phuket</option>
+                                    </select>
                                 </div>
                             </div>
                         </form>
@@ -2099,6 +2107,17 @@
                                                 <div class="col-md-3">
                                                     <div class="form-control">
                                                         <span class="text-success">FREE Cancellation</span>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label>Room Category</label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                    <select id="drpcity" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Select Category</option>
+                                                        <option selected="selected">Standerd</option>
+                                                        <option>Delux</option>
+                                                        <option>Superior</option>
+                                                    </select>
                                                     </div>
                                                     <div class="form-control">
                                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myHotelModal">
@@ -3147,7 +3166,7 @@
                                                                 <div class="col-md-12 text-bottom-border">
 
                                                                     <h1><small>Amari Atrium</small> <small class="text-success text-bottom-border">5000 THB</small>
-                                                                        <a style="padding-left: 47%"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a style="padding-left: 47%" data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                         <a><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                     </h1>
 
@@ -3182,7 +3201,7 @@
                                                             <div class="panel panel-red">
                                                                 <div class="panel-heading" role="tab" id="headingOnesg">
                                                                     <h4 class="panel-title">
-                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesg" aria-expanded="true" aria-controls="collapseOne">Hotel Options
+                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesg" aria-expanded="true" aria-controls="collapseOne">Hotel Options - Pattaya
                                                                         </a>
                                                                     </h4>
                                                                 </div>
@@ -3218,7 +3237,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3241,7 +3260,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3264,7 +3283,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">5000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3461,7 +3480,7 @@
                                                         <div class="col-md-8 text-left-border">
                                                             <div class="row">
                                                                 <div class="col-md-12 text-bottom-border">
-                                                                    <h1><small>Amari Ocean</small> <small class="text-success text-bottom-border">6500 THB</small> <a style="padding-left: 47%"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                    <h1><small>Amari Ocean</small> <small class="text-success text-bottom-border">6500 THB</small> <a style="padding-left: 47%" data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                         <a><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a></h1>
                                                                 </div>
                                                                 <div class="col-md-12 child-span-margin">
@@ -3493,7 +3512,7 @@
                                                             <div class="panel panel-red">
                                                                 <div class="panel-heading" role="tab" id="headingOnesgg">
                                                                     <h4 class="panel-title">
-                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesgg" aria-expanded="true" aria-controls="collapseOne">Hotel Options
+                                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnesgg" aria-expanded="true" aria-controls="collapseOne">Hotel Options - Pattaya
                                                                         </a>
                                                                     </h4>
                                                                 </div>
@@ -3529,7 +3548,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3552,7 +3571,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">6000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3575,7 +3594,7 @@
                                                                                     </td>
                                                                                     <td style="text-align: right"><span class="label label-alternate-bg">5000 THB</span></td>
                                                                                     <td>
-                                                                                        <a data-target="#myTransportationModalPVT" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
+                                                                                        <a data-target="#myHotelModal" data-toggle="modal"><span class="fa fa-pencil btn-success"></span></a>
                                                                                         <a><span class="fa fa-close btn-danger"></span></a>
                                                                                     </td>
                                                                                 </tr>
@@ -3856,6 +3875,8 @@
                                                 <div class="form-group">
                                                     <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Generate Quote</button>
                                                     <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
+                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="View Itinerary"><i class="fa fa-navicon"></i></a>
+
                                                     <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></a>
                                                 </div>
                                                 <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
@@ -3890,45 +3911,33 @@
                                                             <div class="panel-body">
                                                                 <table class="table">
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Agent</label></td>
-                                                                        <td class="right-aligned"><span class="label label-danger">Flamingo Travels</span></td>
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-danger">Flamingo Travels</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Agent"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Client Name</label></td>
-                                                                        <td class="right-aligned"><span class="label label-success">Samarth Shah</span></td>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-success">Samarth Shah</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Guest Name"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Client Nationality</label></td>
-                                                                        <td class="right-aligned"><span class="label label-primary">Asia</span></td>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-primary">Asia</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Guest Nationality"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Cities</label></td>
-                                                                        <td class="right-aligned"><span class="label label-info">Pattaya, Bangkok</span></td>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-info">Pattaya, Bangkok</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Cities To Travels"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Travel From Date</label></td>
-                                                                        <td class="right-aligned"><span class="label label-danger">11-03-2016</span></td>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-danger">11-03-2016</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Travel From Date"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Travel To Date</label></td>
-                                                                        <td class="right-aligned"><span class="label label-success">16-03-2016</span></td>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-success">16-03-2016</span>&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="Travel To Date"></span></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>
-                                                                            <label>Nights</label></td>
-                                                                        <td class="right-aligned"><span class="label label-primary">5</span></td>
+
+                                                                        <td style="width: 100%"><span style="width: 93%; font-size: 14px" class="label label-primary">5N / 6D</span></td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Days</label></td>
-                                                                        <td class="right-aligned"><span class="label label-info">6</span></td>
-                                                                    </tr>
+
                                                                 </table>
 
 
@@ -3954,6 +3963,11 @@
                                                                     <td>
                                                                         <label>Total Margin</label></td>
                                                                     <td class="right-aligned"><span class="label label-orange">890 THB</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>Total Supplier Discount</label></td>
+                                                                    <td class="right-aligned"><span class="label label-primary">240 THB</span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
@@ -3983,7 +3997,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <label>Final Sell Rate</label></td>
+                                                                        <label>Total Quotation Amount</label></td>
                                                                     <td class="right-aligned"><span class="label label-danger">8406 THB</span></td>
                                                                 </tr>
                                                             </table>
@@ -4006,39 +4020,39 @@
                                                         <a id="btnemail" class="btn btn-info btnSave btnradius" href="javascript:void(0);" data-toggle="modal" data-target="#Booknowpopup">Book</a>
 
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
-                                          <div class="panel ">
-                                    <h2 style="margin-top: 0; text-align: center;">Profit Summary</h2>
-                                    <div class="panel-body tab-itenaries">
-                                        <table class="table" style="margin-bottom: 0;">
-                                            <tbody>
-                                                <tr>
-                                                    <td>As Per Quote</td>
-                                                    <td><span class="label label-primary">150 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>As Per Booking</td>
-                                                    <td><span class="label label-primary">450 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Operation Cordn.</td>
-                                                    <td><span class="label label-primary">380 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Exchange Rate </td>
-                                                    <td><span class="label label-primary">420 THB</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>After Receipt</td>
-                                                    <td><span class="label label-primary">14000 THB</span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                        <div class="panel ">
+                                            <h2 style="margin-top: 0; text-align: center;">Profit Summary</h2>
+                                            <div class="panel-body tab-itenaries">
+                                                <table class="table" style="margin-bottom: 0;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>As Per Quote</td>
+                                                            <td><span class="label label-primary">150 THB</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>As Per Booking</td>
+                                                            <td><span class="label label-primary">450 THB</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Operation Cordn.</td>
+                                                            <td><span class="label label-primary">380 THB</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Exchange Rate </td>
+                                                            <td><span class="label label-primary">420 THB</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>After Receipt</td>
+                                                            <td><span class="label label-primary">14000 THB</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
 
 
@@ -4366,85 +4380,92 @@
                             </div>
                             @*Tab 2*@
                             <div role="tabpanel" class="tab-pane" id="tabRoomRate">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3 class="text-danger"><span>Double Room Cost</span></h3>
-                                        <h4 class="text-danger">Deluxe  |  2 Adults + 1 CNB + 1 Infant  |  Incl. ABF  |  Incl. Lunch</h4>
+                                <div style="border: solid 1px darkseagreen; padding: 5px">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="text-danger"><span>Double Room Cost</span></h3>
+                                            <h4 class="text-danger">Deluxe  |  2 Adults + 1 CNB + 1 Infant  |  Incl. ABF  |  Incl. Lunch</h4>
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Net Rate (Per Room Per Night)</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtNetRate" value="2500" placeholder="Room Cost">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Extra Bed Adult Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtExtraAdultRate" value="" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Extra Bed Child Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtCWBRate" value="" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Child No Bed Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtCNBRate" value="1000" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Infant Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtInfantRate" value="500" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Room Cost Per Night</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtRoomcostPerNight" value="4000" placeholder="" readonly>
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-10"></div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-success" style="float: right">Apply Rate</button>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="strong" style="font-size: 19px">(Room Cost Per Night &nbsp;*&nbsp; Number of Nights)&nbsp;=&nbsp;Room 1 Cost</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-danger strong" style="text-align: right; font-size: 25px">(4000*5)=20000 THB</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br />
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Net Rate (Per Room Per Night)</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtNetRate" value="2500" placeholder="Room Cost">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Extra Bed Adult Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtExtraAdultRate" value="" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Extra Bed Child Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtCWBRate" value="" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Child No Bed Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtCNBRate" value="1000" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Infant Rate</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtInfantRate" value="500" placeholder="">
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Room Cost Per Night</label>
-                                        <div class="input-group input-append">
-                                            <input type="text" class="form-control" id="txtRoomcostPerNight" value="4000" placeholder="" readonly>
-                                            <span class="input-group-addon add-on"><span>THB</span></span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th class="strong" style="font-size: 19px">(Room Cost Per Night &nbsp;*&nbsp; Number of Nights)&nbsp;=&nbsp;Room 1 Cost</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-danger strong" style="text-align: right; font-size: 25px">(4000*5)=20000 THB</td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <br />
-
                             </div>
-
+                            <br />
+                            <br />
                             <div class="row">
                                 <div class="col-md-12">
                                     <table>
@@ -5798,12 +5819,12 @@
             <div class="modal-body">
                 <div class="form-group">
                     <div class="row">
-                 <div class="col-md-12">
-                            <table class="table" style="width:100%;border:solid;border-width:1px;margin-top:20px">
+                        <div class="col-md-12">
+                            <table class="table" style="width: 100%; border: solid; border-width: 1px; margin-top: 20px">
                                 <thead>
                                     <tr>
-                                        <th style="width:10%">City</th>
-                                        <th style="width:10%">Select Hotel To Book</th>
+                                        <th style="width: 10%">City</th>
+                                        <th style="width: 10%">Select Hotel To Book</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -5852,7 +5873,7 @@
                             <input type="text" class="form-control req" id="txtToemail" placeholder="support@gttechpure.com">
                         </div>
                         <div class="col-md-6">
-                            <label>Approoved By (Agent Side)</label>
+                            <label>Approved By (Agent Side)</label>
                             <input type="text" class="form-control req" id="txtToemail" placeholder="samarth@gttechpure.com">
                         </div>
                     </div>
@@ -5864,7 +5885,7 @@
                             <input type="text" class="form-control req" id="txtToemail" placeholder="support@gttechpure.com">
                         </div>
                         <div class="col-md-6">
-                            <label>Approoved By (Travelz Unlimited)</label>
+                            <label>Approved By (Travelz Unlimited Side)</label>
                             <input type="text" class="form-control req" id="txtToemail" placeholder="samarth@gttechpure.com">
                         </div>
                     </div>
@@ -5875,7 +5896,7 @@
                             <label>Booking Cofirmation To Be Sent To</label>
                             <input type="text" class="form-control req" id="txtToemail" placeholder="travelzunlimited@gttechpure.com">
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -5895,7 +5916,7 @@
     <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
     <script>
         $(function () {
-            
+
             $('.example-bootstrap').barrating({
                 theme: 'bootstrap-stars',
                 showSelectedRating: false,
