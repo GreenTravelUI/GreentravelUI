@@ -3,6 +3,7 @@
     ViewBag.PageTitle = "B2B FIT Tour Booked";
     ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
     ViewBag.Breadcurmb += "<li>Booking Reference #: <span>Tour123</span></li>";
+    ViewBag.Breadcurmb += "<li>Booking Status : <span>Booked</span></li>";
     ViewBag.Breadcurmb += "<li>Operating Branch: <span>Pattaya</span></li>";
     ViewBag.Breadcurmb += "<li>User Created: <span>John Barter</span></li>";
     ViewBag.Breadcurmb += "<li>Created Date: <span>19-02-2016</span></li>";
@@ -3028,7 +3029,7 @@
                                                                     <h1><small>Amari Atrium</small> <small class="text-success text-bottom-border">5000 THB</small>
                                                                         <a style="padding-left: 40%" href="javascript:void(0);" data-toggle="modal" data-target="#confirmhotel"><span class="fa fa-check-square-o btn-primary" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                         <a><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
-                                                                        <a><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a>
+                                                                        <a onclick="confirmAlert();" href="#"><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                     </h1>
 
                                                                 </div>
@@ -3344,7 +3345,7 @@
                                                                     <h1><small>Amari Ocean</small> <small class="text-success text-bottom-border">6500 THB</small>
                                                                          <a style="padding-left: 40%" href="javascript:void(0);" data-toggle="modal" data-target="#confirmhotel"><span class="fa fa-check-square-o btn-primary" style="border-radius: 50%; padding: 8px 9px"></span></a>
                                                                          <a><span class="fa fa-pencil btn-success" style="border-radius: 50%; padding: 8px 9px"></span></a>
-                                                                        <a><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a></h1>
+                                                                        <a onclick="confirmAlert();" href="#"><span class="fa fa-close btn-danger" style="border-radius: 50%; padding: 8px 9px"></span></a></h1>
                                                                 </div>
                                                                 <div class="col-md-12 child-span-margin">
                                                                     <table>
@@ -3736,15 +3737,15 @@
                                         <div class="panel panel-white">
                                             <div class="panel-body tab-itenaries summary-tab-itenaries ">
                                                 <div class="form-group">
-                                                    <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Generate Quote</button>
-                                                    <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Quote"><i class="fa fa-download"></i></button>
-                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Quote To Agent"><i class="fa fa-paper-plane"></i></a>
+                                                    <button id="btnSave" type="submit" class="btn btn-orange btnSave btn-steps">Update Booking</button>
+                                                    <button id="btnSave" type="submit" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Download Itinerary"><i class="fa fa-download"></i></button>
+                                                    <a id="btnSave" href="javascript:void(0);" data-toggle="modal" data-target="#Quotesenttomodal" class="btn btn-orange btn-steps-icons" style="padding-left: 10px !important" data-section="tab4section1" rel="tooltip" title="Send Itinerary To Agent"><i class="fa fa-paper-plane"></i></a>
                                                 </div>
                                                 <div class="panel-group" id="SummaryAccordion" aria-multiselectable="true" role="tablist">
                                                     @*Quotation Referance*@
                                                     <div class="panel panel-red">
                                                         <div class="panel-heading accordian-heading" role="tab" id="">
-                                                            <h4 class="panel-title">Quotation Referance #
+                                                            <h4 class="panel-title">Booking Referance #
                                                             </h4>
                                                         </div>
                                                         <div id="SummaryTab11" class="panel-collapse panel-white summarytab in" role="tabpanel" aria-labelledby="lblSummeryTab1">
@@ -3755,6 +3756,9 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%">Thiland Quotation</span></td>
+                                                                    </tr>
+                                                                     <tr>
+                                                                        <td style="color: red; font-size: 16px; text-align: center"><span style="width: 100%">Booking Status - Booked</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -3821,7 +3825,7 @@
                                                     <div class="panel panel-blue">
                                                         <div class="panel-heading accordian-heading" role="tab" id="lblSummeryTab2">
                                                             <h4 class="panel-title">
-                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Quote Summary
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SummaryTab2" aria-expanded="true" aria-controls="collapseTwo">Booking Summary
                                                                 </a>
                                                             </h4>
                                                         </div>
@@ -3874,6 +3878,7 @@
                                                     <br />
                                                     <br />
                                                     <div class="form-group">
+                                                        <lable>Final Discount</lable>
                                                         <div class="input-group input-append">
                                                             <input type="text" class="form-control newtextbox" id="txtdiscountapply" value="400" placeholder="">
                                                             <span class="input-group-addon add-on"><span>THB</span></span>
@@ -5789,6 +5794,27 @@
                 readonly: true
             });
         });
+        function confirmAlert() {
+           
+            swal({
+                title: "Are You Sure Want To Cancel Booking?",
+                text: "This Hotel Is Confirmed!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, Cancel it!",
+                cancelButtonText: "No, Do Not Cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Cancelled!", "Your Booking has been Cancelled.", "success");
+                } else {
+                    swal("Booking", "Your Booking is safe :)", "error");
+                }
+            });
+            }
         $(document).ready(function () {
             var date = new Date();
             var day = date.getDate();
