@@ -1,0 +1,240 @@
+﻿<div class="col-md-8 full-responsive">
+    <form>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Select Master
+                    <span class="responsiveButtons">
+                        <a id="showRightSideSummaryInner" onclick="$('#showRightSideSummary').trigger('mouseover')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger responsiveUtilityButton" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                            <i class="fa fa-tasks"></i>
+                        </a>
+                        <a id="startGuiededTourInner" onclick="$('#startGuiededTour').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger responsiveGuidedTourButton" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        <a id="startTimelineInner" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; padding: 10px; margin-right: 10px;" class="text-danger responsiveViewTrailButton" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
+                            <i class="fa fa-sitemap"></i>
+                        </a>
+                    </span>
+                </h3>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label data-toggle="tooltip" data-placement="right" title="Industry">Industry</label>
+                    <select id="drpIndustry" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                        <option value="0">--Select Industry--</option>
+                        <option value="1">Travels </option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label data-toggle="tooltip" data-placement="right" title="Corporate">Corporate</label>
+                    <select id="drpCorporate" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                        <option value="0">--Select Corporate--</option>
+                        <option value="1">Eagle Travels </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label data-toggle="tooltip" data-placement="right" title="Entry Level">Entry Level</label>
+                    <select id="drpEntrylevel" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                        <option value="0">--None--</option>
+                        <option value="1">Super Admin </option>
+                        <option value="1">Corporate Admin </option>
+                        <option value="1">Common Shared </option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label data-toggle="tooltip" data-placement="right" title="Master">Master</label>
+                    <select id="drpMaster" class="js-states form-control Dropdown" tabindex="-1" style="display: none; width: 100%">
+                        <option value="0">--None--</option>
+                        <option value="1">City </option>
+                        <option value="2">State</option>
+                        <option value="3">Currency</option>
+                        <option value="7">Industry</option>
+                        <option value="4">Branch</option>
+                        <option value="5">Unit</option>
+                        <option value="6">Web Theme</option>
+                        <option value="7" selected="selected">Agent Margin</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="div_city">
+            <h3 class="tab2section1">&nbsp;Master Data Entry For - <span class="text-danger">Agent Margin</span></h3>
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">Name<span>*</span></label>
+                        <input type="text" class="form-control" id="txtName" placeholder="Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">Status</label>
+                        <select id="drpStatusAgent" class="js-states form-control" style="display: none; width: 100%">
+                            <option selected="selected">Active</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">Agent Type<span>*&nbsp;</span><span class="fa fa-question-circle text-info" rel="tooltip" title="Agent Type"></span></label>
+                        <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
+                            <option selected="selected">A</option>
+                            <option>A+</option>
+                            <option>A++</option>
+                            <option>B</option>
+                            <option>B+</option>
+                            <option>B++</option>
+                            <option>C</option>
+                            <option>C+</option>
+                            <option>C++</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+
+                        <label for="txtEffectiveDate">Effective From Date</label>
+                        <input type="text" class="form-control date-picker" id="txtEffectiveFromDate" value="07/07/2005" placeholder="Effective From Date">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">FIT/Group&nbsp;<span class="fa fa-question-circle text-info" rel="tooltip" title="FIT/Group"></span></label>
+                        <select id="drpTypeOfAgentFG" class="js-states form-control" style="display: none; width: 100%">
+                            <option selected="selected">FIT</option>
+                            <option>Group</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">Margin For</label>
+                        <select id="drpMarginFor" class="js-states form-control" style="display: none; width: 100%">
+                            <option selected="selected">Accommodation</option>
+                            <option>Hotel-Function Room</option>
+                            <option>Hotel-Gala Dinner</option>
+                            <option>Coach</option>
+                            <option>Guide</option>
+                            <option>Driver</option>
+                            <option>Meal</option>
+                            <option>Transport</option>
+                            <option>Sightseeing</option>
+                            <option>Agent</option>
+                            <option>Other</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">Margin Type</label>
+                        <select id="drpMarginType" class="js-states form-control" style="display: none; width: 100%">
+                            <option selected="selected">Amount</option>
+                            <option>Percentage</option>
+                            <option>Amount / Room / Night</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="drpTypeOfAgent">Value</label>
+                        <input type="text" class="form-control" id="txtValue" placeholder="Value">
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <button id="btnSaveCreateHotel" type="submit" class="btn btn-success btnSave">
+            SAVE</button>
+        <button id="btnUpdateCreateHotel" type="submit" class="btn btn-primary btnSave">
+            UPDATE</button>
+        <button id="btnCancelCreateHotel" type="submit" class="btn btn-green btnCancel">
+            DELETE</button>
+        <button id="btnCREATENEWCreateHotel" type="button" class="btn btn-warning btnSave">
+            CREATE NEW</button>
+        <button id="btnQuitCreateHotel" type="button" class="btn btn-info btnSave">
+            QUIT FORM</button>
+        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+            <span class="fa fa-refresh"></span>
+        </a>
+    </form>
+
+</div>
+<div class="col-md-4 summery-detail summery-uitilities-detail summerytab3">
+    <div class="panel-body tab-itenaries ">
+        <div class="panel-group">
+            <div class="panel panel-red">
+                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                    <h4 class="panel-title">Correction Required 
+                                                <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
+                                                    <i class="fa fa-tasks"></i>
+                                                </a>
+                        <a id="startGuiededTour" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
+                            <i class="icon-info"></i>
+                        </a>
+                        <a id="startTimeline" onclick="$('#showRightSideTimeline').trigger('click')" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="View Trail">
+                            <i class="fa fa-sitemap"></i>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                    <div class="panel-body summary-body">
+                        <table class="table summary-list">
+                            <tbody>
+                                @*<tr>
+                                                            <td>Created By: </td>
+                                                            <td><span class="label label-success">Sameer Shah</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Created Date: </td>
+                                                            <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Created From Branch: </td>
+                                                            <td><span class="label label-danger">Bangkok</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last Updated By: </td>
+                                                            <td><span class="label label-info">Sameer Shah</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last Updated Date: </td>
+                                                            <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                        </tr>
+                                                        <tr class="txtName">
+                                                            <td>Name</td>
+                                                            <td><span class="label label-danger"><i class="fa fa-times"></i></span></td>
+                                                        </tr>
+                                                        <tr class="txtName">
+                                                            <td>Agent Type</td>
+                                                            <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
+                                                        </tr>*@
+                                <tr class="txtName">
+                                    <td><span class="label label-danger"><i class="fa fa-times"></i></span>&nbsp;&nbsp;Name</td>
+                                    <td>This field is required</td>
+                                </tr>
+                                <tr class="txtName">
+                                    <td><span class="label label-danger"><i class="fa fa-times"></i></span>&nbsp;&nbsp;Agent Type</td>
+                                    <td>Select Agent Type</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
