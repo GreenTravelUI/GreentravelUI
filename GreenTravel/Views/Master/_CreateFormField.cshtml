@@ -1,0 +1,179 @@
+﻿<div class="col-md-8">
+    <form>
+        <h3><span class="tab-section-name">Form Fields</span></h3>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Control Sequence Number <span>*</span></label>
+                    <input type="text" class="form-control req" id="txtControlSequenceNumber" placeholder="1" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label>Control Type <span>*</span></label>
+                    <select id="drpControlType" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                        <option value="0">--None--</option>
+                        <option value="1">TextBox</option>
+                        <option value="2" selected="selected">DropDown</option>
+                        <option value="3">Multiselect</option>
+                        <option value="4">Rating</option>
+                        <option value="5">Date</option>
+                        <option value="6">Time</option>
+                        <option value="7">TextArea</option>
+                        <option value="8">HTML Editor</option>
+                        <option value="8">Upload</option>
+                    </select>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Value</label>
+                    <select id="drpValue" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                        <option value="0">--None--</option>
+                        <option value="1">Value 1 </option>
+
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label>Control Label <span>*</span></label>
+                    <input type="text" class="form-control req" id="txtControlLable" placeholder="Place Name">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Control Place Holder</label>
+                    <input type="text" class="form-control req" id="txtControlPlaceholder" placeholder="Enter City">
+                </div>
+                <div class="col-md-6">
+                    <label>Control Help Text </label>
+                    <input type="text" class="form-control req" id="txtcontrolHelpText" placeholder="Help">
+                </div>
+            </div>
+        </div>
+
+        <h6>&nbsp;</h6>
+        <h3><span class="tab-section-name">Form Control Validation</span></h3>
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-md-3 form-marings">
+                    <div class="row">
+                        <label for="chkreq" class="labelforcheckbox">&nbsp;</label>
+                        <div class="col-md-12 form-marings">
+                            <input type="checkbox" checked="checked" id="chkRequired">Required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 form-marings">
+                    <div class="row">
+                        <label for="chkcharlim" class="labelforcheckbox">&nbsp;</label>
+                        <div class="col-md-12 form-marings">
+                            <input type="checkbox" checked="checked" id="chkcharlimit">Character Limit
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Max Character </label>
+                    <input type="text" class="form-control req" id="txtMaxValue" placeholder="5">
+                </div>
+                <div class="col-md-3">
+                    <label>Min Character</label>
+                    <input type="text" class="form-control req" id="txtMinvalue" placeholder="2">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-md-6 form-marings">
+                    <label>Other Validation</label>
+                    <select id="drpFormValidation" class="js-states form-control drpdown req" style="display: none; width: 100%">
+                        <option value="0">--None--</option>
+                        <option value="email">Email</option>
+                        <option value="Numeric">Numeric</option>
+                        <option value="Alphabetic">Alphabetic</option>
+                        <option value="Alphanumeric">Alphanumeric</option>
+                        <option value="DecimalAmount">Numeric(Decimal Amount)</option>
+                        <option value="url">URL</option>
+                        <option value="NegNumberAllowed">Numeric(Neg. Number Allowed)</option>
+                        <option value="Negdecimalnumber">Numeric(Neg. Decimal Amount)</option>
+                        <option value="Regularexpression" selected="selected">Regular Expression</option>
+                    </select>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <label>Regular Expression Value </label>
+                    <input type="text" class="form-control req" id="txtRegularExpression" placeholder="^[1-9]([0-9]{1,45}$)">
+                </div>
+
+            </div>
+        </div>
+
+
+        <br />
+        <button id="btnCreateMasterFormField" type="submit" class="btn btn-success btnSave">
+            CREATE MASTER</button>
+
+        <button id="btnQuitField" type="submit" class="btn btn-info ">
+            QUIT FORM</button>
+        <a class="btn btn-refresh" rel="tooltip" title="Refresh Page" aria-expanded="false" onclick="window.location.href=window.location.href;">
+            <span class="fa fa-refresh"></span>
+        </a>
+    </form>
+</div>
+<div class="col-md-4 summery-detail summery-uitilities-detail summeryCreateMasterFormField">
+    <div class="panel-body tab-itenaries ">
+        <div class="panel-group">
+            <div class="panel panel-red">
+                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                    <h4 class="panel-title">Summary 
+                    </h4>
+                </div>
+                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                    <div class="panel-body summary-body">
+                        <table class="table summary-list">
+                            <tbody>
+                                <tr>
+                                    <td>Created By: </td>
+                                    <td><span class="label label-success">Samir Shah</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Created Date: </td>
+                                    <td><span class="label label-warning">06-Mar-2016</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Created Branch: </td>
+                                    <td><span class="label label-danger">Bangkok</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Updated By: </td>
+                                    <td><span class="label label-info">Samir Shah</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Updated Date: </td>
+                                    <td><span class="label label-warning">14-Mar-2016</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Page Load Time: </td>
+                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Update Time: </td>
+                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

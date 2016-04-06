@@ -1,0 +1,50 @@
+﻿$(document).ready(function () {
+    $('#ulViewList').delegate("a", "click", function (e) {
+        $(this).parent().parent().find("li").removeClass("active");
+        $(this).parent().addClass("active");
+    });
+    $('#startGuiededTour').on('click', function () {
+        var tour = new Tour({
+            steps: [
+            {
+                element: "#CreateMaster",
+                title: "Create Master.",
+                content: "Configure Master.",
+                placement: "bottom"
+            },
+            {
+                element: "#MasterFromField",
+                title: "Master From Field.",
+                content: "Set master form fields for configured master.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
+    Morris.Bar({
+        element: 'morris2',
+        data: [
+            { year: '11-Mar-2016', a: 25, b: 15 },
+            { year: '12-Mar-2016', a: 05, b: 12 },
+            { year: '13-Mar-2016', a: 05, b: 32 },
+            { year: '14-Mar-2016', a: 19, b: 05 },
+            { year: '15-Mar-2016', a: 25, b: 40 },
+            { year: '16-Mar-2016', a: 65, b: 10 },
+            { year: '17-Mar-2016', a: 65, b: 60 }
+        ],
+        xkey: 'year',
+        ykeys: ['a', 'b'],
+        labels: ['a', 'b'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'auto',
+        barColors: ['#6ad6c3', '#22BAA0'],
+        resize: true
+    });
+
+
+
+});

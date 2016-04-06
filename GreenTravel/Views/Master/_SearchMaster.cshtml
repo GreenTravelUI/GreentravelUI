@@ -1,0 +1,178 @@
+﻿<form>
+    <div class="dropdown table-custome-drop">
+        <div class="btn-group">
+            <a class="label label-success dropdown-toggle" rel="tooltip" title="Export" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                <span class="glyphicon glyphicon-download-alt"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Excel</a></li>
+                <li><a href="#">PDF</a></li>
+                <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
+            </ul>
+        </div>
+        &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                        <span class="fa fa-th-large"></span>
+                                    </a>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
+                                    </ul>
+                                    <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll">
+                                                                <li><a href="#">City</a></li>
+                                                                <li><a href="#">Country</a></li>
+                                                                <li><a href="#">State</a></li>
+                                                                <li class="active"><a href="#">Agent Margin</a></li>
+                                                                <li><a href="#">Support Mode</a></li>
+                                                                <li><a href="#">Agent Type</a></li>
+                                                                <li><a href="#">Control Type</a></li>
+                                                                <li><a href="#">Nationality</a></li>
+                                                                <li><a href="#">Vehicle Name</a></li>
+                                                                <li><a href="#">SMS Configure</a></li>
+                                                                <li><a href="#">Screen</a></li>
+                                                                <li><a href="#">Supplier Type</a></li>
+                                                                <li><a href="#">Date Format</a></li>
+                                                                <li><a href="#">days</a></li>
+                                                                <li><a href="#">Holiday</a></li>
+                                                                <li><a href="#">Bank</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Value</a></li>
+                                                                    <li><a href="#">Margin Type</a></li>
+                                                                    <li><a href="#">Efective Date From</a></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder1</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ul id="sortable" class="ui-sortable sortable-list">
+                                                                    <li class="ui-state-default">Agent Type</li>
+                                                                    <li class="ui-state-default">Agent Master Code</li>
+                                                                    <li class="ui-state-default">FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                    <li class="ui-state-default">Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                    <li class="ui-state-default">Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3>Email Grid Data
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    </h3>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>To </label>
+                                                                <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="txtHotelCode">Massage</label>
+                                                                <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <button type="button" class="btn btn-success ">Send</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    </div>
+    <br />
+    <br />
+    <div class="table-responsive">
+
+        <table id="example-editable" class="display table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Industry</th>
+                    <th>Corporate</th>
+                    <th>Master Code</th>
+                    <th>Entry Level</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Industry</th>
+                    <th>Corporate</th>
+                    <th>Master Code</th>
+                    <th>Entry Level</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td><span>Travel</span></td>
+                    <td><span>Travel</span></td>
+                    <td><span>Patel Travels</span></td>
+                    <td><span>ABANK</span></td>
+                    <td><span>General</span>
+                    <td>
+                        <a href="#" rel="tooltip" title="Edit"><span class="fa fa-pencil grid-btn-success"></span></a>
+                        &nbsp;&nbsp;
+                            <a href="#" rel="tooltip" title="Delete"><span class="fa fa-trash grid-btn-danger"></span></a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+</form>
