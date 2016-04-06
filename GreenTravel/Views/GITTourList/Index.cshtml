@@ -1,0 +1,1865 @@
+﻿@{
+    ViewBag.Title = "GIT Tour List";
+    ViewBag.PageTitle = "Search B2B GIT Custom Itinerary";
+}
+<link href="/assets/plugins/Barrating/bootstrap-stars.css" rel="stylesheet" />
+<link href="~/assets/plugins/jstree/themes/default/style.min.css" rel="stylesheet" />
+<link href="~/assets/plugins/FlexibleSlideToTopAccordion/css/style.css" rel="stylesheet" />
+
+<style>
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4 {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .m-b-lg > h5 {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 1px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span.right-floated,
+        .tab-itenaries .col-md-2 > h5 > span.right-floated,
+        .tab-itenaries .col-md-3 > h5 > span.right-floated,
+        .tab-itenaries .col-md-4 > h5 > span.right-floated,
+        .tab-itenaries .col-md-5 > h5 > span.right-floated,
+        .tab-itenaries .col-md-6 > h5 > span.right-floated,
+        .tab-itenaries .col-md-7 > h5 > span.right-floated,
+        .tab-itenaries .col-md-8 > h5 > span.right-floated,
+        .tab-itenaries .col-md-9 > h5 > span.right-floated,
+        .m-b-lg > h5 > span.right-floated {
+            float: right;
+            font-size: 13px;
+            font-weight: normal;
+            text-align: right;
+        }
+
+            .tab-itenaries .col-md-1 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-2 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-3 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-4 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-5 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-6 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-7 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-8 > h5 > span.right-floated .TripRatting,
+            .tab-itenaries .col-md-9 > h5 > span.right-floated .TripRatting,
+            .m-b-lg > h5 > span.right-floated .TripRatting {
+                font-size: 2.4em;
+            }
+
+        .tab-itenaries .col-md-1 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-2 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-3 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-4 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-5 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-6 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-7 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-8 > h5 > span.left-floated .small-text,
+        .tab-itenaries .col-md-9 > h5 > span.left-floated .small-text,
+        .m-b-lg > h5 > span.left-floated .small-text {
+            font-size: 13px;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .tab-itenaries .col-md-1 > h5 > span.left-floated,
+        .tab-itenaries .col-md-2 > h5 > span.left-floated,
+        .tab-itenaries .col-md-3 > h5 > span.left-floated,
+        .tab-itenaries .col-md-4 > h5 > span.left-floated,
+        .tab-itenaries .col-md-5 > h5 > span.left-floated,
+        .tab-itenaries .col-md-6 > h5 > span.left-floated,
+        .tab-itenaries .col-md-7 > h5 > span.left-floated,
+        .tab-itenaries .col-md-8 > h5 > span.left-floated,
+        .tab-itenaries .col-md-9 > h5 > span.left-floated,
+        .m-b-lg > h5 > span.left-floated {
+            float: none;
+        }
+
+    .tab-itenaries a > span {
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        margin-bottom: 15px;
+    }
+
+        .tab-itenaries .form-control {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control h2 {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 0;
+        }
+
+    .strong {
+        font-weight: bold;
+    }
+
+    .modal-body .strong {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /*.strong:hover {
+            text-decoration: underline !important;
+        }*/
+
+    .panel .panel-body {
+        padding: 15px;
+    }
+
+    .tab-itenaries .row .btn {
+        padding: 5px 9px;
+        /*font-size: 20px;*/
+        text-transform: uppercase;
+        margin: 5px 5px 5px 0;
+    }
+
+    .tab-itenaries .row .rooms-type .btn {
+        padding: 2px 5px;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin: 5px 0 5px 0;
+    }
+
+    .modal-footer .btn {
+        text-transform: uppercase;
+    }
+
+    .star-ratings .select2.select2-container {
+        display: none;
+    }
+
+    .modal-body {
+        width: 100%;
+    }
+
+    .modal-header h4 {
+        border-bottom: 1px dotted #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .quote-link h2 {
+        /*margin-bottom: 0;
+        margin-top: 0;*/
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .quote-link .panel-heading {
+        padding: 10px 15px;
+    }
+
+    .panel-red .panel-collapse {
+        border: 1px solid #F25656;
+        border-radius: 0 0 5px 5px;
+    }
+
+        .panel-red .panel-collapse .panel-body {
+            color: #4e5e6a;
+        }
+
+    .fa-ul > li {
+        font-size: 12px;
+        position: relative;
+    }
+
+    .fa-ul {
+        margin-left: 15px;
+    }
+
+    .right-floating {
+        float: right;
+        cursor: pointer;
+        color: #F25656;
+    }
+
+    .tab-itenaries span.total-cost {
+        font-size: 11px;
+    }
+
+    a.col-sm-3 {
+        background-color: #f25656;
+        color: #fff;
+        font-family: Lucida Console;
+        font-size: 32px;
+        height: 45px;
+        margin-bottom: 0;
+        margin-top: 0;
+        top: 0;
+        width: 22.5%;
+    }
+
+        a.col-sm-3 span {
+            float: left;
+            font-size: 79px;
+            margin: -32px 0 0 -16px;
+        }
+
+    .fa-ul > li {
+        margin-bottom: 5px;
+    }
+
+    /*.panel > .row > div:last-child {
+        padding-left: 0;
+        padding-right: 0;
+    }*/
+    .panel > .row > div:first-child {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .tab-itenaries .table > tbody > tr:first-child > td {
+        border-width: 0;
+    }
+
+    .tab-itenaries .table > tbody > tr > td:first-child {
+        width: 60%;
+    }
+
+    .tab-itenaries .table > tbody > tr > td:last-child {
+        text-align: right;
+        width: 40%;
+    }
+
+    .tab-itenaries .table > tbody > tr > td {
+        font-size: 11px;
+        padding: 7px !important;
+    }
+
+    .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label {
+        width: 100%;
+    }
+
+    .button-index {
+        background-color: #fff;
+        border-radius: 50%;
+        color: #333;
+        padding: 0 5px;
+        font-weight: bold;
+    }
+
+    .button-itenaries .form-control .btn-steps {
+        text-align: left;
+        width: 77%;
+    }
+
+    .button-itenaries .form-control .btn-steps-icons {
+        width: auto;
+    }
+
+    .button-itenaries .form-control .btn-steps:hover .button-index {
+        color: #333;
+    }
+
+    .button-index {
+        margin-right: 5px;
+    }
+
+    .btn-auto {
+        width: auto;
+    }
+
+    .btn-full {
+        width: 100%;
+    }
+
+    .search-panel-buttons {
+        text-align: right;
+    }
+
+    .br-theme-bootstrap-stars .br-widget {
+        line-height: 30px;
+    }
+
+    h2.strong .alt-text {
+        font-size: 0.6em;
+    }
+
+    h2.strong .amount {
+        color: #f25656;
+    }
+
+    .rooms-type .btn {
+        width: auto !important;
+    }
+
+    .aminities {
+        float: right;
+        color: #BEC8D2;
+    }
+
+    .panel .panel-headingnew {
+        border: 0 none !important;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        font-size: 14px;
+        font-weight: 600;
+        height: 55px;
+        padding: 10px;
+    }
+
+    .tab-itenaries > .col-md-1 > h4,
+    .tab-itenaries .col-md-2 > h4,
+    .tab-itenaries .col-md-3 > h4,
+    .tab-itenaries .col-md-4 > h4,
+    .tab-itenaries .col-md-5 > h4,
+    .tab-itenaries > .col-md-6 > h4,
+    .tab-itenaries .col-md-7 > h4,
+    .tab-itenaries .col-md-8 > h4,
+    .tab-itenaries .col-md-9 > h4,
+    .m-b-lg > h4 {
+        border-bottom: 1px dotted #ccc;
+        color: #40474f;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 7px 0 10px;
+        padding-bottom: 5px;
+    }
+
+    .tab-itenaries .col-md-1 > h5,
+    .tab-itenaries .col-md-2 > h5,
+    .tab-itenaries .col-md-3 > h5,
+    .tab-itenaries .col-md-4 > h5,
+    .tab-itenaries .col-md-5 > h5,
+    .tab-itenaries .col-md-6 > h5,
+    .tab-itenaries .col-md-7 > h5,
+    .tab-itenaries .col-md-8 > h5,
+    .tab-itenaries .col-md-9 > h5,
+    .tab-itenaries .col-md-10 > h5,
+    .tab-itenaries .col-md-12 > h5,
+    .m-b-lg > h5 {
+        /*color: #40474f;*/
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted;
+        text-shadow: 0px 0px #BEC8D2;
+    }
+
+        .tab-itenaries .col-md-1 > h5 > span,
+        .tab-itenaries .col-md-2 > h5 > span,
+        .tab-itenaries .col-md-3 > h5 > span,
+        .tab-itenaries .col-md-4 > h5 > span,
+        .tab-itenaries .col-md-5 > h5 > span,
+        .tab-itenaries .col-md-6 > h5 > span,
+        .tab-itenaries .col-md-7 > h5 > span,
+        .tab-itenaries .col-md-8 > h5 > span,
+        .tab-itenaries .col-md-9 > h5 > span,
+        .tab-itenaries .col-md-10 > h5 > span,
+        .tab-itenaries .col-md-12 > h5 > span,
+        .m-b-lg > h5 > span {
+            float: right;
+        }
+
+    .tab-itenaries a > span {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /*.tab-itenaries span {
+        font-weight: bold;
+        font-size: 14px;
+        text-shadow: 1px 0 #BEC8D2;
+    }*/
+
+    .tab-itenaries {
+        padding-bottom: 10px;
+        border: 1px double #BEC8D2 !important;
+        border-radius: 5px !important;
+        box-shadow: 3px 3px 7px -5px rgba(0, 0, 0, 0.5);
+        margin-bottom: 15px;
+    }
+
+        .tab-itenaries .form-control {
+            border-width: 0;
+            padding: 3px 10px !important;
+        }
+
+            .tab-itenaries .form-control .btn, .tab-itenaries .form-control .label {
+                width: 100%;
+            }
+
+            .tab-itenaries .form-control h2 {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .tab-itenaries .right-border {
+            border-right: 1px dotted #f25656;
+            min-height: 156px;
+            padding-left: 25px;
+        }
+
+    .strong {
+        font-weight: bold;
+    }
+
+    .modal-body .strong {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /*.strong:hover {
+            text-decoration: underline !important;
+        }*/
+
+    .panel .panel-body {
+        padding: 15px;
+    }
+</style>
+<style>
+    .modal-lg {
+        width: 95%;
+    }
+
+    .modal-header h4 {
+        border-bottom: 1px dashed #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .input-group-addon.addbtn:last-child, .input-group-addon.addbtn:hover {
+        background-color: #22baa0;
+        border-color: #22baa0;
+        border-left: 0 none #22baa0;
+        color: #fff;
+    }
+
+    #wrapper, .wrapper {
+        width: 200%;
+        transform: translate3d(0, 0, 0);
+        transition: transform .5s ease-in-out;
+        padding-left: 0;
+    }
+
+    .content {
+        float: left;
+        width: 50%;
+        min-height: 200px;
+        white-space: normal;
+        background-repeat: no-repeat;
+    }
+
+    li.content {
+        list-style: outside none none;
+        transition: 1s;
+        border: 1px solid #22BAA0;
+    }
+
+        li.content .libody {
+            transition-timing-function: linear;
+        }
+
+    .summery-uitilities-detail {
+        width: 33.3333%;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    .summery-nav-btn {
+        background-color: #ccc;
+        color: #22baa0;
+        cursor: not-allowed;
+        font-size: 0.7em;
+        margin-left: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+        .summery-nav-btn.active {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+    .libody.summery-body {
+    }
+
+    .searchpanel-button {
+        padding: 5px 9px !important;
+    }
+
+    .panel.panel-white.tab-itenaries {
+        padding-bottom: 3px;
+    }
+    /*.panel-blue, .panel-green {
+        opacity:0.4;
+    }*/
+    .panel-blue {
+        background-color: #44dcff;
+    }
+
+    .panel-green {
+        background-color: #82eab0;
+    }
+
+        .panel-blue .panel-heading, .panel-blue .panel-body,
+        .panel-green .panel-heading, .panel-green .panel-body {
+            color: #555;
+        }
+
+    .jstree-container-ul > li > a > i.jstree-checkbox {
+        display: none;
+    }
+</style>
+<style>
+    .field-name {
+        float: left;
+        width: 50%;
+    }
+
+    .modify-colum-model .dropdown.table-custome-drop {
+        float: left;
+        width: 50%;
+    }
+
+    .field-name {
+        padding-right: 15px;
+    }
+
+    .modal-header h4 {
+        border-bottom: 1px dotted #ccc;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .modal-footer {
+        text-align: left;
+    }
+
+    #ulViewList {
+        padding-left: 0 !important;
+    }
+
+    .selectcolor {
+    }
+
+    .field-list .active {
+        background-color: #4fe7cd;
+        color: #fff !important;
+        font-weight: bolder;
+        font-size: 15px;
+    }
+
+        .field-list .active a {
+            text-decoration: underline;
+        }
+
+    .panel-body.slimscroll li {
+        padding: 3px;
+        list-style: outside none none;
+    }
+
+    .newh2 {
+        margin-top: 6px;
+    }
+
+
+    .btn-successswitch {
+        background-color: #22baa0;
+        border-color: transparent;
+        color: #fff;
+        padding: 9px 13px;
+        padding-right: 10px;
+    }
+
+    .fontbtn {
+        font-size: 12px;
+    }
+
+    .form-groupnew {
+        margin-bottom: auto;
+    }
+
+    .panel-groupnew {
+        margin-bottom: auto;
+    }
+
+    .btnsmallfont {
+        font-size: 20px;
+    }
+
+    .btnbigfont {
+        font-size: 16px;
+    }
+
+    .alleft {
+        float: none !important;
+    }
+
+    td, th {
+        padding: 0px;
+    }
+
+    .newpadding {
+        padding-left: 15px;
+    }
+
+    .newpaddingformainclass {
+        padding-left: 0px !important;
+    }
+
+    .newcolmd5 {
+        width: 35% !important;
+    }
+
+    .thpadding {
+        padding: 3px;
+    }
+
+    .col10mdnew {
+        width: 89.2%;
+    }
+
+    .btnflotnews {
+        float: right;
+    }
+
+    .colmd4width {
+        width: 32.33% !important;
+    }
+
+    .btnfontforquoteview {
+        font-size: 15px !important;
+    }
+    .newcol {
+        padding-left: 79px !important;
+        padding-right: 0px !important;
+    }
+    .tdbg {
+        color:red;
+    }
+</style>
+
+<div class="col-md-12 form-detail">
+    <div class="panel panel-white">
+        <div class="panel-body">
+
+            <form>
+                <div class="form-group">
+                   
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" id="txtTagSearch" class="form-control" value="Thailand" placeholder="Hotel / Destination" />
+                        </div>
+
+                        <div class="col-md-1" style="text-align: right;">
+                            <a href="javascript:void(0);" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Tour Search"><i class="fa fa-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-info searchpanel-button booking-panel-button" data-show-panel="booking-panel" data-toggle="tooltip" data-placement="top" title="Search Quote"><i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @*Booking*@
+                @*<div class="from-group panel-search booking-panel" style="display: none;">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Booking</h2>
+                            <div class="panel-control">
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                           
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Adult</label>
+                                                    <input type="text" class="form-control" id="txtAdult" value="5" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Extra Bed Adult</label>
+                                                    <input type="text" class="form-control" id="txtAdultextrabed" value="1" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Extra Bed Child</label>
+                                                    <input type="text" class="form-control" id="txtExtraChild" value="2" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Child No Bed</label>
+                                                    <input type="text" class="form-control" id="txtnobed" value="1" placeholder="Adult">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                         
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number Of Infant</label>
+                                                    <input type="text" class="form-control" id="txtinfant" value="1" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number of Rooms Single</label>
+                                                    <input type="text" class="form-control" id="txtNumberofroomsingle" value="2" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number of Rooms Double/Twin</label>
+                                                    <input type="text" class="form-control" id="txtNumberofroomdouble" value="2" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtZipCode">Number of Rooms Quad</label>
+                                                    <input type="text" class="form-control" id="txtNumberofroomQuad" value="1" placeholder="Adult">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>*@
+                @*Booking Quote*@
+                <div class="from-group panel-search booking-panel" style="display: none;">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Quotation</h2>
+                            <div class="panel-control">
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @* <label for="txtTagSearch">Number Of Adult</label>*@
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="txtZipCode">Agent Name</label>
+                                                    <input type="text" class="form-control" id="txtAgentName" value="Flamingo Transworld" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtZipCode">Quotation Reference #</label>
+                                                    <input type="text" class="form-control" id="txtQoutationref" value="THLND-FLG-01" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtZipCode">Qoutation Status</label>
+                                                    <input type="text" class="form-control" id="txtQoutationStatus" value="Status" placeholder="Adult">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @* <label for="txtTagSearch">Number Of Adult</label>*@
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <label for="txtZipCode">Quotation Created From Date</label>
+                                                    <input type="text" class="form-control date-picker" id="txtQuotationCreatedDate" value="15-03-2016" placeholder="Adult">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtZipCode">Quotation Created To Date</label>
+                                                    <input type="text" class="form-control date-picker" id="txtQoutationcreatedtodate" value="25-03-2016" placeholder="Adult">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @*Advance*@
+                <div class="from-group panel-search advanced-panel" style="display: none;">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Advance</h2>
+                            <div class="panel-control">
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="txtTagSearch">Criteria</label>
+                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">None</option>
+                                                        <option>At</option>
+                                                        <option>Between</option>
+                                                        <option>Less than</option>
+                                                        <option>Less than or equal</option>
+                                                        <option>At Month</option>
+                                                        <option>Between Month</option>
+                                                        <option>More than</option>
+                                                        <option>More than or equal</option>
+                                                        <option>At Quater</option>
+                                                        <option>Between Quater</option>
+                                                        <option>At Year</option>
+                                                        <option>Between Year</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtTagSearch">Search By</label>
+                                                    <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">Created date</option>
+                                                        <option>Updated date</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="txtTagSearch">From</label>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option selected="selected">2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                                <option>2010</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option selected="selected">January</option>
+                                                                <option>February</option>
+                                                                <option>March</option>
+                                                                <option>April</option>
+                                                                <option>May</option>
+                                                                <option>June</option>
+                                                                <option>July</option>
+                                                                <option>August</option>
+                                                                <option>September</option>
+                                                                <option>October</option>
+                                                                <option>November</option>
+                                                                <option>December</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @*Search Count*@
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h2 style="border-width: 0; margin-bottom: 0" class="text-danger newh2 col10mdnew" id="lblTotalRecordsFound"><span>Thailand</span>: <span>2</span> Records found</h2>
+                            
+                             </div>
+                        <div class="col-md-3 newcol">
+                           <button id="btnCreateFit" type="button" class="btn btn-danger btnfontforquoteview" style="" onclick="window.location.href='/TourGitQuotaion'">Create New</button>
+                            <button id="btnswitchview" type="button" class="btn btn-success btn-successswitch btnfontforquoteview">Quote View</button>
+
+                        </div>
+                    </div>
+                </div>
+                @*Filter - Order - Search Result*@
+                <div class="from-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            @*Filter Inquires*@
+                             <div class="panel panel-white tab-itenaries">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Filter Inquiries:</h2>
+                                    <div class="panel-control">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="st-accordion orderby-accordion">
+                                        <ul>
+                                            <li class="orderby">
+                                                <a href="javascript:void(0);">My Inquiries <i class="fa fa-check"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">My Shared Inquiries <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">My Quotes <i></i></a>
+                                            </li>
+                                             <li>
+                                                <a href="javascript:void(0);">My Bookings <i></i></a>
+                                            </li>
+                                             <li>
+                                                <a href="javascript:void(0);">My Shared Bookings <i></i></a>
+                                            </li>
+                                                                                      
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Order By*@
+                            <div class="panel panel-white tab-itenaries">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Sort By:</h2>
+                                    <div class="panel-control">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="st-accordion orderby-accordion">
+                                        <ul>
+                                            <li class="orderby">
+                                                <a href="javascript:void(0);">Our recommendations first <i class="fa fa-check"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Price Low To High <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Price High To Low <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Min Days <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Max Days <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Newly Created <i></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Stars <i></i></a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Filter By*@
+                            <div class="panel panel-white tab-itenaries">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Filter By:</h2>
+                                    <div class="panel-control">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="st-accordion" class="st-accordion">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0);">Price<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 0 - Rs. 3,600
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 3,600 - Rs. 7,300
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 7,300 - Rs. 11,000
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 11,000 - Rs. 14,000
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Rs. 14,000 +
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0);">Nights<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        1-3 Nights
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        4-6 Nights
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        7-10 Nights
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        More than 10 Nights
+                                                    </div>
+                                                </div>
+                                            </li>
+                                             <li>
+                                                <a href="javascript:void(0);">Inquiry Status<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Draft
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Inquired
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Quoted
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Trash
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Quotation Status<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Draft
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Negotiation
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Ready To Quote
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Quoted
+                                                    </div>
+                                                     <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Pending For Aprooval
+                                                    </div>
+                                                     <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Aprooved
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Cities To Travel<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Bangkok
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Pattaya
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Countries To Travel<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Thailand
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Singapore
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Malesia
+                                                    </div>
+                                                   
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Hotels<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Amari Ocens 
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        The Bangkok Floor
+                                                    </div>
+                                                   
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Sightseeing<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Safari World
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Safari Zoo
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Guide<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Pattaya Guide
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Bangkok Guide
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Restaurant<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        A1 Restaurant
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Maria Floor
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Transportation<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Indica
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Bus
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Month Of Travels<span class="st-arrow"></span></a>
+                                                <div class="st-content">
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        January
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        February
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        March
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        April
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        May
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        June
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        July
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        August
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        September
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        Octomber
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        November
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="checkbox" />
+                                                        December
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*Search Result*@
+                        <div class="col-md-9">
+                            <div class="m-b-lg tab-itenaries panel panel-body">
+                                <div class="row">
+                                    <div class="col-md-8 right-border">
+
+                                        <h5>Thailand Inquiry <span class="text-danger" style="font-size: 14px">5 Nights / 6 Days</span></h5>
+                                        <div class="col-md-7 newpaddingformainclass">
+                                            <table>
+                                                <tbody>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 17px; color: red">Agent</td>
+                                                        <td class="thpadding" style="font-size: 17px; color: red">&nbsp;&nbsp;&nbsp;Flamingo Transworld</td>
+                                                    </tr>
+
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Inquiry Code</td>
+                                                        <td class="thpadding" style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ES-F-S-2016-286</td>
+                                                    </tr>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Inquiry Name</td>
+                                                        <td class="thpadding" style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thiland Inquiry</td>
+                                                    </tr>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Countries To Travel</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thailand, India</td>
+                                                    </tr>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Cities To Travel</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bangkok, Pattaya</td>
+                                                    </tr>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Inquiry Status</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draft</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <table>
+                                                <tbody>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 18px; color: red">&nbsp;</td>
+                                                        <td class="thpadding" style="font-size: 18px; color: red">&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Total Quotes Sent</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+                                                    </tr>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Last Quote Date</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17-03-2015</td>
+                                                    </tr>
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Last Quote Status</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Active</td>
+                                                    </tr>
+                                                     <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Inquiry By</td>
+                                                        <td class="thpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Samir Shah</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        @* <br />
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Hotel"><span class="fa fa-hospital-o"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="SightSeeing"><span class="fa fa-flag"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Transport"><span class="fa fa-cab"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Guide"><span class="fa fa-user"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Restaurant"><span class="fa fa-cutlery"></span></a>*@
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="tab-itenaries btn btnsmallfont">
+                                                    <i class="fa fa-hospital-o text-info" rel="tooltip" title="Hotel"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-spoon text-info" rel="tooltip" title="Restaurant"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-flag text-info" rel="tooltip" title="SightSeeing"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-user" rel="tooltip" title="Guide"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-bus text-info" rel="tooltip" title="Transfer"></i>&nbsp;&nbsp;&nbsp;
+                                              
+                                                      
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                @* <div class="btn">
+
+                                                    <a class="btn-success fontbtn" rel="tooltip" title="Copy & Create Tour" style="border-width: 1px; border-radius: 5px; border-style: solid"><span class="fa fa-files-o"></span></a>
+                                                    &nbsp;&nbsp;
+                                                     <a  class="btn-success fontbtn" rel="tooltip" title="Copy & Create Tour" style="border-width: 1px; border-radius: 5px; border-style: solid"><span class="fa fa-files-o"></span></a>
+                                                    &nbsp;&nbsp;
+                                                     <a  class="btn-success fontbtn" rel="tooltip" title="Copy & Create Tour" style="border-width: 1px; border-radius: 5px; border-style: solid"><span class="fa fa-files-o"></span></a>
+                                                </div>*@
+                                                <div class="tab-itenaries btn btnbigfont">
+                                                    <i class="fa fa-pencil text-success" rel="tooltip" title="Edit" onclick="window.location.href='/TourQuotation'"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                                </div>
+                                                <div class="tab-itenaries btn btnbigfont">
+                                                    <i class="fa fa-files-o text-primary" rel="tooltip" title="Copy & Create Tour"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                                </div>
+                                                <div class="tab-itenaries btn btnbigfont">
+                                                    <i class="fa fa-times text-danger" rel="tooltip" title="Delete"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" style="padding-left: 15px">
+                                        <div class="form-group form-groupnew">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel-group panel-groupnew" aria-multiselectable="true" role="tablist">
+                                                        <div class="panel panel-red">
+                                                            <div class="panel-heading panel-headingnew accordian-heading" role="tab" id="headingTwo1">
+                                                                <span style="font-size: 16px">List Of Quotations</span>
+                                                            </div>
+                                                            <div id="SummaryTab1" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="headingTwo">
+                                                                <div class="panel-body slimscroll" style="max-height: 180px; border: solid; border-color: red; border-width: 0px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px">
+                                                                    <table>
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th style="padding-right: 9px"></th>
+                                                                                <th style="padding-right: 38px; padding-left: 12px">Quote Ref#</th>
+                                                                                <th style="padding-right: 8px">Date</th>
+                                                                                <th style="padding-left: 39px">Action</th>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                    <ol class="" style="height: 100%; padding-left: 0px">
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">1</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">2</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">3</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">4</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">5</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">6</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">7</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">8</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td class="tdbg" style="padding-right: 8px">9</td>
+                                                                                    <td>THLND-FLG-01</td>
+                                                                                    <td style="padding-left: 10px">15-03-2016</td>
+                                                                                    <td style="padding-left: 12px">
+                                                                                        <a data-target="#" data-toggle="modal"><span class="fa fa-pencil text-success faSuccess" rel="tooltip" title="Quotation"></span></a>&nbsp;  
+                                                                                    <i class="fa text-warning fa-download" rel="tooltip" title="Download Quotation"></i>&nbsp;
+                                                                                     <i class="fa text-primary fa-paper-plane" rel="tooltip" title="Send Quotation To Agent"></i>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-b-lg tab-itenaries panel panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5>Quotation For<span class="alleft" style="color: red"> Flamingo Transworld</span><span class="" style="color: red; font-size: 15px">  THNLD-FLG-015</span></h5>
+                                    </div>
+                                    <div class="col-md-4 newcolmd5">
+                                        <div class="row" style="padding-left: 16px">
+                                            <table>
+                                                <tbody>
+
+                                                    <tr class="thpadding">
+                                                        <td class="thpadding" style="font-size: 13px">Inquired By</td>
+                                                        <td class="thpadding" style="font-size: 13px;" class="newpadding">Vicky Amin</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="thpadding" style="font-size: 13px">Quote Sent To</td>
+                                                        <td class="thpadding" style="font-size: 13px" class="newpadding">Vicky Amin</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="thpadding" style="font-size: 13px">Quotation Currency</td>
+                                                        <td class="thpadding" style="font-size: 13px;" class="newpadding">THB</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="row" style="padding-top: 64px; padding-left: 16px">
+                                            <div class="tab-itenaries btn btnsmallfont">
+                                                <i class="fa fa-hospital-o text-info" rel="tooltip" title="Hotel"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-spoon text-info" rel="tooltip" title="Restaurant"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-flag text-info" rel="tooltip" title="SightSeeing"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-user" rel="tooltip" title="Guide"></i>&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-bus text-info" rel="tooltip" title="Transfer"></i>&nbsp;&nbsp;&nbsp;
+                                              
+                                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 right-border colmd4width">
+                                        <div class="row">
+                                            <table>
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td class="thpadding" style="font-size: 13px">Quotation Type</td>
+                                                        <td style="font-size: 13px" class="newpadding">Per Pax</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="thpadding" style="font-size: 13px">Quotation Status</td>
+                                                        <td style="font-size: 13px" class="newpadding">Active</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="thpadding" style="font-size: 13px">Quotation Created Date</td>
+                                                        <td class="thpadding" style="font-size: 13px; padding-left: 12px" class="newpadding">15-03-2016</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="row" style="padding-top: 90px; padding-left: 0px">
+                                            <div class="tab-itenaries btn btnbigfont">
+                                                <i class="fa fa-pencil text-success" rel="tooltip" title="Edit"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                            </div>
+                                            <div class="tab-itenaries btn btnbigfont">
+                                                <i class="fa fa-files-o text-primary" rel="tooltip" title="Copy & Create Tour"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                            </div>
+
+                                            <div class="tab-itenaries btn btnbigfont">
+                                                <i class="fa fa-download text-warning" rel="tooltip" title="Download"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                            </div>
+                                            <div class="tab-itenaries btn btnbigfont">
+                                                <i class="fa fa-paper-plane text-primary" rel="tooltip" title="Send Quotation To Customer"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                            </div>
+                                            <div class="tab-itenaries btn btnbigfont">
+                                                <i class="fa fa-times text-danger" rel="tooltip" title="Delete"></i>&nbsp;&nbsp;&nbsp;
+                                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 colmd4width" style="padding-left: 8px">
+                                        <div class="form-group form-groupnew">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel-group panel-groupnew" aria-multiselectable="true" role="tablist">
+                                                        <div class="panel panel-red">
+                                                            <div class="panel-heading panel-headingnew accordian-heading" role="tab" id="headingTwo2">
+                                                                <span style="font-size: 16px">Quote Summery</span>
+                                                            </div>
+                                                            <div id="SummaryTab2" class="panel-collapse panel-white collapse in summarytab" role="tabpanel" aria-labelledby="headingTwo2">
+                                                                <div class="panel-body slimscroll" style="max-height: 188px; border: solid; border-color: red; border-width: 0px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px">
+                                                                    <ol class="" style="height: 100%; padding-left: 0px">
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td style="padding-left: 00px">Total Net Rate</td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">4700 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Total Margin</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">890 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Total Discount</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">240 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Total Commision</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">1480 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Sell Rate</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">7310 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Tax</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">1096 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Sell Rate Including Tax</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">8406 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td style="padding-left: 0px">
+                                                                                        <label>Exchange Rate</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">40</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                        <li>
+                                                                            <table style="width: 100%">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <label>Final Sell Rate</label></td>
+                                                                                    <td style="text-align: right"><span class="label label-danger">8406 THB</span></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </li>
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*  <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Hotel"><span class="fa fa-hospital-o"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="SightSeeing"><span class="fa fa-flag"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Transport"><span class="fa fa-cab"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Guide"><span class="fa fa-user"></span></a>
+                                        <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Restaurant"><span class="fa fa-cutlery"></span></a>*@
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+
+
+    <script src="/assets/plugins/Barrating/jquery.barrating.min.js"></script>
+    <script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.accordion.js"></script>
+    <script src="/assets/js/jquery.mjs.nestedSortable.js"></script>
+    <script src="~/assets/plugins/datatables/js/dataTables.tableTools.js"></script>
+    @*<script src="~/assets/plugins/FlexibleSlideToTopAccordion/js/jquery.easing.1.3.js"></script>*@
+
+    <script>
+        $(function () {
+            $('.star-ratings').show();
+            $('.example-bootstrap').barrating({
+                theme: 'bootstrap-stars',
+                showSelectedRating: false,
+                readonly: true
+            });
+            $('#st-accordion').accordion(
+                //{
+                //oneOpenedItem: true
+                //}
+            );
+        });
+        $(document).ready(function () {
+
+            //$("#btnswitchview").click(function (e) {
+
+            //        $(this).text("Switch To Tour View");
+
+            //});
+            $('.hotelstatus').editable({
+                value: 2,
+                source: [
+                    { '1': 'Active' },
+                    { '2': 'Inactive' }
+                ]
+            });
+            $('.next').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0,-360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().next().show();
+                    //$(this).parent().parent().next().css('transform', 'rotate3d(0,1,0,360deg)');
+                }
+            });
+            $('.prev').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    //$(this).parent().parent().css('transform', 'rotate3d(0,1,0, -360deg)');
+                    $(this).parent().parent().hide();
+                    $(this).parent().parent().prev().show();
+                    //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
+                }
+            });
+            $('.searchpanel-button').on('click', function (e) {
+                var currentButton = $(this);
+                var panelClass = $(this).attr('data-show-panel');
+                $('.panel-search:visible').slideUp(600);
+                var panel = $('.' + panelClass);
+                if ($('.' + panelClass).is(':visible')) {
+                    panel.slideUp(600, function () {
+                        collapsePanelButton($('.booking-panel-button').children());
+                        collapsePanelButton($('.advanced-panel-button').children());
+                    });
+                } else {
+                    panel.find('.panel-body').show();
+                    panel.slideDown(600, function () {
+                        if ($(this).hasClass('booking-panel')) {
+                            collapsePanelButton($('.advanced-panel-button').children());
+                            expandPanelButton($('.booking-panel-button').children());
+                        } else {
+                            collapsePanelButton($('.booking-panel-button').children());
+                            expandPanelButton($('.advanced-panel-button').children());
+                        }
+                    });
+                }
+                currentButton.trigger('focusout');
+                e.preventDefault();
+            });
+            $('st-accordion').on('click', 'li div.my_class', handle_click);
+            $('.orderby-accordion li').on('click', function () {
+                var thisControl = $(this);
+                $('.orderby-accordion li').removeClass('orderby').find('i').removeClass('fa').removeClass('fa-check');
+                thisControl.find('i').addClass('fa').addClass('fa-check')
+                thisControl.addClass('orderby')
+            });
+        });
+        function expandPanelButton(control) {
+            control.removeClass('fa-plus');
+            control.addClass('fa-minus');
+        }
+        function collapsePanelButton(control) {
+            control.removeClass('fa-minus');
+            control.addClass('fa-plus');
+        }
+        function handle_click(e) {
+            e.stopPropagation();
+            // your event code
+        }
+    </script>
+}
+
+@section floatingsection{
+    <div class="floating-section-buttons tab2" style="display: none">
+        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Basic Details">1</a>
+        @*<a class="btn btn-default" data-section="tab2section1" data-toggle="tooltip" data-placement="left" title="Basic Details">1</a>*@
+        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Hotel Address">2</a>
+        <a class="btn btn-default" data-section="tab2section4" rel="tooltip" title="Facilities">3</a>
+        <a class="btn btn-default" data-section="tab2section7" rel="tooltip" title="Nearest Airports">4</a>
+    </div>
+    <div class="floating-section-buttons tab3" style="display: none">
+        <a class="btn btn-default" data-section="tab3section1" rel="tooltip" title="Billing">1</a>
+        <a class="btn btn-default" data-section="tab3section2" rel="tooltip" title="Bank">2</a>
+        <a class="btn btn-default" data-section="tab3section3" rel="tooltip" title="Tax">3</a>
+    </div>
+    <div class="floating-section-buttons tab4" style="display: none">
+        <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Hotel Room">1</a>
+        <a class="btn btn-default" data-section="tab4section2" rel="tooltip" title="Function Room">2</a>
+        <a class="btn btn-default" data-section="tab4section3" rel="tooltip" title="Restaurent">3</a>
+    </div>
+}
