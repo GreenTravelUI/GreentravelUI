@@ -3,33 +3,132 @@
     ViewBag.PageTitle = "Invoice";
 }
 
+<style>
+    .utilitis-drop li a {
+        background-color: #22baa0;
+        padding: 5px;
+    }
+</style>
+
 <div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Invoice </a></li>
-                    <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Invoice</a></li>
-                    <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice Item Details</a></li>
+                    <li role="presentation" class="active" id="litab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Invoice </a></li>
+                    @*<li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Invoice</a></li>*@
+                    @*<li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-cart-plus"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice Item Details</a></li>*@
+                    <li role="presentation" id="litab4"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Invoice</a></li>
 
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <form>
-                            <div class="table-responsive">
-                                <div class="dropdown table-custome-drop">
-                                    <div class="btn-group">
-                                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-download-alt"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Excel</a></li>
-                                            <li><a href="#">PDF</a></li>
-                                            <li><a href="#">Email</a></li>
-                                        </ul>
+                             <div class="dropdown table-custome-drop">
+                                <div class="btn-group">
+                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Excel</a></li>
+                                        <li><a href="#">PDF</a></li>
+                                        <li><a href="#">Email</a></li>
+                                    </ul>
+                                </div>
+                                &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
+                                        <span class="icon-grid"></span>
+                                    </a>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000">Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModaluser">Change View</a> </li>
+                                    </ul>
+                                    <div class="modal fade modify-colum-model" id="myModaluser" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll ulviewlistclass">
+                                                                <li><a href="#">City</a></li>
+                                                                <li><a href="#">Country</a></li>
+                                                                <li><a href="#">State</a></li>
+                                                                <li class="active"><a href="#">Agent Margin</a></li>
+                                                                <li><a href="#">Support Mode</a></li>
+                                                                <li><a href="#">Agent Type</a></li>
+                                                                <li><a href="#">Control Type</a></li>
+                                                                <li><a href="#">Nationality</a></li>
+                                                                <li><a href="#">Vehicle Name</a></li>
+                                                                <li><a href="#">SMS Configure</a></li>
+                                                                <li><a href="#">Screen</a></li>
+                                                                <li><a href="#">Supplier Type</a></li>
+                                                                <li><a href="#">Date Format</a></li>
+                                                                <li><a href="#">days</a></li>
+                                                                <li><a href="#">Holiday</a></li>
+                                                                <li><a href="#">Bank</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Value</a></li>
+                                                                    <li><a href="#">Margin Type</a></li>
+                                                                    <li><a href="#">Efective Date From</a></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ol class="sortable" id="ddr">
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
+                                                                    </li>
+                                                                    <li id="list_4">
+                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_5">
+                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+                                                                    <li id="list_9">
+                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
+                                                                    </li>
+
+                                                                </ol>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="table-responsive">
+                               
                                 <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
                                     <thead>
                                         <tr>
@@ -56,59 +155,21 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <input type="text" />
-                                            </th>
-                                            <th>
-                                                <a href="#">
-                                                    <img src="assets/images/srach.png" height="15" width="15" /></a> <a href="#">
-                                                        <img src="assets/images/close.png" height="15" width="15" /></a>
-                                            </th>
-                                        </tr>
-
+                                      
                                         <tr>
                                             <td>1</td>
                                             <td>0000000012365</td>
                                             <td>Flamingo</td>
                                             <td>Indian</td>
                                             <td>Thailand Tour</td>
-                                            <td>01/01/2015</td>
-                                            <td>31/01/2015</td>
-                                            <td><a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                            <td>05/05/2016</td>
+                                            <td>13/05/2016</td>
+                                            <td><a href="#"><i class="fa fa-pencil-square-o" onclick="invoiceopen()"></i></a>
                                                 &nbsp;&nbsp;
                                                 <a href="#"><i class="fa fa fa-print"></i></a></td>
                                         </tr>
 
-                                        <tr>
-                                            <td>2</td>
-                                            <td>0000000012366</td>
-                                            <td>Flamingo</td>
-                                            <td>Indian</td>
-                                            <td>Thailand-Mal-Sig.
-                                            </td>
-                                            <td>01/01/2015</td>
-                                            <td>31/01/2015</td>
-                                            <td><a href="#"><i class="fa fa-pencil-square-o"></i></a>
-                                                &nbsp;&nbsp;
-                                                <a href="#"><i class="fa fa fa-print"></i></a></td>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -874,11 +935,752 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane" role="tabpanel" id="tab4">
+                        <div class="invoice col-md-9">
+                            <div class="panel panel-white">
+
+                                <div class="panel-body">
+                                    <div class="row">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <img src="/assets/images/invoice/clogo.jpg" width="230" />
+
+                                            <address>
+                                                297, Rattanathibet Road Tambol-Bangkrasor Amphur Muang Nonthaburi,
+                        <br />
+                                                Thailand - 11000,
+                        @*<br />*@
+                                                HandPhone: (0066) 817267538,
+                        @*<br />*@
+                                                Phone:  025271815/16/39/46/76,
+                        @*<br />*@
+                                                Fax: 025271894/86
+                   
+                                            </address>
+
+                                        </div>
+                                        <div class="col-md-4 text-right">
+                                            <h1>INVOICE</h1>
+                                            <h5 class="bottom-padding-3">Invoice Date: <span class="label label-dodgerblue font-full">11-Mar-2016</span></h5>
+                                            <h5 class="bottom-padding-3">Invoice No: <span class="label label-dodgerblue font-full">#0000012121</span></h5>
+                                            <h5 class="bottom-padding-3">Currency: <span class="label label-dodgerblue font-full">USD</span></h5>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-4">
+                                                <div>Payment term: <span class="label label-primary font-full">Bank Transfer</span></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row" style="float: right;">
+                                                    <button type="button" class="btn btn-default"><span class="fa fa-print"></span>&nbsp;&nbsp;Print</button>
+                                                    <button type="button" class="btn btn-default"><span class="fa fa-envelope-o"></span>&nbsp;&nbsp;Email</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <hr>
+                                            <div class="col-md-4">
+                                                <p>
+                                                    <span class="label label-primary">Invoice To</span>
+                                                    <br />
+                                                    Flamingo Transworld Pvt. Ltd.<br />
+                                                    201/202, Gala Business Centre,<br />
+                                                    St. Xaviers College Corner,<br />
+                                                    Near Classic Gold Hotel,<br />
+                                                    Off C. G. Road,<br />
+                                                    Ahmedabad 380 009, Gujarat, India.
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <br />
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <span class="label label-primary">Booked By </span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <span class="">Kushal Shah </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <span class="label label-primary">Booked On </span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <span class="">31-Jan-2016</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <span class="label label-primary">Reconfirmed By </span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <span class="">Kushal Shah </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <span class="label label-primary">Reconfirmed On </span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <span class="">05-Feb-2016 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <span class="label label-primary">Quotation Ref. # </span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <span class="">544578 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <span class="label label-primary">Invoice Type </span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <span class="">Final </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <br />
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="label label-primary">Guest Name </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="">John Shah </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="label label-primary">Guest Cell Phone </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="">9745787895 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="label label-primary">Nationality  </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="">Indian </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="label label-primary">Travel From Date </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="">11-Mar-2016 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="label label-primary">Travel To Date </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="">15-Mar-2016 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 5px">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="label label-primary">Total Nights and Days </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="">2 Nights/3 Days </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#
+                                                        </th>
+                                                        <th>Items
+                                                        </th>
+                                                        <th>Description
+                                                        </th>
+                                                        <th>Quantity
+                                                        </th>
+                                                        <th>Unit Price</th>
+                                                        <th style="text-align: right">Price
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1
+                                                        </td>
+                                                        <td>Bankok - <span class="fa fa-university text-dodgerblue" title="" rel="tooltip" data-original-title="Hotel"></span>- Amari Atrium
+                                                        </td>
+                                                        <td><span class="highlight-invoice-word">Check-in Date</span> - 12-Mar-2016
+                                    <br />
+                                                            <span class="highlight-invoice-word">Check-out Date</span> - 15-Mar-2016
+                                    <br />
+                                                            <span class="highlight-invoice-word">Room 1</span> - Delux Double - Incl. ABF - 2 Adult 1 CNB
+                                    <br />
+                                                            <span class="highlight-invoice-word">Room 2</span> - Twin Room Double - Incl. Lunch - Incl. ABF - 4 Adult 3 CNB   
+                                    <br />
+                                                            <span class="highlight-invoice-word">Room 3</span> - Delux Double - Incl. ABF - Incl. Lunch - 2 Adult 1 CNB
+                                    <br />
+                                                            <span class="highlight-invoice-word">Additional Services</span> - Wheel chair, Wifi
+                                     <br />
+
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">2 Nights</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success ">$325  </span>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <span class="label label-success ">$650  </span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>2
+                                                        </td>
+                                                        <td>Bankok - <span class="fa fa-spoon text-maroon" title="" rel="tooltip" data-original-title="Restaurant"></span>- Zazen Restaurant
+                                                        </td>
+                                                        <td><span class="highlight-invoice-word">Day 1 (12-Mar-2016)</span> - Lunch  01:30 PM - Dinner 09:30 PM
+                                   <br />
+                                                            <span class="highlight-invoice-word">Day 2 (12-Mar-2016)</span> -  Lunch  01:30 PM - Dinner 09:30 PM
+                                     <br />
+                                                            <span class="highlight-invoice-word">Additional Services</span> - Jain Food
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">3 Pax</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success ">$110  </span>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <span class="label label-success ">$330  </span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>3
+                                                        </td>
+                                                        <td>Bankok - <span class="fa fa-map-marker text-orange" title="" rel="tooltip" data-original-title="Sightseeing"></span>- Grand Palace
+                                                        </td>
+                                                        <td><span class="highlight-invoice-word">Day 1 (12-Mar-2016)</span> - Pick Up : Amari Atrium - 12:30 PM
+                                    </br>
+                                    <span class="highlight-invoice-word">Additional Services</span> - Lunch
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">3 Pax</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success ">$1400  </span>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <span class="label label-success ">$4200  </span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>4
+                                                        </td>
+                                                        <td>Bangkok - <span class="fa fa-map-marker text-orange" title="" rel="tooltip" data-original-title="Sightseeing"></span>- Alcazar Show
+                                                        </td>
+                                                        <td><span class="highlight-invoice-word">Day 2 (13-Mar-2016)</span> - Pick Up : Amari Atrium - 04:30 PM
+                                    <br />
+                                                            <span class="highlight-invoice-word">Additional Services</span> - Dinner
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">3 Pax</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success ">$140  </span>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <span class="label label-success ">$420  </span>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                    <tr>
+                                                        <td>5
+                                                        </td>
+                                                        <td>Bankok - <span class="fa fa-street-view text-tomato" title="" rel="tooltip" data-original-title="Guide"></span>- Nadia Manassawee Ponpitak
+                                
+                                                        </td>
+                                                        <td><span class="highlight-invoice-word">Day 1 (12-Mar-2016)</span> - Grand Palace - 12:30 PM
+                                   <br />
+                                                            <span class="highlight-invoice-word">Day 2 (13-Mar-2016)</span> - Alcazar Show -  04:30 PM
+                                    
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">3 Pax</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success ">$216.67  </span>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <span class="label label-success ">$650  </span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>6
+                                                        </td>
+                                                        <td>Bankok - <span class="fa fa-car text-springgreen" title="" rel="tooltip" data-original-title="Transfer"></span>- ATS TOUR - Toyota Yaris - Car
+                                                        </td>
+                                                        <td><span class="highlight-invoice-word">Day 1 (11-Mar-2016)</span> -  12:30 PM - Airport To Bangkok - SIC
+                                   <br />
+                                                            <span class="highlight-invoice-word">Day 2 (12-Mar-2016)</span> -  11:30 PM - Amari Atrium Return Transfer - SIC
+                                     <br />
+                                                            <span class="highlight-invoice-word">Day 2 (12-Mar-2016)</span> -  03:30 PM - Amari Atrium Return Transfer - SIC
+
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">3 Pax</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success ">$76.67  </span>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <span class="label label-success">$230  </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr style="margin-bottom: 7px; margin-top: 0px;">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-9">
+                                                <h3 style="margin-bottom: 7px; margin-top: 0px;"><span class="label label-success ">Terms & Conditions</span></h3>
+                                                <ul class="custom-list" style="padding-left: 20px;">
+                                                    <li><span class="fa fa-tags"></span>&nbsp;Booking Once Reconfirmed we shall make payments to the hotels as per their payment policy. </li>
+                                                    <li><span class="fa fa-tags"></span>&nbsp;In case of no show or late cancellation after reconfirmation charges applicable as per the Hotels Policy and other vendors policy. </li>
+                                                </ul>
+                                                <h3 style="margin-bottom: 7px; margin-top: 0px;"><span class="label label-success ">Notes</span></h3>
+                                                <ul class="custom-list" style="padding-left: 20px;">
+                                                    <li><span class="fa fa-tags"></span>&nbsp;Exchange Rate Used is 31.50 THB per USD. In case any change in the same difference in the cost will be applicable.</li>
+                                                    <li><span class="fa fa-tags"></span>&nbsp;Only Adults are considered to determine the size of the group. Children will not be considered for the same.</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3" style="padding-right: 0; text-align: right">
+
+                                                <div class="row" style="margin-bottom: 7px; font-size: 16px">
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                    <div class="col-md-6" style="text-align: right">
+                                                        <span class="label label-primary">Total Price </span>
+                                                    </div>
+                                                    <div class="col-md-4" style="text-align: right">
+                                                        <span class="label label-primary">$6480</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row" style="margin-bottom: 7px; font-size: 16px">
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                    <div class="col-md-6" style="text-align: right">
+                                                        <span class="label label-success " style="margin-bottom: 12px;">Discount  </span>
+                                                    </div>
+                                                    <div class="col-md-4" style="text-align: right">
+                                                        <span class="label label-success " style="margin-bottom: 12px;">$200</span>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row" style="margin-bottom: 7px; font-size: 16px">
+                                                    <hr style="margin-bottom: 3px; margin-top: 2px;" />
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                    <div class="col-md-6" style="text-align: right">
+                                                        <span class="label label-danger" style="margin-bottom: 12px;">Total  Amount </span>
+                                                    </div>
+                                                    <div class="col-md-4" style="text-align: right">
+                                                        <span class="label label-danger" style="margin-bottom: 12px;">$6280</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-8">
+                                                <h3><span class="label label-success ">Travelz Unlimited Bank Details</span></h3>
+                                                <div class="row">
+                                                    <div class="col-md-12" style="margin-bottom: 5px">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                Account #
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                01781000009320 
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                Account Name 
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                Saving
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                Bank Name
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                Bank Of Baroda
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                Bank Branch  
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                Gandhinagar
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                Bank Address 
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                Infocity,Gandhinagar 
+                                                            </div>
+
+
+
+                                                        </div>
+
+
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                Swift Code  
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                Chh000000
+                                                            </div>
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-8" style="float: right">
+                                                            <img src="~/assets/images/gallery/Signature.png" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-8" style="text-align: center; float: right">
+                                                            Samir Vithani
+                                    </br>
+                                    Manger Operation
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: right">
+
+                                                <h3>
+                                                    <label class="btn btn-primary">Finalize And Submit Invoice</label></h3>
+                                            </div>
+                                        </div>
+
+                                        @* <div class="col-md-10" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span>Bank Name </span>
+                                </div>
+                                <div class="col-md-3">
+                                    <span>Bank Of Baroda </span>
+                                </div>
+                                <div class="col-md-2">
+                                    
+                                    <span>Bank Branch </span>
+                                </div>
+                                <div class="col-md-3">
+                                    <span>Gandhinagar</span>
+                                </div>
+                            </div>
+                        </div>*@
+                                        @*                    <div class="col-md-10" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span>Bank Address </span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Infocity,Gandhinagar </span>
+                                </div>
+                                <div class="col-md-3">
+                                    
+                                    <span> Swift Code/Sort Code</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Chh000000</span>
+                                </div>
+                            </div>
+                        </div>*@
+
+
+
+
+
+
+
+
+                                        @*<div class="col-md-4">
+                        <br />
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="label label-success">Account Number </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="">01781000009320 </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="label label-success">Account Name </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="">Saving </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="label label-success">Bank Name </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="">Bank Of Baroda </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="label label-success">Bank Branch </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="">Mansa </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="label label-success">Bank Address </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class=""></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="label label-success">Swift Code / Sort Code </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="">Chh000000 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                                    </div>
+                                    @* <div class="col-md-4">
+                    <div class="text-right">
+                        <h4 class="no-m m-t-sm">Subtotal</h4>
+                        <h2 class="no-m">$7282</h2>
+                        <hr>
+                        <h4 class="no-m m-t-sm">Shipping</h4>
+                        <h2 class="no-m">$240</h2>
+                        <hr>
+                        <h4 class="no-m m-t-md text-success">Total</h4>
+                        <h1 class="no-m text-success">$7522</h1>
+                        <hr>
+                        <button class="btn btn-primary">
+                            Submit your invoice</button>
+                    </div>
+                </div>*@
+                                </div>
+                                <!--row-->
+                            </div>
+                        </div>
+
+                        @*</div>*@
+
+                        <div class="col-md-3">
+                            <a href="#" class="faq-link">
+                                <div class="panel panel-purple">
+                                    <div class="panel-body">
+                                        <h2 class="no-m ">Total Amount&nbsp;&nbsp;
+                   <span style="text-align: right">$6280</span> </h2>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="faq-link">
+                                <div class="panel panel-blue">
+                                    <div class="panel-body">
+                                        <h2 class="no-m m-b-md">Total Received&nbsp;&nbsp;
+                     <span style="text-align: right">$870</span></h2>
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <h4 class="no-m " style="font-weight: 100">Amount Received : $500 (11-Feb-2016)</h4>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4 class="no-m " style="font-weight: 100">Amount Received : $240 (15-Feb-2016)</h4>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="faq-link">
+                                <div class="panel panel-red">
+                                    <div class="panel-body">
+                                        <h2 class="no-m ">Total Receivable
+                     <span style="text-align: right">$130</span></h2>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="faq-link">
+                                <div class="panel panel-green">
+                                    <div class="panel-body">
+                                        <h2 class="no-m ">Day's To Travel &nbsp;
+                     <span style="text-align: right">5</span></h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="modal fade modify-colum-model" id="TotalRecievedMOdel" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                                    <div class="modal-header">
+                                        @*<h4 class="modal-title">Total Received Entry</h4>*@
+                                        <h4 class="label label-info">Total Received Entry</h4>
+
+                                    </div>
+                                    <div class="modal-body custom-model-body">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Amount Received</th>
+                                                            <th>Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Amount Received</th>
+                                                            <th>Date</th>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        @* <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                                <th>
+                                    <input type="text" />
+                                </th>
+                            </tr>*@
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td><span>$200 </span></td>
+                                                            <td><span>10-02-2016</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td><span>$200 </span></td>
+                                                            <td><span>10-04-2016</span></td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        @* <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-success">SAVE</button>
+                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                            UPDATE</button>
+                    </div>
+                </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="col-md-12">
@@ -1253,7 +2055,14 @@
 
 @section scripts{
     <script>
+        function invoiceopen() {
+            $("#litab1").removeClass("active");
+            $("#litab4").addClass("active");
+            $("#tab1").removeClass("active");
+            $("#tab4").addClass("active");
+        }
 
+        
         $(document).ready(function () {
 
             $('.hotelstatus').editable({
@@ -1263,7 +2072,7 @@
                     { '2': 'Inactive' }
                 ]
             });
-
+           
 
         });
     </script>
