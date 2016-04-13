@@ -577,6 +577,7 @@
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-map-signs"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Sightseeing</a></li>
 
                     <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab" data-section="tab9" class="basic-accord"><span class="menu-icon fa fa-film"></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>
+                    @*<li role="presentation"><a href="#tab10" role="tab" data-toggle="tab" data-section="tab10" class="basic-accord"><span class="menu-icon fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Policy</a></li>*@
                     @*<li role="presentation"><a href="#tab8" role="tab" data-toggle="tab" data-section="tab8" class="basic-accord"><span class="menu-icon fa fa-picture-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Images</a></li>*@
                     @*<li role="presentation"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Show Time</a></li>*@
                 </ul>
@@ -1106,7 +1107,21 @@
                                         <div class="col-md-6">
                                             <label for="txtDuration">Duration (HH:MM)</label>
                                             <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control timepicker" id="txtDuration" value="2:00">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtDuration">Open Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
                                                 <input type="text" class="form-control timepicker" id="txtDuration" value="8:00">
+                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                            </div>
+                                        </div>
+                                         <div class="col-md-3">
+                                            <label for="txtDuration">Close Time</label>
+                                            <div class="input-group input-append bootstrap-timepicker">
+                                                <input type="text" class="form-control timepicker" id="txtDuration" value="20:00">
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
@@ -1424,7 +1439,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Show Time </th>
-                                                <th>SIC Pickup Time</th>
+                                               
                                                 <th style="width: 15%;">Action</th>
                                             </tr>
                                         </thead>
@@ -1432,7 +1447,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Show Time </th>
-                                                <th>SIC Pickup Time</th>
+                                               
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -1441,7 +1456,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td><span>10:30</span></td>
-                                                <td><span>10:00</span></td>
+                                                
                                                 <td>
                                                     <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                     &nbsp;&nbsp;
@@ -1461,20 +1476,15 @@
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th class="" style="width: 17%">Show Time</th>
-                                                    <th class="" style="width: 17%">SIC Pickup Time</th>
+                                                    <th class="" style="width: 17%;padding-left:15px">Show Time</th>
+                                                  
 
                                                     <th class="" style="width: 17%"></th>
                                                 </tr>
                                                     </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td class="">
-                                                            <div class="input-group input-append bootstrap-timepicker">
-                                                                <input type="text" class="form-control timepicker" value="10:30AM" id="timepicker1">
-                                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                            </div>
-                                                        </td>
+                                                        
                                                         <td class="" style="padding:10px">
                                                             <div class="input-group input-append bootstrap-timepicker">
                                                                 <input type="text" class="form-control timepicker" value="10:30AM" id="timepicker1">
@@ -1486,12 +1496,7 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td class="">
-                                                            <div class="input-group input-append bootstrap-timepicker">
-                                                                <input type="text" class="form-control timepicker" value="10:30AM" id="timepicker1">
-                                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                            </div>
-                                                        </td>
+                                                        
                                                         <td class="" style="padding:10px">
                                                             <div class="input-group input-append bootstrap-timepicker">
                                                                 <input type="text" class="form-control timepicker" value="10:30AM" id="timepicker1">
@@ -1574,6 +1579,315 @@
                                     </div>
                                 </form>
 
+                            </div>
+                        </div>
+                    </div>
+
+                    @*FOC Policy*@
+                    <div role="tabpanel" class="tab-pane " id="tab10">
+                        <div class="col-md-8 full-responsive">
+                            <form>
+                                <h3 class="tab9section1">FOC Policy - <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="drpFITGroup">FIT/Group</label>
+                                            <select id="drpFITGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">FIT</option>
+                                                <option>Group</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="drpRoomCategory">Room Category </label>
+                                            <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                <option>Standard </option>
+                                                <option>Delux </option>
+                                                <option>Supirior</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <label for="drpStatus">Status</label>
+                                            <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">Active </option>
+                                                <option>Inactive </option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtFromDate">From Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtFromDate" value="01/07/2016" placeholder="From Validity">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="txtTodate">To Date </label>
+                                            <input type="text" class="form-control date-picker" id="txtTodate" value="04/20/2016" placeholder="To Validity">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                    SAVE</button>
+                                <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                    UPDATE</button>
+                                <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                    DELETE</button>
+                                <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                    CREATE NEW</button>
+                                <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                    QUIT FORM</button>
+                                <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                    <span class="fa fa-refresh"></span>
+                                </a>
+                                <br />
+
+                                <h3 class="tab9section1 section-headers">FOC Policy Details</h3>
+                                <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab4-1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach FOC Policy Details</a></li>
+                                    <li role="presentation"><a href="#tab4-2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-file-text "></span>&nbsp;&nbsp;&nbsp;&nbsp;FOC Policy Details</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab4-1">
+                                        <div class="table-responsive">
+                                            <table id="" class="display table datatable" style="width: 100%; cellspacing: 0;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Costing FOC Type</th>
+                                                       
+                                                        <th>Costing Count / Free / Limit</th>
+
+                                                        <th style="width: 10%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Costing FOC Type</th>
+                                                       
+                                                        <th>Costing Count / Free / Limit</th>
+
+                                                        <th style="width: 10%;">Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Night</td>
+                                                        
+                                                        <td>1 / 2 / 1</td>
+
+                                                        <td>
+                                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                            &nbsp;&nbsp;
+                                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane " id="tab4-2">
+                                        <h3 class="tab9section1">Costing</h3>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="drpFOCType">FOC Type </label>
+                                                    <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">None</option>
+                                                        <option>Guest</option>
+                                                        <option>Night</option>
+                                                        <option>Room</option>
+                                                        <option>SEQ Guest</option>
+                                                        <option>SEQ Night</option>
+                                                        <option>SEQ Room</option>
+                                                    </select>
+                                                </div>
+                                              <div class="col-md-3">
+                                                    <label>&nbsp;</label>
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-marings">
+                                                            <input type="checkbox" checked>Incl. ABF
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                      <label>&nbsp;</label>
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-marings">
+                                                            <input type="checkbox" checked>Add. Surcharge
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="txtexchangerate">Count</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtCount" value="1" placeholder="Count">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtexchangerate">Free</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtFree" value="1" placeholder="Free">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtexchangerate">Limit</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtLimit" value="1" placeholder="Limit">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h3 class="tab9section1">Selling</h3>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="drpNationalityset">FOC Type </label>
+                                                    <select id="drpNationalityset" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">None</option>
+                                                        <option>Guest</option>
+                                                        <option>Night</option>
+                                                        <option>Room</option>
+                                                        <option>SEQ Guest</option>
+                                                        <option>SEQ Night</option>
+                                                        <option>SEQ Room</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label>&nbsp;</label>
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-marings">
+                                                            <input type="checkbox" checked>Incl. ABF
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                      <label>&nbsp;</label>
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-marings">
+                                                            <input type="checkbox" checked>Add. Surcharge
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="txtexchangerate">Count</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtCount" value="1" placeholder="Count">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtexchangerate">Free</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtFree" value="1" placeholder="Free">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="txtexchangerate">Limit</label>
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control" id="txtLimit" value="1" placeholder="Limit">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="txtRemarks">Remarks </label>
+                                                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                                                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <br />
+                                        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+                                            SAVE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+                                            UPDATE</button>
+                                        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+                                            DELETE</button>
+                                        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+                                            CREATE NEW</button>
+                                        <button id="btnSave" type="submit" class="btn btn-info btnSave">
+                                            QUIT FORM</button>
+                                        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+                                            <span class="fa fa-refresh"></span>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 summery-detail summery-uitilities-detail summerytab4">
+                            <div class="panel-body tab-itenaries ">
+                                <div class="panel-group">
+                                    <div class="panel panel-red">
+                                        <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                                            <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                                            <div class="panel-body summary-body">
+                                                <table class="table summary-list">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Created By: </td>
+                                                            <td><span class="label label-success">Samir Shah</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Created Date: </td>
+                                                            <td><span class="label label-warning">06-Mar-2016</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Created From Branch: </td>
+                                                            <td><span class="label label-danger">Bangkok</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last Updated By: </td>
+                                                            <td><span class="label label-info">Samir Shah</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last Updated Date: </td>
+                                                            <td><span class="label label-warning">14-Mar-2016</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Page Load Time: </td>
+                                                            <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Record Update Time: </td>
+                                                            <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

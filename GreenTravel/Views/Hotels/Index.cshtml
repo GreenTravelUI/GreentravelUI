@@ -1219,23 +1219,9 @@
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="txtRestaturantName">&nbsp;</label>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <input type="checkbox" checked="checked">Free Cancellation
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-md-3">
-                                            <label for="txtRestaturantName">&nbsp;</label>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <input type="checkbox">Pre Payment
-                                                </div>
-                                            </div>
-                                        </div>
+
+
 
                                     </div>
                                 </div>
@@ -1811,7 +1797,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Function Room Name</th>
+                                                    <th>Function Room Venue</th>
                                                     <th>Function Type</th>
                                                     <th>Setup Style</th>
                                                     <th style="width: 15%;">Action</th>
@@ -1820,7 +1806,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Function Room Name</th>
+                                                    <th>Function Room Venue</th>
                                                     <th>Function Type</th>
                                                     <th>Setup Style</th>
                                                     <th>Action</th>
@@ -1830,7 +1816,7 @@
 
                                                 <tr>
                                                     <td>1</td>
-                                                    <td><span>Meeting & Events</span></td>
+                                                    <td><span>First Floor Hall</span></td>
                                                     <td><span>Half Day AM</span></td>
                                                     <td><span>Banquet-20-1</span></td>
                                                     <td>
@@ -1848,15 +1834,15 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label for="txtConferenceRoomName">Function Room Name <span>*</span></label>
-                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="Meetings & Events" placeholder="Conference Room Name">
+                                                    <label for="txtConferenceRoomName">Function Room Venue <span>*</span></label>
+                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="First Floor Hall" placeholder="Conference Room Name">
                                                 </div>
                                             </div>
                                         </div>
                                         <h3>Dimensions</h3>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <label for="txtSetupStyle">Measurement</label>
                                                     <select id="drpStatusApplied" class="js-states form-control" style="display: none; width: 100%">
                                                         <option selected="selected">Feet</option>
@@ -1872,13 +1858,17 @@
                                                     <label for="txtConferenceRoomName">Width</label>
                                                     <input type="text" class="form-control" id="txtConferenceRoomName" value="10.5" placeholder="Conference Room Name">
                                                 </div>
+                                                 <div class="col-md-3">
+                                                    <label for="txtConferenceRoomName">Height</label>
+                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="8.5" placeholder="Conference Room Name">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label for="txtConferenceRoomName">Height</label>
-                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="8.5" placeholder="Conference Room Name">
+                                                    <label for="txtConferenceRoomName">Minimum Pax Capacity</label>
+                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="20" placeholder="Conference Room Name">
                                                 </div>
                                             </div>
                                         </div>
@@ -1887,6 +1877,14 @@
                                                 <div class="col-md-12">
                                                     <label for="drpSetupStyle">Function Type <span>*</span></label>
                                                     <input type="text" data-role="tagsinput" class="form-control" value="Half Day AM,Half Day PM" id="txtTags">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="drpSetupStyle">Optional Services </label>
+                                                    <input type="text" data-role="tagsinput" class="form-control" value="Extra A/c" id="txtTags">
                                                 </div>
                                             </div>
                                         </div>
@@ -1953,7 +1951,7 @@
                                                     <th class="" style="width: 17%">Setup Style</th>
                                                     <th class="tdpaddingleft">Capacity</th>
                                                     <th class="tdpaddingleft">Total Tables</th>
-
+                                                    <th class="tdpaddingleft">Remarks</th>
                                                     <th class="tdpaddingleft"></th>
                                                 </tr>
                                                 <tbody>
@@ -1969,6 +1967,9 @@
                                                         <td class="tdpaddingleft" style="width: 27%">
 
                                                             <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
+                                                        </td>
+                                                        <td class="tdpaddingleft" >
+                                                            <input type="text" class="form-control" id="txtTotalTables" placeholder="Remarks">
                                                         </td>
 
                                                         <td class="tdpaddingleft"><a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a></td>
@@ -1987,7 +1988,9 @@
 
                                                             <input type="text" class="form-control" id="txtTotalTables" value="2" placeholder="Setup Style">
                                                         </td>
-
+                                                         <td class="tdpaddingleft" style="padding-top: 10px">
+                                                            <input type="text" class="form-control" id="txtTotalTables" placeholder="Remarks">
+                                                        </td>
 
                                                         <td class="tdpaddingleft" style="padding-top: 10px"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
                                                     </tr>
@@ -1999,7 +2002,7 @@
                                         <br />
                                         <br />
                                         <h4 style="border-bottom: none !important">&nbsp;</h4>
-                                        <h3>Stage Size</h3>
+                                      @*  <h3>Stage Size</h3>
                                         <div class="table-responsive">
                                             <table style="width: 100%">
                                                 <thead>
@@ -2072,7 +2075,7 @@
                                                 </tbody>
                                             </table>
 
-                                        </div>
+                                        </div>*@
                                         <h3 style="border-bottom: none !important">&nbsp;</h3>
                                         <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                             SAVE</button>
@@ -2155,18 +2158,18 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Venue</th>
-                                                    <th>Service</th>
-                                                    <th>Menu Type</th>
+                                                    <th>Gala Dinner Venue</th>
+
+                                                    <th>Meal Type</th>
                                                     <th style="width: 15%;">Action</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Vanue</th>
-                                                    <th>Service</th>
-                                                    <th>Menu Type</th>
+                                                    <th>Gala Dinner Vanue</th>
+
+                                                    <th>Meal Type</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </tfoot>
@@ -2174,9 +2177,9 @@
 
                                                 <tr>
                                                     <td>1</td>
-                                                    <td><span>Tealicious Bangkok</span></td>
+                                                    <td><span>First Floor Hall</span></td>
                                                     <td><span>Lunch,Dinner</span></td>
-                                                    <td><span>Veg,None-Vage</span></td>
+
                                                     <td>
                                                         <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                         &nbsp;&nbsp;
@@ -2192,30 +2195,14 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label for="txtRestaturantName">Venue</label>
-                                                    <input type="text" class="form-control" id="txtRestaturantName" value="Mantra Restaurant & Bar" placeholder="Restaturant Name">
+                                                    <label for="txtRestaturantName">Gala Dinner Venue</label>
+                                                    <input type="text" class="form-control" id="txtRestaturantName" value="First Floor Hall" placeholder="Restaturant Name">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+
+                                      @*  <div class="form-group">
                                             <label for="txtRestaturantName">Meal Type</label>
-                                            <div class="row">
-                                                <div class="col-md-3 form-marings">
-                                                    <input type="checkbox" checked="checked">Veg.
-                                                </div>
-                                                <div class="col-md-3 form-marings">
-                                                    <input type="checkbox">Non Veg.
-                                                </div>
-                                                <div class="col-md-3 form-marings">
-                                                    <input type="checkbox" checked="checked">Vegan
-                                                </div>
-                                                <div class="col-md-3 form-marings">
-                                                    <input type="checkbox" checked="checked">Jain
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtRestaturantName">Board Type</label>
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <input type="checkbox" checked="checked">Break Fast
@@ -2230,8 +2217,8 @@
                                                     <input type="checkbox" checked="checked">Kitchen Facility
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
+                                        </div>*@
+                                       @* <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label for="txtBreakFastFromTime">Break Fast From Time</label>
@@ -2286,8 +2273,9 @@
                                                 </div>
 
                                             </div>
-                                        </div>
-                                     @*   <div class="form-group">
+                                        </div>*@
+
+                                        @*   <div class="form-group">
                                             <label for="txtDinnerToTime">Menu Type</label>
                                             <div class="row">
                                                 <div class="col-md-3 form-marings">
@@ -2344,10 +2332,10 @@
 
 
                                         <h6 class="tab9section1">&nbsp;</h6>
-                                        <h3 class="tab9section1">Menu Attechment </h3>
+                                        <h3 class="tab9section1">Menu </h3>
                                         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#tab2-5" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Menu Attachment</a></li>
-                                            <li role="presentation"><a href="#tab2-6" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Menu Attachment</a></li>
+                                            <li role="presentation" class="active"><a href="#tab2-5" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Menu</a></li>
+                                            <li role="presentation"><a href="#tab2-6" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-hospital-o"></span>&nbsp;&nbsp;&nbsp;&nbsp;Menu</a></li>
                                         </ul>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="tab2-5">
@@ -2357,7 +2345,8 @@
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Menu Type</th>
-                                                                <th>Menu Attechment</th>
+                                                                
+                                                                <th>Menu</th>
                                                                 <th style="width: 15%;">Action</th>
                                                             </tr>
                                                         </thead>
@@ -2365,7 +2354,8 @@
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Menu Type</th>
-                                                                <th>Menu Attechment</th>
+                                                                
+                                                                <th>Menu</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </tfoot>
@@ -2374,7 +2364,7 @@
                                                             <tr>
                                                                 <td>1</td>
                                                                 <td><span>Indian-North Indian</span></td>
-
+                                                               
                                                                 <td>
                                                                 Menu                                                          
                                                         <td>
@@ -2394,9 +2384,16 @@
                                                             <label for="txtmenutitle">Menu Type</label>
                                                             <input type="text" class="form-control" id="txtmenutitle" placeholder="Menu Type">
                                                         </div>
-
+                                                       @* <div class="col-md-4">
+                                                            <label for="drpTypeOfRestaurant">Included Services</label>
+                                                            <select id="drpTypeOfRestaurant" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                                                <option selected="selected">2 Veg. Dishes</option>
+                                                                <option>2 Non Veg.Dishes</option>
+                                                                <option>Roti</option>
+                                                            </select>
+                                                        </div>*@
                                                         <div class="col-md-6">
-                                                            <label for="txtmenuattachment">Menu Attachment</label>
+                                                            <label for="txtmenuattachment">Menu</label>
                                                             <input type="text" class="form-control" id="txtmenuattachment" placeholder="Menu Attechment">
                                                         </div>
 

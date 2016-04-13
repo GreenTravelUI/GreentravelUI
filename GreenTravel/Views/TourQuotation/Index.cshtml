@@ -915,7 +915,9 @@
                                                                         <option>In Communication</option>
                                                                         <option>Re-confirmed</option>
                                                                         <option>Booked</option>
-
+                                                                        <option>Not Materialised</option>
+                                                                        <option>Lost</option>
+                                                                        <option>Lost To Competitor</option>
 
                                                                     </select>
                                                                 </div>
@@ -1543,9 +1545,10 @@
                                 <li role="presentation"><a href="#tab2-0" data-toggle="tab">All (197)<i class=""><img alt="Guide" src="../../assets/images/wizards/all.png"></i></a></li>
                                 <li role="presentation" class="active"><a href="#tab2-1" data-toggle="tab">Hotel (45)<i class=""><img alt="Guide" src="../../assets/images/wizards/hotel.png"></i></a></li>
                                 <li role="presentation"><a href="#tab2-2" data-toggle="tab">Sightseeing (34)<i class=""><img alt="Guide" src="../../assets/images/wizards/sightseeing.png"></i></a></li>
-                                <li role="presentation"><a href="#tab2-7" data-toggle="tab">Transportation<i class=""><img alt="Guide" src="../../assets/images/wizards/transportation.png"></i></a></li>
-                                <li role="presentation"><a href="#tab2-3" data-toggle="tab">Guide (5)<i class=""><img alt="Guide" src="../../assets/images/wizards/guide.png"></i></a></li>
                                 <li role="presentation"><a href="#tab2-4" data-toggle="tab">Restaurant (78)<i class=""><img alt="Guide" src="../../assets/images/wizards/Restaurant.png"></i></a></li>
+                               
+                                 <li role="presentation"><a href="#tab2-7" data-toggle="tab">Transportation<i class=""><img alt="Guide" src="../../assets/images/wizards/transportation.png"></i></a></li>
+                                <li role="presentation"><a href="#tab2-3" data-toggle="tab">Guide (5)<i class=""><img alt="Guide" src="../../assets/images/wizards/guide.png"></i></a></li>
                                 @*<li role="presentation"><a href="#tab2-5" data-toggle="tab">Conferance (12)<i class=""><img alt="Guide" src="../../assets/images/wizards/conference.png"></i></a></li>
                                 <li role="presentation"><a href="#tab2-6" data-toggle="tab">Gala Dinner (23)<i class=""><img alt="Guide" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>*@
                             </ul>
@@ -4351,7 +4354,10 @@
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
-                                         <div class="col-md-4">
+                                        </div>
+                                    <h3>Meal Type Rate</h3>
+                                    <div class="row">       
+                                                                          <div class="col-md-4">
                                             <label>ABF Adult Rate</label>
                                             <div class="input-group input-append">
                                                 <input type="text" class="form-control" id="txtCNBRate" value="1000" placeholder="">
@@ -4365,9 +4371,23 @@
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
+                                         <div class="col-md-4">
+                                            <label>Lunch Adult Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtRoomcostPerNight" value="1500" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                        
+                                         <div class="col-md-4">
+                                            <label>Lunch Child Rate</label>
+                                            <div class="input-group input-append">
+                                                <input type="text" class="form-control" id="txtRoomcostPerNight" value="1500" placeholder="">
+                                                <span class="input-group-addon add-on"><span>THB</span></span>
+                                            </div>
+                                        </div>
                                         <div class="col-md-4">
                                             <label>Dinner Adult Rate</label>
                                             <div class="input-group input-append">
@@ -4382,9 +4402,8 @@
                                                 <span class="input-group-addon add-on"><span>THB</span></span>
                                             </div>
                                         </div>
-
-                                    </div>
-                                 
+                                        </div>
+                                  
                                     <br />
                                     <div class="row">
                                         <div class="col-md-10"></div>
@@ -4560,7 +4579,20 @@
                                 </td>
 
                             </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Exchange Rate: </h4>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtAppliedDistount" value="0.028" placeholder="" readonly>
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost For Quotation: </h4>
@@ -4647,7 +4679,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="txtPickupTime">Pickup Time</label>
-                                    <input type="text" class="form-control" name="txtPickupTime" value="08:00" id="txtPickupTime" placeholder="" readonly>
+                                    <input type="text" class="form-control" name="txtPickupTime" value="08:00" id="txtPickupTime" placeholder="">
                                 </div>
                             </div>
                         </div>
@@ -4828,7 +4860,20 @@
                                 </td>
 
                             </tr>
+                             <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Exchange Rate: </h4>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtAppliedDistount" value="0.028" placeholder="" readonly>
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost For Quotation: </h4>
@@ -5020,7 +5065,20 @@
                                 </td>
 
                             </tr>
+                             <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Exchange Rate: </h4>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtAppliedDistount" value="0.028" placeholder="" readonly>
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost For Quotation: </h4>
@@ -5229,7 +5287,20 @@
                                 </td>
 
                             </tr>
+                             <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Exchange Rate: </h4>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtAppliedDistount" value="0.028" placeholder="" readonly>
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost For Quotation: </h4>
@@ -5612,7 +5683,20 @@
                                 </td>
 
                             </tr>
+                             <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Exchange Rate: </h4>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtAppliedDistount" value="0.028" placeholder="" readonly>
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost For Quotation: </h4>
@@ -5854,7 +5938,20 @@
                                 </td>
 
                             </tr>
+                             <tr>
+                                <td>
+                                    <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Exchange Rate: </h4>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtAppliedDistount" value="0.028" placeholder="" readonly>
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
                                     <h4 class="strong" style="margin-top: 15px; margin-right: 10px;">Total Cost For Quotation: </h4>
@@ -5938,10 +6035,10 @@
                                         <td class="borbotm">Bangkok
                                         </td>
                                         <td class="borbotm">
-                                            <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpServiceInclisions" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                 <option>Amari Atrium</option>
                                                 <option>Amari Oceans</option>
-                                                <option>Bangkok Floor</option>
+                                                <option selected="selected">Bangkok Floor</option>
                                             </select>
                                         </td>
                                     </tr>
@@ -5949,9 +6046,9 @@
                                         <td class="borbotm">Pattaya
                                         </td>
                                         <td class="borbotm">
-                                            <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpServiceInclisions" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                 <option>Amari Atrium</option>
-                                                <option>Amari Oceans</option>
+                                                <option selected="selected">Amari Oceans</option>
                                                 <option>Bangkok Floor</option>
                                             </select>
                                         </td>
@@ -5960,9 +6057,9 @@
                                         <td class="borbotm">Phuket
                                         </td>
                                         <td class="borbotm">
-                                            <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
+                                            <select id="drpServiceInclisions" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
                                                 <option>Amari Atrium</option>
-                                                <option>Amari Oceans</option>
+                                                <option selected="selected">Amari Oceans</option>
                                                 <option>Bangkok Floor</option>
                                             </select>
                                         </td>

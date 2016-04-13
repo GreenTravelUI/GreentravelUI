@@ -409,7 +409,8 @@
                                                 <option>Set4</option>
                                             </select>
                                         </div>
-                                         <div class="col-md-6">
+                                        
+                                        <div class="col-md-6">
                                             <label for="drpTypeOfSupplier">Supplier Type<span>*</span></label>
                                             <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
                                                 <option selected="selected">Accommodation</option>
@@ -422,7 +423,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                      
+                                        
                                         <div class="col-md-3">
                                             <label for="drpSupplier">Supplier </label>
                                             <select id="drpSupplier" class="js-states form-control" style="display: none; width: 100%">
@@ -437,7 +438,19 @@
                                                 <option>Xyz Hotel</option>
                                             </select>
                                         </div>
-                                         <div class="col-md-3">
+                                        <div class="col-md-6">
+                                            <label for="txtTodate">Function Room Venue </label>
+                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                <option selected="selected">First Floor Hall</option>
+                                                
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <label for="txtFromDate">From Function Date </label>
                                             <input type="text" class="form-control date-picker" id="txtFromDate" value="01/07/2016" placeholder="From Validity">
                                         </div>
@@ -448,16 +461,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="row">
-                                       
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="lbloperatingweekday">Operating Week Days </label>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            
-                                           <input type="checkbox" checked>Mon &nbsp &nbsp
+
+                                            <input type="checkbox" checked>Mon &nbsp &nbsp
                                            <input type="checkbox">Tue &nbsp &nbsp
                                            <input type="checkbox" checked>Wed &nbsp &nbsp
                                            <input type="checkbox" checked>Thu &nbsp &nbsp
@@ -663,20 +671,22 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nationality Set</th>
+                                                <th>Guest Nationality</th>
                                                 <th>Function Type</th>
                                                 <th>Includes / Setup / Time </th>
-                                                <th>Per Person Rate (THB)</th>
+                                                <th>Adult Rate (THB)</th>
+                                                <th>Child Rate (THB)</th>
                                                 <th style="width: 15%;">Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nationality Set</th>
+                                                <th>Guest Nationality</th>
                                                 <th>Function Type</th>
                                                 <th>Includes / Setup / Time </th>
-                                                <th>Per Person Rate (THB)</th>
+                                                <th>Adult Rate (THB)</th>
+                                                <th>Child Rate (THB)</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -691,6 +701,7 @@
                                                     <a href="#" rel="tooltip" title="From Time - 8:00 | To Time-13:00"><i class="fa fa-clock-o"></i></a>&nbsp;&nbsp
                                                 </td>
                                                 <td><span class="spaneditable">5000</span></td>
+                                                <td><span class="spaneditable">3000</span></td>
                                                 <td>
                                                     <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                     &nbsp;&nbsp;
@@ -707,6 +718,7 @@
 
                                                 </td>
                                                 <td><span class="spaneditable">10000</span></td>
+                                                <td><span class="spaneditable">5000</span></td>
                                                 <td>
                                                     <a href="#"><i class="fa fa-pencil-square-o"></i></a>
                                                     &nbsp;&nbsp;
@@ -723,7 +735,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label for="drpNationalitySet">Nationality Set </label>
+                                                <label for="drpNationalitySet">Guest Nationality </label>
                                                 <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
                                                     <option selected="selected">Asian - Indian</option>
                                                     <option>African</option>
@@ -745,23 +757,16 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                             <div class="col-md-6">
-                                                <label for="txtFromTime">Function Room Name</label>
-                                                <input type="text" class="form-control" id="txtFromTime" value="Meeting" placeholder="From Time">
-                                            </div>
-                                            <div class="col-md-6">
+
+                                         @*   <div class="col-md-6">
                                                 <label for="drpSetupStyle">Setup Style</label>
                                                 <select id="drpSetupStyle" class="js-states form-control" style="display: none; width: 100%">
                                                     <option selected="selected">Banquet | Capacity:20 | Tables:1</option>
                                                     <option>Theater | Capacity:30 | Tables:1</option>
 
                                                 </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-12">
+                                            </div>*@
+                                            <div class="col-md-6">
                                                 <label for="drpMealPlan">Included Services</label>
                                                 <select id="drpMealPlan" multiple="multiple" class="js-states form-control" style="display: none; width: 100%">
 
@@ -772,12 +777,7 @@
                                                     <option>Sink</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-
-                                            <div class="col-md-3">
+                                             <div class="col-md-3">
                                                 <label for="txtFromTime">From Time </label>
                                                 <input type="text" class="form-control timepicker" id="txtFromTime" value="8:00 AM" placeholder="From Time">
                                             </div>
@@ -785,18 +785,45 @@
                                                 <label for="txtToTime">To Time </label>
                                                 <input type="text" class="form-control timepicker" id="txtToTime" value="02:00 PM" placeholder="To Time">
                                             </div>
-                                            <div class="col-md-6">
-                                                <label for="txtPerPersonRate">Per Person Rate </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                           
+                                             <div class="col-md-3">
+                                                <label for="drpMealPlan">Minimum Guarantied Pax</label>
+                                                <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option><=40</option>
+                                                    <option><=60</option>
+                                                    <option><=80</option>
+                                                    <option><=100</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="txtPerPersonRate">Adult Rate</label>
                                                 <div class="input-group input-append">
                                                     <input type="text" class="form-control" id="txtPerPersonRate" value="5000" placeholder="Per Person Rate">
                                                     <span class="input-group-addon add-on"><span>THB</span></span>
                                                 </div>
 
                                             </div>
+                                              <div class="col-md-3">
+                                                <label for="txtPerPersonRate">Child Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtPerPersonRate" value="3000" placeholder="Per Person Rate">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
 
+                                            </div>
                                         </div>
 
                                     </div>
+                                    
                                     <button id="btnSave" type="submit" class="btn btn-success btnSave">
                                         SAVE</button>
                                     <button id="btnSave" type="submit" class="btn btn-primary btnSave">
