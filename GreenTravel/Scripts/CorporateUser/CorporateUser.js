@@ -61,6 +61,29 @@
         })
     }
 
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formcorporate",
+                title: "Create Master Data Entry.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".panel-title",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
+
     $('.drag-close').click(function () {
         $(this).parent().parent().remove();
     });
@@ -94,3 +117,30 @@
 
 
 });
+
+function GuidedTour() {
+
+    // Guided Tour Code Start
+    var tour = new Tour({
+        steps: [
+        {
+            
+            element: ".formcorporate",
+            title: "Create Master Data Entry.",
+            content: "Enter data for masters from here.",
+            placement: "bottom"
+        },
+        {
+            element: ".btn-tables-views",
+            title: "Masters Views",
+            content: "Open master views list and modifiy view data.",
+            placement: "bottom"
+        }
+        ]
+    });
+    localStorage.clear();
+    tour.init();
+    //tour.start();
+    return tour;
+    // Guided Tour Code End
+}
