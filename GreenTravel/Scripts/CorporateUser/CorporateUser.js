@@ -66,8 +66,8 @@
         var tour = new Tour({
             steps: [
             {
-                element: ".formcorporate",
-                title: "Create Master Data Entry.",
+                element: ".formcorporatedetail",
+                title: "Create Corporate.",
                 content: "Enter data for masters from here.",
                 placement: "bottom"
             },
@@ -125,7 +125,7 @@ function GuidedTour() {
         steps: [
         {
             
-            element: ".formcorporate",
+            element: ".formcorporatedetail",
             title: "Create Master Data Entry.",
             content: "Enter data for masters from here.",
             placement: "bottom"

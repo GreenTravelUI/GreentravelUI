@@ -60,6 +60,28 @@
             $('#toArrayOutput')[0].textContent = arraied : $('#toArrayOutput')[0].innerText = arraied;
         })
     }
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formcreatesupplier",
+                title: "Create Supplier .",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".paneltitleguide",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
 
     $('.drag-close').click(function () {
         $(this).parent().parent().remove();

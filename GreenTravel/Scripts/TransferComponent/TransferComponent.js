@@ -22,6 +22,28 @@
             //$(this).parent().parent().prev().css('transform', 'rotate3d(0,1,0, 360deg)');
         }
     });
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formtransfercomponententry",
+                title: "Create Master Data Entry.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".summeryguidetranscompo",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
     Morris.Bar({
         element: 'morris2',
         data: [

@@ -59,6 +59,29 @@
         })
     }
 
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formagentdetail",
+                title: "Create Agent.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".panelsummery",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
+
     $('.drag-close').click(function () {
         $(this).parent().parent().remove();
     });

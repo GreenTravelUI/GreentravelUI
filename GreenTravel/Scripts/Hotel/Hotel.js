@@ -61,6 +61,29 @@ $(document).ready(function () {
         currentButton.trigger('focusout');
         e.preventDefault();
     });
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formcreatehotel",
+                title: "Create Hotel Entry.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".panelsummeryguide",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
+
     $('st-accordion').on('click', 'li div.my_class', handle_click);
     $('.orderby-accordion li').on('click', function () {
         var thisControl = $(this);

@@ -40,6 +40,28 @@ $(document).ready(function () {
         e.preventDefault();
     });
     $('st-accordion').on('click', 'li div.my_class', handle_click);
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formimageentry",
+                title: "Create Master Data Entry.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".summerypannelimage",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
     $('.orderby-accordion li').on('click', function () {
         var thisControl = $(this);
         $('.orderby-accordion li').removeClass('orderby').find('i').removeClass('fa').removeClass('fa-check');

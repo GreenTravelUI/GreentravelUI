@@ -46,6 +46,28 @@ $(document).ready(function () {
         thisControl.find('i').addClass('fa').addClass('fa-check')
         thisControl.addClass('orderby')
     });
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formguideentry",
+                title: "Create Master Data Entry.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".summerypanelguide",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
     Morris.Bar({
         element: 'morris2',
         data: [
