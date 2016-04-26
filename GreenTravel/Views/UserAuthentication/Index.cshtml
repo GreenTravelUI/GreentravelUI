@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Index";
-    ViewBag.Title = "User Authentication";
-    ViewBag.PageTitle = "User Authentication";
+    ViewBag.Title = "User Authorization";
+    ViewBag.PageTitle = "User Authorization";
     
 }
 
@@ -18,8 +18,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
                     <li role="presentation" class="active usertab1gridclass" id="userlitab1"><a href="#tab1" role="tab" data-toggle="tab" data-section="tab1" class="basic-accord"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search User</a></li>
-                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Authentication </a></li>
-                </ul>
+                    <li role="presentation" class="userlitab4class" id="userlitab4"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;User Authorization </a></li>
+                      <li role="presentation" class="userlitab4class" id="userlitab5"><a href="#tab5" role="tab" data-toggle="tab" data-section="tab5" class="hosting-accord"><span class="menu-icon fa fa-cubes"></span>&nbsp;&nbsp;&nbsp;&nbsp;Advance Authorization</a></li>
+               
+                     </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                       @Html.Partial("_SearchUserAuthenticate")
@@ -27,6 +29,9 @@
                     <div role="tabpanel" class="tab-pane" id="tab2">
                        @Html.Partial("_CreateUserAuthenticate")
 
+                    </div>
+                     <div role="tabpanel" class="tab-pane" id="tab5">
+                        @Html.Partial("_AdvanceAuth")
                     </div>
                 </div>
             </div>

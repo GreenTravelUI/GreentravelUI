@@ -52,4 +52,26 @@ $(document).ready(function () {
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
+    $('#startGuiededTour').on('click', function () {
+        //var _tour = GuidedTour();\
+        var tour = new Tour({
+            steps: [
+            {
+                element: ".formwl1",
+                title: "Basic Detail Entry.",
+                content: "Enter data for masters from here.",
+                placement: "bottom"
+            },
+            {
+                element: ".guidesummerywl1",
+                title: "Page Summary",
+                content: "Your page summary will be goes here.",
+                placement: "bottom"
+            }
+            ]
+        });
+        localStorage.clear();
+        tour.init();
+        tour.start();
+    });
 });
