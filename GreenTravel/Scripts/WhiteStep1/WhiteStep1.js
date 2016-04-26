@@ -41,7 +41,7 @@ $(document).ready(function () {
     }
 
     $('.drag-close').click(function () {
-        $(this).parent().parent().remove();
+        $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
     });
 
     $('#ulViewList').delegate("a", "click", function (e) {
