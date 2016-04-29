@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "UserName";
+    Layout = null;
+}
+
+<html>
+
+
+<head>
+
+    <!-- Title -->
+    <title>Green Travel</title>
+    @*<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />*@
+    <link rel="icon" href="@Session["Favicon"]" type="image/x-icon" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+    <!-- Styles -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme <style></style>s -->
+    <link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/cs-select.css" />
+    <link href="~/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+
+    <script src="~/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+    <script src="~/assets/plugins/sweetalert/sweetalert2.min.js"></script>
+    <script src="~/Scripts/JS/Page/Login.js"></script>
+    <script src="~/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="~/assets/js/pages/form-select2.js"></script>
+
+</head>
+<body class="page-login login-alt ">
+    <main class="page-content login-body">
+           <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-4 center">
+                            <div class="login-box panel panel-white">
+                               
+                                <div class="panel-body" >
+                                    <div class="row">
+                                     <div class="col-md-12 center">
+                                            <input id="hdfUrl" type="hidden" value="@ViewBag.RedirectUrl"/>
+
+                                            <form>
+                                                <div class="form-group">
+                                                     <a href="" class="logo-name text-lg"><img src="@Session["Logo"]" height="45" width="200" /></a>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Username/Email</label>
+                                                    <input  id="txtPassword" type="text" class="form-control" placeholder="Username/Email" required>
+                                                </div>
+                                                 
+                                               <div class="col-md-6">
+                                                <input type="submit" id="btnLogin" name="btnLogin" value="SEND OTP" onclick="window.location.href = './ForgotPassword'" class="btn btn-success btn-block" />
+                                                   </div>
+                                                <div class="col-md-6">
+                                                <input type="submit" id="btnLogin" name="btnLogin" value="CANCEL" class="btn btn-danger btn-block" />
+                                                    </div>
+                                              
+                                            </form>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                               
+                                  
+                            </div>
+                        </div>
+                    </div><!-- Row -->
+                </div>
+        </main>
+</body>
+</html>

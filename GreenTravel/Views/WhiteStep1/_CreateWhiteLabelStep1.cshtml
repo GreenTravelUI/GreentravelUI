@@ -148,6 +148,19 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="drpStatus">Status</label>
+                        <select id="drpStatus" class="js-states form-control Dropdown " style="display: none; width: 100%">
+                            <option>Active</option>
+                            <option>Inactive</option>
+                           
+
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-12">
@@ -191,10 +204,22 @@
             </div>
 
             <div class="row">
+                 <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txtFavicon">Whitelabel</label>
+                        <select id="drpBaseCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
+                            <option>None</option>
+                            <option>Full White Label</option>
+                            <option>Semi White Label</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="txtLogo">Logo <span>*</span> </label>
-                        <input type="text" class="form-control req" id="txtLogo" placeholder="http://www.flamingotravels.co.in/logo/gtlogo.png">
+                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect').click();" placeholder="gtlogo">
+                        <input id="logoselect" type="file" style="display:none" />
+
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -206,10 +231,14 @@
                     </div>
                 </div>
 
-                <div class="col-md-5">
+              
+            </div>
+            <div class="row">
+                  <div class="col-md-5">
                     <div class="form-group">
                         <label for="txtFavicon">Favicon Image  <span>*</span> </label>
-                        <input type="text" class="form-control" id="txtFavicon" placeholder="Favicon Image">
+                        <input type="text" class="form-control" id="txtFavicon" onclick="$('#faviconselect').click();" placeholder="FaviconImage">
+                        <input id="faviconselect" type="file" style="display:none" />
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -220,15 +249,11 @@
                         </a>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="row">
-
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="txtbackgroundimg">Login Background Image <span>*</span> </label>
-                        <input type="text" class="form-control req " id="txtbackgroundimg" placeholder="http://www.flamingotravels.co.in/img/gtbgimg.png">
+                        <input type="text" class="form-control req " id="txtbackgroundimg" onclick="$('#bgselect').click();" placeholder="gtbgimg">
+                        <input id="bgselect" type="file" style="display:none" />
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -239,22 +264,14 @@
                         </a>
                     </div>
                 </div>
+               
+            </div>
+
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="txtLoginFrmCaption">Login Caption<span>*</span> </label>
                         <input type="text" class="form-control" id="txtLoginFrmCaption" placeholder="Login Caption">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="txtFavicon">Whitelabel</label>
-                        <select id="drpBaseCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
-                            <option>Full White Label</option>
-                            <option>Semi White Label</option>
-                        </select>
                     </div>
                 </div>
 
@@ -343,7 +360,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="drpOtherLanguage">Date Format<span></span></label>
+                        <label for="drpOtherLanguage">Corporate Date Format <span>*</span></label>
                         <select id="drpOtherLanguage" class="js-states form-control Language Dropdown" style="display: none; width: 100%">
                             <option>mm/dd/yyyy</option>
                             <option>dd/mm/yyyy</option>
@@ -402,7 +419,7 @@
 
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="drpCommisionCurrency">Commision Currency <span>*</span></label>
+                        <label for="drpCommisionCurrency">Commision Currency </label>
                         <select id="drpCommisionCurrency" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                             <option>INR</option>
                             <option>AUD</option>
@@ -416,7 +433,7 @@
                 <div class="col-md-6">
 
                     <div class="form-group">
-                        <label for="drpCommissionType">Commision Type <span>*</span></label>
+                        <label for="drpCommissionType">Commision Type </label>
                         <select id="drpCommissionType" class="js-states form-control Dropdown req" style="display: none; width: 100%">
                             <option>One Time</option>
                             <option>Recurring</option>
@@ -452,8 +469,9 @@
                 DELETE</button>
             <button id="btnclearTab2Sec4" type="button" class="btn btn-warning btnClearuserpref">
                 CREATE NEW</button>
-            <button id="btnquitTab2Sec4" type="button" class="btn btn-info">
-                QUIT FORM</button>
+            <a class="btn btn-info" rel="tooltip" title="Quit Form" aria-expanded="false">
+                <span class="fa fa-times"></span>
+            </a>
 
             <a class="btn btn-refresh" rel="tooltip" title="Refresh Page" aria-expanded="false" onclick="window.location.href=window.location.href;">
                 <span class="fa fa-refresh"></span>

@@ -104,7 +104,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<body class="page-horizontal-bar page-header-fixed page-sidebar-fixed">@*page-horizontal-bar *@
+<body class="page-horizontal-bar page-header-fixed page-sidebar-fixed">@*page-horizontal-bar page-sidebar-fixed *@
     <div class="overlay"></div>
     <nav class="cbp-spmenu cbp-spmenu2 cbp-spmenu-vertical cbp-spmenu-vertical2 cbp-spmenu-right cbp-spmenu-right2" id="cbp-rightsummary-s1">
         @RenderSection("rightsidesummary", required: false)
@@ -441,7 +441,7 @@
             </div>
         </div><!-- Navbar -->
         @*page-sidebar*@
-        <div class="horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
+        <div id="changemenudiv" class="horizontal-bar sidebar">@*horizontal-bar  page-sidebar*@
             <div class="page-sidebar-inner slimscroll">
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
@@ -513,8 +513,8 @@
                                         <li>@Html.ActionLink("Manage Users", "Index", "CorporateUser")</li>
                                         <li>@Html.ActionLink("Manage Roles", "Index", "CorporateRole")</li>
                                         <li>@Html.ActionLink("User Authorization", "Index", "UserAuthentication")</li>
-                                        <li>@Html.ActionLink("Authorization Policy Master", "Index", "AuthorizationMaster")</li>
-                                        <li>@Html.ActionLink("User Authorization", "Index", "Authorization")</li>        
+                                      @*  <li>@Html.ActionLink("Authorization Policy Master", "Index", "AuthorizationMaster")</li>
+                                        <li>@Html.ActionLink("User Authorization", "Index", "Authorization")</li>       *@ 
                                     </ul>
                                 </li>
                                 <li>
@@ -947,15 +947,17 @@
             </div>
             <div class="page-footer">
                 @{
-                    ViewBag.FooterCopyRight = DateTime.Now.Year + " &copy; TechPure Ltd. (UK)";
+                    ViewBag.FooterCopyRight = "Copyright &copy; "+ DateTime.Now.Year + " All Rights Reserved By TechPure Ltd. (UK)";
                 }
-                
+              
                 @if (string.IsNullOrEmpty(ViewBag.FooterCopyRight))
                 {
-                    <p class="no-s">@DateTime.Now.Year &copy; Modern by Steelcoders.</p>
+                    <p class="no-s"><span style="">Powered By </span><a href="#" class="logo-name text-lg"><img src="assets/images/logo-green-footer.png"  /></a></p>
+                    <p class="no-s">@DateTime.Now.Year &copy;</p>
                 }
                 else
                 {
+                     <p class="no-s"><span style="">Powered By </span> <a href="#" class="logo-name text-lg"><img src="assets/images/logo-green-footer.png"  /></a></p>
                     <p class="no-s">@Html.Raw(ViewBag.FooterCopyRight)</p>
                 }
                 <a id="showRightSideSummary"  class="showRightSideSummary" style="display:none;"></a>

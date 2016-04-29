@@ -1,4 +1,11 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
+
+    $('.grid').masonry({
+        itemSelector: '.grid-item'
+
+    });
+
     $('ol.sortable').nestedSortable({
         forcePlaceholderSize: true,
         handle: 'div',
@@ -74,4 +81,5 @@
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
+   
 });

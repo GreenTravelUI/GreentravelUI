@@ -8,13 +8,16 @@ $( document ).ready(function() {
     
     setTimeout(function() {
         toastr.options = {
+            
             closeButton: true,
             progressBar: true,
             showMethod: 'fadeIn',
             hideMethod: 'fadeOut',
-            timeOut: 5000
+            visible: false,
+            timeOut: 1
+           
         };
-        toastr.success('Checkout settings menu on left!', 'Welcome to Modern!');
+        toastr.success('Your Travel Automation Solution!', 'Welcome to GreenTravel!');
     }, 1800);
     
     var flot2 = function () {

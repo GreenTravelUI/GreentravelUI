@@ -74,4 +74,44 @@ $(document).ready(function () {
         tour.init();
         tour.start();
     });
+    $('.searchpanel-button').on('click', function (e) {
+        var currentButton = $(this);
+        var panelClass = $(this).attr('data-show-panel');
+        $('.panel-search:visible').slideUp(600);
+        var panel = $('.' + panelClass);
+        if ($('.' + panelClass).is(':visible')) {
+            panel.slideUp(600, function () {
+               
+                collapsePanelButton($('.advanced-panel-button').children());
+            });
+        } else {
+            panel.find('.panel-body').show();
+            panel.slideDown(600, function () {
+                if ($(this).hasClass('booking-panel')) {
+                    collapsePanelButton($('.advanced-panel-button').children());
+                   
+                } else {
+                   
+                    expandPanelButton($('.advanced-panel-button').children());
+                }
+            });
+        }
+        currentButton.trigger('focusout');
+        e.preventDefault();
+    });
+    //$("#example-editable_length").css('display', 'none');
+    $("#example-editable_filter").css('display', 'none');
+   
 });
+function expandPanelButton(control) {
+    control.removeClass('fa-plus');
+    control.addClass('fa-minus');
+}
+function collapsePanelButton(control) {
+    control.removeClass('fa-minus');
+    control.addClass('fa-plus');
+}
+function handle_click(e) {
+    e.stopPropagation();
+    // your event code
+}
