@@ -1,47 +1,14 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
-    $('.grid').masonry({
-        itemSelector: '.grid-item'
-
+    $('.hotelstatus').editable({
+        value: 2,
+        source: [
+            { '1': 'Active' },
+            { '2': 'Inactive' }
+        ]
     });
-
-    $('ol.sortable').nestedSortable({
-        forcePlaceholderSize: true,
-        handle: 'div',
-        helper: 'clone',
-        items: 'li',
-        opacity: .6,
-        placeholder: 'placeholder',
-        revert: 250,
-        tabSize: 25,
-        tolerance: 'pointer',
-        toleranceElement: '> div',
-        maxLevels: 3,
-
-        isTree: true,
-        expandOnHover: 700,
-        startCollapsed: true
-    });
-
-
     if ($('ol.sortable').length) {
-        $('ol.sortable').nestedSortable({
-            forcePlaceholderSize: true,
-            handle: 'div',
-            helper: 'clone',
-            items: 'li',
-            opacity: .6,
-            placeholder: 'placeholder',
-            revert: 250,
-            tabSize: 25,
-            tolerance: 'pointer',
-            toleranceElement: '> div',
-            maxLevels: 3,
-            //isTree: true,
-            expandOnHover: 700,
-            startCollapsed: true
-        });
+
 
         $('.disclose').on('click', function () {
             $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
@@ -72,22 +39,11 @@ $(document).ready(function () {
     });
 
     $('#ulViewList').delegate("a", "click", function (e) {
-       
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
     $('.ulviewlistclass').delegate("a", "click", function (e) {
-        
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
-   
-});
-
-$('#userlitab4').click(function () {
-    window.dispatchEvent(new Event('resize'));
-});
-
-$('#userlitab5').click(function () {
-    window.dispatchEvent(new Event('resize'));
 });
