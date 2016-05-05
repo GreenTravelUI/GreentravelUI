@@ -21,26 +21,26 @@
                 <div class="tab-content">
                     <input type="hidden" id="hdfsrno" />
                     <div role="tabpanel" class="tab-pane active" id="tab1">
-                      @Html.Partial("_SearchCompany")
+                        @Html.Partial("_SearchCompany")
                     </div>
                     <div role="tabpanel" class="tab-pane" id="tab2">
-                      @Html.Partial("_CreateWhiteLabelStep1")
+                        @Html.Partial("_CreateWhiteLabelStep1")
                     </div>
                     <div role="tabpanel" class="tab-pane" id="tab3">
-                       @Html.Partial("_SubcribeAndBilling")
+                        @Html.Partial("_SubcribeAndBilling")
                     </div>
                     <div role="tabpanel" class="tab-pane" id="tab4">
-                       @Html.Partial("_HostingAndSupport")
+                        @Html.Partial("_HostingAndSupport")
                     </div>
                     <div role="tabpanel" class="tab-pane" id="tab5">
                         @Html.Partial("_UserPReferanceStep1")
                     </div>
                     <div role="tabpanel" class="tab-pane" id="tab6">
-                       @Html.Partial("_PasswordauthenticateStep1")
+                        @Html.Partial("_PasswordauthenticateStep1")
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="tab7">
-                      @Html.Partial("_DatabaseWhitelabelStep1")
+                        @Html.Partial("_DatabaseWhitelabelStep1")
                     </div>
 
                 </div>
@@ -115,15 +115,12 @@
             <i class="flaticon-new-email-black-back-envelope-symbol-of-interface text-utilities-email"></i>
             <span>Email</span>
         </a>
-        @*<a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-notebook-black-tool-symbol"></i>
-            <span>SMS</span>
-        </a>*@
+
         <a href="javascript:void(0);" class="showRight2">
             <i class="flaticon-broken-black-ticket-symbol text-utilities-notes"></i>
             <span>Notes</span>
         </a>
-        <a href="javascript:void(0);" class="showRight2">
+        <a href="#" onclick="functiontag();">
             <i class="flaticon-close-arrow-shape-button-interface-symbol text-utilities-tags"></i>
             <span>Tags</span>
         </a>
@@ -131,14 +128,7 @@
             <i class="flaticon-film-strip-piece-of-two-photograms text-utilities-helpvideo"></i>
             <span>Help Video</span>
         </a>
-        @*<a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-notebook-black-tool-symbol"></i>
-            <span>Guided Tour</span>
-        </a>*@
-        @*<a href="javascript:void(0);" class="showRight2">
-            <i class="flaticon-notebook-black-tool-symbol"></i>
-            <span>Copy</span>
-        </a>*@
+
         <a href="javascript:void(0);">
             <i class="flaticon-printing-button-interface-symbol text-utilities-print"></"></i>
             <span>Print</span>
@@ -148,7 +138,7 @@
             <span>Screenshot</span>
         </a>
         <hr />
-        <div class="col-md-12">
+        <div class="col-md-12" id="sumNotification">
             <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Notification</h4>
 
             <ul class="list-unstyled">
@@ -216,6 +206,46 @@
                     </a>
                 </li>
             </ul>
+        </div>
+        <div class="col-md-12" id="sumTagsearch" style="display: none">
+             <form>
+            <table style="width: 100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Custom Tags</h4>
+                        </td>
+                        <td>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="functiontagclose();"><span aria-hidden="true">&times;</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+           <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                        <label for="drpStatus">Tabs</label>
+                        <select id="drpStatus" class="js-states form-control Dropdown " style="display: none; width: 100%">
+                            <option>Create Whitelabel</option>
+                            <option>Subcription / Billing</option>
+                            <option>Hosting / Support</option>
+                            <option>Database</option>
+                            <option>UI Preferanse</option>
+                            <option>Password Preferanse</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+                 <div class="form-group" style="padding-top:20px">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                        <input type="text" data-role="tagsinput" id="txtTagSearchsum" class="form-control" value="" placeholder="Tag Search" />
+                    </div>
+                </div>
+            </div>
+                </form>
         </div>
     </div>
     <div class="slimscroll quickreport-sidebar">

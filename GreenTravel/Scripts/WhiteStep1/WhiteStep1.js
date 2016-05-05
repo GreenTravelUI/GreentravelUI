@@ -115,3 +115,18 @@ function handle_click(e) {
     e.stopPropagation();
     // your event code
 }
+
+function functiontag(e)
+{
+    $("#sumNotification").css("display", "none");
+    $("#sumTagsearch").css("display", "block");
+}
+
+function functiontagclose(e)
+{
+    $("#sumNotification").css("display", "block");
+    $("#sumTagsearch").css("display", "none");
+}
+
+
+
