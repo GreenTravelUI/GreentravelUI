@@ -134,7 +134,7 @@
         e.preventDefault();
     });
     //$("#example-editable_length").css('display', 'none');
-    $("#example-editable_filter").css('display', 'none');
+    $(".dataTables_filter").css('display', 'none');
 });
 
 function expandPanelButton(control) {

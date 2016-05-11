@@ -32,7 +32,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#serachfrom').click(function (e) {
+    $('#Searchfrom').click(function (e) {
         getdata();
     });
 
@@ -414,7 +414,7 @@ $(document).ready(function () {
         }).done(function () {
             $('.tab3section1').show();
             $('.tab3Formname').text($('#txtFormName').val());
-            $("#serachfrom").removeClass("active");
+            $("#Searchfrom").removeClass("active");
             $("#Frmcreate").addClass("active");
             $("#tab1").removeClass("active");
             $("#tab3").addClass("active");
@@ -1115,7 +1115,7 @@ $(document).ready(function () {
         $("#Frmcreate").removeClass("active");
         $("#frmtab").removeClass("active");
         $("#frmsection").addClass("active");
-        $("#serachfrom").removeClass("active");
+        $("#Searchfrom").removeClass("active");
         getdatatab();
         e.preventDefault();
     });
@@ -1508,11 +1508,11 @@ function Quitform() {
     $("#tab4").removeClass("active");
     $("#tab5").removeClass("active");
 
-    $("#serachfrom").addClass("active");
+    $("#Searchfrom").addClass("active");
     $("#Frmcreate").removeClass("active");
     $("#frmtab").removeClass("active");
     $("#frmsection").removeClass("active");
-    $("#serachfrom").trigger('click');
+    $("#Searchfrom").trigger('click');
     $("#tab1").focus();
 }
 

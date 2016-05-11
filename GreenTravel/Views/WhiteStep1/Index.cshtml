@@ -3,6 +3,7 @@
     ViewBag.PageTitle = "White Label Step-1";
     ViewBag.CurrentMenu = "SCREEN-0-0-3";
 }
+
 <link href="~/Content/WhiteStep1/WhiteStep1.css" rel="stylesheet" />
 
 <div class="col-md-12 form-detail">
@@ -10,7 +11,7 @@
         <div class="panel-body">
             <div role="tabpanel">
                 <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-                    <li role="presentation" class="active" id="Search"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Company </a></li>
+                    <li role="presentation" class="active" id="Search"><a href="#tab1" role="tab" data-section="tab1" data-toggle="tab" class="hosting-accord"><span class="menu-icon glyphicon glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Company </a></li>
                     <li role="presentation" id="CreateCorporate"><a href="#tab2" role="tab" data-section="tab2" data-toggle="tab" class="basic-accord"><span class="menu-icon glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create White Label</a></li>
                     <li role="presentation" id="Tab3"><a href="#tab3" role="tab" data-section="tab3" data-toggle="tab" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Subscription / Billing</a></li>
                     <li role="presentation" id="Tab4"><a href="#tab4" role="tab" data-section="tab4" data-toggle="tab" class="basic-accord"><span class="menu-icon fa fa-server"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hosting / Support</a></li>
@@ -98,7 +99,7 @@
         </span>
         <a href="javascript:void(0);" class="pull-right btn" id="closeRightSideSummary" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
     </h3>
-    <div class="slimscroll utilities-sidebar">
+<div class="slimscroll utilities-sidebar">
         <a href="javascript:void(0);" class="showRight2">
             <i class="flaticon-notebook-black-tool-symbol text-utilities-tasks"></i>
             <span>Task</span>
@@ -140,7 +141,6 @@
         <hr />
         <div class="col-md-12" id="sumNotification">
             <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Notification</h4>
-
             <ul class="list-unstyled">
                 <li>
                     <a href="#">
@@ -208,46 +208,56 @@
             </ul>
         </div>
         <div class="col-md-12" id="sumTagsearch" style="display: none">
-             <form>
-            <table style="width: 100%">
-                <tbody>
-                    <tr>
-                        <td>
-                            <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Custom Tags</h4>
-                        </td>
-                        <td>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="functiontagclose();"><span aria-hidden="true">&times;</span></button></td>
-                    </tr>
-                </tbody>
-            </table>
-           <div class="form-group">
-            <div class="row">
-                <div class="col-md-12">
-                    
-                        <label for="drpStatus">Tabs</label>
-                        <select id="drpStatus" class="js-states form-control Dropdown " style="display: none; width: 100%">
-                            <option>Create Whitelabel</option>
-                            <option>Subcription / Billing</option>
-                            <option>Hosting / Support</option>
-                            <option>Database</option>
-                            <option>UI Preferanse</option>
-                            <option>Password Preferanse</option>
+                    <table style="width: 100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4 class="text-danger" style="border-bottom: 1px dashed #ccc; padding: 0 5px 5px 5px;">Custom Tags</h4>
+                                </td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="functiontagclose();"><span aria-hidden="true">&times;</span></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
 
-                        </select>
+                                <label for="drpStatus">Tabs</label>
+                                <select id="drpStatus" class="js-states form-control Dropdown " style="display: none; width: 100%">
+                                    <option>Create Whitelabel</option>
+                                    <option>Subcription / Billing</option>
+                                    <option>Hosting / Support</option>
+                                    <option>Database</option>
+                                    <option>UI Preferanse</option>
+                                    <option>Password Preferanse</option>
+
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-                 <div class="form-group" style="padding-top:20px">
-            <div class="row">
-                <div class="col-md-12">
-                    
-                        <input type="text" data-role="tagsinput" id="txtTagSearchsum" class="form-control" value="" placeholder="Tag Search" />
+                    <div class="form-group" style="padding-top: 20px">
+                        <div class="row">
+                            <div class="col-md-12 tagsiz">
+                                <input type="text" data-role="tagsinput" id="txtTagSearchsum" class="form-control" placeholder="Custom Tags" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-                </form>
+                    <div class="form-group" style="padding-top: 12px">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button id="btnSaveTab2Sec4" type="submit" class="btn btn-success btnSaveuserpref">
+                                    Add Tag</button>
+                            </div>
+                            <div class="col-md-3" style="padding-left:40px">
+                                <button id="btnUpdateTab2Sec4" type="submit" class="btn btn-primary btnSaveuserpref">
+                UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
+         
         </div>
-    </div>
+  
     <div class="slimscroll quickreport-sidebar">
         <div class="col-md-12">
             <br />
@@ -307,7 +317,7 @@
 }
 
 @section rightsidetimeline{
-    <h3>Trail
+<h3>Trail
         <a id="closeRightSideTimeline" class="pull-right btn" href="javascript:void(0);" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
     </h3>
     <div class="slimscroll utilities-sidebar">

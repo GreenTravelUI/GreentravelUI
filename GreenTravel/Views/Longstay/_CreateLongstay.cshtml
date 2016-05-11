@@ -1,17 +1,31 @@
 ﻿<div class="col-md-8 full-responsive">
     <form>
-        <h3 class="tab9section1">Create Longstay / Payless Discount- <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
+        <h3 class="tab9section1">Create Long Stay / Pay Less Discount- <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
         <div class="form-group">
             <div class="row">
+                <div class="col-md-3">
+                    <label for="txtFromDate">Contract ID </label>
+                    <input type="text" class="form-control" id="txtContractID" placeholder="Contract ID" readonly>
+                </div>
                 <div class="col-md-3">
                     <label for="drpCostingSet">Contract Title</label>
                     <select id="drpCostingTitle" class="js-states form-control" style="display: none; width: 100%">
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="txtFromDate">Contract ID </label>
-                    <input type="text" class="form-control" id="txtContractID" placeholder="Contract ID" readonly>
+                    <label for="txtFromDate">Promotion Title</label>
+                    <input type="text" class="form-control" id="txtContractID" placeholder="Promotion">
                 </div>
+                <div class="col-md-3">
+                    <label for="txtFromDate">Promotion Code </label>
+                    <input type="text" class="form-control" id="txtContractID" placeholder="Promotion Code">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
                 <div class="col-md-3">
                     <label for="drpTypeOfAgent">FIT/Group</label>
                     <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
@@ -29,12 +43,6 @@
 
                     </select>
                 </div>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            <div class="row">
                 <div class="col-md-3">
                     <label for="txtRateFromDate">Travel From Date</label>
                     <input type="text" class="form-control date-picker" id="txtRateFromDate" value="01/07/2016" placeholder="Travel From Date">
@@ -43,38 +51,320 @@
                     <label for="txtRateToDate">Travel To Date </label>
                     <input type="text" class="form-control date-picker" id="txtRateToDate" value="04/20/2016" placeholder="Travel To Date">
                 </div>
-                <div class="col-md-3">
-                    <label for="txtRateFromDate">
-                        Blackout From Date
-                    </label>
-                    <input type="text" class="form-control date-picker" id="txtRateFromDate" value="01/07/2016" placeholder="Travel From Date">
-                </div>
-                <div class="col-md-3">
-                    <label for="txtRateToDate">Blackout To Date </label>
-                    <input type="text" class="form-control date-picker" id="txtRateToDate" value="04/20/2016" placeholder="Travel To Date">
-                </div>
+
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="drpStatus">Status</label>
                     <select id="drpStatusEB" class="js-states form-control" style="display: none; width: 100%">
                         <option selected="selected">Active </option>
                         <option>Inactive </option>
                     </select>
                 </div>
+
                 <div class="col-md-6">
                     <label>&nbsp;</label>
                     <div class="row">
                         <div class="col-md-12 form-marings">
-                            <input type="checkbox" checked>Can Combine With Other Promotions
+                            <input type="checkbox" checked>Can Combine With Other Promotions ?
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="drpStatus">Promotion</label>
+                    <select id="drpStatusEB" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Blackout Period</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 31%; padding: 5px">Blackout From Date</th>
+                                    <th style="width: 31%; padding: 5px">Blackout To Date</th>
+                                    <th style="width: 32%; padding: 5px">Comments</th>
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/06/2016" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="10/10/2016" placeholder="Heading">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="Comments">
+                                    </td>
+                                    <td style="padding: 5px"></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/06/2016" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="10/10/2016" placeholder="Heading">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="Comments">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/06/2016" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="10/10/2016" placeholder="Heading">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="Comments">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="tab9section5">Costing</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%; padding: 5px">Guest Nationality</th>
+                                    <th style="width: 20%; padding: 5px">Min. Stay (Days)</th>
+                                    <th style="width: 35%; padding: 5px">Discount Type</th>
+                                    <th style="width: 20%; padding: 5px">Discount</th>
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Asian - Indian</option>
+                                            <option>Affrican</option>
+                                            <option>Europen</option>
+                                            <option>Austrailian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="10" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Percentage</option>
+                                            <option>Amount</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                    </td>
+
+                                    <td style="padding: 5px"></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Asian - Indian</option>
+                                            <option>Affrican</option>
+                                            <option>Europen</option>
+                                            <option>Austrailian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="05" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Percentage</option>
+                                            <option>Amount</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Asian - Indian</option>
+                                            <option>Affrican</option>
+                                            <option>Europen</option>
+                                            <option>Austrailian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="10" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Percentage</option>
+                                            <option>Amount</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="txtRemarks">Remarks </label>
+                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="tab9section5">Selling</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%; padding: 5px">Guest Nationality</th>
+                                    <th style="width: 20%; padding: 5px">Min. Stay (Days)</th>
+                                    <th style="width: 35%; padding: 5px">Discount Type</th>
+                                    <th style="width: 20%; padding: 5px">Discount</th>
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Asian - Indian</option>
+                                            <option>Affrican</option>
+                                            <option>Europen</option>
+                                            <option>Austrailian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="10" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Percentage</option>
+                                            <option>Amount</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                    </td>
+
+                                    <td style="padding: 5px"></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Asian - Indian</option>
+                                            <option>Affrican</option>
+                                            <option>Europen</option>
+                                            <option>Austrailian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="05" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Percentage</option>
+                                            <option>Amount</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpNationalitySet" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Asian - Indian</option>
+                                            <option>Affrican</option>
+                                            <option>Europen</option>
+                                            <option>Austrailian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="10" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Percentage</option>
+                                            <option>Amount</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="txtRemarks">Remarks </label>
+                    <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="txtRemarksInternal">Remarks (Internal)</label>
+                    <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+                </div>
+            </div>
+        </div>
+
+
         <button id="btnSave" type="submit" class="btn btn-success btnSave">
             SAVE</button>
         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
@@ -93,9 +383,9 @@
         <br />
         <br />
 
-        <h3 class="tab9section1">Costing </h3>
+        @* <h3 class="tab9section1">Costing </h3>
         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab2LS1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Costing</a></li>
+            <li role="presentation" class="active"><a href="#tab2LS1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Costing</a></li>
             <li role="presentation"><a href="#tab2LS2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Costing</a></li>
         </ul>
         <div class="tab-content">
@@ -110,7 +400,7 @@
         <h6>&nbsp;</h6>
         <h3 class="tab9section1">Selling </h3>
         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab2LPS1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Serach Selling</a></li>
+            <li role="presentation" class="active"><a href="#tab2LPS1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Selling</a></li>
             <li role="presentation"><a href="#tab2LPS2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Selling</a></li>
         </ul>
         <div class="tab-content">
@@ -120,7 +410,7 @@
             <div role="tabpanel" class="tab-pane" id="tab2LPS2">
                 @Html.Partial("_CreateSellingLS")
             </div>
-        </div>
+        </div>*@
 
     </form>
 </div>
