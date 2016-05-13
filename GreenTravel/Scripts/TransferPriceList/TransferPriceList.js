@@ -61,6 +61,10 @@
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
+    $('.ulViewListcl').delegate("a", "click", function (e) {
+        $(this).parent().parent().find("li").removeClass("active");
+        $(this).parent().addClass("active");
+    });
     $('#startGuiededTour').on('click', function () {
         //var _tour = GuidedTour();\
         var tour = new Tour({

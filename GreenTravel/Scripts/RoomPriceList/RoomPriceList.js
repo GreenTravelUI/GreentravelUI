@@ -149,3 +149,10 @@ function handle_click(e) {
     e.stopPropagation();
     // your event code
 }
+function functionrattab()
+{
+    $("#litab1").removeClass("active");
+    $("#litab3").addClass("active");
+    $("#tab1").removeClass("active");
+    $("#tabrate").addClass("active");
+}
