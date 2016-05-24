@@ -1,128 +1,108 @@
 ﻿<form>
-     <div class="form-group">
+      <div class="form-group" style="margin-bottom:5px !important">
         <div class="row">
-            <div class="col-md-5">
-                <label for="txtTagSearch">Tag Search</label>
-                <input type="text" id="txtTagSearch" class="form-control" placeholder="Tag Search" />
-            </div>
-            <div class="col-md-2">
-                <label for="txtTagSearch">Criteria</label>
-                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                    <option selected="selected">None</option>
-                    <option>At</option>
-                    <option>Between</option>
-                    <option>Less than</option>
-                    <option>Less than or equal</option>
-                    <option>At Month</option>
-                    <option>Between Month</option>
-                    <option>More than</option>
-                    <option>More than or equal</option>
-                    <option>At Quater</option>
-                    <option>Between Quater</option>
-                    <option>At Year</option>
-                    <option>Between Year</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="txtTagSearch">Search By</label>
-                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                    <option selected="selected">Created date</option>
-                    <option>Updated date</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="txtTagSearch">From</label>
-                <div class="row">
-                    <div class="col-md-5">
-                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                            <option selected="selected">2016</option>
-                            <option>2015</option>
-                            <option>2014</option>
-                            <option>2013</option>
-                            <option>2012</option>
-                            <option>2011</option>
-                            <option>2010</option>
-                        </select>
-                    </div>
-                    <div class="col-md-7">
-                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
-                            <option selected="selected">January</option>
-                            <option>February</option>
-                            <option>March</option>
-                            <option>April</option>
-                            <option>May</option>
-                            <option>June</option>
-                            <option>July</option>
-                            <option>August</option>
-                            <option>September</option>
-                            <option>October</option>
-                            <option>November</option>
-                            <option>December</option>
-                        </select>
-                    </div>
+            <div class="col-md-5" style="width: 34%">
+                <div class="form-group">
+                    <h2 style="border-width: 0; margin-bottom: 0; color: red; margin-top: 0px; font-size: 27px;" class="" id="lblTotalRecordsFound"><span>200 Records found</span></h2>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <h4 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound">200 Records found</h4>
-    </div>
-    <div class="dropdown table-custome-drop">
-        <div class="btn-group">
-            <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                <span class="fa fa-upload" rel="tooltip" title="Import"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Download Import Format</a></li>
-                <li><a id="" href="javascript:void(0);" data-toggle="modal" data-target="#importmodal">Import Data</a></li>
-            </ul>
-            <div class="modal fade modify-colum-model" id="importmodal" role="dialog">
-                <div class="modal-dialog modal-lg">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Import Data
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Select File</label>
-                                        <input id="Upload File" type="file" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger ">Verify</button>
-                            <button type="button" class="btn btn-success ">Import</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-4" style="width: 49%">
+                <input type="text" data-role="tagsinput" id="txtTagSearch" class="form-control" value="" placeholder="Tag Search" />
             </div>
-        </div>
-        &nbsp;&nbsp;
-                                <div class="btn-group">
-                                    <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 111%">
-                                        <span class="glyphicon glyphicon-download-alt" rel="tooltip" title="Download"></span>
+          
+            <div class="col-md-3" style="width: 16%">
+                         <a href="javascript:void(0);" style="font-size: 12px !important" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-plus"></i></a>
+
+                  <div class="dropdown table-custome-drop" style="padding-top: 5px">
+                    <div class="btn-group">
+                        <a class="label label-maroon dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
+                            <span class="glyphicon glyphicon-download-alt"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Excel</a></li>
+
+                            <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
+                        </ul>
+                    </div>
+                    &nbsp;&nbsp;
+                                <div class="btn-group btn-tables-views">
+                                    <a class="label label-primary dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
+                                        <span class="icon-grid"></span>
                                     </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Excel</a></li>
-                                        <li><a href="#">PDF</a></li>
-                                        <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
+                                    <ul class="dropdown-menu cate-drop-menu">
+                                        <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
                                     </ul>
-                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
-                                        <div class="modal-dialog modal-sm">
+                                    <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h3>Email Grid Data
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    </h3>
+                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
                                                 </div>
                                                 <div class="modal-body">
+                                                    <br />
+                                                    <div class="model-left-columns">
+                                                        <div class="field-name">
+                                                            <h3>View <a href="#"></a></h3>
+                                                            <ul id="ulViewList" class="field-list slimscroll">
+                                                                <li><a href="#">Subscription</a></li>
+                                                                <li><a href="#">Billing</a></li>
+                                                                <li><a href="#">Hosting</a></li>
+                                                                <li class="active"><a href="#">Support</a></li>
+                                                                <li><a href="#">UI</a></li>
+                                                                <li><a href="#">Database</a></li>
+
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field-name">
+                                                            <h3>Field Name <a href="#">Add all</a></h3>
+                                                            <div class="field-list field-list-img slimscroll">
+                                                                <ul>
+                                                                    <li><a href="#">Application URL</a></li>
+                                                                    <li><a href="#">Primary Contact Person</a></li>
+                                                                    <li><a href="#">Efective Date From</a> </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="drag-drop-right">
+                                                        <section>
+                                                            <h2>Drag and drop reorder</h2>
+                                                            <div class="cf nestable-lists">
+                                                                <ul id="sortable" class="ui-sortable sortable-list">
+                                                                    <li class="ui-state-default">Company Name</li>
+                                                                    <li class="ui-state-default">Company Industry</li>
+                                                                    <li class="ui-state-default">FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                    <li class="ui-state-default">Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                    <li class="ui-state-default">Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                        <div class="modal-dialog" style="width: 30%; height: 40%">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h3>Email</h3>
+                                                    <br />
+                                                </div>
+                                                <div class="modal-body">
+
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -134,7 +114,7 @@
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <label for="txtHotelCode">Message</label>
+                                                                <label for="txtHotelCode">Massage</label>
                                                                 <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
                                                             </div>
                                                         </div>
@@ -147,104 +127,153 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-        <div class="btn-group btn-tables-views">
-            <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 111%" aria-expanded="false">
-                <span class="fa fa-th-large"></span>
-            </a>
-            <ul class="dropdown-menu cate-drop-menu">
-                <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
-                <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
-            </ul>
-            <div class="modal fade modify-colum-model" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Change View</h4>
-                        </div>
-                        <div class="modal-body">
-                            <br />
-                            <div class="model-left-columns">
-                                <div class="field-name">
-                                    <h3>View <a href="#"></a></h3>
-                                    <ul id="ulViewList" class="field-list slimscroll">
-                                        <li><a href="#">City</a></li>
-                                        <li><a href="#">Country</a></li>
-                                        <li><a href="#">State</a></li>
-                                        <li class="active"><a href="#">Agent Margin</a></li>
-                                        <li><a href="#">Support Mode</a></li>
-                                        <li><a href="#">Agent Type</a></li>
-                                        <li><a href="#">Control Type</a></li>
-                                        <li><a href="#">Nationality</a></li>
-                                        <li><a href="#">Vehicle Name</a></li>
-                                        <li><a href="#">SMS Configure</a></li>
-                                        <li><a href="#">Screen</a></li>
-                                        <li><a href="#">Supplier Type</a></li>
-                                        <li><a href="#">Date Format</a></li>
-                                        <li><a href="#">days</a></li>
-                                        <li><a href="#">Holiday</a></li>
-                                        <li><a href="#">Bank</a></li>
-                                    </ul>
-                                </div>
-                                <div class="field-name">
-                                    <h3>Field Name <a href="#">Add all</a></h3>
-                                    <div class="field-list field-list-img slimscroll">
-                                        <ul>
-                                            <li><a href="#">Value</a></li>
-                                            <li><a href="#">Margin Type</a></li>
-                                            <li><a href="#">Efective Date From</a></li>
+                </div>
 
-                                        </ul>
+            </div>
+        </div>
+    </div>
+
+
+    @*Advance Search*@
+    <div class="from-group panel-search advanced-panel" style="display: none; width: 64%; margin-left: 440px">
+        <div class="panel panel-green">
+               
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Search By</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Created date</option>
+                                            <option>Updated date</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Criteria</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">None</option>
+                                            <option>At</option>
+                                            <option>Between</option>
+                                            <option>At Month</option>
+                                            <option>Between Month</option>
+                                            <option>At Quater</option>
+                                            <option>Between Quater</option>
+                                            <option>At Year</option>
+                                            <option>Between Year</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">From</label>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">2016</option>
+                                                    <option>2015</option>
+                                                    <option>2014</option>
+                                                    <option>2013</option>
+                                                    <option>2012</option>
+                                                    <option>2011</option>
+                                                    <option>2010</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">January</option>
+                                                    <option>February</option>
+                                                    <option>March</option>
+                                                    <option>April</option>
+                                                    <option>May</option>
+                                                    <option>June</option>
+                                                    <option>July</option>
+                                                    <option>August</option>
+                                                    <option>September</option>
+                                                    <option>October</option>
+                                                    <option>November</option>
+                                                    <option>December</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div class="drag-drop-right">
-                                <section>
-                                    <h2>Drag and drop reorder</h2>
-                                    <div class="cf nestable-lists">
-                                        <ul id="sortable" class="ui-sortable sortable-list">
-                                            <li class="ui-state-default">Agent Type</li>
-                                            <li class="ui-state-default">Agent Master Code</li>
-                                            <li class="ui-state-default">FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
-                                            <li class="ui-state-default">Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
-                                            <li class="ui-state-default">Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
-                                        </ul>
-                                        @*<ol class="sortable" id="ddr">
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Type<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div><span class=""><span></span></span>Agent Master Code<a class="" href="javascript:void(0);"></a></div>
-                                                                    </li>
-                                                                    <li id="list_4">
-                                                                        <div><span class="disclose"><span></span></span>FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_5">
-                                                                        <div><span class="disclose"><span></span></span>Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-                                                                    <li id="list_9">
-                                                                        <div><span class="disclose"><span></span></span>Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></div>
-                                                                    </li>
-
-                                                                </ol>*@
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success ">Apply</button>
                         </div>
                     </div>
-                </div>
-            </div>
 
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Group By Column</label>
+
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Company Name</option>
+                                            <option>Company Industry</option>
+                                            <option>Application URL</option>
+                                            <option>Primary contact Person</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">To</label>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="text" id="txtTodate" class="form-control date-picker" value="28/04/2016" placeholder="Tag Search" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    @*     <div class="col-md-4">
+                                        <label for="txtTagSearch">Period</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Today</option>
+                                            <option>Yesterday</option>
+                                            <option>Last 7 Days</option>
+                                            <option>Last 15 Days</option>
+                                            <option>Last 1 Month</option>
+                                            <option>Last 3 Months</option>
+                                            <option>Last 6 Months</option>
+                                            <option>Last 1 Year</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Action</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Created </option>
+                                            <option>Updated </option>
+                                        </select>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 0; padding-top: 15px;">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH & GROUP BY</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
     <br />
@@ -276,7 +305,34 @@
                 </tr>
             </tfoot>
             <tbody>
+                 <tr>
+                    <td></td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                   
+                    <td>
+                        <a href="#" rel="tooltip" title="Clear Filters"><span class="fa fa-undo grid-btn-success"></span></a>&nbsp;&nbsp;
+                       
 
+                    </td>
+
+                </tr>
                 <tr>
                     <td>1</td>
                     <td>AGT-050</td>

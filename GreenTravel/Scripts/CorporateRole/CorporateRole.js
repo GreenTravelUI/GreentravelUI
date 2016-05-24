@@ -81,7 +81,34 @@ $(document).ready(function () {
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
-   
+    $('.searchpanel-button').on('click', function (e) {
+        var currentButton = $(this);
+        var panelClass = $(this).attr('data-show-panel');
+        $('.panel-search:visible').slideUp(600);
+        var panel = $('.' + panelClass);
+        if ($('.' + panelClass).is(':visible')) {
+            panel.slideUp(600, function () {
+
+                collapsePanelButton($('.advanced-panel-button').children());
+
+            });
+        } else {
+            panel.find('.panel-body').show();
+            panel.slideDown(600, function () {
+                if ($(this).hasClass('booking-panel')) {
+                    collapsePanelButton($('.advanced-panel-button').children());
+
+                } else {
+
+                    expandPanelButton($('.advanced-panel-button').children());
+                }
+            });
+        }
+        currentButton.trigger('focusout');
+        e.preventDefault();
+    });
+
+    $("#example-editable_filter").css('display', 'none');
 });
 
 $('#userlitab4').click(function () {
@@ -91,3 +118,4 @@ $('#userlitab4').click(function () {
 $('#userlitab5').click(function () {
     window.dispatchEvent(new Event('resize'));
 });
+

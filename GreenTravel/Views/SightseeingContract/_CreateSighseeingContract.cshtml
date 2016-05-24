@@ -8,11 +8,23 @@
                     <label for="txtContractTitle">Contract Title </label>
                     <input type="text" class="form-control " id="txtContractTitle" value="" placeholder="Hotel Contract">
                 </div>
-                <div class="col-md-3">
+                  <div class="col-md-6">
+                    <label for="drpTypeOfSupplier">Costing Set<span>*</span></label>
+                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Full Year 1-Nov-2016 To 31-10-2016</option>
+                       
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
                     <label for="txtContractDate">Contract Date </label>
                     <input type="text" class="form-control date-picker" id="txtContractDate" value="01/06/2016" placeholder="From Validity">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="txtContractDate">Contract ID </label>
                     <input type="text" class="form-control" id="txtContractDate" value="" placeholder="Contract ID" readonly>
                 </div>
@@ -47,22 +59,15 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="drpTypeOfSupplier">Applicable To<span>*</span></label>
-                    <select id="drpTypeOfSupplier" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
                         <option selected="selected">FIT</option>
                         <option>Group</option>
 
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <label for="drpTypeOfSupplier">Costing Set<span>*</span></label>
-                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                        <option selected="selected">Set 1</option>
-                        <option>Set 2</option>
-
-                    </select>
-                </div>
+              
                 <div class="col-md-3">
                     <label for="txtFromDate">Validity From</label>
                     <input type="text" class="form-control date-picker" id="txtFromDate" value="01/01/2016" placeholder="From Validity">
@@ -101,13 +106,26 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-3">
-                    <label for="drpStatus">No Show charge</label>
+                    <label for="drpStatus">No Show Charge</label>
                     <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
                         <option selected="selected">50% </option>
                         <option>100% </option>
                     </select>
                 </div>
-
+                <div class="col-md-3">
+                    <label for="drpStatus">Sightseeing Type</label>
+                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">City Tour </option>
+                        <option>Beach </option>
+                    </select>
+                </div>
+                 <div class="col-md-3">
+                    <label for="drpStatus">City</label>
+                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Bangkok </option>
+                        <option>Pattaya </option>
+                    </select>
+                </div>
                 <div class="col-md-3">
                     <label for="drpStatus">Status</label>
                     <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
@@ -460,23 +478,53 @@
                 </div>
             </div>
         </div>
-        <h3>VAT</h3>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
-                    <label for="txtBillingName">VAT Type </label>
-                    <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
-                        <option>Include</option>
-                        <option selected="selected">Excluded</option>
-                        <option>None</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="txtAddressLine2">VAT (%) </label>
-                    <input type="text" class="form-control" id="txtBillingAddressLine2" value="5" placeholder="Percentage (%)">
+                <div class="col-md-12">
+                    <h3>VAT</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 42%; padding: 5px">Guest Nationality</th>
+                                    <th style="width: 42%; padding: 5px">VAT Type</th>
+                                    <th style="width: 10%; padding: 5px">VAT (%)</th>
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                            <option selected="selected">Asian-Indian</option>
+                                            <option>American</option>
+                                            <option>Uropian</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpDisplayFor" class="js-states form-control" tabindex="-1" style="display: none; width: 100%">
+                                            <option selected="selected">Include</option>
+                                            <option>Excluded</option>
+                                            <option>None</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtBillingAddressLine2" value="7" placeholder="Percentage (%)">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+
+
         <div class="form-group">
             <div class="row">
                 <div class="col-md-12">

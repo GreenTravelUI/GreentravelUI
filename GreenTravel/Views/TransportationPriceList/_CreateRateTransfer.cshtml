@@ -31,10 +31,6 @@
     <div class="form-group">
         <div class="row">
             <div class="col-md-6">
-                <label for="drpTransferComponent">Transfer From </label>
-                <input type="text" class="form-control" id="txtServiceCostadd" value="Phuket Airport" placeholder="Transfer From">
-            </div>
-            <div class="col-md-6">
                 <label for="drpRateCurrency">Currency</label>
                 <select id="drpRateCurrency" class="js-states form-control" style="display: none; width: 100%">
                     <option selected="selected">THB</option>
@@ -42,6 +38,33 @@
                     <option>USD</option>
                 </select>
             </div>
+            <div class="col-md-6">
+                <label for="drpCostingType">City</label>
+                <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">Bangkok</option>
+                    <option>Phuket</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="drpCostingType">Transfer For</label>
+                <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">Airport To Hotel Area</option>
+                    <option>Hotel Area to Airport</option>
+                    <option>Hotel Onw Way</option>
+                    <option>Hotel Two Way</option>
+                    <option>Dinner or Lunch</option>
+                    <option>Sightseeing Two Way</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="drpTransferComponent">Transfer From Area </label>
+                <input type="text" class="form-control" id="txtServiceCostadd" value="Phuket Airport" placeholder="Transfer From">
+            </div>
+
         </div>
     </div>
     <div class="form-group">
@@ -59,7 +82,7 @@
             </div>
         </div>
     </div>
-   
+
     <div class="form-group">
         <div class="row">
             <div class="col-md-12">
@@ -68,12 +91,17 @@
                     <table style="width: 100%">
                         <thead>
                             <tr>
-                                <th style="width: 15%; padding: 5px">Transfer To</th>
-                                <th style="width: 11%; padding: 5px">Cost For<br /> <span class="text-danger">Car-Sedan</span> </th>
-                                <th style="width: 11%; padding: 5px">Cost For<br /> <span class="text-danger">Van-Van D4D</span> </th>
-                                <th style="width: 11%; padding: 5px">Cost For<br /> <span class="text-danger">Luxury-Camry</span> </th>
-                                <th style="width: 11%; padding: 5px">Cost For<br /> <span class="text-danger">Luxury-Mercedes</span> </th>
-                                <th style="width: 11%; padding: 5px">Cost For<br /> <span class="text-danger">Coach-45 Seater</span> </th>
+                                <th style="width: 15%; padding: 5px">Transfer To Area</th>
+                                <th style="width: 11%; padding: 5px">Cost For<br />
+                                    <span class="text-danger">Car-Sedan</span> </th>
+                                <th style="width: 11%; padding: 5px">Cost For<br />
+                                    <span class="text-danger">Van-Van D4D</span> </th>
+                                <th style="width: 11%; padding: 5px">Cost For<br />
+                                    <span class="text-danger">Luxury-Camry</span> </th>
+                                <th style="width: 11%; padding: 5px">Cost For<br />
+                                    <span class="text-danger">Luxury-Mercedes</span> </th>
+                                <th style="width: 11%; padding: 5px">Cost For<br />
+                                    <span class="text-danger">Coach-45 Seater</span> </th>
                                 <th style="width: 4%; padding: 5px"></th>
                             </tr>
                         </thead>
@@ -98,7 +126,7 @@
 
                                     <input type="text" class="form-control" id="txtServiceCostadd" value="1200" placeholder="Service Cost ">
                                 </td>
-                                 <td style="padding: 5px">
+                                <td style="padding: 5px">
 
                                     <input type="text" class="form-control" id="txtServiceCostadd" value="2000" placeholder="Service Cost ">
                                 </td>
@@ -166,12 +194,12 @@
             </div>
         </div>
     </div>
-     <button id="btnSave" type="submit" class="btn btn-success btnSave">
+    <button id="btnSave" type="submit" class="btn btn-success btnSave">
         SAVE</button>
     <button id="btnSave" type="submit" class="btn btn-primary btnSave">
         UPDATE</button>
     <button id="btnSave" type="submit" class="btn btn-info btnSave">
-            COPY & CREATE NEW</button>
+        COPY & CREATE NEW</button>
     <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
         DELETE</button>
     <button id="btnSave" type="submit" class="btn btn-warning btnSave">
@@ -214,10 +242,7 @@
     </div>
     <div class="form-group">
         <div class="row">
-            <div class="col-md-6">
-                <label for="drpTransferComponent">Transfer From </label>
-               <input type="text" class="form-control" id="txtTransferFrom" value="Phuket Airport" />
-            </div>
+            
             <div class="col-md-6">
                 <label for="drpCurrencyadd">Currency</label>
                 <select id="drpCurrencyadd" class="js-states form-control" style="display: none; width: 100%">
@@ -226,10 +251,36 @@
                     <option>INR</option>
                 </select>
             </div>
+              <div class="col-md-6">
+                <label for="drpCostingType">City</label>
+                <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">Bangkok</option>
+                    <option>Phuket</option>
+                </select>
+            </div>
         </div>
     </div>
-   
      <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="drpCostingType">Transfer For</label>
+                <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">Airport To Hotel Area</option>
+                    <option>Hotel Area to Airport</option>
+                    <option>Hotel Onw Way</option>
+                    <option>Hotel Two Way</option>
+                    <option>Dinner or Lunch</option>
+                    <option>Sightseeing Two Way</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="drpTransferComponent">Transfer From Area </label>
+                <input type="text" class="form-control" id="txtServiceCostadd" value="Phuket Airport" placeholder="Transfer From">
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
         <div class="row">
             <div class="col-md-12">
                 <h3>Transfer Rate - <span class="text-danger">Phuket Airport - THB</span></h3>
@@ -237,10 +288,10 @@
                     <table style="width: 100%">
                         <thead>
                             <tr>
-                                <th style="width: 32%; padding: 5px">Transfer To</th>
+                                <th style="width: 32%; padding: 5px">Transfer To Area</th>
                                 <th style="width: 31%; padding: 5px">Adult Rate</th>
                                 <th style="width: 31%; padding: 5px">Child Rate</th>
-                               
+
                                 <th style="width: 6%; padding: 5px"></th>
                             </tr>
                         </thead>
@@ -257,7 +308,7 @@
 
                                     <input type="text" class="form-control" id="txtServiceCostadd" value="500" placeholder="Service Cost ">
                                 </td>
-                               
+
                                 <td style="padding: 5px"></td>
                             </tr>
                             <tr>
@@ -272,7 +323,7 @@
 
                                     <input type="text" class="form-control" id="txtServiceCostadd" value="500" placeholder="Service Cost ">
                                 </td>
-                                
+
                                 <td style="padding: 5px">
                                     <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
                                 </td>
@@ -289,7 +340,7 @@
 
                                     <input type="text" class="form-control" id="txtServiceCostadd" value="500" placeholder="Service Cost ">
                                 </td>
-                               
+
                                 <td style="padding: 5px">
                                     <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
                                 </td>
@@ -300,12 +351,12 @@
             </div>
         </div>
     </div>
-     <button id="btnSave" type="submit" class="btn btn-success btnSave">
+    <button id="btnSave" type="submit" class="btn btn-success btnSave">
         SAVE</button>
     <button id="btnSave" type="submit" class="btn btn-primary btnSave">
         UPDATE</button>
     <button id="btnSave" type="submit" class="btn btn-info btnSave">
-            COPY & CREATE NEW</button>
+        COPY & CREATE NEW</button>
     <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
         DELETE</button>
     <button id="btnSave" type="submit" class="btn btn-warning btnSave">
@@ -394,7 +445,7 @@
     <button id="btnSave" type="submit" class="btn btn-primary btnSave">
         UPDATE</button>
     <button id="btnSave" type="submit" class="btn btn-info btnSave">
-            COPY & CREATE NEW</button>
+        COPY & CREATE NEW</button>
     <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
         DELETE</button>
     <button id="btnSave" type="submit" class="btn btn-warning btnSave">

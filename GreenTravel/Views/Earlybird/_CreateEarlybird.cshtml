@@ -3,22 +3,24 @@
         <h3 class="tab9section1">Create Early Bird Discount- <span class="text-danger">Amari Ocean Pattaya - Pattaya</span></h3>
         <div class="form-group">
             <div class="row">
+
                 <div class="col-md-3">
-                    <label for="txtFromDate">Contract ID </label>
-                    <input type="text" class="form-control" id="txtContractID" placeholder="Contract ID" readonly>
+                    <label for="drpCostingSet">Contract</label>
+                    <select id="drpCostingTitle" class="js-states form-control" style="display: none; width: 100%">
+                        <option>Outtrigger 2015/16 Full Year FIT</option>
+                    </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="drpCostingSet">Contract Title</label>
-                    <select id="drpCostingTitle" class="js-states form-control" style="display: none; width: 100%">
-                    </select>
+                    <label for="txtFromDate">Contract ID </label>
+                    <input type="text" class="form-control" id="txtContractID" value="0001" placeholder="Contract ID" readonly>
                 </div>
                 <div class="col-md-3">
                     <label for="txtFromDate">Promotion Title</label>
-                    <input type="text" class="form-control" id="txtContractID" placeholder="Promotion">
+                    <input type="text" class="form-control" id="txtContractID" value="Early Bird Special Promotion" placeholder="Promotion">
                 </div>
                 <div class="col-md-3">
                     <label for="txtFromDate">Promotion Code </label>
-                    <input type="text" class="form-control" id="txtContractID" placeholder="Promotion Code">
+                    <input type="text" class="form-control" id="txtContractID" value="EARLYBIRD_NOV_MAR" placeholder="Promotion Code">
                 </div>
             </div>
 
@@ -26,38 +28,50 @@
 
         <div class="form-group">
             <div class="row">
-                <div class="col-md-3">
-                    <label for="drpTypeOfAgent">FIT/Group</label>
-                    <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
-                        <option selected="selected">FIT</option>
-                        <option>Group</option>
-                    </select>
+                <div class="col-md-6">
+                    <label for="txtFromDate">FIT/Group</label>
+                    <input type="text" class="form-control" id="txtContractID" value="FIT" placeholder="FIT/Group" readonly>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="drpRoomCategory">Room Category </label>
-                    <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
+                    <select id="drpRoomCategory" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option selected="selected">All</option>
                         <option>Standard </option>
                         <option>Delux </option>
                         <option>Supirior</option>
-
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <label for="txtRateFromDate">
-                        Travel From Date
-                    </label>
-                    <input type="text" class="form-control date-picker" id="txtRateFromDate" value="01/07/2016" placeholder="From Validity">
-                </div>
-                <div class="col-md-3">
-                    <label for="txtRateToDate">Travel To Date </label>
-                    <input type="text" class="form-control date-picker" id="txtRateToDate" value="04/20/2016" placeholder="To Validity">
-                </div>
+
 
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
+                    <label for="txtRateFromDate">
+                        Travel From Date
+                    </label>
+                    <input type="text" class="form-control date-picker" id="txtRateFromDate" value="01/11/2015" placeholder="From Validity">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtRateToDate">Travel To Date </label>
+                    <input type="text" class="form-control date-picker" id="txtRateToDate" value="31/03/2016" placeholder="To Validity">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="drpRoomCategory">Discount Applied On</label>
+                    <select id="drpRoomCategory" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option selected="selected">All</option>
+                        <option>ABF.</option>
+                        <option>Lunch</option>
+                        <option>Dinner</option>
+                        <option>Extra Bed</option>
+                    </select>
+                </div>
+             @*   <div class="col-md-3">
                     <label>&nbsp;</label>
                     <div class="row">
                         <div class="col-md-12 form-marings">
@@ -69,7 +83,7 @@
                     <label>&nbsp;</label>
                     <div class="row">
                         <div class="col-md-12 form-marings">
-                            <input type="checkbox" checked>Incl. Meal
+                            <input type="checkbox">Incl. Meal
                         </div>
                     </div>
                 </div>
@@ -77,11 +91,11 @@
                     <label>&nbsp;</label>
                     <div class="row">
                         <div class="col-md-12 form-marings">
-                            <input type="checkbox" checked>Incl. Extra Bed
+                            <input type="checkbox">Incl. Extra Bed
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
+                </div>*@
+                <div class="col-md-6">
                     <label for="drpStatus">Status</label>
                     <select id="drpStatusEB" class="js-states form-control" style="display: none; width: 100%">
                         <option selected="selected">Active </option>
@@ -125,25 +139,56 @@
                             <tbody>
                                 <tr>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/06/2016" placeholder="Service Cost ">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="25/12/2015" placeholder="Service Cost ">
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="10/10/2016" placeholder="Heading">
+                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/01/2016" placeholder="Heading">
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="Comments">
+                                        <input type="text" class="form-control " id="txtAgeFrom" value="New Year" placeholder="Comments">
                                     </td>
-                                    <td style="padding: 5px"></td>
+                                     <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
                                 </tr>
+                               
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Inclusions / Benefits</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 7%; padding: 5px">Sr. No</th>
+                                    <th style="width: 27%; padding: 5px">Heading</th>
+                                    <th style="width: 50%; padding: 5px">Inclusions & Benefits</th>
+                                    <th style="width: 11%; padding: 5px">For Quote</th>
+                                    <th style="width: 5%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 <tr>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/06/2016" placeholder="Service Cost ">
+                                        <input type="text" class="form-control" id="txtAgeFrom" value="1" placeholder="Service Cost ">
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="10/10/2016" placeholder="Heading">
+                                        <input type="text" class="form-control" id="txtAgeFrom" value="" placeholder="Heading">
                                     </td>
+
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="Comments">
+                                        <input type="text" class="form-control" id="txtAgeTo" value="" placeholder="Inclusions">
+                                    </td>
+
+                                    <td style="padding: 5px">
+                                        <input type="checkbox" checked="checked" class="form-control">
                                     </td>
                                     <td style="padding: 5px">
                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
@@ -151,18 +196,25 @@
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="05/06/2016" placeholder="Service Cost ">
+                                        <input type="text" class="form-control" id="txtAgeFrom" value="2" placeholder="Service Cost ">
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control date-picker" id="txtAgeFrom" value="10/10/2016" placeholder="Heading">
+                                        <input type="text" class="form-control" id="txtAgeFrom" value="" placeholder="Heading">
                                     </td>
+
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="Comments">
+                                        <input type="text" class="form-control" id="txtAgeTo" value="" placeholder="Inclusions">
                                     </td>
+
                                     <td style="padding: 5px">
+                                        <input type="checkbox" checked="checked" class="form-control">
+                                    </td>
+                                     <td style="padding: 5px">
                                         <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
                                     </td>
+                                   
                                 </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -219,7 +271,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="90" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="60" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
@@ -228,7 +280,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="15" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
@@ -244,7 +296,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="90" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="45" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
@@ -253,7 +305,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="10" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
@@ -278,11 +330,14 @@
             </div>
         </div>
 
-         <div class="form-group">
+        <div class="form-group">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="tab9section5">Selling</h3>
                     <div class="table-responsive">
+
+                        <input type="checkbox" checked>Copy From Costing
+                               <br />
                         <table style="width: 100%">
                             <thead>
                                 <tr>
@@ -328,7 +383,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="90" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="60" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
@@ -337,7 +392,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="15" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
@@ -353,7 +408,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="90" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="45" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <select id="drpDiscounttypeCS" class="js-states form-control" style="display: none; width: 100%">
@@ -362,7 +417,7 @@
                                         </select>
                                     </td>
                                     <td style="padding: 5px">
-                                        <input type="text" class="form-control" id="txtDiscountRate" value="20" placeholder="">
+                                        <input type="text" class="form-control" id="txtDiscountRate" value="10" placeholder="">
                                     </td>
                                     <td style="padding: 5px">
                                         <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
@@ -372,7 +427,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+</div>
         </div>
         <div class="form-group">
             <div class="row">
@@ -387,25 +442,25 @@
             </div>
         </div>
 
-        <button id="btnSave" type="submit" class="btn btn-success btnSave">
-            SAVE</button>
-        <button id="btnSave" type="submit" class="btn btn-primary btnSave">
-            UPDATE</button>
-        <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
-            DELETE</button>
-        <button id="btnSave" type="submit" class="btn btn-warning btnSave">
-            CREATE NEW</button>
-        <button id="btnSave" type="submit" class="btn btn-info btnSave">
-            QUIT FORM</button>
-        <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
-            <span class="fa fa-refresh"></span>
-        </a>
+<button id="btnSave" type="submit" class="btn btn-success btnSave">
+    SAVE</button>
+<button id="btnSave" type="submit" class="btn btn-primary btnSave">
+    UPDATE</button>
+<button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+    DELETE</button>
+<button id="btnSave" type="submit" class="btn btn-warning btnSave">
+    CREATE NEW</button>
+<button id="btnSave" type="submit" class="btn btn-info btnSave">
+    QUIT FORM</button>
+<a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+    <span class="fa fa-refresh"></span>
+</a>
 
-        <br />
-        <br />
-        <br />
+<br />
+<br />
+<br />
 
-      @*  <h3 class="tab9section1">Costing </h3>
+@*  <h3 class="tab9section1">Costing </h3>
         <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#tab2CS1" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-search"></span>&nbsp;&nbsp;&nbsp;&nbsp;Search Costing</a></li>
             <li role="presentation"><a href="#tab2CS2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Costing</a></li>
@@ -434,7 +489,7 @@
             </div>
         </div>*@
 
-    </form>
+</form>
 </div>
 <div class="col-md-4 summery-detail summery-uitilities-detail summerytab1-2">
     <div class="panel-body tab-itenaries ">
