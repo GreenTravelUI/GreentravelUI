@@ -1,0 +1,433 @@
+﻿<div class="col-md-8 full-responsive">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="drpNationalityset">Guest Nationality </label>
+                <select id="drpNationalityset" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">Asian-Indian</option>
+                    <option>All Except Indian</option>
+                    <option>Affrican</option>
+                    <option>Europian</option>
+
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="txtSingleRoomRate">Min Stay (Nights)</label>
+                <input type="text" class="form-control" id="txtSingleRoomRate" value="2" placeholder="Min Stay (Night)">
+            </div>
+           
+        </div>
+
+    </div>
+     <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="drpTypeOfSupplier">Room Category<span>*</span></label>
+                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">Suite</option>
+                    <option>Villas</option>
+
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="drpTypeOfSupplier">Room Type<span>*</span></label>
+                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                    <option selected="selected">One Bedroom Suite</option>
+                    <option>Single Room</option>
+                    <option>Double Room</option>
+
+                </select>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="table-responsive tbborder" style="border: 1px solid #F25656; border-radius: 4px">
+                    <table style="width: 100%">
+
+                        <thead>
+                            <tr style="color: black" class="nthead">
+                                <th style="width: 20%; padding: 5px; border-right: solid 1px red !important">Validity Date</th>
+                                <th style="width: 20%; padding: 5px;" colspan="5">One Bedroom Suite</th>
+                                <th style="width: 18%; padding: 5px; display: none"></th>
+                                <th style="width: 18%; padding: 5px; display: none"></th>
+                                <th style="width: 18%; padding: 5px; display: none"></th>
+                                <th style="width: 6%; padding: 5px; display: none"></th>
+
+                            </tr>
+                            <tr style="color: black">
+                                <th style="width: 20%; padding: 5px">Validity Date</th>
+                                <th style="width: 20%; padding: 5px">Room Rate</th>
+                                <th style="width: 18%; padding: 5px">Extra Bed Adult Rate</th>
+                                <th style="width: 18%; padding: 5px">Extra Bed Child Rate</th>
+                                <th style="width: 18%; padding: 5px">Infant Rate</th>
+                                <th style="width: 6%; padding: 5px;">Allotment</th>
+
+                            </tr>
+                        </thead>
+                       @* <tfoot>
+                            <tr style="color: black">
+                                <th style="width: 20%; padding: 5px; text-align: center">Validity Date</th>
+                                <th style="width: 20%; padding: 5px; text-align: center">Room Rate</th>
+                                <th style="width: 18%; padding: 5px; text-align: center">Extra Bed Adult Rate</th>
+                                <th style="width: 18%; padding: 5px; text-align: center">Extra Bed Child Rate</th>
+                                <th style="width: 18%; padding: 5px; text-align: center">Infant Rate</th>
+                                <th style="width: 6%; padding: 5px; text-align: center">Allotment</th>
+
+                            </tr>
+                            <tr style="color: black" class="nthead">
+                                <th style="width: 20%; padding: 5px; text-align: center; border-right: solid 1px red !important">Validity Date</th>
+                                <th style="width: 20%; padding: 5px; text-align: center; border-right: solid 1px red !important" colspan="4">One Bedroom Suite</th>
+                                <th style="width: 18%; padding: 5px; display: none"></th>
+                                <th style="width: 18%; padding: 5px; display: none"></th>
+                                <th style="width: 18%; padding: 5px; display: none"></th>
+                                <th style="width: 6%; padding: 5px;"></th>
+
+                            </tr>
+
+                        </tfoot>*@
+                        <tbody>
+                            <tr>
+
+                                <td style="padding: 5px">01/11/2015 - 19/12/2015</td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1700" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1000" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-navicon"></span></a>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td style="padding: 5px">20/12/2015 - 10/01/2016</td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="2900" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1000" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-navicon"></span></a>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td style="padding: 5px">11/01/2016 - 28/02/2016</td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1900" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1000" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-navicon"></span></a>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td style="padding: 5px">01/03/2016 - 30/04/2016</td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1700" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1000" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-navicon"></span></a>
+                                </td>
+                            </tr>
+                             <tr>
+
+                                <td style="padding: 5px">01/05/2016 - 31/10/2016</td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1100" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="250" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                </td>
+                                <td style="padding: 5px">
+                                    <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-navicon"></span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+@*    <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#tab1a" role="tab" data-toggle="tab" data-section="tab1" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Period 1</a></li>
+        <li role="presentation"><a href="#tab2a" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Period 2</a></li>
+        <li role="presentation"><a href="#tab3a" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Period 3</a></li>
+        <li role="presentation"><a href="#tab4a" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Period 4</a></li>
+        <li role="presentation"><a href="#tab5a" role="tab" data-toggle="tab" data-section="tab5" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-money "></span>&nbsp;&nbsp;&nbsp;&nbsp;Period 5</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab1a">
+            @Html.Partial("_Period1")
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab2a">
+            @Html.Partial("_Period2")
+
+        </div>
+         <div role="tabpanel" class="tab-pane" id="tab3a">
+            @Html.Partial("_Period3")
+
+        </div>
+         <div role="tabpanel" class="tab-pane" id="tab4a">
+            @Html.Partial("_Period4")
+
+        </div>
+         <div role="tabpanel" class="tab-pane" id="tab5a">
+            @Html.Partial("_Period5")
+
+        </div>
+    </div>*@
+
+
+
+
+
+    @* <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="txtRemarks">Remarks </label>
+                <textarea class="form-control" cols="5" id="txtRemarks"></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="txtRemarksInternal">Remarks (Internal)</label>
+                <textarea class="form-control" cols="5" id="txtRemarksInternal"></textarea>
+            </div>
+        </div>
+
+    </div>*@
+
+
+    <button id="btnSave" type="submit" class="btn btn-success btnSave">
+        SAVE</button>
+    <button id="btnSave" type="submit" class="btn btn-primary btnSave">
+        UPDATE</button>
+    <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
+        DELETE</button>
+    <button id="btnSave" type="submit" class="btn btn-warning btnSave">
+        CREATE NEW</button>
+    <button id="btnSave" type="submit" class="btn btn-info btnSave">
+        QUIT FORM</button>
+    <a class="btn btn-refresh" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;">
+        <span class="fa fa-refresh"></span>
+    </a>
+     <div class="modal fade modify-colum-model" id="allotmentmodal" role="dialog">
+        <div class="modal-dialog" style="width: 70%; height: 40%">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="tab2section3" style="padding-top: 30px">Allotment <span class="text-danger"></span></h3>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="table-responsive" style="padding-bottom: 30px">
+                                    <table style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 20%; padding: 5px">Allotment Validity From</th>
+                                                <th style="width: 20%; padding: 5px">Allotment Validity To</th>
+                                                <th style="width: 20%; padding: 5px">Allotment Rooms</th>
+                                                <th style="width: 15%; padding: 5px">Cut off (Days)</th>
+                                                <th style="width: 20%; padding: 5px">Min. Materialization</th>
+                                                <th style="width: 5%; padding: 5px"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td style="padding: 5px">
+                                                    <input type="text" class="form-control date-picker" id="txtAgeFrom" value="01/11/2015" placeholder="">
+                                                </td>
+                                                <td style="padding: 5px">
+                                                    <input type="text" class="form-control date-picker" id="txtAgeTo" value="19/12/2015" placeholder="">
+                                                </td>
+                                                <td style="padding: 5px">
+                                                    <input type="text" class="form-control" id="txtAgeTo" value="2" placeholder="Inclusions">
+                                                </td>
+                                                <td style="padding: 5px">
+                                                    <input type="text" class="form-control" id="txtAgeTo" value="14" placeholder="Inclusions">
+                                                </td>
+                                                <td style="padding: 5px">
+                                                    <input type="text" class="form-control" id="txtAgeTo" value="50%" placeholder="Inclusions">
+                                                </td>
+                                                <td style="padding: 5px">
+                                                    <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="float:right">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success ">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 summery-detail summery-uitilities-detail summerytab222">
+    <div class="panel-body tab-itenaries ">
+        <div class="panel-group">
+            <div class="panel panel-red">
+                <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
+                    <h4 class="panel-title">Summary <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report"></a>
+                    </h4>
+                </div>
+                <div id="collapseOne1" class="panel-collapse panel-white collapse in " role="tabpanel" aria-labelledby="headingOne1">
+                    <div class="panel-body summary-body">
+                        <table class="table summary-list">
+                            <tbody>
+                                <tr>
+                                    <td>Created By: </td>
+                                    <td><span class="label label-success">Samir Shah</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Created Date: </td>
+                                    <td><span class="label label-warning">06-Mar-2016</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Created From Branch: </td>
+                                    <td><span class="label label-danger">Bangkok</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Updated By: </td>
+                                    <td><span class="label label-info">Samir Shah</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Updated Date: </td>
+                                    <td><span class="label label-warning">14-Mar-2016</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Page Load Time: </td>
+                                    <td><span class="label label-info">00:01:00 Minutes</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Record Update Time: </td>
+                                    <td><span class="label label-danger">00:01:20 Minutes</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
