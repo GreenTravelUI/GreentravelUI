@@ -1,15 +1,21 @@
 ﻿<form>
-    <div class="form-group">
+     <div class="form-group" style="margin-bottom: 5px !important">
         <div class="row">
-            <div class="col-md-3" style="width: 35%">
+            <div class="col-md-5" style="width: 34%">
                 <div class="form-group">
                     <h2 style="border-width: 0; margin-bottom: 0; color: red; margin-top: 0px; font-size: 27px;" class="" id="lblTotalRecordsFound"><span>200 Records found</span></h2>
                 </div>
             </div>
-            <div class="col-md-3" style="width: auto">
+            <div class="col-md-4" style="width: 49%">
+                <input type="text" data-role="tagsinput" id="txtTagSearch" class="form-control" value="" placeholder="Tag Search" />
+            </div>
+
+            <div class="col-md-3" style="width: 16%">
+                <a href="javascript:void(0);" style="font-size: 12px !important" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-plus"></i></a>
+
                 <div class="dropdown table-custome-drop" style="padding-top: 5px">
                     <div class="btn-group">
-                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
+                        <a class="label label-maroon dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
                             <span class="glyphicon glyphicon-download-alt"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -20,7 +26,7 @@
                     </div>
                     &nbsp;&nbsp;
                                 <div class="btn-group btn-tables-views">
-                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
+                                    <a class="label label-primary dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
                                         <span class="icon-grid"></span>
                                     </a>
                                     <ul class="dropdown-menu cate-drop-menu">
@@ -56,7 +62,7 @@
                                                                 <ul>
                                                                     <li><a href="#">Application URL</a></li>
                                                                     <li><a href="#">Primary Contact Person</a></li>
-                                                                    <li><a href="#">Efective Date From</a></li>
+                                                                    <li><a href="#">Efective Date From</a> </li>
 
                                                                 </ul>
                                                             </div>
@@ -127,25 +133,12 @@
                                     </div>
                                 </div>
                 </div>
-            </div>
-            <div class="col-md-4" style="width: 48%">
-                <input type="text" data-role="tagsinput" id="txtTagSearch" class="form-control" value="" placeholder="Tag Search" />
-            </div>
-            <div class="col-md-2" style="width: auto">
-
-
-                <a href="javascript:void(0);" style="font-size: 12px !important" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-plus"></i></a>
-
-
 
             </div>
-
         </div>
     </div>
-
-
     @*Advance Search*@
-    <div class="from-group panel-search advanced-panel" style="display: none; width: 64%; margin-left: 452px">
+    <div class="from-group panel-search advanced-panel" style="display: none; width: 64%; margin-left: 440px">
         <div class="panel panel-green">
 
             <div class="panel-body">
@@ -239,18 +232,50 @@
 
                                         </div>
                                     </div>
+                                    @*     <div class="col-md-4">
+                                        <label for="txtTagSearch">Period</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Today</option>
+                                            <option>Yesterday</option>
+                                            <option>Last 7 Days</option>
+                                            <option>Last 15 Days</option>
+                                            <option>Last 1 Month</option>
+                                            <option>Last 3 Months</option>
+                                            <option>Last 6 Months</option>
+                                            <option>Last 1 Year</option>
+                                        </select>
+                                    </div>
 
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Action</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Created </option>
+                                            <option>Updated </option>
+                                        </select>
+                                    </div>*@
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group" style="margin-bottom: 0; padding-top: 15px;">
-                        <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH</a>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH & GROUP BY</a>
+                            </div>
+                        </div>
+
                     </div>
+
                 </form>
             </div>
         </div>
     </div>
+    <br />
+    <br />
 
     <div class="table-responsive">
 
@@ -299,7 +324,9 @@
                     <th>
                         <input type="text" />
                     </th>
-                    <th></th>
+                     <td>
+                        <a href="#" rel="tooltip" title="Clear Filters"><span class="fa fa-undo grid-btn-success"></span></a>&nbsp;&nbsp;
+                    </td>
 
                 </tr>
                 <tr>

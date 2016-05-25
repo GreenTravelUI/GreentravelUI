@@ -1,17 +1,21 @@
 ﻿<form>
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 5px !important">
         <div class="row">
-            <div class="col-md-3" style="width: 35%">
+            <div class="col-md-5" style="width: 34%">
                 <div class="form-group">
                     <h2 style="border-width: 0; margin-bottom: 0; color: red; margin-top: 0px; font-size: 27px;" class="" id="lblTotalRecordsFound"><span>200 Records found</span></h2>
                 </div>
             </div>
-            <div class="col-md-3" style="width: auto">
+            <div class="col-md-4" style="width: 49%">
+                <input type="text" data-role="tagsinput" id="txtTagSearch" class="form-control" value="" placeholder="Tag Search" />
+            </div>
 
+            <div class="col-md-3" style="width: 16%">
+                <a href="javascript:void(0);" style="font-size: 12px !important" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-plus"></i></a>
 
                 <div class="dropdown table-custome-drop" style="padding-top: 5px">
                     <div class="btn-group">
-                        <a class="label label-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
+                        <a class="label label-maroon dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
                             <span class="glyphicon glyphicon-download-alt"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -22,7 +26,7 @@
                     </div>
                     &nbsp;&nbsp;
                                 <div class="btn-group btn-tables-views">
-                                    <a class="label label-success dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
+                                    <a class="label label-primary dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
                                         <span class="icon-grid"></span>
                                     </a>
                                     <ul class="dropdown-menu cate-drop-menu">
@@ -58,7 +62,7 @@
                                                                 <ul>
                                                                     <li><a href="#">Application URL</a></li>
                                                                     <li><a href="#">Primary Contact Person</a></li>
-                                                                    <li><a href="#">Efective Date From</a></li>
+                                                                    <li><a href="#">Efective Date From</a> </li>
 
                                                                 </ul>
                                                             </div>
@@ -130,28 +134,13 @@
                                 </div>
                 </div>
 
-
-
-
             </div>
-            <div class="col-md-4" style="width: 48%">
-                <input type="text" data-role="tagsinput" id="txtTagSearch" class="form-control" value="" placeholder="Tag Search" />
-            </div>
-            <div class="col-md-2" style="width: auto">
-
-
-                <a href="javascript:void(0);" style="font-size: 12px !important" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-plus"></i></a>
-
-
-
-            </div>
-
         </div>
     </div>
 
 
     @*Advance Search*@
-    <div class="from-group panel-search advanced-panel" style="display: none; width: 64%; margin-left: 452px">
+    <div class="from-group panel-search advanced-panel" style="display: none; width: 64%; margin-left: 440px">
         <div class="panel panel-green">
 
             <div class="panel-body">
@@ -250,9 +239,19 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group" style="margin-bottom: 0; padding-top: 15px;">
-                        <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH</a>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="javascript:void(0);" class="btn btn-success" style="border-width: 1px; border-color: white; border-style: solid;">SEARCH & GROUP BY</a>
+                            </div>
+                        </div>
+
                     </div>
+
                 </form>
             </div>
         </div>
@@ -260,14 +259,19 @@
 
     <div class="table-responsive">
 
-        <table id="example-editable" class="display table " style="width: 100%; cellspacing: 0;">
+        <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Contract</th>
+                    <th>Contract ID</th>
                     <th>Room Category</th>
                     <th>Room Type</th>
-                    <th>Max Pax</th>
+                    <th>Room Rate</th>
+                    <th>EBA Rate</th>
+                    <th>EBC Rate</th>
+                    <th>CNB Rate</th>
+                    <th>Infant Rate</th>
                     <th>Status</th>
                     <th>Modified By</th>
                     <th>Action</th>
@@ -278,16 +282,21 @@
                 <tr>
                     <th>#</th>
                     <th>Contract</th>
+                    <th>Contract ID</th>
                     <th>Room Category</th>
                     <th>Room Type</th>
-                    <th>Max Pax</th>
+                    <th>Room Rate</th>
+                    <th>EBA Rate</th>
+                    <th>EBC Rate</th>
+                    <th>CNB Rate</th>
+                    <th>Infant Rate</th>
                     <th>Status</th>
                     <th>Modified By</th>
                     <th>Action</th>
                 </tr>
             </tfoot>
             <tbody>
-              
+
                 <tr>
                     <td></td>
                     <td>
@@ -308,36 +317,43 @@
                     <td>
                         <input type="text" />
                     </td>
-                    <td></td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                           <a href="#" rel="tooltip" title="Clear Filters"><span class="fa fa-undo grid-btn-success"></span></a>&nbsp;&nbsp;
+                    </td>
 
                 </tr>
-                 
-                <tr style="background-color: #DDDDDD;">
-                   <td style="background-color: #DDDDDD;"></td>
-                    <td colspan="3" style="background-color: #DDDDDD;"><b>Validity -  01/06/2016 - 31/05/2017</b></td>
-                      <td style="display:none"></td>
-                      <td style="display:none"></td>
-                      <td></td>
-                    
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                     
-                    <td></td>
-                
-                </tr>
+
+               
                 <tr>
                     <td>1</td>
-                    <td>Title 1</td>
-                    <td>Suites</td>
-                    <td>One Bedroom Suite</td>
-                    <td>3</td>
+                    <td>Outtrigger 2015/16 Full Year FIT</td>
+                    <td>0001</td>
+                    <td>Superior</td>
+                    <td>Twin Bed Room</td>
+                    <td><span class="spaneditable">4500</span></td>
+                    <td><span class="spaneditable">2000</span></td>
+                    <td><span class="spaneditable">1000</span></td>
+                    <td><span class="spaneditable">500</span></td>
+                    <td><span class="spaneditable">0</span></td>
                     <td><span class="label label-dodgerblue">Active</span></td>
                     <td><a href="javascript:void(0);" rel="tooltip" title="Samir Shah | 12-Mar-2016">
                         <img src="/assets/images/avatar1.png" /></a></td>
                     <td>
-                          <a href="#" onclick="functionrattab();" rel="tooltip" title="Rate"><span class="fa fa-money grid-btn-blue"></span></a>
-                        &nbsp;&nbsp;
                         <a href="#" rel="tooltip" title="Edit"><span class="fa fa-pencil grid-btn-success"></span></a>
                         &nbsp;&nbsp;
                         <a href="#" rel="tooltip" title="Delete"><span class="fa fa-trash grid-btn-danger"></span></a>
@@ -345,16 +361,20 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Title 2</td>
-                    <td>Suites</td>
-                    <td>Two Bedroom Suite</td>
-                    <td>2</td>
+                    <td>Outtrigger 2015/16 Full Year FIT</td>
+                    <td>0001</td>
+                    <td>Superior</td>
+                    <td>Twin Bed Room</td>
+                    <td><span class="spaneditable">8000</span></td>
+                    <td><span class="spaneditable">2500</span></td>
+                    <td><span class="spaneditable">1500</span></td>
+                    <td><span class="spaneditable">1000</span></td>
+                    <td><span class="spaneditable">0</span></td>
                     <td><span class="label label-maroon">Deactive</span></td>
                     <td><a href="javascript:void(0);" rel="tooltip" title="Samarth Shah | 12-Mar-2016">
                         <img src="/assets/images/avatar3.png" /></a></td>
                     <td>
-                         <a href="#" onclick="functionrattab();" rel="tooltip" title="Rate"><span class="fa fa-money grid-btn-blue"></span></a>
-                        &nbsp;&nbsp;
+                      
                         <a href="#" rel="tooltip" title="Edit"><span class="fa fa-pencil grid-btn-success"></span></a>
                         &nbsp;&nbsp;
                        <a href="#" rel="tooltip" title="Delete"><span class="fa fa-trash grid-btn-danger"></span></a>
@@ -364,5 +384,5 @@
         </table>
     </div>
 
-       
+
 </form>

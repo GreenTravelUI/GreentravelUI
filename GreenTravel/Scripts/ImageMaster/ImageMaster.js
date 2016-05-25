@@ -129,6 +129,7 @@ $(document).ready(function () {
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
+    $("#example-editable_filter").css('display', 'none');
 });
 function expandPanelButton(control) {
     control.removeClass('fa-plus');

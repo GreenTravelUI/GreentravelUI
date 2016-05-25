@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Hotel Room & Price List";
-    ViewBag.PageTitle = "Hotel Room & Price List";
+    ViewBag.Title = "Hotel Price List";
+    ViewBag.PageTitle = "Hotel Price List";
     ViewBag.FooterCopyRight = "2015 &copy; Green Travel.";
     ViewBag.Breadcurmb = "<ol class='breadcrumb'>";
     ViewBag.Breadcurmb += "<li>Hotel Code: <span>HOTEL-5-0-1</span></li>";
@@ -24,6 +24,8 @@
                     <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab" data-section="tab2" class="basic-accord"><span class="menu-icon fa fa-bed"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Hotel Room</a></li>
                     @*<li role="presentation"><a href="#tabaddi" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-cubes"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room Category Validity</a></li>*@
                     <li role="presentation" id="litab3"><a href="#tabrate" role="tab" data-toggle="tab" data-section="tabrate" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Room Rate</a></li>
+                    <li role="presentation" id="litab33"><a href="#tab3" role="tab" data-toggle="tab" data-section="tab3" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Function Room Rate</a></li>
+                     <li role="presentation" id="litab34"><a href="#tab4" role="tab" data-toggle="tab" data-section="tab4" class="basic-accord"><span class="menu-icon fa fa-money"></span>&nbsp;&nbsp;&nbsp;&nbsp;Gala Dinner Rate</a></li>
                    
                 </ul>
                 <div class="tab-content">
@@ -49,6 +51,12 @@
 
                             @*</div>
                         </div>*@
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                      @Html.Partial("_FunctionRoomRate")
+                    </div>
+                     <div role="tabpanel" class="tab-pane" id="tab4">
+                      @Html.Partial("_GalaDinnerRate")
                     </div>
                    
                 </div>
