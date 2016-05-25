@@ -119,3 +119,15 @@ $('#userlitab5').click(function () {
     window.dispatchEvent(new Event('resize'));
 });
 
+function expandPanelButton(control) {
+    control.removeClass('fa-plus');
+    control.addClass('fa-minus');
+}
+function collapsePanelButton(control) {
+    control.removeClass('fa-minus');
+    control.addClass('fa-plus');
+}
+function handle_click(e) {
+    e.stopPropagation();
+    // your event code
+}
