@@ -1,0 +1,544 @@
+﻿<form>
+    <div class="row">
+        <div class="col-md-12 full-responsive">
+            <div class="form-group">
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="txtTagSearch">Supplier</label>
+                         <select id="drpTypeOfSupplier11" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Accommodation</option>
+                        <option>Coach</option>
+                        <option>Guide</option>
+                        <option>Driver</option>
+                        <option>Meal</option>
+                        <option>Transport</option>
+                        <option>Sightseeing</option>
+                        <option>Supplier</option>
+                        <option>Other</option>
+                    </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="txtTagSearch">Hotel / Destination</label>
+                        <input type="text" id="txtTagSearch" class="form-control" value="Bangkok" placeholder="Hotel / Destination" />
+
+                    </div>
+                    <div class="col-md-2 advancedbtn" style="">
+                        <label for="txtTagSearch">&nbsp;</label><br />
+                        <a href="javascript:void(0);" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance"><i class="fa fa-plus"></i></a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Booking*@
+    <div class="from-group panel-search booking-panel" style="display: none;">
+        <div class="panel panel-blue">
+            <div class="panel-heading">
+                <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Booking</h2>
+                <div class="panel-control">
+                    <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <label for="txtTagSearch">Check-in Date</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">-Select Day-</option>
+                                            @{
+                                                for (int i = 1; i < 31; i++)
+                                                {
+                                                <option>@i</option>        
+                                                                        }
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">-Select Month-</option>
+                                            <option>January 2016</option>
+                                            <option>February 2016</option>
+                                            <option>March 2016</option>
+                                            <option>April 2016</option>
+                                            <option>May 2016</option>
+                                            <option>June 2016</option>
+                                            <option>July 2016</option>
+                                            <option>August 2016</option>
+                                            <option>September 2016</option>
+                                            <option>October 2016</option>
+                                            <option>November 2016</option>
+                                            <option>December 2016</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <label for="txtTagSearch">Check-out Date</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">-Select Day-</option>
+                                            @{
+                                                for (int i = 1; i < 31; i++)
+                                                {
+                                                <option>@i</option>        
+                                                                        }
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">-Select Month-</option>
+                                            <option>January 2016</option>
+                                            <option>February 2016</option>
+                                            <option>March 2016</option>
+                                            <option>April 2016</option>
+                                            <option>May 2016</option>
+                                            <option>June 2016</option>
+                                            <option>July 2016</option>
+                                            <option>August 2016</option>
+                                            <option>September 2016</option>
+                                            <option>October 2016</option>
+                                            <option>November 2016</option>
+                                            <option>December 2016</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="txtTagSearch">Room</label>
+                                <select id="drpSearchRoom" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtTagSearch">Adults</label>
+                                <select id="drpSearchAdults" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtTagSearch">Children</label>
+                                <select id="drpSearchChildren" class="js-states form-control" style="display: none; width: 100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @*Advance*@
+    <div class="from-group panel-search advanced-panel" style="display: none;">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px;">Advance</h2>
+                <div class="panel-control">
+                    <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Criteria</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">None</option>
+                                            <option>At</option>
+                                            <option>Between</option>
+                                            <option>Less than</option>
+                                            <option>Less than or equal</option>
+                                            <option>At Month</option>
+                                            <option>Between Month</option>
+                                            <option>More than</option>
+                                            <option>More than or equal</option>
+                                            <option>At Quater</option>
+                                            <option>Between Quater</option>
+                                            <option>At Year</option>
+                                            <option>Between Year</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">Search By</label>
+                                        <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                            <option selected="selected">Created date</option>
+                                            <option>Updated date</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="txtTagSearch">From</label>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">2016</option>
+                                                    <option>2015</option>
+                                                    <option>2014</option>
+                                                    <option>2013</option>
+                                                    <option>2012</option>
+                                                    <option>2011</option>
+                                                    <option>2010</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select id="drpOperatingCurrency" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option selected="selected">January</option>
+                                                    <option>February</option>
+                                                    <option>March</option>
+                                                    <option>April</option>
+                                                    <option>May</option>
+                                                    <option>June</option>
+                                                    <option>July</option>
+                                                    <option>August</option>
+                                                    <option>September</option>
+                                                    <option>October</option>
+                                                    <option>November</option>
+                                                    <option>December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <a href="javascript:void(0);" class="btn btn-default">SEARCH</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @*Search Count*@
+    <div class="form-group">
+        <h2 style="border-width: 0; margin-bottom: 0" class="text-danger" id="lblTotalRecordsFound"><span>Bangkok</span>: <span>2</span> Records found</h2>
+    </div>
+    @*Filter - Order - Search Result*@
+    <div class="from-group">
+        <div class="row">
+            <div class="col-md-3 ">
+                @*Order By*@
+                <div class="panel panel-white tab-itenaries">
+                    <div class="panel-heading">
+                        <h2 class="panel-title" style="float: none; border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px; color: #333 !important; float: left;">Order By:</h2>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="st-accordion orderby-accordion">
+                            <ul>
+                                <li class="orderby">
+                                    <a href="javascript:void(0);">Our recommendations first <i class="fa fa-check"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Lowest price first <i></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Stars <i></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Most central first <i></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Review score <i></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @*Filter By*@
+                <div class="panel panel-white tab-itenaries">
+                    <div class="panel-heading">
+                        <h2 class="panel-title" style="border-bottom: 1px dashed #fff ! important; padding-bottom: 5px; font-size: 17px; color: #333 !important; float: left;">Filter By:</h2>
+                        <div class="panel-control">
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="st-accordion" class="st-accordion">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);">Price (per night)<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Rs. 0 - Rs. 3,600
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Rs. 3,600 - Rs. 7,300
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Rs. 7,300 - Rs. 11,000
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Rs. 11,000 - Rs. 14,000
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Rs. 14,000 +
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Star rating<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            1 Star
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            2 Star
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            3 Star
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            4 Star
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            5 Star
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Unrated
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Deal<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Value Deal
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Reservation policy<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Free cancellation
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Book without credit card
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Beach access<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Beach property
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Meals<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Breakfast included
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Half board
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Self catering
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Property Type<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Hotels
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Hostels
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Apartments
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Capsule hotels
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Resorts
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Chalets
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Villas
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Guest houses
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Boats
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Review score<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Superb: 9+
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Very good: 8+
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Good: 7+
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Pleasant: 6+
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            No rating
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Property facility<span class="st-arrow"></span></a>
+                                    <div class="st-content">
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Wifi
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Parking
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Airport shuttle
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Fitness Center
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Non-smoking rooms
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Indoor pool
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Spa and wellness center
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Famliy rooms
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="checkbox" />
+                                            Pets alloed
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Search Result*@
+            <div class="col-md-8">
+                <div class="m-b-lg tab-itenaries panel panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a>
+                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="100%" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <h5 class="text-danger"><a href="#">Amari Atrium</a>
+                                <span>
+                                    <div class="star-ratings" style="display: none;">
+                                        <div class="stars stars-example-bootstrap">
+                                            <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4" selected="selected">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </span></h5>
+                            <p><span>Hotel</span>&nbsp;|&nbsp;<span>Bangkok</span></p>
+                            <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
+                            <div class="row">
+                                <div class="col-md-12 search-panel-buttons">
+                                    <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="View Hotel"><span class="fa fa-h-square"></span></a>
+                                    <a href="javascript:void(0);" class="btn btn-primary" rel="tooltip" title="Edit Hotel"><span class="fa fa-hospital-o"></span></a>
+                                    <a href="javascript:void(0);" class="btn btn-info" rel="tooltip" title="Function Room"><span class="fa fa-users"></span></a>
+                                    <a href="HotelContract" class="btn btn-warning" rel="tooltip" title="Hotel Contract"><span class="fa fa-television"></span></a>
+                                    <a href="javascript:void(0);" class="btn btn-danger" rel="tooltip" title="Function Room Price List"><span class="fa fa-bookmark"></span></a>
+                                    <a href="javascript:void(0);" class="btn btn-success" rel="tooltip" title="Gala Dinner Price List"><span class="fa fa-street-view"></span></a>
+                                    <a href="CancellationPolicy" class="btn btn-primary" rel="tooltip" title="Cancellation / No Show"><span class="fa fa-times-circle"></span></a>
+                                    <a href="FOCPolicy" class="btn btn-info" rel="tooltip" title="FOC"><span class="fa fa-tag"></span></a>
+                                    <a href="AdditionalSurcharge" class="btn btn-warning" rel="tooltip" title="Additional Surcharge"><span class="fa fa-plus-square-o"></span></a>
+                                    <a href="Mandetoryinclusions" class="btn btn-danger" rel="tooltip" title="Compulsory Inclusions"><span class="fa fa-gear"></span></a>
+                                    <a href="Earlybird" class="btn btn-success" rel="tooltip" title="Early bird Promotion"><span class="fa fa-hourglass-end"></span></a>
+                                    <a href="Longstay" class="btn btn-primary" rel="tooltip" title="Long Stay / Pay Less Promotions"><span class="fa fa-hourglass-1"></span></a>
+                                    <a href="FamilyPromotion" class="btn btn-info" rel="tooltip" title="Family Promotions"><span class="fa fa-users"></span></a>
+                                    <a href="ChildPolicy" class="btn btn-warning" rel="tooltip" title="Family / Child Policy"><span class="fa fa-user"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
