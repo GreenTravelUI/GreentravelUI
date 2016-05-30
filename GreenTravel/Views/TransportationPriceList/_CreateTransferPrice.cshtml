@@ -1,12 +1,12 @@
 ﻿<div class="col-md-8 full-responsive">
     <form>
-        <h3 class="tab9section1">Create Transfer Price List - <span class="text-danger">FIT - 01/01/2016 - 01/06/2016</span></h3>
+        <h3 class="tab9section1">Create Transfer Price List - <span class="text-danger">Full Year 1-Nov-2015 To 31-Oct-2016 - Group</span></h3>
         <div class="form-group formtransfer">
             <div class="row">
                 <div class="col-md-6">
                     <label for="drpCostingSet">Costing Set </label>
                     <select id="drpCostingSet" class="js-states form-control" style="display: none; width: 100%">
-                        <option selected="selected">Set1</option>
+                        <option selected="selected">Full Year 1-Nov-2015 To 31-Oct-2016</option>
                         <option>Set2</option>
                         <option>Set3</option>
                         <option>Set4</option>
@@ -15,16 +15,60 @@
                 <div class="col-md-6">
                     <label for="drpTypeOfAgent">FIT/Group</label>
                     <select id="drpTypeOfAgent" class="js-states form-control" style="display: none; width: 100%">
-                        <option selected="selected">FIT</option>
-                        <option>Group</option>
+                        <option>FIT</option>
+                        <option selected="selected">Group</option>
                     </select>
                 </div>
+                @* <div class="col-md-3">
+                    <label for="drpSharingType">Sharing Type </label>
+                    <select id="drpSharingType" class="js-states form-control" style="display: none; width: 100%">
+                        <option>SIC</option>
+                        <option selected="selected">Private</option>
+                        <option>Group</option>
+                    </select>
+                </div>*@
             </div>
 
         </div>
-
         <div class="form-group">
             <div class="row">
+                <div class="col-md-6">
+                    <label for="drpNationalitySet">Guest Nationality </label>
+                    <select id="drpNationalitySet" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option selected="selected">Asian - Indian</option>
+                        <option>Affrican</option>
+                        <option>Europen</option>
+                        <option>Austrailian</option>
+                    </select>
+                </div>
+                @*  <div class="col-md-3">
+                    <label for="drpCostingType">Transfer required for City</label>
+                    <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Bangkok</option>
+                        <option>Phuket</option>
+                    </select>
+                </div>*@
+
+                <div class="col-md-6">
+                    <label for="drpRateCurrency">Currency</label>
+                    <select id="drpRateCurrency" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">THB</option>
+                        <option>INR</option>
+                        <option>USD</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                @*<div class="col-md-6">
+                    <label for="drpCostingType">Costing Type</label>
+                    <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Service Cost</option>
+                        <option>Per Pax</option>
+                    </select>
+                </div>*@
                 <div class="col-md-6">
                     <label for="txtFromDate">From Date </label>
                     <input type="text" class="form-control date-picker" id="txtFromDate" value="01/01/2016" placeholder="From Validity">
@@ -36,25 +80,21 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="lbloperatingweekday">Operating Week Days </label>
+
             <div class="row">
-                <div class="col-md-12">
-                     <input type="checkbox">All &nbsp &nbsp
+                <div class="col-md-9">
+                    <label for="lbloperatingweekday">Operating Week Days </label>
+                    <br />
+                    <input type="checkbox">All &nbsp &nbsp
                     <input type="checkbox" checked>Mon &nbsp &nbsp
-                                           <input type="checkbox" checked>Tue &nbsp &nbsp
-                                           <input type="checkbox" checked>Wed &nbsp &nbsp
-                                           <input type="checkbox" checked>Thu &nbsp &nbsp
-                                           <input type="checkbox" checked>Fri &nbsp &nbsp
-                                           <input type="checkbox" checked>Sat &nbsp &nbsp 
-                                            <input type="checkbox" checked>Sun &nbsp &nbsp
+                    <input type="checkbox" checked>Tue &nbsp &nbsp
+                    <input type="checkbox" checked>Wed &nbsp &nbsp
+                    <input type="checkbox" checked>Thu &nbsp &nbsp
+                    <input type="checkbox" checked>Fri &nbsp &nbsp
+                    <input type="checkbox" checked>Sat &nbsp &nbsp 
+                    <input type="checkbox" checked>Sun &nbsp &nbsp
                 </div>
-
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-6">
-
+                <div class="col-md-3">
                     <label for="drpStatus">Status</label>
                     <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
                         <option selected="selected">Active </option>
@@ -64,11 +104,408 @@
                 </div>
             </div>
         </div>
+
+        @* <h3>Sharing Type - FIT-Private</h3>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="drpCostingType">Transfer For</label>
+                    <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Arrival Transfer</option>
+                        <option>Departure Transfer</option>
+                        <option>Hotel One Way</option>
+                        <option>Hotel Two Way</option>
+                        <option>Dinner or Lunch Two Way</option>
+                        <option>Sightseeing Two Way</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="drpTransferComponent">Transfer From Area </label>
+                    <input type="text" class="form-control" id="txtServiceCostadd" value="Phuket Airport" placeholder="Transfer From">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="drpVehicleName">Vehicle Type - Vehicle Name</label>
+                    <select id="drpVehicleName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option selected="selected">Car - Sedan - 1 to 2 Pax</option>
+                        <option selected="selected">Van - Van D4D - 1 to 9 Pax</option>
+                        <option selected="selected">Car Luxury - Camry 1 to 2 Pax</option>
+                        <option selected="selected">Car Luxury - Hyundai 1 to 2 Pax</option>
+                        <option selected="selected">Coach - 45 Seater 10 to 45 Pax</option>
+                        <option>Sedanc-Sail</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Transfer Rate - <span class="text-danger">Phuket Airport - THB</span></h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 44%; padding: 5px">Transfer To Area</th>
+                                    <th style="width: 44%; padding: 5px">Inclusions<br />
+                                        <th style="width: 6%; padding: 5px">Cost</th>
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="Patong Beach,Keta Beach,Karon Beach" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-money"></span></a>
+                                    </td>
+
+                                    <td style="padding: 5px"></td>
+                                </tr>
+                                 <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="Kamala Beach,Bang Tao Beach,Layan Beach,Surin Beach" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal3" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-money"></span></a>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="Fantasea/Simon Carbaret" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="for Patong/Kata/Karon/Town/Tritang/Chalong,For Laguna/Kamala/Surin" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal1" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-money"></span></a>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="Phuket-Phuket" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" data-role="tagsinput" class="form-control" value="For Town/Tri Trang/Calong/Laguna/Kamala/Surin, for Rawai/Nai Harn/Siray Bay/Cape Panwa" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a href="javascript:void(0);" class=" btn btn-success" rel="tooltip" data-toggle="modal" data-target="#allotmentmodal2" title="Allotment" style="padding: 3px 10px; border-radius: 50%; font-size: 18px"><span class="fa fa-money"></span></a>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Sharing Type - FIT - SIC</h3>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="drpCostingType">Transfer For</label>
+                    <select id="drpCostingType" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Arrival Transfer</option>
+                        <option>Departure Transfer</option>
+                        <option>Hotel Area to Airport</option>
+                        <option>Hotel One Way</option>
+                        <option>Hotel Two Way</option>
+                        <option>Dinner or Lunch Two Way</option>
+                        <option>Sightseeing Two Way</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="drpTransferComponent">Transfer From Area </label>
+                    <input type="text" class="form-control" id="txtServiceCostadd" value="Phuket Airport" placeholder="Transfer From">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Transfer Rate - <span class="text-danger">Phuket Airport - THB</span></h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 37%; padding: 5px">Transfer To Area</th>
+                                    <th style="width: 37%; padding: 5px">Inclusions</th>
+                                    <th style="width: 10%; padding: 5px">Adult Rate</th>
+                                    <th style="width: 10%; padding: 5px">Child Rate</th>
+
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px">
+                                       <input type="text" data-role="tagsinput" class="form-control" value="Phuket-Phi Phi-Tonsai Pier" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                       <input type="text" data-role="tagsinput" class="form-control" value="One Way Ferry Ticket,Pick up from hotel" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="400" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="300" placeholder="Service Cost ">
+                                    </td>
+
+                                    <td style="padding: 5px"></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                       <input type="text" data-role="tagsinput" class="form-control" value="Phuuket-Phi Phi(Tonsai Pier)-Phuket" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                       <input type="text" data-role="tagsinput" class="form-control" value="2 Ways included hotel pick up & drop off in phuket" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="700" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="550" placeholder="Service Cost ">
+                                    </td>
+
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                       <input type="text" data-role="tagsinput" class="form-control" value="Phuket-Phi Phi-Phuket R/T" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+                                       <input type="text" data-role="tagsinput" class="form-control" value="for Holiday Inn PP,PP Island Village,PP Natural Resort at Laem Tong" id="txtentrancename" placeholder="">
+                                    </td>
+                                    <td style="padding: 5px">
+
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="650" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="500" placeholder="Service Cost ">
+                                    </td>
+
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <h3>Rate </h3>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 59%; padding: 5px">Vehicle</th>
+                                    <th style="width: 8%; padding: 5px"># Nights</th>
+                                    <th style="width: 13%; padding: 5px">City</th>
+                                    <th style="width: 14%; padding: 5px">Cost</th>
+                                    <th style="width: 6%; padding: 5px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                            <option selected="selected">Car - Sedan - 1 to 2 Pax</option>
+                                            <option>Van - Van D4D - 1 to 9 Pax</option>
+                                            <option >Car Luxury - Camry 1 to 2 Pax</option>
+                                            <option>Car Luxury - Mercedes 1 to 2 Pax</option>
+                                            <option>Coach - 45 Seater 10 to 45 Pax</option>
+                                            
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="2" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Bangkok</option>
+                                            <option>Pattaya</option>
+                                            <option selected="selected">Phuket</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                    </td>
+
+                                    <td style="padding: 5px"></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                            <option>Car - Sedan - 1 to 2 Pax</option>
+                                            <option selected="selected">Van - Van D4D - 1 to 9 Pax</option>
+                                            <option>Car Luxury - Camry 1 to 2 Pax</option>
+                                            <option>Car Luxury - Mercedes 1 to 2 Pax</option>
+                                            <option>Coach - 45 Seater 10 to 45 Pax</option>
+                                           
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="3" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Bangkok</option>
+                                            <option>Pattaya</option>
+                                            <option selected="selected">Phuket</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="900" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                            <option>Car - Sedan - 1 to 2 Pax</option>
+                                            <option >Van - Van D4D - 1 to 9 Pax</option>
+                                            <option selected="selected">Car Luxury - Camry 1 to 2 Pax</option>
+                                            <option>Car Luxury - Mercedes 1 to 2 Pax</option>
+                                            <option>Coach - 45 Seater 10 to 45 Pax</option>
+                                          
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="3" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Bangkok</option>
+                                            <option>Pattaya</option>
+                                            <option selected="selected">Phuket</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                         <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1000" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                            <option>Car - Sedan - 1 to 2 Pax</option>
+                                            <option >Van - Van D4D - 1 to 9 Pax</option>
+                                            <option >Car Luxury - Camry 1 to 2 Pax</option>
+                                            <option selected="selected">Car Luxury - Mercedes 1 to 2 Pax</option>
+                                            <option>Coach - 45 Seater 10 to 45 Pax</option>
+                                          
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="3" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Bangkok</option>
+                                            <option>Pattaya</option>
+                                            <option selected="selected">Phuket</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1200" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                                            <option>Car - Sedan - 1 to 2 Pax</option>
+                                            <option>Van - Van D4D - 1 to 9 Pax</option>
+                                            <option>Car Luxury - Camry 1 to 2 Pax</option>
+                                            <option >Car Luxury - Mercedes 1 to 2 Pax</option>
+                                            <option selected="selected">Coach - 45 Seater 10 to 45 Pax</option>
+                                           
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <input type="text" class="form-control" id="txtServiceCostadd" value="4" placeholder="Service Cost ">
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <select id="drpVehicleName" class="js-states form-control" style="display: none; width: 100%">
+                                            <option>Bangkok</option>
+                                            <option>Pattaya</option>
+                                            <option selected="selected">Phuket</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 5px">
+                                       <div class="input-group input-append">
+                                        <input type="text" class="form-control" id="txtTwinRoomRate" value="1500" placeholder="">
+                                        <span class="input-group-addon add-on"><span>THB</span></span>
+                                    </div>
+                                    </td>
+                                    <td style="padding: 5px">
+                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <button id="btnSave" type="submit" class="btn btn-success btnSave">
             SAVE</button>
         <button id="btnSave" type="submit" class="btn btn-primary btnSave">
             UPDATE</button>
-         
+
         <button id="btnCancel" type="submit" class="btn btn-green btnCancel">
             DELETE</button>
         <button id="btnSave" type="submit" class="btn btn-warning btnSave">
@@ -81,7 +518,276 @@
 
     </form>
 </div>
+<div class="modal fade modify-colum-model" id="allotmentmodal" role="dialog">
+    <div class="modal-dialog" style="width: 70%; height: 40%">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="tab2section3" style="padding-top: 30px">Transfer Rate <span class="text-danger"></span></h3>
+            </div>
+            <div class="modal-body">
 
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table style="width: 100%">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Car-Sedan 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Van-Van D4D 1 to 9</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Luxury-Camry 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Luxury-Hyundai 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Coach-40 Seater 10 to 45</span> </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="650" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="800" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="900" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="1500" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="2000" placeholder="Service Cost ">
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="float: right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-success ">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade modify-colum-model" id="allotmentmodal1" role="dialog">
+    <div class="modal-dialog" style="width: 70%; height: 40%">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="tab2section3" style="padding-top: 30px">Transfer Rate <span class="text-danger"></span></h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table style="width: 100%">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Car 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Van-Van D4D 1 to 9</span> </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="1200" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="1400" placeholder="Service Cost ">
+                                            </td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="float: right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-success ">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade modify-colum-model" id="allotmentmodal2" role="dialog">
+    <div class="modal-dialog" style="width: 70%; height: 40%">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="tab2section3" style="padding-top: 30px">Transfer Rate <span class="text-danger"></span></h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table style="width: 100%">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Car-Sedan 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Van-Van D4D 1 to 9</span> </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="1200" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="1400" placeholder="Service Cost ">
+                                            </td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="float: right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-success ">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade modify-colum-model" id="allotmentmodal3" role="dialog">
+    <div class="modal-dialog" style="width: 70%; height: 40%">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="tab2section3" style="padding-top: 30px">Transfer Rate <span class="text-danger"></span></h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table style="width: 100%">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Car-Sedan 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Van-Van D4D 1 to 9</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Luxury-Camry 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Luxury-Hyundai 1 to 2</span> </th>
+                                            <th style="width: 11%; padding: 5px">Cost For<br />
+                                                <span class="text-danger">Coach-40 Seater 10 to 40</span> </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="650" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="800" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="900" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="1500" placeholder="Service Cost ">
+                                            </td>
+                                            <td style="padding: 5px">
+
+                                                <input type="text" class="form-control" id="txtServiceCostadd" value="2000" placeholder="Service Cost ">
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="float: right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-success ">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="col-md-4 summery-detail summery-uitilities-detail summerytab2">
     <div class="panel-body tab-itenaries ">
         <div class="panel-group">
@@ -89,8 +795,8 @@
                 <div class="panel-heading accordian-heading" role="tab" id="headingOne1">
                     <h4 class="panel-title transfersummeryt">Summary 
                          <a id="showRightSideSummary" style="float: right;" class="panel-reload" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Utility & Quick Report">
-                                                    <i class="fa fa-tasks"></i>
-                                                </a>
+                             <i class="fa fa-tasks"></i>
+                         </a>
                         <a id="startGuiededTour" style="float: right; margin-right: 10px;" class="panel-reload text-info" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Guided Tour">
                             <i class="icon-info"></i>
                         </a>
