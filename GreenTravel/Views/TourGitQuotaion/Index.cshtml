@@ -17,28 +17,28 @@
 <link href="~/assets/plugins/FlexibleSlideToTopAccordion/css/style.css" rel="stylesheet" />
 <link href="~/Content/TourGITQuotation/TourGITQuotation.css" rel="stylesheet" />
 
-<div class="col-md-12">
+<div class="col-md-12 form-detail">
     <div class="panel panel-white">
         <div class="panel-body">
             <div id="rootwizard">
-                <ul class="nav nav-tabs wizard-tab form-tabs" role="tablist">
+                <ul class="nav nav-tabs wizard-tab form-tabs form-basic-tab" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" data-toggle="tab" data-section="tab1"><span>1</span> Create Inquiry<!--<i class="glyphicon glyphicon-info-sign"></i>--></a></li>
-                    <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="CreateQuotation"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
+                    <li role="presentation"><a href="#tab5" data-toggle="tab" data-section="tab5"><span>2</span> Create Quotation<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab2" data-toggle="tab" data-section="tab2"><span>3</span> Build Itinerary<!--<i class="fa fa-user  m-r-xs"></i>--></a></li>
                     <li role="presentation"><a href="#tab4" data-toggle="tab" data-section="tab4"><span>4</span> Quotation Summary<!--<i class="glyphicon glyphicon-list-alt"></i>--></a></li>
                    
                 </ul>
                 <div class="tab-content">
                     @*Create Inquiry*@
-                    <div class="tab-pane active fade in" id="tab1">
+                    <div role="tabpanel" class="tab-pane active fade in" id="tab1">
                        @Html.Partial("_CreateInquiry")
                     </div>
                     @*Create Quotation*@
-                    <div class="tab-pane fade in" id="tab5">
+                    <div role="tabpanel" class="tab-pane fade in" id="tab5">
                         @Html.Partial("_CreateQuotation")
                     </div>
                     @*Build Itinerary*@
-                    <div class="tab-pane fade in" id="tab2">
+                    <div role="tabpanel" class="tab-pane fade in" id="tab2">
                       @Html.Partial("_BuildItenerary")
 
                     </div>
@@ -4096,15 +4096,15 @@
 
     </div>
     <div class="floating-section-buttons tab1" style="display: none">
-        <a class="btn btn-default" data-section="tab1section1" rel="tooltip" title="Agent Details">1</a>
-        <a class="btn btn-default" data-section="tab1section2" rel="tooltip" title="Travel Details">2</a>
-        <a class="btn btn-default" data-section="tab1section3" rel="tooltip" title="Guest Details">3</a>
-        <a class="btn btn-default" data-section="tab1section4" rel="tooltip" title="Additional Details">4</a>
-    </div>
-    <div class="floating-section-buttons CreateQuotation" style="display: none">
-        <a class="btn btn-default" data-section="tab2section1" rel="tooltip" title="Quotation Details">1</a>
-        <a class="btn btn-default" data-section="tab2section2" rel="tooltip" title="Pax/Room Details">2</a>
+        <a class="btn btn-default" data-section="tab1section1" rel="tooltip" title="Basic Details">1</a>
+        <a class="btn btn-default" data-section="tab1section2" rel="tooltip" title="Management Details">2</a>
 
+    </div>
+    <div class="floating-section-buttons tab5" style="display: none">
+        <a class="btn btn-default" data-section="tab5section1" rel="tooltip" title="Inclusions">1</a>
+        <a class="btn btn-default" data-section="tab5section2" rel="tooltip" title="Additional Services">2</a>
+         <a class="btn btn-default" data-section="tab5section3" rel="tooltip" title="Discount / Margine / Tax">3</a>
+        <a class="btn btn-default" data-section="tab5section4" rel="tooltip" title="Quotation Details">4</a>
     </div>
 
 }
