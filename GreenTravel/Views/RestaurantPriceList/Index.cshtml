@@ -29,18 +29,37 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="tab1">
-                       @Html.Partial("_SearchRestaurantPrice")
+                        @Html.Partial("_SearchRestaurantPrice")
                     </div>
                     <div role="tabpanel" class="tab-pane " id="tab2">
-                       @Html.Partial("_CreateRestaurantPrice")
+                        @*  @Html.Partial("_CreateRestaurantPrice")*@
+                        <ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tab111" role="tab" data-toggle="tab" data-section="tab111" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-cutlery"></span>&nbsp;&nbsp;&nbsp;&nbsp;Restaurant Price</a></li>
+                            <li role="presentation"><a href="#tab22" role="tab" data-toggle="tab" data-section="tab22" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-paw"></span>&nbsp;&nbsp;&nbsp;&nbsp;Function Room Price</a></li>
+                            <li role="presentation"><a href="#tab33" role="tab" data-toggle="tab" data-section="tab33" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-cutlery"></span>&nbsp;&nbsp;&nbsp;&nbsp;Gala Dinner Price</a></li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab111">
+                                @Html.Partial("_RestaurantPrice")
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="tab22">
+                                @Html.Partial("_functionroomPrice")
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="tab33">
+                                @Html.Partial("_GalaDinnerPrice")
+                            </div>
+                          
+                        </div>
+
                     </div>
-                      <div role="tabpanel" class="tab-pane " id="tab3">
-                       @Html.Partial("_TransferPrice")
+                    <div role="tabpanel" class="tab-pane " id="tab3">
+                        @Html.Partial("_TransferPrice")
                     </div>
-                      <div role="tabpanel" class="tab-pane " id="tab4">
-                       @Html.Partial("_GuidePrice")
+                    <div role="tabpanel" class="tab-pane " id="tab4">
+                        @Html.Partial("_GuidePrice")
                     </div>
-                  
+
                 </div>
             </div>
         </div>
@@ -49,7 +68,7 @@
 
 
 @section scripts{
-   
+
     <script src="~/Scripts/RestaurantPriceList/RestaurantPriceList.js"></script>
 }
 
