@@ -7,9 +7,10 @@
         <li role="presentation"><a href="#tab2-3" data-toggle="tab">Guide<i class=""><img alt="Guide" src="../../assets/images/wizards/guide.png"></i></a></li>
         <li role="presentation"><a href="#tab2-2" data-toggle="tab">Sightseeing<i class=""><img alt="Guide" src="../../assets/images/wizards/sightseeing.png"></i></a></li>
         <li role="presentation"><a href="#tab2-4" data-toggle="tab">Restaurant<i class=""><img alt="Guide" src="../../assets/images/wizards/Restaurant.png"></i></a></li>
-        <li role="presentation"><a href="#tab2-5" data-toggle="tab">Function Room <i class="">
-            <img alt="Guide" src="../../assets/images/wizards/conference.png"></i></a></li>
-        <li role="presentation"><a href="#tab2-6" data-toggle="tab">Gala Dinner<i class=""><img alt="Guide" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>
+        @* <li role="presentation"><a href="#tab2-5" data-toggle="tab">Function Room <i class=""> <img alt="Guide" src="../../assets/images/wizards/conference.png"></i></a></li>
+        <li role="presentation"><a href="#tab2-6" data-toggle="tab">Gala Dinner<i class=""><img alt="Guide" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>*@
+        <li role="presentation"><a href="#tab2-9" data-toggle="tab">Additional Services<i class=""><img alt="Additional Services" src="../../assets/images/wizards/all.png"></i></a></li>
+        <li role="presentation"><a href="#tab2-10" data-toggle="tab">T&C / Benefits<i class=""><img alt="T&C / Benefits" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>
     </ul>
 
     <form id="wizardForm form-horizontal" class="wizard-verti-form">
@@ -42,7 +43,7 @@
                                 <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
                             </a>
 
-                            <div class="panel panel-blue" style="margin-top: 7px; border-radius: 4px !important; color: white">
+                            <div class="panel panel-blue" style="margin-top: 7px; border-radius: 4px !important; color: white; margin-bottom: 13px">
                                 <div class="panel-heading1" role="tab" id="headingOneq7">
                                     <h4 class="panel-title" style="border-bottom: none !important; font-size: 10px !important; text-align: center">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOneq7" aria-expanded="true" aria-controls="collapseOne" style="">Selected Room Category
@@ -77,6 +78,10 @@
                                 </div>
                             </div>
 
+
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 10px; border-radius: 4px">
+                                Add To Itinerary</button>
+
                         </div>
                         <div class="col-md-9" style="padding: 9px; padding-top: 0px">
                             <h5 class="text-danger">Hotel De Bangkok
@@ -101,10 +106,12 @@
                                             </a>
                                         </h4>
                                     </div>
-                                    <div id="collapseOnessqw" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div id="collapseOnessqw" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
                                                 <h3 class="text-danger" style="font-size: 13px; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">3 Nights (01-May-2016 to 10-May-2016)</h3>
+
+
                                                 <label>Room Category</label>
                                                 <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
                                                     <option selected="selected">Superior</option>
@@ -133,32 +140,34 @@
                                                     <option>Day 6 (10-May-2016)</option>
                                                 </select>
 
-                                                <label># Rooms</label>
-                                                <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
 
                                                 <div class="form-group">
-                                                    <div class="col-md-4" style="padding-left: 1px !important">
-                                                        <label>Incl.ABF</label>
-                                                    </div>
-                                                    <div class="col-md-4" style="padding-left: 1px !important">
+
+                                                    <div class="col-md-3" style="padding-left: 1px !important">
                                                         <label>Optional</label>
 
                                                     </div>
-                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-3" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Self Book</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important">
+                                                        <label>Add. Service</label>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3" style="text-align: center">
                                                         <input type="checkbox" />
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3" style="text-align: center">
                                                         <input type="checkbox" />
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6" style="text-align: center">
                                                         <input type="checkbox" />
                                                     </div>
+                                                </div>
+                                                <div class="form-group" style="text-align: right; margin-top: 19%; margin-bottom: 1px">
+                                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-4" style="padding-right: 1px !important">
@@ -212,40 +221,15 @@
                                                 <input type="text" class="form-control" id="txtRateToDate" value="First Floor Hall" placeholder="">
 
                                                 <label>Function Type</label>
-                                                <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM" placeholder="">
+                                                <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM - 10:00 to 13:00" placeholder="">
+
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important">
-                                                        <label>From Time</label>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important">
-                                                        <label>To Time</label>
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <div class="input-group input-append bootstrap-timepicker">
-                                                            <input type="text" class="form-control timepicker" value="1300" id="">
-                                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                        </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Tea / Coffe Break</label>
                                                     </div>
                                                     <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <div class="input-group input-append bootstrap-timepicker">
-                                                            <input type="text" class="form-control timepicker" value="1400" id="">
-                                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Tea Coffe Break</label>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Lunch</label>
+                                                        <label># Lunch</label>
 
                                                     </div>
 
@@ -266,6 +250,25 @@
                                                     <option>Buffet</option>
                                                 </select>
 
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Add. Service</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>&nbsp;</label>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    </div>
+
+                                                </div>
 
                                             </div>
                                             <div class="col-md-4" style="padding-right: 1px !important">
@@ -372,13 +375,31 @@
                                                         <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect11').click();" placeholder="Menu">
                                                         <input id="logoselect11" type="file" style="display: none" />
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
                                                         <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117').click();" placeholder="Menu">
                                                         <input id="logoselect117" type="file" style="display: none" />
                                                     </div>
 
                                                 </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Add. Service</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>&nbsp;</label>
 
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                             <div class="col-md-4" style="padding-right: 1px !important">
                                                 <h3 class="text-danger" style="text-align: center; color: red; font-size: 15px; margin-top: 1px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
@@ -424,7 +445,7 @@
                                 <option>Pattaya</option>
                                 <option>Phuket</option>
                             </select>
-                            
+
                         </div>
                         <div class="col-md-7">
                             <input type="text" class="form-control" value="Phi Phi Island" id="txtTags" placeholder="">
@@ -441,9 +462,10 @@
                             <a>
                                 <img src="http://www.zeavola.com/images/1440x866/slider/1/luxury-phi-phi-island-resort-krabi.jpg" width="155" height="155" />
                             </a>
-
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px; margin-top: 13px">
+                                Add To Itinerary</button>
                         </div>
-                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 292px">
+                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 318px">
                             <h5 class="text-danger">Phi Phi Island
                             <span>
                                 <div class="star-ratings">
@@ -463,10 +485,10 @@
                             </div>
                             <div class="col-md-12" style="padding-left: 1px !important">
                                 <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                <option selected="selected">Day 1 (1-May-2016)</option>
-                                <option>Day 2 (2-May-2016)</option>
-                                <option>Day-3 (3-May-2016)</option>
-                            </select>
+                                    <option selected="selected">Day 1 (1-May-2016)</option>
+                                    <option>Day 2 (2-May-2016)</option>
+                                    <option>Day-3 (3-May-2016)</option>
+                                </select>
                             </div>
                             <div class="col-md-12" style="padding-left: 1px !important">
                                 <label>Package</label>
@@ -505,18 +527,36 @@
                                     <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
+                            <div class="col-md-6" style="padding-left: 1px !important;">
                                 <div class="input-group input-append bootstrap-timepicker">
                                     <input type="text" class="form-control timepicker" value="1200" id="">
                                     <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                    <label>Add. Service</label>
+                                </div>
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                    <label>&nbsp;</label>
 
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                    <input type="checkbox" class="form-control">
+                                </div>
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="col-md-3">
                             <h3 class="text-danger" style="text-align: center; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
                             <div class="col-md-12">
-                                <label>Adult Rate</label>
+                                <label>Adult Ticket Rate</label>
                             </div>
                             <div class="col-md-12">
                                 <div class="input-group input-append">
@@ -525,7 +565,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <label>Child Rate</label>
+                                <label>Child Ticket Rate</label>
                             </div>
                             <div class="col-md-12">
                                 <div class="input-group input-append">
@@ -558,16 +598,10 @@
 
             @*Guide*@
             <div class="tab-pane fade" id="tab2-3">
-                 <div class="m-b-lg" style="margin-bottom: 5px !important">
+                <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
-                        <div class="col-md-3">
-                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                <option selected="selected">Bangkok</option>
-                                <option>Pattaya</option>
-                                <option>Phuket</option>
-                            </select>
-                        </div>
-                        <div class="col-md-7">
+
+                        <div class="col-md-10">
                             <input type="text" class="form-control" value="Guide" id="txtTags" placeholder="">
                         </div>
                         <div class="col-md-2" style="padding-left: 9%">
@@ -582,26 +616,58 @@
                             <a>
                                 <img src="https://images-na.ssl-images-amazon.com/images/I/51IyM90TipL._SX324_BO1,204,203,200_.jpg" width="155" height="155" />
                             </a>
-
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px; margin-top: 13px">
+                                Add To Itinerary</button>
                         </div>
-                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 100px">
+                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 194px">
                             <h5 class="text-danger">Thailand Guide
                             <span></span></h5>
 
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <label>City</label>
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">Bangkok</option>
+                                <option>Pattaya</option>
+                                <option>Phuket</option>
+                            </select>
+
+                            <div class="col-md-4" style="padding-left: 1px !important">
                                 <label># Nights</label>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <label># Guide</label>
+                            <div class="col-md-4" style="padding-left: 1px !important">
+                                <label># Days</label>
+                            </div>
+                            <div class="col-md-4" style="padding-left: 1px !important">
+                                <label># Guides</label>
                             </div>
 
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-4" style="padding-left: 1px !important">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-4" style="padding-left: 1px !important">
+                                <input type="text" class="form-control" value="4" id="txtTags" placeholder="" readonly>
+                            </div>
+                            <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                    <label>Add. Service</label>
+                                </div>
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                    <label>&nbsp;</label>
+
+                                </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                    <input type="checkbox" class="form-control">
+                                </div>
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="col-md-3">
                             <h3 class="text-danger" style="text-align: center; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
@@ -641,7 +707,7 @@
                             </select>
                         </div>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" value="Hotel De Bangkok" id="txtTags" placeholder="">
+                            <input type="text" class="form-control" value="Eat Me Restaurant" id="txtTags" placeholder="">
                         </div>
                         <div class="col-md-2" style="padding-left: 9%">
                             <a class=" btn btn-danger" rel="tooltip" title="Add Restaurant" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
@@ -655,299 +721,398 @@
                             <a>
                                 <img src="http://p.siammedee.com/Koh_Lanta/Pimalai_Resort_&_Spa/Res_01.jpg" width="155" height="155" />
                             </a>
+                            <div class="panel panel-blue" style="margin-top: 7px; border-radius: 4px !important; color: white; margin-bottom: 13px">
+                                <div class="panel-heading1" role="tab" id="headingOneq7restsum">
+                                    <h4 class="panel-title" style="border-bottom: none !important; font-size: 10px !important; text-align: center">
+                                        <a data-toggle="collapse" data-parent="#accordions" href="#collapseOneqrestsum" aria-expanded="true" aria-controls="collapseOne" style="">Meal
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOneqrestsum" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body" style="padding: 5px">
+                                        <table class="table-itinarary-summary table tablespan" style="width: 100%; margin-bottom: 1px !important">
+                                            <tbody>
 
+                                                <tr>
+                                                    <td>Lunch-4</td>
+                                                    <td><span class="text-success fa fa-pencil faSuccess"></span></td>
+                                                    <td><span class="text-danger fa fa-close faDanger"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dinner-4</td>
+                                                    <td><span class="text-success fa fa-pencil faSuccess"></span></td>
+                                                    <td><span class="text-danger fa fa-close faDanger"></span></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 10px; border-radius: 4px">
+                                Add To Itinerary</button>
                         </div>
-                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 290px">
-                            <h5 class="text-danger">Hotel De Bangkok
+                        <div class="col-md-9" style="padding: 9px; padding-top: 0px">
+
+                            <h5 class="text-danger">Eat Me Restaurant
                             <span></span></h5>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <label>From Day</label>
-                            </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <label>To Day</label>
-                            </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                    <option>Day 1 (5-May-2016)</option>
-                                    <option>Day 2 (6-May-2016)</option>
-                                    <option>Day 3 (7-May-2016)</option>
-                                </select>
-                            </div>
-                            
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                    <option>Day 1 (5-May-2016)</option>
-                                    <option>Day 2 (6-May-2016)</option>
-                                    <option>Day 3 (7-May-2016)</option>
-                                </select>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 1px !important">
-                                <label>Meal Type</label>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 1px !important">
-                                <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
-                                    <option selected="selected">BreakFast</option>
-                                    <option>Lunch</option>
-                                    <option>Dinner</option>
+                            <div class="panel-group" id="accordions" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                    <div class="panel-heading2" role="tab" id="headingOnessqwrf">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordions" href="#collapseOnessqwrestfu" aria-expanded="true" aria-controls="collapseOne">Restaurant
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOnessqwrestfu" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
+                                                <h3 class="text-danger" style="font-size: 13px; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">3 Nights (01-May-2016 to 10-May-2016)</h3>
 
-                                </select>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 1px !important">
-                                <label>Menu Type</label>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 1px !important">
-                                <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
-                                    <option selected="selected">American Breakfast</option>
-                                    <option>2 Veg. Dishes</option>
-                                    <option>2 Non Veg. Dishes</option>
-                                    <option>3 Veg. Dishes</option>
-                                    <option>3 Non Veg. Dishes</option>
-                                    <option>Roti</option>
-                                    <option>Dal</option>
-                                    <option>2+2 Starter</option>
-                                    <option>Soda Soft Drinks</option>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <label>From Day</label>
+                                                </div>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <label>To Day</label>
+                                                </div>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Day 1 (5-May-2016)</option>
+                                                        <option>Day 2 (6-May-2016)</option>
+                                                        <option>Day 3 (7-May-2016)</option>
+                                                    </select>
+                                                </div>
 
-                                </select>
-                            </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <label>Time</label>
-                            </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <label># Meal</label>
-                            </div>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option>Day 4 (8-May-2016)</option>
+                                                        <option>Day 5 (9-May-2016)</option>
+                                                        <option>Day 6 (10-May-2016)</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12" style="padding-left: 1px !important">
+                                                    <label>Meal Type</label>
+                                                </div>
+                                                <div class="col-md-12" style="padding-left: 1px !important">
+                                                    <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">BreakFast</option>
+                                                        <option>Lunch</option>
+                                                        <option>Dinner</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12" style="padding-left: 1px !important">
+                                                    <label>Menu Type</label>
+                                                </div>
+                                                <div class="col-md-12" style="padding-left: 1px !important">
+                                                    <select id="drpMealPlan" class="js-states form-control" style="display: none; width: 100%">
+                                                        <option selected="selected">American Breakfast</option>
+                                                        <option>2 Veg. Dishes</option>
+                                                        <option>2 Non Veg. Dishes</option>
+                                                        <option>3 Veg. Dishes</option>
+                                                        <option>3 Non Veg. Dishes</option>
+                                                        <option>Roti</option>
+                                                        <option>Dal</option>
+                                                        <option>2+2 Starter</option>
+                                                        <option>Soda Soft Drinks</option>
 
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <div class="input-group input-append bootstrap-timepicker">
-                                    <input type="text" class="form-control timepicker" value="1200" id="">
-                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <label>Time</label>
+                                                </div>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <label># Meal</label>
+                                                </div>
+
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <div class="input-group input-append bootstrap-timepicker">
+                                                        <input type="text" class="form-control timepicker" value="1200" id="">
+                                                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-left: 1px !important">
+                                                    <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Add. Service</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>&nbsp;</label>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" style="padding-right: 1px !important">
+                                                <h3 class="text-danger" style="text-align: center; color: red; margin-top: 0px; font-size: 15px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
+
+                                                <label>Adult Cost Per Pax</label>
+
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Child Cost Per Pax</label>
+
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="250" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Margin</label>
+
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="50" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important; margin-top: 5px">
+                                    <div class="panel-heading2" role="tab" id="headingOnessqw7i3">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordions" href="#collapseOnessqw7i3" aria-expanded="true" aria-controls="collapseOne">Function Room
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOnessqw7i3" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
+                                                <h3 class="text-danger" style="font-size: 13px; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">01-May-2016 to 10-May-2016</h3>
+
+                                                <label>Function Venue</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="First Floor Hall" placeholder="">
+
+                                                <label>Function Type</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM - 10:00 to 13:00" placeholder="">
+
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Tea / Coffe Break</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label># Lunch</label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="text" class="form-control" id="txtRateToDate" value="2" placeholder="">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <input type="text" class="form-control" id="txtRateToDate" value="2" placeholder="">
+                                                    </div>
+
+                                                </div>
+                                                <label>Menu Type</label>
+                                                <select id="drpChargeType" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option>Set Lunch</option>
+                                                    <option>Buffet</option>
+                                                </select>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Add. Service</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>&nbsp;</label>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4" style="padding-right: 1px !important">
+                                                <h3 class="text-danger" style="text-align: center; color: red; margin-top: 1px; font-size: 15px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
+                                                <label>Adult Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="1200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Child Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="600" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Margin</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important; margin-top: 5px">
+                                    <div class="panel-heading2" role="tab" id="headingOnessqw71d2">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordions" href="#collapseOnessqw71d2" aria-expanded="true" aria-controls="collapseOne">Gala Dinner
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOnessqw71d2" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
+                                                <h3 class="text-danger" style="font-size: 13px; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">01-May-2016 to 10-May-2016</h3>
+
+                                                <label>Gala Dinner Venue</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="First Floor Hall" placeholder="">
+
+                                                <label>Menu</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="2 Veg Dishes" placeholder="">
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important">
+                                                        <label>From Time</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important">
+                                                        <label>To Time</label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <div class="input-group input-append bootstrap-timepicker">
+                                                            <input type="text" class="form-control timepicker" value="1300" id="">
+                                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <div class="input-group input-append bootstrap-timepicker">
+                                                            <input type="text" class="form-control timepicker" value="1400" id="">
+                                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 1</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 2</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect1122').click();" placeholder="Menu">
+                                                        <input id="logoselect1122" type="file" style="display: none" />
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect112').click();" placeholder="Menu">
+                                                        <input id="logoselect112" type="file" style="display: none" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 3</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 4</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect11').click();" placeholder="Menu">
+                                                        <input id="logoselect11" type="file" style="display: none" />
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117').click();" placeholder="Menu">
+                                                        <input id="logoselect117" type="file" style="display: none" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Add. Service</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>&nbsp;</label>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" style="padding-right: 1px !important">
+                                                <h3 class="text-danger" style="text-align: center; color: red; font-size: 15px; margin-top: 1px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
+                                                <label>Adult Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="1200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Child Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="600" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Margin</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
-                                <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
-                            </div>
-                            
                         </div>
-                        <div class="col-md-3">
-                            <h3 class="text-danger" style="text-align: center; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
-                            <div class="col-md-12">
-                                <label>Adult Cost Per Pax</label>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="500" placeholder="">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
-                             <div class="col-md-12">
-                                <label>Child Cost Per Pax</label>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="250" placeholder="">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label>Margin</label>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-group input-append">
-                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="50" placeholder="">
-                                    <span class="input-group-addon add-on"><span>THB</span></span>
-                                </div>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
             </div>
 
-            @*Conferance*@
+            @*Function Room*@
             <div class="tab-pane fade" id="tab2-5">
-                <div class="m-b-lg">
-                    <h4 style="margin-top: 0;">Conferance List Of Bangkok - <span class="text-danger">12 Conferances found</span></h4>
-                </div>
-                <div class="m-b-lg tab-itenaries panel panel-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a>
-                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                            </a>
-                        </div>
-                        <div class="col-md-6 right-border">
-                            <h5 class="text-danger">Amari Atrium 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4" selected="selected">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                            <p><span>Bangkok</span>&nbsp;|&nbsp;<span>50 Seats</span></p>
-                            <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                        </div>
-                        <div class="col-md-3">
-                            @*<div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>*@
-                            <div class="form-control">
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myConferanceModal">CALCULATE PRICE</button>
-                            </div>
-                            <div class="form-control">
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    ADD TO ITINERARY</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="m-b-lg tab-itenaries panel panel-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a>
-                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                            </a>
-                        </div>
-                        <div class="col-md-6 right-border">
-                            <h5 class="text-danger">A1 Bangkok 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3" selected="selected">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                            <p><span>Bangkok</span>&nbsp;|&nbsp;<span>46 Seats</span></p>
-                            <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                        </div>
-                        <div class="col-md-3">
-                            @*<div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>*@
-                            <div class="form-control">
-                                <button data-toggle="modal" data-target="#myConferanceModal" type="button" class="btn btn-info btnSave">
-                                    CALCULATE PRICE</button>
-                            </div>
-                            <div class="form-control">
-                                <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                    Add to Itinerry</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            @*Gala-Dinner*@
-            <div class="tab-pane fade" id="tab2-6">
-                <div class="m-b-lg">
-                    <h4 style="margin-top: 0;">Gala-Dinner List Of Bangkok - <span class="text-danger">23 Gala-Dinners found</span></h4>
-                </div>
-                <div class="m-b-lg tab-itenaries panel panel-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a>
-                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                            </a>
-                        </div>
-                        <div class="col-md-6 right-border">
-                            <h5 class="text-danger">Amari Atrium 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4" selected="selected">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                            <p><span>Bangkok</span>&nbsp;|&nbsp;<span>56 Seats</span></p>
-                            <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                        </div>
-                        <div class="col-md-3">
-                            @* <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">5500 THB</h2>
-                                                    </div>*@
-                            <div class="form-control">
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myGalaDinnerModal">CALCULATE PRICE</button>
-                            </div>
-                            <div class="form-control">
-                                <button id="btnSave" type="submit" class="btn btn-success btnSave">
-                                    ADD TO ITINERARY</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="m-b-lg tab-itenaries panel panel-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a>
-                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
-                            </a>
-                        </div>
-                        <div class="col-md-6 right-border">
-                            <h5 class="text-danger">A1 Bangkok 
-                                                        <span>
-                                                            <div class="star-ratings">
-                                                                <div class="stars stars-example-bootstrap">
-                                                                    <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3" selected="selected">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </span></h5>
-                            <p><span>Bangkok</span>&nbsp;|&nbsp;<span>46 Seats</span></p>
-                            <p>Built in the style of a Mediterranean village, Fraser Place Robertson Walk Singapore offers fully furnished 1 to 3-bedroom apartments with both free Wi-Fi and free wired internet. </p>
-                        </div>
-                        <div class="col-md-3">
-                            @* <div class="form-control">
-                                                        Total Cost
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <h2 class="text-danger strong">4800 THB</h2>
-                                                    </div>*@
-                            <div class="form-control">
-                                <button data-toggle="modal" data-target="#myGalaDinnerModal" type="button" class="btn btn-info btnSave">
-                                    CALCULATE PRICE</button>
-                            </div>
-                            <div class="form-control">
-                                <button id="btnAddToItinerary" type="button" class="btn btn-success btnSave">
-                                    Add to Itinerry</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            @*Transportation*@
-            <div class="tab-pane fade" id="tab2-7">
                 <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
                         <div class="col-md-3">
@@ -958,6 +1123,296 @@
                             </select>
                         </div>
                         <div class="col-md-7">
+                            <input type="text" class="form-control" value="Hotel De Bangkok " id="txtTags" placeholder="">
+                        </div>
+                        <div class="col-md-2" style="padding-left: 9%">
+                            <a class=" btn btn-danger" rel="tooltip" title="Add Hotel" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a>
+                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                            </a>
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 10px; border-radius: 4px">
+                                Add To Itinerary</button>
+                        </div>
+                        <div class="col-md-9" style="padding: 9px; padding-top: 0px">
+                            <h5 class="text-danger">Hotel De Bangkok
+                            <span>
+                                <div class="star-ratings">
+                                    <div class="stars stars-example-bootstrap">
+                                        <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4" selected="selected">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </span></h5>
+                            <div class="panel-group" id="accordions1" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important; margin-top: 5px">
+                                    <div class="panel-heading2" role="tab" id="headingOnessqw7i">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnessqw7i" aria-expanded="true" aria-controls="collapseOne">Function Room
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOnessqw7i" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
+                                                <h3 class="text-danger" style="font-size: 13px; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">01-May-2016 to 10-May-2016</h3>
+
+                                                <label>Function Venue</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="First Floor Hall" placeholder="">
+
+                                                <label>Function Type</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM - 10:00 to 13:00" placeholder="">
+
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Tea / Coffe Break</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label># Lunch</label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="text" class="form-control" id="txtRateToDate" value="2" placeholder="">
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <input type="text" class="form-control" id="txtRateToDate" value="2" placeholder="">
+                                                    </div>
+
+                                                </div>
+                                                <label>Menu Type</label>
+                                                <select id="drpChargeType" class="js-states form-control" style="display: none; width: 100%">
+                                                    <option>Set Lunch</option>
+                                                    <option>Buffet</option>
+                                                </select>
+                                                <div class="form-group" style="text-align: right; margin-top: 8px; margin-bottom: 1px">
+                                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4" style="padding-right: 1px !important">
+                                                <h3 class="text-danger" style="text-align: center; color: red; margin-top: 1px; font-size: 15px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
+                                                <label>Adult Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="1200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Child Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="600" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Margin</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            @*Gala-Dinner*@
+            <div class="tab-pane fade" id="tab2-6">
+                <div class="m-b-lg" style="margin-bottom: 5px !important">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">Bangkok</option>
+                                <option>Pattaya</option>
+                                <option>Phuket</option>
+                            </select>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" value="Hotel De Bangkok " id="txtTags" placeholder="">
+                        </div>
+                        <div class="col-md-2" style="padding-left: 9%">
+                            <a class=" btn btn-danger" rel="tooltip" title="Add Hotel" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a>
+                                <img src="http://q-ec.bstatic.com/images/hotel/square200/144/14425938.jpg" width="155" height="155" />
+                            </a>
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px; margin-top: 13px">
+                                Add To Itinerary</button>
+                        </div>
+                        <div class="col-md-9" style="padding: 9px; padding-top: 0px">
+                            <h5 class="text-danger">Hotel De Bangkok
+                            <span>
+                                <div class="star-ratings">
+                                    <div class="stars stars-example-bootstrap">
+                                        <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4" selected="selected">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </span></h5>
+                            <div class="panel-group" id="accordiond" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important; margin-top: 5px">
+                                    <div class="panel-heading2" role="tab" id="headingOnessqw71d">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnessqw71d" aria-expanded="true" aria-controls="collapseOne">Gala Dinner
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOnessqw71d" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
+                                                <h3 class="text-danger" style="font-size: 13px; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">01-May-2016 to 10-May-2016</h3>
+
+                                                <label>Gala Dinner Venue</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="First Floor Hall" placeholder="">
+
+                                                <label>Menu</label>
+                                                <input type="text" class="form-control" id="txtRateToDate" value="2 Veg Dishes" placeholder="">
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important">
+                                                        <label>From Time</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important">
+                                                        <label>To Time</label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <div class="input-group input-append bootstrap-timepicker">
+                                                            <input type="text" class="form-control timepicker" value="1300" id="">
+                                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <div class="input-group input-append bootstrap-timepicker">
+                                                            <input type="text" class="form-control timepicker" value="1400" id="">
+                                                            <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 1</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 2</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect1122').click();" placeholder="Menu">
+                                                        <input id="logoselect1122" type="file" style="display: none" />
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect112').click();" placeholder="Menu">
+                                                        <input id="logoselect112" type="file" style="display: none" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 3</label>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Sample Menu 4</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect11').click();" placeholder="Menu">
+                                                        <input id="logoselect11" type="file" style="display: none" />
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117').click();" placeholder="Menu">
+                                                        <input id="logoselect117" type="file" style="display: none" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group" style="text-align: right; margin-top: 70%; margin-bottom: 1px">
+                                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" style="padding-right: 1px !important">
+                                                <h3 class="text-danger" style="text-align: center; color: red; font-size: 15px; margin-top: 1px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
+                                                <label>Adult Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="1200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Child Rate</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="600" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+                                                <label>Margin</label>
+                                                <div class="input-group input-append">
+                                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="200" placeholder="">
+                                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            @*Transportation*@
+            <div class="tab-pane fade" id="tab2-7">
+                <div class="m-b-lg" style="margin-bottom: 5px !important">
+                    <div class="row">
+
+                        <div class="col-md-10">
                             <input type="text" class="form-control" value="Car - Sedan (1 Pax to 2 Pax)" id="txtTags" placeholder="">
                         </div>
                         <div class="col-md-2" style="padding-left: 9%">
@@ -972,26 +1427,58 @@
                             <a>
                                 <img src="http://www.bugamerica.com/images/usa-ca-la-bus.jpg" width="155" height="155" />
                             </a>
-
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px; margin-top: 13px">
+                                Add To Itinerary</button>
                         </div>
-                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 100px">
+                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 194px">
                             <h5 class="text-danger">Car - Sedan (1 Pax to 2 Pax)
                             <span></span></h5>
 
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <label>City</label>
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">Bangkok</option>
+                                <option>Pattaya</option>
+                                <option>Phuket</option>
+                            </select>
+
+                            <div class="col-md-4" style="padding-left: 1px !important">
                                 <label># Nights</label>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-4" style="padding-left: 1px !important">
+                                <label># Days</label>
+                            </div>
+                            <div class="col-md-4" style="padding-left: 1px !important">
                                 <label># Vehicle</label>
                             </div>
 
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-4" style="padding-left: 1px !important">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-4" style="padding-left: 1px !important">
+                                <input type="text" class="form-control" value="4" id="txtTags" placeholder="" readonly>
+                            </div>
+                            <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                    <label>Add. Service</label>
+                                </div>
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                    <label>&nbsp;</label>
+
+                                </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                    <input type="checkbox" class="form-control">
+                                </div>
+                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="col-md-3">
                             <h3 class="text-danger" style="text-align: center; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
@@ -1018,6 +1505,529 @@
                     </div>
                 </div>
             </div>
+
+            @*Additonal Services*@
+            <div class="tab-pane fade" id="tab2-9">
+                <div class="m-b-lg" style="margin-bottom: 5px !important">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" value="Projector" id="txtTags" placeholder="Service">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" value="2" id="txtTags" placeholder="# Items">
+                        </div>
+                        <div class="col-md-2" style="padding-left: 9%">
+                            <a class=" btn btn-danger" rel="tooltip" title="Add Service" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
+                    <h5 class="text-danger">Projector - 2
+                     <span></span></h5>
+                    <div class="row">
+                        <div class="form-group">
+
+                            <div class="col-md-3" style="padding-left: 1px; padding-right: 8px">
+                                <label>Service Cost</label>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px; padding-left: 1px">
+                                <label>VAT Excl.</label>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <label>VAT(%)</label>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 1px">
+                                <label>Margin</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <div class="input-group input-append">
+                                    <input type="text" class="form-control" id="464" value="1200" placeholder="">
+                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <input type="checkbox" class="form-control">
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <input type="text" class="form-control" value="7" id="txtTags" placeholder="">
+                            </div>
+                            <div class="col-md-3" style="">
+                                <div class="input-group input-append">
+                                    <input type="text" class="form-control" id="464" value="200" placeholder="">
+                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <label>From Day</label>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <label>To Day</label>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <label>From Time</label>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 1px">
+                                <label>To Time</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                    <option>Day 1 (5-May-2016)</option>
+                                    <option>Day 2 (6-May-2016)</option>
+                                    <option>Day 3 (7-May-2016)</option>
+                                </select>
+
+
+
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px; text-align: center">
+                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                    <option>Day 4 (8-May-2016)</option>
+                                    <option>Day 5 (9-May-2016)</option>
+                                    <option>Day 6 (10-May-2016)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3" style="padding-right: 8px">
+                                <div class="input-group input-append bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" value="1200" id="">
+                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="">
+                                <div class="input-group input-append bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" value="1300" id="">
+                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12" style="">
+                                <label>Remarks</label>
+                            </div>
+                            <div class="col-md-12" style="">
+                                <textarea class="form-control" cols="3" id="txtRemarks"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group" style="text-align: right; margin-bottom: 1px">
+                            <div class="col-md-12" style="text-align: right; padding-top: 2%">
+                                <button id="btnSave" type="submit" class="btn btn-danger" style="border-radius: 4px; margin-right: 11px; padding-left: 2%; padding-right: 2%;">
+                                    Add To Itinerary</button>
+                                <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 9px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*T&C / Benefits*@
+            <div class="tab-pane fade" id="tab2-10">
+                <div class="m-b-lg" style="margin-bottom: 5px !important">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <select id="" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">Hotel</option>
+                                <option>Sightseeing</option>
+                                <option>Function Room</option>
+                                <option>Gala Dinner</option>
+                                <option>Transfer</option>
+                                <option>Meal</option>
+                                <option>Guide</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">Outtrigger Lagun Resort & villas</option>
+                                <option>Hotel De Bangkok</option>
+                                <option>A1 Hotel</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2" style="padding-left: 9%">
+                            <a class=" btn btn-danger" rel="tooltip" title="Add Service" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body" style="padding: 3px">
+                    <div class="col-md-12" style="padding: 9px; padding-top: 0px">
+                        <h5 class="text-danger">Hotel - Outtrigger Lagun Resort & villas</h5>
+                        <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="HeadingHotelOut">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseHotelOuttrigger" aria-expanded="true" aria-controls="collapseOne">Adult / Child Age Policy
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseHotelOuttrigger" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion12" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="HeadingHotelOutsub">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion12" href="#collapseHotelOuttriggersel" aria-expanded="true" aria-controls="collapseOne">Adult / Child Age Policy - Costing
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseHotelOuttriggersel" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h3>Adult / Child Age Policy</h3>
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 25%; padding: 5px">Adult / Child</th>
+                                                                                    <th style="width: 15%; padding: 5px">Age From</th>
+                                                                                    <th style="width: 15%; padding: 5px">Age To</th>
+                                                                                    <th style="width: 45%; padding: 5px">FOC Inclusions On Request</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+
+
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="Infant" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="0" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="4" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="Child" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="5" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="12" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="Adult" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="13" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="HeadingHotelOutsubcos">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion12" href="#collapseHotelOuttriggercos" aria-expanded="true" aria-controls="collapseOne">Adult / Child Age Policy - Selling
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseHotelOuttriggercos" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h3>Adult / Child Age Policy</h3>
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 25%; padding: 5px">Adult / Child</th>
+                                                                                    <th style="width: 15%; padding: 5px">Age From</th>
+                                                                                    <th style="width: 15%; padding: 5px">Age To</th>
+                                                                                    <th style="width: 45%; padding: 5px">FOC Inclusions On Request</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+
+
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="Infant" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="0" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="4" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="Child" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="5" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="12" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="Adult" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="13" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="txtAgeFrom" value="" placeholder="">
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="HeadingHotelOutinc">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseHotelOuttriggerinc" aria-expanded="true" aria-controls="collapseOne">Inclusions / Benefits - General
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseHotelOuttriggerinc" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion13" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="HeadingHotelOutsubincos">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion13" href="#collapseHotelOuttriggerselincos" aria-expanded="true" aria-controls="collapseOne">Inclusions & Benefits (General) - Costing
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseHotelOuttriggerselincos" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h3>Inclusions / Benefits</h3>
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 9%; padding: 5px">Sr. No</th>
+                                                                                    <th style="width: 25%; padding: 5px">Heading</th>
+                                                                                    <th style="width: 48%; padding: 5px">Inclusions & Benefits</th>
+                                                                                    <th style="width: 13%; padding: 5px">For Quote</th>
+                                                                                    <th style="width: 5%; padding: 5px"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="1" placeholder="Service Cost ">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="Benefits" placeholder="Heading">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeTo" value="Complimentary Wifi internet connection 24 hrs." placeholder="Inclusions">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="checkbox" checked="checked" class="form-control">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="2" placeholder="Service Cost ">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="Benefits" placeholder="Heading">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeTo" value="Welcome drink & Cold Towel upon arrival." placeholder="Inclusions">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="checkbox" checked="checked" class="form-control">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="3" placeholder="Service Cost ">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="Benefits" placeholder="Heading">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeTo" value="Free Shuttle Bus Service to the Beach." placeholder="Inclusions">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="checkbox" checked="checked" class="form-control">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="HeadingHotelOutsubincsel">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion13" href="#collapseHotelOuttriggerincsel" aria-expanded="true" aria-controls="collapseOne">Inclusions & Benefits (General) - Selling
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseHotelOuttriggerincsel" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h3>Inclusions / Benefits</h3>
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 9%; padding: 5px">Sr. No</th>
+                                                                                    <th style="width: 25%; padding: 5px">Heading</th>
+                                                                                    <th style="width: 48%; padding: 5px">Inclusions & Benefits</th>
+                                                                                    <th style="width: 13%; padding: 5px">For Quote</th>
+                                                                                    <th style="width: 5%; padding: 5px"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="1" placeholder="Service Cost ">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="Benefits" placeholder="Heading">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeTo" value="Complimentary Wifi internet connection 24 hrs." placeholder="Inclusions">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="checkbox" checked="checked" class="form-control">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="2" placeholder="Service Cost ">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="Benefits" placeholder="Heading">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeTo" value="Welcome drink & Cold Towel upon arrival." placeholder="Inclusions">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="checkbox" checked="checked" class="form-control">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="3" placeholder="Service Cost ">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeFrom" value="Benefits" placeholder="Heading">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtAgeTo" value="Free Shuttle Bus Service to the Beach." placeholder="Inclusions">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="checkbox" checked="checked" class="form-control">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </form>
     @*Your Itinarary Summary*@
@@ -1042,20 +2052,14 @@
                                 </td>
                                 <td style="text-align: right"><span class="label label-primary">2 Nights</span></td>
                             </tr>
-                            <tr>
-                                <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span>&nbsp;&nbsp;Amari Atrium
-                                                                <span class="fa fa-pencil faSuccess" style="padding-left: 10%; color: green"></span>
-                                    <span class="fa fa-close faDanger" style="color: red"></span>
-                                </td>
-                                @* <td style="text-align: right"><span class="label label-success">5000 THB</span></td>*@
-                            </tr>
+
                         </tbody>
                     </table>
                     <br />
                     <div class="panel panel-red">
                         <div class="panel-heading" role="tab" id="headingOnes">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnes" aria-expanded="true" aria-controls="collapseOne">Hotel Option
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnes" aria-expanded="true" aria-controls="collapseOne">Hotel Options
                                 </a>
                             </h4>
                         </div>
@@ -1226,20 +2230,14 @@
                                 </td>
                                 <td style="text-align: right"><span class="label label-primary">2 Nights</span></td>
                             </tr>
-                            <tr>
-                                <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span>&nbsp;&nbsp;Bangkok Floor
-                                                             <span class="fa fa-pencil faSuccess" style="padding-left: 10%; color: green"></span>
-                                    <span class="fa fa-close faDanger" style="color: red"></span>
-                                </td>
-                                @*<td style="text-align: right"><span class="label label-success">5000 THB</span></td>*@
-                            </tr>
+
                         </tbody>
                     </table>
                     <br />
                     <div class="panel panel-red">
                         <div class="panel-heading" role="tab" id="headingOness">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOness" aria-expanded="true" aria-controls="collapseOne">Hotel Option
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOness" aria-expanded="true" aria-controls="collapseOne">Hotel Options
                                 </a>
                             </h4>
                         </div>
