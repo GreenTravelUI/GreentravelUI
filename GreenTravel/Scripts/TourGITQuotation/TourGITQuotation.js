@@ -3,6 +3,7 @@
         //{
         //oneOpenedItem: true
         //}
+        
     );
     $('.example-bootstrap').barrating({
         theme: 'bootstrap-stars',
@@ -10,7 +11,22 @@
         readonly: true
     });
 });
+
+$(window).load(function () {
+    $('.grid').masonry({
+        itemSelector: '.grid-item'
+
+    });
+});
+
 $(document).ready(function () {
+   
+    $('.grid').masonry({
+        itemSelector: '.grid-item'
+
+    });
+
+ 
     var date = new Date();
     var day = date.getDate();
     var month = date.getMonth();
@@ -262,6 +278,12 @@ $(document).ready(function () {
         e.preventDefault();
     });
 });
+
+$("#quotelisub").click(function () {
+  
+    window.dispatchEvent(new Event('resize'));
+});
+
 function confirmAlert() {
     swal({
         title: "Are you sure?",
@@ -297,3 +319,4 @@ function handle_click(e) {
     e.stopPropagation();
     // your event code
 }
+

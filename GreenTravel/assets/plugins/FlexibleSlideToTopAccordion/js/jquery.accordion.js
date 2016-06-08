@@ -28,8 +28,9 @@
 			event.type = "smartresize";
 
 			if ( resizeTimeout ) { clearTimeout( resizeTimeout ); }
-			resizeTimeout = setTimeout(function() {
-				jQuery.event.handle.apply( context, args );
+			resizeTimeout = setTimeout(function () {
+			    jQuery.event.simulate('smartresize', this, event);
+
 			}, execAsap === "execAsap"? 0 : 100 );
 		}
 	};
