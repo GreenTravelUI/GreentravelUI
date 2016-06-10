@@ -11,6 +11,15 @@
         //}
     );
 });
+$(window).load(function () {
+    //var $container = $('.grid-item');
+
+    //$container.isotope({
+    //    itemSelector: '.item',
+    //    layoutMode: 'masonry',
+    //});
+
+});
 $(document).ready(function () {
 
     //$("#btnswitchview").click(function (e) {

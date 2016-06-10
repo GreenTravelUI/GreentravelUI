@@ -1,7 +1,7 @@
 ﻿<div id="rootwizard2">
     <ul class="nav nav-tabs wizard-tab wizardtab-verti col-md-3" role="tablist">
         <li role="presentation">@*<a href="#tab2-0" data-toggle="tab">All (197)<i class=""><img alt="Guide" src="../../assets/images/wizards/all.png"></i></a>*@</li>
-        <li role="presentation" class="active"><a href="#tab2-11" data-toggle="tab">Quote Details<i class=""><img alt="Guide" src="../../assets/images/wizards/all.png"></i></a></li>
+        <li role="presentation" class="active"><a href="#tab2-11" data-toggle="tab">Basic Details<i class=""><img alt="Basic Details" src="../../assets/images/wizards/all.png"></i></a></li>
         <li role="presentation"><a href="#tab2-1" data-toggle="tab">Hotel<i class=""><img alt="Guide" src="../../assets/images/wizards/hotel.png"></i></a></li>
         <li role="presentation"><a href="#tab2-7" data-toggle="tab">Transportation <i class="">
             <img alt="Guide" src="../../assets/images/wizards/transportation.png"></i></a></li>
@@ -10,8 +10,15 @@
         <li role="presentation"><a href="#tab2-4" data-toggle="tab">Restaurant<i class=""><img alt="Guide" src="../../assets/images/wizards/Restaurant.png"></i></a></li>
         @* <li role="presentation"><a href="#tab2-5" data-toggle="tab">Function Room <i class=""> <img alt="Guide" src="../../assets/images/wizards/conference.png"></i></a></li>
         <li role="presentation"><a href="#tab2-6" data-toggle="tab">Gala Dinner<i class=""><img alt="Guide" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>*@
-        <li role="presentation"><a href="#tab2-9" data-toggle="tab">Additional Services<i class=""><img alt="Additional Services" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>
+        <li role="presentation"><a href="#tab2-9" data-toggle="tab">Additional / Optional<i class=""><img alt="Additional / Optional" src="../../assets/images/wizards/gala-dinner.png"></i></a></li>
         <li role="presentation"><a href="#tab2-10" data-toggle="tab">T&C / Benefits<i class=""><img alt="T&C / Benefits" src="../../assets/images/wizards/all.png"></i></a></li>
+
+        <button id="" type="submit" class="btn btn-success btnSave" style="width: 100%">Generate Quote</button>
+         <button id="" type="submit" class="btn btn-success btnSave" style="width: 24%;margin-top:10px;text-align:center;padding-left:10px;font-size:16px;padding:9px"><i class="fa fa-download" rel="tooltip" title="Download Quote"></i></button>
+         <button id="" type="submit" class="btn btn-success btnSave" style="width: 23%;margin-top:10px;text-align:center;padding-left:10px;font-size:16px;padding:9px"><i class="fa fa-paper-plane" rel="tooltip" title="Send To Agent"></i></button>
+         <button id="" type="submit" class="btn btn-success btnSave" style="width: 23%;margin-top:10px;text-align:center;padding-left:10px;font-size:16px;padding:9px"><i class="fa fa-envelope" rel="tooltip" title="View Communication Trail"></i></button>
+         <button id="" type="submit" class="btn btn-success btnSave" style="width: 25%;margin-top:10px;text-align:center;padding-left:10px;font-size:16px;"><i class="fa fa-history" rel="tooltip" title="Track Email"></i></button>
+         <button id="" type="submit" class="btn btn-success btnSave" style="width: 23%;margin-top:10px;text-align:center;padding-left:10px"><i class="fa fa-server" rel="tooltip" title="Follow-ups"></i></button>
     </ul>
 
     <form id="wizardForm form-horizontal" class="wizard-verti-form">
@@ -21,23 +28,10 @@
             <div class="tab-pane active fade in" id="tab2-11">
                 <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <input type="text" class="form-control" value="Ferry group 3N / 4D - 1 Pax to 2 Pax - Bangkok" id="txtTags" placeholder="">
                         </div>
-                        <div class="col-md-4" style="padding-right: 5%">
-                            <div class="row">
-                                <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%; float: left;">
-                                    <option>--None--</option>
-                                    <option value="draft" selected="selected">Draft</option>
-                                    <option value="negotiating">Negotiating</option>
-                                    <option value="readytoquote">Ready To Quote</option>
-                                    <option value="quoted">Quoted</option>
-                                    <option value="pendingforaprooval">Pending For Aprooval</option>
-                                    <option value="aprooved">Aprooved</option>
-                                </select>
-
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
@@ -45,9 +39,73 @@
                         <div class="col-md-12" style="padding: 9px;">
                             <div class="panel-group" id="accordion1quote" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                    <div class="panel-heading2" role="tab" id="HeadingQuotecopy">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion1quote" href="#collapseQuotecopy" aria-expanded="true" aria-controls="collapseOne">Copy Quotation
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseQuotecopy" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="txtAgent">Copy From Previous Quotation</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select id="drpNationalityGroup" class="js-states form-control" style="display: none; width: 100%">
+                                                            <option>Q-INQ-06-2016-0000001/001</option>
+                                                            <option>Q-INQ-06-2016-0000001/002</option>
+                                                            <option>Q-INQ-06-2016-0000001/003</option>
+                                                            <option>Q-INQ-06-2016-0000001/004</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+                                                        <h3>Quotation Warning</h3>
+                                                        <div class="panel panel-white">
+                                                            <div class="panel-body">
+                                                                <div class="alert alert-danger" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
+                                                                    These Dates are in Blackout Date
+                                                                </div>
+                                                                <div class="alert alert-warning" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
+                                                                    There Some Additional Surcharge for this date
+                                                                </div>
+                                                                <div class="alert alert-info" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
+                                                                    Compulsory Stay for this date
+                                                                </div>
+                                                                <div class="alert alert-warning" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
+                                                                    Minimum Nights Stay 3 for this date
+                                                                </div>
+                                                                <div class="alert alert-danger" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
+                                                                    Sightseeing Will be closed on this date
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="text-align: right; margin-top: 3%; margin-bottom: 1px; margin-right: 2%">
+                                                <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                     <div class="panel-heading2" role="tab" id="HeadingQuote">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion1quote" href="#collapseQuote" aria-expanded="true" aria-controls="collapseOne">Quotation Details
+                                            <a data-toggle="collapse" data-parent="#accordion1quote" href="#collapseQuote" aria-expanded="true" aria-controls="collapseOne">Basic Details
                                             </a>
                                         </h4>
                                     </div>
@@ -122,6 +180,7 @@
                                             </div>
                                             <div class="form-group" style="text-align: right; margin-top: 22%; margin-bottom: 1px; margin-right: 2%">
                                                 <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -166,6 +225,7 @@
                                                                         </td>
                                                                         <td style="padding: 5px">
                                                                             <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -261,6 +321,7 @@
                                             </div>
                                             <div class="form-group" style="text-align: right; margin-top: 8px; margin-bottom: 1px; margin-right: 1%">
                                                 <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -314,7 +375,7 @@
 
                                                 <tr>
                                                     <td>Superior-Single</td>
-                                                    <td><span class="text-primary fa fa-money faSuccess"  data-html="true" rel="tooltip" title="<span> Room Rate-5800 <br/> Extra Bed Adult Rate-1200 <br /> Extra Bed Child Rate-200 <br /> Infant Rate-0 | Margin-200</span>"></span></td>
+                                                    <td><span class="text-primary fa fa-money faSuccess" data-html="true" rel="tooltip" title="<span> Room Rate-5800 <br/> Extra Bed Adult Rate-1200 <br /> Extra Bed Child Rate-200 <br /> Infant Rate-0 | Margin-200</span>"></span></td>
                                                     <td><span class="text-success fa fa-pencil faSuccess"></span></td>
                                                     <td><span class="text-danger fa fa-close faDanger"></span></td>
                                                 </tr>
@@ -325,7 +386,7 @@
                                                     <td><span class="text-danger fa fa-close faDanger"></span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Superior-Tween</td>
+                                                    <td>Superior-Twin</td>
                                                     <td><span class="text-primary fa fa-money faSuccess" data-html="true" rel="tooltip" title="<span> Room Rate-5800 <br/> Extra Bed Adult Rate-1200 <br /> Extra Bed Child Rate-200 <br /> Infant Rate-0 | Margin-200</span>"></span></td>
                                                     <td><span class="text-success fa fa-pencil faSuccess"></span></td>
                                                     <td><span class=" text-danger fa fa-close faDanger"></span></td>
@@ -337,7 +398,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
                             <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 10px; border-radius: 4px">
                                 Add To Itinerary</button>
@@ -360,13 +420,85 @@
                             </span></h5>
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
-                                    <div class="panel-heading2" role="tab" id="headingOnessqw">
+                                    <div class="panel-heading2" role="tab" id="headingOnehtl">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnessqw" aria-expanded="true" aria-controls="collapseOne">Hotel -  <span style="font-size: 10px">3 Nights (01-May-2016 to 10-May-2016)</span>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnehtl" aria-expanded="true" aria-controls="collapseOne">Hotel -  <span style="font-size: 10px">3 Nights (01-May-2016 to 10-May-2016)</span>
                                             </a>
                                         </h4>
                                     </div>
-                                    <div id="collapseOnessqw" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div id="collapseOnehtl" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="col-md-12" style="padding-left: 1px !important;">
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Check-in Day</label>
+
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Check-out Day</label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+
+                                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                            <option>Day 1 (5-May-2016)</option>
+                                                            <option>Day 2 (6-May-2016)</option>
+                                                            <option>Day 3 (7-May-2016)</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+
+                                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                            <option>Day 4 (8-May-2016)</option>
+                                                            <option>Day 5 (9-May-2016)</option>
+                                                            <option>Day 6 (10-May-2016)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-2" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Self Book</label>
+                                                    </div>
+                                                    <div class="col-md-3" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>Add. Service</label>
+                                                    </div>
+                                                    <div class="col-md-7" style="padding-left: 1px !important; padding-right: 1px">
+                                                        <label>&nbsp;</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-2" style="padding-left: 1px; padding-right: 1px; text-align: center">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-3" style="padding-left: 1px; padding-right: 1px; text-align: center">
+                                                        <input type="checkbox" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-7" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                    <div class="panel-heading2" role="tab" id="headingOnessqw">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOnessqw" aria-expanded="true" aria-controls="collapseOne">Hotel Room Rate -  <span style="font-size: 10px">3 Nights (01-May-2016 to 10-May-2016)</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOnessqw" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
 
@@ -384,66 +516,15 @@
                                                     <option>Single</option>
                                                 </select>
 
-                                                <label>Checkin Day</label>
-                                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                    <option>Day 1 (5-May-2016)</option>
-                                                    <option>Day 2 (6-May-2016)</option>
-                                                    <option>Day 3 (7-May-2016)</option>
-                                                </select>
-
-                                                <label>Checkout Day</label>
-                                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                    <option>Day 4 (8-May-2016)</option>
-                                                    <option>Day 5 (9-May-2016)</option>
-                                                    <option>Day 6 (10-May-2016)</option>
-                                                </select>
-
-
                                                 <div class="form-group">
 
-                                                    <div class="col-md-6" style="padding-left: 1px !important">
-                                                        <label>Optional</label>
-
-                                                    </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Self Book</label>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px;">
-                                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Yes</option>
-                                                            <option>No</option>
-
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding-left: 1px; padding-right: 1px">
-                                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                                            <option>Yes</option>
-                                                            <option>No</option>
-
-                                                        </select>
-                                                    </div>
-
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>&nbsp;</label>
-
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <input type="checkbox" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                    <div class="col-md-12" style="padding-left: 1px !important; padding-right: 1px; text-align: right; padding-top: 3%">
                                                         <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                                        <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
+
 
                                                 </div>
                                             </div>
@@ -492,7 +573,7 @@
                                     <div id="collapseOnessqw7" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
-                                                 <div class="col-md-6" style="padding-left: 1px !important">
+                                                <div class="col-md-6" style="padding-left: 1px !important">
                                                     <label>From Day</label>
                                                 </div>
                                                 <div class="col-md-6" style="padding-left: 1px !important">
@@ -519,7 +600,7 @@
                                                 <label>Function Type</label>
                                                 <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM - 10:00 to 13:00" placeholder="">
 
-                                               
+
                                                 <div class="form-group">
                                                     <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Tea / Coffe Break</label>
@@ -547,21 +628,24 @@
                                                 </select>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Add. Service</label>
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                                         <input type="checkbox" class="form-control">
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                                         <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                                        <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
 
                                                 </div>
@@ -603,7 +687,7 @@
                                     <div id="collapseOnessqw71" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
-                                                 <div class="col-md-6" style="padding-left: 1px !important">
+                                                <div class="col-md-6" style="padding-left: 1px !important">
                                                     <label>From Day</label>
                                                 </div>
                                                 <div class="col-md-6" style="padding-left: 1px !important">
@@ -629,7 +713,7 @@
 
                                                 <label>Menu</label>
                                                 <input type="text" class="form-control" id="txtRateToDate" value="2 Veg Dishes" placeholder="">
-                                               
+
                                                 <div class="form-group">
                                                     <div class="col-md-6" style="padding-left: 1px !important">
                                                         <label>From Time</label>
@@ -658,21 +742,24 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Add. Service</label>
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                                         <input type="checkbox" class="form-control">
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                                         <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                                        <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
 
                                                 </div>
@@ -809,21 +896,24 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                     <label>Add. Service</label>
                                 </div>
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                     <label>&nbsp;</label>
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                     <input type="checkbox" class="form-control">
                                 </div>
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                     <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                    <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                    <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                    <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                 </div>
 
                             </div>
@@ -882,7 +972,7 @@
                                 <option>Pattaya</option>
                                 <option>Phuket</option>
                             </select>
-                            
+
                             <a class=" btn btn-danger" rel="tooltip" title="Add Guide" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
                         </div>
 
@@ -946,7 +1036,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px; ">
+                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px;">
                                 Add To Itinerary</button>
                         </div>
                         <div class="col-md-6 right-border" style="padding-left: 15px; height: 213px">
@@ -956,20 +1046,20 @@
                             <div class="col-md-6" style="padding-left: 1px !important">
                                 <label>Slab</label>
                             </div>
-                           
+
                             <div class="col-md-6" style="padding-left: 1px !important">
                                 <label># Nights</label>
                             </div>
-                             <div class="col-md-6" style="padding-left: 1px !important">
-                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                <option>10-14</option>
-                                <option>15-19</option>
-                                <option>20-24</option>
-                                <option>25-29</option>
-                                <option>29-34</option>
-                                <option>35-40</option>
-                            </select>
-                                </div>
+                            <div class="col-md-6" style="padding-left: 1px !important">
+                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                    <option>10-14</option>
+                                    <option>15-19</option>
+                                    <option>20-24</option>
+                                    <option>25-29</option>
+                                    <option>29-34</option>
+                                    <option>35-40</option>
+                                </select>
+                            </div>
                             <div class="col-md-6" style="padding-left: 1px !important">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
@@ -987,21 +1077,22 @@
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                     <label>Add. Service</label>
                                 </div>
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                     <label>&nbsp;</label>
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                     <input type="checkbox" class="form-control">
                                 </div>
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                     <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                    <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                 </div>
 
                             </div>
@@ -1175,21 +1266,24 @@
                                                     <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Add. Service</label>
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                                         <input type="checkbox" class="form-control">
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 15px; text-align: right">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 9px; text-align: right">
                                                         <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                                        <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
 
                                                 </div>
@@ -1233,7 +1327,7 @@
                                     <div id="collapseOnessqw7i3" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
-                                                 <div class="col-md-6" style="padding-left: 1px !important">
+                                                <div class="col-md-6" style="padding-left: 1px !important">
                                                     <label>From Day</label>
                                                 </div>
                                                 <div class="col-md-6" style="padding-left: 1px !important">
@@ -1260,7 +1354,7 @@
                                                 <label>Function Type</label>
                                                 <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM - 10:00 to 13:00" placeholder="">
 
-                                               
+
                                                 <div class="form-group">
                                                     <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Tea / Coffe Break</label>
@@ -1287,21 +1381,24 @@
                                                     <option>Buffet</option>
                                                 </select>
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Add. Service</label>
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                                         <input type="checkbox" class="form-control">
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                                         <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                                        <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
 
                                                 </div>
@@ -1343,7 +1440,7 @@
                                     <div id="collapseOnessqw71d2" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <div class="col-md-8" style="padding-left: 1px !important; border-right: 1px dotted red">
-                                                 <div class="col-md-6" style="padding-left: 1px !important">
+                                                <div class="col-md-6" style="padding-left: 1px !important">
                                                     <label>From Day</label>
                                                 </div>
                                                 <div class="col-md-6" style="padding-left: 1px !important">
@@ -1369,7 +1466,7 @@
 
                                                 <label>Menu</label>
                                                 <input type="text" class="form-control" id="txtRateToDate" value="2 Veg Dishes" placeholder="">
-                                               
+
                                                 <div class="form-group">
                                                     <div class="col-md-6" style="padding-left: 1px !important">
                                                         <label>From Time</label>
@@ -1399,21 +1496,24 @@
 
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>Add. Service</label>
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
+                                                    <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
                                                         <input type="checkbox" class="form-control">
                                                     </div>
-                                                    <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                                    <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                                         <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                                        <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
 
                                                 </div>
@@ -1752,7 +1852,7 @@
                 <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
                         <div class="col-md-4">
-                             <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
                                 <option selected="selected">Bangkok</option>
                                 <option>Pattaya</option>
                                 <option>Phuket</option>
@@ -1769,7 +1869,7 @@
                 <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
                     <div class="row">
                         <div class="col-md-3">
-                           
+
                             <div class="panel panel-blue" style="border-radius: 4px !important; color: white; margin-bottom: 13px">
                                 <div class="panel-heading1" role="tab" id="headingOnetranssum">
                                     <h4 class="panel-title" style="border-bottom: none !important; font-size: 10px !important; text-align: center">
@@ -1828,7 +1928,7 @@
                                 Add To Itinerary</button>
                         </div>
                         <div class="col-md-6 right-border" style="padding-left: 15px; height: 213px">
-                            <h5 class="text-danger" style="font-size:17px">Car - Sedan (1 Pax to 2 Pax) - Bangkok
+                            <h5 class="text-danger" style="font-size: 17px">Car - Sedan (1 Pax to 2 Pax) - Bangkok
                             <span></span></h5>
                             <div class="col-md-6" style="padding-left: 1px !important">
                                 <label>Slab</label>
@@ -1837,14 +1937,14 @@
                                 <label># Nights</label>
                             </div>
                             <div class="col-md-6" style="padding-left: 1px !important">
-                             <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
-                                <option>10-14</option>
-                                <option>15-19</option>
-                                <option>20-24</option>
-                                <option>25-29</option>
-                                <option>29-34</option>
-                                <option>35-40</option>
-                            </select>
+                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                    <option>10-14</option>
+                                    <option>15-19</option>
+                                    <option>20-24</option>
+                                    <option>25-29</option>
+                                    <option>29-34</option>
+                                    <option>35-40</option>
+                                </select>
                             </div>
                             <div class="col-md-6" style="padding-left: 1px !important">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
@@ -1856,7 +1956,7 @@
                                 <label># Vehicle</label>
                             </div>
 
-                            
+
                             <div class="col-md-6" style="padding-left: 1px !important">
                                 <input type="text" class="form-control" value="4" id="txtTags" placeholder="" readonly>
                             </div>
@@ -1879,6 +1979,7 @@
                                 </div>
                                 <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
                                     <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                    <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                 </div>
 
                             </div>
@@ -1926,6 +2027,29 @@
                 <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
                     <h5 class="text-danger">Projector - 2
                      <span></span></h5>
+                    <div class="row">
+                        <div class="form-group">
+
+                            <div class="col-md-3" style="">
+                                <label>Additional</label>
+                            </div>
+                            <div class="col-md-3" style="">
+                                <label>Optional</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-3" style="">
+                                <input type="radio" class="form-control" name="addoptional" id="additionalradio" checked />
+                            </div>
+                            <div class="col-md-3" style="">
+                                <input type="radio" class="form-control" name="addoptional" id="optionalradio" />
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="form-group">
 
@@ -1979,7 +2103,7 @@
                             <div class="col-md-3" style="padding-right: 8px;">
                                 <label>Service Cost</label>
                             </div>
-                           <div class="col-md-3" style="padding-right: 8px;">
+                            <div class="col-md-3" style="padding-right: 8px;">
                                 <label>VAT Excl.</label>
                             </div>
                             <div class="col-md-3" style="padding-right: 8px">
@@ -1990,7 +2114,7 @@
                             <div class="col-md-3" style="padding-right: 8px">
                                 <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
                                     <option>Per Pax</option>
-                                    <option  selected="selected">Service Cost</option>
+                                    <option selected="selected">Service Cost</option>
                                 </select>
                             </div>
                             <div class="col-md-3" style="padding-right: 8px">
@@ -1999,7 +2123,7 @@
                                     <span class="input-group-addon add-on"><span>THB</span></span>
                                 </div>
                             </div>
-                              <div class="col-md-3" style="padding-right: 8px">
+                            <div class="col-md-3" style="padding-right: 8px">
                                 <input type="checkbox" class="form-control">
                             </div>
                             <div class="col-md-3" style="padding-right: 8px">
@@ -2007,24 +2131,22 @@
                             </div>
                         </div>
                         <div class="form-group">
-
-                            
                             <div class="col-md-3" style="padding-right: 1px">
                                 <label>Margin</label>
                             </div>
+
                             <div class="col-md-9" style="padding-right: 1px">
                                 <label>&nbsp;</label>
                             </div>
                         </div>
                         <div class="row">
-
-                          
-                            <div class="col-md-3" style="padding-left:4%;padding-right:1px">
+                            <div class="col-md-3" style="padding-left: 4%; padding-right: 1px">
                                 <div class="input-group input-append">
                                     <input type="text" class="form-control" id="464" value="200" placeholder="">
                                     <span class="input-group-addon add-on"><span>THB</span></span>
                                 </div>
                             </div>
+
                             <div class="col-md-9" style="padding-right: 1px">
                                 <label>&nbsp;</label>
                             </div>
@@ -2049,6 +2171,7 @@
                                 <button id="btnSave" type="submit" class="btn btn-danger" style="border-radius: 4px; margin-right: 11px; padding-left: 2%; padding-right: 2%;">
                                     Add To Itinerary</button>
                                 <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 9px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 9px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                             </div>
                         </div>
                     </div>
@@ -2082,79 +2205,12 @@
                     </div>
                 </div>
 
-                <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body" style="padding: 3px">
-                    <div class="col-md-12" style="padding: 9px; padding-top: 0px">
-                        <h5 class="text-danger">Hotel - Outtrigger Lagun Resort & Villas</h5>
-                        <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
-                            <div class="panel-heading2" role="tab" id="HeadingMenu">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapsemenusmaple" aria-expanded="true" aria-controls="collapseOne">Sample Menu
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsemenusmaple" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-12">
 
-                                                <div class="table-responsive">
-                                                    <table style="width: 100%">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 94%; padding: 5px">Sample Menu</th>
-                                                                <th style="width: 6%; padding: 5px"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-
-                                                            <tr>
-                                                                <td style="padding: 5px">
-                                                                    <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117f').click();" placeholder="Menu">
-                                                                    <input id="logoselect117f" type="file" style="display: none" />
-                                                                </td>
-                                                                <td style="padding: 5px"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style="padding: 5px">
-                                                                    <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117ff').click();" placeholder="Menu">
-                                                                    <input id="logoselect117ff" type="file" style="display: none" />
-                                                                </td>
-                                                                <td style="padding: 5px">
-                                                                    <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style="padding: 5px">
-                                                                    <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117fff').click();" placeholder="Menu">
-                                                                    <input id="logoselect117fff" type="file" style="display: none" />
-                                                                </td>
-                                                                <td style="padding: 5px">
-                                                                    <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
-                                                                </td>
-                                                            </tr>
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
                 <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body" style="padding: 3px">
                     <div class="col-md-12" style="padding: 9px; padding-top: 0px">
                         <h5 class="text-danger">Hotel - Outtrigger Lagun Resort & Villas</h5>
                         <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
-
+                           
                             <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                 <div class="panel-heading2" role="tab" id="HeadingHotelOut">
                                     <h4 class="panel-title">
@@ -2162,7 +2218,7 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseHotelOuttrigger" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div id="collapseHotelOuttrigger" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion12" role="tablist" aria-multiselectable="true">
                                             <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
@@ -2172,7 +2228,7 @@
                                                         </a>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseHotelOuttriggersel" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                <div id="collapseHotelOuttriggersel" class="panel-collapse panel-white collapse in" role="tabpanel" aria-labelledby="headingOne">
                                                     <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="row">
@@ -2240,7 +2296,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2320,7 +2378,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2427,7 +2487,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2520,7 +2582,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2639,7 +2703,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2744,7 +2810,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
 
                                                     </div>
@@ -2757,7 +2825,7 @@
                             <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                 <div class="panel-heading2" role="tab" id="HeadingHotelOuttcg">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseHotelOuttriggertcg" aria-expanded="true" aria-controls="collapseOne">Terms & Conditions - General
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseHotelOuttriggertcg" aria-expanded="true" aria-controls="collapseOne">Terms & Conditions
                                         </a>
                                     </h4>
                                 </div>
@@ -2863,7 +2931,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2967,7 +3037,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3103,7 +3175,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3225,7 +3299,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3237,7 +3313,7 @@
                             <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                 <div class="panel-heading2" role="tab" id="HeadingHotelOutgp">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseHotelgp" aria-expanded="true" aria-controls="collapseOne">General Policy
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseHotelgp" aria-expanded="true" aria-controls="collapseOne">General Policies
                                         </a>
                                     </h4>
                                 </div>
@@ -3591,7 +3667,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3943,7 +4021,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4001,12 +4081,12 @@
                                                                         <table style="width: 100%">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th style="width: 16%; padding: 5px">FOC Type</th>
-                                                                                    <th style="width: 17%; padding: 5px">Incl.ABF</th>
-                                                                                    <th style="width: 17%; padding: 5px">Add.Surcharge</th>
-                                                                                    <th style="width: 15%; padding: 5px">Count</th>
-                                                                                    <th style="width: 15%; padding: 5px">Free</th>
-                                                                                    <th style="width: 15%; padding: 5px">Limit</th>
+                                                                                    <th style="width: 23%; padding: 5px">FOC Type</th>
+                                                                                    <th style="width: 15%; padding: 5px">Incl.ABF</th>
+                                                                                    <th style="width: 15%; padding: 5px">Add.Surcharge</th>
+                                                                                    <th style="width: 14%; padding: 5px">Count</th>
+                                                                                    <th style="width: 14%; padding: 5px">Free</th>
+                                                                                    <th style="width: 14%; padding: 5px">Limit</th>
                                                                                     <th style="width: 5%; padding: 5px"></th>
                                                                                 </tr>
                                                                             </thead>
@@ -4110,7 +4190,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4154,12 +4236,12 @@
                                                                         <table style="width: 100%">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th style="width: 16%; padding: 5px">FOC Type</th>
-                                                                                    <th style="width: 17%; padding: 5px">Incl.ABF</th>
-                                                                                    <th style="width: 17%; padding: 5px">Add.Surcharge</th>
-                                                                                    <th style="width: 15%; padding: 5px">Count</th>
-                                                                                    <th style="width: 15%; padding: 5px">Free</th>
-                                                                                    <th style="width: 15%; padding: 5px">Limit</th>
+                                                                                    <th style="width: 23%; padding: 5px">FOC Type</th>
+                                                                                    <th style="width: 15%; padding: 5px">Incl.ABF</th>
+                                                                                    <th style="width: 15%; padding: 5px">Add.Surcharge</th>
+                                                                                    <th style="width: 14%; padding: 5px">Count</th>
+                                                                                    <th style="width: 14%; padding: 5px">Free</th>
+                                                                                    <th style="width: 14%; padding: 5px">Limit</th>
                                                                                     <th style="width: 5%; padding: 5px"></th>
                                                                                 </tr>
                                                                             </thead>
@@ -4263,7 +4345,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4272,8 +4356,270 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="HeadingHotelOutfoce">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapsefuncdime" aria-expanded="true" aria-controls="collapseOne">Function Room Dimension
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapsefuncdime" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                          <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label for="txtConferenceRoomName">Min Pax Capacity</label>
+                                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="20" placeholder="Conference Room Name">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="txtSetupStyle">Measurement</label>
+                                                                    <select id="drpStatusApplied" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">Feet</option>
+                                                                        <option>Meter</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label for="txtConferenceRoomName">Length</label>
+                                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="5.5" placeholder="Conference Room Name">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label for="txtConferenceRoomName">Width</label>
+                                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="10.5" placeholder="Conference Room Name">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label for="txtConferenceRoomName">Height</label>
+                                                                    <input type="text" class="form-control" id="txtConferenceRoomName" value="8.5" placeholder="Conference Room Name">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h3 class="tab9section1">Floor Plan</h3>
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="" style="width: 49%; padding: 5px">Floor Plan</th>
+                                                                                    <th class="" style="width: 45%; padding: 5px">Comments</th>
+                                                                                    <th class="" style="width: 6%; padding: 5px"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect1122').click();" placeholder="Plan 1">
+                                                                                        <input id="logoselect1122" type="file" style="display: none" />
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtTotalTables" placeholder="Comments">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px"><a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a></td>
+                                                                                </tr>
+
+                                                                                <tr>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect122s').click();" placeholder="Plan 2">
+                                                                                        <input id="logoselect122s" type="file" style="display: none" />
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtTotalTables" placeholder="Comments">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="HeadingHotelOutfoc">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapsefunsetup" aria-expanded="true" aria-controls="collapseOne">Function Room Setup Style
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapsefunsetup" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                       <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
 
 
+
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <tr>
+                                                                                <th class="" style="width: 20%; padding: 5px">Setup Style</th>
+                                                                                <th class="" style="width: 15%; padding: 5px">Capacity</th>
+                                                                                <th class="" style="width: 15%; padding: 5px">Total Tables</th>
+                                                                                <th class="" style="width: 31%; padding: 5px">Remarks</th>
+                                                                                <th class="" style="width: 13%; padding: 5px">Floor Plan</th>
+
+                                                                                <th class="" style="width: 6%; padding: 5px"></th>
+                                                                            </tr>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+
+                                                                                        <input type="text" class="form-control" id="txtSetupStyle" value="Banquet" placeholder="Setup Style">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+
+                                                                                        <input type="text" class="form-control" id="txtCapacity" value="20" placeholder="Setup Style">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+
+                                                                                        <input type="text" class="form-control" id="txtTotalTables" value="1" placeholder="Setup Style">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtTotalTables" placeholder="Remarks">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class="btn label-success" style="background-color: #22BAA0 !important; color: white !important" href="javascript:void(0);" data-toggle="modal" data-target="#myModal1">
+                                                                                            <span class="fa fa-upload"></span>
+                                                                                        </a>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px"><a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a></td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtSetupStyle" value="Banquet" placeholder="Setup Style">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtCapacity" value="10" placeholder="Setup Style">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtTotalTables" value="2" placeholder="Setup Style">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control" id="txtTotalTables" placeholder="Remarks">
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class="btn label-success" style="background-color: #22BAA0 !important; color: white !important" href="javascript:void(0);" data-toggle="modal" data-target="#myModal1">
+                                                                                            <span class="fa fa-upload"></span>
+                                                                                        </a>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                                                                </tr>
+                                                                            </tbody>
+
+
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="HeadingMenu">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapsemenusmaple" aria-expanded="true" aria-controls="collapseOne">Gala Dinner Sample Menu
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapsemenusmaple" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                    <div class="table-responsive">
+                                                        <table style="width: 100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 44%; padding: 5px">Sample Menu</th>
+                                                                     <th style="width: 50%; padding: 5px">Remarks</th>
+                                                                    <th style="width: 6%; padding: 5px"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+                                                                <tr>
+                                                                    <td style="padding: 5px">
+                                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117f').click();" placeholder="Menu">
+                                                                        <input id="logoselect117f" type="file" style="display: none" />
+                                                                    </td>
+                                                                    <td style="padding: 5px">
+                                                                        <input type="text" class="form-control req" id="txtLogo" placeholder="Remarks">
+
+                                                                    </td>
+                                                                    <td style="padding: 5px"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px">
+                                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117ff').click();" placeholder="Menu">
+                                                                        <input id="logoselect117ff" type="file" style="display: none" />
+                                                                    </td>
+                                                                    <td style="padding: 5px">
+                                                                        <input type="text" class="form-control req" id="txtLogo" placeholder="Remarks">
+
+                                                                    </td>
+                                                                    <td style="padding: 5px">
+                                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px">
+                                                                        <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect117fff').click();" placeholder="Menu">
+                                                                        <input id="logoselect117fff" type="file" style="display: none" />
+                                                                    </td>
+                                                                    <td style="padding: 5px">
+                                                                        <input type="text" class="form-control req" id="txtLogo" placeholder="Remarks">
+
+                                                                    </td>
+                                                                    <td style="padding: 5px">
+                                                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4388,7 +4734,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4489,7 +4837,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4595,7 +4945,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4687,7 +5039,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4797,7 +5151,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4894,7 +5250,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4906,7 +5264,7 @@
                             <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                 <div class="panel-heading2" role="tab" id="Headingssptc1">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapsesstcgen" aria-expanded="true" aria-controls="collapseOne">Terms & condition - General
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapsesstcgen" aria-expanded="true" aria-controls="collapseOne">Terms & Condition
                                         </a>
                                     </h4>
                                 </div>
@@ -4995,7 +5353,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5082,7 +5442,9 @@
                                                         </div>
 
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5094,7 +5456,7 @@
                             <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                 <div class="panel-heading2" role="tab" id="Headingssptcs1">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapsesstcspe" aria-expanded="true" aria-controls="collapseOne">Terms & condition - Sightseeing Specific
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapsesstcspe" aria-expanded="true" aria-controls="collapseOne">Terms & Condition - Sightseeing Specific
                                         </a>
                                     </h4>
                                 </div>
@@ -5192,7 +5554,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5301,7 +5665,405 @@
                                                         </div>
 
                                                         <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
-                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="Headingssptcs1c">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapsesscan" aria-expanded="true" aria-controls="collapseOne">Cancellation / No Show Policy - Sightseeing Specific
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapsesscan" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion27" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="Headingsstcs11cc">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion27" href="#collapsesscancost" aria-expanded="true" aria-controls="collapseOne">Costing
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapsesscancost" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Sightseeing</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option>James Bond Island</option>
+                                                                        <option selected="selected">City Tour</option>
+                                                                        <option>Phi Phi Island</option>
+                                                                        <option>Coral Island</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Package</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">City Tour - in Phuket (Half Day)</option>
+                                                                        <option>Phi Phi Island Speed Boat</option>
+
+                                                                    </select>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label>Cancellation Charge</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">50% </option>
+                                                                        <option>100% </option>
+                                                                        <option>None</option>
+                                                                    </select>
+                                                                    <label>No Show Charge</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">50% </option>
+                                                                        <option>100% </option>
+                                                                        <option>None</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="Headingsstcspe22">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion27" href="#collapsesscansel" aria-expanded="true" aria-controls="collapseOne">Selling
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapsesscansel" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Sightseeing</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option>James Bond Island</option>
+                                                                        <option selected="selected">City Tour</option>
+                                                                        <option>Phi Phi Island</option>
+                                                                        <option>Coral Island</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Package</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">City Tour - in Phuket (Half Day)</option>
+                                                                        <option>Phi Phi Island Speed Boat</option>
+
+                                                                    </select>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label>Cancellation Charge</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">50% </option>
+                                                                        <option>100% </option>
+                                                                        <option>None</option>
+                                                                    </select>
+                                                                    <label>No Show Charge</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">50% </option>
+                                                                        <option>100% </option>
+                                                                        <option>None</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
+                                <div class="panel-heading2" role="tab" id="Headingssptcs1c">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapsessfoc" aria-expanded="true" aria-controls="collapseOne">FOC Policy - Sightseeing Specific
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapsessfoc" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion28" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="Headingsstcs11cc">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion28" href="#collapsessfoccost" aria-expanded="true" aria-controls="collapseOne">Costing
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapsessfoccost" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Sightseeing</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option>James Bond Island</option>
+                                                                        <option selected="selected">City Tour</option>
+                                                                        <option>Phi Phi Island</option>
+                                                                        <option>Coral Island</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Package</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">City Tour - in Phuket (Half Day)</option>
+                                                                        <option>Phi Phi Island Speed Boat</option>
+
+                                                                    </select>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 16%; padding: 5px">FOC Type</th>
+
+                                                                                    <th style="width: 15%; padding: 5px">Count</th>
+                                                                                    <th style="width: 15%; padding: 5px">Free</th>
+                                                                                    <th style="width: 15%; padding: 5px">Limit</th>
+                                                                                    <th style="width: 5%; padding: 5px"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option selected="selected">None</option>
+                                                                                            <option>Guest</option>
+
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option selected="selected">None</option>
+                                                                                            <option>Guest</option>
+
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option selected="selected">None</option>
+                                                                                            <option>Guest</option>
+
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-blue" style="border-radius: 4px; margin-bottom: 1px !important">
+                                                <div class="panel-heading2" role="tab" id="Headingsstcspe22">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion28" href="#collapsessfocsel" aria-expanded="true" aria-controls="collapseOne">Selling
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapsessfocsel" class="panel-collapse panel-white collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Sightseeing</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option>James Bond Island</option>
+                                                                        <option selected="selected">City Tour</option>
+                                                                        <option>Phi Phi Island</option>
+                                                                        <option>Coral Island</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="drpCurrency">Package</label>
+                                                                    <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                                                        <option selected="selected">City Tour - in Phuket (Half Day)</option>
+                                                                        <option>Phi Phi Island Speed Boat</option>
+
+                                                                    </select>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="table-responsive">
+                                                                        <table style="width: 100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 16%; padding: 5px">FOC Type</th>
+
+                                                                                    <th style="width: 15%; padding: 5px">Count</th>
+                                                                                    <th style="width: 15%; padding: 5px">Free</th>
+                                                                                    <th style="width: 15%; padding: 5px">Limit</th>
+                                                                                    <th style="width: 5%; padding: 5px"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option selected="selected">None</option>
+                                                                                            <option>Guest</option>
+
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option selected="selected">None</option>
+                                                                                            <option>Guest</option>
+
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding: 5px">
+                                                                                        <select id="drpFOCType" class="js-states form-control" style="display: none; width: 100%">
+                                                                                            <option selected="selected">None</option>
+                                                                                            <option>Guest</option>
+
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <input type="text" class="form-control " id="" value="" placeholder="">
+                                                                                    </td>
+                                                                                    <td style="padding: 5px">
+                                                                                        <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" style="text-align: right; margin-top: 2%; margin-bottom: 1px; margin-right: 1%">
+                                                            <label style="margin-right: 8px">Include in Quote</label><input type="checkbox" style="" />
+                                                            <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-floppy-o"></span></a>
+                                                            <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5313,6 +6075,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -5320,6 +6083,10 @@
     @*Your Itinarary Summary*@
     <div class="col-md-3 quote-link">
         <h2>Your Itinerary Summary</h2>
+        <h3 style="font-size: 13px">Referance # 
+            <label class="label label-info" style="color: white; font-size: 12px">Q-INQ-06-2016-0000001/001</label></h3>
+        <h3 style="font-size: 13px">Status 
+            <label class="label label-success" style="color: white; font-size: 12px;margin-left:32px">Draft</label></h3>
         <div class="panel panel-white">
 
             <div class="panel-body tab-itenaries ">
@@ -5406,35 +6173,35 @@
                                             <td>Grand Palace</td>
                                             @* <td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
                                             <td>A1 Bangkok</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-car" rel="tooltip" title="Transfer"></span></td>
                                             <td>ATS TOUR - Toyota Yaris - Car</td>
                                             @* <td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-street-view" rel="tooltip" title="Guide"></span></td>
                                             <td>Nadia Manassawee Ponpitak</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-spoon" rel="tooltip" title="Restaurant"></span></td>
                                             <td>Zazen Restaurant</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -5459,35 +6226,35 @@
                                             <td>Grand Palace</td>
                                             @* <td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
                                             <td>A1 Bangkok</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-car" rel="tooltip" title="Transfer"></span></td>
                                             <td>ATS TOUR - Toyota Yaris - Car</td>
                                             @*  <td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-street-view" rel="tooltip" title="Guide"></span></td>
                                             <td>Nadia Manassawee Ponpitak</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-spoon" rel="tooltip" title="Restaurant"></span></td>
                                             <td>Zazen Restaurant</td>
                                             @* <td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -5582,35 +6349,35 @@
                                             <td>Grand Palace</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
                                             <td>A1 Bangkok</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-car" rel="tooltip" title="Transfer"></span></td>
                                             <td>ATS TOUR - Toyota Yaris - Car</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-street-view" rel="tooltip" title="Guide"></span></td>
                                             <td>Nadia Manassawee Ponpitak</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-spoon" rel="tooltip" title="Restaurant"></span></td>
                                             <td>Zazen Restaurant</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -5635,35 +6402,35 @@
                                             <td>Grand Palace</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
                                             <td>A1 Bangkok</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-car" rel="tooltip" title="Transfer"></span></td>
                                             <td>ATS TOUR - Toyota Yaris - Car</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-street-view" rel="tooltip" title="Guide"></span></td>
                                             <td>Nadia Manassawee Ponpitak</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-spoon" rel="tooltip" title="Restaurant"></span></td>
                                             <td>Zazen Restaurant</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -5687,35 +6454,35 @@
                                             <td>Grand Palace</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-university" rel="tooltip" title="Hotel"></span></td>
                                             <td>A1 Bangkok</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-car" rel="tooltip" title="Transfer"></span></td>
                                             <td>ATS TOUR - Toyota Yaris - Car</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-street-view" rel="tooltip" title="Guide"></span></td>
                                             <td>Nadia Manassawee Ponpitak</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td><span class="fa fa-spoon" rel="tooltip" title="Restaurant"></span></td>
                                             <td>Zazen Restaurant</td>
                                             @*<td><span class="label label-primary total-cost">THB 4200</span></td>*@
                                             <td><span class="fa fa-pencil faSuccess"></span></td>
-                                            <td><span class="fa fa-close faDanger"></span></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -5723,6 +6490,93 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modify-colum-model" id="SupCommuni" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Supplier Communication</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" cols="3" id="txtRemarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success ">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modify-colum-model" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Floor Plan</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="table-responsive">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <th class="" style="width: 49%; padding: 5px">Floor Plan</th>
+                                        <th class="" style="width: 45%; padding: 5px">Comments</th>
+                                        <th class="" style="width: 6%; padding: 5px"></th>
+                                    </tr>
+                                    <tbody>
+                                        <tr>
+
+                                            <td class="" style="padding: 5px">
+                                                <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect1122').click();" placeholder="Plan 1">
+                                                <input id="logoselect1122" type="file" style="display: none" />
+                                            </td>
+
+                                            <td class="" style="padding: 5px">
+                                                <input type="text" class="form-control" id="txtTotalTables" placeholder="Comments">
+                                            </td>
+
+                                            <td class="" style="padding: 5px"><a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px;"><span class="fa fa-times"></span></a></td>
+                                        </tr>
+
+                                        <tr>
+
+                                            <td class="" style="padding: 5px">
+                                                <input type="text" class="form-control req" id="txtLogo" onclick="$('#logoselect122s').click();" placeholder="Plan 2">
+                                                <input id="logoselect122s" type="file" style="display: none" />
+                                            </td>
+
+                                            <td class="" style="padding: 5px">
+                                                <input type="text" class="form-control" id="txtTotalTables" placeholder="Comments">
+                                            </td>
+
+                                            <td class="" style="padding: 5px"><a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success ">Add</button>
             </div>
         </div>
     </div>

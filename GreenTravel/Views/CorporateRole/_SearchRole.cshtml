@@ -1,21 +1,19 @@
 ﻿<form>
     <div class="form-group" style="margin-bottom: 5px !important">
         <div class="row">
-            <div class="col-md-5" style="width: 34%">
+            <div class="col-md-5" @*style="width: 34%"*@>
                 <div class="form-group">
                     <h2 style="border-width: 0; margin-bottom: 0; color: red; margin-top: 0px; font-size: 27px;" class="" id="lblTotalRecordsFound"><span>200 Records found</span></h2>
                 </div>
             </div>
-            <div class="col-md-4" style="width: 49%">
+            <div class="col-md-5 div-serachpanel-search" @*style="width: 49%"*@>
                 <input type="text" data-role="tagsinput" id="txtTagSearch" class="form-control" value="" placeholder="Tag Search" />
             </div>
-
-            <div class="col-md-3" style="width: 16%">
+            <div class="col-md-2 div-searchpanel-button" @*style="width: 16%"*@>
                 <a href="javascript:void(0);" style="font-size: 12px !important" class="btn btn-success searchpanel-button advanced-panel-button" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-plus"></i></a>
-
                 <div class="dropdown table-custome-drop" style="padding-top: 5px">
                     <div class="btn-group">
-                        <a class="label label-maroon dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
+                        <a class="label label-maroon dropdown-toggle btn-search-export" data-toggle="dropdown" aria-expanded="false" style="font-size: 20px">
                             <span class="glyphicon glyphicon-download-alt"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -25,120 +23,120 @@
                         </ul>
                     </div>
                     &nbsp;&nbsp;
-                                <div class="btn-group btn-tables-views">
-                                    <a class="label label-primary dropdown-toggle " rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
-                                        <span class="icon-grid"></span>
-                                    </a>
-                                    <ul class="dropdown-menu cate-drop-menu">
-                                        <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
-                                        <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
-                                    </ul>
-                                    <div class="modal fade modify-colum-model" id="myModal" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Change View</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <br />
-                                                    <div class="model-left-columns">
-                                                        <div class="field-name">
-                                                            <h3>View <a href="#"></a></h3>
-                                                            <ul id="ulViewList" class="field-list slimscroll">
-                                                                <li><a href="#">Subscription</a></li>
-                                                                <li><a href="#">Billing</a></li>
-                                                                <li><a href="#">Hosting</a></li>
-                                                                <li class="active"><a href="#">Support</a></li>
-                                                                <li><a href="#">UI</a></li>
-                                                                <li><a href="#">Database</a></li>
+                    <div class="btn-group btn-tables-views">
+                        <a class="label label-primary dropdown-toggle btn-search-view-fields" rel="tooltip" data-toggle="dropdown" title="All Views" style="font-size: 20px" aria-expanded="false">
+                            <span class="icon-grid"></span>
+                        </a>
+                        <ul class="dropdown-menu cate-drop-menu">
+                            <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                            <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
+                        </ul>
+                        <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <br />
+                                        <div class="model-left-columns">
+                                            <div class="field-name">
+                                                <h3>View <a href="#"></a></h3>
+                                                <ul id="ulViewList" class="field-list slimscroll">
+                                                    <li><a href="#">Subscription</a></li>
+                                                    <li><a href="#">Billing</a></li>
+                                                    <li><a href="#">Hosting</a></li>
+                                                    <li class="active"><a href="#">Support</a></li>
+                                                    <li><a href="#">UI</a></li>
+                                                    <li><a href="#">Database</a></li>
 
-                                                            </ul>
-                                                        </div>
-                                                        <div class="field-name">
-                                                            <h3>Field Name <a href="#">Add all</a></h3>
-                                                            <div class="field-list field-list-img slimscroll">
-                                                                <ul>
-                                                                    <li><a href="#">Application URL</a></li>
-                                                                    <li><a href="#">Primary Contact Person</a></li>
-                                                                    <li><a href="#">Efective Date From</a> </li>
+                                                </ul>
+                                            </div>
+                                            <div class="field-name">
+                                                <h3>Field Name <a href="#">Add all</a></h3>
+                                                <div class="field-list field-list-img slimscroll">
+                                                    <ul>
+                                                        <li><a href="#">Application URL</a></li>
+                                                        <li><a href="#">Primary Contact Person</a></li>
+                                                        <li><a href="#">Efective Date From</a> </li>
 
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="drag-drop-right">
-                                                        <section>
-                                                            <h2>Drag and drop reorder</h2>
-                                                            <div class="cf nestable-lists">
-                                                                <ul id="sortable" class="ui-sortable sortable-list">
-                                                                    <li class="ui-state-default">Company Name</li>
-                                                                    <li class="ui-state-default">Company Industry</li>
-                                                                    <li class="ui-state-default">FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
-                                                                    <li class="ui-state-default">Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
-                                                                    <li class="ui-state-default">Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
-                                                                </ul>
-
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success ">Apply</button>
+                                                    </ul>
                                                 </div>
                                             </div>
+                                        </div>
+
+
+                                        <div class="drag-drop-right">
+                                            <section>
+                                                <h2>Drag and drop reorder</h2>
+                                                <div class="cf nestable-lists">
+                                                    <ul id="sortable" class="ui-sortable sortable-list">
+                                                        <li class="ui-state-default">Company Name</li>
+                                                        <li class="ui-state-default">Company Industry</li>
+                                                        <li class="ui-state-default">FIT/Group<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                        <li class="ui-state-default">Margin For<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                        <li class="ui-state-default">Margin Type<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                    </ul>
+
+                                                </div>
+                                            </section>
                                         </div>
                                     </div>
-                                    <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
-                                        <div class="modal-dialog" style="width: 30%; height: 40%">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h3>Email</h3>
-                                                    <br />
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label>To </label>
-                                                                <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="txtHotelCode">Massage</label>
-                                                                <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <button type="button" class="btn btn-success ">Send</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success ">Apply</button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                            <div class="modal-dialog" style="width: 30%; height: 40%">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h3>Email</h3>
+                                        <br />
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>To </label>
+                                                    <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="txtHotelCode">Massage</label>
+                                                    <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button type="button" class="btn btn-success ">Send</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
     @*Advance Search*@
-    <div class="from-group panel-search advanced-panel" style="display: none; width: 64%; margin-left: 440px">
+    <div class="from-group panel-search advanced-panel advance-search-panel" style="display: none; /*width: 64%; margin-left: 440px*/">
         <div class="panel panel-green">
 
             <div class="panel-body">

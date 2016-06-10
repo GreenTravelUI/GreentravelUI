@@ -3,7 +3,7 @@
         //{
         //oneOpenedItem: true
         //}
-        
+
     );
     $('.example-bootstrap').barrating({
         theme: 'bootstrap-stars',
@@ -13,59 +13,24 @@
 });
 
 $(window).load(function () {
-    $('.grid').masonry({
-        itemSelector: '.grid-item'
+    //var $container = $('.grid-item');
 
-    });
+    //$container.isotope({
+    //    itemSelector: '.item',
+    //    layoutMode: 'masonry',
+    //});
+
 });
 
 $(document).ready(function () {
-   
-    $('.grid').masonry({
-        itemSelector: '.grid-item'
 
-    });
 
- 
     var date = new Date();
     var day = date.getDate();
     var month = date.getMonth();
     var year = date.getFullYear();
 
-    $('#calendar').fullCalendar({
-
-        header: {
-            left: 'prev today',
-            right: 'next',
-            center: 'title'
-        },
-        defaultView: "agendaWeek",
-        editable: false,
-        droppable: false, // this allows things to be dropped onto the calendar
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-            {
-                title: 'A-One Bangkok',
-                start: (new Date(year, month, day)),
-                color: '#ff0000'
-            },
-            {
-                title: 'Grand Palace',
-                start: new Date(year, month, day + 2),
-                color: '#00ff00'
-            },
-            {
-                title: 'Birthday Party',
-                start: new Date(year, month, day + 1),
-                color: '#0000ff'
-            },
-            {
-                title: 'Click for Google',
-                url: 'http://google.com/',
-                start: new Date(year, month, day + 3)
-            }
-        ]
-    });
+    
     $('#drpSharingType').change(function () {
 
     });
@@ -277,10 +242,21 @@ $(document).ready(function () {
         currentButton.trigger('focusout');
         e.preventDefault();
     });
+
+
+    $('.show-followup-details').on('click', function () {
+        //var followupDetails = $(this).parent().parent().next();
+        $(this).next().slideToggle('slow');
+    });
 });
 
 $("#quotelisub").click(function () {
-  
+
+    window.dispatchEvent(new Event('resize'));
+});
+
+$("#followupgrd").click(function () {
+
     window.dispatchEvent(new Event('resize'));
 });
 
