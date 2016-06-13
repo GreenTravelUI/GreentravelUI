@@ -82,9 +82,16 @@ $(document).ready(function () {
         thisControl.find('i').addClass('fa').addClass('fa-check')
         thisControl.addClass('orderby')
     });
+    $('.show-followup-details').on('click', function () {
+        //var followupDetails = $(this).parent().parent().next();
+        $(this).next().children('.searchshhd').slideToggle('slow');
+        $(this).next().next().slideToggle('slow');
+    });
+ 
+
 });
 function expandPanelButton(control) {
-    control.removeClass('fa-plus');
+    control.removeClass('fa-search');
     control.addClass('fa-minus');
 }
 function collapsePanelButton(control) {
