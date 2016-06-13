@@ -21,12 +21,12 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <input type="text" id="txtTagSearch" class="form-control" value="Search" placeholder="Search" style="width: 40%; margin-right: 10px; float: left" />
-                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 17%; margin-right: 10px; float: right">
+                                        <input type="text" id="txtTagSearch" class="form-control" value="Search" placeholder="Search" style="width: 31%; margin-right: 10px; float: left" />
+                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 16%; margin-right: 10px; float: right">
                                             <option selected="selected">Inquiry View</option>
                                             <option>Quote View</option>
                                         </select>
-                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 17%; margin-right: 10px; float: right">
+                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 16%; margin-right: 10px; float: right">
                                             <option selected="selected">Filter</option>
                                             <option>My Inquiries</option>
                                             <option>My Shared Inquiries</option>
@@ -34,7 +34,7 @@
                                             <option>My Bookings</option>
                                             <option>My Shared Bookings</option>
                                         </select>
-                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 17%; margin-right: 10px; float: right">
+                                        <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 15%; margin-right: 10px; float: right">
                                             <option selected="selected">Sort By</option>
                                             <option>Price Low To High</option>
                                             <option>Price High To Low</option>
@@ -46,16 +46,124 @@
                                             <option>Quoted Date</option>
                                             <option>Follow-up Date</option>
                                         </select>
-                                        <button id="btnCreateFitnew" type="button" class="btn cd-select btnhvr" style="padding: 5px; width: 33px; margin-left: 10px" onclick="window.location.href='/TourGitQuotaion'" rel="tooltip" title="Create New Inquiry"><i class="fa fa-plus"></i></button>
-                                        <a href="javascript:void(0);" class="btn cd-select searchpanel-button advanced-panel-button btnhvr" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search"><i class="fa fa-search"></i></a>
+                                        <button id="btnCreateFitnew" type="button" class="btn btnhvr cd-select" style="padding: 5px; width: 33px; margin-left: 10px; margin-right: 1%;background-color:#F25656;color:white" onclick="window.location.href='/TourGitQuotaion'" rel="tooltip" title="Create New Inquiry"><i class="fa fa-plus"></i></button>
+                                        <a href="javascript:void(0);" class="btn searchpanel-button advanced-panel-button btnhvr cd-select" data-show-panel="advanced-panel" data-toggle="tooltip" data-placement="top" title="Advance Search" style="margin-right: 1%;background-color:#22BAA0;color:white"><i class="fa fa-search"></i></a>
+                                        <a id="showRightSideSummary" style="margin-right: 1%;color:white" class="panel-reload btn cd-select searchpanel-button advanced-panel-button btnhvr" title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0);" data-original-title="Quick Report"><i class="fa fa-tasks"></i></a>
+                                        
+                                         <div class="dropdown table-custome-drop" style="padding-top: 1px; padding-right: 1%">
+                                            <div class="btn-group">
+                                                <a id="" style="color:white" class="btn searchpanel-button advanced-panel-button btnhvr cd-select" title="" data-placement="top" data-toggle="dropdown" href="javascript:void(0);" data-original-title="Export"><i class="fa fa-download"></i>
 
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Excel</a></li>
+                                                    <li><a id="btnemail" href="javascript:void(0);" data-toggle="modal" data-target="#EmailModal">Email</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                       <div class="btn-group btn-tables-views">
+                                            <a class="btn searchpanel-button advanced-panel-button btnhvr cd-select" rel="tooltip" data-toggle="dropdown" title="All Views" style="background-color:#22BAA0;color:white" aria-expanded="false">
+                                                <span class="icon-grid"></span>
+                                            </a>
+                                            <ul class="dropdown-menu cate-drop-menu">
+                                                <li><a href="javascript:void(0);" style="color: #000"><span class="fa fa-check text-success"></span>&nbsp;Default View</a></li>
+                                                <li style="color: #000; padding: 5px 0" class="btn-lgdropdown-header"><a id="btnShowPopupChangeView" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change View</a> </li>
+                                            </ul>
+                                            <div class="modal fade modify-colum-model" id="myModal" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title" id="myModalLabel">Change View</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <br />
+                                                            <div class="model-left-columns">
+                                                                <div class="field-name">
+                                                                    <h3 style="width:85% !important">View <a href="#"></a></h3>
+                                                                    <ul id="ulViewList" class="field-list slimscroll" style="width:100% !important">
+                                                                        <li class="active"><a href="#">Inquiry</a></li>
+                                                                        <li><a href="#">Quotation</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="field-name">
+                                                                    <h3>Field Name <a href="#">Add all</a></h3>
+                                                                    <div class="field-list field-list-img slimscroll">
+                                                                        <ul>
+                                                                            <li><a href="#">Pax</a></li>
+                                                                            <li><a href="#">Status</a></li>
+                                                                            <li><a href="#">Inquiry Owner</a> </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="drag-drop-right">
+                                                                <section>
+                                                                    <h2>Drag and drop reorder</h2>
+                                                                    <div class="cf nestable-lists">
+                                                                        <ul id="sortable" class="ui-sortable sortable-list">
+                                                                            <li class="ui-state-default">Inquiry code</li>
+                                                                            <li class="ui-state-default">Agent</li>
+                                                                            <li class="ui-state-default">Inquiry Date<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                            <li class="ui-state-default">Inquiry By<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                            <li class="ui-state-default">Travel Date<a class="drag-close delete" href="javascript:void(0);"><i class="fa fa-close"></i></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-success ">Apply</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                 </div>
                             </div>
-
+                            <div class="modal fade modify-colum-model" id="EmailModal" role="dialog">
+                                <div class="modal-dialog" style="width: 30%; height: 40%">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h3>Email</h3>
+                                            <br />
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label>To </label>
+                                                        <input type="text" class="form-control req" id="txtToemail" placeholder="support@ambait.com">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="txtHotelCode">Massage</label>
+                                                        <textarea class="form-control" cols="5" id="txtMassageEmail"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-success ">Send</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @*Advance*@
-                            <div class="form-group panel-search advanced-panel" style="display: none; margin-top: 6%;">
+                            <div class="form-group panel-search advanced-panel" style="display: none; margin-top: 4%;">
 
                                 <div class="panel panel-green">
                                     <div class="panel-heading">
@@ -178,7 +286,7 @@
                                         <div class="form-group" style="margin-bottom: 0; padding-top: 15px;">
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <a href="javascript:void(0);" class="btn" style="border-width: 1px; border-color: white; border-style: solid;background-color:#82EAB0">SEARCH</a>
+                                                    <a href="javascript:void(0);" class="btn" style="border-width: 1px; border-color: white; border-style: solid; background-color: #82EAB0; color: white">SEARCH</a>
                                                 </div>
 
                                             </div>
@@ -194,6 +302,38 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h2 style="border-width: 0; margin-bottom: 0;" class="text-danger newh2 col10mdnew" id="lblTotalRecordsFound"><span style="color: #34425A; font-weight: 600">2</span><span style="color: grey"> Inquiries found for : </span><span style="color: #34425A; font-weight: 600">'Search Term'</span> </h2>
+                                        <div style="">
+                                            <label class="labellinesummury">
+                                                Shared With Sudhir Punjabi
+                                                <label class="lablelnumberline">
+                                                    (7)
+                                                    <label class="labelpipe">|</label></label></label>
+                                            <label class="labellinesummury">
+                                                Chariot Inquiries
+                                                <label class="lablelnumberline">
+                                                    (20)
+                                                    <label class="labelpipe">|</label></label></label>
+                                            <label class="labellinesummury">
+                                                Urgent Needs Response Today
+                                                <label class="lablelnumberline">
+                                                    (8)
+                                                    <label class="labelpipe">|</label></label></label>
+                                            <label class="labellinesummury">
+                                                Today's Follow-ups
+                                                <label class="lablelnumberline">
+                                                    (3)
+                                                    <label class="labelpipe">|</label></label></label>
+                                            <label class="labellinesummury">
+                                                Pending Follow-ups
+                                                <label class="lablelnumberline">
+                                                    (4)
+                                                    <label class="labelpipe">|</label></label></label>
+                                            <label class="labellinesummury">
+                                                New Response From Agent
+                                                <label class="lablelnumberline">(2) </label>
+                                            </label>
+                                            <label class="" style="font-size: 11px; color: #22BAA0; margin-left: 5px"><i class="fa fa-refresh"></i></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +350,7 @@
                                                         <ul class="cd-pricing-list" style="padding-left: 0px; margin-top: 0px">
                                                             <li class="is-ended is-visible" data-type="monthly" style="width: 100%">
                                                                 <header class="cd-pricing-header show-followup-details" style="padding-top: 1px !important;">
-                                                                    <h2 style="color:#F25656">Rating</h2>
+                                                                    <h2 style="color: #F25656">Rating</h2>
                                                                     <div class="cd-price">
                                                                         <span class="cd-value">5</span>
 
@@ -229,30 +369,30 @@
                                                                         <li class="ui-state-default"><em>Inquired By&nbsp;&nbsp;-</em>&nbsp;&nbsp;Samarth Shah
                                                                         </li>
                                                                     </ul>
-                                                                   
-                                                                        <ul class="cd-pricing-features newuliem searchshhd ui-sortable" style="display: none">
-                                                                            <li class="ui-state-default"><em>Travel Date&nbsp;&nbsp;-</em>&nbsp;&nbsp;10-07-2016
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Pax&nbsp;&nbsp;-</em>&nbsp;&nbsp;10-14
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Satus&nbsp;&nbsp;-</em>&nbsp;&nbsp;Draft
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Inquiry Owner&nbsp;&nbsp;-</em>&nbsp;&nbsp;Samarth Shah
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Shared With&nbsp;&nbsp;-</em>&nbsp;&nbsp;Sudhir Punjabi
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Total Quotations&nbsp;&nbsp;-</em>&nbsp;&nbsp;15
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Total Inquiry Follow-ups&nbsp;&nbsp;-</em>&nbsp;&nbsp;20
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Efforts in Conversion&nbsp;&nbsp;-</em>&nbsp;&nbsp;10
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Last Updated By&nbsp;&nbsp;-</em>&nbsp;&nbsp;Samarth Shah
-                                                                            </li>
-                                                                            <li class="ui-state-default"><em>Last Updated Date&nbsp;&nbsp;-</em>&nbsp;&nbsp;05-06-2016
-                                                                            </li>
-                                                                        </ul>
-                                                                   
+
+                                                                    <ul class="cd-pricing-features newuliem searchshhd ui-sortable" style="display: none">
+                                                                        <li class="ui-state-default"><em>Travel Date&nbsp;&nbsp;-</em>&nbsp;&nbsp;10-07-2016
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Pax&nbsp;&nbsp;-</em>&nbsp;&nbsp;10-14
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Satus&nbsp;&nbsp;-</em>&nbsp;&nbsp;Draft
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Inquiry Owner&nbsp;&nbsp;-</em>&nbsp;&nbsp;Samarth Shah
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Shared With&nbsp;&nbsp;-</em>&nbsp;&nbsp;Sudhir Punjabi
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Total Quotations&nbsp;&nbsp;-</em>&nbsp;&nbsp;15
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Total Inquiry Follow-ups&nbsp;&nbsp;-</em>&nbsp;&nbsp;20
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Efforts in Conversion&nbsp;&nbsp;-</em>&nbsp;&nbsp;10
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Last Updated By&nbsp;&nbsp;-</em>&nbsp;&nbsp;Samarth Shah
+                                                                        </li>
+                                                                        <li class="ui-state-default"><em>Last Updated Date&nbsp;&nbsp;-</em>&nbsp;&nbsp;05-06-2016
+                                                                        </li>
+                                                                    </ul>
+
                                                                 </div>
 
                                                                 <div class="searchshhd" style="display: none">
@@ -278,7 +418,7 @@
                                                         <ul class="cd-pricing-list" style="padding-left: 0px; margin-top: 0px">
                                                             <li class="is-ended is-visible" data-type="monthly" style="width: 100%">
                                                                 <header class="cd-pricing-header show-followup-details" style="padding-top: 1px !important;">
-                                                                    <h2 style="color:#F25656">Quoted On</h2>
+                                                                    <h2 style="color: #F25656">Quoted On</h2>
                                                                     <div class="cd-price">
                                                                         <span class="cd-value">05-06-2016</span>
 
@@ -354,7 +494,7 @@
                                                         <ul class="cd-pricing-list" style="padding-left: 0px; margin-top: 0px">
                                                             <li class="is-ended is-visible" data-type="monthly" style="width: 100%">
                                                                 <header class="cd-pricing-header show-followup-details" style="padding-top: 1px !important;">
-                                                                    <h2 style="color:#F25656">Quoted On</h2>
+                                                                    <h2 style="color: #F25656">Quoted On</h2>
                                                                     <div class="cd-price">
                                                                         <span class="cd-value">05-06-2016</span>
 
@@ -429,7 +569,7 @@
                                                         <ul class="cd-pricing-list" style="padding-left: 0px; margin-top: 0px">
                                                             <li class="is-ended is-visible" data-type="monthly" style="width: 100%">
                                                                 <header class="cd-pricing-header show-followup-details" style="padding-top: 1px !important;">
-                                                                    <h2 style="color:#F25656">Quoted On</h2>
+                                                                    <h2 style="color: #F25656">Quoted On</h2>
                                                                     <div class="cd-price">
                                                                         <span class="cd-value">05-06-2016</span>
 
@@ -508,9 +648,9 @@
                         </div>
                     </div>
                 </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 
 
@@ -547,5 +687,193 @@
         <a class="btn btn-default" data-section="tab4section1" rel="tooltip" title="Hotel Room">1</a>
         <a class="btn btn-default" data-section="tab4section2" rel="tooltip" title="Function Room">2</a>
         <a class="btn btn-default" data-section="tab4section3" rel="tooltip" title="Restaurent">3</a>
+    </div>
+}
+
+
+@section rightsidesummary{
+    <h3>
+        <span class="">
+            <div class="btn-group">
+                <a class="btn tab-itenaries btn-quickreport-right">Quick Report</a>
+                <a class="btn btn-utilities-right">Communication</a>
+            </div>
+        </span>
+        <a href="javascript:void(0);" class="pull-right btn" id="closeRightSideSummary" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
+    </h3>
+    <div class="slimscroll quickreport-sidebar">
+
+        <div class="col-md-12">
+            <h4 style="border-width: 0; margin-bottom: 3%; margin-top: 5%; font-size: 16px; padding-left: 3%" class="text-danger newh2 col10mdnew" id="lblTotalRecordsFound"><span style="color: #34425A; font-weight: 600">2</span><span style="color: grey"> Inquiries found for : </span><span style="color: #34425A; font-weight: 600">'Search Term'</span> </h4>
+
+        </div>
+        <div class="col-md-12">
+            <div class="panel-body" style="padding: 0px">
+                <div class="col-md-8" style="padding-right: 1px">
+                    <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
+                        <option>Agent Type Wise Inquiries</option>
+                        <option>Rating Wise Inquires</option>
+                        <option>Status Wise Inquires</option>
+                        <option>Pending Tasks</option>
+                        <option>Notifications</option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="padding-right: 1px">
+                    <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 82%">
+                        <option>Pie</option>
+                        <option selected="selected">Bar</option>
+                        <option>Line</option>
+                        <option>Table</option>
+                    </select>
+                </div>
+                <div id="morris2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="slimscroll utilities-sidebar">
+        <div class="col-md-12" style="padding: 0px">
+            <div class="form-group">
+                <h4 style="border-width: 0; margin-bottom: 3%; margin-top: 5%; font-size: 16px; padding-left: 3%" class="text-danger newh2 col10mdnew" id="lblTotalRecordsFound">Communication</h4>
+            </div>
+        </div>
+        <div class="col-md-12">
+
+            <div class="form-group">
+                <label>Mode</label>
+                <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
+                    <option>Call</option>
+                    <option selected="selected">Email</option>
+                    <option>Mail</option>
+                    <option>Personal Visit</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mail Box</label>
+                <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
+                    <option>Inbox</option>
+                    <option>Sent</option>
+                    <option>Draft</option>
+                    <option>Trash</option>
+                    <option selected="selected">Compose</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>To</label>
+                <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>CC</label>
+                <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>BCC</label>
+                <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Massage</label>
+                <textarea class="form-control" id="txtInternal" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group" style="padding-right: 18%">
+            <div class="col-md-12" style="width: 11%; float: right">
+                <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Send" style="font-size: 10px; padding: 8px; margin-top: 8px">
+                    <span class="fa fa-paper-plane" style="font-size: 19px; color: white">&nbsp;&nbsp;Send</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+}
+
+@section rightsidetimeline{
+    <h3>Trail
+        <a id="closeRightSideTimeline" class="pull-right btn" href="javascript:void(0);" style="padding-left: 0 !important; padding-right: 0 !important;"><i class="fa fa-times"></i></a>
+    </h3>
+    <div class="slimscroll utilities-sidebar">
+        <div class="col-md-12">
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>From </label>
+                        <input type="text" class="form-control date-picker" id="txtRightFrom" />
+                    </div>
+                    <div class="col-md-5">
+                        <label>To </label>
+                        <input type="text" class="form-control date-picker" id="txtRightTo" />
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-bottom: 5px; width: 100%;">&nbsp;</label>
+                        <button class="btn btn-info pull-right" style="font-size: 12px; padding: 10px 14px;" rel="tooltip" title="Show Trail"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <hr />
+        </div>
+        <div class="col-md-12">
+            <section id="cd-timeline" class="cd-container mCustomScrollbar">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-success">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-success">Created</h2>
+                        <span class="cd-date">11-Mar-2016 05:11 PM</span>
+                        <span class="cd-date pull-right">Sudhir Seth</span>
+                        <span class="cd-date" style="display: block; width: 50%;">198.013.120.143</span>
+                    </div>
+                </div>
+                <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-primary">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-primary">Updated</h2>
+                        <span class="cd-date">12-Mar-2016 09:59 AM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-primary">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="cd-timeline-content">
+                        <h2 class="text-primary">Updated</h2>
+                        <span class="cd-date ">12-Mar-2016 01:23 PM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-danger">
+                        <i class="fa fa-trash"></i>
+                    </div>
+                    <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h2 class="text-danger">Deleted</h2>
+                        <span class="cd-date ">12-Mar-2016 10:36 AM</span>
+                        <span class="cd-date pull-right">Samarth Shah</span>
+                        <span class="cd-date" style="display: block; width: 50%;">165.145.12.013</span>
+                    </div>
+                    <!-- cd-timeline-content -->
+                </div>
+                <!-- cd-timeline-block -->
+            </section>
+        </div>
     </div>
 }

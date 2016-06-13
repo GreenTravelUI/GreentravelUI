@@ -87,16 +87,36 @@ $(document).ready(function () {
         $(this).next().children('.searchshhd').slideToggle('slow');
         $(this).next().next().slideToggle('slow');
     });
- 
-
+    Morris.Bar({
+        element: 'morris2',
+        data: [
+            { year: 'A', a: 25},
+            { year: 'A+', a: 05},
+            { year: 'A++', a: 05},
+            { year: 'B', a: 19},
+            { year: 'B+', a: 25},
+        ],
+        xkey: 'year',
+        ykeys: ['a', 'b'],
+        labels: ['a', 'b'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'auto',
+        barColors: ['#6ad6c3', '#22BAA0'],
+        resize: true
+    });
+    $('#ulViewList').delegate("a", "click", function (e) {
+        $(this).parent().parent().find("li").removeClass("active");
+        $(this).parent().addClass("active");
+    });
 });
 function expandPanelButton(control) {
     control.removeClass('fa-search');
-    control.addClass('fa-minus');
+    control.addClass('fa-search');
 }
 function collapsePanelButton(control) {
-    control.removeClass('fa-minus');
-    control.addClass('fa-plus');
+    control.removeClass('fa-search');
+    control.addClass('fa-search');
 }
 function handle_click(e) {
     e.stopPropagation();

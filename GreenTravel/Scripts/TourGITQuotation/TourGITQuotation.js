@@ -45,16 +45,16 @@ $(document).ready(function () {
     $('.removeHandler').on('click', function () {
         $(this).closest('li.ui-state-default').remove();
     });
+
     Morris.Bar({
         element: 'morris2',
         data: [
-            { year: '11-Mar-2016', a: 25, b: 15 },
-            { year: '12-Mar-2016', a: 05, b: 12 },
-            { year: '13-Mar-2016', a: 05, b: 32 },
-            { year: '14-Mar-2016', a: 19, b: 05 },
-            { year: '15-Mar-2016', a: 25, b: 40 },
-            { year: '16-Mar-2016', a: 65, b: 10 },
-            { year: '17-Mar-2016', a: 65, b: 60 }
+            { year: 'A', a: 25, b: 15 },
+            { year: 'A+', a: 05, b: 12 },
+            { year: 'A++', a: 05, b: 32 },
+            { year: 'B', a: 19, b: 05 },
+            { year: 'B+', a: 25, b: 40 },
+            
         ],
         xkey: 'year',
         ykeys: ['a', 'b'],
