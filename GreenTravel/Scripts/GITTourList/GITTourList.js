@@ -109,6 +109,12 @@ $(document).ready(function () {
         $(this).parent().parent().find("li").removeClass("active");
         $(this).parent().addClass("active");
     });
+
+    $('.show-all-expand').on('click', function () {
+        $('.searchshhd').slideToggle('slow');
+      
+    });
+
 });
 function expandPanelButton(control) {
     control.removeClass('fa-search');

@@ -24,6 +24,27 @@ $(window).load(function () {
 
 $(document).ready(function () {
 
+    $('#basicTree').jstree({
+        'core': {
+            'themes': {
+                'responsive': false
+            }
+        },
+        'types': {
+            'default': {
+                'icon': 'fa fa-angle-double-right icon-state-success icon-md'
+            },
+            'file': {
+                'icon': 'fa fa-angle-double-right icon-state-success icon-md'
+            },
+            'mainnode': {
+                'font-size':'20px'
+            }
+        },
+        'plugins': ['types'],
+
+      
+    });
 
     var date = new Date();
     var day = date.getDate();
@@ -65,6 +86,7 @@ $(document).ready(function () {
         barColors: ['#6ad6c3', '#22BAA0'],
         resize: true
     });
+
 
     if ($('ol.sortable').length) {
 
@@ -248,6 +270,18 @@ $(document).ready(function () {
         //var followupDetails = $(this).parent().parent().next();
         $(this).next().slideToggle('slow');
     });
+   
+    
+    $('.show-all-expand-inq').on('click', function () {
+        $('.exall').slideToggle('slow');
+
+    });
+    $('.show-all-expand-quote').on('click', function () {
+        $('.exallquote').slideToggle('slow');
+
+    });
+
+    
 });
 
 $("#quotelisub").click(function () {
