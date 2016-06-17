@@ -281,7 +281,40 @@ $(document).ready(function () {
 
     });
 
-    
+    $('.show-expand-quotation').on('click', function () {
+        $(this).next('.tbleshowhide').slideToggle('slow');
+
+    });
+
+    $('.viewtermnote1').on('click', function () {
+        $(this).parent().next().slideToggle('slow');
+        $('#termsmore').css("display", "none");
+        $('#termsless').css("display", "block");
+    });
+
+    $('.viewtermnote2').on('click', function () {
+        $(this).parent().slideToggle('slow');
+        $('#termsmore').css("display", "block");
+        $('#termsless').css("display", "none");
+    });
+
+    $('.viewtermnote12').on('click', function () {
+        $(this).parent().next().slideToggle('slow');
+        $('#notemore').css("display", "none");
+        $('#noteless').css("display", "block");
+    });
+
+    $('.viewtermnote22').on('click', function () {
+        $(this).parent().slideToggle('slow');
+      
+        $('#notemore').css("display", "block");
+        $('#noteless').css("display", "none");
+    });
+
+    $('.show-all-expand-quotation').on('click', function () {
+        $('.tbleshowhide').slideToggle('slow');
+
+    });
 });
 
 $("#quotelisub").click(function () {

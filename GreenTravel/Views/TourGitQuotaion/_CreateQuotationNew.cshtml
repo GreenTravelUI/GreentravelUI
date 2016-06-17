@@ -28,7 +28,10 @@
             <div class="tab-pane active fade in" id="tab2-11">
                 <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-2" style="padding-right:0px;padding-top:10px">
+                            <label>Quotation Title</label>
+                        </div>
+                        <div class="col-md-10" style="padding-left:0px">
                             <input type="text" class="form-control" value="Ferry group 3N / 4D - 1 Pax to 2 Pax - Bangkok" id="txtTags" placeholder="">
                         </div>
 
@@ -63,42 +66,15 @@
                                                             <option>Q-INQ-06-2016-0000001/004</option>
                                                         </select>
                                                     </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-
-                                                    <div class="col-md-12">
-                                                        <h3>Quotation Warning</h3>
-                                                        <div class="panel panel-white">
-                                                            <div class="panel-body">
-                                                                <div class="alert alert-danger" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
-                                                                    These Dates are in Blackout Date
-                                                                </div>
-                                                                <div class="alert alert-warning" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
-                                                                    There Some Additional Surcharge for this date
-                                                                </div>
-                                                                <div class="alert alert-info" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
-                                                                    Compulsory Stay for this date
-                                                                </div>
-                                                                <div class="alert alert-warning" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
-                                                                    Minimum Nights Stay 3 for this date
-                                                                </div>
-                                                                <div class="alert alert-danger" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px">
-                                                                    Sightseeing Will be closed on this date
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
+                                                    <div class="col-md-6" style="text-align: left; margin-bottom: 1px;">
+                                                        <a class=" btn btn-success" rel="tooltip" title="View Quote" style="padding: 3px 10px; text-align: right"><span class="fa fa-download"></span></a>
+                                                          <a class=" btn btn-success" rel="tooltip" title="Copy Quote" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                
                                                     </div>
                                                 </div>
+
                                             </div>
-                                            <div class="form-group" style="text-align: right; margin-top: 3%; margin-bottom: 1px; margin-right: 2%">
-                                                <a class=" btn btn-success" rel="tooltip" title="Copy Quote" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
-                                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +155,7 @@
 
                                             </div>
                                             <div class="form-group" style="text-align: right; margin-top: 22%; margin-bottom: 1px; margin-right: 2%">
-                                                <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                 <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                             </div>
                                         </div>
@@ -188,7 +164,7 @@
                                 <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                     <div class="panel-heading2" role="tab" id="HeadingDiscount">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion1quote" href="#collapseDiscount" aria-expanded="true" aria-controls="collapseOne">Discount / Margin / Handling Fee
+                                            <a data-toggle="collapse" data-parent="#accordion1quote" href="#collapseDiscount" aria-expanded="true" aria-controls="collapseOne">Discount / Handling Fee
                                             </a>
                                         </h4>
                                     </div>
@@ -202,14 +178,34 @@
                                                             <table style="width: 100%">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th style="width: 47%; padding: 5px">Discount Type</th>
-                                                                        <th style="width: 47%; padding: 5px">Discount</th>
+                                                                        <th style="width: 25%; padding: 5px">Service</th>
+                                                                        <th style="width: 29%; padding: 5px">Supplier</th>
+                                                                        <th style="width: 20%; padding: 5px">Discount Type</th>
+                                                                        <th style="width: 20%; padding: 5px">Discount</th>
                                                                         <th style="width: 6%; padding: 5px"></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
 
                                                                     <tr>
+                                                                        <td style="padding: 5px">
+                                                                            <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                                                <option selected="selected">Hotel</option>
+                                                                                <option>Sightseeing</option>
+                                                                                <option>Transfer</option>
+                                                                                <option>Meal</option>
+                                                                                <option>Guide</option>
+                                                                                <option>Function Room</option>
+                                                                                <option>Gala Dinner</option>
+
+                                                                            </select>
+                                                                        </td>
+                                                                              <td style="padding: 5px">
+                                                                            <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
+                                                                               <option>Hotel De Bangkok</option>
+                                                                            </select>
+                                                                        </td>  
+
                                                                         <td style="padding: 5px">
                                                                             <select id="drpRoomCategory" class="js-states form-control" style="display: none; width: 100%">
                                                                                 <option>Per Pax</option>
@@ -234,52 +230,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h3>Margin</h3>
-                                                        <div class="table-responsive">
-                                                            <table style="width: 100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th style="width: 47%; padding: 5px">Add Margin To</th>
-                                                                        <th style="width: 47%; padding: 5px">Margin</th>
-                                                                        <th style="width: 6%; padding: 5px"></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-
-                                                                    <tr>
-
-                                                                        <td style="padding: 5px">
-                                                                            <select id="drpRoomCategory" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
-                                                                                <option>All</option>
-                                                                                <option selected="selected">Hotel</option>
-                                                                                <option selected="selected">Sightseeing</option>
-                                                                                <option>Transfer</option>
-                                                                                <option>Meal</option>
-                                                                                <option>Guide</option>
-                                                                                <option>Function Room</option>
-                                                                                <option>Gala Dinner</option>
-
-                                                                            </select>
-                                                                        </td>
-                                                                        <td style="padding: 5px">
-                                                                            <div class="input-group input-append">
-                                                                                <input type="text" class="form-control" id="600" value="600" placeholder="">
-                                                                                <span class="input-group-addon add-on"><span>THB</span></span>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td style="padding: 5px">
-                                                                            <a class=" btn btn-success" rel="tooltip" title="Add" style="padding: 3px 10px;"><span class="fa fa-plus"></span></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                      
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -320,7 +271,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group" style="text-align: right; margin-top: 8px; margin-bottom: 1px; margin-right: 1%">
-                                                <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                 <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                             </div>
                                         </div>
@@ -344,9 +295,17 @@
                                 <option>Phuket</option>
                             </select>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-4" style="padding-left: 0px">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">For Itenrary</option>
+                                <option>For Itinerary Range Pax</option>
+                                <option>Self Book</option>
+                                <option>Additional Service</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
                             <div class="row">
-                                <input type="text" class="form-control" value="Hotel De Bangkok" id="txtTags" placeholder="" style="width: 87%; float: left; margin-right: 2%">
+                                <input type="text" class="form-control" value="Hotel De Bangkok" id="txtTags" placeholder="" style="width: 79%; float: left; margin-right: 2%">
                                 <a class=" btn btn-danger" rel="tooltip" title="Add Hotel" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
                             </div>
                         </div>
@@ -374,17 +333,20 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td>Superior-Single</td>
+                                                    <td style="width:54%">Superior-Single</td>
+                                                    <td>10-14</td>
                                                     <td><span class="text-primary fa fa-money faSuccess" data-html="true" rel="tooltip" title="<span> Room Rate-5800 <br/> Extra Bed Adult Rate-1200 <br /> Extra Bed Child Rate-200 <br /> Infant Rate-0 | Margin-200</span>"></span></td>
                                                     <td><span class="text-success fa fa-pencil faSuccess"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Superior-Double</td>
+                                                    <td>15-20</td>
                                                     <td><span class="text-primary fa fa-money faSuccess" data-html="true" rel="tooltip" title="<span> Room Rate-5800 <br/> Extra Bed Adult Rate-1200 <br /> Extra Bed Child Rate-200 <br /> Infant Rate-0 | Margin-200</span>"></span></td>
                                                     <td><span class="text-success fa fa-pencil faSuccess"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Superior-Twin</td>
+                                                    <td>10-14</td>
                                                     <td><span class="text-primary fa fa-money faSuccess" data-html="true" rel="tooltip" title="<span> Room Rate-5800 <br/> Extra Bed Adult Rate-1200 <br /> Extra Bed Child Rate-200 <br /> Infant Rate-0 | Margin-200</span>"></span></td>
                                                     <td><span class="text-success fa fa-pencil faSuccess"></span></td>
                                                 </tr>
@@ -396,25 +358,23 @@
                                 </div>
                             </div>
 
-                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 10px; border-radius: 4px">
-                                Add To Itinerary</button>
-
                         </div>
                         <div class="col-md-9" style="padding: 9px; padding-top: 0px">
-                            <h5 class="text-danger">Hotel De Bangkok
-                            <span>
-                                <div class="star-ratings">
-                                    <div class="stars stars-example-bootstrap">
-                                        <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4" selected="selected">4</option>
-                                            <option value="5">5</option>
-                                        </select>
+                            <h5 class="text-danger">Hotel De Bangkok - 
+                                <label style="font-size: 13px; text-align: left">Additional Service</label>
+                                <span style="text-align: right">
+                                    <div class="star-ratings">
+                                        <div class="stars stars-example-bootstrap">
+                                            <select id="example-bootstrap1" class="example-bootstrap" name="rating">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4" selected="selected">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </span></h5>
+                                </span></h5>
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                     <div class="panel-heading2" role="tab" id="headingOnehtl">
@@ -479,27 +439,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="col-md-2" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Self Book</label>
-                                                    </div>
-                                                    <div class="col-md-3" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
-                                                    </div>
-                                                    <div class="col-md-7" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>&nbsp;</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-
-                                                    <div class="col-md-2" style="padding-left: 1px; padding-right: 1px; text-align: center">
-                                                        <input type="checkbox" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-3" style="padding-left: 1px; padding-right: 1px; text-align: center">
-                                                        <input type="checkbox" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-7" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    <div class="col-md-12" style="padding-left: 1px !important; padding-right: 1px; text-align: right;padding-top:3%">
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                                     </div>
                                                 </div>
@@ -542,6 +483,26 @@
                                                                 <option>Double</option>
                                                                 <option>Single</option>
                                                             </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Range Pax</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label># of Rooms</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                                                <option selected="selected">10-14</option>
+                                                                <option>15-20</option>
+                                                                <option>21-24</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" id="txtTwinRoomRate" value="2" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -621,9 +582,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    
+
                                                     <div class="col-md-12" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
                                                         <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
@@ -649,7 +610,7 @@
                                                 <div class="col-md-6" style="padding-left: 1px !important">
                                                     <label>From Day</label>
                                                 </div>
-                                                <div class="col-md-6" style="padding-left: 1px !important;padding-right:1px !important">
+                                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
                                                     <label>To Day</label>
                                                 </div>
                                                 <div class="col-md-6" style="padding-left: 1px !important">
@@ -672,7 +633,7 @@
 
                                                 <label>Function Type</label>
                                                 <input type="text" class="form-control" id="txtRateToDate" value="Half Day AM " placeholder="">
-                                                 <div class="form-group">
+                                                <div class="form-group">
                                                     <div class="col-md-6" style="padding-left: 1px !important">
                                                         <label>From Time</label>
                                                     </div>
@@ -727,7 +688,7 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
+                                                        <label>&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
@@ -737,10 +698,9 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <input type="checkbox" class="form-control">
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
                                                         <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
@@ -841,7 +801,7 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
+                                                        <label>&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
@@ -851,10 +811,9 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <input type="checkbox" class="form-control">
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
                                                         <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
@@ -908,8 +867,16 @@
                             </select>
 
                         </div>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" value="Phi Phi Island" id="txtTags" placeholder="" style="width: 89%; float: left; margin-right: 2%">
+                        <div class="col-md-4" style="padding-left: 0px">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">For Itinerary</option>
+                                <option>For Itinerary Range Pax</option>
+                                <option>Self Book</option>
+                                <option>Additonal Service</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" value="Phi Phi Island" id="txtTags" placeholder="" style="width: 82%; float: left; margin-right: 2%">
                             <a class=" btn btn-danger" rel="tooltip" title="Add Sightseeing" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
                         </div>
 
@@ -922,24 +889,12 @@
                             <a>
                                 <img src="http://www.zeavola.com/images/1440x866/slider/1/luxury-phi-phi-island-resort-krabi.jpg" width="155" height="155" />
                             </a>
-                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px; margin-top: 13px">
-                                Add To Itinerary</button>
+
                         </div>
                         <div class="col-md-6 right-border" style="padding-left: 15px; height: 318px">
-                            <h5 class="text-danger">Phi Phi Island
-                            <span>
-                                <div class="star-ratings">
-                                    <div class="stars stars-example-bootstrap">
-                                        <select id="example-bootstrap1" class="example-bootstrap" name="rating">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4" selected="selected">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </span></h5>
+                            <h5 class="text-danger">Phi Phi Island - 
+                                <label style="font-size: 13px">For Itinerary</label>
+                            </h5>
                             <div class="col-md-12" style="padding-left: 1px !important">
                                 <label>Day</label>
                             </div>
@@ -993,26 +948,142 @@
                                     <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                    <label>Add. Service</label>
-                                </div>
-                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
-                                    <label>&nbsp;</label>
 
-                                </div>
+                            <div class="col-md-12" style="padding-left: 1px !important; padding-top: 3%; text-align: right">
+                                <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                    <input type="checkbox" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-danger" style="text-align: center; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
+                            <div class="col-md-12">
+                                <label>Adult Ticket Rate</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group input-append">
+                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="1200" placeholder="">
+                                    <span class="input-group-addon add-on"><span>THB</span></span>
                                 </div>
-                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
-                                    <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
-                                    <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
-                                    <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Child Ticket Rate</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group input-append">
+                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="600" placeholder="">
+                                    <span class="input-group-addon add-on"><span>THB</span></span>
                                 </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Private Rate</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group input-append">
+                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Margin</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group input-append">
+                                    <input type="text" class="form-control" id="txtTwinRoomRate" value="0" placeholder="">
+                                    <span class="input-group-addon add-on"><span>THB</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a>
+                                <img src="http://www.zeavola.com/images/1440x866/slider/1/luxury-phi-phi-island-resort-krabi.jpg" width="155" height="155" />
+                            </a>
+
+                        </div>
+                        <div class="col-md-6 right-border" style="padding-left: 15px; height: 100%">
+                            <h5 class="text-danger">Phi Phi Island - 
+                                <label style="font-size: 13px">Additonal Service</label>
+                            </h5>
+                            <div class="col-md-12" style="padding-left: 1px !important">
+                                <label>Day</label>
+                            </div>
+                            <div class="col-md-12" style="padding-left: 1px !important">
+                                <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                    <option selected="selected">Day 1 (1-May-2016)</option>
+                                    <option>Day 2 (2-May-2016)</option>
+                                    <option>Day-3 (3-May-2016)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12" style="padding-left: 1px !important">
+                                <label>Package</label>
+                            </div>
+
+                            <div class="col-md-12" style="padding-left: 1px !important">
+                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                    <option selected="selected">Phi Phi Island-Big Boat (Ferry)</option>
+                                    <option>Phi Phi Island Speed Boat</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-12" style="padding-left: 1px !important">
+                                <label>Inclusions</label>
+                            </div>
+
+                            <div class="col-md-12" style="padding-left: 1px !important">
+                                <select id="drpStatus" class="js-states form-control" style="display: none; width: 100%">
+                                    <option selected="selected">Phi Phi Island Tour + Lunch</option>
+                                    <option>Phi Phi Island Tour + Lunch + Jet Cruies Boat</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-6" style="padding-left: 1px !important">
+                                <label>Time</label>
+                            </div>
+                            <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
+                                <label>Pick Up Time</label>
+                            </div>
+
+                            <div class="col-md-6" style="padding-left: 1px !important">
+                                <div class="input-group input-append bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" value="1200" id="">
+                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding-left: 1px !important;">
+                                <div class="input-group input-append bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" value="1200" id="">
+                                    <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding-left: 1px !important">
+                                <label># Adult</label>
+                            </div>
+                            <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
+                                <label># Child</label>
+                            </div>
+
+                            <div class="col-md-6" style="padding-left: 1px !important">
+                                <input type="text" class="form-control" value="2" id="">
+                            </div>
+                            <div class="col-md-6" style="padding-left: 1px !important;">
+                                <input type="text" class="form-control" value="1" id="">
+                            </div>
+
+
+                            <div class="col-md-12" style="padding-left: 1px !important; text-align: right; padding-top: 3%">
+                                <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
+                                <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
+                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
+
 
                             </div>
                         </div>
@@ -1063,9 +1134,16 @@
             <div class="tab-pane fade" id="tab2-3">
                 <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
-
-                        <div class="col-md-12">
-                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 93%; float: left; margin-right: 2%">
+                        <div class="col-md-4" style="padding-right: 0px">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">For Itinerary</option>
+                                <option>For Itinerary Range Pax</option>
+                                <option>Self Book</option>
+                                <option>Additonal Service</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 90%; float: left; margin-right: 2%">
                                 <option selected="selected">Bangkok</option>
                                 <option>Pattaya</option>
                                 <option>Phuket</option>
@@ -1128,15 +1206,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px;">
-                                Add To Itinerary</button>
+
                         </div>
                         <div class="col-md-6 right-border" style="padding-left: 15px; height: 213px">
                             <h5 class="text-danger">Guide - Bangkok
                             <span></span></h5>
 
                             <div class="col-md-6" style="padding-left: 1px !important">
-                                <label>Slab</label>
+                                <label>Range Pax</label>
                             </div>
 
                             <div class="col-md-6" style="padding-left: 1px !important">
@@ -1152,7 +1229,7 @@
                                     <option>35-40</option>
                                 </select>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
                             <div class="col-md-6" style="padding-left: 1px !important">
@@ -1168,26 +1245,11 @@
                             <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                    <label>Add. Service</label>
-                                </div>
-                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
-                                    <label>&nbsp;</label>
-
-                                </div>
+                            <div class="col-md-12" style="padding-left: 1px !important; padding-right: 1px; text-align: right; padding-top: 3%">
+                                <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                    <input type="checkbox" class="form-control">
-                                </div>
-                                <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
-                                    <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
-                                </div>
-
-                            </div>
                         </div>
                         <div class="col-md-3">
                             <h3 class="text-danger" style="text-align: center; color: red; margin-top: 3px; border-bottom: 1px dotted red; margin-left: 6px; margin-right: 6px">Net Rate</h3>
@@ -1226,8 +1288,16 @@
                                 <option>Phuket</option>
                             </select>
                         </div>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" value="Eat Me Restaurant" id="txtTags" placeholder="" style="width: 89%; float: left; margin-right: 2%">
+                        <div class="col-md-4" style="padding-left: 0px">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">For Itinerary</option>
+                                <option>For Itinerary Range Pax</option>
+                                <option>Self Book</option>
+                                <option>Additonal Service</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" value="Eat Me Restaurant" id="txtTags" placeholder="" style="width: 82%; float: left; margin-right: 2%">
                             <a class=" btn btn-danger" rel="tooltip" title="Add Restaurant" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
                         </div>
 
@@ -1271,13 +1341,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 10px; border-radius: 4px">
-                                Add To Itinerary</button>
+
                         </div>
                         <div class="col-md-9" style="padding: 9px; padding-top: 0px">
 
                             <h5 class="text-danger">Eat Me Restaurant
-                            <span></span></h5>
+                            <label style="font-size: 13px">For Itinerary</label></h5>
                             <div class="panel-group" id="accordions" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-red" style="border-radius: 4px; margin-bottom: 1px !important">
                                     <div class="panel-heading2" role="tab" id="headingOnessqwrf">
@@ -1357,7 +1426,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
+                                                        <label>&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
@@ -1367,10 +1436,9 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <input type="checkbox" class="form-control">
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 9px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
                                                         <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
@@ -1497,7 +1565,7 @@
                                                 </select>
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
+                                                        <label>&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
@@ -1507,10 +1575,9 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <input type="checkbox" class="form-control">
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
                                                         <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
@@ -1612,7 +1679,7 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 1px">
-                                                        <label>Add. Service</label>
+                                                        <label>&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px">
                                                         <label>&nbsp;</label>
@@ -1622,10 +1689,9 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-4" style="padding-left: 1px !important; padding-right: 8px">
-                                                        <input type="checkbox" class="form-control">
                                                     </div>
                                                     <div class="col-md-8" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                                        <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                        <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                         <a class=" btn btn-warning" rel="tooltip" title="Request For Quote" style="padding: 3px 10px; margin-left: 10px"><span class="fa fa-location-arrow"></span></a>
                                                         <a class=" btn btn-info" rel="tooltip" title="Supplier Communication" style="padding: 3px 10px; margin-left: 10px" data-toggle="modal" data-target="#SupCommuni"><span class="fa fa-envelope"></span></a>
                                                         <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
@@ -1756,7 +1822,7 @@
                                                     <option>Buffet</option>
                                                 </select>
                                                 <div class="form-group" style="text-align: right; margin-top: 8px; margin-bottom: 1px">
-                                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                 </div>
 
                                             </div>
@@ -1925,7 +1991,7 @@
 
                                                 </div>
                                                 <div class="form-group" style="text-align: right; margin-top: 70%; margin-bottom: 1px">
-                                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                                    <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-4" style="padding-right: 1px !important">
@@ -1966,15 +2032,23 @@
             <div class="tab-pane fade" id="tab2-7">
                 <div class="m-b-lg" style="margin-bottom: 5px !important">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
                                 <option selected="selected">Bangkok</option>
                                 <option>Pattaya</option>
                                 <option>Phuket</option>
                             </select>
                         </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" value="Car - Sedan (1 Pax to 2 Pax)" id="txtTags" placeholder="" style="width: 88%; float: left; margin-right: 2%">
+                        <div class="col-md-4" style="padding-left: 0px">
+                            <select id="drpTypeOfSupplier" class="js-states form-control" style="display: none; width: 100%">
+                                <option selected="selected">For Itinerary</option>
+                                <option>For Itinerary Range Pax</option>
+                                <option>Self Book</option>
+                                <option>Additonal Service</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" value="Car - Sedan (1 Pax to 2 Pax)" id="txtTags" placeholder="" style="width: 82%; float: left; margin-right: 2%">
                             <a class=" btn btn-danger" rel="tooltip" title="Add Transfer" style="padding: 6px 12px !important"><span class="fa fa-plus-circle"></span></a>
                         </div>
 
@@ -2033,16 +2107,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="btnSave" type="submit" class="btn btn-danger" style="padding-right: 19px; padding-left: 12px; border-radius: 4px;">
-                                Add To Itinerary</button>
+
                         </div>
                         <div class="col-md-6 right-border" style="padding-left: 15px; height: 213px">
                             <h5 class="text-danger" style="font-size: 17px">Car - Sedan (1 Pax to 2 Pax) - Bangkok
                             <span></span></h5>
                             <div class="col-md-6" style="padding-left: 1px !important">
-                                <label>Slab</label>
+                                <label>Range Pax</label>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
                                 <label># Nights</label>
                             </div>
                             <div class="col-md-6" style="padding-left: 1px !important">
@@ -2055,7 +2128,7 @@
                                     <option>35-40</option>
                                 </select>
                             </div>
-                            <div class="col-md-6" style="padding-left: 1px !important">
+                            <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px !important">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
                             <div class="col-md-6" style="padding-left: 1px !important">
@@ -2072,22 +2145,11 @@
                             <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
                                 <input type="text" class="form-control" value="3" id="txtTags" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                    <label>Add. Service</label>
-                                </div>
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px">
-                                    <label>&nbsp;</label>
 
-                                </div>
-                            </div>
+                            <div class="col-md-12" style="padding-top: 3%; padding-right: 1px">
 
-                            <div class="form-group">
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 8px">
-                                    <input type="checkbox" class="form-control">
-                                </div>
-                                <div class="col-md-6" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
-                                    <a class=" btn btn-success" rel="tooltip" title="Save" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
+                                <div class="" style="padding-left: 1px !important; padding-right: 1px; text-align: right">
+                                    <a class=" btn btn-success" rel="tooltip" title="Add To Itinerary" style="padding: 3px 10px; text-align: right"><span class="fa fa-floppy-o"></span></a>
                                     <a class=" btn btn-danger" rel="tooltip" title="Remove" style="padding: 3px 10px; text-align: right; margin-left: 10px"><span class="fa fa-times"></span></a>
                                 </div>
 
@@ -6187,16 +6249,44 @@
         </div>
     </form>
     @*Your Itinarary Summary*@
-    <div class="col-md-3 quote-link">
-        <h2>Your Itinerary Summary</h2>
-        <h3 style="font-size: 13px">Referance # 
+    <div class="col-md-3 quote-link" style="padding-right: 1px">
+        <h2 style="">Errors & Warnings</h2><br />
+        <label style="font-size:11px;color:red;padding-bottom:4%">You Need To Solve All Below Errors & Warnings For Generating Quote</label>
+        <div class="m-b-lg tab-itenaries tab-itenaries1 panel panel-body slimscroll">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white">
+                            <div class="panel-body" style="padding: 1px">
+                                <div class="alert alert-danger" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px; border-radius: 4px">
+                                    These Dates are in Blackout Date
+                                </div>
+                                <div class="alert alert-warning" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px; border-radius: 4px">
+                                    There Some Additional Surcharge for this date
+                                </div>
+                                <div class="alert alert-info" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px; border-radius: 4px">
+                                    Compulsory Stay for this date
+                                </div>
+                                <div class="alert alert-warning" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px; border-radius: 4px">
+                                    Minimum Nights Stay 3 for this date
+                                </div>
+                                <div class="alert alert-danger" role="alert" style="padding: 3px; font-size: 11px; margin-bottom: 6px; border-radius: 4px">
+                                    Sightseeing Will be closed on this date
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="padding-top: 5%">Your Itinerary Summary</h2>
+        <h3 style="font-size: 13px; padding-top: 6%; text-align: center">Referance # 
             <label class="label label-info" style="color: white; font-size: 12px; background-color: #2B384E">Q-INQ-06-2016-0000001/001</label></h3>
-        <h3 style="font-size: 13px">Status 
-            <label class="label label-success" style="color: white; font-size: 12px; margin-left: 32px; background-color: #2B384E">Draft</label></h3>
+        <h3 style="font-size: 13px; padding-top: 2%; text-align: center">Status - 
+            <label class="label label-success" style="color: white; font-size: 12px;background-color: #2B384E">Draft</label></h3>
         <div class="panel panel-white">
-
             <div class="panel-body tab-itenaries ">
-
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <table style="width: 100%; font-size: 15px">
                         <thead>
