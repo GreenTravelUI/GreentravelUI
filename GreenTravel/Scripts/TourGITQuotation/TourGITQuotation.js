@@ -315,6 +315,9 @@ $(document).ready(function () {
         $('.tbleshowhide').slideToggle('slow');
 
     });
+
+    $('[rel=tooltip]').tooltip({ container: 'body' });
+
 });
 
 $("#quotelisub").click(function () {
