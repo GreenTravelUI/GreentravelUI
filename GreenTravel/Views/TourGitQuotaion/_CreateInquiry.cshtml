@@ -1,16 +1,360 @@
-﻿<ul class="nav nav-tabs form-basic-tab form-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#tab111" role="tab" data-toggle="tab" data-section="tab111" class="hosting-accord sub-tabbing"><span class="menu-icon fa fa-info-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;Inquiry Detail</a></li>
-    <li role="presentation"><a href="#tab222" role="tab" data-toggle="tab" data-section="tab222" class="basic-accord sub-tabbing"><span class="menu-icon fa fa-server"></span>&nbsp;&nbsp;&nbsp;&nbsp;Inquiry Follow-up</a></li>
+﻿<div class="col-md-8 full-responsive">
+    <form>
+        <h3 class="tab1section1"><span class="section-index ">1</span>&nbsp;Basic Details</h3>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="drpServiceInclisions">Inquiry From <span class="star">*</span></label>
+                    <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
+                        <option>Lead</option>
+                        <option>Prospect</option>
+                        <option selected="selected">Agent</option>
+                        <option>Customer</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="txtAgent">Agent Company Name<span class="star"> *</span></label>
+                    <input type="text" class="form-control" value="Travels Unlimited - Sudhir Punjabi" id="txtAgent" placeholder="Agent">
+                </div>
+            </div>
+        </div>
 
-</ul>
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="tab111">
-        @Html.Partial("_InquiryDetail")
-    </div>
-    <div role="tabpanel" class="tab-pane" id="tab222">
-        @Html.Partial("_InquiryFollowup")
-    </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="txtInquiredBy">Inquired By<span class="star"> *</span></label>
+                    <input type="text" class="form-control" value="srusti@flamingotravels.co.in" id="txtInquiredBy" placeholder="Inquired By">
+                </div>
+                <div class="col-md-3">
+                    <label for="txtinqdate">Inquired Date<span class="star"> *</span></label>
+                    <input type="text" class="form-control date-picker" id="txtinqdate" value="01-06-2016" placeholder="Quote Sent To" readonly>
+                </div>
+                <div class="col-md-3">
+                    <label for="txtinqdate">Travel Date<span class="star"> *</span></label>
+                    <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="Quote Sent To">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="txtQuoteToBeSentTo">Group Name<span class="star"> *</span></label>
+                    <input type="text" class="form-control" value="" id="txtQuoteToBeSentTo" placeholder="Group Name">
+                </div>
+                <div class="col-md-3">
+                    <label for="txtQuoteToBeSentTo">Guest Name (Lead Traveler)</label>
+                    <input type="text" class="form-control" value="" id="txtQuoteToBeSentTo" placeholder="Guest Name">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtFinalApprovalRequiredFromAgent">Guest Nationality<span class="star"> *</span></label>
+                    <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
+                        <option>Asian-India</option>
+                        <option>Europian</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="txtFinalApprovalRequiredFromAgent">Group Type<span class="star"> *</span></label>
+                    <select id="drpServiceInclisions" class="js-states form-control" style="display: none; width: 100%">
+                        <option>Conference</option>
+                        <option>Leisure</option>
+                        <option>Award Function</option>
+                        <option>MICE (Meetings Incentives Corporates Events)</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="txtFinalApprovalRequiredFromAgent">Group Requirements<span class="star"> *</span></label>
+                    <select id="drpServiceInclisions" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option>Hotel</option>
+                        <option>Sightseeing</option>
+                        <option>Meal</option>
+                        <option>Transfer</option>
+                        <option>Guide</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="txtQuoteToBeSentTo"># Rooms From</label>
+                    <input type="text" class="form-control" value="" id="txtQuoteToBeSentTo" placeholder="# Rooms From">
+                </div>
+                <div class="col-md-3">
+                    <label for="txtQuoteToBeSentTo"># Rooms To</label>
+                    <input type="text" class="form-control" value="" id="txtQuoteToBeSentTo" placeholder="# Rooms To">
+                </div>
+                <div class="col-md-3">
+                    <label for="txtQuoteToBeSentTo"># Pax From</label>
+                    <input type="text" class="form-control" value="" id="txtQuoteToBeSentTo" placeholder="# Pax From">
+                </div>
+                <div class="col-md-3">
+                    <label for="txtQuoteToBeSentTo"># Pax To</label>
+                    <input type="text" class="form-control" value="" id="txtQuoteToBeSentTo" placeholder="# Pax To">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="drpCountriesToTravel">Countries To Travel<span class="star"> *</span></label>
+                    <select id="drpCountriesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option>All</option>
+                        <option selected="selected">Thiland</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="drpCitiesToTravel">Cities To Travel<span class="star"> *</span></label>
+                    <select id="drpCitiesToTravel" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option>All</option>
+                        <option selected="selected">Bangkok</option>
+                        <option selected="selected">Pattaya</option>
+                        <option>Chiang Mai</option>
+                        <option selected="selected">Phuket</option>
+                        <option>Khon Kaen</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <h3>Cities Breakup<span class="star" style="color: red !important"> *</span></h3>
+        <div class="cf nestable-lists" style="border: solid; border-width: 1px; border-color: black">
+            <ul class="ui-handle sortable-list">
+                <li class="ui-state-default">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="padding-left: 10px; width: 4%">
+                                    <label style="font-size: 15px">1</label>
+                                </td>
+                                <td style="padding-left: 10px; width: 30%">
+                                    <label style="font-size: 16px">Bangkok,Thiland</label>
+                                </td>
+                                <td style="width: 10%">
+                                    <label>In</label><br />
+                                    <label>5 May</label>
+                                </td>
+                                <td style="width: 20%">
+                                    <label>Out</label><br />
+                                    <label>8 May</label>
+                                </td>
+                                <td style="width: 10%; text-align: right;">
+                                    <span style="border: 1px solid #ccc; padding: 7px 10px 6px; background-color: #34425a; color: white">Nights</span>
+                                </td>
+                                <td style="width: 8%" class="right-border">
+                                    <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option selected="selected">3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                                <td style="width: 5%; font-size: 18px; color: red" class="left-padding">
+                                    <span class="handler fa fa-arrows"></span>
+                                </td>
+                                <td style="width: 5%; text-align: right; color: red; padding-right: 10px; font-size: 18px">
+                                    <span class="removeHandler fa fa-times"></span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </li>
+                <li class="ui-state-default">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="padding-left: 10px; width: 4%">
+                                    <label style="font-size: 15px">2</label>
+                                </td>
+                                <td style="padding-left: 10px; width: 30%">
+                                    <label style="font-size: 16px">Pattaya,Thiland</label>
+                                </td>
+                                <td style="width: 10%">
+                                    <label>In</label><br />
+                                    <label>8 May</label>
+                                </td>
+                                <td style="width: 20%">
+                                    <label>Out</label><br />
+                                    <label>11 May</label>
+                                </td>
+                                <td style="width: 10%; text-align: right;">
+                                    <span style="border: 1px solid #ccc; padding: 7px 10px 6px; background-color: #34425a; color: white">Nights</span>
+                                </td>
+                                <td style="width: 8%" class="right-border">
+                                    <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option selected="selected">3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                                <td style="width: 5%; font-size: 18px; color: red" class="left-padding">
+                                    <span class="handler fa fa-arrows"></span>
+                                </td>
+                                <td style="width: 5%; text-align: right; color: red; padding-right: 10px; font-size: 18px">
+                                    <span class="removeHandler fa fa-times"></span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </li>
+                <li class="ui-state-default">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="padding-left: 10px; width: 4%">
+                                    <label style="font-size: 15px">3</label>
+                                </td>
+                                <td style="padding-left: 10px; width: 30%">
+                                    <label style="font-size: 16px">Phuket,Thiland</label>
+                                </td>
+                                <td style="width: 10%">
+                                    <label>In</label><br />
+                                    <label>11 May</label>
+                                </td>
+                                <td style="width: 20%">
+                                    <label>Out</label><br />
+                                    <label>13 May</label>
+                                </td>
+                                <td style="width: 10%; text-align: right;">
+                                    <span style="border: 1px solid #ccc; padding: 7px 10px 6px; background-color: #34425a; color: white">Nights</span>
+                                </td>
+                                <td style="width: 8%" class="right-border">
+                                    <select id="drpnight" class="js-states form-control" style="display: none; width: 100%">
+                                        <option>1</option>
+                                        <option selected="selected">2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                                <td style="width: 5%; font-size: 18px; color: red" class="left-padding">
+                                    <span class="handler fa fa-arrows"></span>
+                                </td>
+                                <td style="width: 5%; text-align: right; color: red; padding-right: 10px; font-size: 18px">
+                                    <span class="removeHandler fa fa-times"></span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </li>
+
+            </ul>
+        </div>
+        <h6>&nbsp;</h6>
+
+        <h3 class="tab1section2"><span class="section-index ">2</span>&nbsp;Management Details</h3>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="drpOrderStatus">Inquiry Owner<span class="star"> *</span></label>
+                    <select id="drpOrderStatus" class="js-states form-control" style="display: none; width: 100%">
+                        <option selected="selected">Samarth Shah</option>
+                        <option>Sudhir Punjabi</option>
+
+                    </select>
+
+                </div>
+                <div class="col-md-3">
+                    <label for="drpInqLevel">Inquiry Rating<span class="star"> *</span></label>
+                    <select id="drpInqLevel" class="js-states form-control" style="display: none; width: 100%">
+                        <option value="selstatus">---None---</option>
+                        <option value="draft" selected="selected">1 Star</option>
+                        <option value="published">2 Star</option>
+                        <option value="online">3 Star</option>
+                        <option>4 Star</option>
+                        <option>5 Star</option>
+                        <option>6 Star</option>
+                        <option>7 Star</option>
+                        <option>8 Star</option>
+                        <option>9 Star</option>
+                        <option>10 Star</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="drpOrderStatus">Inquiry Rating Reason<span class="star"> *</span></label>
+                    <select id="drpOrderStatus" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
+                        <option>High Profit</option>
+                        <option>Low Profit</option>
+                        <option>Off Season Inquiry</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <label for="txtTags">Tags</label>
+                    <input type="text" data-role="tagsinput" class="form-control" id="txtTags" placeholder="Tags">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="txtRemarks">Remarks</label>
+                    <textarea class="form-control" id="txtRemarks" rows="3"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="txtInternal">Remarks (Internal)</label>
+                    <textarea class="form-control" id="txtInternal" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <button id="btnSave" type="submit" class="btn btn-success btnSave">
+            CREATE INQUIRY</button>
+        <button id="btnSave" type="submit" class="btn btn-success btnSave" style="display: none">
+            UPDATE INQUIRY</button>
+        <a class="btn btn-warning ebctooltip" aria-expanded="false" rel="tooltip" title="Create New" onclick="window.location.href=window.location.href;" data-container="body">
+            <span class="fa fa-plus"></span>
+        </a>
+        <a id="sharepopupid" class="btn btn-success ebctooltip" aria-expanded="false" rel="tooltip" title="Share Inquiry" href="javascript:void(0);" data-container="body"  data-toggle="modal" data-target="#shareinq" style="background-color: #0C1F28">
+            <span class="fa fa-share-square-o"></span>
+        </a>
+        <a class="btn btn-danger ebctooltip" aria-expanded="false" rel="tooltip" title="Trash" href="javascript:void(0);" data-toggle="modal" data-container="body"  data-target="#Trashinq">
+            <span class="fa fa-trash-o"></span>
+        </a>
+        <a class="btn btn-danger ebctooltip" aria-expanded="false" rel="tooltip" title="Lost" href="javascript:void(0);" data-toggle="modal" data-container="body"  data-target="#LostInq">
+            <span class="fa fa-chain-broken"></span>
+        </a>
+        <a class="btn btn-danger ebctooltip" aria-expanded="false" rel="tooltip" title="Cancel By Agent" href="javascript:void(0);" data-container="body"  data-toggle="modal" data-target="#Cancelinq">
+            <span class="fa fa-ban"></span>
+        </a>
+
+        <a class="btn btn-danger ebctooltip" aria-expanded="false" rel="tooltip" title="Quit From" onclick="window.location.href=window.location.href;" data-container="body">
+            <span class="fa fa-times"></span>
+        </a>
+        <a class="btn btn-refresh ebctooltip" aria-expanded="false" rel="tooltip" title="Refresh Page" onclick="window.location.href=window.location.href;" data-container="body"  style="background-color: #0C1F28">
+            <span class="fa fa-refresh"></span>
+        </a>
+
+    </form>
 </div>
+
 
 <div class="col-md-4 summery-detail summery-uitilities-detail summerytab11">
     <div class="panel-body tab-itenaries panel">
