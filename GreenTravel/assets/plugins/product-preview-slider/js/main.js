@@ -2,9 +2,9 @@ jQuery(document).ready(function($) {
 	var galleryItems = $('.cd-gallery').children('li');
 
 	galleryItems.each(function(){
-		var container = $(this),
+	    var container = $(this),
 			// create slider dots
-			sliderDots = createSliderDots(container);
+			 sliderDots = createSliderDots(container);
 		//check if item is on sale
 		updatePrice(container, 0);
 

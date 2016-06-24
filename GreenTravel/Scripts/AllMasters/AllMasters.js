@@ -138,6 +138,7 @@
         currentButton.trigger('focusout');
         e.preventDefault();
     });
+    $(".dataTables_filter").css('display', 'none');
 });
 function GuidedTour() {
     // Guided Tour Code Start
