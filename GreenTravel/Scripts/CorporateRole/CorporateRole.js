@@ -111,12 +111,27 @@ $(document).ready(function () {
     $("#example-editable_filter").css('display', 'none');
 });
 
+function fireResize() {
+    if (document.createEvent) { // W3C
+        var ev = document.createEvent('Event');
+        ev.initEvent('resize', true, true);
+        window.dispatchEvent(ev);
+    }
+    else { // IE
+        element = document.documentElement;
+        var event = document.createEventObject();
+        element.fireEvent("onresize", event);
+    }
+};
+
 $('#userlitab4').click(function () {
     window.dispatchEvent(new Event('resize'));
+    fireResize();
 });
 
 $('#userlitab5').click(function () {
     window.dispatchEvent(new Event('resize'));
+    fireResize();
 });
 
 function expandPanelButton(control) {

@@ -467,3 +467,26 @@ $(function () {
 
     
 });
+
+function confirmAlert() {
+    swal({
+        title: "Are you sure?",
+        text: "You are going to stop follow-ups!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Yes, Stop it!",
+        cancelButtonText: "No, cancel it!",
+        closeOnConfirm: false,
+        closeOnCancel: false
+    },
+    function (isConfirm) {
+        if (isConfirm) {
+            //  window.location.href = "/bookingsfit"
+            swal("Stopped!", "Your follow-ups has been stopped.", "success");
+
+        } else {
+            swal("Cancelled", "Your follow-ups is continue:)", "error");
+        }
+    });
+}

@@ -1096,71 +1096,45 @@
                                             <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%;" class="highlight-word">Email - </label>
                                             <label class="highlight-word" style="font-size: 15px;">Auto</label>
                                             <br />
-
+                                            <label style="cursor: pointer;">Follow-up Date - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">25-06-2016</label><br />
                                             <label style="cursor: pointer;">Follow-up By - </label>
                                             <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">Samarth Shah</label>
+                                            <label class="" style="font-size: 11px; margin-left: 5px; float: right; padding-top: 2%" rel="tooltip" title="Add Follow-up"><i class="fa fa-plus"></i></label>
                                         </b></h3>
                                     <div class="exallquote" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9" style="">
-                                                <label>Follow-up Date</label>
-                                                <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                    <option>Last Quote Date + 2 Days</option>
-                                                    <option>After 3 Days</option>
-                                                    <option>After 2 Days</option>
-                                                    <option>Today</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3" style="">
-                                                <label style="margin-bottom: 10px">Date</label>
-                                                <input type="checkbox" class="fomr-control" />
-                                            </div>
+                                        <div class="">
+                                            <label>Scheduled Date</label>
+                                            <input type="text" class="form-control" value="25-06-2016" id="" readonly>
                                         </div>
                                         <div class="">
-                                            <label>Follow-up Time</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control timepicker" value="1200" id="">
-                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="">
-
-                                            <label>Send To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+                                            <label>Scheduled Time</label>
+                                            <input type="text" class="form-control" value="18:00" id="" readonly>
                                         </div>
                                         <div class="">
-                                            <label>CC To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+                                            <label>To</label>
+                                            <input type="text" class="form-control" value="agent@flamingotravels.co.in" id="" readonly>
                                         </div>
-
                                         <div class="">
-
-                                            <label>Massage</label>
-                                            <textarea class="form-control" id="txtInternal" rows="3"></textarea>
+                                            <label>CC</label>
+                                            <input type="text" class="form-control" value="" id="">
                                         </div>
-
                                         <div class="">
-
-                                            <label>Attachment</label>
-                                            <select id="drpFollowupType" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
-                                                <option>Quote</option>
-                                                <option>Itinerary</option>
-                                                <option>Hotel Fact Sheet</option>
-                                            </select>
+                                            <label>Additional Message</label>
+                                            <input type="text" class="form-control" value="" id="" readonly>
                                         </div>
+                                        <div class="">
+                                            <label>Attach Last Quote</label>
+                                            <input type="checkbox" class="form-control" id="">
+                                        </div>
+
                                         <h3>
                                             <label style="color: #0C1F28">Follow-up Detail</label></h3>
                                         <div class="">
                                             <label>Actual Follow-up Date</label>
-                                            <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="">
+                                            <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="" readonly>
                                         </div>
-                                        <div class="">
-                                            <label>Status</label>
-                                            <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Draft</option>
-                                            </select>
-                                        </div>
+
                                         <div class="">
                                             <label>Remind Me Before</label>
                                             <select id="drpFollowupType" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
@@ -1176,16 +1150,22 @@
                                             <textarea class="form-control" id="txtInternal" rows="2"></textarea>
                                         </div>
                                         <div class="" style="padding-top: 5px; float: right">
-                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" title="View Trail" style="font-size: 10px; padding: 8px; color: white; background-color: #0C1F28">
+                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" data-toggle="modal" data-target="#reschedule" title="Re-schedule" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
+                                                <span class="fa fa-hourglass-1" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Stop Remaing Follow-ups" style="font-size: 10px; padding: 5px; color: white;" onclick="confirmAlert();">
+                                                <span class="fa fa-stop-circle-o" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" title="View Trail" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
                                                 <span class="fa fa-envelope" style="font-size: 19px"></span>
                                             </a>
-                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-floppy-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 8px; color: white; background-color: #0C1F28">
+                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
                                                 <span class="fa fa-pencil-square-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-times" style="font-size: 19px;"></span>
                                             </a>
                                         </div>
@@ -1207,60 +1187,48 @@
                                         <b>
                                             <label id="" style="font-size: 15px; background-color: #2B384E" class="label">Quotation Follow-up 2 </label>
                                             <br />
-                                            <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%" class="highlight-word">Call - </label>
-                                            <label class="highlight-word" style="font-size: 15px">Manual</label>
-
+                                            <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%;" class="highlight-word">Email - </label>
+                                            <label class="highlight-word" style="font-size: 15px;">Manual</label>
                                             <br />
-                                            <label>Follow-up By - </label>
-                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%" class="highlight-word">Samarth Shah</label>
+                                            <label style="cursor: pointer;">Follow-up Date - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">25-06-2016</label><br />
+                                            <label style="cursor: pointer;">Follow-up By - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">Samarth Shah</label>
+                                            <label class="" style="font-size: 11px; margin-left: 5px; float: right; padding-top: 2%" rel="tooltip" title="Add Follow-up"><i class="fa fa-plus"></i></label>
                                         </b></h3>
                                     <div class="exallquote" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9" style="">
-                                                <label>Follow-up Date</label>
-                                                <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                    <option>Last Quote Date + 2 Days</option>
-                                                    <option>After 3 Days</option>
-                                                    <option>After 2 Days</option>
-                                                    <option>Today</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3" style="">
-                                                <label style="margin-bottom: 10px">Date</label>
-                                                <input type="checkbox" class="fomr-control" />
-                                            </div>
+                                        <div class="">
+                                            <label>Scheduled Date</label>
+                                            <input type="text" class="form-control" value="25-06-2016" id="">
                                         </div>
                                         <div class="">
-                                            <label>Follow-up Time</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control timepicker" value="1200" id="">
-                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                            </div>
+                                            <label>Scheduled Time</label>
+                                            <input type="text" class="form-control" value="18:00" id="">
                                         </div>
-
                                         <div class="">
-
-                                            <label>Call To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+                                            <label>To</label>
+                                            <input type="text" class="form-control" value="agent@flamingotravels.co.in" id="">
                                         </div>
-
                                         <div class="">
-
-                                            <label>Call Discussion</label>
-                                            <textarea class="form-control" id="txtInternal" rows="3"></textarea>
+                                            <label>CC</label>
+                                            <input type="text" class="form-control" value="" id="">
                                         </div>
+                                        <div class="">
+                                            <label>Additional Message</label>
+                                            <input type="text" class="form-control" value="" id="" readonly>
+                                        </div>
+                                        <div class="">
+                                            <label>Attach Last Quote</label>
+                                            <input type="checkbox" class="form-control" id="">
+                                        </div>
+
                                         <h3>
                                             <label style="color: #0C1F28">Follow-up Detail</label></h3>
                                         <div class="">
                                             <label>Actual Follow-up Date</label>
                                             <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="">
                                         </div>
-                                        <div class="">
-                                            <label>Status</label>
-                                            <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Draft</option>
-                                            </select>
-                                        </div>
+
                                         <div class="">
                                             <label>Remind Me Before</label>
                                             <select id="drpFollowupType" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
@@ -1275,27 +1243,27 @@
                                             <label>Follow-up Remarks</label>
                                             <textarea class="form-control" id="txtInternal" rows="2"></textarea>
                                         </div>
-                                        <div class="">
-                                            <label>Send Call Detail To Agent</label><br />
-                                            <input type="checkbox" class="form-control" checked="checked" />
-                                        </div>
-
-                                        <div class="">
-
-                                            <label>Send To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
-                                        </div>
                                         <div class="" style="padding-top: 5px; float: right">
-                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" data-toggle="modal" data-target="#reschedule" title="Re-schedule" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
+                                                <span class="fa fa-hourglass-1" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Stop Remaing Follow-ups" style="font-size: 10px; padding: 5px; color: white;" onclick="confirmAlert();">
+                                                <span class="fa fa-stop-circle-o" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" title="View Trail" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
+                                                <span class="fa fa-envelope" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-floppy-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 8px; color: white; background-color: #0C1F28">
+                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
                                                 <span class="fa fa-pencil-square-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-times" style="font-size: 19px;"></span>
                                             </a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1313,60 +1281,41 @@
                                         <b>
                                             <label id="" style="font-size: 15px; background-color: #2B384E" class="label">Quotation Follow-up 3 </label>
                                             <br />
-                                            <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%" class="highlight-word">Call - </label>
-                                            <label class="highlight-word" style="font-size: 15px">Manual</label>
-
+                                            <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%;" class="highlight-word">Call - </label>
+                                            <label class="highlight-word" style="font-size: 15px;">Auto</label>
                                             <br />
-                                            <label>Follow-up By - </label>
-                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%" class="highlight-word">Samarth Shah</label>
+                                            <label style="cursor: pointer;">Follow-up Date - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">25-06-2016</label><br />
+                                            <label style="cursor: pointer;">Follow-up By - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">Samarth Shah</label>
+                                            <label class="" style="font-size: 11px; margin-left: 5px; float: right; padding-top: 2%" rel="tooltip" title="Add Follow-up"><i class="fa fa-plus"></i></label>
                                         </b></h3>
                                     <div class="exallquote" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9" style="">
-                                                <label>Follow-up Date</label>
-                                                <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                    <option>Last Quote Date + 2 Days</option>
-                                                    <option>After 3 Days</option>
-                                                    <option>After 2 Days</option>
-                                                    <option>Today</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3" style="">
-                                                <label style="margin-bottom: 10px">Date</label>
-                                                <input type="checkbox" class="fomr-control" />
-                                            </div>
+                                        <div class="">
+                                            <label>Scheduled Date</label>
+                                            <input type="text" class="form-control" value="25-06-2016" id="" readonly>
                                         </div>
                                         <div class="">
-                                            <label>Follow-up Time</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control timepicker" value="1200" id="">
-                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                            </div>
+                                            <label>Scheduled Time</label>
+                                            <input type="text" class="form-control" value="18:00" id="" readonly>
                                         </div>
-
                                         <div class="">
-
                                             <label>Call To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+                                            <input type="text" class="form-control" value="agent@flamingotravels.co.in" id="" readonly>
                                         </div>
 
                                         <div class="">
-
                                             <label>Call Discussion</label>
-                                            <textarea class="form-control" id="txtInternal" rows="3"></textarea>
+                                            <textarea class="form-control" id="txtInternal" rows="2"></textarea>
                                         </div>
+
                                         <h3>
                                             <label style="color: #0C1F28">Follow-up Detail</label></h3>
                                         <div class="">
                                             <label>Actual Follow-up Date</label>
-                                            <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="">
+                                            <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="" readonly>
                                         </div>
-                                        <div class="">
-                                            <label>Status</label>
-                                            <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Draft</option>
-                                            </select>
-                                        </div>
+
                                         <div class="">
                                             <label>Remind Me Before</label>
                                             <select id="drpFollowupType" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
@@ -1381,27 +1330,25 @@
                                             <label>Follow-up Remarks</label>
                                             <textarea class="form-control" id="txtInternal" rows="2"></textarea>
                                         </div>
-                                        <div class="">
-                                            <label>Send Call Detail To Agent</label><br />
-                                            <input type="checkbox" class="form-control" checked="checked" />
-                                        </div>
-
-                                        <div class="">
-
-                                            <label>Send To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
-                                        </div>
                                         <div class="" style="padding-top: 5px; float: right">
-                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" data-toggle="modal" data-target="#reschedule" title="Re-schedule" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
+                                                <span class="fa fa-hourglass-1" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Stop Remaing Follow-ups" style="font-size: 10px; padding: 5px; color: white;" onclick="confirmAlert();">
+                                                <span class="fa fa-stop-circle-o" style="font-size: 19px"></span>
+                                            </a>
+
+                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-floppy-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 8px; color: white; background-color: #0C1F28">
+                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
                                                 <span class="fa fa-pencil-square-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-times" style="font-size: 19px;"></span>
                                             </a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1419,60 +1366,41 @@
                                         <b>
                                             <label id="" style="font-size: 15px; background-color: #2B384E" class="label">Quotation Follow-up 4 </label>
                                             <br />
-                                            <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%" class="highlight-word">Call - </label>
-                                            <label class="highlight-word" style="font-size: 15px">Manual</label>
-
+                                            <label id="" style="font-size: 15px; margin-right: 1%; color: #F25656; margin-top: 6%; margin-left: 4%;" class="highlight-word">Call - </label>
+                                            <label class="highlight-word" style="font-size: 15px;">Manual</label>
                                             <br />
-                                            <label>Follow-up By - </label>
-                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%" class="highlight-word">Samarth Shah</label>
+                                            <label style="cursor: pointer;">Follow-up Date - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">25-06-2016</label><br />
+                                            <label style="cursor: pointer;">Follow-up By - </label>
+                                            <label id="" style="font-size: 13px; margin-right: 1%; color: #02C8C8; padding-top: 1%;" class="highlight-word ">Samarth Shah</label>
+                                            <label class="" style="font-size: 11px; margin-left: 5px; float: right; padding-top: 2%" rel="tooltip" title="Add Follow-up"><i class="fa fa-plus"></i></label>
                                         </b></h3>
                                     <div class="exallquote" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9" style="">
-                                                <label>Follow-up Date</label>
-                                                <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                    <option>Last Quote Date + 2 Days</option>
-                                                    <option>After 3 Days</option>
-                                                    <option>After 2 Days</option>
-                                                    <option>Today</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3" style="">
-                                                <label style="margin-bottom: 10px">Date</label>
-                                                <input type="checkbox" class="fomr-control" />
-                                            </div>
+                                        <div class="">
+                                            <label>Scheduled Date</label>
+                                            <input type="text" class="form-control" value="25-06-2016" id="">
                                         </div>
                                         <div class="">
-                                            <label>Follow-up Time</label>
-                                            <div class="input-group input-append bootstrap-timepicker">
-                                                <input type="text" class="form-control timepicker" value="1200" id="">
-                                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
-                                            </div>
+                                            <label>Scheduled Time</label>
+                                            <input type="text" class="form-control" value="18:00" id="">
                                         </div>
-
                                         <div class="">
-
                                             <label>Call To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
+                                            <input type="text" class="form-control" value="agent@flamingotravels.co.in" id="">
                                         </div>
 
                                         <div class="">
-
                                             <label>Call Discussion</label>
-                                            <textarea class="form-control" id="txtInternal" rows="3"></textarea>
+                                            <textarea class="form-control" id="txtInternal" rows="2"></textarea>
                                         </div>
+
                                         <h3>
                                             <label style="color: #0C1F28">Follow-up Detail</label></h3>
                                         <div class="">
                                             <label>Actual Follow-up Date</label>
                                             <input type="text" class="form-control date-picker" id="txtinqdate" value="20-06-2016" placeholder="">
                                         </div>
-                                        <div class="">
-                                            <label>Status</label>
-                                            <select id="drpFollowupType" class="js-states form-control" style="display: none; width: 100%">
-                                                <option>Draft</option>
-                                            </select>
-                                        </div>
+
                                         <div class="">
                                             <label>Remind Me Before</label>
                                             <select id="drpFollowupType" class="js-states form-control" multiple="multiple" style="display: none; width: 100%">
@@ -1487,33 +1415,32 @@
                                             <label>Follow-up Remarks</label>
                                             <textarea class="form-control" id="txtInternal" rows="2"></textarea>
                                         </div>
-                                        <div class="">
-                                            <label>Send Call Detail To Agent</label><br />
-                                            <input type="checkbox" class="form-control" checked="checked" />
-                                        </div>
-
-                                        <div class="">
-
-                                            <label>Send To</label>
-                                            <input type="text" class="form-control" value="" id="txtAgent" placeholder="">
-                                        </div>
                                         <div class="" style="padding-top: 5px; float: right">
+                                            <a class="btn btn-warning" aria-expanded="false" rel="tooltip" data-toggle="modal" data-target="#reschedule" title="Re-schedule" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
+                                                <span class="fa fa-hourglass-1" style="font-size: 19px"></span>
+                                            </a>
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Stop Remaing Follow-ups" style="font-size: 10px; padding: 5px; color: white;" onclick="confirmAlert();">
+                                                <span class="fa fa-stop-circle-o" style="font-size: 19px"></span>
+                                            </a>
 
-                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-success" aria-expanded="false" rel="tooltip" title="Save" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-floppy-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 8px; color: white; background-color: #0C1F28">
+                                            <a class="btn btn-info" aria-expanded="false" rel="tooltip" title="Update" style="font-size: 10px; padding: 5px; color: white; background-color: #0C1F28">
                                                 <span class="fa fa-pencil-square-o" style="font-size: 19px;"></span>
                                             </a>
-                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 8px">
+                                            <a class="btn btn-danger" aria-expanded="false" rel="tooltip" title="Remove" style="font-size: 10px; padding: 5px">
                                                 <span class="fa fa-times" style="font-size: 19px;"></span>
                                             </a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+
+
 
                     </div>
                 </div>
@@ -1552,7 +1479,7 @@
                                 <input type="text" class="form-control date-picker" id="txtRightFrom" value="20-06-2016" />
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control date-picker" id="txtRightFrom" value="23-06-2016"/>
+                                <input type="text" class="form-control date-picker" id="txtRightFrom" value="23-06-2016" />
                             </div>
 
                         </div>
@@ -1564,7 +1491,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+
+             <div class="col-md-12">
                 <div class="">
                     <div class="row">
                         <section id="cd-timeline" class="cd-container">
@@ -1572,7 +1500,7 @@
                                 <div class="cd-timeline-img cd-success">
                                     <i class="fa fa-map-o"></i>
                                 </div>
-                                <div class="cd-timeline-content slimscroll" style="max-height:140px">
+                                <div class="cd-timeline-content slimscroll" style="max-height: 140px">
                                     <h2>Inquiry -
                                         <label style="color: white" class="label label-success">3</label>
                                         <span class="cd-date" style="float: right">20/06/2016 - 23-06-2016</span></h2>
@@ -1625,9 +1553,47 @@
                     </div>
                 </div>
             </div>
-
+          
         </div>
     </div>
 </form>
 
 
+<div class="modal fade modify-colum-model" id="reschedule" role="dialog">
+    <div class="modal-dialog" style="width: 70%; height: 40%">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="tab2section3" style="padding-top: 30px">Re-schedule <span class="text-danger"></span></h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Date</label>
+                            <input type="text" class="form-control datepicker" value="" id="">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Time</label>
+                            <div class="input-group input-append bootstrap-timepicker">
+                                <input type="text" class="form-control timepicker" value="1200" id="">
+                                <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="float: right">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success ">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
