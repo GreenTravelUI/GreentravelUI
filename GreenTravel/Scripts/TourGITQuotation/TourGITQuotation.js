@@ -471,7 +471,7 @@ $(function () {
 function confirmAlert() {
     swal({
         title: "Are you sure?",
-        text: "You are going to stop follow-ups!",
+        text: "You are going to stop all follow-ups!",
         type: "warning",
         showCancelButton: true,
         confirmButtonClass: "btn-danger",
